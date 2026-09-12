@@ -1,0 +1,540 @@
+{
+  "complete": true,
+  "signature": "78a88f9feef183e70aecfe0f5e4ddbe2ee55265b796b1ee31ac655774145611d",
+  "attempts": [
+    {
+      "asr_seconds": 0.29340966418385506,
+      "alignment_seconds": 0.0004166141152381897,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He came over to the gunrest and thrusting a hand into Stephen's upper pocket said",
+          "start": 0.02,
+          "end": 5.06,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.80859375
+            },
+            {
+              "text": " came",
+              "start": 0.48,
+              "end": 0.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " over",
+              "start": 0.68,
+              "end": 0.88,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 0.88,
+              "end": 1.02,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 1.02,
+              "end": 1.14,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " gunrest",
+              "start": 1.14,
+              "end": 1.62,
+              "probability": 0.864990234375
+            },
+            {
+              "text": " and",
+              "start": 1.62,
+              "end": 2.2,
+              "probability": 0.802734375
+            },
+            {
+              "text": " thrusting",
+              "start": 2.2,
+              "end": 2.76,
+              "probability": 0.955078125
+            },
+            {
+              "text": " a",
+              "start": 2.76,
+              "end": 2.86,
+              "probability": 0.998046875
+            },
+            {
+              "text": " hand",
+              "start": 2.86,
+              "end": 3.12,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " into",
+              "start": 3.12,
+              "end": 3.38,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Stephen's",
+              "start": 3.38,
+              "end": 3.92,
+              "probability": 0.76708984375
+            },
+            {
+              "text": " upper",
+              "start": 3.92,
+              "end": 4.06,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " pocket",
+              "start": 4.06,
+              "end": 4.6,
+              "probability": 0.998046875
+            },
+            {
+              "text": " said",
+              "start": 4.6,
+              "end": 5.06,
+              "probability": 0.354248046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "came",
+          "start": 0.48,
+          "end": 0.68
+        },
+        {
+          "raw": "over",
+          "start": 0.68,
+          "end": 0.88
+        },
+        {
+          "raw": "to",
+          "start": 0.88,
+          "end": 1.02
+        },
+        {
+          "raw": "the",
+          "start": 1.02,
+          "end": 1.14
+        },
+        {
+          "raw": "gunrest",
+          "start": 1.14,
+          "end": 1.62
+        },
+        {
+          "raw": "and",
+          "start": 1.62,
+          "end": 2.2
+        },
+        {
+          "raw": "thrusting",
+          "start": 2.2,
+          "end": 2.76
+        },
+        {
+          "raw": "a",
+          "start": 2.76,
+          "end": 2.86
+        },
+        {
+          "raw": "hand",
+          "start": 2.86,
+          "end": 3.12
+        },
+        {
+          "raw": "into",
+          "start": 3.12,
+          "end": 3.38
+        },
+        {
+          "raw": "Stephen's",
+          "start": 3.38,
+          "end": 3.92
+        },
+        {
+          "raw": "upper",
+          "start": 3.92,
+          "end": 4.06
+        },
+        {
+          "raw": "pocket",
+          "start": 4.06,
+          "end": 4.6
+        },
+        {
+          "raw": "said",
+          "start": 4.6,
+          "end": 5.06
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "came",
+        "over",
+        "to",
+        "the",
+        "gunrest",
+        "and,",
+        "thrusting",
+        "a",
+        "hand",
+        "into",
+        "Stephen's",
+        "upper",
+        "pocket,",
+        "said:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "came",
+          "start": 0.48,
+          "end": 0.68,
+          "key": "came",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 0.68,
+          "end": 0.88,
+          "key": "over",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.88,
+          "end": 1.02,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.02,
+          "end": 1.14,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "gunrest",
+          "start": 1.14,
+          "end": 1.62,
+          "key": "gunrest",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.62,
+          "end": 2.2,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thrusting",
+          "start": 2.2,
+          "end": 2.76,
+          "key": "thrusting",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.76,
+          "end": 2.86,
+          "key": "a",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "hand",
+          "start": 2.86,
+          "end": 3.12,
+          "key": "hand",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 3.12,
+          "end": 3.38,
+          "key": "into",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Stephen's",
+          "start": 3.38,
+          "end": 3.92,
+          "key": "stephens",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "upper",
+          "start": 3.92,
+          "end": 4.06,
+          "key": "upper",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "pocket",
+          "start": 4.06,
+          "end": 4.6,
+          "key": "pocket",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 4.6,
+          "end": 5.06,
+          "key": "said",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "came",
+          "start": 0.48,
+          "end": 0.68
+        },
+        {
+          "text": "over",
+          "start": 0.68,
+          "end": 0.88
+        },
+        {
+          "text": "to",
+          "start": 0.88,
+          "end": 1.02
+        },
+        {
+          "text": "the",
+          "start": 1.02,
+          "end": 1.14
+        },
+        {
+          "text": "gunrest",
+          "start": 1.14,
+          "end": 1.62
+        },
+        {
+          "text": "and,",
+          "start": 1.62,
+          "end": 2.2
+        },
+        {
+          "text": "thrusting",
+          "start": 2.2,
+          "end": 2.76
+        },
+        {
+          "text": "a",
+          "start": 2.76,
+          "end": 2.86
+        },
+        {
+          "text": "hand",
+          "start": 2.86,
+          "end": 3.12
+        },
+        {
+          "text": "into",
+          "start": 3.12,
+          "end": 3.38
+        },
+        {
+          "text": "Stephen's",
+          "start": 3.38,
+          "end": 3.92
+        },
+        {
+          "text": "upper",
+          "start": 3.92,
+          "end": 4.06
+        },
+        {
+          "text": "pocket,",
+          "start": 4.06,
+          "end": 4.6
+        },
+        {
+          "text": "said:",
+          "start": 4.6,
+          "end": 5.06
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2940126433968544
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "41f968ce5ae1d3632636e5bee166e7632c0367cb068f59c21064d6916dcea3f6",
+  "selected_reasons": []
+}

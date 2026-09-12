@@ -1,0 +1,466 @@
+{
+  "complete": true,
+  "signature": "22dcc6c6f5fb5eb8efd9bc9d6d3e27f17f0aa24abe24ff45ef776b0d35f8ec1c",
+  "attempts": [
+    {
+      "asr_seconds": 0.23791947215795517,
+      "alignment_seconds": 0.0005965195596218109,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Don Pedro, how now two of my brother's men bound Boratio one",
+          "start": 0.08,
+          "end": 4.48,
+          "words": [
+            {
+              "text": " Don",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.501953125
+            },
+            {
+              "text": " Pedro,",
+              "start": 0.64,
+              "end": 1.02,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " how",
+              "start": 1.5,
+              "end": 1.56,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " now",
+              "start": 1.56,
+              "end": 1.86,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " two",
+              "start": 1.86,
+              "end": 2.32,
+              "probability": 0.50439453125
+            },
+            {
+              "text": " of",
+              "start": 2.32,
+              "end": 2.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " my",
+              "start": 2.44,
+              "end": 2.58,
+              "probability": 0.998046875
+            },
+            {
+              "text": " brother's",
+              "start": 2.58,
+              "end": 2.9,
+              "probability": 0.78076171875
+            },
+            {
+              "text": " men",
+              "start": 2.9,
+              "end": 3.02,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " bound",
+              "start": 3.02,
+              "end": 3.46,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " Boratio",
+              "start": 3.46,
+              "end": 4.06,
+              "probability": 0.551513671875
+            },
+            {
+              "text": " one",
+              "start": 4.06,
+              "end": 4.48,
+              "probability": 0.6962890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Don",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "Pedro,",
+          "start": 0.64,
+          "end": 1.02
+        },
+        {
+          "raw": "how",
+          "start": 1.5,
+          "end": 1.56
+        },
+        {
+          "raw": "now",
+          "start": 1.56,
+          "end": 1.86
+        },
+        {
+          "raw": "two",
+          "start": 1.86,
+          "end": 2.32
+        },
+        {
+          "raw": "of",
+          "start": 2.32,
+          "end": 2.44
+        },
+        {
+          "raw": "my",
+          "start": 2.44,
+          "end": 2.58
+        },
+        {
+          "raw": "brother's",
+          "start": 2.58,
+          "end": 2.9
+        },
+        {
+          "raw": "men",
+          "start": 2.9,
+          "end": 3.02
+        },
+        {
+          "raw": "bound",
+          "start": 3.02,
+          "end": 3.46
+        },
+        {
+          "raw": "Boratio",
+          "start": 3.46,
+          "end": 4.06
+        },
+        {
+          "raw": "one",
+          "start": 4.06,
+          "end": 4.48
+        }
+      ],
+      "expected_tokens": [
+        "Don",
+        "Pedro.",
+        "How",
+        "now!",
+        "two",
+        "of",
+        "my",
+        "brother's",
+        "men",
+        "bound!",
+        "Borachio,",
+        "one!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "equal",
+          11,
+          12,
+          11,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Don",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "don",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pedro,",
+          "start": 0.64,
+          "end": 1.02,
+          "key": "pedro",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 1.5,
+          "end": 1.56,
+          "key": "how",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 1.56,
+          "end": 1.86,
+          "key": "now",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 1.86,
+          "end": 2.32,
+          "key": "two",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.32,
+          "end": 2.44,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.44,
+          "end": 2.58,
+          "key": "my",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "brother's",
+          "start": 2.58,
+          "end": 2.9,
+          "key": "brothers",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "men",
+          "start": 2.9,
+          "end": 3.02,
+          "key": "men",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "bound",
+          "start": 3.02,
+          "end": 3.46,
+          "key": "bound",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Boratio",
+          "start": 3.46,
+          "end": 4.06,
+          "key": "boratio",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 4.06,
+          "end": 4.48,
+          "key": "one",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Don",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "Pedro.",
+          "start": 0.64,
+          "end": 1.02
+        },
+        {
+          "text": "How",
+          "start": 1.5,
+          "end": 1.56
+        },
+        {
+          "text": "now!",
+          "start": 1.56,
+          "end": 1.86
+        },
+        {
+          "text": "two",
+          "start": 1.86,
+          "end": 2.32
+        },
+        {
+          "text": "of",
+          "start": 2.32,
+          "end": 2.44
+        },
+        {
+          "text": "my",
+          "start": 2.44,
+          "end": 2.58
+        },
+        {
+          "text": "brother's",
+          "start": 2.58,
+          "end": 2.9
+        },
+        {
+          "text": "men",
+          "start": 2.9,
+          "end": 3.02
+        },
+        {
+          "text": "bound!",
+          "start": 3.02,
+          "end": 3.46
+        },
+        {
+          "text": "Borachio,",
+          "start": 3.46,
+          "end": 3.76
+        },
+        {
+          "text": "one!",
+          "start": 4.06,
+          "end": 4.48
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.23871766403317451
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "dc5a443ff52bc5f3a1e14bd8f78f4487b90e083701db13f4aa759cd7f69b4977",
+  "selected_reasons": []
+}

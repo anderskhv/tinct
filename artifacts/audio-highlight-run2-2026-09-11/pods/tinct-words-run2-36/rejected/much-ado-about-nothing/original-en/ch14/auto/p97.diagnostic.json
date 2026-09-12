@@ -1,0 +1,1221 @@
+{
+  "complete": true,
+  "signature": "f0fdaaa7cdd635886f3778a653ab11df40f2566a0cce85f32da5ec6e8bb9dc3c",
+  "attempts": [
+    {
+      "asr_seconds": 0.4170622117817402,
+      "alignment_seconds": 0.0006539784371852875,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Dogberry. Come, bring away the plaintiffs: by this time our sexton hath reformed Signior Leonato of the matter. And masters, do not forget to specify, when time and place shall serve, that I am an ass.",
+        "hotwords": "Dogberry, Come, Signior, Leonato, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Dogberry, Come, bring away the plaintiffs. By this time our sexton hath reformed Signior Leonato of the matter.",
+          "start": 0.05,
+          "end": 7.55,
+          "words": [
+            {
+              "text": " Dogberry,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.738037109375
+            },
+            {
+              "text": " Come,",
+              "start": 1.43,
+              "end": 1.77,
+              "probability": 0.05938720703125
+            },
+            {
+              "text": " bring",
+              "start": 2.19,
+              "end": 2.25,
+              "probability": 0.90234375
+            },
+            {
+              "text": " away",
+              "start": 2.25,
+              "end": 2.47,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 2.47,
+              "end": 2.65,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " plaintiffs.",
+              "start": 2.65,
+              "end": 3.07,
+              "probability": 0.828125
+            },
+            {
+              "text": " By",
+              "start": 3.77,
+              "end": 3.85,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " this",
+              "start": 3.85,
+              "end": 4.05,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " time",
+              "start": 4.05,
+              "end": 4.37,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " our",
+              "start": 4.37,
+              "end": 4.57,
+              "probability": 0.859375
+            },
+            {
+              "text": " sexton",
+              "start": 4.57,
+              "end": 5.03,
+              "probability": 0.71435546875
+            },
+            {
+              "text": " hath",
+              "start": 5.03,
+              "end": 5.27,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " reformed",
+              "start": 5.27,
+              "end": 5.79,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " Signior",
+              "start": 5.79,
+              "end": 6.45,
+              "probability": 0.3677978515625
+            },
+            {
+              "text": " Leonato",
+              "start": 6.45,
+              "end": 6.99,
+              "probability": 0.53265380859375
+            },
+            {
+              "text": " of",
+              "start": 6.99,
+              "end": 7.15,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " the",
+              "start": 7.15,
+              "end": 7.25,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " matter.",
+              "start": 7.25,
+              "end": 7.55,
+              "probability": 0.91552734375
+            }
+          ]
+        },
+        {
+          "text": " And masters, do not forget to specify, when time and place shall serve, that I am an ass.",
+          "start": 8.19,
+          "end": 13.47,
+          "words": [
+            {
+              "text": " And",
+              "start": 8.19,
+              "end": 8.33,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " masters,",
+              "start": 8.33,
+              "end": 8.77,
+              "probability": 0.86474609375
+            },
+            {
+              "text": " do",
+              "start": 9.13,
+              "end": 9.27,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " not",
+              "start": 9.27,
+              "end": 9.43,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " forget",
+              "start": 9.43,
+              "end": 9.67,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " to",
+              "start": 9.67,
+              "end": 9.91,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " specify,",
+              "start": 9.91,
+              "end": 10.27,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " when",
+              "start": 10.63,
+              "end": 10.73,
+              "probability": 0.6787109375
+            },
+            {
+              "text": " time",
+              "start": 10.73,
+              "end": 11.05,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " and",
+              "start": 11.05,
+              "end": 11.23,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " place",
+              "start": 11.23,
+              "end": 11.47,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " shall",
+              "start": 11.47,
+              "end": 11.69,
+              "probability": 0.978515625
+            },
+            {
+              "text": " serve,",
+              "start": 11.69,
+              "end": 12.13,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " that",
+              "start": 12.41,
+              "end": 12.61,
+              "probability": 0.83056640625
+            },
+            {
+              "text": " I",
+              "start": 12.61,
+              "end": 12.81,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " am",
+              "start": 12.81,
+              "end": 13.03,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " an",
+              "start": 13.03,
+              "end": 13.17,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " ass.",
+              "start": 13.17,
+              "end": 13.47,
+              "probability": 0.88916015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dogberry,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "Come,",
+          "start": 1.43,
+          "end": 1.77
+        },
+        {
+          "raw": "bring",
+          "start": 2.19,
+          "end": 2.25
+        },
+        {
+          "raw": "away",
+          "start": 2.25,
+          "end": 2.47
+        },
+        {
+          "raw": "the",
+          "start": 2.47,
+          "end": 2.65
+        },
+        {
+          "raw": "plaintiffs.",
+          "start": 2.65,
+          "end": 3.07
+        },
+        {
+          "raw": "By",
+          "start": 3.77,
+          "end": 3.85
+        },
+        {
+          "raw": "this",
+          "start": 3.85,
+          "end": 4.05
+        },
+        {
+          "raw": "time",
+          "start": 4.05,
+          "end": 4.37
+        },
+        {
+          "raw": "our",
+          "start": 4.37,
+          "end": 4.57
+        },
+        {
+          "raw": "sexton",
+          "start": 4.57,
+          "end": 5.03
+        },
+        {
+          "raw": "hath",
+          "start": 5.03,
+          "end": 5.27
+        },
+        {
+          "raw": "reformed",
+          "start": 5.27,
+          "end": 5.79
+        },
+        {
+          "raw": "Signior",
+          "start": 5.79,
+          "end": 6.45
+        },
+        {
+          "raw": "Leonato",
+          "start": 6.45,
+          "end": 6.99
+        },
+        {
+          "raw": "of",
+          "start": 6.99,
+          "end": 7.15
+        },
+        {
+          "raw": "the",
+          "start": 7.15,
+          "end": 7.25
+        },
+        {
+          "raw": "matter.",
+          "start": 7.25,
+          "end": 7.55
+        },
+        {
+          "raw": "And",
+          "start": 8.19,
+          "end": 8.33
+        },
+        {
+          "raw": "masters,",
+          "start": 8.33,
+          "end": 8.77
+        },
+        {
+          "raw": "do",
+          "start": 9.13,
+          "end": 9.27
+        },
+        {
+          "raw": "not",
+          "start": 9.27,
+          "end": 9.43
+        },
+        {
+          "raw": "forget",
+          "start": 9.43,
+          "end": 9.67
+        },
+        {
+          "raw": "to",
+          "start": 9.67,
+          "end": 9.91
+        },
+        {
+          "raw": "specify,",
+          "start": 9.91,
+          "end": 10.27
+        },
+        {
+          "raw": "when",
+          "start": 10.63,
+          "end": 10.73
+        },
+        {
+          "raw": "time",
+          "start": 10.73,
+          "end": 11.05
+        },
+        {
+          "raw": "and",
+          "start": 11.05,
+          "end": 11.23
+        },
+        {
+          "raw": "place",
+          "start": 11.23,
+          "end": 11.47
+        },
+        {
+          "raw": "shall",
+          "start": 11.47,
+          "end": 11.69
+        },
+        {
+          "raw": "serve,",
+          "start": 11.69,
+          "end": 12.13
+        },
+        {
+          "raw": "that",
+          "start": 12.41,
+          "end": 12.61
+        },
+        {
+          "raw": "I",
+          "start": 12.61,
+          "end": 12.81
+        },
+        {
+          "raw": "am",
+          "start": 12.81,
+          "end": 13.03
+        },
+        {
+          "raw": "an",
+          "start": 13.03,
+          "end": 13.17
+        },
+        {
+          "raw": "ass.",
+          "start": 13.17,
+          "end": 13.47
+        }
+      ],
+      "expected_tokens": [
+        "Dogberry.",
+        "Come,",
+        "bring",
+        "away",
+        "the",
+        "plaintiffs:",
+        "by",
+        "this",
+        "time",
+        "our",
+        "sexton",
+        "hath",
+        "reformed",
+        "Signior",
+        "Leonato",
+        "of",
+        "the",
+        "matter.",
+        "And",
+        "masters,",
+        "do",
+        "not",
+        "forget",
+        "to",
+        "specify,",
+        "when",
+        "time",
+        "and",
+        "place",
+        "shall",
+        "serve,",
+        "that",
+        "I",
+        "am",
+        "an",
+        "ass."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          36,
+          0,
+          36
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dogberry,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "dogberry",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Come,",
+          "start": 1.43,
+          "end": 1.77,
+          "key": "come",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "bring",
+          "start": 2.19,
+          "end": 2.25,
+          "key": "bring",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "away",
+          "start": 2.25,
+          "end": 2.47,
+          "key": "away",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.47,
+          "end": 2.65,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "plaintiffs.",
+          "start": 2.65,
+          "end": 3.07,
+          "key": "plaintiffs",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "By",
+          "start": 3.77,
+          "end": 3.85,
+          "key": "by",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 3.85,
+          "end": 4.05,
+          "key": "this",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 4.05,
+          "end": 4.37,
+          "key": "time",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 4.37,
+          "end": 4.57,
+          "key": "our",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "sexton",
+          "start": 4.57,
+          "end": 5.03,
+          "key": "sexton",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 5.03,
+          "end": 5.27,
+          "key": "hath",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "reformed",
+          "start": 5.27,
+          "end": 5.79,
+          "key": "reformed",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Signior",
+          "start": 5.79,
+          "end": 6.45,
+          "key": "signior",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Leonato",
+          "start": 6.45,
+          "end": 6.99,
+          "key": "leonato",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.99,
+          "end": 7.15,
+          "key": "of",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.15,
+          "end": 7.25,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "matter.",
+          "start": 7.25,
+          "end": 7.55,
+          "key": "matter",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 8.19,
+          "end": 8.33,
+          "key": "and",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "masters,",
+          "start": 8.33,
+          "end": 8.77,
+          "key": "masters",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 9.13,
+          "end": 9.27,
+          "key": "do",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 9.27,
+          "end": 9.43,
+          "key": "not",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "forget",
+          "start": 9.43,
+          "end": 9.67,
+          "key": "forget",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 9.67,
+          "end": 9.91,
+          "key": "to",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "specify,",
+          "start": 9.91,
+          "end": 10.27,
+          "key": "specify",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 10.63,
+          "end": 10.73,
+          "key": "when",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 10.73,
+          "end": 11.05,
+          "key": "time",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 11.05,
+          "end": 11.23,
+          "key": "and",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "place",
+          "start": 11.23,
+          "end": 11.47,
+          "key": "place",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 11.47,
+          "end": 11.69,
+          "key": "shall",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "serve,",
+          "start": 11.69,
+          "end": 12.13,
+          "key": "serve",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 12.41,
+          "end": 12.61,
+          "key": "that",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 12.61,
+          "end": 12.81,
+          "key": "i",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 12.81,
+          "end": 13.03,
+          "key": "am",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 13.03,
+          "end": 13.17,
+          "key": "an",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "ass.",
+          "start": 13.17,
+          "end": 13.47,
+          "key": "ass",
+          "pieces": [
+            35
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Dogberry.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "Come,",
+          "start": 1.43,
+          "end": 1.77
+        },
+        {
+          "text": "bring",
+          "start": 2.19,
+          "end": 2.25
+        },
+        {
+          "text": "away",
+          "start": 2.25,
+          "end": 2.47
+        },
+        {
+          "text": "the",
+          "start": 2.47,
+          "end": 2.65
+        },
+        {
+          "text": "plaintiffs:",
+          "start": 2.65,
+          "end": 3.07
+        },
+        {
+          "text": "by",
+          "start": 3.77,
+          "end": 3.85
+        },
+        {
+          "text": "this",
+          "start": 3.85,
+          "end": 4.05
+        },
+        {
+          "text": "time",
+          "start": 4.05,
+          "end": 4.37
+        },
+        {
+          "text": "our",
+          "start": 4.37,
+          "end": 4.57
+        },
+        {
+          "text": "sexton",
+          "start": 4.57,
+          "end": 5.03
+        },
+        {
+          "text": "hath",
+          "start": 5.03,
+          "end": 5.27
+        },
+        {
+          "text": "reformed",
+          "start": 5.27,
+          "end": 5.79
+        },
+        {
+          "text": "Signior",
+          "start": 5.79,
+          "end": 6.45
+        },
+        {
+          "text": "Leonato",
+          "start": 6.45,
+          "end": 6.99
+        },
+        {
+          "text": "of",
+          "start": 6.99,
+          "end": 7.15
+        },
+        {
+          "text": "the",
+          "start": 7.15,
+          "end": 7.25
+        },
+        {
+          "text": "matter.",
+          "start": 7.25,
+          "end": 7.55
+        },
+        {
+          "text": "And",
+          "start": 8.19,
+          "end": 8.33
+        },
+        {
+          "text": "masters,",
+          "start": 8.33,
+          "end": 8.77
+        },
+        {
+          "text": "do",
+          "start": 9.13,
+          "end": 9.27
+        },
+        {
+          "text": "not",
+          "start": 9.27,
+          "end": 9.43
+        },
+        {
+          "text": "forget",
+          "start": 9.43,
+          "end": 9.67
+        },
+        {
+          "text": "to",
+          "start": 9.67,
+          "end": 9.91
+        },
+        {
+          "text": "specify,",
+          "start": 9.91,
+          "end": 10.27
+        },
+        {
+          "text": "when",
+          "start": 10.63,
+          "end": 10.73
+        },
+        {
+          "text": "time",
+          "start": 10.73,
+          "end": 11.05
+        },
+        {
+          "text": "and",
+          "start": 11.05,
+          "end": 11.23
+        },
+        {
+          "text": "place",
+          "start": 11.23,
+          "end": 11.47
+        },
+        {
+          "text": "shall",
+          "start": 11.47,
+          "end": 11.69
+        },
+        {
+          "text": "serve,",
+          "start": 11.69,
+          "end": 12.13
+        },
+        {
+          "text": "that",
+          "start": 12.41,
+          "end": 12.61
+        },
+        {
+          "text": "I",
+          "start": 12.61,
+          "end": 12.81
+        },
+        {
+          "text": "am",
+          "start": 12.81,
+          "end": 13.03
+        },
+        {
+          "text": "an",
+          "start": 13.03,
+          "end": 13.17
+        },
+        {
+          "text": "ass.",
+          "start": 13.17,
+          "end": 13.47
+        }
+      ],
+      "stats": {
+        "expected_words": 36,
+        "heard_words": 36,
+        "matched_words": 36
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4180140495300293
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8462fec374a2364ee42a26aef76111daa4972eaca019afa14bbbc135e3a300c2",
+  "selected_reasons": []
+}

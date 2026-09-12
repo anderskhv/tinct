@@ -1,0 +1,678 @@
+{
+  "complete": true,
+  "signature": "e55259f088756f51f8929f900393ecd6366923178a6ac65bd636ccb0df7448ae",
+  "attempts": [
+    {
+      "asr_seconds": 0.2654944136738777,
+      "alignment_seconds": 0.0004658438265323639,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He mounted to the parapet again and gazed out over Dublin Bay his fair oak pill hair stirring slightly",
+          "start": 0.02,
+          "end": 6.26,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " mounted",
+              "start": 0.5,
+              "end": 0.72,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " to",
+              "start": 0.72,
+              "end": 0.96,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 0.96,
+              "end": 1.06,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " parapet",
+              "start": 1.06,
+              "end": 1.42,
+              "probability": 0.989013671875
+            },
+            {
+              "text": " again",
+              "start": 1.42,
+              "end": 1.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 1.74,
+              "end": 2.26,
+              "probability": 0.84130859375
+            },
+            {
+              "text": " gazed",
+              "start": 2.26,
+              "end": 2.52,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " out",
+              "start": 2.52,
+              "end": 2.78,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " over",
+              "start": 2.78,
+              "end": 3.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Dublin",
+              "start": 3.02,
+              "end": 3.36,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Bay",
+              "start": 3.36,
+              "end": 3.7,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " his",
+              "start": 3.7,
+              "end": 4.34,
+              "probability": 0.29296875
+            },
+            {
+              "text": " fair",
+              "start": 4.34,
+              "end": 4.68,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " oak",
+              "start": 4.68,
+              "end": 4.98,
+              "probability": 0.381591796875
+            },
+            {
+              "text": " pill",
+              "start": 4.98,
+              "end": 5.16,
+              "probability": 0.60107421875
+            },
+            {
+              "text": " hair",
+              "start": 5.16,
+              "end": 5.4,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " stirring",
+              "start": 5.4,
+              "end": 5.82,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " slightly",
+              "start": 5.82,
+              "end": 6.26,
+              "probability": 0.98583984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "mounted",
+          "start": 0.5,
+          "end": 0.72
+        },
+        {
+          "raw": "to",
+          "start": 0.72,
+          "end": 0.96
+        },
+        {
+          "raw": "the",
+          "start": 0.96,
+          "end": 1.06
+        },
+        {
+          "raw": "parapet",
+          "start": 1.06,
+          "end": 1.42
+        },
+        {
+          "raw": "again",
+          "start": 1.42,
+          "end": 1.74
+        },
+        {
+          "raw": "and",
+          "start": 1.74,
+          "end": 2.26
+        },
+        {
+          "raw": "gazed",
+          "start": 2.26,
+          "end": 2.52
+        },
+        {
+          "raw": "out",
+          "start": 2.52,
+          "end": 2.78
+        },
+        {
+          "raw": "over",
+          "start": 2.78,
+          "end": 3.02
+        },
+        {
+          "raw": "Dublin",
+          "start": 3.02,
+          "end": 3.36
+        },
+        {
+          "raw": "Bay",
+          "start": 3.36,
+          "end": 3.7
+        },
+        {
+          "raw": "his",
+          "start": 3.7,
+          "end": 4.34
+        },
+        {
+          "raw": "fair",
+          "start": 4.34,
+          "end": 4.68
+        },
+        {
+          "raw": "oak",
+          "start": 4.68,
+          "end": 4.98
+        },
+        {
+          "raw": "pill",
+          "start": 4.98,
+          "end": 5.16
+        },
+        {
+          "raw": "hair",
+          "start": 5.16,
+          "end": 5.4
+        },
+        {
+          "raw": "stirring",
+          "start": 5.4,
+          "end": 5.82
+        },
+        {
+          "raw": "slightly",
+          "start": 5.82,
+          "end": 6.26
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "mounted",
+        "to",
+        "the",
+        "parapet",
+        "again",
+        "and",
+        "gazed",
+        "out",
+        "over",
+        "Dublin",
+        "bay,",
+        "his",
+        "fair",
+        "oakpale",
+        "hair",
+        "stirring",
+        "slightly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          16
+        ],
+        [
+          "equal",
+          15,
+          18,
+          16,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          14,
+          15,
+          14,
+          16
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "mounted",
+          "start": 0.5,
+          "end": 0.72,
+          "key": "mounted",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.72,
+          "end": 0.96,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.96,
+          "end": 1.06,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "parapet",
+          "start": 1.06,
+          "end": 1.42,
+          "key": "parapet",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "again",
+          "start": 1.42,
+          "end": 1.74,
+          "key": "again",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.74,
+          "end": 2.26,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "gazed",
+          "start": 2.26,
+          "end": 2.52,
+          "key": "gazed",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 2.52,
+          "end": 2.78,
+          "key": "out",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 2.78,
+          "end": 3.02,
+          "key": "over",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Dublin",
+          "start": 3.02,
+          "end": 3.36,
+          "key": "dublin",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Bay",
+          "start": 3.36,
+          "end": 3.7,
+          "key": "bay",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.7,
+          "end": 4.34,
+          "key": "his",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "fair",
+          "start": 4.34,
+          "end": 4.68,
+          "key": "fair",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "oak",
+          "start": 4.68,
+          "end": 4.98,
+          "key": "oak",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "pill",
+          "start": 4.98,
+          "end": 5.16,
+          "key": "pill",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "hair",
+          "start": 5.16,
+          "end": 5.4,
+          "key": "hair",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "stirring",
+          "start": 5.4,
+          "end": 5.82,
+          "key": "stirring",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "slightly",
+          "start": 5.82,
+          "end": 6.26,
+          "key": "slightly",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "mounted",
+          "start": 0.5,
+          "end": 0.72
+        },
+        {
+          "text": "to",
+          "start": 0.72,
+          "end": 0.96
+        },
+        {
+          "text": "the",
+          "start": 0.96,
+          "end": 1.06
+        },
+        {
+          "text": "parapet",
+          "start": 1.06,
+          "end": 1.42
+        },
+        {
+          "text": "again",
+          "start": 1.42,
+          "end": 1.74
+        },
+        {
+          "text": "and",
+          "start": 1.74,
+          "end": 2.26
+        },
+        {
+          "text": "gazed",
+          "start": 2.26,
+          "end": 2.52
+        },
+        {
+          "text": "out",
+          "start": 2.52,
+          "end": 2.78
+        },
+        {
+          "text": "over",
+          "start": 2.78,
+          "end": 3.02
+        },
+        {
+          "text": "Dublin",
+          "start": 3.02,
+          "end": 3.36
+        },
+        {
+          "text": "bay,",
+          "start": 3.36,
+          "end": 3.7
+        },
+        {
+          "text": "his",
+          "start": 3.7,
+          "end": 4.34
+        },
+        {
+          "text": "fair",
+          "start": 4.34,
+          "end": 4.68
+        },
+        {
+          "text": "oakpale",
+          "start": 4.68,
+          "end": 4.92
+        },
+        {
+          "text": "hair",
+          "start": 5.16,
+          "end": 5.4
+        },
+        {
+          "text": "stirring",
+          "start": 5.4,
+          "end": 5.82
+        },
+        {
+          "text": "slightly.",
+          "start": 5.82,
+          "end": 6.26
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 19,
+        "matched_words": 17
+      },
+      "match_ratio": 0.9444444444444444,
+      "rejection_reasons": [],
+      "seconds": 0.2661563977599144
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a184f7937de656aa12e1564ed9f793ed4318c709dff6fc85c5e1c21e116daf48",
+  "selected_reasons": []
+}

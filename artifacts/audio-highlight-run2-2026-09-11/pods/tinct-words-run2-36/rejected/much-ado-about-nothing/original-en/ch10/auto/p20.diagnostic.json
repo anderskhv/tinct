@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "4c08aa49cd1d3ace3e3abbdcf9739972d2ebd6027a2a6fc17a995c54361f4fef",
+  "attempts": [
+    {
+      "asr_seconds": 0.23089343309402466,
+      "alignment_seconds": 0.0005553290247917175,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Hero. Why, how now? do you speak in the sick tune?",
+        "hotwords": "Hero, Why"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hero, why, how now? do you speak in the sick tune?",
+          "start": 0.05,
+          "end": 2.93,
+          "words": [
+            {
+              "text": " Hero,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.744140625
+            },
+            {
+              "text": " why,",
+              "start": 0.85,
+              "end": 1.03,
+              "probability": 0.919921875
+            },
+            {
+              "text": " how",
+              "start": 1.09,
+              "end": 1.21,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " now?",
+              "start": 1.21,
+              "end": 1.47,
+              "probability": 0.87353515625
+            },
+            {
+              "text": " do",
+              "start": 1.85,
+              "end": 1.93,
+              "probability": 0.0186309814453125
+            },
+            {
+              "text": " you",
+              "start": 1.93,
+              "end": 2.01,
+              "probability": 0.9921875
+            },
+            {
+              "text": " speak",
+              "start": 2.01,
+              "end": 2.19,
+              "probability": 0.994140625
+            },
+            {
+              "text": " in",
+              "start": 2.19,
+              "end": 2.33,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 2.33,
+              "end": 2.43,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " sick",
+              "start": 2.43,
+              "end": 2.61,
+              "probability": 0.90185546875
+            },
+            {
+              "text": " tune?",
+              "start": 2.61,
+              "end": 2.93,
+              "probability": 0.58740234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hero,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "why,",
+          "start": 0.85,
+          "end": 1.03
+        },
+        {
+          "raw": "how",
+          "start": 1.09,
+          "end": 1.21
+        },
+        {
+          "raw": "now?",
+          "start": 1.21,
+          "end": 1.47
+        },
+        {
+          "raw": "do",
+          "start": 1.85,
+          "end": 1.93
+        },
+        {
+          "raw": "you",
+          "start": 1.93,
+          "end": 2.01
+        },
+        {
+          "raw": "speak",
+          "start": 2.01,
+          "end": 2.19
+        },
+        {
+          "raw": "in",
+          "start": 2.19,
+          "end": 2.33
+        },
+        {
+          "raw": "the",
+          "start": 2.33,
+          "end": 2.43
+        },
+        {
+          "raw": "sick",
+          "start": 2.43,
+          "end": 2.61
+        },
+        {
+          "raw": "tune?",
+          "start": 2.61,
+          "end": 2.93
+        }
+      ],
+      "expected_tokens": [
+        "Hero.",
+        "Why,",
+        "how",
+        "now?",
+        "do",
+        "you",
+        "speak",
+        "in",
+        "the",
+        "sick",
+        "tune?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hero,",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "hero",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "why,",
+          "start": 0.85,
+          "end": 1.03,
+          "key": "why",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 1.09,
+          "end": 1.21,
+          "key": "how",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "now?",
+          "start": 1.21,
+          "end": 1.47,
+          "key": "now",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.85,
+          "end": 1.93,
+          "key": "do",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.93,
+          "end": 2.01,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 2.01,
+          "end": 2.19,
+          "key": "speak",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.19,
+          "end": 2.33,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.33,
+          "end": 2.43,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "sick",
+          "start": 2.43,
+          "end": 2.61,
+          "key": "sick",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "tune?",
+          "start": 2.61,
+          "end": 2.93,
+          "key": "tune",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hero.",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Why,",
+          "start": 0.85,
+          "end": 1.03
+        },
+        {
+          "text": "how",
+          "start": 1.09,
+          "end": 1.21
+        },
+        {
+          "text": "now?",
+          "start": 1.21,
+          "end": 1.47
+        },
+        {
+          "text": "do",
+          "start": 1.85,
+          "end": 1.93
+        },
+        {
+          "text": "you",
+          "start": 1.93,
+          "end": 2.01
+        },
+        {
+          "text": "speak",
+          "start": 2.01,
+          "end": 2.19
+        },
+        {
+          "text": "in",
+          "start": 2.19,
+          "end": 2.33
+        },
+        {
+          "text": "the",
+          "start": 2.33,
+          "end": 2.43
+        },
+        {
+          "text": "sick",
+          "start": 2.43,
+          "end": 2.61
+        },
+        {
+          "text": "tune?",
+          "start": 2.61,
+          "end": 2.93
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23167482763528824
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ed781f2f20b3db03fc8b5b6d53786b41852ce69a3320ea1c3c121774414a3b79",
+  "selected_reasons": []
+}

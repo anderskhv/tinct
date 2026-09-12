@@ -1,0 +1,611 @@
+{
+  "complete": true,
+  "signature": "289adcccd8fe40f61ebe3fddfbc825a2c322b4477c8c7a9825f51939b586cc00",
+  "attempts": [
+    {
+      "asr_seconds": 0.3006127178668976,
+      "alignment_seconds": 0.0004458203911781311,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And no more turn aside and brood upon love's bitter mystery,",
+          "start": 0.05,
+          "end": 3.83,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.5986328125
+            },
+            {
+              "text": " no",
+              "start": 0.51,
+              "end": 0.69,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " more",
+              "start": 0.69,
+              "end": 0.91,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " turn",
+              "start": 0.91,
+              "end": 1.19,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " aside",
+              "start": 1.19,
+              "end": 1.69,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " and",
+              "start": 1.69,
+              "end": 2.05,
+              "probability": 0.87060546875
+            },
+            {
+              "text": " brood",
+              "start": 2.05,
+              "end": 2.35,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " upon",
+              "start": 2.35,
+              "end": 2.71,
+              "probability": 0.943359375
+            },
+            {
+              "text": " love's",
+              "start": 2.71,
+              "end": 3.19,
+              "probability": 0.725341796875
+            },
+            {
+              "text": " bitter",
+              "start": 3.19,
+              "end": 3.39,
+              "probability": 0.99609375
+            },
+            {
+              "text": " mystery,",
+              "start": 3.39,
+              "end": 3.83,
+              "probability": 0.99609375
+            }
+          ]
+        },
+        {
+          "text": " for Fergus rules the brazen cars.",
+          "start": 4.25,
+          "end": 6.13,
+          "words": [
+            {
+              "text": " for",
+              "start": 4.25,
+              "end": 4.41,
+              "probability": 0.900390625
+            },
+            {
+              "text": " Fergus",
+              "start": 4.41,
+              "end": 4.71,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " rules",
+              "start": 4.71,
+              "end": 5.17,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 5.17,
+              "end": 5.41,
+              "probability": 0.9921875
+            },
+            {
+              "text": " brazen",
+              "start": 5.41,
+              "end": 5.71,
+              "probability": 0.916015625
+            },
+            {
+              "text": " cars.",
+              "start": 5.71,
+              "end": 6.13,
+              "probability": 0.96923828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "no",
+          "start": 0.51,
+          "end": 0.69
+        },
+        {
+          "raw": "more",
+          "start": 0.69,
+          "end": 0.91
+        },
+        {
+          "raw": "turn",
+          "start": 0.91,
+          "end": 1.19
+        },
+        {
+          "raw": "aside",
+          "start": 1.19,
+          "end": 1.69
+        },
+        {
+          "raw": "and",
+          "start": 1.69,
+          "end": 2.05
+        },
+        {
+          "raw": "brood",
+          "start": 2.05,
+          "end": 2.35
+        },
+        {
+          "raw": "upon",
+          "start": 2.35,
+          "end": 2.71
+        },
+        {
+          "raw": "love's",
+          "start": 2.71,
+          "end": 3.19
+        },
+        {
+          "raw": "bitter",
+          "start": 3.19,
+          "end": 3.39
+        },
+        {
+          "raw": "mystery,",
+          "start": 3.39,
+          "end": 3.83
+        },
+        {
+          "raw": "for",
+          "start": 4.25,
+          "end": 4.41
+        },
+        {
+          "raw": "Fergus",
+          "start": 4.41,
+          "end": 4.71
+        },
+        {
+          "raw": "rules",
+          "start": 4.71,
+          "end": 5.17
+        },
+        {
+          "raw": "the",
+          "start": 5.17,
+          "end": 5.41
+        },
+        {
+          "raw": "brazen",
+          "start": 5.41,
+          "end": 5.71
+        },
+        {
+          "raw": "cars.",
+          "start": 5.71,
+          "end": 6.13
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "no",
+        "more",
+        "turn",
+        "aside",
+        "and",
+        "brood",
+        "Upon",
+        "love's",
+        "bitter",
+        "mystery",
+        "For",
+        "Fergus",
+        "rules",
+        "the",
+        "brazen",
+        "cars."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 0.51,
+          "end": 0.69,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 0.69,
+          "end": 0.91,
+          "key": "more",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "turn",
+          "start": 0.91,
+          "end": 1.19,
+          "key": "turn",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "aside",
+          "start": 1.19,
+          "end": 1.69,
+          "key": "aside",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.69,
+          "end": 2.05,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "brood",
+          "start": 2.05,
+          "end": 2.35,
+          "key": "brood",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 2.35,
+          "end": 2.71,
+          "key": "upon",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "love's",
+          "start": 2.71,
+          "end": 3.19,
+          "key": "loves",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "bitter",
+          "start": 3.19,
+          "end": 3.39,
+          "key": "bitter",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "mystery,",
+          "start": 3.39,
+          "end": 3.83,
+          "key": "mystery",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.25,
+          "end": 4.41,
+          "key": "for",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Fergus",
+          "start": 4.41,
+          "end": 4.71,
+          "key": "fergus",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "rules",
+          "start": 4.71,
+          "end": 5.17,
+          "key": "rules",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.17,
+          "end": 5.41,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "brazen",
+          "start": 5.41,
+          "end": 5.71,
+          "key": "brazen",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "cars.",
+          "start": 5.71,
+          "end": 6.13,
+          "key": "cars",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "no",
+          "start": 0.51,
+          "end": 0.69
+        },
+        {
+          "text": "more",
+          "start": 0.69,
+          "end": 0.91
+        },
+        {
+          "text": "turn",
+          "start": 0.91,
+          "end": 1.19
+        },
+        {
+          "text": "aside",
+          "start": 1.19,
+          "end": 1.69
+        },
+        {
+          "text": "and",
+          "start": 1.69,
+          "end": 2.05
+        },
+        {
+          "text": "brood",
+          "start": 2.05,
+          "end": 2.35
+        },
+        {
+          "text": "Upon",
+          "start": 2.35,
+          "end": 2.71
+        },
+        {
+          "text": "love's",
+          "start": 2.71,
+          "end": 3.19
+        },
+        {
+          "text": "bitter",
+          "start": 3.19,
+          "end": 3.39
+        },
+        {
+          "text": "mystery",
+          "start": 3.39,
+          "end": 3.83
+        },
+        {
+          "text": "For",
+          "start": 4.25,
+          "end": 4.41
+        },
+        {
+          "text": "Fergus",
+          "start": 4.41,
+          "end": 4.71
+        },
+        {
+          "text": "rules",
+          "start": 4.71,
+          "end": 5.17
+        },
+        {
+          "text": "the",
+          "start": 5.17,
+          "end": 5.41
+        },
+        {
+          "text": "brazen",
+          "start": 5.41,
+          "end": 5.71
+        },
+        {
+          "text": "cars.",
+          "start": 5.71,
+          "end": 6.13
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3012548200786114
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ffd50d32b3c4bd2333086a1bbe8f7a06d5d320d3a9a7422b5af108e35a2e9099",
+  "selected_reasons": []
+}

@@ -1,0 +1,1861 @@
+{
+  "complete": true,
+  "signature": "3c22e07a6cce3ace60ce2a1196310bc9654a961be6ed3619c9fc15ebb4adaf08",
+  "attempts": [
+    {
+      "asr_seconds": 0.5728369727730751,
+      "alignment_seconds": 0.0010165907442569733,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sexton. And this is more, masters, than you can deny. Prince John is this morning secretly stolen away: Hero was in this manner accused, in this manner refused, and, upon the grief of this, suddenly died. Master Constable, let these men be bound, and brought to Leonato's: I will go before and show him their examination.",
+        "hotwords": "Sexton, Prince, John, Hero, Master, Constable, Leonato's, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sexton, and this is more, masters, than you can deny. Prince John is this morning secretly stolen away. Hero was in this manner accused, in this manner refused, and, upon the grief of this, suddenly died.",
+          "start": 0.08,
+          "end": 13.1,
+          "words": [
+            {
+              "text": " Sexton,",
+              "start": 0.08,
+              "end": 0.86,
+              "probability": 0.7393798828125
+            },
+            {
+              "text": " and",
+              "start": 1.24,
+              "end": 1.4,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " this",
+              "start": 1.4,
+              "end": 1.52,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " is",
+              "start": 1.52,
+              "end": 1.72,
+              "probability": 0.99609375
+            },
+            {
+              "text": " more,",
+              "start": 1.72,
+              "end": 2.0,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " masters,",
+              "start": 2.12,
+              "end": 2.48,
+              "probability": 0.34521484375
+            },
+            {
+              "text": " than",
+              "start": 2.72,
+              "end": 2.86,
+              "probability": 0.98046875
+            },
+            {
+              "text": " you",
+              "start": 2.86,
+              "end": 3.0,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " can",
+              "start": 3.0,
+              "end": 3.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " deny.",
+              "start": 3.18,
+              "end": 3.56,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Prince",
+              "start": 4.34,
+              "end": 4.52,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " John",
+              "start": 4.52,
+              "end": 4.86,
+              "probability": 0.74658203125
+            },
+            {
+              "text": " is",
+              "start": 4.86,
+              "end": 5.06,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " this",
+              "start": 5.06,
+              "end": 5.26,
+              "probability": 0.921875
+            },
+            {
+              "text": " morning",
+              "start": 5.26,
+              "end": 5.54,
+              "probability": 0.990234375
+            },
+            {
+              "text": " secretly",
+              "start": 5.54,
+              "end": 6.12,
+              "probability": 0.9052734375
+            },
+            {
+              "text": " stolen",
+              "start": 6.12,
+              "end": 6.56,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " away.",
+              "start": 6.56,
+              "end": 7.02,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Hero",
+              "start": 7.64,
+              "end": 7.76,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " was",
+              "start": 7.76,
+              "end": 8.02,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " in",
+              "start": 8.02,
+              "end": 8.16,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " this",
+              "start": 8.16,
+              "end": 8.32,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " manner",
+              "start": 8.32,
+              "end": 8.64,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " accused,",
+              "start": 8.64,
+              "end": 9.18,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " in",
+              "start": 9.54,
+              "end": 9.62,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " this",
+              "start": 9.62,
+              "end": 9.78,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " manner",
+              "start": 9.78,
+              "end": 10.06,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " refused,",
+              "start": 10.06,
+              "end": 10.56,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and,",
+              "start": 11.06,
+              "end": 11.18,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " upon",
+              "start": 11.22,
+              "end": 11.42,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 11.42,
+              "end": 11.58,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " grief",
+              "start": 11.58,
+              "end": 11.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 11.78,
+              "end": 11.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " this,",
+              "start": 11.96,
+              "end": 12.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " suddenly",
+              "start": 12.66,
+              "end": 12.66,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " died.",
+              "start": 12.66,
+              "end": 13.1,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " Master Constable, let these men be bound, and brought to Leonato's. I will go before and show him their examination.",
+          "start": 13.96,
+          "end": 20.38,
+          "words": [
+            {
+              "text": " Master",
+              "start": 13.96,
+              "end": 14.3,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " Constable,",
+              "start": 14.3,
+              "end": 14.74,
+              "probability": 0.7041015625
+            },
+            {
+              "text": " let",
+              "start": 15.3,
+              "end": 15.44,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " these",
+              "start": 15.44,
+              "end": 15.7,
+              "probability": 0.998046875
+            },
+            {
+              "text": " men",
+              "start": 15.7,
+              "end": 15.88,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " be",
+              "start": 15.88,
+              "end": 16.08,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " bound,",
+              "start": 16.08,
+              "end": 16.38,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 16.52,
+              "end": 16.64,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " brought",
+              "start": 16.64,
+              "end": 16.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 16.84,
+              "end": 17.02,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Leonato's.",
+              "start": 17.02,
+              "end": 17.78,
+              "probability": 0.5654296875
+            },
+            {
+              "text": " I",
+              "start": 18.04,
+              "end": 18.22,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " will",
+              "start": 18.22,
+              "end": 18.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " go",
+              "start": 18.32,
+              "end": 18.48,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " before",
+              "start": 18.48,
+              "end": 18.82,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 18.82,
+              "end": 19.12,
+              "probability": 0.70263671875
+            },
+            {
+              "text": " show",
+              "start": 19.12,
+              "end": 19.34,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " him",
+              "start": 19.34,
+              "end": 19.56,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " their",
+              "start": 19.56,
+              "end": 19.76,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " examination.",
+              "start": 19.76,
+              "end": 20.38,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sexton,",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "raw": "and",
+          "start": 1.24,
+          "end": 1.4
+        },
+        {
+          "raw": "this",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "raw": "is",
+          "start": 1.52,
+          "end": 1.72
+        },
+        {
+          "raw": "more,",
+          "start": 1.72,
+          "end": 2.0
+        },
+        {
+          "raw": "masters,",
+          "start": 2.12,
+          "end": 2.48
+        },
+        {
+          "raw": "than",
+          "start": 2.72,
+          "end": 2.86
+        },
+        {
+          "raw": "you",
+          "start": 2.86,
+          "end": 3.0
+        },
+        {
+          "raw": "can",
+          "start": 3.0,
+          "end": 3.18
+        },
+        {
+          "raw": "deny.",
+          "start": 3.18,
+          "end": 3.56
+        },
+        {
+          "raw": "Prince",
+          "start": 4.34,
+          "end": 4.52
+        },
+        {
+          "raw": "John",
+          "start": 4.52,
+          "end": 4.86
+        },
+        {
+          "raw": "is",
+          "start": 4.86,
+          "end": 5.06
+        },
+        {
+          "raw": "this",
+          "start": 5.06,
+          "end": 5.26
+        },
+        {
+          "raw": "morning",
+          "start": 5.26,
+          "end": 5.54
+        },
+        {
+          "raw": "secretly",
+          "start": 5.54,
+          "end": 6.12
+        },
+        {
+          "raw": "stolen",
+          "start": 6.12,
+          "end": 6.56
+        },
+        {
+          "raw": "away.",
+          "start": 6.56,
+          "end": 7.02
+        },
+        {
+          "raw": "Hero",
+          "start": 7.64,
+          "end": 7.76
+        },
+        {
+          "raw": "was",
+          "start": 7.76,
+          "end": 8.02
+        },
+        {
+          "raw": "in",
+          "start": 8.02,
+          "end": 8.16
+        },
+        {
+          "raw": "this",
+          "start": 8.16,
+          "end": 8.32
+        },
+        {
+          "raw": "manner",
+          "start": 8.32,
+          "end": 8.64
+        },
+        {
+          "raw": "accused,",
+          "start": 8.64,
+          "end": 9.18
+        },
+        {
+          "raw": "in",
+          "start": 9.54,
+          "end": 9.62
+        },
+        {
+          "raw": "this",
+          "start": 9.62,
+          "end": 9.78
+        },
+        {
+          "raw": "manner",
+          "start": 9.78,
+          "end": 10.06
+        },
+        {
+          "raw": "refused,",
+          "start": 10.06,
+          "end": 10.56
+        },
+        {
+          "raw": "and,",
+          "start": 11.06,
+          "end": 11.18
+        },
+        {
+          "raw": "upon",
+          "start": 11.22,
+          "end": 11.42
+        },
+        {
+          "raw": "the",
+          "start": 11.42,
+          "end": 11.58
+        },
+        {
+          "raw": "grief",
+          "start": 11.58,
+          "end": 11.78
+        },
+        {
+          "raw": "of",
+          "start": 11.78,
+          "end": 11.96
+        },
+        {
+          "raw": "this,",
+          "start": 11.96,
+          "end": 12.18
+        },
+        {
+          "raw": "suddenly",
+          "start": 12.66,
+          "end": 12.66
+        },
+        {
+          "raw": "died.",
+          "start": 12.66,
+          "end": 13.1
+        },
+        {
+          "raw": "Master",
+          "start": 13.96,
+          "end": 14.3
+        },
+        {
+          "raw": "Constable,",
+          "start": 14.3,
+          "end": 14.74
+        },
+        {
+          "raw": "let",
+          "start": 15.3,
+          "end": 15.44
+        },
+        {
+          "raw": "these",
+          "start": 15.44,
+          "end": 15.7
+        },
+        {
+          "raw": "men",
+          "start": 15.7,
+          "end": 15.88
+        },
+        {
+          "raw": "be",
+          "start": 15.88,
+          "end": 16.08
+        },
+        {
+          "raw": "bound,",
+          "start": 16.08,
+          "end": 16.38
+        },
+        {
+          "raw": "and",
+          "start": 16.52,
+          "end": 16.64
+        },
+        {
+          "raw": "brought",
+          "start": 16.64,
+          "end": 16.84
+        },
+        {
+          "raw": "to",
+          "start": 16.84,
+          "end": 17.02
+        },
+        {
+          "raw": "Leonato's.",
+          "start": 17.02,
+          "end": 17.78
+        },
+        {
+          "raw": "I",
+          "start": 18.04,
+          "end": 18.22
+        },
+        {
+          "raw": "will",
+          "start": 18.22,
+          "end": 18.32
+        },
+        {
+          "raw": "go",
+          "start": 18.32,
+          "end": 18.48
+        },
+        {
+          "raw": "before",
+          "start": 18.48,
+          "end": 18.82
+        },
+        {
+          "raw": "and",
+          "start": 18.82,
+          "end": 19.12
+        },
+        {
+          "raw": "show",
+          "start": 19.12,
+          "end": 19.34
+        },
+        {
+          "raw": "him",
+          "start": 19.34,
+          "end": 19.56
+        },
+        {
+          "raw": "their",
+          "start": 19.56,
+          "end": 19.76
+        },
+        {
+          "raw": "examination.",
+          "start": 19.76,
+          "end": 20.38
+        }
+      ],
+      "expected_tokens": [
+        "Sexton.",
+        "And",
+        "this",
+        "is",
+        "more,",
+        "masters,",
+        "than",
+        "you",
+        "can",
+        "deny.",
+        "Prince",
+        "John",
+        "is",
+        "this",
+        "morning",
+        "secretly",
+        "stolen",
+        "away:",
+        "Hero",
+        "was",
+        "in",
+        "this",
+        "manner",
+        "accused,",
+        "in",
+        "this",
+        "manner",
+        "refused,",
+        "and,",
+        "upon",
+        "the",
+        "grief",
+        "of",
+        "this,",
+        "suddenly",
+        "died.",
+        "Master",
+        "Constable,",
+        "let",
+        "these",
+        "men",
+        "be",
+        "bound,",
+        "and",
+        "brought",
+        "to",
+        "Leonato's:",
+        "I",
+        "will",
+        "go",
+        "before",
+        "and",
+        "show",
+        "him",
+        "their",
+        "examination."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          56,
+          0,
+          56
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sexton,",
+          "start": 0.08,
+          "end": 0.86,
+          "key": "sexton",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.24,
+          "end": 1.4,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.4,
+          "end": 1.52,
+          "key": "this",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.52,
+          "end": 1.72,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "more,",
+          "start": 1.72,
+          "end": 2.0,
+          "key": "more",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "masters,",
+          "start": 2.12,
+          "end": 2.48,
+          "key": "masters",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 2.72,
+          "end": 2.86,
+          "key": "than",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.86,
+          "end": 3.0,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 3.0,
+          "end": 3.18,
+          "key": "can",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "deny.",
+          "start": 3.18,
+          "end": 3.56,
+          "key": "deny",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Prince",
+          "start": 4.34,
+          "end": 4.52,
+          "key": "prince",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "John",
+          "start": 4.52,
+          "end": 4.86,
+          "key": "john",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.86,
+          "end": 5.06,
+          "key": "is",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 5.06,
+          "end": 5.26,
+          "key": "this",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "morning",
+          "start": 5.26,
+          "end": 5.54,
+          "key": "morning",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "secretly",
+          "start": 5.54,
+          "end": 6.12,
+          "key": "secretly",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "stolen",
+          "start": 6.12,
+          "end": 6.56,
+          "key": "stolen",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "away.",
+          "start": 6.56,
+          "end": 7.02,
+          "key": "away",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Hero",
+          "start": 7.64,
+          "end": 7.76,
+          "key": "hero",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 7.76,
+          "end": 8.02,
+          "key": "was",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 8.02,
+          "end": 8.16,
+          "key": "in",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 8.16,
+          "end": 8.32,
+          "key": "this",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "manner",
+          "start": 8.32,
+          "end": 8.64,
+          "key": "manner",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "accused,",
+          "start": 8.64,
+          "end": 9.18,
+          "key": "accused",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 9.54,
+          "end": 9.62,
+          "key": "in",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 9.62,
+          "end": 9.78,
+          "key": "this",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "manner",
+          "start": 9.78,
+          "end": 10.06,
+          "key": "manner",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "refused,",
+          "start": 10.06,
+          "end": 10.56,
+          "key": "refused",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "and,",
+          "start": 11.06,
+          "end": 11.18,
+          "key": "and",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 11.22,
+          "end": 11.42,
+          "key": "upon",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.42,
+          "end": 11.58,
+          "key": "the",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "grief",
+          "start": 11.58,
+          "end": 11.78,
+          "key": "grief",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 11.78,
+          "end": 11.96,
+          "key": "of",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "this,",
+          "start": 11.96,
+          "end": 12.18,
+          "key": "this",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "suddenly",
+          "start": 12.66,
+          "end": 12.66,
+          "key": "suddenly",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "died.",
+          "start": 12.66,
+          "end": 13.1,
+          "key": "died",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "Master",
+          "start": 13.96,
+          "end": 14.3,
+          "key": "master",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "Constable,",
+          "start": 14.3,
+          "end": 14.74,
+          "key": "constable",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 15.3,
+          "end": 15.44,
+          "key": "let",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 15.44,
+          "end": 15.7,
+          "key": "these",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "men",
+          "start": 15.7,
+          "end": 15.88,
+          "key": "men",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 15.88,
+          "end": 16.08,
+          "key": "be",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "bound,",
+          "start": 16.08,
+          "end": 16.38,
+          "key": "bound",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 16.52,
+          "end": 16.64,
+          "key": "and",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "brought",
+          "start": 16.64,
+          "end": 16.84,
+          "key": "brought",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 16.84,
+          "end": 17.02,
+          "key": "to",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "Leonato's.",
+          "start": 17.02,
+          "end": 17.78,
+          "key": "leonatos",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 18.04,
+          "end": 18.22,
+          "key": "i",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 18.22,
+          "end": 18.32,
+          "key": "will",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 18.32,
+          "end": 18.48,
+          "key": "go",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 18.48,
+          "end": 18.82,
+          "key": "before",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 18.82,
+          "end": 19.12,
+          "key": "and",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "show",
+          "start": 19.12,
+          "end": 19.34,
+          "key": "show",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 19.34,
+          "end": 19.56,
+          "key": "him",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 19.56,
+          "end": 19.76,
+          "key": "their",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "examination.",
+          "start": 19.76,
+          "end": 20.38,
+          "key": "examination",
+          "pieces": [
+            55
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sexton.",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "text": "And",
+          "start": 1.24,
+          "end": 1.4
+        },
+        {
+          "text": "this",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "text": "is",
+          "start": 1.52,
+          "end": 1.72
+        },
+        {
+          "text": "more,",
+          "start": 1.72,
+          "end": 2.0
+        },
+        {
+          "text": "masters,",
+          "start": 2.12,
+          "end": 2.48
+        },
+        {
+          "text": "than",
+          "start": 2.72,
+          "end": 2.86
+        },
+        {
+          "text": "you",
+          "start": 2.86,
+          "end": 3.0
+        },
+        {
+          "text": "can",
+          "start": 3.0,
+          "end": 3.18
+        },
+        {
+          "text": "deny.",
+          "start": 3.18,
+          "end": 3.56
+        },
+        {
+          "text": "Prince",
+          "start": 4.34,
+          "end": 4.52
+        },
+        {
+          "text": "John",
+          "start": 4.52,
+          "end": 4.86
+        },
+        {
+          "text": "is",
+          "start": 4.86,
+          "end": 5.06
+        },
+        {
+          "text": "this",
+          "start": 5.06,
+          "end": 5.26
+        },
+        {
+          "text": "morning",
+          "start": 5.26,
+          "end": 5.54
+        },
+        {
+          "text": "secretly",
+          "start": 5.54,
+          "end": 6.12
+        },
+        {
+          "text": "stolen",
+          "start": 6.12,
+          "end": 6.56
+        },
+        {
+          "text": "away:",
+          "start": 6.56,
+          "end": 7.02
+        },
+        {
+          "text": "Hero",
+          "start": 7.64,
+          "end": 7.76
+        },
+        {
+          "text": "was",
+          "start": 7.76,
+          "end": 8.02
+        },
+        {
+          "text": "in",
+          "start": 8.02,
+          "end": 8.16
+        },
+        {
+          "text": "this",
+          "start": 8.16,
+          "end": 8.32
+        },
+        {
+          "text": "manner",
+          "start": 8.32,
+          "end": 8.64
+        },
+        {
+          "text": "accused,",
+          "start": 8.64,
+          "end": 9.18
+        },
+        {
+          "text": "in",
+          "start": 9.54,
+          "end": 9.62
+        },
+        {
+          "text": "this",
+          "start": 9.62,
+          "end": 9.78
+        },
+        {
+          "text": "manner",
+          "start": 9.78,
+          "end": 10.06
+        },
+        {
+          "text": "refused,",
+          "start": 10.06,
+          "end": 10.56
+        },
+        {
+          "text": "and,",
+          "start": 11.06,
+          "end": 11.18
+        },
+        {
+          "text": "upon",
+          "start": 11.22,
+          "end": 11.42
+        },
+        {
+          "text": "the",
+          "start": 11.42,
+          "end": 11.58
+        },
+        {
+          "text": "grief",
+          "start": 11.58,
+          "end": 11.78
+        },
+        {
+          "text": "of",
+          "start": 11.78,
+          "end": 11.96
+        },
+        {
+          "text": "this,",
+          "start": 11.96,
+          "end": 12.18
+        },
+        {
+          "text": "suddenly",
+          "start": 12.66,
+          "end": 12.66
+        },
+        {
+          "text": "died.",
+          "start": 12.66,
+          "end": 13.1
+        },
+        {
+          "text": "Master",
+          "start": 13.96,
+          "end": 14.3
+        },
+        {
+          "text": "Constable,",
+          "start": 14.3,
+          "end": 14.74
+        },
+        {
+          "text": "let",
+          "start": 15.3,
+          "end": 15.44
+        },
+        {
+          "text": "these",
+          "start": 15.44,
+          "end": 15.7
+        },
+        {
+          "text": "men",
+          "start": 15.7,
+          "end": 15.88
+        },
+        {
+          "text": "be",
+          "start": 15.88,
+          "end": 16.08
+        },
+        {
+          "text": "bound,",
+          "start": 16.08,
+          "end": 16.38
+        },
+        {
+          "text": "and",
+          "start": 16.52,
+          "end": 16.64
+        },
+        {
+          "text": "brought",
+          "start": 16.64,
+          "end": 16.84
+        },
+        {
+          "text": "to",
+          "start": 16.84,
+          "end": 17.02
+        },
+        {
+          "text": "Leonato's:",
+          "start": 17.02,
+          "end": 17.78
+        },
+        {
+          "text": "I",
+          "start": 18.04,
+          "end": 18.22
+        },
+        {
+          "text": "will",
+          "start": 18.22,
+          "end": 18.32
+        },
+        {
+          "text": "go",
+          "start": 18.32,
+          "end": 18.48
+        },
+        {
+          "text": "before",
+          "start": 18.48,
+          "end": 18.82
+        },
+        {
+          "text": "and",
+          "start": 18.82,
+          "end": 19.12
+        },
+        {
+          "text": "show",
+          "start": 19.12,
+          "end": 19.34
+        },
+        {
+          "text": "him",
+          "start": 19.34,
+          "end": 19.56
+        },
+        {
+          "text": "their",
+          "start": 19.56,
+          "end": 19.76
+        },
+        {
+          "text": "examination.",
+          "start": 19.76,
+          "end": 20.38
+        }
+      ],
+      "stats": {
+        "expected_words": 56,
+        "heard_words": 56,
+        "matched_words": 56
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5743237547576427
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fced8d003204532f59a6c5c1c71e102729619c1270ad0361097bc1e1a33b583c",
+  "selected_reasons": []
+}

@@ -1,0 +1,702 @@
+{
+  "complete": true,
+  "signature": "0864439c37c4a86bd768ed52e672d278575fa167257f31e5badf1cf9eddbcc35",
+  "attempts": [
+    {
+      "asr_seconds": 0.303119033575058,
+      "alignment_seconds": 0.00027438998222351074,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Claudio. He is then a giant to an ape; but then is an ape a doctor to such a man.",
+        "hotwords": "Claudio, He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Claudio, He is then a giant to an ape, but then is an ape a doctor to such a man.",
+          "start": 0.0,
+          "end": 5.02,
+          "words": [
+            {
+              "text": " Claudio,",
+              "start": 0.0,
+              "end": 0.78,
+              "probability": 0.841796875
+            },
+            {
+              "text": " He",
+              "start": 1.26,
+              "end": 1.52,
+              "probability": 0.07037353515625
+            },
+            {
+              "text": " is",
+              "start": 1.52,
+              "end": 1.64,
+              "probability": 0.96875
+            },
+            {
+              "text": " then",
+              "start": 1.64,
+              "end": 1.78,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " a",
+              "start": 1.78,
+              "end": 1.9,
+              "probability": 0.984375
+            },
+            {
+              "text": " giant",
+              "start": 1.9,
+              "end": 2.14,
+              "probability": 0.9052734375
+            },
+            {
+              "text": " to",
+              "start": 2.14,
+              "end": 2.36,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " an",
+              "start": 2.36,
+              "end": 2.48,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " ape,",
+              "start": 2.48,
+              "end": 2.68,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " but",
+              "start": 3.04,
+              "end": 3.14,
+              "probability": 0.85595703125
+            },
+            {
+              "text": " then",
+              "start": 3.14,
+              "end": 3.34,
+              "probability": 0.990234375
+            },
+            {
+              "text": " is",
+              "start": 3.34,
+              "end": 3.48,
+              "probability": 0.986328125
+            },
+            {
+              "text": " an",
+              "start": 3.48,
+              "end": 3.62,
+              "probability": 0.984375
+            },
+            {
+              "text": " ape",
+              "start": 3.62,
+              "end": 3.82,
+              "probability": 0.9765625
+            },
+            {
+              "text": " a",
+              "start": 3.82,
+              "end": 3.96,
+              "probability": 0.93359375
+            },
+            {
+              "text": " doctor",
+              "start": 3.96,
+              "end": 4.16,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " to",
+              "start": 4.16,
+              "end": 4.48,
+              "probability": 0.994140625
+            },
+            {
+              "text": " such",
+              "start": 4.48,
+              "end": 4.64,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 4.64,
+              "end": 4.78,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " man.",
+              "start": 4.78,
+              "end": 5.02,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Claudio,",
+          "start": 0.0,
+          "end": 0.78
+        },
+        {
+          "raw": "He",
+          "start": 1.26,
+          "end": 1.52
+        },
+        {
+          "raw": "is",
+          "start": 1.52,
+          "end": 1.64
+        },
+        {
+          "raw": "then",
+          "start": 1.64,
+          "end": 1.78
+        },
+        {
+          "raw": "a",
+          "start": 1.78,
+          "end": 1.9
+        },
+        {
+          "raw": "giant",
+          "start": 1.9,
+          "end": 2.14
+        },
+        {
+          "raw": "to",
+          "start": 2.14,
+          "end": 2.36
+        },
+        {
+          "raw": "an",
+          "start": 2.36,
+          "end": 2.48
+        },
+        {
+          "raw": "ape,",
+          "start": 2.48,
+          "end": 2.68
+        },
+        {
+          "raw": "but",
+          "start": 3.04,
+          "end": 3.14
+        },
+        {
+          "raw": "then",
+          "start": 3.14,
+          "end": 3.34
+        },
+        {
+          "raw": "is",
+          "start": 3.34,
+          "end": 3.48
+        },
+        {
+          "raw": "an",
+          "start": 3.48,
+          "end": 3.62
+        },
+        {
+          "raw": "ape",
+          "start": 3.62,
+          "end": 3.82
+        },
+        {
+          "raw": "a",
+          "start": 3.82,
+          "end": 3.96
+        },
+        {
+          "raw": "doctor",
+          "start": 3.96,
+          "end": 4.16
+        },
+        {
+          "raw": "to",
+          "start": 4.16,
+          "end": 4.48
+        },
+        {
+          "raw": "such",
+          "start": 4.48,
+          "end": 4.64
+        },
+        {
+          "raw": "a",
+          "start": 4.64,
+          "end": 4.78
+        },
+        {
+          "raw": "man.",
+          "start": 4.78,
+          "end": 5.02
+        }
+      ],
+      "expected_tokens": [
+        "Claudio.",
+        "He",
+        "is",
+        "then",
+        "a",
+        "giant",
+        "to",
+        "an",
+        "ape;",
+        "but",
+        "then",
+        "is",
+        "an",
+        "ape",
+        "a",
+        "doctor",
+        "to",
+        "such",
+        "a",
+        "man."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Claudio,",
+          "start": 0.0,
+          "end": 0.78,
+          "key": "claudio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 1.26,
+          "end": 1.52,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.52,
+          "end": 1.64,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 1.64,
+          "end": 1.78,
+          "key": "then",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.78,
+          "end": 1.9,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "giant",
+          "start": 1.9,
+          "end": 2.14,
+          "key": "giant",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.14,
+          "end": 2.36,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 2.36,
+          "end": 2.48,
+          "key": "an",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "ape,",
+          "start": 2.48,
+          "end": 2.68,
+          "key": "ape",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 3.04,
+          "end": 3.14,
+          "key": "but",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 3.14,
+          "end": 3.34,
+          "key": "then",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.34,
+          "end": 3.48,
+          "key": "is",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 3.48,
+          "end": 3.62,
+          "key": "an",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "ape",
+          "start": 3.62,
+          "end": 3.82,
+          "key": "ape",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.82,
+          "end": 3.96,
+          "key": "a",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "doctor",
+          "start": 3.96,
+          "end": 4.16,
+          "key": "doctor",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.16,
+          "end": 4.48,
+          "key": "to",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 4.48,
+          "end": 4.64,
+          "key": "such",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.64,
+          "end": 4.78,
+          "key": "a",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "man.",
+          "start": 4.78,
+          "end": 5.02,
+          "key": "man",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Claudio.",
+          "start": 0.0,
+          "end": 0.78
+        },
+        {
+          "text": "He",
+          "start": 1.26,
+          "end": 1.52
+        },
+        {
+          "text": "is",
+          "start": 1.52,
+          "end": 1.64
+        },
+        {
+          "text": "then",
+          "start": 1.64,
+          "end": 1.78
+        },
+        {
+          "text": "a",
+          "start": 1.78,
+          "end": 1.9
+        },
+        {
+          "text": "giant",
+          "start": 1.9,
+          "end": 2.14
+        },
+        {
+          "text": "to",
+          "start": 2.14,
+          "end": 2.36
+        },
+        {
+          "text": "an",
+          "start": 2.36,
+          "end": 2.48
+        },
+        {
+          "text": "ape;",
+          "start": 2.48,
+          "end": 2.68
+        },
+        {
+          "text": "but",
+          "start": 3.04,
+          "end": 3.14
+        },
+        {
+          "text": "then",
+          "start": 3.14,
+          "end": 3.34
+        },
+        {
+          "text": "is",
+          "start": 3.34,
+          "end": 3.48
+        },
+        {
+          "text": "an",
+          "start": 3.48,
+          "end": 3.62
+        },
+        {
+          "text": "ape",
+          "start": 3.62,
+          "end": 3.82
+        },
+        {
+          "text": "a",
+          "start": 3.82,
+          "end": 3.96
+        },
+        {
+          "text": "doctor",
+          "start": 3.96,
+          "end": 4.16
+        },
+        {
+          "text": "to",
+          "start": 4.16,
+          "end": 4.48
+        },
+        {
+          "text": "such",
+          "start": 4.48,
+          "end": 4.64
+        },
+        {
+          "text": "a",
+          "start": 4.64,
+          "end": 4.78
+        },
+        {
+          "text": "man.",
+          "start": 4.78,
+          "end": 5.02
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3035103492438793
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5503c1c5493f76a81c56b7d189393b6bf9cb7eb9ee83dc02dc4e352b0fc3558b",
+  "selected_reasons": []
+}

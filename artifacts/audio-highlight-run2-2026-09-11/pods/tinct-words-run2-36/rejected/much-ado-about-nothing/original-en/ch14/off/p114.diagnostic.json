@@ -1,0 +1,239 @@
+{
+  "complete": true,
+  "signature": "3acff79d915d3bc403ba32ac4de32f8608c07dd624dc6828ff94c4919321b465",
+  "attempts": [
+    {
+      "asr_seconds": 0.18197006732225418,
+      "alignment_seconds": 0.00035729631781578064,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Leonardo, there's for thy pains.",
+          "start": 0.05,
+          "end": 2.17,
+          "words": [
+            {
+              "text": " Leonardo,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.53173828125
+            },
+            {
+              "text": " there's",
+              "start": 1.39,
+              "end": 1.53,
+              "probability": 0.892333984375
+            },
+            {
+              "text": " for",
+              "start": 1.53,
+              "end": 1.65,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " thy",
+              "start": 1.65,
+              "end": 1.79,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " pains.",
+              "start": 1.79,
+              "end": 2.17,
+              "probability": 0.859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leonardo,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "there's",
+          "start": 1.39,
+          "end": 1.53
+        },
+        {
+          "raw": "for",
+          "start": 1.53,
+          "end": 1.65
+        },
+        {
+          "raw": "thy",
+          "start": 1.65,
+          "end": 1.79
+        },
+        {
+          "raw": "pains.",
+          "start": 1.79,
+          "end": 2.17
+        }
+      ],
+      "expected_tokens": [
+        "Leonato.",
+        "There's",
+        "for",
+        "thy",
+        "pains."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leonardo,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "leonardo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "there's",
+          "start": 1.39,
+          "end": 1.53,
+          "key": "theres",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.53,
+          "end": 1.65,
+          "key": "for",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 1.65,
+          "end": 1.79,
+          "key": "thy",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "pains.",
+          "start": 1.79,
+          "end": 2.17,
+          "key": "pains",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Leonato.",
+          "start": 0.0,
+          "end": 0.695
+        },
+        {
+          "text": "There's",
+          "start": 1.39,
+          "end": 1.53
+        },
+        {
+          "text": "for",
+          "start": 1.53,
+          "end": 1.65
+        },
+        {
+          "text": "thy",
+          "start": 1.65,
+          "end": 1.79
+        },
+        {
+          "text": "pains.",
+          "start": 1.79,
+          "end": 2.17
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.18244371563196182
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fa6878af33ca87e883065b25b37e709a3707b9802896dbd59b47bfd7362a89ba",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

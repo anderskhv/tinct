@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "f3d77b80062e9b8c3e0734b5505c95fd13534a0437b52e5d9aec20e08b3f0a92",
+  "attempts": [
+    {
+      "asr_seconds": 0.2718283049762249,
+      "alignment_seconds": 0.00041273608803749084,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sexton. But which are the offenders that are to be examined? let them come before Master Constable.",
+        "hotwords": "Sexton, But, Master, Constable"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sexton. But which are the offenders that are to be examined? let them come before Master Constable.",
+          "start": 0.08,
+          "end": 5.96,
+          "words": [
+            {
+              "text": " Sexton.",
+              "start": 0.08,
+              "end": 0.84,
+              "probability": 0.89599609375
+            },
+            {
+              "text": " But",
+              "start": 1.4,
+              "end": 1.5,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " which",
+              "start": 1.5,
+              "end": 1.66,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " are",
+              "start": 1.66,
+              "end": 1.86,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 1.86,
+              "end": 2.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " offenders",
+              "start": 2.0,
+              "end": 2.32,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " that",
+              "start": 2.32,
+              "end": 2.68,
+              "probability": 0.994140625
+            },
+            {
+              "text": " are",
+              "start": 2.68,
+              "end": 2.8,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 2.8,
+              "end": 2.9,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " be",
+              "start": 2.9,
+              "end": 3.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " examined?",
+              "start": 3.04,
+              "end": 3.48,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " let",
+              "start": 4.24,
+              "end": 4.34,
+              "probability": 0.005283355712890625
+            },
+            {
+              "text": " them",
+              "start": 4.34,
+              "end": 4.52,
+              "probability": 0.998046875
+            },
+            {
+              "text": " come",
+              "start": 4.52,
+              "end": 4.72,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " before",
+              "start": 4.72,
+              "end": 5.1,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Master",
+              "start": 5.1,
+              "end": 5.5,
+              "probability": 0.66259765625
+            },
+            {
+              "text": " Constable.",
+              "start": 5.5,
+              "end": 5.96,
+              "probability": 0.7705078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sexton.",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "raw": "But",
+          "start": 1.4,
+          "end": 1.5
+        },
+        {
+          "raw": "which",
+          "start": 1.5,
+          "end": 1.66
+        },
+        {
+          "raw": "are",
+          "start": 1.66,
+          "end": 1.86
+        },
+        {
+          "raw": "the",
+          "start": 1.86,
+          "end": 2.0
+        },
+        {
+          "raw": "offenders",
+          "start": 2.0,
+          "end": 2.32
+        },
+        {
+          "raw": "that",
+          "start": 2.32,
+          "end": 2.68
+        },
+        {
+          "raw": "are",
+          "start": 2.68,
+          "end": 2.8
+        },
+        {
+          "raw": "to",
+          "start": 2.8,
+          "end": 2.9
+        },
+        {
+          "raw": "be",
+          "start": 2.9,
+          "end": 3.04
+        },
+        {
+          "raw": "examined?",
+          "start": 3.04,
+          "end": 3.48
+        },
+        {
+          "raw": "let",
+          "start": 4.24,
+          "end": 4.34
+        },
+        {
+          "raw": "them",
+          "start": 4.34,
+          "end": 4.52
+        },
+        {
+          "raw": "come",
+          "start": 4.52,
+          "end": 4.72
+        },
+        {
+          "raw": "before",
+          "start": 4.72,
+          "end": 5.1
+        },
+        {
+          "raw": "Master",
+          "start": 5.1,
+          "end": 5.5
+        },
+        {
+          "raw": "Constable.",
+          "start": 5.5,
+          "end": 5.96
+        }
+      ],
+      "expected_tokens": [
+        "Sexton.",
+        "But",
+        "which",
+        "are",
+        "the",
+        "offenders",
+        "that",
+        "are",
+        "to",
+        "be",
+        "examined?",
+        "let",
+        "them",
+        "come",
+        "before",
+        "Master",
+        "Constable."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sexton.",
+          "start": 0.08,
+          "end": 0.84,
+          "key": "sexton",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 1.4,
+          "end": 1.5,
+          "key": "but",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 1.5,
+          "end": 1.66,
+          "key": "which",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.66,
+          "end": 1.86,
+          "key": "are",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.86,
+          "end": 2.0,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "offenders",
+          "start": 2.0,
+          "end": 2.32,
+          "key": "offenders",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.32,
+          "end": 2.68,
+          "key": "that",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.68,
+          "end": 2.8,
+          "key": "are",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.8,
+          "end": 2.9,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.9,
+          "end": 3.04,
+          "key": "be",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "examined?",
+          "start": 3.04,
+          "end": 3.48,
+          "key": "examined",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 4.24,
+          "end": 4.34,
+          "key": "let",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 4.34,
+          "end": 4.52,
+          "key": "them",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 4.52,
+          "end": 4.72,
+          "key": "come",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 4.72,
+          "end": 5.1,
+          "key": "before",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Master",
+          "start": 5.1,
+          "end": 5.5,
+          "key": "master",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Constable.",
+          "start": 5.5,
+          "end": 5.96,
+          "key": "constable",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sexton.",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "text": "But",
+          "start": 1.4,
+          "end": 1.5
+        },
+        {
+          "text": "which",
+          "start": 1.5,
+          "end": 1.66
+        },
+        {
+          "text": "are",
+          "start": 1.66,
+          "end": 1.86
+        },
+        {
+          "text": "the",
+          "start": 1.86,
+          "end": 2.0
+        },
+        {
+          "text": "offenders",
+          "start": 2.0,
+          "end": 2.32
+        },
+        {
+          "text": "that",
+          "start": 2.32,
+          "end": 2.68
+        },
+        {
+          "text": "are",
+          "start": 2.68,
+          "end": 2.8
+        },
+        {
+          "text": "to",
+          "start": 2.8,
+          "end": 2.9
+        },
+        {
+          "text": "be",
+          "start": 2.9,
+          "end": 3.04
+        },
+        {
+          "text": "examined?",
+          "start": 3.04,
+          "end": 3.48
+        },
+        {
+          "text": "let",
+          "start": 4.24,
+          "end": 4.34
+        },
+        {
+          "text": "them",
+          "start": 4.34,
+          "end": 4.52
+        },
+        {
+          "text": "come",
+          "start": 4.52,
+          "end": 4.72
+        },
+        {
+          "text": "before",
+          "start": 4.72,
+          "end": 5.1
+        },
+        {
+          "text": "Master",
+          "start": 5.1,
+          "end": 5.5
+        },
+        {
+          "text": "Constable.",
+          "start": 5.5,
+          "end": 5.96
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2723998799920082
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "14eac16b729bc3e7f6b6a5e1542f894c742323ac4b33d6609a37e85f0778e740",
+  "selected_reasons": []
+}

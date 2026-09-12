@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "94509abe8c2fdef82177bafc1bb5ee089ada99010cf0a5fa54d0d084b68d44d0",
+  "attempts": [
+    {
+      "asr_seconds": 0.18749433755874634,
+      "alignment_seconds": 0.00018913671374320984,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Don Pedro. Runs not this speech like iron through your blood?",
+        "hotwords": "Don, Pedro, Runs"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Don, Pedro, Runs not this speech like iron through your blood?",
+          "start": 0.05,
+          "end": 3.51,
+          "words": [
+            {
+              "text": " Don,",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.72265625
+            },
+            {
+              "text": " Pedro,",
+              "start": 0.83,
+              "end": 1.01,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " Runs",
+              "start": 1.45,
+              "end": 1.69,
+              "probability": 0.007366180419921875
+            },
+            {
+              "text": " not",
+              "start": 1.69,
+              "end": 1.89,
+              "probability": 0.59423828125
+            },
+            {
+              "text": " this",
+              "start": 1.89,
+              "end": 2.05,
+              "probability": 0.78955078125
+            },
+            {
+              "text": " speech",
+              "start": 2.05,
+              "end": 2.29,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " like",
+              "start": 2.29,
+              "end": 2.51,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " iron",
+              "start": 2.51,
+              "end": 2.83,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " through",
+              "start": 2.83,
+              "end": 3.11,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " your",
+              "start": 3.11,
+              "end": 3.25,
+              "probability": 0.990234375
+            },
+            {
+              "text": " blood?",
+              "start": 3.25,
+              "end": 3.51,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Don,",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "Pedro,",
+          "start": 0.83,
+          "end": 1.01
+        },
+        {
+          "raw": "Runs",
+          "start": 1.45,
+          "end": 1.69
+        },
+        {
+          "raw": "not",
+          "start": 1.69,
+          "end": 1.89
+        },
+        {
+          "raw": "this",
+          "start": 1.89,
+          "end": 2.05
+        },
+        {
+          "raw": "speech",
+          "start": 2.05,
+          "end": 2.29
+        },
+        {
+          "raw": "like",
+          "start": 2.29,
+          "end": 2.51
+        },
+        {
+          "raw": "iron",
+          "start": 2.51,
+          "end": 2.83
+        },
+        {
+          "raw": "through",
+          "start": 2.83,
+          "end": 3.11
+        },
+        {
+          "raw": "your",
+          "start": 3.11,
+          "end": 3.25
+        },
+        {
+          "raw": "blood?",
+          "start": 3.25,
+          "end": 3.51
+        }
+      ],
+      "expected_tokens": [
+        "Don",
+        "Pedro.",
+        "Runs",
+        "not",
+        "this",
+        "speech",
+        "like",
+        "iron",
+        "through",
+        "your",
+        "blood?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Don,",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "don",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pedro,",
+          "start": 0.83,
+          "end": 1.01,
+          "key": "pedro",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Runs",
+          "start": 1.45,
+          "end": 1.69,
+          "key": "runs",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.69,
+          "end": 1.89,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.89,
+          "end": 2.05,
+          "key": "this",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "speech",
+          "start": 2.05,
+          "end": 2.29,
+          "key": "speech",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 2.29,
+          "end": 2.51,
+          "key": "like",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "iron",
+          "start": 2.51,
+          "end": 2.83,
+          "key": "iron",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "through",
+          "start": 2.83,
+          "end": 3.11,
+          "key": "through",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.11,
+          "end": 3.25,
+          "key": "your",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "blood?",
+          "start": 3.25,
+          "end": 3.51,
+          "key": "blood",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Don",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "Pedro.",
+          "start": 0.83,
+          "end": 1.01
+        },
+        {
+          "text": "Runs",
+          "start": 1.45,
+          "end": 1.69
+        },
+        {
+          "text": "not",
+          "start": 1.69,
+          "end": 1.89
+        },
+        {
+          "text": "this",
+          "start": 1.89,
+          "end": 2.05
+        },
+        {
+          "text": "speech",
+          "start": 2.05,
+          "end": 2.29
+        },
+        {
+          "text": "like",
+          "start": 2.29,
+          "end": 2.51
+        },
+        {
+          "text": "iron",
+          "start": 2.51,
+          "end": 2.83
+        },
+        {
+          "text": "through",
+          "start": 2.83,
+          "end": 3.11
+        },
+        {
+          "text": "your",
+          "start": 3.11,
+          "end": 3.25
+        },
+        {
+          "text": "blood?",
+          "start": 3.25,
+          "end": 3.51
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18776511773467064
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2c5cdfa34e50a1c5c15d21fb8821b602eb5cb9659634ef6279401c1af30dd6f5",
+  "selected_reasons": []
+}

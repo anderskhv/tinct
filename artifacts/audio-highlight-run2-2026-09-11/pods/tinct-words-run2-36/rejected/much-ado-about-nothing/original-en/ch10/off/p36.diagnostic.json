@@ -1,0 +1,668 @@
+{
+  "complete": true,
+  "signature": "ee9393fe3c2934657f8fe0b8696eec59667326007a20957dbbbaf44f2cee7863",
+  "attempts": [
+    {
+      "asr_seconds": 0.3467658683657646,
+      "alignment_seconds": 0.0006720051169395447,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Beatrice, it is not seen enough. You should wear it in your cap by my troth. I am sick",
+          "start": 0.65,
+          "end": 5.13,
+          "words": [
+            {
+              "text": " Beatrice,",
+              "start": 0.65,
+              "end": 1.01,
+              "probability": 0.91259765625
+            },
+            {
+              "text": " it",
+              "start": 1.29,
+              "end": 1.49,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " is",
+              "start": 1.49,
+              "end": 1.59,
+              "probability": 0.92578125
+            },
+            {
+              "text": " not",
+              "start": 1.59,
+              "end": 1.77,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " seen",
+              "start": 1.77,
+              "end": 2.01,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " enough.",
+              "start": 2.01,
+              "end": 2.25,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " You",
+              "start": 2.41,
+              "end": 2.47,
+              "probability": 0.998046875
+            },
+            {
+              "text": " should",
+              "start": 2.47,
+              "end": 2.59,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " wear",
+              "start": 2.59,
+              "end": 2.79,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it",
+              "start": 2.79,
+              "end": 2.89,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " in",
+              "start": 2.89,
+              "end": 2.97,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " your",
+              "start": 2.97,
+              "end": 3.09,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " cap",
+              "start": 3.09,
+              "end": 3.41,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " by",
+              "start": 3.41,
+              "end": 3.93,
+              "probability": 0.64404296875
+            },
+            {
+              "text": " my",
+              "start": 3.93,
+              "end": 4.11,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " troth.",
+              "start": 4.11,
+              "end": 4.55,
+              "probability": 0.7529296875
+            },
+            {
+              "text": " I",
+              "start": 4.67,
+              "end": 4.69,
+              "probability": 0.998046875
+            },
+            {
+              "text": " am",
+              "start": 4.69,
+              "end": 4.81,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " sick",
+              "start": 4.81,
+              "end": 5.13,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Beatrice,",
+          "start": 0.65,
+          "end": 1.01
+        },
+        {
+          "raw": "it",
+          "start": 1.29,
+          "end": 1.49
+        },
+        {
+          "raw": "is",
+          "start": 1.49,
+          "end": 1.59
+        },
+        {
+          "raw": "not",
+          "start": 1.59,
+          "end": 1.77
+        },
+        {
+          "raw": "seen",
+          "start": 1.77,
+          "end": 2.01
+        },
+        {
+          "raw": "enough.",
+          "start": 2.01,
+          "end": 2.25
+        },
+        {
+          "raw": "You",
+          "start": 2.41,
+          "end": 2.47
+        },
+        {
+          "raw": "should",
+          "start": 2.47,
+          "end": 2.59
+        },
+        {
+          "raw": "wear",
+          "start": 2.59,
+          "end": 2.79
+        },
+        {
+          "raw": "it",
+          "start": 2.79,
+          "end": 2.89
+        },
+        {
+          "raw": "in",
+          "start": 2.89,
+          "end": 2.97
+        },
+        {
+          "raw": "your",
+          "start": 2.97,
+          "end": 3.09
+        },
+        {
+          "raw": "cap",
+          "start": 3.09,
+          "end": 3.41
+        },
+        {
+          "raw": "by",
+          "start": 3.41,
+          "end": 3.93
+        },
+        {
+          "raw": "my",
+          "start": 3.93,
+          "end": 4.11
+        },
+        {
+          "raw": "troth.",
+          "start": 4.11,
+          "end": 4.55
+        },
+        {
+          "raw": "I",
+          "start": 4.67,
+          "end": 4.69
+        },
+        {
+          "raw": "am",
+          "start": 4.69,
+          "end": 4.81
+        },
+        {
+          "raw": "sick",
+          "start": 4.81,
+          "end": 5.13
+        }
+      ],
+      "expected_tokens": [
+        "Beatrice.",
+        "It",
+        "is",
+        "not",
+        "seen",
+        "enough,",
+        "you",
+        "should",
+        "wear",
+        "it",
+        "in",
+        "your",
+        "cap.",
+        "By",
+        "my",
+        "troth,",
+        "I",
+        "am",
+        "sick."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Beatrice,",
+          "start": 0.65,
+          "end": 1.01,
+          "key": "beatrice",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.29,
+          "end": 1.49,
+          "key": "it",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.49,
+          "end": 1.59,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.59,
+          "end": 1.77,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "seen",
+          "start": 1.77,
+          "end": 2.01,
+          "key": "seen",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "enough.",
+          "start": 2.01,
+          "end": 2.25,
+          "key": "enough",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 2.41,
+          "end": 2.47,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 2.47,
+          "end": 2.59,
+          "key": "should",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "wear",
+          "start": 2.59,
+          "end": 2.79,
+          "key": "wear",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.79,
+          "end": 2.89,
+          "key": "it",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.89,
+          "end": 2.97,
+          "key": "in",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.97,
+          "end": 3.09,
+          "key": "your",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "cap",
+          "start": 3.09,
+          "end": 3.41,
+          "key": "cap",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 3.41,
+          "end": 3.93,
+          "key": "by",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.93,
+          "end": 4.11,
+          "key": "my",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "troth.",
+          "start": 4.11,
+          "end": 4.55,
+          "key": "troth",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.67,
+          "end": 4.69,
+          "key": "i",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 4.69,
+          "end": 4.81,
+          "key": "am",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "sick",
+          "start": 4.81,
+          "end": 5.13,
+          "key": "sick",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Beatrice.",
+          "start": 0.65,
+          "end": 1.01
+        },
+        {
+          "text": "It",
+          "start": 1.29,
+          "end": 1.49
+        },
+        {
+          "text": "is",
+          "start": 1.49,
+          "end": 1.59
+        },
+        {
+          "text": "not",
+          "start": 1.59,
+          "end": 1.77
+        },
+        {
+          "text": "seen",
+          "start": 1.77,
+          "end": 2.01
+        },
+        {
+          "text": "enough,",
+          "start": 2.01,
+          "end": 2.25
+        },
+        {
+          "text": "you",
+          "start": 2.41,
+          "end": 2.47
+        },
+        {
+          "text": "should",
+          "start": 2.47,
+          "end": 2.59
+        },
+        {
+          "text": "wear",
+          "start": 2.59,
+          "end": 2.79
+        },
+        {
+          "text": "it",
+          "start": 2.79,
+          "end": 2.89
+        },
+        {
+          "text": "in",
+          "start": 2.89,
+          "end": 2.97
+        },
+        {
+          "text": "your",
+          "start": 2.97,
+          "end": 3.09
+        },
+        {
+          "text": "cap.",
+          "start": 3.09,
+          "end": 3.41
+        },
+        {
+          "text": "By",
+          "start": 3.41,
+          "end": 3.93
+        },
+        {
+          "text": "my",
+          "start": 3.93,
+          "end": 4.11
+        },
+        {
+          "text": "troth,",
+          "start": 4.11,
+          "end": 4.55
+        },
+        {
+          "text": "I",
+          "start": 4.67,
+          "end": 4.69
+        },
+        {
+          "text": "am",
+          "start": 4.69,
+          "end": 4.81
+        },
+        {
+          "text": "sick.",
+          "start": 4.81,
+          "end": 5.13
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.34773946925997734
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6f73ebb0db52260149b448b31a2688c6d96f48b0075cd446a4ebd8efb4367804",
+  "selected_reasons": []
+}

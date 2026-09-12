@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "6f1668ad36fb2afd0de86447f602884279018cc132991952b6fffa7d2c688a62",
+  "attempts": [
+    {
+      "asr_seconds": 0.1533847711980343,
+      "alignment_seconds": 0.0003826655447483063,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Don Pedro. And hath challenged thee?",
+        "hotwords": "Don, Pedro, And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Don, Pedro, And hath challenged thee?",
+          "start": 0.05,
+          "end": 2.43,
+          "words": [
+            {
+              "text": " Don,",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.44482421875
+            },
+            {
+              "text": " Pedro,",
+              "start": 0.77,
+              "end": 1.03,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " And",
+              "start": 1.43,
+              "end": 1.53,
+              "probability": 0.01373291015625
+            },
+            {
+              "text": " hath",
+              "start": 1.53,
+              "end": 1.67,
+              "probability": 0.7724609375
+            },
+            {
+              "text": " challenged",
+              "start": 1.67,
+              "end": 2.07,
+              "probability": 0.82177734375
+            },
+            {
+              "text": " thee?",
+              "start": 2.07,
+              "end": 2.43,
+              "probability": 0.97265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Don,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "Pedro,",
+          "start": 0.77,
+          "end": 1.03
+        },
+        {
+          "raw": "And",
+          "start": 1.43,
+          "end": 1.53
+        },
+        {
+          "raw": "hath",
+          "start": 1.53,
+          "end": 1.67
+        },
+        {
+          "raw": "challenged",
+          "start": 1.67,
+          "end": 2.07
+        },
+        {
+          "raw": "thee?",
+          "start": 2.07,
+          "end": 2.43
+        }
+      ],
+      "expected_tokens": [
+        "Don",
+        "Pedro.",
+        "And",
+        "hath",
+        "challenged",
+        "thee?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Don,",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "don",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pedro,",
+          "start": 0.77,
+          "end": 1.03,
+          "key": "pedro",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 1.43,
+          "end": 1.53,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 1.53,
+          "end": 1.67,
+          "key": "hath",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "challenged",
+          "start": 1.67,
+          "end": 2.07,
+          "key": "challenged",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thee?",
+          "start": 2.07,
+          "end": 2.43,
+          "key": "thee",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Don",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Pedro.",
+          "start": 0.77,
+          "end": 1.03
+        },
+        {
+          "text": "And",
+          "start": 1.43,
+          "end": 1.53
+        },
+        {
+          "text": "hath",
+          "start": 1.53,
+          "end": 1.67
+        },
+        {
+          "text": "challenged",
+          "start": 1.67,
+          "end": 2.07
+        },
+        {
+          "text": "thee?",
+          "start": 2.07,
+          "end": 2.43
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15390682592988014
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2e1872eb68c88be12408934cb20da8d07cec62de6e132218e017da8d8f18aa14",
+  "selected_reasons": []
+}

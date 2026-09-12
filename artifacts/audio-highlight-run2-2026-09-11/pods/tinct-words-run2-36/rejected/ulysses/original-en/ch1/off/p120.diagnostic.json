@@ -1,0 +1,807 @@
+{
+  "complete": true,
+  "signature": "b48b6f464b975c6ae63965116f2b4fa07a1b75512ba10ec048a34f66ef237035",
+  "attempts": [
+    {
+      "asr_seconds": 0.30472642183303833,
+      "alignment_seconds": 0.0005203336477279663,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Dead Ellis come down like a good mosey breakfast is ready Haynes is apologizing for waking us last night. It's alright",
+          "start": 0.05,
+          "end": 8.03,
+          "words": [
+            {
+              "text": " Dead",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.75732421875
+            },
+            {
+              "text": " Ellis",
+              "start": 0.59,
+              "end": 0.89,
+              "probability": 0.69580078125
+            },
+            {
+              "text": " come",
+              "start": 0.89,
+              "end": 1.29,
+              "probability": 0.439453125
+            },
+            {
+              "text": " down",
+              "start": 1.29,
+              "end": 1.63,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " like",
+              "start": 1.63,
+              "end": 1.83,
+              "probability": 0.98828125
+            },
+            {
+              "text": " a",
+              "start": 1.83,
+              "end": 1.97,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " good",
+              "start": 1.97,
+              "end": 2.13,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " mosey",
+              "start": 2.13,
+              "end": 3.03,
+              "probability": 0.9007161458333334
+            },
+            {
+              "text": " breakfast",
+              "start": 3.03,
+              "end": 3.39,
+              "probability": 0.4013671875
+            },
+            {
+              "text": " is",
+              "start": 3.39,
+              "end": 3.73,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " ready",
+              "start": 3.73,
+              "end": 4.09,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Haynes",
+              "start": 4.09,
+              "end": 5.01,
+              "probability": 0.716796875
+            },
+            {
+              "text": " is",
+              "start": 5.01,
+              "end": 5.13,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " apologizing",
+              "start": 5.13,
+              "end": 5.67,
+              "probability": 0.865234375
+            },
+            {
+              "text": " for",
+              "start": 5.67,
+              "end": 6.11,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " waking",
+              "start": 6.11,
+              "end": 6.35,
+              "probability": 0.998046875
+            },
+            {
+              "text": " us",
+              "start": 6.35,
+              "end": 6.59,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " last",
+              "start": 6.59,
+              "end": 6.85,
+              "probability": 0.994140625
+            },
+            {
+              "text": " night.",
+              "start": 6.85,
+              "end": 7.25,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " It's",
+              "start": 7.25,
+              "end": 7.71,
+              "probability": 0.999267578125
+            },
+            {
+              "text": " alright",
+              "start": 7.71,
+              "end": 8.03,
+              "probability": 0.459716796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dead",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "Ellis",
+          "start": 0.59,
+          "end": 0.89
+        },
+        {
+          "raw": "come",
+          "start": 0.89,
+          "end": 1.29
+        },
+        {
+          "raw": "down",
+          "start": 1.29,
+          "end": 1.63
+        },
+        {
+          "raw": "like",
+          "start": 1.63,
+          "end": 1.83
+        },
+        {
+          "raw": "a",
+          "start": 1.83,
+          "end": 1.97
+        },
+        {
+          "raw": "good",
+          "start": 1.97,
+          "end": 2.13
+        },
+        {
+          "raw": "mosey",
+          "start": 2.13,
+          "end": 3.03
+        },
+        {
+          "raw": "breakfast",
+          "start": 3.03,
+          "end": 3.39
+        },
+        {
+          "raw": "is",
+          "start": 3.39,
+          "end": 3.73
+        },
+        {
+          "raw": "ready",
+          "start": 3.73,
+          "end": 4.09
+        },
+        {
+          "raw": "Haynes",
+          "start": 4.09,
+          "end": 5.01
+        },
+        {
+          "raw": "is",
+          "start": 5.01,
+          "end": 5.13
+        },
+        {
+          "raw": "apologizing",
+          "start": 5.13,
+          "end": 5.67
+        },
+        {
+          "raw": "for",
+          "start": 5.67,
+          "end": 6.11
+        },
+        {
+          "raw": "waking",
+          "start": 6.11,
+          "end": 6.35
+        },
+        {
+          "raw": "us",
+          "start": 6.35,
+          "end": 6.59
+        },
+        {
+          "raw": "last",
+          "start": 6.59,
+          "end": 6.85
+        },
+        {
+          "raw": "night.",
+          "start": 6.85,
+          "end": 7.25
+        },
+        {
+          "raw": "It's",
+          "start": 7.25,
+          "end": 7.71
+        },
+        {
+          "raw": "alright",
+          "start": 7.71,
+          "end": 8.03
+        }
+      ],
+      "expected_tokens": [
+        "—Dedalus,",
+        "come",
+        "down,",
+        "like",
+        "a",
+        "good",
+        "mosey.",
+        "Breakfast",
+        "is",
+        "ready.",
+        "Haines",
+        "is",
+        "apologising",
+        "for",
+        "waking",
+        "us",
+        "last",
+        "night.",
+        "It's",
+        "all",
+        "right."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          10,
+          2,
+          11
+        ],
+        [
+          "replace",
+          10,
+          11,
+          11,
+          12
+        ],
+        [
+          "equal",
+          11,
+          12,
+          12,
+          13
+        ],
+        [
+          "replace",
+          12,
+          13,
+          13,
+          14
+        ],
+        [
+          "equal",
+          13,
+          19,
+          14,
+          20
+        ],
+        [
+          "replace",
+          19,
+          21,
+          20,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "replace",
+          10,
+          11,
+          11,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          13,
+          14
+        ],
+        [
+          "replace",
+          19,
+          21,
+          20,
+          21
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dead",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "dead",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ellis",
+          "start": 0.59,
+          "end": 0.89,
+          "key": "ellis",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 0.89,
+          "end": 1.29,
+          "key": "come",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 1.29,
+          "end": 1.63,
+          "key": "down",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 1.63,
+          "end": 1.83,
+          "key": "like",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.83,
+          "end": 1.97,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.97,
+          "end": 2.13,
+          "key": "good",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "mosey",
+          "start": 2.13,
+          "end": 3.03,
+          "key": "mosey",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "breakfast",
+          "start": 3.03,
+          "end": 3.39,
+          "key": "breakfast",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.39,
+          "end": 3.73,
+          "key": "is",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "ready",
+          "start": 3.73,
+          "end": 4.09,
+          "key": "ready",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Haynes",
+          "start": 4.09,
+          "end": 5.01,
+          "key": "haynes",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 5.01,
+          "end": 5.13,
+          "key": "is",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "apologizing",
+          "start": 5.13,
+          "end": 5.67,
+          "key": "apologizing",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 5.67,
+          "end": 6.11,
+          "key": "for",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "waking",
+          "start": 6.11,
+          "end": 6.35,
+          "key": "waking",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 6.35,
+          "end": 6.59,
+          "key": "us",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "last",
+          "start": 6.59,
+          "end": 6.85,
+          "key": "last",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "night.",
+          "start": 6.85,
+          "end": 7.25,
+          "key": "night",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "It's",
+          "start": 7.25,
+          "end": 7.71,
+          "key": "its",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "alright",
+          "start": 7.71,
+          "end": 8.03,
+          "key": "alright",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Dedalus,",
+          "start": 0.0,
+          "end": 0.445
+        },
+        {
+          "text": "come",
+          "start": 0.89,
+          "end": 1.29
+        },
+        {
+          "text": "down,",
+          "start": 1.29,
+          "end": 1.63
+        },
+        {
+          "text": "like",
+          "start": 1.63,
+          "end": 1.83
+        },
+        {
+          "text": "a",
+          "start": 1.83,
+          "end": 1.97
+        },
+        {
+          "text": "good",
+          "start": 1.97,
+          "end": 2.13
+        },
+        {
+          "text": "mosey.",
+          "start": 2.13,
+          "end": 3.03
+        },
+        {
+          "text": "Breakfast",
+          "start": 3.03,
+          "end": 3.39
+        },
+        {
+          "text": "is",
+          "start": 3.39,
+          "end": 3.73
+        },
+        {
+          "text": "ready.",
+          "start": 3.73,
+          "end": 4.09
+        },
+        {
+          "text": "Haines",
+          "start": 4.09,
+          "end": 4.55
+        },
+        {
+          "text": "is",
+          "start": 5.01,
+          "end": 5.13
+        },
+        {
+          "text": "apologising",
+          "start": 5.13,
+          "end": 5.4
+        },
+        {
+          "text": "for",
+          "start": 5.67,
+          "end": 6.11
+        },
+        {
+          "text": "waking",
+          "start": 6.11,
+          "end": 6.35
+        },
+        {
+          "text": "us",
+          "start": 6.35,
+          "end": 6.59
+        },
+        {
+          "text": "last",
+          "start": 6.59,
+          "end": 6.85
+        },
+        {
+          "text": "night.",
+          "start": 6.85,
+          "end": 7.25
+        },
+        {
+          "text": "It's",
+          "start": 7.25,
+          "end": 7.71
+        },
+        {
+          "text": "all",
+          "start": 7.71,
+          "end": 7.87
+        },
+        {
+          "text": "right.",
+          "start": 7.87,
+          "end": 7.95
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 16
+      },
+      "match_ratio": 0.7619047619047619,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3054381087422371
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c8277b5cb86e7a15aca8a2dfb08fc02900b18a25b16cac9df1b6c98771cb391f",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

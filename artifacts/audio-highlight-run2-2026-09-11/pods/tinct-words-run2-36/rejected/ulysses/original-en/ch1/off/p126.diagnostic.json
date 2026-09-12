@@ -1,0 +1,476 @@
+{
+  "complete": true,
+  "signature": "86d6bb9d8dad6f4e5108a3f14d5eaca1c645ab79c8b50f7115f42cf71970c3a7",
+  "attempts": [
+    {
+      "asr_seconds": 0.23022719472646713,
+      "alignment_seconds": 0.00046625733375549316,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The school kip Buck Mulligan said how much four quid lend us one",
+          "start": 0.02,
+          "end": 4.42,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.7265625
+            },
+            {
+              "text": " school",
+              "start": 0.5,
+              "end": 0.74,
+              "probability": 0.90625
+            },
+            {
+              "text": " kip",
+              "start": 0.74,
+              "end": 1.12,
+              "probability": 0.6123046875
+            },
+            {
+              "text": " Buck",
+              "start": 1.12,
+              "end": 1.56,
+              "probability": 0.191162109375
+            },
+            {
+              "text": " Mulligan",
+              "start": 1.56,
+              "end": 1.92,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " said",
+              "start": 1.92,
+              "end": 2.2,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " how",
+              "start": 2.2,
+              "end": 2.42,
+              "probability": 0.87353515625
+            },
+            {
+              "text": " much",
+              "start": 2.42,
+              "end": 2.74,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " four",
+              "start": 2.74,
+              "end": 3.1,
+              "probability": 0.298583984375
+            },
+            {
+              "text": " quid",
+              "start": 3.1,
+              "end": 3.56,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " lend",
+              "start": 3.56,
+              "end": 3.84,
+              "probability": 0.91455078125
+            },
+            {
+              "text": " us",
+              "start": 3.84,
+              "end": 4.04,
+              "probability": 0.990234375
+            },
+            {
+              "text": " one",
+              "start": 4.04,
+              "end": 4.42,
+              "probability": 0.97509765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "school",
+          "start": 0.5,
+          "end": 0.74
+        },
+        {
+          "raw": "kip",
+          "start": 0.74,
+          "end": 1.12
+        },
+        {
+          "raw": "Buck",
+          "start": 1.12,
+          "end": 1.56
+        },
+        {
+          "raw": "Mulligan",
+          "start": 1.56,
+          "end": 1.92
+        },
+        {
+          "raw": "said",
+          "start": 1.92,
+          "end": 2.2
+        },
+        {
+          "raw": "how",
+          "start": 2.2,
+          "end": 2.42
+        },
+        {
+          "raw": "much",
+          "start": 2.42,
+          "end": 2.74
+        },
+        {
+          "raw": "four",
+          "start": 2.74,
+          "end": 3.1
+        },
+        {
+          "raw": "quid",
+          "start": 3.1,
+          "end": 3.56
+        },
+        {
+          "raw": "lend",
+          "start": 3.56,
+          "end": 3.84
+        },
+        {
+          "raw": "us",
+          "start": 3.84,
+          "end": 4.04
+        },
+        {
+          "raw": "one",
+          "start": 4.04,
+          "end": 4.42
+        }
+      ],
+      "expected_tokens": [
+        "—The",
+        "school",
+        "kip?",
+        "Buck",
+        "Mulligan",
+        "said.",
+        "How",
+        "much?",
+        "Four",
+        "quid?",
+        "Lend",
+        "us",
+        "one."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "school",
+          "start": 0.5,
+          "end": 0.74,
+          "key": "school",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "kip",
+          "start": 0.74,
+          "end": 1.12,
+          "key": "kip",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Buck",
+          "start": 1.12,
+          "end": 1.56,
+          "key": "buck",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Mulligan",
+          "start": 1.56,
+          "end": 1.92,
+          "key": "mulligan",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.92,
+          "end": 2.2,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 2.2,
+          "end": 2.42,
+          "key": "how",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 2.42,
+          "end": 2.74,
+          "key": "much",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "four",
+          "start": 2.74,
+          "end": 3.1,
+          "key": "four",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "quid",
+          "start": 3.1,
+          "end": 3.56,
+          "key": "quid",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "lend",
+          "start": 3.56,
+          "end": 3.84,
+          "key": "lend",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 3.84,
+          "end": 4.04,
+          "key": "us",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 4.04,
+          "end": 4.42,
+          "key": "one",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "school",
+          "start": 0.5,
+          "end": 0.74
+        },
+        {
+          "text": "kip?",
+          "start": 0.74,
+          "end": 1.12
+        },
+        {
+          "text": "Buck",
+          "start": 1.12,
+          "end": 1.56
+        },
+        {
+          "text": "Mulligan",
+          "start": 1.56,
+          "end": 1.92
+        },
+        {
+          "text": "said.",
+          "start": 1.92,
+          "end": 2.2
+        },
+        {
+          "text": "How",
+          "start": 2.2,
+          "end": 2.42
+        },
+        {
+          "text": "much?",
+          "start": 2.42,
+          "end": 2.74
+        },
+        {
+          "text": "Four",
+          "start": 2.74,
+          "end": 3.1
+        },
+        {
+          "text": "quid?",
+          "start": 3.1,
+          "end": 3.56
+        },
+        {
+          "text": "Lend",
+          "start": 3.56,
+          "end": 3.84
+        },
+        {
+          "text": "us",
+          "start": 3.84,
+          "end": 4.04
+        },
+        {
+          "text": "one.",
+          "start": 4.04,
+          "end": 4.42
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23094110190868378
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3d7969dea102396c8f7ec50b42d63085786cd43ae7de4448ee1cb40a1dafb171",
+  "selected_reasons": []
+}

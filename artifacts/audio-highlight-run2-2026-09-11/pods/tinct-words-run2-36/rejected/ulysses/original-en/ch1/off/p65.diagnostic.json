@@ -1,0 +1,835 @@
+{
+  "complete": true,
+  "signature": "815872fcd7a7f70c8bb8da57db4a3b96c6547dd55e99af82fd98be316d666f1f",
+  "attempts": [
+    {
+      "asr_seconds": 0.37169213220477104,
+      "alignment_seconds": 0.000609908252954483,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " It's not fair to tease you like that, Kinch, is it?",
+          "start": 0.02,
+          "end": 2.76,
+          "words": [
+            {
+              "text": " It's",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.787353515625
+            },
+            {
+              "text": " not",
+              "start": 0.54,
+              "end": 0.68,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " fair",
+              "start": 0.68,
+              "end": 0.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 0.88,
+              "end": 1.08,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " tease",
+              "start": 1.08,
+              "end": 1.26,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " you",
+              "start": 1.26,
+              "end": 1.44,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " like",
+              "start": 1.44,
+              "end": 1.62,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " that,",
+              "start": 1.62,
+              "end": 1.88,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Kinch,",
+              "start": 2.04,
+              "end": 2.14,
+              "probability": 0.838623046875
+            },
+            {
+              "text": " is",
+              "start": 2.36,
+              "end": 2.48,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " it?",
+              "start": 2.48,
+              "end": 2.76,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " He said kindly, God knows you have more spirit than any of them.",
+          "start": 3.16,
+          "end": 6.76,
+          "words": [
+            {
+              "text": " He",
+              "start": 3.16,
+              "end": 3.3,
+              "probability": 0.890625
+            },
+            {
+              "text": " said",
+              "start": 3.3,
+              "end": 3.52,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " kindly,",
+              "start": 3.52,
+              "end": 4.04,
+              "probability": 0.98046875
+            },
+            {
+              "text": " God",
+              "start": 4.72,
+              "end": 4.88,
+              "probability": 0.177734375
+            },
+            {
+              "text": " knows",
+              "start": 4.88,
+              "end": 5.12,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you",
+              "start": 5.12,
+              "end": 5.32,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " have",
+              "start": 5.32,
+              "end": 5.42,
+              "probability": 0.873046875
+            },
+            {
+              "text": " more",
+              "start": 5.42,
+              "end": 5.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " spirit",
+              "start": 5.58,
+              "end": 5.94,
+              "probability": 0.955078125
+            },
+            {
+              "text": " than",
+              "start": 5.94,
+              "end": 6.2,
+              "probability": 0.99609375
+            },
+            {
+              "text": " any",
+              "start": 6.2,
+              "end": 6.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 6.42,
+              "end": 6.56,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " them.",
+              "start": 6.56,
+              "end": 6.76,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It's",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "not",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "raw": "fair",
+          "start": 0.68,
+          "end": 0.88
+        },
+        {
+          "raw": "to",
+          "start": 0.88,
+          "end": 1.08
+        },
+        {
+          "raw": "tease",
+          "start": 1.08,
+          "end": 1.26
+        },
+        {
+          "raw": "you",
+          "start": 1.26,
+          "end": 1.44
+        },
+        {
+          "raw": "like",
+          "start": 1.44,
+          "end": 1.62
+        },
+        {
+          "raw": "that,",
+          "start": 1.62,
+          "end": 1.88
+        },
+        {
+          "raw": "Kinch,",
+          "start": 2.04,
+          "end": 2.14
+        },
+        {
+          "raw": "is",
+          "start": 2.36,
+          "end": 2.48
+        },
+        {
+          "raw": "it?",
+          "start": 2.48,
+          "end": 2.76
+        },
+        {
+          "raw": "He",
+          "start": 3.16,
+          "end": 3.3
+        },
+        {
+          "raw": "said",
+          "start": 3.3,
+          "end": 3.52
+        },
+        {
+          "raw": "kindly,",
+          "start": 3.52,
+          "end": 4.04
+        },
+        {
+          "raw": "God",
+          "start": 4.72,
+          "end": 4.88
+        },
+        {
+          "raw": "knows",
+          "start": 4.88,
+          "end": 5.12
+        },
+        {
+          "raw": "you",
+          "start": 5.12,
+          "end": 5.32
+        },
+        {
+          "raw": "have",
+          "start": 5.32,
+          "end": 5.42
+        },
+        {
+          "raw": "more",
+          "start": 5.42,
+          "end": 5.58
+        },
+        {
+          "raw": "spirit",
+          "start": 5.58,
+          "end": 5.94
+        },
+        {
+          "raw": "than",
+          "start": 5.94,
+          "end": 6.2
+        },
+        {
+          "raw": "any",
+          "start": 6.2,
+          "end": 6.42
+        },
+        {
+          "raw": "of",
+          "start": 6.42,
+          "end": 6.56
+        },
+        {
+          "raw": "them.",
+          "start": 6.56,
+          "end": 6.76
+        }
+      ],
+      "expected_tokens": [
+        "—It's",
+        "not",
+        "fair",
+        "to",
+        "tease",
+        "you",
+        "like",
+        "that,",
+        "Kinch,",
+        "is",
+        "it?",
+        "he",
+        "said",
+        "kindly.",
+        "God",
+        "knows",
+        "you",
+        "have",
+        "more",
+        "spirit",
+        "than",
+        "any",
+        "of",
+        "them."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          24,
+          0,
+          24
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It's",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "its",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.54,
+          "end": 0.68,
+          "key": "not",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "fair",
+          "start": 0.68,
+          "end": 0.88,
+          "key": "fair",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.88,
+          "end": 1.08,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "tease",
+          "start": 1.08,
+          "end": 1.26,
+          "key": "tease",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.26,
+          "end": 1.44,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 1.44,
+          "end": 1.62,
+          "key": "like",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "that,",
+          "start": 1.62,
+          "end": 1.88,
+          "key": "that",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Kinch,",
+          "start": 2.04,
+          "end": 2.14,
+          "key": "kinch",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.36,
+          "end": 2.48,
+          "key": "is",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "it?",
+          "start": 2.48,
+          "end": 2.76,
+          "key": "it",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 3.16,
+          "end": 3.3,
+          "key": "he",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 3.3,
+          "end": 3.52,
+          "key": "said",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "kindly,",
+          "start": 3.52,
+          "end": 4.04,
+          "key": "kindly",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "God",
+          "start": 4.72,
+          "end": 4.88,
+          "key": "god",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "knows",
+          "start": 4.88,
+          "end": 5.12,
+          "key": "knows",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.12,
+          "end": 5.32,
+          "key": "you",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 5.32,
+          "end": 5.42,
+          "key": "have",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 5.42,
+          "end": 5.58,
+          "key": "more",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "spirit",
+          "start": 5.58,
+          "end": 5.94,
+          "key": "spirit",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 5.94,
+          "end": 6.2,
+          "key": "than",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 6.2,
+          "end": 6.42,
+          "key": "any",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.42,
+          "end": 6.56,
+          "key": "of",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 6.56,
+          "end": 6.76,
+          "key": "them",
+          "pieces": [
+            23
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—It's",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "not",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "text": "fair",
+          "start": 0.68,
+          "end": 0.88
+        },
+        {
+          "text": "to",
+          "start": 0.88,
+          "end": 1.08
+        },
+        {
+          "text": "tease",
+          "start": 1.08,
+          "end": 1.26
+        },
+        {
+          "text": "you",
+          "start": 1.26,
+          "end": 1.44
+        },
+        {
+          "text": "like",
+          "start": 1.44,
+          "end": 1.62
+        },
+        {
+          "text": "that,",
+          "start": 1.62,
+          "end": 1.88
+        },
+        {
+          "text": "Kinch,",
+          "start": 2.04,
+          "end": 2.14
+        },
+        {
+          "text": "is",
+          "start": 2.36,
+          "end": 2.48
+        },
+        {
+          "text": "it?",
+          "start": 2.48,
+          "end": 2.76
+        },
+        {
+          "text": "he",
+          "start": 3.16,
+          "end": 3.3
+        },
+        {
+          "text": "said",
+          "start": 3.3,
+          "end": 3.52
+        },
+        {
+          "text": "kindly.",
+          "start": 3.52,
+          "end": 4.04
+        },
+        {
+          "text": "God",
+          "start": 4.72,
+          "end": 4.88
+        },
+        {
+          "text": "knows",
+          "start": 4.88,
+          "end": 5.12
+        },
+        {
+          "text": "you",
+          "start": 5.12,
+          "end": 5.32
+        },
+        {
+          "text": "have",
+          "start": 5.32,
+          "end": 5.42
+        },
+        {
+          "text": "more",
+          "start": 5.42,
+          "end": 5.58
+        },
+        {
+          "text": "spirit",
+          "start": 5.58,
+          "end": 5.94
+        },
+        {
+          "text": "than",
+          "start": 5.94,
+          "end": 6.2
+        },
+        {
+          "text": "any",
+          "start": 6.2,
+          "end": 6.42
+        },
+        {
+          "text": "of",
+          "start": 6.42,
+          "end": 6.56
+        },
+        {
+          "text": "them.",
+          "start": 6.56,
+          "end": 6.76
+        }
+      ],
+      "stats": {
+        "expected_words": 24,
+        "heard_words": 24,
+        "matched_words": 24
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.37257738783955574
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3152f41f0ef33167d02767d00338d60bcd50cdd67d73127ba40bf1f50eaf9e72",
+  "selected_reasons": []
+}

@@ -1,0 +1,766 @@
+{
+  "complete": true,
+  "signature": "70899a5c1d687a2761485d2dffe55e06d10aaca7f7064cde5f7ad3d6a02edae3",
+  "attempts": [
+    {
+      "asr_seconds": 0.32420165091753006,
+      "alignment_seconds": 0.0005417540669441223,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Benedick. Sir, I shall meet your wit in the career, and you charge it against me. I pray you choose another subject.",
+        "hotwords": "Benedick, Sir, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Benedick, Sir, I shall meet your wit in the career, and you charge it against me. I pray you choose another subject.",
+          "start": 0.56,
+          "end": 6.94,
+          "words": [
+            {
+              "text": " Benedick,",
+              "start": 0.56,
+              "end": 1.0,
+              "probability": 0.397186279296875
+            },
+            {
+              "text": " Sir,",
+              "start": 1.4,
+              "end": 1.48,
+              "probability": 0.257080078125
+            },
+            {
+              "text": " I",
+              "start": 1.98,
+              "end": 2.08,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " shall",
+              "start": 2.08,
+              "end": 2.22,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " meet",
+              "start": 2.22,
+              "end": 2.38,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " your",
+              "start": 2.38,
+              "end": 2.58,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " wit",
+              "start": 2.58,
+              "end": 2.78,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " in",
+              "start": 2.78,
+              "end": 2.9,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " the",
+              "start": 2.9,
+              "end": 3.0,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " career,",
+              "start": 3.0,
+              "end": 3.3,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " and",
+              "start": 3.56,
+              "end": 3.64,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " you",
+              "start": 3.64,
+              "end": 3.78,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " charge",
+              "start": 3.78,
+              "end": 4.04,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " it",
+              "start": 4.04,
+              "end": 4.22,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " against",
+              "start": 4.22,
+              "end": 4.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " me.",
+              "start": 4.44,
+              "end": 4.82,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " I",
+              "start": 5.44,
+              "end": 5.48,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " pray",
+              "start": 5.48,
+              "end": 5.64,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " you",
+              "start": 5.64,
+              "end": 5.86,
+              "probability": 0.990234375
+            },
+            {
+              "text": " choose",
+              "start": 5.86,
+              "end": 6.14,
+              "probability": 0.986328125
+            },
+            {
+              "text": " another",
+              "start": 6.14,
+              "end": 6.46,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " subject.",
+              "start": 6.46,
+              "end": 6.94,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Benedick,",
+          "start": 0.56,
+          "end": 1.0
+        },
+        {
+          "raw": "Sir,",
+          "start": 1.4,
+          "end": 1.48
+        },
+        {
+          "raw": "I",
+          "start": 1.98,
+          "end": 2.08
+        },
+        {
+          "raw": "shall",
+          "start": 2.08,
+          "end": 2.22
+        },
+        {
+          "raw": "meet",
+          "start": 2.22,
+          "end": 2.38
+        },
+        {
+          "raw": "your",
+          "start": 2.38,
+          "end": 2.58
+        },
+        {
+          "raw": "wit",
+          "start": 2.58,
+          "end": 2.78
+        },
+        {
+          "raw": "in",
+          "start": 2.78,
+          "end": 2.9
+        },
+        {
+          "raw": "the",
+          "start": 2.9,
+          "end": 3.0
+        },
+        {
+          "raw": "career,",
+          "start": 3.0,
+          "end": 3.3
+        },
+        {
+          "raw": "and",
+          "start": 3.56,
+          "end": 3.64
+        },
+        {
+          "raw": "you",
+          "start": 3.64,
+          "end": 3.78
+        },
+        {
+          "raw": "charge",
+          "start": 3.78,
+          "end": 4.04
+        },
+        {
+          "raw": "it",
+          "start": 4.04,
+          "end": 4.22
+        },
+        {
+          "raw": "against",
+          "start": 4.22,
+          "end": 4.44
+        },
+        {
+          "raw": "me.",
+          "start": 4.44,
+          "end": 4.82
+        },
+        {
+          "raw": "I",
+          "start": 5.44,
+          "end": 5.48
+        },
+        {
+          "raw": "pray",
+          "start": 5.48,
+          "end": 5.64
+        },
+        {
+          "raw": "you",
+          "start": 5.64,
+          "end": 5.86
+        },
+        {
+          "raw": "choose",
+          "start": 5.86,
+          "end": 6.14
+        },
+        {
+          "raw": "another",
+          "start": 6.14,
+          "end": 6.46
+        },
+        {
+          "raw": "subject.",
+          "start": 6.46,
+          "end": 6.94
+        }
+      ],
+      "expected_tokens": [
+        "Benedick.",
+        "Sir,",
+        "I",
+        "shall",
+        "meet",
+        "your",
+        "wit",
+        "in",
+        "the",
+        "career,",
+        "and",
+        "you",
+        "charge",
+        "it",
+        "against",
+        "me.",
+        "I",
+        "pray",
+        "you",
+        "choose",
+        "another",
+        "subject."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Benedick,",
+          "start": 0.56,
+          "end": 1.0,
+          "key": "benedick",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sir,",
+          "start": 1.4,
+          "end": 1.48,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.98,
+          "end": 2.08,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 2.08,
+          "end": 2.22,
+          "key": "shall",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "meet",
+          "start": 2.22,
+          "end": 2.38,
+          "key": "meet",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.38,
+          "end": 2.58,
+          "key": "your",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "wit",
+          "start": 2.58,
+          "end": 2.78,
+          "key": "wit",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.78,
+          "end": 2.9,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.9,
+          "end": 3.0,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "career,",
+          "start": 3.0,
+          "end": 3.3,
+          "key": "career",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.56,
+          "end": 3.64,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.64,
+          "end": 3.78,
+          "key": "you",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "charge",
+          "start": 3.78,
+          "end": 4.04,
+          "key": "charge",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 4.04,
+          "end": 4.22,
+          "key": "it",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "against",
+          "start": 4.22,
+          "end": 4.44,
+          "key": "against",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 4.44,
+          "end": 4.82,
+          "key": "me",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.44,
+          "end": 5.48,
+          "key": "i",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "pray",
+          "start": 5.48,
+          "end": 5.64,
+          "key": "pray",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.64,
+          "end": 5.86,
+          "key": "you",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "choose",
+          "start": 5.86,
+          "end": 6.14,
+          "key": "choose",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "another",
+          "start": 6.14,
+          "end": 6.46,
+          "key": "another",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "subject.",
+          "start": 6.46,
+          "end": 6.94,
+          "key": "subject",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Benedick.",
+          "start": 0.56,
+          "end": 1.0
+        },
+        {
+          "text": "Sir,",
+          "start": 1.4,
+          "end": 1.48
+        },
+        {
+          "text": "I",
+          "start": 1.98,
+          "end": 2.08
+        },
+        {
+          "text": "shall",
+          "start": 2.08,
+          "end": 2.22
+        },
+        {
+          "text": "meet",
+          "start": 2.22,
+          "end": 2.38
+        },
+        {
+          "text": "your",
+          "start": 2.38,
+          "end": 2.58
+        },
+        {
+          "text": "wit",
+          "start": 2.58,
+          "end": 2.78
+        },
+        {
+          "text": "in",
+          "start": 2.78,
+          "end": 2.9
+        },
+        {
+          "text": "the",
+          "start": 2.9,
+          "end": 3.0
+        },
+        {
+          "text": "career,",
+          "start": 3.0,
+          "end": 3.3
+        },
+        {
+          "text": "and",
+          "start": 3.56,
+          "end": 3.64
+        },
+        {
+          "text": "you",
+          "start": 3.64,
+          "end": 3.78
+        },
+        {
+          "text": "charge",
+          "start": 3.78,
+          "end": 4.04
+        },
+        {
+          "text": "it",
+          "start": 4.04,
+          "end": 4.22
+        },
+        {
+          "text": "against",
+          "start": 4.22,
+          "end": 4.44
+        },
+        {
+          "text": "me.",
+          "start": 4.44,
+          "end": 4.82
+        },
+        {
+          "text": "I",
+          "start": 5.44,
+          "end": 5.48
+        },
+        {
+          "text": "pray",
+          "start": 5.48,
+          "end": 5.64
+        },
+        {
+          "text": "you",
+          "start": 5.64,
+          "end": 5.86
+        },
+        {
+          "text": "choose",
+          "start": 5.86,
+          "end": 6.14
+        },
+        {
+          "text": "another",
+          "start": 6.14,
+          "end": 6.46
+        },
+        {
+          "text": "subject.",
+          "start": 6.46,
+          "end": 6.94
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3249680809676647
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "97ba5ef1f0afa4776256f05ad207b0ed9db2cf614674e45a4a0d789d732da213",
+  "selected_reasons": []
+}

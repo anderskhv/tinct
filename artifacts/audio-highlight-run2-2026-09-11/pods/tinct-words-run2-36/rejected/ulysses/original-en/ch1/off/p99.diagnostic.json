@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "90aad60c09a950bb5e301aaa6c35fa0bf2196f9907248810e55961bb4a41f4c0",
+  "attempts": [
+    {
+      "asr_seconds": 0.15681752935051918,
+      "alignment_seconds": 0.0003852918744087219,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I'm coming, Buck Mulligan answered.",
+          "start": 0.08,
+          "end": 2.2,
+          "words": [
+            {
+              "text": " I'm",
+              "start": 0.08,
+              "end": 0.6,
+              "probability": 0.6409912109375
+            },
+            {
+              "text": " coming,",
+              "start": 0.6,
+              "end": 0.9,
+              "probability": 0.986328125
+            },
+            {
+              "text": " Buck",
+              "start": 1.34,
+              "end": 1.38,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " Mulligan",
+              "start": 1.38,
+              "end": 1.74,
+              "probability": 0.948974609375
+            },
+            {
+              "text": " answered.",
+              "start": 1.74,
+              "end": 2.2,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I'm",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "raw": "coming,",
+          "start": 0.6,
+          "end": 0.9
+        },
+        {
+          "raw": "Buck",
+          "start": 1.34,
+          "end": 1.38
+        },
+        {
+          "raw": "Mulligan",
+          "start": 1.38,
+          "end": 1.74
+        },
+        {
+          "raw": "answered.",
+          "start": 1.74,
+          "end": 2.2
+        }
+      ],
+      "expected_tokens": [
+        "—I'm",
+        "coming,",
+        "Buck",
+        "Mulligan",
+        "answered."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I'm",
+          "start": 0.08,
+          "end": 0.6,
+          "key": "im",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "coming,",
+          "start": 0.6,
+          "end": 0.9,
+          "key": "coming",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Buck",
+          "start": 1.34,
+          "end": 1.38,
+          "key": "buck",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Mulligan",
+          "start": 1.38,
+          "end": 1.74,
+          "key": "mulligan",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "answered.",
+          "start": 1.74,
+          "end": 2.2,
+          "key": "answered",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—I'm",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "text": "coming,",
+          "start": 0.6,
+          "end": 0.9
+        },
+        {
+          "text": "Buck",
+          "start": 1.34,
+          "end": 1.38
+        },
+        {
+          "text": "Mulligan",
+          "start": 1.38,
+          "end": 1.74
+        },
+        {
+          "text": "answered.",
+          "start": 1.74,
+          "end": 2.2
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1573316529393196
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2792123b9a0cdbc812c4f23db4211be2e4dc0cee54d07a24fd3cf25af92cca4a",
+  "selected_reasons": []
+}

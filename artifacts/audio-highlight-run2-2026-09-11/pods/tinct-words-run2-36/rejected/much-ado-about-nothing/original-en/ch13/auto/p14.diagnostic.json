@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "203ecc1cb69cd8cdae8601a57663548b8e05d12c7a8e4ffaf2ea0b3141f02525",
+  "attempts": [
+    {
+      "asr_seconds": 0.159234207123518,
+      "alignment_seconds": 0.00032727792859077454,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Conrade. Marry, sir, we say we are none.",
+        "hotwords": "Conrade, Marry"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Conrade, Marry, sir, we say we are none.",
+          "start": 0.93,
+          "end": 2.39,
+          "words": [
+            {
+              "text": " Conrade,",
+              "start": 0.93,
+              "end": 1.25,
+              "probability": 0.134521484375
+            },
+            {
+              "text": " Marry,",
+              "start": 1.25,
+              "end": 1.57,
+              "probability": 0.48346900939941406
+            },
+            {
+              "text": " sir,",
+              "start": 1.59,
+              "end": 1.69,
+              "probability": 0.830078125
+            },
+            {
+              "text": " we",
+              "start": 1.81,
+              "end": 1.81,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " say",
+              "start": 1.81,
+              "end": 1.97,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " we",
+              "start": 1.97,
+              "end": 2.11,
+              "probability": 0.984375
+            },
+            {
+              "text": " are",
+              "start": 2.11,
+              "end": 2.21,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " none.",
+              "start": 2.21,
+              "end": 2.39,
+              "probability": 0.94140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Conrade,",
+          "start": 0.93,
+          "end": 1.25
+        },
+        {
+          "raw": "Marry,",
+          "start": 1.25,
+          "end": 1.57
+        },
+        {
+          "raw": "sir,",
+          "start": 1.59,
+          "end": 1.69
+        },
+        {
+          "raw": "we",
+          "start": 1.81,
+          "end": 1.81
+        },
+        {
+          "raw": "say",
+          "start": 1.81,
+          "end": 1.97
+        },
+        {
+          "raw": "we",
+          "start": 1.97,
+          "end": 2.11
+        },
+        {
+          "raw": "are",
+          "start": 2.11,
+          "end": 2.21
+        },
+        {
+          "raw": "none.",
+          "start": 2.21,
+          "end": 2.39
+        }
+      ],
+      "expected_tokens": [
+        "Conrade.",
+        "Marry,",
+        "sir,",
+        "we",
+        "say",
+        "we",
+        "are",
+        "none."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Conrade,",
+          "start": 0.93,
+          "end": 1.25,
+          "key": "conrade",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Marry,",
+          "start": 1.25,
+          "end": 1.57,
+          "key": "marry",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 1.59,
+          "end": 1.69,
+          "key": "sir",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 1.81,
+          "end": 1.81,
+          "key": "we",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 1.81,
+          "end": 1.97,
+          "key": "say",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 1.97,
+          "end": 2.11,
+          "key": "we",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.11,
+          "end": 2.21,
+          "key": "are",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "none.",
+          "start": 2.21,
+          "end": 2.39,
+          "key": "none",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Conrade.",
+          "start": 0.93,
+          "end": 1.25
+        },
+        {
+          "text": "Marry,",
+          "start": 1.25,
+          "end": 1.57
+        },
+        {
+          "text": "sir,",
+          "start": 1.59,
+          "end": 1.69
+        },
+        {
+          "text": "we",
+          "start": 1.81,
+          "end": 1.81
+        },
+        {
+          "text": "say",
+          "start": 1.81,
+          "end": 1.97
+        },
+        {
+          "text": "we",
+          "start": 1.97,
+          "end": 2.11
+        },
+        {
+          "text": "are",
+          "start": 2.11,
+          "end": 2.21
+        },
+        {
+          "text": "none.",
+          "start": 2.21,
+          "end": 2.39
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1596805416047573
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7bc642f808d4b017ba3479b5dd0a9771cc480f45923c4db3f92629925dd93c41",
+  "selected_reasons": []
+}

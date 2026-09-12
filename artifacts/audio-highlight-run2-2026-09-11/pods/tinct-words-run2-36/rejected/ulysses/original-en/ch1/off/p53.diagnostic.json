@@ -1,0 +1,540 @@
+{
+  "complete": true,
+  "signature": "04773c4301ad856d24fc95d5afb3a93c76d35e3e85d9f708396a4ce32c4da376",
+  "attempts": [
+    {
+      "asr_seconds": 0.3164626620709896,
+      "alignment_seconds": 0.0004121549427509308,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He folded his razor neatly, and with stroking palps of fingers, felt the smooth skin.",
+          "start": 0.05,
+          "end": 4.93,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.88330078125
+            },
+            {
+              "text": " folded",
+              "start": 0.51,
+              "end": 0.77,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " his",
+              "start": 0.77,
+              "end": 0.97,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " razor",
+              "start": 0.97,
+              "end": 1.29,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " neatly,",
+              "start": 1.29,
+              "end": 1.63,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 2.17,
+              "end": 2.23,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " with",
+              "start": 2.23,
+              "end": 2.35,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " stroking",
+              "start": 2.35,
+              "end": 2.79,
+              "probability": 0.998046875
+            },
+            {
+              "text": " palps",
+              "start": 2.79,
+              "end": 3.15,
+              "probability": 0.673583984375
+            },
+            {
+              "text": " of",
+              "start": 3.15,
+              "end": 3.29,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " fingers,",
+              "start": 3.29,
+              "end": 3.69,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " felt",
+              "start": 3.93,
+              "end": 4.01,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 4.01,
+              "end": 4.19,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " smooth",
+              "start": 4.19,
+              "end": 4.53,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " skin.",
+              "start": 4.53,
+              "end": 4.93,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "folded",
+          "start": 0.51,
+          "end": 0.77
+        },
+        {
+          "raw": "his",
+          "start": 0.77,
+          "end": 0.97
+        },
+        {
+          "raw": "razor",
+          "start": 0.97,
+          "end": 1.29
+        },
+        {
+          "raw": "neatly,",
+          "start": 1.29,
+          "end": 1.63
+        },
+        {
+          "raw": "and",
+          "start": 2.17,
+          "end": 2.23
+        },
+        {
+          "raw": "with",
+          "start": 2.23,
+          "end": 2.35
+        },
+        {
+          "raw": "stroking",
+          "start": 2.35,
+          "end": 2.79
+        },
+        {
+          "raw": "palps",
+          "start": 2.79,
+          "end": 3.15
+        },
+        {
+          "raw": "of",
+          "start": 3.15,
+          "end": 3.29
+        },
+        {
+          "raw": "fingers,",
+          "start": 3.29,
+          "end": 3.69
+        },
+        {
+          "raw": "felt",
+          "start": 3.93,
+          "end": 4.01
+        },
+        {
+          "raw": "the",
+          "start": 4.01,
+          "end": 4.19
+        },
+        {
+          "raw": "smooth",
+          "start": 4.19,
+          "end": 4.53
+        },
+        {
+          "raw": "skin.",
+          "start": 4.53,
+          "end": 4.93
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "folded",
+        "his",
+        "razor",
+        "neatly",
+        "and",
+        "with",
+        "stroking",
+        "palps",
+        "of",
+        "fingers",
+        "felt",
+        "the",
+        "smooth",
+        "skin."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "folded",
+          "start": 0.51,
+          "end": 0.77,
+          "key": "folded",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 0.77,
+          "end": 0.97,
+          "key": "his",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "razor",
+          "start": 0.97,
+          "end": 1.29,
+          "key": "razor",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "neatly,",
+          "start": 1.29,
+          "end": 1.63,
+          "key": "neatly",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.17,
+          "end": 2.23,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.23,
+          "end": 2.35,
+          "key": "with",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "stroking",
+          "start": 2.35,
+          "end": 2.79,
+          "key": "stroking",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "palps",
+          "start": 2.79,
+          "end": 3.15,
+          "key": "palps",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.15,
+          "end": 3.29,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "fingers,",
+          "start": 3.29,
+          "end": 3.69,
+          "key": "fingers",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "felt",
+          "start": 3.93,
+          "end": 4.01,
+          "key": "felt",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.01,
+          "end": 4.19,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "smooth",
+          "start": 4.19,
+          "end": 4.53,
+          "key": "smooth",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "skin.",
+          "start": 4.53,
+          "end": 4.93,
+          "key": "skin",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "folded",
+          "start": 0.51,
+          "end": 0.77
+        },
+        {
+          "text": "his",
+          "start": 0.77,
+          "end": 0.97
+        },
+        {
+          "text": "razor",
+          "start": 0.97,
+          "end": 1.29
+        },
+        {
+          "text": "neatly",
+          "start": 1.29,
+          "end": 1.63
+        },
+        {
+          "text": "and",
+          "start": 2.17,
+          "end": 2.23
+        },
+        {
+          "text": "with",
+          "start": 2.23,
+          "end": 2.35
+        },
+        {
+          "text": "stroking",
+          "start": 2.35,
+          "end": 2.79
+        },
+        {
+          "text": "palps",
+          "start": 2.79,
+          "end": 3.15
+        },
+        {
+          "text": "of",
+          "start": 3.15,
+          "end": 3.29
+        },
+        {
+          "text": "fingers",
+          "start": 3.29,
+          "end": 3.69
+        },
+        {
+          "text": "felt",
+          "start": 3.93,
+          "end": 4.01
+        },
+        {
+          "text": "the",
+          "start": 4.01,
+          "end": 4.19
+        },
+        {
+          "text": "smooth",
+          "start": 4.19,
+          "end": 4.53
+        },
+        {
+          "text": "skin.",
+          "start": 4.53,
+          "end": 4.93
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.31705373153090477
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1608df9887ed4cc2c3282a0493a2f53761e3576fcb55880106ceb87e56798017",
+  "selected_reasons": []
+}

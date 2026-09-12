@@ -1,0 +1,370 @@
+{
+  "complete": true,
+  "signature": "ac031faf27ceafcca05ea22c65047cc3d3817842e51bb5bafdeedc14e85cb6ac",
+  "attempts": [
+    {
+      "asr_seconds": 0.2334124892950058,
+      "alignment_seconds": 0.0005312934517860413,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Margaret, Troth, I think your other Roboto were better.",
+          "start": 0.46,
+          "end": 3.26,
+          "words": [
+            {
+              "text": " Margaret,",
+              "start": 0.46,
+              "end": 0.86,
+              "probability": 0.787109375
+            },
+            {
+              "text": " Troth,",
+              "start": 1.5,
+              "end": 1.7,
+              "probability": 0.837158203125
+            },
+            {
+              "text": " I",
+              "start": 1.9,
+              "end": 1.98,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " think",
+              "start": 1.98,
+              "end": 2.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " your",
+              "start": 2.12,
+              "end": 2.26,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " other",
+              "start": 2.26,
+              "end": 2.42,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Roboto",
+              "start": 2.42,
+              "end": 2.84,
+              "probability": 0.56805419921875
+            },
+            {
+              "text": " were",
+              "start": 2.84,
+              "end": 3.0,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " better.",
+              "start": 3.0,
+              "end": 3.26,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Margaret,",
+          "start": 0.46,
+          "end": 0.86
+        },
+        {
+          "raw": "Troth,",
+          "start": 1.5,
+          "end": 1.7
+        },
+        {
+          "raw": "I",
+          "start": 1.9,
+          "end": 1.98
+        },
+        {
+          "raw": "think",
+          "start": 1.98,
+          "end": 2.12
+        },
+        {
+          "raw": "your",
+          "start": 2.12,
+          "end": 2.26
+        },
+        {
+          "raw": "other",
+          "start": 2.26,
+          "end": 2.42
+        },
+        {
+          "raw": "Roboto",
+          "start": 2.42,
+          "end": 2.84
+        },
+        {
+          "raw": "were",
+          "start": 2.84,
+          "end": 3.0
+        },
+        {
+          "raw": "better.",
+          "start": 3.0,
+          "end": 3.26
+        }
+      ],
+      "expected_tokens": [
+        "Margaret.",
+        "Troth,",
+        "I",
+        "think",
+        "your",
+        "other",
+        "rebato",
+        "were",
+        "better."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          9,
+          7,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Margaret,",
+          "start": 0.46,
+          "end": 0.86,
+          "key": "margaret",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Troth,",
+          "start": 1.5,
+          "end": 1.7,
+          "key": "troth",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.9,
+          "end": 1.98,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 1.98,
+          "end": 2.12,
+          "key": "think",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.12,
+          "end": 2.26,
+          "key": "your",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 2.26,
+          "end": 2.42,
+          "key": "other",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Roboto",
+          "start": 2.42,
+          "end": 2.84,
+          "key": "roboto",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 2.84,
+          "end": 3.0,
+          "key": "were",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "better.",
+          "start": 3.0,
+          "end": 3.26,
+          "key": "better",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Margaret.",
+          "start": 0.46,
+          "end": 0.86
+        },
+        {
+          "text": "Troth,",
+          "start": 1.5,
+          "end": 1.7
+        },
+        {
+          "text": "I",
+          "start": 1.9,
+          "end": 1.98
+        },
+        {
+          "text": "think",
+          "start": 1.98,
+          "end": 2.12
+        },
+        {
+          "text": "your",
+          "start": 2.12,
+          "end": 2.26
+        },
+        {
+          "text": "other",
+          "start": 2.26,
+          "end": 2.42
+        },
+        {
+          "text": "rebato",
+          "start": 2.42,
+          "end": 2.63
+        },
+        {
+          "text": "were",
+          "start": 2.84,
+          "end": 3.0
+        },
+        {
+          "text": "better.",
+          "start": 3.0,
+          "end": 3.26
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.23412895575165749
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a7b646d951ce7660a1452f184a1f66650bd9a09445033cdaba47e236acac99d5",
+  "selected_reasons": []
+}

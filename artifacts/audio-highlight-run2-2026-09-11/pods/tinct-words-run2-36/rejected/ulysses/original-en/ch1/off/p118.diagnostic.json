@@ -1,0 +1,116 @@
+{
+  "complete": true,
+  "signature": "65535560f19414f51220c4e25c30893e53e92dee477820d4f283bfc48d645bd8",
+  "attempts": [
+    {
+      "asr_seconds": 0.10164416208863258,
+      "alignment_seconds": 0.00022977963089942932,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Kinshahoy",
+          "start": 0.05,
+          "end": 0.95,
+          "words": [
+            {
+              "text": " Kinshahoy",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.587548828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Kinshahoy",
+          "start": 0.05,
+          "end": 0.95
+        }
+      ],
+      "expected_tokens": [
+        "—Kinch",
+        "ahoy!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Kinshahoy",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "kinshahoy",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Kinch",
+          "start": 0.0,
+          "end": 0.475
+        },
+        {
+          "text": "ahoy!",
+          "start": 0.475,
+          "end": 0.712
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10193568468093872
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "da28bc12bc99f22e59674d4c726a10b7db62ec02ea3fcab5d41e0bbe34273385",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

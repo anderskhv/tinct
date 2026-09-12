@@ -1,0 +1,434 @@
+{
+  "complete": true,
+  "signature": "b135589bcb3d8ba2e2e92f96e187998e15eddbd0d289f4b3d94ec8f61b8ce243",
+  "attempts": [
+    {
+      "asr_seconds": 0.21683350577950478,
+      "alignment_seconds": 0.0005487017333507538,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Borachio, yay, and paid me richly for the practice of it.",
+          "start": 0.67,
+          "end": 3.83,
+          "words": [
+            {
+              "text": " Borachio,",
+              "start": 0.67,
+              "end": 1.05,
+              "probability": 0.678955078125
+            },
+            {
+              "text": " yay,",
+              "start": 1.57,
+              "end": 1.71,
+              "probability": 0.80908203125
+            },
+            {
+              "text": " and",
+              "start": 2.03,
+              "end": 2.15,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " paid",
+              "start": 2.15,
+              "end": 2.33,
+              "probability": 0.994140625
+            },
+            {
+              "text": " me",
+              "start": 2.33,
+              "end": 2.51,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " richly",
+              "start": 2.51,
+              "end": 2.89,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " for",
+              "start": 2.89,
+              "end": 3.03,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 3.03,
+              "end": 3.17,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " practice",
+              "start": 3.17,
+              "end": 3.45,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " of",
+              "start": 3.45,
+              "end": 3.65,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it.",
+              "start": 3.65,
+              "end": 3.83,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Borachio,",
+          "start": 0.67,
+          "end": 1.05
+        },
+        {
+          "raw": "yay,",
+          "start": 1.57,
+          "end": 1.71
+        },
+        {
+          "raw": "and",
+          "start": 2.03,
+          "end": 2.15
+        },
+        {
+          "raw": "paid",
+          "start": 2.15,
+          "end": 2.33
+        },
+        {
+          "raw": "me",
+          "start": 2.33,
+          "end": 2.51
+        },
+        {
+          "raw": "richly",
+          "start": 2.51,
+          "end": 2.89
+        },
+        {
+          "raw": "for",
+          "start": 2.89,
+          "end": 3.03
+        },
+        {
+          "raw": "the",
+          "start": 3.03,
+          "end": 3.17
+        },
+        {
+          "raw": "practice",
+          "start": 3.17,
+          "end": 3.45
+        },
+        {
+          "raw": "of",
+          "start": 3.45,
+          "end": 3.65
+        },
+        {
+          "raw": "it.",
+          "start": 3.65,
+          "end": 3.83
+        }
+      ],
+      "expected_tokens": [
+        "Borachio.",
+        "Yea;",
+        "and",
+        "paid",
+        "me",
+        "richly",
+        "for",
+        "the",
+        "practice",
+        "of",
+        "it."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          11,
+          2,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Borachio,",
+          "start": 0.67,
+          "end": 1.05,
+          "key": "borachio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "yay,",
+          "start": 1.57,
+          "end": 1.71,
+          "key": "yay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.03,
+          "end": 2.15,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "paid",
+          "start": 2.15,
+          "end": 2.33,
+          "key": "paid",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.33,
+          "end": 2.51,
+          "key": "me",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "richly",
+          "start": 2.51,
+          "end": 2.89,
+          "key": "richly",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.89,
+          "end": 3.03,
+          "key": "for",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.03,
+          "end": 3.17,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "practice",
+          "start": 3.17,
+          "end": 3.45,
+          "key": "practice",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.45,
+          "end": 3.65,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 3.65,
+          "end": 3.83,
+          "key": "it",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Borachio.",
+          "start": 0.67,
+          "end": 1.05
+        },
+        {
+          "text": "Yea;",
+          "start": 1.05,
+          "end": 1.54
+        },
+        {
+          "text": "and",
+          "start": 2.03,
+          "end": 2.15
+        },
+        {
+          "text": "paid",
+          "start": 2.15,
+          "end": 2.33
+        },
+        {
+          "text": "me",
+          "start": 2.33,
+          "end": 2.51
+        },
+        {
+          "text": "richly",
+          "start": 2.51,
+          "end": 2.89
+        },
+        {
+          "text": "for",
+          "start": 2.89,
+          "end": 3.03
+        },
+        {
+          "text": "the",
+          "start": 3.03,
+          "end": 3.17
+        },
+        {
+          "text": "practice",
+          "start": 3.17,
+          "end": 3.45
+        },
+        {
+          "text": "of",
+          "start": 3.45,
+          "end": 3.65
+        },
+        {
+          "text": "it.",
+          "start": 3.65,
+          "end": 3.83
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.21759437024593353
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "67264a1b13323a88a5c47c17d6fe79a013560ac99e29a5a6758e9f026eeb9759",
+  "selected_reasons": []
+}

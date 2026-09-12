@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "c23d19aa504a490508c0a00d9e4e75e2d80a472d606163b6590a1d05244eda64",
+  "attempts": [
+    {
+      "asr_seconds": 0.1115940511226654,
+      "alignment_seconds": 0.00011504814028739929,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " in Trebo at Altair Day.",
+          "start": 0.02,
+          "end": 1.68,
+          "words": [
+            {
+              "text": " in",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.3291015625
+            },
+            {
+              "text": " Trebo",
+              "start": 0.54,
+              "end": 0.86,
+              "probability": 0.5628662109375
+            },
+            {
+              "text": " at",
+              "start": 0.86,
+              "end": 1.06,
+              "probability": 0.242431640625
+            },
+            {
+              "text": " Altair",
+              "start": 1.06,
+              "end": 1.44,
+              "probability": 0.72705078125
+            },
+            {
+              "text": " Day.",
+              "start": 1.44,
+              "end": 1.68,
+              "probability": 0.90771484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "in",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "Trebo",
+          "start": 0.54,
+          "end": 0.86
+        },
+        {
+          "raw": "at",
+          "start": 0.86,
+          "end": 1.06
+        },
+        {
+          "raw": "Altair",
+          "start": 1.06,
+          "end": 1.44
+        },
+        {
+          "raw": "Day.",
+          "start": 1.44,
+          "end": 1.68
+        }
+      ],
+      "expected_tokens": [
+        "—_Introibo",
+        "ad",
+        "altare",
+        "Dei_."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "in",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "in",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Trebo",
+          "start": 0.54,
+          "end": 0.86,
+          "key": "trebo",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 0.86,
+          "end": 1.06,
+          "key": "at",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Altair",
+          "start": 1.06,
+          "end": 1.44,
+          "key": "altair",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Day.",
+          "start": 1.44,
+          "end": 1.68,
+          "key": "day",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—_Introibo",
+          "start": 0.0,
+          "end": 0.84
+        },
+        {
+          "text": "ad",
+          "start": 0.84,
+          "end": 1.26
+        },
+        {
+          "text": "altare",
+          "start": 1.26,
+          "end": 1.47
+        },
+        {
+          "text": "Dei_.",
+          "start": 1.47,
+          "end": 1.575
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 5,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11174995079636574
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6d5ebfa1a415d9193d36ddb4b5e4e0baaae12b57bc42ba96d655a4e197ccd831",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

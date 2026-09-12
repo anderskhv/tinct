@@ -1,0 +1,572 @@
+{
+  "complete": true,
+  "signature": "b17c4b47c5941ad420cb36066299c2c659103a62b688a16cac016d1e95c198a3",
+  "attempts": [
+    {
+      "asr_seconds": 0.22120555490255356,
+      "alignment_seconds": 0.00032860785722732544,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He hacked through the fry on the dish and slapped it out on three plates, saying...",
+          "start": 0.02,
+          "end": 4.18,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " hacked",
+              "start": 0.5,
+              "end": 0.7,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " through",
+              "start": 0.7,
+              "end": 0.92,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 0.92,
+              "end": 1.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " fry",
+              "start": 1.06,
+              "end": 1.28,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " on",
+              "start": 1.28,
+              "end": 1.44,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 1.44,
+              "end": 1.56,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " dish",
+              "start": 1.56,
+              "end": 1.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 1.78,
+              "end": 2.02,
+              "probability": 0.984375
+            },
+            {
+              "text": " slapped",
+              "start": 2.02,
+              "end": 2.28,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " it",
+              "start": 2.28,
+              "end": 2.44,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " out",
+              "start": 2.44,
+              "end": 2.56,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " on",
+              "start": 2.56,
+              "end": 2.7,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " three",
+              "start": 2.7,
+              "end": 2.92,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " plates,",
+              "start": 2.92,
+              "end": 3.32,
+              "probability": 0.998046875
+            },
+            {
+              "text": " saying...",
+              "start": 3.7,
+              "end": 4.18,
+              "probability": 0.6607666015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "hacked",
+          "start": 0.5,
+          "end": 0.7
+        },
+        {
+          "raw": "through",
+          "start": 0.7,
+          "end": 0.92
+        },
+        {
+          "raw": "the",
+          "start": 0.92,
+          "end": 1.06
+        },
+        {
+          "raw": "fry",
+          "start": 1.06,
+          "end": 1.28
+        },
+        {
+          "raw": "on",
+          "start": 1.28,
+          "end": 1.44
+        },
+        {
+          "raw": "the",
+          "start": 1.44,
+          "end": 1.56
+        },
+        {
+          "raw": "dish",
+          "start": 1.56,
+          "end": 1.78
+        },
+        {
+          "raw": "and",
+          "start": 1.78,
+          "end": 2.02
+        },
+        {
+          "raw": "slapped",
+          "start": 2.02,
+          "end": 2.28
+        },
+        {
+          "raw": "it",
+          "start": 2.28,
+          "end": 2.44
+        },
+        {
+          "raw": "out",
+          "start": 2.44,
+          "end": 2.56
+        },
+        {
+          "raw": "on",
+          "start": 2.56,
+          "end": 2.7
+        },
+        {
+          "raw": "three",
+          "start": 2.7,
+          "end": 2.92
+        },
+        {
+          "raw": "plates,",
+          "start": 2.92,
+          "end": 3.32
+        },
+        {
+          "raw": "saying...",
+          "start": 3.7,
+          "end": 4.18
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "hacked",
+        "through",
+        "the",
+        "fry",
+        "on",
+        "the",
+        "dish",
+        "and",
+        "slapped",
+        "it",
+        "out",
+        "on",
+        "three",
+        "plates,",
+        "saying:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "hacked",
+          "start": 0.5,
+          "end": 0.7,
+          "key": "hacked",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "through",
+          "start": 0.7,
+          "end": 0.92,
+          "key": "through",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.92,
+          "end": 1.06,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "fry",
+          "start": 1.06,
+          "end": 1.28,
+          "key": "fry",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.28,
+          "end": 1.44,
+          "key": "on",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.44,
+          "end": 1.56,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "dish",
+          "start": 1.56,
+          "end": 1.78,
+          "key": "dish",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.78,
+          "end": 2.02,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "slapped",
+          "start": 2.02,
+          "end": 2.28,
+          "key": "slapped",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.28,
+          "end": 2.44,
+          "key": "it",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 2.44,
+          "end": 2.56,
+          "key": "out",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.56,
+          "end": 2.7,
+          "key": "on",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "three",
+          "start": 2.7,
+          "end": 2.92,
+          "key": "three",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "plates,",
+          "start": 2.92,
+          "end": 3.32,
+          "key": "plates",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "saying...",
+          "start": 3.7,
+          "end": 4.18,
+          "key": "saying",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "hacked",
+          "start": 0.5,
+          "end": 0.7
+        },
+        {
+          "text": "through",
+          "start": 0.7,
+          "end": 0.92
+        },
+        {
+          "text": "the",
+          "start": 0.92,
+          "end": 1.06
+        },
+        {
+          "text": "fry",
+          "start": 1.06,
+          "end": 1.28
+        },
+        {
+          "text": "on",
+          "start": 1.28,
+          "end": 1.44
+        },
+        {
+          "text": "the",
+          "start": 1.44,
+          "end": 1.56
+        },
+        {
+          "text": "dish",
+          "start": 1.56,
+          "end": 1.78
+        },
+        {
+          "text": "and",
+          "start": 1.78,
+          "end": 2.02
+        },
+        {
+          "text": "slapped",
+          "start": 2.02,
+          "end": 2.28
+        },
+        {
+          "text": "it",
+          "start": 2.28,
+          "end": 2.44
+        },
+        {
+          "text": "out",
+          "start": 2.44,
+          "end": 2.56
+        },
+        {
+          "text": "on",
+          "start": 2.56,
+          "end": 2.7
+        },
+        {
+          "text": "three",
+          "start": 2.7,
+          "end": 2.92
+        },
+        {
+          "text": "plates,",
+          "start": 2.92,
+          "end": 3.32
+        },
+        {
+          "text": "saying:",
+          "start": 3.7,
+          "end": 4.18
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22167877852916718
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bdec4c822d05547e70ef4eca5604047105f3681afff255f065be32704d218386",
+  "selected_reasons": []
+}

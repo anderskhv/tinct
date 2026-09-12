@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "d1b7d7a175124f3beef5805bc2c17cbc7a866bb4b600e5e36dd29a198f486fd1",
+  "attempts": [
+    {
+      "asr_seconds": 0.45132262632250786,
+      "alignment_seconds": 0.00035325437784194946,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Hero, Margaret and Ursula.",
+          "start": 0.08,
+          "end": 2.26,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " Hero,",
+              "start": 0.64,
+              "end": 1.0,
+              "probability": 0.31103515625
+            },
+            {
+              "text": " Margaret",
+              "start": 1.48,
+              "end": 1.6,
+              "probability": 0.8984375
+            },
+            {
+              "text": " and",
+              "start": 1.6,
+              "end": 1.84,
+              "probability": 0.79248046875
+            },
+            {
+              "text": " Ursula.",
+              "start": 1.84,
+              "end": 2.26,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "Hero,",
+          "start": 0.64,
+          "end": 1.0
+        },
+        {
+          "raw": "Margaret",
+          "start": 1.48,
+          "end": 1.6
+        },
+        {
+          "raw": "and",
+          "start": 1.6,
+          "end": 1.84
+        },
+        {
+          "raw": "Ursula.",
+          "start": 1.84,
+          "end": 2.26
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Hero,",
+        "Margaret",
+        "and",
+        "Ursula."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Hero,",
+          "start": 0.64,
+          "end": 1.0,
+          "key": "hero",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Margaret",
+          "start": 1.48,
+          "end": 1.6,
+          "key": "margaret",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.6,
+          "end": 1.84,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Ursula.",
+          "start": 1.84,
+          "end": 2.26,
+          "key": "ursula",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "Hero,",
+          "start": 0.64,
+          "end": 1.0
+        },
+        {
+          "text": "Margaret",
+          "start": 1.48,
+          "end": 1.6
+        },
+        {
+          "text": "and",
+          "start": 1.6,
+          "end": 1.84
+        },
+        {
+          "text": "Ursula.",
+          "start": 1.84,
+          "end": 2.26
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.45177845656871796
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "001b4efccc9188b7047d5ca492b3f0185744f22427f1c3ab0402121b9c164c87",
+  "selected_reasons": []
+}

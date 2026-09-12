@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "ec35af2a68c02b48bf27e64aa0aa3f75cea17d4e0381aa104c9d300670090c30",
+  "attempts": [
+    {
+      "asr_seconds": 0.21723082661628723,
+      "alignment_seconds": 0.00043226033449172974,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He crammed his mouth with fry and munched and droned.",
+          "start": 0.02,
+          "end": 3.14,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " crammed",
+              "start": 0.48,
+              "end": 0.74,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " his",
+              "start": 0.74,
+              "end": 0.94,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " mouth",
+              "start": 0.94,
+              "end": 1.16,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " with",
+              "start": 1.16,
+              "end": 1.36,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " fry",
+              "start": 1.36,
+              "end": 1.68,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " and",
+              "start": 1.68,
+              "end": 1.9,
+              "probability": 0.9609375
+            },
+            {
+              "text": " munched",
+              "start": 1.9,
+              "end": 2.32,
+              "probability": 0.983154296875
+            },
+            {
+              "text": " and",
+              "start": 2.32,
+              "end": 2.6,
+              "probability": 0.708984375
+            },
+            {
+              "text": " droned.",
+              "start": 2.6,
+              "end": 3.14,
+              "probability": 0.8875325520833334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "crammed",
+          "start": 0.48,
+          "end": 0.74
+        },
+        {
+          "raw": "his",
+          "start": 0.74,
+          "end": 0.94
+        },
+        {
+          "raw": "mouth",
+          "start": 0.94,
+          "end": 1.16
+        },
+        {
+          "raw": "with",
+          "start": 1.16,
+          "end": 1.36
+        },
+        {
+          "raw": "fry",
+          "start": 1.36,
+          "end": 1.68
+        },
+        {
+          "raw": "and",
+          "start": 1.68,
+          "end": 1.9
+        },
+        {
+          "raw": "munched",
+          "start": 1.9,
+          "end": 2.32
+        },
+        {
+          "raw": "and",
+          "start": 2.32,
+          "end": 2.6
+        },
+        {
+          "raw": "droned.",
+          "start": 2.6,
+          "end": 3.14
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "crammed",
+        "his",
+        "mouth",
+        "with",
+        "fry",
+        "and",
+        "munched",
+        "and",
+        "droned."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "crammed",
+          "start": 0.48,
+          "end": 0.74,
+          "key": "crammed",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 0.74,
+          "end": 0.94,
+          "key": "his",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "mouth",
+          "start": 0.94,
+          "end": 1.16,
+          "key": "mouth",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.16,
+          "end": 1.36,
+          "key": "with",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "fry",
+          "start": 1.36,
+          "end": 1.68,
+          "key": "fry",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.68,
+          "end": 1.9,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "munched",
+          "start": 1.9,
+          "end": 2.32,
+          "key": "munched",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.32,
+          "end": 2.6,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "droned.",
+          "start": 2.6,
+          "end": 3.14,
+          "key": "droned",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "crammed",
+          "start": 0.48,
+          "end": 0.74
+        },
+        {
+          "text": "his",
+          "start": 0.74,
+          "end": 0.94
+        },
+        {
+          "text": "mouth",
+          "start": 0.94,
+          "end": 1.16
+        },
+        {
+          "text": "with",
+          "start": 1.16,
+          "end": 1.36
+        },
+        {
+          "text": "fry",
+          "start": 1.36,
+          "end": 1.68
+        },
+        {
+          "text": "and",
+          "start": 1.68,
+          "end": 1.9
+        },
+        {
+          "text": "munched",
+          "start": 1.9,
+          "end": 2.32
+        },
+        {
+          "text": "and",
+          "start": 2.32,
+          "end": 2.6
+        },
+        {
+          "text": "droned.",
+          "start": 2.6,
+          "end": 3.14
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21782303974032402
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "44640c8c9756574c733e6511b185196282de5b0dcb5583e888f934c890d76721",
+  "selected_reasons": []
+}

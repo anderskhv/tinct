@@ -1,0 +1,363 @@
+{
+  "complete": true,
+  "signature": "761aa69929bebb3cd23688857849882a7dc3b7be576c338e46cb296bc59b17c4",
+  "attempts": [
+    {
+      "asr_seconds": 0.18074113130569458,
+      "alignment_seconds": 0.00024064630270004272,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Leonardo no come brother away. I will be heard",
+          "start": 0.08,
+          "end": 3.26,
+          "words": [
+            {
+              "text": " Leonardo",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.59326171875
+            },
+            {
+              "text": " no",
+              "start": 0.72,
+              "end": 1.26,
+              "probability": 0.2109375
+            },
+            {
+              "text": " come",
+              "start": 1.26,
+              "end": 1.78,
+              "probability": 0.5185546875
+            },
+            {
+              "text": " brother",
+              "start": 1.78,
+              "end": 2.1,
+              "probability": 0.8505859375
+            },
+            {
+              "text": " away.",
+              "start": 2.1,
+              "end": 2.42,
+              "probability": 0.99609375
+            },
+            {
+              "text": " I",
+              "start": 2.42,
+              "end": 2.7,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " will",
+              "start": 2.7,
+              "end": 2.8,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " be",
+              "start": 2.8,
+              "end": 2.92,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " heard",
+              "start": 2.92,
+              "end": 3.26,
+              "probability": 0.966796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leonardo",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "no",
+          "start": 0.72,
+          "end": 1.26
+        },
+        {
+          "raw": "come",
+          "start": 1.26,
+          "end": 1.78
+        },
+        {
+          "raw": "brother",
+          "start": 1.78,
+          "end": 2.1
+        },
+        {
+          "raw": "away.",
+          "start": 2.1,
+          "end": 2.42
+        },
+        {
+          "raw": "I",
+          "start": 2.42,
+          "end": 2.7
+        },
+        {
+          "raw": "will",
+          "start": 2.7,
+          "end": 2.8
+        },
+        {
+          "raw": "be",
+          "start": 2.8,
+          "end": 2.92
+        },
+        {
+          "raw": "heard",
+          "start": 2.92,
+          "end": 3.26
+        }
+      ],
+      "expected_tokens": [
+        "Leonato.",
+        "No?",
+        "Come,",
+        "brother,",
+        "away.",
+        "I",
+        "will",
+        "be",
+        "heard.—"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          9,
+          1,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leonardo",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "leonardo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 0.72,
+          "end": 1.26,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 1.26,
+          "end": 1.78,
+          "key": "come",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "brother",
+          "start": 1.78,
+          "end": 2.1,
+          "key": "brother",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "away.",
+          "start": 2.1,
+          "end": 2.42,
+          "key": "away",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.42,
+          "end": 2.7,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 2.7,
+          "end": 2.8,
+          "key": "will",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.8,
+          "end": 2.92,
+          "key": "be",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 2.92,
+          "end": 3.26,
+          "key": "heard",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Leonato.",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "text": "No?",
+          "start": 0.72,
+          "end": 1.26
+        },
+        {
+          "text": "Come,",
+          "start": 1.26,
+          "end": 1.78
+        },
+        {
+          "text": "brother,",
+          "start": 1.78,
+          "end": 2.1
+        },
+        {
+          "text": "away.",
+          "start": 2.1,
+          "end": 2.42
+        },
+        {
+          "text": "I",
+          "start": 2.42,
+          "end": 2.7
+        },
+        {
+          "text": "will",
+          "start": 2.7,
+          "end": 2.8
+        },
+        {
+          "text": "be",
+          "start": 2.8,
+          "end": 2.92
+        },
+        {
+          "text": "heard.—",
+          "start": 2.92,
+          "end": 3.26
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.1810758151113987
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e73e5c3ba007f56d8fe1293af50475eb4c9e531e536b70881dacdce9c3e82852",
+  "selected_reasons": []
+}

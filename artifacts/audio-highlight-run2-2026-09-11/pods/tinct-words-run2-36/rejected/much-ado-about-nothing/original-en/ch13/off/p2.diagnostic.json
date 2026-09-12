@@ -1,0 +1,402 @@
+{
+  "complete": true,
+  "signature": "2a708a1f577c0d4078c9596ec2eb14d17aa33bb48f4a4051c8f46d33003b3574",
+  "attempts": [
+    {
+      "asr_seconds": 0.22576694935560226,
+      "alignment_seconds": 0.0005423463881015778,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Verges. Oh, a stool and a cushion for the sexton.",
+          "start": 0.05,
+          "end": 3.45,
+          "words": [
+            {
+              "text": " Verges.",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.661376953125
+            },
+            {
+              "text": " Oh,",
+              "start": 1.27,
+              "end": 1.59,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " a",
+              "start": 1.83,
+              "end": 1.89,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " stool",
+              "start": 1.89,
+              "end": 2.13,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " and",
+              "start": 2.13,
+              "end": 2.35,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " a",
+              "start": 2.35,
+              "end": 2.47,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " cushion",
+              "start": 2.47,
+              "end": 2.71,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " for",
+              "start": 2.71,
+              "end": 2.93,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 2.93,
+              "end": 3.07,
+              "probability": 0.990234375
+            },
+            {
+              "text": " sexton.",
+              "start": 3.07,
+              "end": 3.45,
+              "probability": 0.902099609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Verges.",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "raw": "Oh,",
+          "start": 1.27,
+          "end": 1.59
+        },
+        {
+          "raw": "a",
+          "start": 1.83,
+          "end": 1.89
+        },
+        {
+          "raw": "stool",
+          "start": 1.89,
+          "end": 2.13
+        },
+        {
+          "raw": "and",
+          "start": 2.13,
+          "end": 2.35
+        },
+        {
+          "raw": "a",
+          "start": 2.35,
+          "end": 2.47
+        },
+        {
+          "raw": "cushion",
+          "start": 2.47,
+          "end": 2.71
+        },
+        {
+          "raw": "for",
+          "start": 2.71,
+          "end": 2.93
+        },
+        {
+          "raw": "the",
+          "start": 2.93,
+          "end": 3.07
+        },
+        {
+          "raw": "sexton.",
+          "start": 3.07,
+          "end": 3.45
+        }
+      ],
+      "expected_tokens": [
+        "Verges.",
+        "O!",
+        "a",
+        "stool",
+        "and",
+        "a",
+        "cushion",
+        "for",
+        "the",
+        "sexton."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          10,
+          2,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Verges.",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "verges",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 1.27,
+          "end": 1.59,
+          "key": "oh",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.83,
+          "end": 1.89,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "stool",
+          "start": 1.89,
+          "end": 2.13,
+          "key": "stool",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.13,
+          "end": 2.35,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.35,
+          "end": 2.47,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "cushion",
+          "start": 2.47,
+          "end": 2.71,
+          "key": "cushion",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.71,
+          "end": 2.93,
+          "key": "for",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.93,
+          "end": 3.07,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "sexton.",
+          "start": 3.07,
+          "end": 3.45,
+          "key": "sexton",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Verges.",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "text": "O!",
+          "start": 0.93,
+          "end": 1.38
+        },
+        {
+          "text": "a",
+          "start": 1.83,
+          "end": 1.89
+        },
+        {
+          "text": "stool",
+          "start": 1.89,
+          "end": 2.13
+        },
+        {
+          "text": "and",
+          "start": 2.13,
+          "end": 2.35
+        },
+        {
+          "text": "a",
+          "start": 2.35,
+          "end": 2.47
+        },
+        {
+          "text": "cushion",
+          "start": 2.47,
+          "end": 2.71
+        },
+        {
+          "text": "for",
+          "start": 2.71,
+          "end": 2.93
+        },
+        {
+          "text": "the",
+          "start": 2.93,
+          "end": 3.07
+        },
+        {
+          "text": "sexton.",
+          "start": 3.07,
+          "end": 3.45
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.2265043407678604
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fbe5c67ed6b0a7ddc617133ffca2c95a17ee17f6d70ac8e05b1bbeda71573a29",
+  "selected_reasons": []
+}

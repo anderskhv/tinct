@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "6d21de1e321ecf21adc6a0f15eae4f098d4cd74404a99d573c4748b45dca1144",
+  "attempts": [
+    {
+      "asr_seconds": 0.14062168821692467,
+      "alignment_seconds": 0.00016464293003082275,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Antonio. Therein do men from children nothing differ.",
+        "hotwords": "Antonio, Therein"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Antonio, Therein do men from children nothing differ.",
+          "start": 0.11,
+          "end": 3.53,
+          "words": [
+            {
+              "text": " Antonio,",
+              "start": 0.11,
+              "end": 0.83,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " Therein",
+              "start": 1.45,
+              "end": 1.83,
+              "probability": 0.18166685104370117
+            },
+            {
+              "text": " do",
+              "start": 1.83,
+              "end": 1.99,
+              "probability": 0.70751953125
+            },
+            {
+              "text": " men",
+              "start": 1.99,
+              "end": 2.17,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " from",
+              "start": 2.17,
+              "end": 2.41,
+              "probability": 0.9609375
+            },
+            {
+              "text": " children",
+              "start": 2.41,
+              "end": 2.69,
+              "probability": 0.86328125
+            },
+            {
+              "text": " nothing",
+              "start": 2.69,
+              "end": 3.13,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " differ.",
+              "start": 3.13,
+              "end": 3.53,
+              "probability": 0.96630859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antonio,",
+          "start": 0.11,
+          "end": 0.83
+        },
+        {
+          "raw": "Therein",
+          "start": 1.45,
+          "end": 1.83
+        },
+        {
+          "raw": "do",
+          "start": 1.83,
+          "end": 1.99
+        },
+        {
+          "raw": "men",
+          "start": 1.99,
+          "end": 2.17
+        },
+        {
+          "raw": "from",
+          "start": 2.17,
+          "end": 2.41
+        },
+        {
+          "raw": "children",
+          "start": 2.41,
+          "end": 2.69
+        },
+        {
+          "raw": "nothing",
+          "start": 2.69,
+          "end": 3.13
+        },
+        {
+          "raw": "differ.",
+          "start": 3.13,
+          "end": 3.53
+        }
+      ],
+      "expected_tokens": [
+        "Antonio.",
+        "Therein",
+        "do",
+        "men",
+        "from",
+        "children",
+        "nothing",
+        "differ."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antonio,",
+          "start": 0.11,
+          "end": 0.83,
+          "key": "antonio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Therein",
+          "start": 1.45,
+          "end": 1.83,
+          "key": "therein",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.83,
+          "end": 1.99,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "men",
+          "start": 1.99,
+          "end": 2.17,
+          "key": "men",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 2.17,
+          "end": 2.41,
+          "key": "from",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "children",
+          "start": 2.41,
+          "end": 2.69,
+          "key": "children",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "nothing",
+          "start": 2.69,
+          "end": 3.13,
+          "key": "nothing",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "differ.",
+          "start": 3.13,
+          "end": 3.53,
+          "key": "differ",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antonio.",
+          "start": 0.11,
+          "end": 0.83
+        },
+        {
+          "text": "Therein",
+          "start": 1.45,
+          "end": 1.83
+        },
+        {
+          "text": "do",
+          "start": 1.83,
+          "end": 1.99
+        },
+        {
+          "text": "men",
+          "start": 1.99,
+          "end": 2.17
+        },
+        {
+          "text": "from",
+          "start": 2.17,
+          "end": 2.41
+        },
+        {
+          "text": "children",
+          "start": 2.41,
+          "end": 2.69
+        },
+        {
+          "text": "nothing",
+          "start": 2.69,
+          "end": 3.13
+        },
+        {
+          "text": "differ.",
+          "start": 3.13,
+          "end": 3.53
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14084820821881294
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "89c11729549cd9bdd210b4ba7e1bc536d76ef9edf59cc27b20415e0fb6a45a27",
+  "selected_reasons": []
+}

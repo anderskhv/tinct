@@ -1,0 +1,530 @@
+{
+  "complete": true,
+  "signature": "97742dcbc8741e902378f3079fa59973ce7420d75d21a2024c164a0da602d4f3",
+  "attempts": [
+    {
+      "asr_seconds": 0.2314065434038639,
+      "alignment_seconds": 0.00032565370202064514,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Antonio, come, tease no matter, do not you meddle, let me deal in this.",
+          "start": 0.05,
+          "end": 4.43,
+          "words": [
+            {
+              "text": " Antonio,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.919921875
+            },
+            {
+              "text": " come,",
+              "start": 1.35,
+              "end": 1.63,
+              "probability": 0.931640625
+            },
+            {
+              "text": " tease",
+              "start": 2.15,
+              "end": 2.19,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " no",
+              "start": 2.19,
+              "end": 2.43,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " matter,",
+              "start": 2.43,
+              "end": 2.75,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " do",
+              "start": 2.97,
+              "end": 3.01,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " not",
+              "start": 3.01,
+              "end": 3.13,
+              "probability": 0.99609375
+            },
+            {
+              "text": " you",
+              "start": 3.13,
+              "end": 3.27,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " meddle,",
+              "start": 3.27,
+              "end": 3.57,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " let",
+              "start": 3.71,
+              "end": 3.73,
+              "probability": 0.994140625
+            },
+            {
+              "text": " me",
+              "start": 3.73,
+              "end": 3.87,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " deal",
+              "start": 3.87,
+              "end": 4.03,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 4.03,
+              "end": 4.19,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " this.",
+              "start": 4.19,
+              "end": 4.43,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antonio,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "come,",
+          "start": 1.35,
+          "end": 1.63
+        },
+        {
+          "raw": "tease",
+          "start": 2.15,
+          "end": 2.19
+        },
+        {
+          "raw": "no",
+          "start": 2.19,
+          "end": 2.43
+        },
+        {
+          "raw": "matter,",
+          "start": 2.43,
+          "end": 2.75
+        },
+        {
+          "raw": "do",
+          "start": 2.97,
+          "end": 3.01
+        },
+        {
+          "raw": "not",
+          "start": 3.01,
+          "end": 3.13
+        },
+        {
+          "raw": "you",
+          "start": 3.13,
+          "end": 3.27
+        },
+        {
+          "raw": "meddle,",
+          "start": 3.27,
+          "end": 3.57
+        },
+        {
+          "raw": "let",
+          "start": 3.71,
+          "end": 3.73
+        },
+        {
+          "raw": "me",
+          "start": 3.73,
+          "end": 3.87
+        },
+        {
+          "raw": "deal",
+          "start": 3.87,
+          "end": 4.03
+        },
+        {
+          "raw": "in",
+          "start": 4.03,
+          "end": 4.19
+        },
+        {
+          "raw": "this.",
+          "start": 4.19,
+          "end": 4.43
+        }
+      ],
+      "expected_tokens": [
+        "Antonio.",
+        "Come,",
+        "'tis",
+        "no",
+        "matter:",
+        "Do",
+        "not",
+        "you",
+        "meddle,",
+        "let",
+        "me",
+        "deal",
+        "in",
+        "this."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          14,
+          3,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antonio,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "antonio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "come,",
+          "start": 1.35,
+          "end": 1.63,
+          "key": "come",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "tease",
+          "start": 2.15,
+          "end": 2.19,
+          "key": "tease",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 2.19,
+          "end": 2.43,
+          "key": "no",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "matter,",
+          "start": 2.43,
+          "end": 2.75,
+          "key": "matter",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 2.97,
+          "end": 3.01,
+          "key": "do",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.01,
+          "end": 3.13,
+          "key": "not",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.13,
+          "end": 3.27,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "meddle,",
+          "start": 3.27,
+          "end": 3.57,
+          "key": "meddle",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 3.71,
+          "end": 3.73,
+          "key": "let",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 3.73,
+          "end": 3.87,
+          "key": "me",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "deal",
+          "start": 3.87,
+          "end": 4.03,
+          "key": "deal",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.03,
+          "end": 4.19,
+          "key": "in",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "this.",
+          "start": 4.19,
+          "end": 4.43,
+          "key": "this",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antonio.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Come,",
+          "start": 1.35,
+          "end": 1.63
+        },
+        {
+          "text": "'tis",
+          "start": 1.63,
+          "end": 1.91
+        },
+        {
+          "text": "no",
+          "start": 2.19,
+          "end": 2.43
+        },
+        {
+          "text": "matter:",
+          "start": 2.43,
+          "end": 2.75
+        },
+        {
+          "text": "Do",
+          "start": 2.97,
+          "end": 3.01
+        },
+        {
+          "text": "not",
+          "start": 3.01,
+          "end": 3.13
+        },
+        {
+          "text": "you",
+          "start": 3.13,
+          "end": 3.27
+        },
+        {
+          "text": "meddle,",
+          "start": 3.27,
+          "end": 3.57
+        },
+        {
+          "text": "let",
+          "start": 3.71,
+          "end": 3.73
+        },
+        {
+          "text": "me",
+          "start": 3.73,
+          "end": 3.87
+        },
+        {
+          "text": "deal",
+          "start": 3.87,
+          "end": 4.03
+        },
+        {
+          "text": "in",
+          "start": 4.03,
+          "end": 4.19
+        },
+        {
+          "text": "this.",
+          "start": 4.19,
+          "end": 4.43
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 13
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.2318556159734726
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6eafc2061078743d99831ae557ea79eb77f325a29276fcbdf9de1e9be0dd2e24",
+  "selected_reasons": []
+}
