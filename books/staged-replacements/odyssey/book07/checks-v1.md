@@ -50,7 +50,7 @@ prices out, and why **D19 is a rate and not a count** (D20).
 | Book 4 | all 81 paragraphs | 0.95872 | 281 → 306 | +8.9% | 17 → 3 | 68 → 50 | +2.0% | 0.00431 |
 | Book 5 | all 37 paragraphs | 0.93808 | 153 → 189 | +23.5% | 9 → 1 | 34 → 13 | +8.0% | 0.00891 |
 | Book 6 | all 26 paragraphs | 0.93408 | 116 → 148 | +27.6% | 7 → 1 | 27 → 5 | +7.0% | 0.01156 |
-| Book 7 v1 | all 29 paragraphs | 0.93943 | 103 → 129 | +25.2% | 7 → 0 | 30 → 14 | +7.5% | 0.01277 |
+| Book 7 v1 — **this candidate** | all 29 paragraphs | 0.93943 | 103 → 129 | +25.2% | 7 → 0 | 30 → 14 | +7.5% | 0.01277 |
 
 Book 3's row is the reason this column exists. Its published figures
 are computed on **37 of its 38 paragraphs** — B03-P038, the **D14**

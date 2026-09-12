@@ -697,9 +697,15 @@ def _render(book, version, cand_path, f, g, grown, grown_fail, near, tw,
           "| Book | basis | retention | sentences | raw D17 | 60+ | semicolons "
           "| NORM RATE | MOVE-GAP |",
           "|---|---|---|---|---|---|---|---|---|"]
-    for bk, ff in comparison_table():
+    rows = comparison_table()
+    for bk, ff in rows:
         L.append(_row(bk, ff))
-    L.append(_row("%d v%d" % (book, version), f))
+    # Do not print the subject twice: once a Book is accepted it appears in the
+    # table above, and a second identical row headed "6 v2" reads as a second
+    # Book. The subject row is for a candidate the table does not yet carry.
+    if not any(abs(ff["retention"] - f["retention"]) < 5e-6
+               and ff["sent"] == f["sent"] for _, ff in rows):
+        L.append(_row("%d v%d — **this candidate**" % (book, version), f))
     L += ["",
           "Book 3's row is the reason this column exists. Its published figures",
           "are computed on **37 of its 38 paragraphs** — B03-P038, the **D14**",
