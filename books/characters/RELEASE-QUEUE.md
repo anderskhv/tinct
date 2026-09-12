@@ -911,7 +911,7 @@ Authored on branch `claude/tinct-character-content-1n5iqq`. Queued, not producti
 
 | Book | Content commit | Original / modern entries | Builder |
 |---|---|---:|---|
-| The Republic | COMMIT | 139 / 143 | build_the_republic.py |
+| The Republic | 7b174b7b | 139 / 143 | build_the_republic.py |
 
 | Book | original-en | modern-en |
 |---|---|---|
