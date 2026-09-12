@@ -38,17 +38,35 @@ ROOT = Path(__file__).resolve().parent.parent
 # exist precisely because this check found something; the check reads the file
 # the edition would actually ship.
 ACCEPTED = [("book01", "book01/candidate-v3.json"),
-            ("book02", "book02/candidate-v4.json"),
+            ("book02", "book02/candidate-v5.json"),
             ("book03", "book03/candidate-v3.json"),
-            ("book04", "book04/candidate-v3.json")]
+            ("book04", "book04/candidate-v3.json"),
+            ("book05", "book05/candidate-v2.json"),
+            ("book06", "book06/candidate-v1.json")]
 
 # Keys that are two different words, not two settings of one compound. Each is
 # named with its reason; the list is closed and short on purpose, because a
 # long exemption list is how a check stops being one.
 NOT_COMPOUNDS = {
-    # `may be` (modal + verb) against `maybe`; `in to` against `into`; etc.
-    # Populated only when the report actually raises one, with the reason here.
+    # Closed, short, and every entry carries its reason. A long exemption list
+    # is how a check stops being one.
+    "sunset": "`the sun set` is a verb and its subject; `sunset` is a noun. "
+              "Two different constructions, not two settings of one compound.",
 }
+
+# A pair is not a compound if either element is a closed-class function word.
+# This is what makes the CLOSED axis usable at all: without it, `any one`,
+# `every one`, `some one`, `on to`, `up on`, `a long`, `a broad` and `her a`
+# are all "compounds" that drift, and the report is noise.
+STOPWORDS = frozenset("""
+a an the this that these those and or but so for nor yet of in on at to by up
+out off no not one ones two be is am are was were been being do does did have
+has had will would shall should may might can could must i you he she it we
+they me him her us them my your his its our their s t re ve ll d m all any
+some every each other another such same as if then than there here when where
+who whom whose which what how why now new own more most much many well ill
+too very just only also ever never both few own way
+""".split())
 
 
 def compound_drift(books, attest=()):
@@ -86,6 +104,25 @@ def compound_drift(books, attest=()):
         for m in re.finditer(r"(?=(?<!-)\b([a-z]+)-([a-z]+)\b(?!-))", t):
             parts.setdefault(m.group(1) + m.group(2), set()).add(
                 (m.group(1), m.group(2)))
+
+    # The CLOSED axis, added at Book 6. A hyphen is the strongest evidence that
+    # a pair is a compound, but it is not the only one: `seashore` printed
+    # closed in one Book beside `sea shore` open in another is the same defect,
+    # and `water-side` appears nowhere in PG #1727, so the hyphen test alone
+    # cannot see `waterside` against `water side`. So a pair is ALSO admitted
+    # when its concatenation is printed as a single word somewhere in the
+    # corpus -- guarded by STOPWORDS and a three-letter minimum, without which
+    # `any one`, `on to`, `up on` and `her a` flood the report.
+    closed_words = set()
+    for t in corpus:
+        closed_words |= set(re.findall(r"\b[a-z]{6,}\b", t))
+    for t in corpus:
+        for m in re.finditer(r"(?=\b([a-z]{3,}) ([a-z]{3,})\b)", t):
+            a, b = m.group(1), m.group(2)
+            if a in STOPWORDS or b in STOPWORDS:
+                continue
+            if a + b in closed_words:
+                parts.setdefault(a + b, set()).add((a, b))
 
     out = []
     for key in sorted(parts):
@@ -125,9 +162,17 @@ def _self_test():
     if run(base):
         sys.exit("compound_drift self-test: the clean corpus must not drift")
 
-    def control(name, mutated, expect_key):
-        if mutated == base:                                   # clause (a)
+    def control(name, original_or_mutated, *rest):
+        """control(name, mutated, key) against `base`, or
+        control(name, original, mutated, key) against an explicit original."""
+        if len(rest) == 1:
+            original, mutated, expect_key = base, original_or_mutated, rest[0]
+        else:
+            original, mutated, expect_key = original_or_mutated, rest[0], rest[1]
+        if mutated == original:                               # clause (a)
             sys.exit("control %s: the mutation did not change the input" % name)
+        if compound_drift(original, attest=att):
+            sys.exit("control %s: the unmutated corpus already drifts" % name)
         got = run(mutated)
         if not any(k == expect_key for k, _ in got):          # clause (b)
             sys.exit("control %s: the verdict did not change (%r)" % (name, got))
@@ -142,16 +187,28 @@ def _self_test():
             {"A": ["they walked by the sea-shore at dawn"],
              "B": ["the seashore was empty"]},
             "seashore")
-    # and a control on the BLIND SPOT, declared rather than waved away: a
-    # compound open in Butler and open in every Book is invisible to this
-    # check, because there is no disagreement to see. Clause (b) CANNOT be made
-    # to hold for it, so it is named here and carried by a different
-    # instrument -- a reader (findings-v1.md, section H.1).
-    blind = {"A": ["he slept on the river bed"], "B": ["the riverbed was dry"]}
+    # the CLOSED axis, added at Book 6: no hyphen anywhere, and the drift is
+    # still seen, because one Book prints the pair as a single word.
+    control("closed-word axis, no hyphen in the corpus",
+            {"A": ["they walked by the water side"],
+             "B": ["the water side was empty"]},
+            {"A": ["they walked by the waterside"],
+             "B": ["the water side was empty"]},
+            "waterside")
+
+    # and a control on what REMAINS blind, declared rather than waved away: a
+    # compound open in Butler and open in EVERY Book, with no hyphenated and no
+    # closed form anywhere in the corpus. There is no disagreement to see, and
+    # nothing here knows modern English. Clause (b) cannot be made to hold, so
+    # it is named and carried by a different instrument -- a reader
+    # (book05/review/findings-v1.md, section H.1, which found `half way`,
+    # `river bed`, `mid ocean` and `sweet smelling` that way).
+    blind = {"A": ["he slept on the river bed"], "B": ["down by the river bed"]}
     if run(blind) != []:
         sys.exit("the declared blind spot behaves unexpectedly")
-    print("compound_drift self-test: 3 controls fire on both clauses; "
-          "1 blindness declared (no hyphen attests the pair)")
+    print("compound_drift self-test: 4 controls fire on both clauses; "
+          "1 blindness declared (open everywhere, no closed or hyphenated "
+          "form in the corpus)")
 
 
 def main():

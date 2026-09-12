@@ -1,0 +1,85 @@
+{
+ "book": 6,
+ "source_paragraph_count": 26,
+ "candidate_paragraph_count": 26,
+ "packet_size": 3,
+ "packets": [
+  {
+   "packet": "review-packets/packet-01.md",
+   "assigned_paragraph_ids": [
+    "B06-P001",
+    "B06-P002",
+    "B06-P003"
+   ]
+  },
+  {
+   "packet": "review-packets/packet-02.md",
+   "assigned_paragraph_ids": [
+    "B06-P004",
+    "B06-P005",
+    "B06-P006"
+   ]
+  },
+  {
+   "packet": "review-packets/packet-03.md",
+   "assigned_paragraph_ids": [
+    "B06-P007",
+    "B06-P008",
+    "B06-P009"
+   ]
+  },
+  {
+   "packet": "review-packets/packet-04.md",
+   "assigned_paragraph_ids": [
+    "B06-P010",
+    "B06-P011",
+    "B06-P012"
+   ]
+  },
+  {
+   "packet": "review-packets/packet-05.md",
+   "assigned_paragraph_ids": [
+    "B06-P013",
+    "B06-P014",
+    "B06-P015"
+   ]
+  },
+  {
+   "packet": "review-packets/packet-06.md",
+   "assigned_paragraph_ids": [
+    "B06-P016",
+    "B06-P017",
+    "B06-P018"
+   ]
+  },
+  {
+   "packet": "review-packets/packet-07.md",
+   "assigned_paragraph_ids": [
+    "B06-P019",
+    "B06-P020",
+    "B06-P021"
+   ]
+  },
+  {
+   "packet": "review-packets/packet-08.md",
+   "assigned_paragraph_ids": [
+    "B06-P022",
+    "B06-P023",
+    "B06-P024"
+   ]
+  },
+  {
+   "packet": "review-packets/packet-09.md",
+   "assigned_paragraph_ids": [
+    "B06-P025",
+    "B06-P026"
+   ]
+  }
+ ],
+ "coverage_check": {
+  "all_ids_present_exactly_once_in_order": true,
+  "first_id": "B06-P001",
+  "last_id": "B06-P026"
+ },
+ "candidate_v1_json_sha256": "9391ca16778a8225c1710b24296c51a2d3ba33f26ed3ac9fcf7c677c3c0413f0"
+}
