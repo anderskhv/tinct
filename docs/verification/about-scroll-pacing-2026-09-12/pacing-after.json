@@ -1,0 +1,185 @@
+{
+  "fling-from-top": {
+    "scenes": {
+      "feed": {
+        "dwellMs": 2797,
+        "peakRate": 1.25,
+        "maxLag": 0.576,
+        "pMin": 0.05,
+        "pMax": 0.42
+      },
+      "ai": {
+        "dwellMs": 1402,
+        "peakRate": 0.55,
+        "maxLag": 0.391,
+        "pMin": 0,
+        "pMax": 0.47
+      }
+    },
+    "questions": {},
+    "peakScrollPxPerSec": 13137,
+    "scrolledPx": 3528,
+    "startY": 0
+  },
+  "fling-into-linkedin": {
+    "scenes": {
+      "ai": {
+        "dwellMs": 2987,
+        "peakRate": 0.5,
+        "maxLag": 0.464,
+        "pMin": 0.02,
+        "pMax": 0.54
+      },
+      "infinite": {
+        "dwellMs": 1241,
+        "peakRate": 0.66,
+        "maxLag": 0.094,
+        "pMin": 0,
+        "pMax": 0.13
+      }
+    },
+    "questions": {},
+    "peakScrollPxPerSec": 7083,
+    "scrolledPx": 3560,
+    "startY": 1895
+  },
+  "fling-into-questions": {
+    "scenes": {
+      "reading-cases": {
+        "dwellMs": 4183,
+        "peakRate": 0,
+        "maxLag": 0,
+        "pMin": 0,
+        "pMax": 0
+      }
+    },
+    "questions": {
+      "What happened before this?": {
+        "legibleMs": 900,
+        "peakOpacity": 1
+      },
+      "Who is this again?": {
+        "legibleMs": 334,
+        "peakOpacity": 1
+      },
+      "I have no idea what this means.": {
+        "legibleMs": 766,
+        "peakOpacity": 1
+      }
+    },
+    "peakScrollPxPerSec": 7771,
+    "scrolledPx": 3525,
+    "startY": 14334
+  },
+  "fling-into-reveal": {
+    "scenes": {
+      "reading-cases": {
+        "dwellMs": 4183,
+        "peakRate": 0,
+        "maxLag": 0,
+        "pMin": 0,
+        "pMax": 0
+      }
+    },
+    "questions": {},
+    "peakScrollPxPerSec": 39206,
+    "scrolledPx": 3525,
+    "startY": 18764
+  },
+  "touch-fling-into-linkedin": {
+    "scenes": {
+      "ai": {
+        "dwellMs": 2534,
+        "peakRate": 0.85,
+        "maxLag": 0.665,
+        "pMin": 0.02,
+        "pMax": 0.69
+      }
+    },
+    "questions": {},
+    "peakScrollPxPerSec": 0,
+    "scrolledPx": 0,
+    "startY": 1895
+  },
+  "touch-fling-into-questions": {
+    "scenes": {
+      "reading-cases": {
+        "dwellMs": 2405,
+        "peakRate": 0,
+        "maxLag": 0,
+        "pMin": 0,
+        "pMax": 0
+      }
+    },
+    "questions": {
+      "What happened before this?": {
+        "legibleMs": 0,
+        "peakOpacity": 0
+      },
+      "Who is this again?": {
+        "legibleMs": 0,
+        "peakOpacity": 0
+      },
+      "I have no idea what this means.": {
+        "legibleMs": 0,
+        "peakOpacity": 0
+      }
+    },
+    "peakScrollPxPerSec": 0,
+    "scrolledPx": 0,
+    "startY": 14334
+  },
+  "read-scroll-linkedin": {
+    "scenes": {
+      "ai": {
+        "dwellMs": 5455,
+        "peakRate": 0.44,
+        "maxLag": 0.66,
+        "pMin": 0.03,
+        "pMax": 0.68
+      }
+    },
+    "questions": {},
+    "peakScrollPxPerSec": 6287,
+    "scrolledPx": 2417,
+    "startY": 1895
+  },
+  "read-scroll-questions": {
+    "scenes": {
+      "reading-cases": {
+        "dwellMs": 4101,
+        "peakRate": 0,
+        "maxLag": 0,
+        "pMin": 0,
+        "pMax": 0
+      }
+    },
+    "questions": {
+      "What happened before this?": {
+        "legibleMs": 850,
+        "peakOpacity": 1
+      },
+      "Who is this again?": {
+        "legibleMs": 317,
+        "peakOpacity": 1
+      },
+      "I have no idea what this means.": {
+        "legibleMs": 0,
+        "peakOpacity": 0.49
+      }
+    },
+    "peakScrollPxPerSec": 5636,
+    "scrolledPx": 2607,
+    "startY": 14334
+  },
+  "reachesEnd": {
+    "y": 37976,
+    "max": 37976
+  },
+  "keyboardPageDown": 10818,
+  "keyboardEnd": 37976,
+  "noHijack": {
+    "wheelDefaultPrevented": false,
+    "touchmoveDefaultPrevented": false
+  }
+}

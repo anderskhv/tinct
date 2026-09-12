@@ -1,0 +1,212 @@
+{
+  "fling-from-top": {
+    "scenes": {
+      "feed": {
+        "dwellMs": 2790,
+        "peakRate": 2.14,
+        "maxLag": 0.41,
+        "pMin": 0.05,
+        "pMax": 0.61
+      },
+      "ai": {
+        "dwellMs": 1388,
+        "peakRate": 1.73,
+        "maxLag": 0.254,
+        "pMin": 0.04,
+        "pMax": 0.49
+      }
+    },
+    "questions": {},
+    "peakScrollPxPerSec": 9007,
+    "scrolledPx": 3525,
+    "startY": 0
+  },
+  "fling-into-linkedin": {
+    "scenes": {
+      "feed": {
+        "dwellMs": 2488,
+        "peakRate": 0.49,
+        "maxLag": 0.01,
+        "pMin": 0.98,
+        "pMax": 0.99
+      },
+      "ai": {
+        "dwellMs": 536,
+        "peakRate": 0.65,
+        "maxLag": 0.712,
+        "pMin": 0,
+        "pMax": 0.3
+      },
+      "infinite": {
+        "dwellMs": 1159,
+        "peakRate": 0.68,
+        "maxLag": 0.044,
+        "pMin": 0.01,
+        "pMax": 0.08
+      }
+    },
+    "questions": {},
+    "peakScrollPxPerSec": 12189,
+    "scrolledPx": 3525,
+    "startY": 1895
+  },
+  "fling-into-questions": {
+    "scenes": {
+      "reading-cases": {
+        "dwellMs": 4183,
+        "peakRate": 0,
+        "maxLag": 0,
+        "pMin": 0,
+        "pMax": 0
+      }
+    },
+    "questions": {
+      "What happened before this?": {
+        "legibleMs": 116,
+        "peakOpacity": 1
+      },
+      "Who is this again?": {
+        "legibleMs": 100,
+        "peakOpacity": 1
+      },
+      "I have no idea what this means.": {
+        "legibleMs": 1299,
+        "peakOpacity": 1
+      }
+    },
+    "peakScrollPxPerSec": 8667,
+    "scrolledPx": 3525,
+    "startY": 14334
+  },
+  "fling-into-reveal": {
+    "scenes": {
+      "reading-cases": {
+        "dwellMs": 4183,
+        "peakRate": 0,
+        "maxLag": 0,
+        "pMin": 0,
+        "pMax": 0
+      }
+    },
+    "questions": {
+      "What happened before this?": {
+        "legibleMs": 0,
+        "peakOpacity": 0
+      },
+      "Who is this again?": {
+        "legibleMs": 0,
+        "peakOpacity": 0
+      },
+      "I have no idea what this means.": {
+        "legibleMs": 417,
+        "peakOpacity": 1
+      }
+    },
+    "peakScrollPxPerSec": 25000,
+    "scrolledPx": 3525,
+    "startY": 18764
+  },
+  "touch-fling-into-linkedin": {
+    "scenes": {
+      "feed": {
+        "dwellMs": 2466,
+        "peakRate": 0,
+        "maxLag": 0,
+        "pMin": 0.98,
+        "pMax": 0.98
+      }
+    },
+    "questions": {},
+    "peakScrollPxPerSec": 0,
+    "scrolledPx": 0,
+    "startY": 1895
+  },
+  "touch-fling-into-questions": {
+    "scenes": {
+      "reading-cases": {
+        "dwellMs": 2383,
+        "peakRate": 0,
+        "maxLag": 0,
+        "pMin": 0,
+        "pMax": 0
+      }
+    },
+    "questions": {
+      "What happened before this?": {
+        "legibleMs": 0,
+        "peakOpacity": 0
+      },
+      "Who is this again?": {
+        "legibleMs": 0,
+        "peakOpacity": 0
+      },
+      "I have no idea what this means.": {
+        "legibleMs": 0,
+        "peakOpacity": 0
+      }
+    },
+    "peakScrollPxPerSec": 0,
+    "scrolledPx": 0,
+    "startY": 14334
+  },
+  "read-scroll-linkedin": {
+    "scenes": {
+      "feed": {
+        "dwellMs": 3008,
+        "peakRate": 0.61,
+        "maxLag": 0.01,
+        "pMin": 0.98,
+        "pMax": 1
+      },
+      "ai": {
+        "dwellMs": 1092,
+        "peakRate": 1.32,
+        "maxLag": 0.337,
+        "pMin": 0.01,
+        "pMax": 0.79
+      }
+    },
+    "questions": {},
+    "peakScrollPxPerSec": 7260,
+    "scrolledPx": 2609,
+    "startY": 1895
+  },
+  "read-scroll-questions": {
+    "scenes": {
+      "reading-cases": {
+        "dwellMs": 4083,
+        "peakRate": 0,
+        "maxLag": 0,
+        "pMin": 0,
+        "pMax": 0
+      }
+    },
+    "questions": {
+      "What happened before this?": {
+        "legibleMs": 133,
+        "peakOpacity": 1
+      },
+      "Who is this again?": {
+        "legibleMs": 150,
+        "peakOpacity": 1
+      },
+      "I have no idea what this means.": {
+        "legibleMs": 0,
+        "peakOpacity": 0.12
+      }
+    },
+    "peakScrollPxPerSec": 6424,
+    "scrolledPx": 2600,
+    "startY": 14334
+  },
+  "reachesEnd": {
+    "y": 37976,
+    "max": 37976
+  },
+  "keyboardPageDown": 8300,
+  "keyboardEnd": 37976,
+  "noHijack": {
+    "wheelDefaultPrevented": false,
+    "touchmoveDefaultPrevented": false
+  }
+}

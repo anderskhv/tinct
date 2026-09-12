@@ -1,0 +1,75 @@
+wrote /tmp/claude-0/pacing/before.json
+wrote /tmp/claude-0/pacing/after.json
+wrote /tmp/claude-0/pacing/after-reduced-motion.json
+
+## fling-from-top
+  before  scrolled  3525px  peak  9007px/s
+      scene feed           dwell  2790ms  peakRate  2.14/s  maxLag  0.41  p 0.05->0.61
+      scene ai             dwell  1388ms  peakRate  1.73/s  maxLag 0.254  p 0.04->0.49
+  after   scrolled  3528px  peak 13137px/s
+      scene feed           dwell  2797ms  peakRate  1.25/s  maxLag 0.576  p 0.05->0.42
+      scene ai             dwell  1402ms  peakRate  0.55/s  maxLag 0.391  p 0->0.47
+  after-reduced-motion scrolled  3550px  peak  9514px/s
+      scene feed           dwell   413ms  peakRate  4.65/s  maxLag 0.042  p 0.05->0.98
+      scene ai             dwell  3820ms  peakRate  1.09/s  maxLag     0  p 0->0.5
+
+## fling-into-linkedin
+  before  scrolled  3525px  peak 12189px/s
+      scene feed           dwell  2488ms  peakRate  0.49/s  maxLag  0.01  p 0.98->0.99
+      scene ai             dwell   536ms  peakRate  0.65/s  maxLag 0.712  p 0->0.3
+      scene infinite       dwell  1159ms  peakRate  0.68/s  maxLag 0.044  p 0.01->0.08
+  after   scrolled  3560px  peak  7083px/s
+      scene ai             dwell  2987ms  peakRate   0.5/s  maxLag 0.464  p 0.02->0.54
+      scene infinite       dwell  1241ms  peakRate  0.66/s  maxLag 0.094  p 0->0.13
+  after-reduced-motion scrolled  3601px  peak 11676px/s
+      scene feed           dwell    17ms  peakRate     0/s  maxLag  0.02  p 0.98->0.98
+      scene ai             dwell  1243ms  peakRate  3.61/s  maxLag     0  p 0.03->0.99
+      scene infinite       dwell  3473ms  peakRate  0.16/s  maxLag     0  p 0->0.11
+
+## fling-into-questions
+  before  scrolled  3525px  peak  8667px/s
+      scene reading-cases  dwell  4183ms  peakRate     0/s  maxLag     0  p 0->0
+      Q "What happened before this?" legible 116ms (peak opacity 1)
+      Q "Who is this again?" legible 100ms (peak opacity 1)
+      Q "I have no idea what this means." legible 1299ms (peak opacity 1)
+  after   scrolled  3525px  peak  7771px/s
+      scene reading-cases  dwell  4183ms  peakRate     0/s  maxLag     0  p 0->0
+      Q "What happened before this?" legible 900ms (peak opacity 1)
+      Q "Who is this again?" legible 334ms (peak opacity 1)
+      Q "I have no idea what this means." legible 766ms (peak opacity 1)
+  after-reduced-motion scrolled  3525px  peak 10792px/s
+      scene effortless     dwell    17ms  peakRate     0/s  maxLag 0.004  p 0.94->0.94
+      scene reading-cases  dwell  4166ms  peakRate     0/s  maxLag     0  p 0->0
+      Q "What happened before this?" legible 150ms (peak opacity 1)
+      Q "Who is this again?" legible 234ms (peak opacity 1)
+      Q "I have no idea what this means." legible 3466ms (peak opacity 1)
+
+## fling-into-reveal
+  before  scrolled  3525px  peak 25000px/s
+      scene reading-cases  dwell  4183ms  peakRate     0/s  maxLag     0  p 0->0
+      Q "What happened before this?" legible 0ms (peak opacity 0)
+      Q "Who is this again?" legible 0ms (peak opacity 0)
+      Q "I have no idea what this means." legible 417ms (peak opacity 1)
+  after   scrolled  3525px  peak 39206px/s
+      scene reading-cases  dwell  4183ms  peakRate     0/s  maxLag     0  p 0->0
+  after-reduced-motion scrolled  3525px  peak 15909px/s
+      scene reading-cases  dwell  4183ms  peakRate     0/s  maxLag     0  p 0->0
+      Q "What happened before this?" legible 0ms (peak opacity 0)
+      Q "Who is this again?" legible 0ms (peak opacity 0)
+      Q "I have no idea what this means." legible 17ms (peak opacity 1)
+
+## touch-fling-into-linkedin
+  before  scrolled     0px  peak     0px/s
+      scene feed           dwell  2466ms  peakRate     0/s  maxLag     0  p 0.98->0.98
+  after   scrolled     0px  peak     0px/s
+      scene ai             dwell  2534ms  peakRate  0.85/s  maxLag 0.665  p 0.02->0.69
+  after-reduced-motion scrolled     0px  peak     0px/s
+      scene feed           dwell  2383ms  peakRate     0/s  maxLag     0  p 0.98->0.98
+
+## touch-fling-into-questions
+  before  scrolled     0px  peak     0px/s
+      scene reading-cases  dwell  2383ms  peakRate     0/s  maxLag     0  p 0->0
+      Q "What happened before this?" legible 0ms (peak opacity 0)
+      Q "Who is this again?" legible 0ms (peak opacity 0)
+
+[exited with code 0]

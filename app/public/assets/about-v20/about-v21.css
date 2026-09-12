@@ -230,3 +230,24 @@ mark.ask-mark,span.ask-mark{color:inherit;background-color:rgba(255,226,120,var(
 @media (max-width:1024px){
   .reading-journey[data-beat=language] .reading-right-leaf::after{left:75%;right:2%;top:8%;height:40%}
 }
+
+/* ── Scroll pacing (2026-09-12, Anders: "set a max speed for scrolling — on a mobile it's too fast at times") ──
+   A flick on a touchscreen arrives with several thousand px/s of momentum, and the story mapped scroll
+   position straight onto animation progress, so beats flashed past unread. The fix has two halves:
+
+   1. The story chunk no longer maps scroll to progress directly. Each frame it eases the rendered progress
+      toward the scroll-derived target with a time-based exponential follower and a hard ceiling on how far
+      it may travel per second (GSAP's numeric `scrub`, and what Lenis does to the scroll itself). The
+      ceiling is stated in px of scroll per second and divided by the chapter's own height, so a chapter
+      that was given more scroll distance keeps its extra dwell. Disabled under prefers-reduced-motion:
+      an animation that lags the scroll is exactly what that setting exists to avoid.
+
+   2. Proximity scroll snapping on phones, below. A flick that ends near a chapter boundary lands on the
+      boundary instead of a third of the way into the next beat. Proximity, never mandatory: chapters here
+      run from 2000px to 18000px tall and a mandatory snap would yank anyone reading the middle of one back
+      to its start. Nothing is intercepted — this is the native scroller, no wheel or touchmove handler,
+      no preventDefault, and the page stays fully scrollable and keyboard-reachable at any speed. */
+@media (max-width:760px) and (prefers-reduced-motion: no-preference) {
+  html{scroll-snap-type:y proximity}
+  .story-root[data-bookshelf=true] .journey-steps .journey-step{scroll-snap-align:start}
+}
