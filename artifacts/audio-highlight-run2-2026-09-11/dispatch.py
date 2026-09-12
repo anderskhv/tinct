@@ -15,8 +15,8 @@ from orchestrate import api  # noqa: E402
 
 COMMIT = "f53d744782e3c369fffd2980a013a7f199c0476e"
 MAX_PODS = 12
-BUDGET_STOP = 16.0          # stop launching; harvest and close out below $20
-POD_PROJECTION = 0.45       # $ a fresh pod is assumed to add
+BUDGET_STOP = 17.0          # stop launching; harvest and close out below $20
+POD_PROJECTION = 0.22       # $ a fresh pod adds, measured over 60 run-2 pods
 
 
 def log(msg):

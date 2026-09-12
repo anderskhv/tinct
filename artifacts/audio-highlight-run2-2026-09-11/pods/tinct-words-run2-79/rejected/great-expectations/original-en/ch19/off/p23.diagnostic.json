@@ -1,0 +1,587 @@
+{
+  "complete": true,
+  "signature": "96478743b4ab6733daed8262950d6918a830872fea9e40a53993ac0802934364",
+  "attempts": [
+    {
+      "asr_seconds": 0.38311550999060273,
+      "alignment_seconds": 0.000520939938724041,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Oh, they do very well here,\" interrupted Biddy, looking closely at the leaf in her hand.",
+          "start": 0.05,
+          "end": 5.17,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.44287109375
+            },
+            {
+              "text": " they",
+              "start": 0.71,
+              "end": 0.83,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " do",
+              "start": 0.83,
+              "end": 1.01,
+              "probability": 0.99609375
+            },
+            {
+              "text": " very",
+              "start": 1.01,
+              "end": 1.25,
+              "probability": 0.994140625
+            },
+            {
+              "text": " well",
+              "start": 1.25,
+              "end": 1.47,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " here,\"",
+              "start": 1.47,
+              "end": 2.29,
+              "probability": 0.55267333984375
+            },
+            {
+              "text": " interrupted",
+              "start": 2.29,
+              "end": 2.77,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Biddy,",
+              "start": 2.77,
+              "end": 3.11,
+              "probability": 0.7822265625
+            },
+            {
+              "text": " looking",
+              "start": 3.45,
+              "end": 3.67,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " closely",
+              "start": 3.67,
+              "end": 4.03,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " at",
+              "start": 4.03,
+              "end": 4.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 4.31,
+              "end": 4.41,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " leaf",
+              "start": 4.41,
+              "end": 4.61,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " in",
+              "start": 4.61,
+              "end": 4.75,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " her",
+              "start": 4.75,
+              "end": 4.87,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " hand.",
+              "start": 4.87,
+              "end": 5.17,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oh,",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "they",
+          "start": 0.71,
+          "end": 0.83
+        },
+        {
+          "raw": "do",
+          "start": 0.83,
+          "end": 1.01
+        },
+        {
+          "raw": "very",
+          "start": 1.01,
+          "end": 1.25
+        },
+        {
+          "raw": "well",
+          "start": 1.25,
+          "end": 1.47
+        },
+        {
+          "raw": "here,\"",
+          "start": 1.47,
+          "end": 2.29
+        },
+        {
+          "raw": "interrupted",
+          "start": 2.29,
+          "end": 2.77
+        },
+        {
+          "raw": "Biddy,",
+          "start": 2.77,
+          "end": 3.11
+        },
+        {
+          "raw": "looking",
+          "start": 3.45,
+          "end": 3.67
+        },
+        {
+          "raw": "closely",
+          "start": 3.67,
+          "end": 4.03
+        },
+        {
+          "raw": "at",
+          "start": 4.03,
+          "end": 4.31
+        },
+        {
+          "raw": "the",
+          "start": 4.31,
+          "end": 4.41
+        },
+        {
+          "raw": "leaf",
+          "start": 4.41,
+          "end": 4.61
+        },
+        {
+          "raw": "in",
+          "start": 4.61,
+          "end": 4.75
+        },
+        {
+          "raw": "her",
+          "start": 4.75,
+          "end": 4.87
+        },
+        {
+          "raw": "hand.",
+          "start": 4.87,
+          "end": 5.17
+        }
+      ],
+      "expected_tokens": [
+        "\"O!",
+        "they",
+        "_do_",
+        "very",
+        "well",
+        "here?\"",
+        "interrupted",
+        "Biddy,",
+        "looking",
+        "closely",
+        "at",
+        "the",
+        "leaf",
+        "in",
+        "her",
+        "hand."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          16,
+          1,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oh,",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "oh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 0.71,
+          "end": 0.83,
+          "key": "they",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 0.83,
+          "end": 1.01,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 1.01,
+          "end": 1.25,
+          "key": "very",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 1.25,
+          "end": 1.47,
+          "key": "well",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "here,\"",
+          "start": 1.47,
+          "end": 2.29,
+          "key": "here",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "interrupted",
+          "start": 2.29,
+          "end": 2.77,
+          "key": "interrupted",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Biddy,",
+          "start": 2.77,
+          "end": 3.11,
+          "key": "biddy",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "looking",
+          "start": 3.45,
+          "end": 3.67,
+          "key": "looking",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "closely",
+          "start": 3.67,
+          "end": 4.03,
+          "key": "closely",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 4.03,
+          "end": 4.31,
+          "key": "at",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.31,
+          "end": 4.41,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "leaf",
+          "start": 4.41,
+          "end": 4.61,
+          "key": "leaf",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.61,
+          "end": 4.75,
+          "key": "in",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 4.75,
+          "end": 4.87,
+          "key": "her",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "hand.",
+          "start": 4.87,
+          "end": 5.17,
+          "key": "hand",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"O!",
+          "start": 0.0,
+          "end": 0.355
+        },
+        {
+          "text": "they",
+          "start": 0.71,
+          "end": 0.83
+        },
+        {
+          "text": "_do_",
+          "start": 0.83,
+          "end": 1.01
+        },
+        {
+          "text": "very",
+          "start": 1.01,
+          "end": 1.25
+        },
+        {
+          "text": "well",
+          "start": 1.25,
+          "end": 1.47
+        },
+        {
+          "text": "here?\"",
+          "start": 1.47,
+          "end": 2.29
+        },
+        {
+          "text": "interrupted",
+          "start": 2.29,
+          "end": 2.77
+        },
+        {
+          "text": "Biddy,",
+          "start": 2.77,
+          "end": 3.11
+        },
+        {
+          "text": "looking",
+          "start": 3.45,
+          "end": 3.67
+        },
+        {
+          "text": "closely",
+          "start": 3.67,
+          "end": 4.03
+        },
+        {
+          "text": "at",
+          "start": 4.03,
+          "end": 4.31
+        },
+        {
+          "text": "the",
+          "start": 4.31,
+          "end": 4.41
+        },
+        {
+          "text": "leaf",
+          "start": 4.41,
+          "end": 4.61
+        },
+        {
+          "text": "in",
+          "start": 4.61,
+          "end": 4.75
+        },
+        {
+          "text": "her",
+          "start": 4.75,
+          "end": 4.87
+        },
+        {
+          "text": "hand.",
+          "start": 4.87,
+          "end": 5.17
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.3838444338180125
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3fdc6890bd89702c228e9bd6862707b8931d2d08c89e1d9ab1512a8ef0b68249",
+  "selected_reasons": []
+}

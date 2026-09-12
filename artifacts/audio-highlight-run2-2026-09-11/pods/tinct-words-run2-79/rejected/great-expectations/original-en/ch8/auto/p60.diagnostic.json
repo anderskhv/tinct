@@ -1,0 +1,1923 @@
+{
+  "complete": true,
+  "signature": "4b207b84a9090026d21511858326b0459329900bc6f430cb83da7c47855480df",
+  "attempts": [
+    {
+      "asr_seconds": 0.4291980778798461,
+      "alignment_seconds": 0.0005072592757642269,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "I thought I overheard Miss Havisham answer,—only it seemed so unlikely,—\"Well? You can break his heart.\"",
+        "hotwords": "I, Miss, Havisham, You"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I thought I overheard Miss Havisham answer,—only it seemed so unlikely,—\"Well? You can break his heart.\"",
+          "start": 0.02,
+          "end": 6.78,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.79296875
+            },
+            {
+              "text": " thought",
+              "start": 0.52,
+              "end": 0.64,
+              "probability": 0.98828125
+            },
+            {
+              "text": " I",
+              "start": 0.64,
+              "end": 0.8,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " overheard",
+              "start": 0.8,
+              "end": 1.2,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " Miss",
+              "start": 1.2,
+              "end": 1.46,
+              "probability": 0.7373046875
+            },
+            {
+              "text": " Havisham",
+              "start": 1.46,
+              "end": 1.96,
+              "probability": 0.9825846354166666
+            },
+            {
+              "text": " answer,—only",
+              "start": 1.96,
+              "end": 2.98,
+              "probability": 0.647623876730601
+            },
+            {
+              "text": " it",
+              "start": 2.98,
+              "end": 3.14,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " seemed",
+              "start": 3.14,
+              "end": 3.34,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " so",
+              "start": 3.34,
+              "end": 3.7,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " unlikely",
+              "start": 3.7,
+              "end": 4.14,
+              "probability": 0.9951171875
+            },
+            {
+              "text": ",—\"Well?",
+              "start": 4.14,
+              "end": 5.12,
+              "probability": 0.23365513483683267
+            },
+            {
+              "text": " You",
+              "start": 5.52,
+              "end": 5.64,
+              "probability": 0.884765625
+            },
+            {
+              "text": " can",
+              "start": 5.64,
+              "end": 5.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " break",
+              "start": 5.78,
+              "end": 5.94,
+              "probability": 0.9921875
+            },
+            {
+              "text": " his",
+              "start": 5.94,
+              "end": 6.14,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " heart.\"",
+              "start": 6.14,
+              "end": 6.78,
+              "probability": 0.871337890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "thought",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "raw": "I",
+          "start": 0.64,
+          "end": 0.8
+        },
+        {
+          "raw": "overheard",
+          "start": 0.8,
+          "end": 1.2
+        },
+        {
+          "raw": "Miss",
+          "start": 1.2,
+          "end": 1.46
+        },
+        {
+          "raw": "Havisham",
+          "start": 1.46,
+          "end": 1.96
+        },
+        {
+          "raw": "answer,—only",
+          "start": 1.96,
+          "end": 2.98
+        },
+        {
+          "raw": "it",
+          "start": 2.98,
+          "end": 3.14
+        },
+        {
+          "raw": "seemed",
+          "start": 3.14,
+          "end": 3.34
+        },
+        {
+          "raw": "so",
+          "start": 3.34,
+          "end": 3.7
+        },
+        {
+          "raw": "unlikely",
+          "start": 3.7,
+          "end": 4.14
+        },
+        {
+          "raw": ",—\"Well?",
+          "start": 4.14,
+          "end": 5.12
+        },
+        {
+          "raw": "You",
+          "start": 5.52,
+          "end": 5.64
+        },
+        {
+          "raw": "can",
+          "start": 5.64,
+          "end": 5.78
+        },
+        {
+          "raw": "break",
+          "start": 5.78,
+          "end": 5.94
+        },
+        {
+          "raw": "his",
+          "start": 5.94,
+          "end": 6.14
+        },
+        {
+          "raw": "heart.\"",
+          "start": 6.14,
+          "end": 6.78
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "thought",
+        "I",
+        "overheard",
+        "Miss",
+        "Havisham",
+        "answer,—only",
+        "it",
+        "seemed",
+        "so",
+        "unlikely,—\"Well?",
+        "You",
+        "can",
+        "break",
+        "his",
+        "heart.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          12
+        ],
+        [
+          "equal",
+          11,
+          16,
+          12,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          10,
+          11,
+          10,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "thought",
+          "start": 0.52,
+          "end": 0.64,
+          "key": "thought",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.64,
+          "end": 0.8,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "overheard",
+          "start": 0.8,
+          "end": 1.2,
+          "key": "overheard",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Miss",
+          "start": 1.2,
+          "end": 1.46,
+          "key": "miss",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Havisham",
+          "start": 1.46,
+          "end": 1.96,
+          "key": "havisham",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "answer,—only",
+          "start": 1.96,
+          "end": 2.98,
+          "key": "answeronly",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.98,
+          "end": 3.14,
+          "key": "it",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "seemed",
+          "start": 3.14,
+          "end": 3.34,
+          "key": "seemed",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 3.34,
+          "end": 3.7,
+          "key": "so",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "unlikely",
+          "start": 3.7,
+          "end": 4.14,
+          "key": "unlikely",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": ",—\"Well?",
+          "start": 4.14,
+          "end": 5.12,
+          "key": "well",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 5.52,
+          "end": 5.64,
+          "key": "you",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 5.64,
+          "end": 5.78,
+          "key": "can",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "break",
+          "start": 5.78,
+          "end": 5.94,
+          "key": "break",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 5.94,
+          "end": 6.14,
+          "key": "his",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "heart.\"",
+          "start": 6.14,
+          "end": 6.78,
+          "key": "heart",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "thought",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "text": "I",
+          "start": 0.64,
+          "end": 0.8
+        },
+        {
+          "text": "overheard",
+          "start": 0.8,
+          "end": 1.2
+        },
+        {
+          "text": "Miss",
+          "start": 1.2,
+          "end": 1.46
+        },
+        {
+          "text": "Havisham",
+          "start": 1.46,
+          "end": 1.96
+        },
+        {
+          "text": "answer,—only",
+          "start": 1.96,
+          "end": 2.98
+        },
+        {
+          "text": "it",
+          "start": 2.98,
+          "end": 3.14
+        },
+        {
+          "text": "seemed",
+          "start": 3.14,
+          "end": 3.34
+        },
+        {
+          "text": "so",
+          "start": 3.34,
+          "end": 3.7
+        },
+        {
+          "text": "unlikely,—\"Well?",
+          "start": 3.7,
+          "end": 4.61
+        },
+        {
+          "text": "You",
+          "start": 5.52,
+          "end": 5.64
+        },
+        {
+          "text": "can",
+          "start": 5.64,
+          "end": 5.78
+        },
+        {
+          "text": "break",
+          "start": 5.78,
+          "end": 5.94
+        },
+        {
+          "text": "his",
+          "start": 5.94,
+          "end": 6.14
+        },
+        {
+          "text": "heart.\"",
+          "start": 6.14,
+          "end": 6.78
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 17,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.42992155300453305
+    },
+    {
+      "asr_seconds": 0.37449169298633933,
+      "alignment_seconds": 0.0004369695670902729,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "I, Miss, Havisham, You"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " I thought I overheard Miss Havisham answer, only it seemed so unlikely. Well, you can",
+          "start": 0.02,
+          "end": 5.78,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.79296875
+            },
+            {
+              "text": " thought",
+              "start": 0.52,
+              "end": 0.64,
+              "probability": 0.98828125
+            },
+            {
+              "text": " I",
+              "start": 0.64,
+              "end": 0.8,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " overheard",
+              "start": 0.8,
+              "end": 1.2,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " Miss",
+              "start": 1.2,
+              "end": 1.46,
+              "probability": 0.7373046875
+            },
+            {
+              "text": " Havisham",
+              "start": 1.46,
+              "end": 1.96,
+              "probability": 0.9825846354166666
+            },
+            {
+              "text": " answer,",
+              "start": 1.96,
+              "end": 2.36,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " only",
+              "start": 2.78,
+              "end": 2.96,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " it",
+              "start": 2.96,
+              "end": 3.14,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " seemed",
+              "start": 3.14,
+              "end": 3.34,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " so",
+              "start": 3.34,
+              "end": 3.7,
+              "probability": 0.99609375
+            },
+            {
+              "text": " unlikely.",
+              "start": 3.7,
+              "end": 4.14,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Well,",
+              "start": 5.0,
+              "end": 5.12,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " you",
+              "start": 5.54,
+              "end": 5.64,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " can",
+              "start": 5.64,
+              "end": 5.78,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " break his heart.",
+          "start": 5.78,
+          "end": 6.38,
+          "words": [
+            {
+              "text": " break",
+              "start": 5.78,
+              "end": 5.94,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " his",
+              "start": 5.94,
+              "end": 6.14,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " heart.",
+              "start": 6.14,
+              "end": 6.38,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "thought",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "raw": "I",
+          "start": 0.64,
+          "end": 0.8
+        },
+        {
+          "raw": "overheard",
+          "start": 0.8,
+          "end": 1.2
+        },
+        {
+          "raw": "Miss",
+          "start": 1.2,
+          "end": 1.46
+        },
+        {
+          "raw": "Havisham",
+          "start": 1.46,
+          "end": 1.96
+        },
+        {
+          "raw": "answer,",
+          "start": 1.96,
+          "end": 2.36
+        },
+        {
+          "raw": "only",
+          "start": 2.78,
+          "end": 2.96
+        },
+        {
+          "raw": "it",
+          "start": 2.96,
+          "end": 3.14
+        },
+        {
+          "raw": "seemed",
+          "start": 3.14,
+          "end": 3.34
+        },
+        {
+          "raw": "so",
+          "start": 3.34,
+          "end": 3.7
+        },
+        {
+          "raw": "unlikely.",
+          "start": 3.7,
+          "end": 4.14
+        },
+        {
+          "raw": "Well,",
+          "start": 5.0,
+          "end": 5.12
+        },
+        {
+          "raw": "you",
+          "start": 5.54,
+          "end": 5.64
+        },
+        {
+          "raw": "can",
+          "start": 5.64,
+          "end": 5.78
+        },
+        {
+          "raw": "break",
+          "start": 5.78,
+          "end": 5.94
+        },
+        {
+          "raw": "his",
+          "start": 5.94,
+          "end": 6.14
+        },
+        {
+          "raw": "heart.",
+          "start": 6.14,
+          "end": 6.38
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "thought",
+        "I",
+        "overheard",
+        "Miss",
+        "Havisham",
+        "answer,—only",
+        "it",
+        "seemed",
+        "so",
+        "unlikely,—\"Well?",
+        "You",
+        "can",
+        "break",
+        "his",
+        "heart.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ],
+        [
+          "equal",
+          7,
+          10,
+          8,
+          11
+        ],
+        [
+          "replace",
+          10,
+          11,
+          11,
+          13
+        ],
+        [
+          "equal",
+          11,
+          16,
+          13,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ],
+        [
+          "replace",
+          10,
+          11,
+          11,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "thought",
+          "start": 0.52,
+          "end": 0.64,
+          "key": "thought",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.64,
+          "end": 0.8,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "overheard",
+          "start": 0.8,
+          "end": 1.2,
+          "key": "overheard",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Miss",
+          "start": 1.2,
+          "end": 1.46,
+          "key": "miss",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Havisham",
+          "start": 1.46,
+          "end": 1.96,
+          "key": "havisham",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "answer,",
+          "start": 1.96,
+          "end": 2.36,
+          "key": "answer",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 2.78,
+          "end": 2.96,
+          "key": "only",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.96,
+          "end": 3.14,
+          "key": "it",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "seemed",
+          "start": 3.14,
+          "end": 3.34,
+          "key": "seemed",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 3.34,
+          "end": 3.7,
+          "key": "so",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "unlikely.",
+          "start": 3.7,
+          "end": 4.14,
+          "key": "unlikely",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Well,",
+          "start": 5.0,
+          "end": 5.12,
+          "key": "well",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.54,
+          "end": 5.64,
+          "key": "you",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 5.64,
+          "end": 5.78,
+          "key": "can",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "break",
+          "start": 5.78,
+          "end": 5.94,
+          "key": "break",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 5.94,
+          "end": 6.14,
+          "key": "his",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "heart.",
+          "start": 6.14,
+          "end": 6.38,
+          "key": "heart",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "thought",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "text": "I",
+          "start": 0.64,
+          "end": 0.8
+        },
+        {
+          "text": "overheard",
+          "start": 0.8,
+          "end": 1.2
+        },
+        {
+          "text": "Miss",
+          "start": 1.2,
+          "end": 1.46
+        },
+        {
+          "text": "Havisham",
+          "start": 1.46,
+          "end": 1.96
+        },
+        {
+          "text": "answer,—only",
+          "start": 1.96,
+          "end": 2.46
+        },
+        {
+          "text": "it",
+          "start": 2.96,
+          "end": 3.14
+        },
+        {
+          "text": "seemed",
+          "start": 3.14,
+          "end": 3.34
+        },
+        {
+          "text": "so",
+          "start": 3.34,
+          "end": 3.7
+        },
+        {
+          "text": "unlikely,—\"Well?",
+          "start": 3.7,
+          "end": 4.62
+        },
+        {
+          "text": "You",
+          "start": 5.54,
+          "end": 5.64
+        },
+        {
+          "text": "can",
+          "start": 5.64,
+          "end": 5.78
+        },
+        {
+          "text": "break",
+          "start": 5.78,
+          "end": 5.94
+        },
+        {
+          "text": "his",
+          "start": 5.94,
+          "end": 6.14
+        },
+        {
+          "text": "heart.\"",
+          "start": 6.14,
+          "end": 6.38
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 18,
+        "matched_words": 14
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.3751032133586705
+    },
+    {
+      "asr_seconds": 0.3745703077875078,
+      "alignment_seconds": 0.00044990284368395805,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I thought I overheard Miss Havisham answer, only it seemed so unlikely.",
+          "start": 0.02,
+          "end": 4.14,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.79296875
+            },
+            {
+              "text": " thought",
+              "start": 0.52,
+              "end": 0.64,
+              "probability": 0.98828125
+            },
+            {
+              "text": " I",
+              "start": 0.64,
+              "end": 0.8,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " overheard",
+              "start": 0.8,
+              "end": 1.2,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " Miss",
+              "start": 1.2,
+              "end": 1.46,
+              "probability": 0.7373046875
+            },
+            {
+              "text": " Havisham",
+              "start": 1.46,
+              "end": 1.96,
+              "probability": 0.9825846354166666
+            },
+            {
+              "text": " answer,",
+              "start": 1.96,
+              "end": 2.36,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " only",
+              "start": 2.78,
+              "end": 2.96,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " it",
+              "start": 2.96,
+              "end": 3.14,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " seemed",
+              "start": 3.14,
+              "end": 3.34,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " so",
+              "start": 3.34,
+              "end": 3.7,
+              "probability": 0.99609375
+            },
+            {
+              "text": " unlikely.",
+              "start": 3.7,
+              "end": 4.14,
+              "probability": 0.99609375
+            }
+          ]
+        },
+        {
+          "text": " Well, you can break his heart.",
+          "start": 5.0,
+          "end": 6.38,
+          "words": [
+            {
+              "text": " Well,",
+              "start": 5.0,
+              "end": 5.12,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " you",
+              "start": 5.54,
+              "end": 5.64,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " can",
+              "start": 5.64,
+              "end": 5.78,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " break",
+              "start": 5.78,
+              "end": 5.94,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " his",
+              "start": 5.94,
+              "end": 6.14,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " heart.",
+              "start": 6.14,
+              "end": 6.38,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "thought",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "raw": "I",
+          "start": 0.64,
+          "end": 0.8
+        },
+        {
+          "raw": "overheard",
+          "start": 0.8,
+          "end": 1.2
+        },
+        {
+          "raw": "Miss",
+          "start": 1.2,
+          "end": 1.46
+        },
+        {
+          "raw": "Havisham",
+          "start": 1.46,
+          "end": 1.96
+        },
+        {
+          "raw": "answer,",
+          "start": 1.96,
+          "end": 2.36
+        },
+        {
+          "raw": "only",
+          "start": 2.78,
+          "end": 2.96
+        },
+        {
+          "raw": "it",
+          "start": 2.96,
+          "end": 3.14
+        },
+        {
+          "raw": "seemed",
+          "start": 3.14,
+          "end": 3.34
+        },
+        {
+          "raw": "so",
+          "start": 3.34,
+          "end": 3.7
+        },
+        {
+          "raw": "unlikely.",
+          "start": 3.7,
+          "end": 4.14
+        },
+        {
+          "raw": "Well,",
+          "start": 5.0,
+          "end": 5.12
+        },
+        {
+          "raw": "you",
+          "start": 5.54,
+          "end": 5.64
+        },
+        {
+          "raw": "can",
+          "start": 5.64,
+          "end": 5.78
+        },
+        {
+          "raw": "break",
+          "start": 5.78,
+          "end": 5.94
+        },
+        {
+          "raw": "his",
+          "start": 5.94,
+          "end": 6.14
+        },
+        {
+          "raw": "heart.",
+          "start": 6.14,
+          "end": 6.38
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "thought",
+        "I",
+        "overheard",
+        "Miss",
+        "Havisham",
+        "answer,—only",
+        "it",
+        "seemed",
+        "so",
+        "unlikely,—\"Well?",
+        "You",
+        "can",
+        "break",
+        "his",
+        "heart.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ],
+        [
+          "equal",
+          7,
+          10,
+          8,
+          11
+        ],
+        [
+          "replace",
+          10,
+          11,
+          11,
+          13
+        ],
+        [
+          "equal",
+          11,
+          16,
+          13,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ],
+        [
+          "replace",
+          10,
+          11,
+          11,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "thought",
+          "start": 0.52,
+          "end": 0.64,
+          "key": "thought",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.64,
+          "end": 0.8,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "overheard",
+          "start": 0.8,
+          "end": 1.2,
+          "key": "overheard",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Miss",
+          "start": 1.2,
+          "end": 1.46,
+          "key": "miss",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Havisham",
+          "start": 1.46,
+          "end": 1.96,
+          "key": "havisham",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "answer,",
+          "start": 1.96,
+          "end": 2.36,
+          "key": "answer",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 2.78,
+          "end": 2.96,
+          "key": "only",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.96,
+          "end": 3.14,
+          "key": "it",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "seemed",
+          "start": 3.14,
+          "end": 3.34,
+          "key": "seemed",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 3.34,
+          "end": 3.7,
+          "key": "so",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "unlikely.",
+          "start": 3.7,
+          "end": 4.14,
+          "key": "unlikely",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Well,",
+          "start": 5.0,
+          "end": 5.12,
+          "key": "well",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.54,
+          "end": 5.64,
+          "key": "you",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 5.64,
+          "end": 5.78,
+          "key": "can",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "break",
+          "start": 5.78,
+          "end": 5.94,
+          "key": "break",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 5.94,
+          "end": 6.14,
+          "key": "his",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "heart.",
+          "start": 6.14,
+          "end": 6.38,
+          "key": "heart",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "thought",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "text": "I",
+          "start": 0.64,
+          "end": 0.8
+        },
+        {
+          "text": "overheard",
+          "start": 0.8,
+          "end": 1.2
+        },
+        {
+          "text": "Miss",
+          "start": 1.2,
+          "end": 1.46
+        },
+        {
+          "text": "Havisham",
+          "start": 1.46,
+          "end": 1.96
+        },
+        {
+          "text": "answer,—only",
+          "start": 1.96,
+          "end": 2.46
+        },
+        {
+          "text": "it",
+          "start": 2.96,
+          "end": 3.14
+        },
+        {
+          "text": "seemed",
+          "start": 3.14,
+          "end": 3.34
+        },
+        {
+          "text": "so",
+          "start": 3.34,
+          "end": 3.7
+        },
+        {
+          "text": "unlikely,—\"Well?",
+          "start": 3.7,
+          "end": 4.62
+        },
+        {
+          "text": "You",
+          "start": 5.54,
+          "end": 5.64
+        },
+        {
+          "text": "can",
+          "start": 5.64,
+          "end": 5.78
+        },
+        {
+          "text": "break",
+          "start": 5.78,
+          "end": 5.94
+        },
+        {
+          "text": "his",
+          "start": 5.94,
+          "end": 6.14
+        },
+        {
+          "text": "heart.\"",
+          "start": 6.14,
+          "end": 6.38
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 18,
+        "matched_words": 14
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.37521107215434313
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "459c7480ee6866de281e7b689bd13949659924190d92ed38338aa744f2e0da7d",
+  "selected_reasons": []
+}

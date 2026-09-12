@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "682237326115304931e1b5c20c90661aee7798b4d621263661abeabd3b8ef54e",
+  "attempts": [
+    {
+      "asr_seconds": 0.136373708024621,
+      "alignment_seconds": 0.0003442256711423397,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " How do you come here?",
+          "start": 0.08,
+          "end": 1.14,
+          "words": [
+            {
+              "text": " How",
+              "start": 0.08,
+              "end": 0.5,
+              "probability": 0.88525390625
+            },
+            {
+              "text": " do",
+              "start": 0.5,
+              "end": 0.6,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " you",
+              "start": 0.6,
+              "end": 0.68,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " come",
+              "start": 0.68,
+              "end": 0.86,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " here?",
+              "start": 0.86,
+              "end": 1.14,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "How",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "raw": "do",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "raw": "you",
+          "start": 0.6,
+          "end": 0.68
+        },
+        {
+          "raw": "come",
+          "start": 0.68,
+          "end": 0.86
+        },
+        {
+          "raw": "here?",
+          "start": 0.86,
+          "end": 1.14
+        }
+      ],
+      "expected_tokens": [
+        "\"How",
+        "do",
+        "_you_",
+        "come",
+        "here?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "How",
+          "start": 0.08,
+          "end": 0.5,
+          "key": "how",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 0.5,
+          "end": 0.6,
+          "key": "do",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.6,
+          "end": 0.68,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 0.68,
+          "end": 0.86,
+          "key": "come",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "here?",
+          "start": 0.86,
+          "end": 1.14,
+          "key": "here",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"How",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "text": "do",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "text": "_you_",
+          "start": 0.6,
+          "end": 0.68
+        },
+        {
+          "text": "come",
+          "start": 0.68,
+          "end": 0.86
+        },
+        {
+          "text": "here?\"",
+          "start": 0.86,
+          "end": 1.14
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13685274263843894
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "517b01c8cc91b369705b1effec600759b8f83597090ff005a297fdc1bcb952d0",
+  "selected_reasons": []
+}

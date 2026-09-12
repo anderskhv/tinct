@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "483dccea3ac17c686823bb94a758a2129ed1d6e9eee9d52633691b3680bdc234",
+  "attempts": [
+    {
+      "asr_seconds": 0.20795526122674346,
+      "alignment_seconds": 0.00030172429978847504,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " No, said I, that's not it.",
+          "start": 0.05,
+          "end": 2.05,
+          "words": [
+            {
+              "text": " No,",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.1329345703125
+            },
+            {
+              "text": " said",
+              "start": 1.01,
+              "end": 1.03,
+              "probability": 0.41748046875
+            },
+            {
+              "text": " I,",
+              "start": 1.03,
+              "end": 1.21,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " that's",
+              "start": 1.43,
+              "end": 1.67,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " not",
+              "start": 1.67,
+              "end": 1.81,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " it.",
+              "start": 1.81,
+              "end": 2.05,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No,",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "said",
+          "start": 1.01,
+          "end": 1.03
+        },
+        {
+          "raw": "I,",
+          "start": 1.03,
+          "end": 1.21
+        },
+        {
+          "raw": "that's",
+          "start": 1.43,
+          "end": 1.67
+        },
+        {
+          "raw": "not",
+          "start": 1.67,
+          "end": 1.81
+        },
+        {
+          "raw": "it.",
+          "start": 1.81,
+          "end": 2.05
+        }
+      ],
+      "expected_tokens": [
+        "\"No,\"",
+        "said",
+        "I,",
+        "\"that's",
+        "not",
+        "it.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No,",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.01,
+          "end": 1.03,
+          "key": "said",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 1.03,
+          "end": 1.21,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that's",
+          "start": 1.43,
+          "end": 1.67,
+          "key": "thats",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.67,
+          "end": 1.81,
+          "key": "not",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 1.81,
+          "end": 2.05,
+          "key": "it",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"No,\"",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "said",
+          "start": 1.01,
+          "end": 1.03
+        },
+        {
+          "text": "I,",
+          "start": 1.03,
+          "end": 1.21
+        },
+        {
+          "text": "\"that's",
+          "start": 1.43,
+          "end": 1.67
+        },
+        {
+          "text": "not",
+          "start": 1.67,
+          "end": 1.81
+        },
+        {
+          "text": "it.\"",
+          "start": 1.81,
+          "end": 2.05
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20837023435160518
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a893aa96d63eae1ef7c79f89889fe34803996db79b41a0a8106fa928c2fb3e31",
+  "selected_reasons": []
+}

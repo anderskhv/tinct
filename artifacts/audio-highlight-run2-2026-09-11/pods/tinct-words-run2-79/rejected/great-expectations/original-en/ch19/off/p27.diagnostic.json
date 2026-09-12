@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "5e4b5a151f31b2dc3b8a8475db27b1192a3da868d9e6b537f755a182388edacc",
+  "attempts": [
+    {
+      "asr_seconds": 0.14790235413238406,
+      "alignment_seconds": 0.00036158226430416107,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Biddy, what do you mean?",
+          "start": 0.08,
+          "end": 1.46,
+          "words": [
+            {
+              "text": " Biddy,",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.739990234375
+            },
+            {
+              "text": " what",
+              "start": 0.88,
+              "end": 1.08,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " do",
+              "start": 1.08,
+              "end": 1.2,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " you",
+              "start": 1.2,
+              "end": 1.28,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " mean?",
+              "start": 1.28,
+              "end": 1.46,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Biddy,",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "what",
+          "start": 0.88,
+          "end": 1.08
+        },
+        {
+          "raw": "do",
+          "start": 1.08,
+          "end": 1.2
+        },
+        {
+          "raw": "you",
+          "start": 1.2,
+          "end": 1.28
+        },
+        {
+          "raw": "mean?",
+          "start": 1.28,
+          "end": 1.46
+        }
+      ],
+      "expected_tokens": [
+        "\"Biddy,",
+        "what",
+        "do",
+        "you",
+        "mean?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Biddy,",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "biddy",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 0.88,
+          "end": 1.08,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.08,
+          "end": 1.2,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.2,
+          "end": 1.28,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "mean?",
+          "start": 1.28,
+          "end": 1.46,
+          "key": "mean",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Biddy,",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "what",
+          "start": 0.88,
+          "end": 1.08
+        },
+        {
+          "text": "do",
+          "start": 1.08,
+          "end": 1.2
+        },
+        {
+          "text": "you",
+          "start": 1.2,
+          "end": 1.28
+        },
+        {
+          "text": "mean?\"",
+          "start": 1.28,
+          "end": 1.46
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14838602300733328
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9179b5a640c1b1612648283ce8e79cd2dc24bc61ca33c307bc1ea1c7cf249707",
+  "selected_reasons": []
+}

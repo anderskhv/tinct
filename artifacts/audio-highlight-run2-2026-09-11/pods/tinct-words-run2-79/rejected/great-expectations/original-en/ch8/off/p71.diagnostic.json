@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "a3ee0db7e2662d8b0c025b8d16600b20809fda962b1b3c5340af2d3f525108d4",
+  "attempts": [
+    {
+      "asr_seconds": 0.23843917017802596,
+      "alignment_seconds": 0.0004305262118577957,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Tell me in my ear said Miss Havisham bending down",
+          "start": 0.08,
+          "end": 3.18,
+          "words": [
+            {
+              "text": " Tell",
+              "start": 0.08,
+              "end": 0.56,
+              "probability": 0.101806640625
+            },
+            {
+              "text": " me",
+              "start": 0.56,
+              "end": 0.68,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " in",
+              "start": 0.68,
+              "end": 0.76,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " my",
+              "start": 0.76,
+              "end": 0.88,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " ear",
+              "start": 0.88,
+              "end": 1.34,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " said",
+              "start": 1.34,
+              "end": 1.7,
+              "probability": 0.130126953125
+            },
+            {
+              "text": " Miss",
+              "start": 1.7,
+              "end": 1.86,
+              "probability": 0.55517578125
+            },
+            {
+              "text": " Havisham",
+              "start": 1.86,
+              "end": 2.46,
+              "probability": 0.8937174479166666
+            },
+            {
+              "text": " bending",
+              "start": 2.46,
+              "end": 2.78,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " down",
+              "start": 2.78,
+              "end": 3.18,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Tell",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "raw": "me",
+          "start": 0.56,
+          "end": 0.68
+        },
+        {
+          "raw": "in",
+          "start": 0.68,
+          "end": 0.76
+        },
+        {
+          "raw": "my",
+          "start": 0.76,
+          "end": 0.88
+        },
+        {
+          "raw": "ear",
+          "start": 0.88,
+          "end": 1.34
+        },
+        {
+          "raw": "said",
+          "start": 1.34,
+          "end": 1.7
+        },
+        {
+          "raw": "Miss",
+          "start": 1.7,
+          "end": 1.86
+        },
+        {
+          "raw": "Havisham",
+          "start": 1.86,
+          "end": 2.46
+        },
+        {
+          "raw": "bending",
+          "start": 2.46,
+          "end": 2.78
+        },
+        {
+          "raw": "down",
+          "start": 2.78,
+          "end": 3.18
+        }
+      ],
+      "expected_tokens": [
+        "\"Tell",
+        "me",
+        "in",
+        "my",
+        "ear,\"",
+        "said",
+        "Miss",
+        "Havisham,",
+        "bending",
+        "down."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Tell",
+          "start": 0.08,
+          "end": 0.56,
+          "key": "tell",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 0.56,
+          "end": 0.68,
+          "key": "me",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.68,
+          "end": 0.76,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 0.76,
+          "end": 0.88,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "ear",
+          "start": 0.88,
+          "end": 1.34,
+          "key": "ear",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.34,
+          "end": 1.7,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Miss",
+          "start": 1.7,
+          "end": 1.86,
+          "key": "miss",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Havisham",
+          "start": 1.86,
+          "end": 2.46,
+          "key": "havisham",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "bending",
+          "start": 2.46,
+          "end": 2.78,
+          "key": "bending",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 2.78,
+          "end": 3.18,
+          "key": "down",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Tell",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "text": "me",
+          "start": 0.56,
+          "end": 0.68
+        },
+        {
+          "text": "in",
+          "start": 0.68,
+          "end": 0.76
+        },
+        {
+          "text": "my",
+          "start": 0.76,
+          "end": 0.88
+        },
+        {
+          "text": "ear,\"",
+          "start": 0.88,
+          "end": 1.34
+        },
+        {
+          "text": "said",
+          "start": 1.34,
+          "end": 1.7
+        },
+        {
+          "text": "Miss",
+          "start": 1.7,
+          "end": 1.86
+        },
+        {
+          "text": "Havisham,",
+          "start": 1.86,
+          "end": 2.46
+        },
+        {
+          "text": "bending",
+          "start": 2.46,
+          "end": 2.78
+        },
+        {
+          "text": "down.",
+          "start": 2.78,
+          "end": 3.18
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23904090421274304
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bb044f5fda34e1cfd9743fe9b29ef77408b3f30a1be45fd0658d8ff5e5923d61",
+  "selected_reasons": []
+}

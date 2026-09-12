@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "33f1c2e472bff7b3009570e673efd016be271a09a7dc2523480bef40dac2f061",
+  "attempts": [
+    {
+      "asr_seconds": 0.6839244808070362,
+      "alignment_seconds": 0.00048651406541466713,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Enough House,\" said I; \"that's a curious name, miss.\"",
+        "hotwords": "Enough, House, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enough House, said I. That's a curious name, miss.",
+          "start": 0.05,
+          "end": 3.21,
+          "words": [
+            {
+              "text": " Enough",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.21337890625
+            },
+            {
+              "text": " House,",
+              "start": 0.65,
+              "end": 1.05,
+              "probability": 0.12054443359375
+            },
+            {
+              "text": " said",
+              "start": 1.23,
+              "end": 1.43,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " I.",
+              "start": 1.43,
+              "end": 1.71,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " That's",
+              "start": 2.07,
+              "end": 2.29,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " a",
+              "start": 2.29,
+              "end": 2.39,
+              "probability": 0.990234375
+            },
+            {
+              "text": " curious",
+              "start": 2.39,
+              "end": 2.63,
+              "probability": 0.990234375
+            },
+            {
+              "text": " name,",
+              "start": 2.63,
+              "end": 2.99,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " miss.",
+              "start": 3.09,
+              "end": 3.21,
+              "probability": 0.430908203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enough",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "House,",
+          "start": 0.65,
+          "end": 1.05
+        },
+        {
+          "raw": "said",
+          "start": 1.23,
+          "end": 1.43
+        },
+        {
+          "raw": "I.",
+          "start": 1.43,
+          "end": 1.71
+        },
+        {
+          "raw": "That's",
+          "start": 2.07,
+          "end": 2.29
+        },
+        {
+          "raw": "a",
+          "start": 2.29,
+          "end": 2.39
+        },
+        {
+          "raw": "curious",
+          "start": 2.39,
+          "end": 2.63
+        },
+        {
+          "raw": "name,",
+          "start": 2.63,
+          "end": 2.99
+        },
+        {
+          "raw": "miss.",
+          "start": 3.09,
+          "end": 3.21
+        }
+      ],
+      "expected_tokens": [
+        "\"Enough",
+        "House,\"",
+        "said",
+        "I;",
+        "\"that's",
+        "a",
+        "curious",
+        "name,",
+        "miss.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enough",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "enough",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "House,",
+          "start": 0.65,
+          "end": 1.05,
+          "key": "house",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.23,
+          "end": 1.43,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I.",
+          "start": 1.43,
+          "end": 1.71,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "That's",
+          "start": 2.07,
+          "end": 2.29,
+          "key": "thats",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.29,
+          "end": 2.39,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "curious",
+          "start": 2.39,
+          "end": 2.63,
+          "key": "curious",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "name,",
+          "start": 2.63,
+          "end": 2.99,
+          "key": "name",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "miss.",
+          "start": 3.09,
+          "end": 3.21,
+          "key": "miss",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Enough",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "House,\"",
+          "start": 0.65,
+          "end": 1.05
+        },
+        {
+          "text": "said",
+          "start": 1.23,
+          "end": 1.43
+        },
+        {
+          "text": "I;",
+          "start": 1.43,
+          "end": 1.71
+        },
+        {
+          "text": "\"that's",
+          "start": 2.07,
+          "end": 2.29
+        },
+        {
+          "text": "a",
+          "start": 2.29,
+          "end": 2.39
+        },
+        {
+          "text": "curious",
+          "start": 2.39,
+          "end": 2.63
+        },
+        {
+          "text": "name,",
+          "start": 2.63,
+          "end": 2.99
+        },
+        {
+          "text": "miss.\"",
+          "start": 3.09,
+          "end": 3.21
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.6845960030332208
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0146340c215cefb613b96cd19ff49f1ddd68ea823f10e9c3f19e957d36e71415",
+  "selected_reasons": []
+}

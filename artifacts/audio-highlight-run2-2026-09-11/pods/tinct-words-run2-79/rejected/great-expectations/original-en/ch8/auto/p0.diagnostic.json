@@ -1,0 +1,3056 @@
+{
+  "complete": true,
+  "signature": "3e765865a083f27ee1faba8ab3ef42edaefe12ef19be9eae14d4656c04db7dab",
+  "attempts": [
+    {
+      "asr_seconds": 1.0675905072130263,
+      "alignment_seconds": 0.002523197326809168,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Mr. Pumblechook's premises in the High Street of the market town, were of a peppercorny and farinaceous character, as the premises of a cornchandler and seedsman should be. It appeared to me that he must be a very happy man indeed, to have so many little drawers in his shop; and I wondered when I peeped into one or two on the lower tiers, and saw the tied-up brown paper packets inside, whether the flower-seeds and bulbs ever wanted of a fine day to break out of those jails, and bloom.",
+        "hotwords": "Mr, Pumblechook's, High, Street, It, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mr. Pumblechook's premises in the High Street of the market town, were of a peppercorny and",
+          "start": 0.05,
+          "end": 4.95,
+          "words": [
+            {
+              "text": " Mr.",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.84228515625
+            },
+            {
+              "text": " Pumblechook's",
+              "start": 0.95,
+              "end": 1.39,
+              "probability": 0.89521484375
+            },
+            {
+              "text": " premises",
+              "start": 1.39,
+              "end": 1.67,
+              "probability": 0.970703125
+            },
+            {
+              "text": " in",
+              "start": 1.67,
+              "end": 1.99,
+              "probability": 0.951171875
+            },
+            {
+              "text": " the",
+              "start": 1.99,
+              "end": 2.07,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " High",
+              "start": 2.07,
+              "end": 2.29,
+              "probability": 0.219482421875
+            },
+            {
+              "text": " Street",
+              "start": 2.29,
+              "end": 2.53,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " of",
+              "start": 2.53,
+              "end": 2.69,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 2.69,
+              "end": 2.81,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " market",
+              "start": 2.81,
+              "end": 3.01,
+              "probability": 0.1456298828125
+            },
+            {
+              "text": " town,",
+              "start": 3.01,
+              "end": 3.41,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " were",
+              "start": 3.83,
+              "end": 3.97,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " of",
+              "start": 3.97,
+              "end": 4.07,
+              "probability": 0.994140625
+            },
+            {
+              "text": " a",
+              "start": 4.07,
+              "end": 4.17,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " peppercorny",
+              "start": 4.17,
+              "end": 4.83,
+              "probability": 0.72149658203125
+            },
+            {
+              "text": " and",
+              "start": 4.83,
+              "end": 4.95,
+              "probability": 0.98779296875
+            }
+          ]
+        },
+        {
+          "text": " farinaceous character, as the premises of a cornchandler and seedsman should be. It appeared",
+          "start": 4.95,
+          "end": 10.35,
+          "words": [
+            {
+              "text": " farinaceous",
+              "start": 4.95,
+              "end": 5.51,
+              "probability": 0.3798014322916667
+            },
+            {
+              "text": " character,",
+              "start": 5.51,
+              "end": 6.03,
+              "probability": 0.998046875
+            },
+            {
+              "text": " as",
+              "start": 6.33,
+              "end": 6.73,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 6.73,
+              "end": 6.87,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " premises",
+              "start": 6.87,
+              "end": 7.17,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " of",
+              "start": 7.17,
+              "end": 7.45,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 7.45,
+              "end": 7.59,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " cornchandler",
+              "start": 7.59,
+              "end": 8.13,
+              "probability": 0.6798095703125
+            },
+            {
+              "text": " and",
+              "start": 8.13,
+              "end": 8.35,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " seedsman",
+              "start": 8.35,
+              "end": 8.81,
+              "probability": 0.69482421875
+            },
+            {
+              "text": " should",
+              "start": 8.81,
+              "end": 9.05,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " be.",
+              "start": 9.05,
+              "end": 9.33,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " It",
+              "start": 9.89,
+              "end": 10.11,
+              "probability": 0.98046875
+            },
+            {
+              "text": " appeared",
+              "start": 10.11,
+              "end": 10.35,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " to me that he must be a very happy man indeed, to have so many little drawers in his shop,",
+          "start": 10.35,
+          "end": 14.99,
+          "words": [
+            {
+              "text": " to",
+              "start": 10.35,
+              "end": 10.53,
+              "probability": 0.998046875
+            },
+            {
+              "text": " me",
+              "start": 10.53,
+              "end": 10.65,
+              "probability": 0.99609375
+            },
+            {
+              "text": " that",
+              "start": 10.65,
+              "end": 10.79,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " he",
+              "start": 10.79,
+              "end": 10.91,
+              "probability": 0.998046875
+            },
+            {
+              "text": " must",
+              "start": 10.91,
+              "end": 11.07,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " be",
+              "start": 11.07,
+              "end": 11.25,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 11.25,
+              "end": 11.35,
+              "probability": 0.99609375
+            },
+            {
+              "text": " very",
+              "start": 11.35,
+              "end": 11.57,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " happy",
+              "start": 11.57,
+              "end": 11.85,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " man",
+              "start": 11.85,
+              "end": 12.15,
+              "probability": 0.998046875
+            },
+            {
+              "text": " indeed,",
+              "start": 12.15,
+              "end": 12.55,
+              "probability": 0.83642578125
+            },
+            {
+              "text": " to",
+              "start": 13.05,
+              "end": 13.19,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " have",
+              "start": 13.19,
+              "end": 13.33,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " so",
+              "start": 13.33,
+              "end": 13.59,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " many",
+              "start": 13.59,
+              "end": 13.75,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " little",
+              "start": 13.75,
+              "end": 14.05,
+              "probability": 0.998046875
+            },
+            {
+              "text": " drawers",
+              "start": 14.05,
+              "end": 14.43,
+              "probability": 0.996826171875
+            },
+            {
+              "text": " in",
+              "start": 14.43,
+              "end": 14.55,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 14.55,
+              "end": 14.69,
+              "probability": 0.998046875
+            },
+            {
+              "text": " shop,",
+              "start": 14.69,
+              "end": 14.99,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " and I wondered when I peeped into one or two on the lower tiers, and saw the tied-up brown",
+          "start": 15.51,
+          "end": 20.01,
+          "words": [
+            {
+              "text": " and",
+              "start": 15.51,
+              "end": 15.71,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " I",
+              "start": 15.71,
+              "end": 15.87,
+              "probability": 0.99609375
+            },
+            {
+              "text": " wondered",
+              "start": 15.87,
+              "end": 16.07,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " when",
+              "start": 16.07,
+              "end": 16.33,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " I",
+              "start": 16.33,
+              "end": 16.49,
+              "probability": 0.99609375
+            },
+            {
+              "text": " peeped",
+              "start": 16.49,
+              "end": 16.81,
+              "probability": 0.9708658854166666
+            },
+            {
+              "text": " into",
+              "start": 16.81,
+              "end": 16.97,
+              "probability": 0.96875
+            },
+            {
+              "text": " one",
+              "start": 16.97,
+              "end": 17.15,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " or",
+              "start": 17.15,
+              "end": 17.25,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " two",
+              "start": 17.25,
+              "end": 17.43,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " on",
+              "start": 17.43,
+              "end": 17.57,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " the",
+              "start": 17.57,
+              "end": 17.67,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " lower",
+              "start": 17.67,
+              "end": 17.89,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " tiers,",
+              "start": 17.89,
+              "end": 18.21,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " and",
+              "start": 18.73,
+              "end": 18.99,
+              "probability": 0.998046875
+            },
+            {
+              "text": " saw",
+              "start": 18.99,
+              "end": 19.15,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 19.15,
+              "end": 19.31,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " tied",
+              "start": 19.31,
+              "end": 19.51,
+              "probability": 0.919921875
+            },
+            {
+              "text": "-up",
+              "start": 19.51,
+              "end": 19.67,
+              "probability": 0.7481689453125
+            },
+            {
+              "text": " brown",
+              "start": 19.67,
+              "end": 20.01,
+              "probability": 0.9150390625
+            }
+          ]
+        },
+        {
+          "text": " paper packets inside, whether the flower-seeds and bulbs ever wanted of a fine day to break",
+          "start": 20.01,
+          "end": 25.27,
+          "words": [
+            {
+              "text": " paper",
+              "start": 20.01,
+              "end": 20.41,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " packets",
+              "start": 20.41,
+              "end": 20.85,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " inside,",
+              "start": 20.85,
+              "end": 21.39,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " whether",
+              "start": 21.99,
+              "end": 22.15,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " the",
+              "start": 22.15,
+              "end": 22.33,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " flower",
+              "start": 22.33,
+              "end": 22.57,
+              "probability": 0.66064453125
+            },
+            {
+              "text": "-seeds",
+              "start": 22.57,
+              "end": 23.03,
+              "probability": 0.6598714192708334
+            },
+            {
+              "text": " and",
+              "start": 23.03,
+              "end": 23.15,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " bulbs",
+              "start": 23.15,
+              "end": 23.43,
+              "probability": 0.998046875
+            },
+            {
+              "text": " ever",
+              "start": 23.43,
+              "end": 23.75,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " wanted",
+              "start": 23.75,
+              "end": 24.03,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 24.03,
+              "end": 24.17,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " a",
+              "start": 24.17,
+              "end": 24.35,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " fine",
+              "start": 24.35,
+              "end": 24.59,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " day",
+              "start": 24.59,
+              "end": 24.91,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 24.91,
+              "end": 25.09,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " break",
+              "start": 25.09,
+              "end": 25.27,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " out of those jails, and bloom.",
+          "start": 25.27,
+          "end": 27.07,
+          "words": [
+            {
+              "text": " out",
+              "start": 25.27,
+              "end": 25.43,
+              "probability": 0.87109375
+            },
+            {
+              "text": " of",
+              "start": 25.43,
+              "end": 25.57,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " those",
+              "start": 25.57,
+              "end": 25.73,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " jails,",
+              "start": 25.73,
+              "end": 26.15,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 26.65,
+              "end": 26.79,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " bloom.",
+              "start": 26.79,
+              "end": 27.07,
+              "probability": 0.947265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mr.",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "Pumblechook's",
+          "start": 0.95,
+          "end": 1.39
+        },
+        {
+          "raw": "premises",
+          "start": 1.39,
+          "end": 1.67
+        },
+        {
+          "raw": "in",
+          "start": 1.67,
+          "end": 1.99
+        },
+        {
+          "raw": "the",
+          "start": 1.99,
+          "end": 2.07
+        },
+        {
+          "raw": "High",
+          "start": 2.07,
+          "end": 2.29
+        },
+        {
+          "raw": "Street",
+          "start": 2.29,
+          "end": 2.53
+        },
+        {
+          "raw": "of",
+          "start": 2.53,
+          "end": 2.69
+        },
+        {
+          "raw": "the",
+          "start": 2.69,
+          "end": 2.81
+        },
+        {
+          "raw": "market",
+          "start": 2.81,
+          "end": 3.01
+        },
+        {
+          "raw": "town,",
+          "start": 3.01,
+          "end": 3.41
+        },
+        {
+          "raw": "were",
+          "start": 3.83,
+          "end": 3.97
+        },
+        {
+          "raw": "of",
+          "start": 3.97,
+          "end": 4.07
+        },
+        {
+          "raw": "a",
+          "start": 4.07,
+          "end": 4.17
+        },
+        {
+          "raw": "peppercorny",
+          "start": 4.17,
+          "end": 4.83
+        },
+        {
+          "raw": "and",
+          "start": 4.83,
+          "end": 4.95
+        },
+        {
+          "raw": "farinaceous",
+          "start": 4.95,
+          "end": 5.51
+        },
+        {
+          "raw": "character,",
+          "start": 5.51,
+          "end": 6.03
+        },
+        {
+          "raw": "as",
+          "start": 6.33,
+          "end": 6.73
+        },
+        {
+          "raw": "the",
+          "start": 6.73,
+          "end": 6.87
+        },
+        {
+          "raw": "premises",
+          "start": 6.87,
+          "end": 7.17
+        },
+        {
+          "raw": "of",
+          "start": 7.17,
+          "end": 7.45
+        },
+        {
+          "raw": "a",
+          "start": 7.45,
+          "end": 7.59
+        },
+        {
+          "raw": "cornchandler",
+          "start": 7.59,
+          "end": 8.13
+        },
+        {
+          "raw": "and",
+          "start": 8.13,
+          "end": 8.35
+        },
+        {
+          "raw": "seedsman",
+          "start": 8.35,
+          "end": 8.81
+        },
+        {
+          "raw": "should",
+          "start": 8.81,
+          "end": 9.05
+        },
+        {
+          "raw": "be.",
+          "start": 9.05,
+          "end": 9.33
+        },
+        {
+          "raw": "It",
+          "start": 9.89,
+          "end": 10.11
+        },
+        {
+          "raw": "appeared",
+          "start": 10.11,
+          "end": 10.35
+        },
+        {
+          "raw": "to",
+          "start": 10.35,
+          "end": 10.53
+        },
+        {
+          "raw": "me",
+          "start": 10.53,
+          "end": 10.65
+        },
+        {
+          "raw": "that",
+          "start": 10.65,
+          "end": 10.79
+        },
+        {
+          "raw": "he",
+          "start": 10.79,
+          "end": 10.91
+        },
+        {
+          "raw": "must",
+          "start": 10.91,
+          "end": 11.07
+        },
+        {
+          "raw": "be",
+          "start": 11.07,
+          "end": 11.25
+        },
+        {
+          "raw": "a",
+          "start": 11.25,
+          "end": 11.35
+        },
+        {
+          "raw": "very",
+          "start": 11.35,
+          "end": 11.57
+        },
+        {
+          "raw": "happy",
+          "start": 11.57,
+          "end": 11.85
+        },
+        {
+          "raw": "man",
+          "start": 11.85,
+          "end": 12.15
+        },
+        {
+          "raw": "indeed,",
+          "start": 12.15,
+          "end": 12.55
+        },
+        {
+          "raw": "to",
+          "start": 13.05,
+          "end": 13.19
+        },
+        {
+          "raw": "have",
+          "start": 13.19,
+          "end": 13.33
+        },
+        {
+          "raw": "so",
+          "start": 13.33,
+          "end": 13.59
+        },
+        {
+          "raw": "many",
+          "start": 13.59,
+          "end": 13.75
+        },
+        {
+          "raw": "little",
+          "start": 13.75,
+          "end": 14.05
+        },
+        {
+          "raw": "drawers",
+          "start": 14.05,
+          "end": 14.43
+        },
+        {
+          "raw": "in",
+          "start": 14.43,
+          "end": 14.55
+        },
+        {
+          "raw": "his",
+          "start": 14.55,
+          "end": 14.69
+        },
+        {
+          "raw": "shop,",
+          "start": 14.69,
+          "end": 14.99
+        },
+        {
+          "raw": "and",
+          "start": 15.51,
+          "end": 15.71
+        },
+        {
+          "raw": "I",
+          "start": 15.71,
+          "end": 15.87
+        },
+        {
+          "raw": "wondered",
+          "start": 15.87,
+          "end": 16.07
+        },
+        {
+          "raw": "when",
+          "start": 16.07,
+          "end": 16.33
+        },
+        {
+          "raw": "I",
+          "start": 16.33,
+          "end": 16.49
+        },
+        {
+          "raw": "peeped",
+          "start": 16.49,
+          "end": 16.81
+        },
+        {
+          "raw": "into",
+          "start": 16.81,
+          "end": 16.97
+        },
+        {
+          "raw": "one",
+          "start": 16.97,
+          "end": 17.15
+        },
+        {
+          "raw": "or",
+          "start": 17.15,
+          "end": 17.25
+        },
+        {
+          "raw": "two",
+          "start": 17.25,
+          "end": 17.43
+        },
+        {
+          "raw": "on",
+          "start": 17.43,
+          "end": 17.57
+        },
+        {
+          "raw": "the",
+          "start": 17.57,
+          "end": 17.67
+        },
+        {
+          "raw": "lower",
+          "start": 17.67,
+          "end": 17.89
+        },
+        {
+          "raw": "tiers,",
+          "start": 17.89,
+          "end": 18.21
+        },
+        {
+          "raw": "and",
+          "start": 18.73,
+          "end": 18.99
+        },
+        {
+          "raw": "saw",
+          "start": 18.99,
+          "end": 19.15
+        },
+        {
+          "raw": "the",
+          "start": 19.15,
+          "end": 19.31
+        },
+        {
+          "raw": "tied",
+          "start": 19.31,
+          "end": 19.51
+        },
+        {
+          "raw": "-up",
+          "start": 19.51,
+          "end": 19.67
+        },
+        {
+          "raw": "brown",
+          "start": 19.67,
+          "end": 20.01
+        },
+        {
+          "raw": "paper",
+          "start": 20.01,
+          "end": 20.41
+        },
+        {
+          "raw": "packets",
+          "start": 20.41,
+          "end": 20.85
+        },
+        {
+          "raw": "inside,",
+          "start": 20.85,
+          "end": 21.39
+        },
+        {
+          "raw": "whether",
+          "start": 21.99,
+          "end": 22.15
+        },
+        {
+          "raw": "the",
+          "start": 22.15,
+          "end": 22.33
+        },
+        {
+          "raw": "flower",
+          "start": 22.33,
+          "end": 22.57
+        },
+        {
+          "raw": "-seeds",
+          "start": 22.57,
+          "end": 23.03
+        },
+        {
+          "raw": "and",
+          "start": 23.03,
+          "end": 23.15
+        },
+        {
+          "raw": "bulbs",
+          "start": 23.15,
+          "end": 23.43
+        },
+        {
+          "raw": "ever",
+          "start": 23.43,
+          "end": 23.75
+        },
+        {
+          "raw": "wanted",
+          "start": 23.75,
+          "end": 24.03
+        },
+        {
+          "raw": "of",
+          "start": 24.03,
+          "end": 24.17
+        },
+        {
+          "raw": "a",
+          "start": 24.17,
+          "end": 24.35
+        },
+        {
+          "raw": "fine",
+          "start": 24.35,
+          "end": 24.59
+        },
+        {
+          "raw": "day",
+          "start": 24.59,
+          "end": 24.91
+        },
+        {
+          "raw": "to",
+          "start": 24.91,
+          "end": 25.09
+        },
+        {
+          "raw": "break",
+          "start": 25.09,
+          "end": 25.27
+        },
+        {
+          "raw": "out",
+          "start": 25.27,
+          "end": 25.43
+        },
+        {
+          "raw": "of",
+          "start": 25.43,
+          "end": 25.57
+        },
+        {
+          "raw": "those",
+          "start": 25.57,
+          "end": 25.73
+        },
+        {
+          "raw": "jails,",
+          "start": 25.73,
+          "end": 26.15
+        },
+        {
+          "raw": "and",
+          "start": 26.65,
+          "end": 26.79
+        },
+        {
+          "raw": "bloom.",
+          "start": 26.79,
+          "end": 27.07
+        }
+      ],
+      "expected_tokens": [
+        "Mr.",
+        "Pumblechook's",
+        "premises",
+        "in",
+        "the",
+        "High",
+        "Street",
+        "of",
+        "the",
+        "market",
+        "town,",
+        "were",
+        "of",
+        "a",
+        "peppercorny",
+        "and",
+        "farinaceous",
+        "character,",
+        "as",
+        "the",
+        "premises",
+        "of",
+        "a",
+        "cornchandler",
+        "and",
+        "seedsman",
+        "should",
+        "be.",
+        "It",
+        "appeared",
+        "to",
+        "me",
+        "that",
+        "he",
+        "must",
+        "be",
+        "a",
+        "very",
+        "happy",
+        "man",
+        "indeed,",
+        "to",
+        "have",
+        "so",
+        "many",
+        "little",
+        "drawers",
+        "in",
+        "his",
+        "shop;",
+        "and",
+        "I",
+        "wondered",
+        "when",
+        "I",
+        "peeped",
+        "into",
+        "one",
+        "or",
+        "two",
+        "on",
+        "the",
+        "lower",
+        "tiers,",
+        "and",
+        "saw",
+        "the",
+        "tied-up",
+        "brown",
+        "paper",
+        "packets",
+        "inside,",
+        "whether",
+        "the",
+        "flower-seeds",
+        "and",
+        "bulbs",
+        "ever",
+        "wanted",
+        "of",
+        "a",
+        "fine",
+        "day",
+        "to",
+        "break",
+        "out",
+        "of",
+        "those",
+        "jails,",
+        "and",
+        "bloom."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          91,
+          0,
+          91
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 90
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mr.",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "mr",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pumblechook's",
+          "start": 0.95,
+          "end": 1.39,
+          "key": "pumblechooks",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "premises",
+          "start": 1.39,
+          "end": 1.67,
+          "key": "premises",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.67,
+          "end": 1.99,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.99,
+          "end": 2.07,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "High",
+          "start": 2.07,
+          "end": 2.29,
+          "key": "high",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Street",
+          "start": 2.29,
+          "end": 2.53,
+          "key": "street",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.53,
+          "end": 2.69,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.69,
+          "end": 2.81,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "market",
+          "start": 2.81,
+          "end": 3.01,
+          "key": "market",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "town,",
+          "start": 3.01,
+          "end": 3.41,
+          "key": "town",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 3.83,
+          "end": 3.97,
+          "key": "were",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.97,
+          "end": 4.07,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.07,
+          "end": 4.17,
+          "key": "a",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "peppercorny",
+          "start": 4.17,
+          "end": 4.83,
+          "key": "peppercorny",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.83,
+          "end": 4.95,
+          "key": "and",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "farinaceous",
+          "start": 4.95,
+          "end": 5.51,
+          "key": "farinaceous",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "character,",
+          "start": 5.51,
+          "end": 6.03,
+          "key": "character",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 6.33,
+          "end": 6.73,
+          "key": "as",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.73,
+          "end": 6.87,
+          "key": "the",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "premises",
+          "start": 6.87,
+          "end": 7.17,
+          "key": "premises",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.17,
+          "end": 7.45,
+          "key": "of",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 7.45,
+          "end": 7.59,
+          "key": "a",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "cornchandler",
+          "start": 7.59,
+          "end": 8.13,
+          "key": "cornchandler",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 8.13,
+          "end": 8.35,
+          "key": "and",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "seedsman",
+          "start": 8.35,
+          "end": 8.81,
+          "key": "seedsman",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 8.81,
+          "end": 9.05,
+          "key": "should",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "be.",
+          "start": 9.05,
+          "end": 9.33,
+          "key": "be",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 9.89,
+          "end": 10.11,
+          "key": "it",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "appeared",
+          "start": 10.11,
+          "end": 10.35,
+          "key": "appeared",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 10.35,
+          "end": 10.53,
+          "key": "to",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 10.53,
+          "end": 10.65,
+          "key": "me",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 10.65,
+          "end": 10.79,
+          "key": "that",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 10.79,
+          "end": 10.91,
+          "key": "he",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 10.91,
+          "end": 11.07,
+          "key": "must",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 11.07,
+          "end": 11.25,
+          "key": "be",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 11.25,
+          "end": 11.35,
+          "key": "a",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 11.35,
+          "end": 11.57,
+          "key": "very",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "happy",
+          "start": 11.57,
+          "end": 11.85,
+          "key": "happy",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 11.85,
+          "end": 12.15,
+          "key": "man",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "indeed,",
+          "start": 12.15,
+          "end": 12.55,
+          "key": "indeed",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 13.05,
+          "end": 13.19,
+          "key": "to",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 13.19,
+          "end": 13.33,
+          "key": "have",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 13.33,
+          "end": 13.59,
+          "key": "so",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "many",
+          "start": 13.59,
+          "end": 13.75,
+          "key": "many",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 13.75,
+          "end": 14.05,
+          "key": "little",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "drawers",
+          "start": 14.05,
+          "end": 14.43,
+          "key": "drawers",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 14.43,
+          "end": 14.55,
+          "key": "in",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 14.55,
+          "end": 14.69,
+          "key": "his",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "shop,",
+          "start": 14.69,
+          "end": 14.99,
+          "key": "shop",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 15.51,
+          "end": 15.71,
+          "key": "and",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 15.71,
+          "end": 15.87,
+          "key": "i",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "wondered",
+          "start": 15.87,
+          "end": 16.07,
+          "key": "wondered",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 16.07,
+          "end": 16.33,
+          "key": "when",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 16.33,
+          "end": 16.49,
+          "key": "i",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "peeped",
+          "start": 16.49,
+          "end": 16.81,
+          "key": "peeped",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 16.81,
+          "end": 16.97,
+          "key": "into",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 16.97,
+          "end": 17.15,
+          "key": "one",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 17.15,
+          "end": 17.25,
+          "key": "or",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 17.25,
+          "end": 17.43,
+          "key": "two",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 17.43,
+          "end": 17.57,
+          "key": "on",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 17.57,
+          "end": 17.67,
+          "key": "the",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "lower",
+          "start": 17.67,
+          "end": 17.89,
+          "key": "lower",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "tiers,",
+          "start": 17.89,
+          "end": 18.21,
+          "key": "tiers",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 18.73,
+          "end": 18.99,
+          "key": "and",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "saw",
+          "start": 18.99,
+          "end": 19.15,
+          "key": "saw",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 19.15,
+          "end": 19.31,
+          "key": "the",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "tied -up",
+          "start": 19.31,
+          "end": 19.67,
+          "key": "tiedup",
+          "pieces": [
+            67,
+            68
+          ]
+        },
+        {
+          "raw": "brown",
+          "start": 19.67,
+          "end": 20.01,
+          "key": "brown",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "paper",
+          "start": 20.01,
+          "end": 20.41,
+          "key": "paper",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "packets",
+          "start": 20.41,
+          "end": 20.85,
+          "key": "packets",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "inside,",
+          "start": 20.85,
+          "end": 21.39,
+          "key": "inside",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "whether",
+          "start": 21.99,
+          "end": 22.15,
+          "key": "whether",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 22.15,
+          "end": 22.33,
+          "key": "the",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "flower -seeds",
+          "start": 22.33,
+          "end": 23.03,
+          "key": "flowerseeds",
+          "pieces": [
+            75,
+            76
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 23.03,
+          "end": 23.15,
+          "key": "and",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "bulbs",
+          "start": 23.15,
+          "end": 23.43,
+          "key": "bulbs",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "ever",
+          "start": 23.43,
+          "end": 23.75,
+          "key": "ever",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "wanted",
+          "start": 23.75,
+          "end": 24.03,
+          "key": "wanted",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 24.03,
+          "end": 24.17,
+          "key": "of",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 24.17,
+          "end": 24.35,
+          "key": "a",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "fine",
+          "start": 24.35,
+          "end": 24.59,
+          "key": "fine",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "day",
+          "start": 24.59,
+          "end": 24.91,
+          "key": "day",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 24.91,
+          "end": 25.09,
+          "key": "to",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "break",
+          "start": 25.09,
+          "end": 25.27,
+          "key": "break",
+          "pieces": [
+            86
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 25.27,
+          "end": 25.43,
+          "key": "out",
+          "pieces": [
+            87
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 25.43,
+          "end": 25.57,
+          "key": "of",
+          "pieces": [
+            88
+          ]
+        },
+        {
+          "raw": "those",
+          "start": 25.57,
+          "end": 25.73,
+          "key": "those",
+          "pieces": [
+            89
+          ]
+        },
+        {
+          "raw": "jails,",
+          "start": 25.73,
+          "end": 26.15,
+          "key": "jails",
+          "pieces": [
+            90
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 26.65,
+          "end": 26.79,
+          "key": "and",
+          "pieces": [
+            91
+          ]
+        },
+        {
+          "raw": "bloom.",
+          "start": 26.79,
+          "end": 27.07,
+          "key": "bloom",
+          "pieces": [
+            92
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 67,
+          "text": "tied-up",
+          "heard": "tied -up",
+          "heard_indexes": [
+            67,
+            68
+          ],
+          "start": 19.31,
+          "end": 19.67
+        },
+        {
+          "expected_index": 74,
+          "text": "flower-seeds",
+          "heard": "flower -seeds",
+          "heard_indexes": [
+            75,
+            76
+          ],
+          "start": 22.33,
+          "end": 23.03
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Mr.",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "Pumblechook's",
+          "start": 0.95,
+          "end": 1.39
+        },
+        {
+          "text": "premises",
+          "start": 1.39,
+          "end": 1.67
+        },
+        {
+          "text": "in",
+          "start": 1.67,
+          "end": 1.99
+        },
+        {
+          "text": "the",
+          "start": 1.99,
+          "end": 2.07
+        },
+        {
+          "text": "High",
+          "start": 2.07,
+          "end": 2.29
+        },
+        {
+          "text": "Street",
+          "start": 2.29,
+          "end": 2.53
+        },
+        {
+          "text": "of",
+          "start": 2.53,
+          "end": 2.69
+        },
+        {
+          "text": "the",
+          "start": 2.69,
+          "end": 2.81
+        },
+        {
+          "text": "market",
+          "start": 2.81,
+          "end": 3.01
+        },
+        {
+          "text": "town,",
+          "start": 3.01,
+          "end": 3.41
+        },
+        {
+          "text": "were",
+          "start": 3.83,
+          "end": 3.97
+        },
+        {
+          "text": "of",
+          "start": 3.97,
+          "end": 4.07
+        },
+        {
+          "text": "a",
+          "start": 4.07,
+          "end": 4.17
+        },
+        {
+          "text": "peppercorny",
+          "start": 4.17,
+          "end": 4.83
+        },
+        {
+          "text": "and",
+          "start": 4.83,
+          "end": 4.95
+        },
+        {
+          "text": "farinaceous",
+          "start": 4.95,
+          "end": 5.51
+        },
+        {
+          "text": "character,",
+          "start": 5.51,
+          "end": 6.03
+        },
+        {
+          "text": "as",
+          "start": 6.33,
+          "end": 6.73
+        },
+        {
+          "text": "the",
+          "start": 6.73,
+          "end": 6.87
+        },
+        {
+          "text": "premises",
+          "start": 6.87,
+          "end": 7.17
+        },
+        {
+          "text": "of",
+          "start": 7.17,
+          "end": 7.45
+        },
+        {
+          "text": "a",
+          "start": 7.45,
+          "end": 7.59
+        },
+        {
+          "text": "cornchandler",
+          "start": 7.59,
+          "end": 8.13
+        },
+        {
+          "text": "and",
+          "start": 8.13,
+          "end": 8.35
+        },
+        {
+          "text": "seedsman",
+          "start": 8.35,
+          "end": 8.81
+        },
+        {
+          "text": "should",
+          "start": 8.81,
+          "end": 9.05
+        },
+        {
+          "text": "be.",
+          "start": 9.05,
+          "end": 9.33
+        },
+        {
+          "text": "It",
+          "start": 9.89,
+          "end": 10.11
+        },
+        {
+          "text": "appeared",
+          "start": 10.11,
+          "end": 10.35
+        },
+        {
+          "text": "to",
+          "start": 10.35,
+          "end": 10.53
+        },
+        {
+          "text": "me",
+          "start": 10.53,
+          "end": 10.65
+        },
+        {
+          "text": "that",
+          "start": 10.65,
+          "end": 10.79
+        },
+        {
+          "text": "he",
+          "start": 10.79,
+          "end": 10.91
+        },
+        {
+          "text": "must",
+          "start": 10.91,
+          "end": 11.07
+        },
+        {
+          "text": "be",
+          "start": 11.07,
+          "end": 11.25
+        },
+        {
+          "text": "a",
+          "start": 11.25,
+          "end": 11.35
+        },
+        {
+          "text": "very",
+          "start": 11.35,
+          "end": 11.57
+        },
+        {
+          "text": "happy",
+          "start": 11.57,
+          "end": 11.85
+        },
+        {
+          "text": "man",
+          "start": 11.85,
+          "end": 12.15
+        },
+        {
+          "text": "indeed,",
+          "start": 12.15,
+          "end": 12.55
+        },
+        {
+          "text": "to",
+          "start": 13.05,
+          "end": 13.19
+        },
+        {
+          "text": "have",
+          "start": 13.19,
+          "end": 13.33
+        },
+        {
+          "text": "so",
+          "start": 13.33,
+          "end": 13.59
+        },
+        {
+          "text": "many",
+          "start": 13.59,
+          "end": 13.75
+        },
+        {
+          "text": "little",
+          "start": 13.75,
+          "end": 14.05
+        },
+        {
+          "text": "drawers",
+          "start": 14.05,
+          "end": 14.43
+        },
+        {
+          "text": "in",
+          "start": 14.43,
+          "end": 14.55
+        },
+        {
+          "text": "his",
+          "start": 14.55,
+          "end": 14.69
+        },
+        {
+          "text": "shop;",
+          "start": 14.69,
+          "end": 14.99
+        },
+        {
+          "text": "and",
+          "start": 15.51,
+          "end": 15.71
+        },
+        {
+          "text": "I",
+          "start": 15.71,
+          "end": 15.87
+        },
+        {
+          "text": "wondered",
+          "start": 15.87,
+          "end": 16.07
+        },
+        {
+          "text": "when",
+          "start": 16.07,
+          "end": 16.33
+        },
+        {
+          "text": "I",
+          "start": 16.33,
+          "end": 16.49
+        },
+        {
+          "text": "peeped",
+          "start": 16.49,
+          "end": 16.81
+        },
+        {
+          "text": "into",
+          "start": 16.81,
+          "end": 16.97
+        },
+        {
+          "text": "one",
+          "start": 16.97,
+          "end": 17.15
+        },
+        {
+          "text": "or",
+          "start": 17.15,
+          "end": 17.25
+        },
+        {
+          "text": "two",
+          "start": 17.25,
+          "end": 17.43
+        },
+        {
+          "text": "on",
+          "start": 17.43,
+          "end": 17.57
+        },
+        {
+          "text": "the",
+          "start": 17.57,
+          "end": 17.67
+        },
+        {
+          "text": "lower",
+          "start": 17.67,
+          "end": 17.89
+        },
+        {
+          "text": "tiers,",
+          "start": 17.89,
+          "end": 18.21
+        },
+        {
+          "text": "and",
+          "start": 18.73,
+          "end": 18.99
+        },
+        {
+          "text": "saw",
+          "start": 18.99,
+          "end": 19.15
+        },
+        {
+          "text": "the",
+          "start": 19.15,
+          "end": 19.31
+        },
+        {
+          "text": "tied-up",
+          "start": 19.31,
+          "end": 19.67
+        },
+        {
+          "text": "brown",
+          "start": 19.67,
+          "end": 20.01
+        },
+        {
+          "text": "paper",
+          "start": 20.01,
+          "end": 20.41
+        },
+        {
+          "text": "packets",
+          "start": 20.41,
+          "end": 20.85
+        },
+        {
+          "text": "inside,",
+          "start": 20.85,
+          "end": 21.39
+        },
+        {
+          "text": "whether",
+          "start": 21.99,
+          "end": 22.15
+        },
+        {
+          "text": "the",
+          "start": 22.15,
+          "end": 22.33
+        },
+        {
+          "text": "flower-seeds",
+          "start": 22.33,
+          "end": 23.03
+        },
+        {
+          "text": "and",
+          "start": 23.03,
+          "end": 23.15
+        },
+        {
+          "text": "bulbs",
+          "start": 23.15,
+          "end": 23.43
+        },
+        {
+          "text": "ever",
+          "start": 23.43,
+          "end": 23.75
+        },
+        {
+          "text": "wanted",
+          "start": 23.75,
+          "end": 24.03
+        },
+        {
+          "text": "of",
+          "start": 24.03,
+          "end": 24.17
+        },
+        {
+          "text": "a",
+          "start": 24.17,
+          "end": 24.35
+        },
+        {
+          "text": "fine",
+          "start": 24.35,
+          "end": 24.59
+        },
+        {
+          "text": "day",
+          "start": 24.59,
+          "end": 24.91
+        },
+        {
+          "text": "to",
+          "start": 24.91,
+          "end": 25.09
+        },
+        {
+          "text": "break",
+          "start": 25.09,
+          "end": 25.27
+        },
+        {
+          "text": "out",
+          "start": 25.27,
+          "end": 25.43
+        },
+        {
+          "text": "of",
+          "start": 25.43,
+          "end": 25.57
+        },
+        {
+          "text": "those",
+          "start": 25.57,
+          "end": 25.73
+        },
+        {
+          "text": "jails,",
+          "start": 25.73,
+          "end": 26.15
+        },
+        {
+          "text": "and",
+          "start": 26.65,
+          "end": 26.79
+        },
+        {
+          "text": "bloom.",
+          "start": 26.79,
+          "end": 27.07
+        }
+      ],
+      "stats": {
+        "expected_words": 91,
+        "heard_words": 91,
+        "matched_words": 91
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 1.071280375123024
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "aae0414b6d6cce0d8e0d2764208bd61f891ef73d00f26fd85bab35b32623ccb2",
+  "selected_reasons": []
+}

@@ -1,0 +1,104 @@
+{
+  "complete": true,
+  "signature": "45f7f47f89042b618d6a58e10692c686a601fb8aba295fe7c224479a0a3e8e4f",
+  "attempts": [
+    {
+      "asr_seconds": 0.11350673297420144,
+      "alignment_seconds": 0.00023213494569063187,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " hip",
+          "start": 0.08,
+          "end": 0.66,
+          "words": [
+            {
+              "text": " hip",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.32177734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "hip",
+          "start": 0.08,
+          "end": 0.66
+        }
+      ],
+      "expected_tokens": [
+        "\"Pip?\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "hip",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "hip",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Pip?\"",
+          "start": 0.0,
+          "end": 0.33
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11383236898109317
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ce8971b295fc0b2c4a392c961dd0f43a15681c472aed15f2fef8942c500a1ade",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

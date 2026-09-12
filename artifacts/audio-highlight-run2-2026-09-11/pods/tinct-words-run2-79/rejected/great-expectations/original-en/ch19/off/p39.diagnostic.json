@@ -1,0 +1,779 @@
+{
+  "complete": true,
+  "signature": "05f97cc4650b8802f4c82d6c0ef872f98e825bb2748dfa02c32391dbfe5af6e1",
+  "attempts": [
+    {
+      "asr_seconds": 0.3850418170914054,
+      "alignment_seconds": 0.0007453998550772667,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Well,\" said Mr. Trab, in a hail-fellow-well-met kind of way,",
+          "start": 0.58,
+          "end": 3.84,
+          "words": [
+            {
+              "text": " Well,\"",
+              "start": 0.58,
+              "end": 1.0,
+              "probability": 0.3480224609375
+            },
+            {
+              "text": " said",
+              "start": 1.0,
+              "end": 1.28,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Mr.",
+              "start": 1.28,
+              "end": 1.58,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Trab,",
+              "start": 1.8,
+              "end": 1.92,
+              "probability": 0.821533203125
+            },
+            {
+              "text": " in",
+              "start": 2.1,
+              "end": 2.18,
+              "probability": 0.947265625
+            },
+            {
+              "text": " a",
+              "start": 2.18,
+              "end": 2.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " hail",
+              "start": 2.28,
+              "end": 2.44,
+              "probability": 0.470947265625
+            },
+            {
+              "text": "-fellow",
+              "start": 2.44,
+              "end": 2.74,
+              "probability": 0.9031575520833334
+            },
+            {
+              "text": "-well",
+              "start": 2.74,
+              "end": 2.98,
+              "probability": 0.700439453125
+            },
+            {
+              "text": "-met",
+              "start": 2.98,
+              "end": 3.18,
+              "probability": 0.965576171875
+            },
+            {
+              "text": " kind",
+              "start": 3.18,
+              "end": 3.44,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " of",
+              "start": 3.44,
+              "end": 3.6,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " way,",
+              "start": 3.6,
+              "end": 3.84,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " \"'How are you and what can I do for you?'\"",
+          "start": 4.36,
+          "end": 6.8,
+          "words": [
+            {
+              "text": " \"'How",
+              "start": 4.36,
+              "end": 4.66,
+              "probability": 0.37932920455932617
+            },
+            {
+              "text": " are",
+              "start": 4.66,
+              "end": 4.82,
+              "probability": 0.990234375
+            },
+            {
+              "text": " you",
+              "start": 4.82,
+              "end": 5.06,
+              "probability": 0.98828125
+            },
+            {
+              "text": " and",
+              "start": 5.06,
+              "end": 5.32,
+              "probability": 0.498291015625
+            },
+            {
+              "text": " what",
+              "start": 5.32,
+              "end": 5.46,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " can",
+              "start": 5.46,
+              "end": 5.58,
+              "probability": 0.994140625
+            },
+            {
+              "text": " I",
+              "start": 5.58,
+              "end": 5.7,
+              "probability": 0.99609375
+            },
+            {
+              "text": " do",
+              "start": 5.7,
+              "end": 5.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " for",
+              "start": 5.84,
+              "end": 6.02,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " you?'\"",
+              "start": 6.02,
+              "end": 6.8,
+              "probability": 0.85986328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Well,\"",
+          "start": 0.58,
+          "end": 1.0
+        },
+        {
+          "raw": "said",
+          "start": 1.0,
+          "end": 1.28
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.28,
+          "end": 1.58
+        },
+        {
+          "raw": "Trab,",
+          "start": 1.8,
+          "end": 1.92
+        },
+        {
+          "raw": "in",
+          "start": 2.1,
+          "end": 2.18
+        },
+        {
+          "raw": "a",
+          "start": 2.18,
+          "end": 2.28
+        },
+        {
+          "raw": "hail",
+          "start": 2.28,
+          "end": 2.44
+        },
+        {
+          "raw": "-fellow",
+          "start": 2.44,
+          "end": 2.74
+        },
+        {
+          "raw": "-well",
+          "start": 2.74,
+          "end": 2.98
+        },
+        {
+          "raw": "-met",
+          "start": 2.98,
+          "end": 3.18
+        },
+        {
+          "raw": "kind",
+          "start": 3.18,
+          "end": 3.44
+        },
+        {
+          "raw": "of",
+          "start": 3.44,
+          "end": 3.6
+        },
+        {
+          "raw": "way,",
+          "start": 3.6,
+          "end": 3.84
+        },
+        {
+          "raw": "\"'How",
+          "start": 4.36,
+          "end": 4.66
+        },
+        {
+          "raw": "are",
+          "start": 4.66,
+          "end": 4.82
+        },
+        {
+          "raw": "you",
+          "start": 4.82,
+          "end": 5.06
+        },
+        {
+          "raw": "and",
+          "start": 5.06,
+          "end": 5.32
+        },
+        {
+          "raw": "what",
+          "start": 5.32,
+          "end": 5.46
+        },
+        {
+          "raw": "can",
+          "start": 5.46,
+          "end": 5.58
+        },
+        {
+          "raw": "I",
+          "start": 5.58,
+          "end": 5.7
+        },
+        {
+          "raw": "do",
+          "start": 5.7,
+          "end": 5.84
+        },
+        {
+          "raw": "for",
+          "start": 5.84,
+          "end": 6.02
+        },
+        {
+          "raw": "you?'\"",
+          "start": 6.02,
+          "end": 6.8
+        }
+      ],
+      "expected_tokens": [
+        "\"Well!\"",
+        "said",
+        "Mr.",
+        "Trabb,",
+        "in",
+        "a",
+        "hail-fellow-well-met",
+        "kind",
+        "of",
+        "way.",
+        "\"How",
+        "are",
+        "you,",
+        "and",
+        "what",
+        "can",
+        "I",
+        "do",
+        "for",
+        "you?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          20,
+          4,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Well,\"",
+          "start": 0.58,
+          "end": 1.0,
+          "key": "well",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.0,
+          "end": 1.28,
+          "key": "said",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.28,
+          "end": 1.58,
+          "key": "mr",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Trab,",
+          "start": 1.8,
+          "end": 1.92,
+          "key": "trab",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.1,
+          "end": 2.18,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.18,
+          "end": 2.28,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "hail -fellow -well -met",
+          "start": 2.28,
+          "end": 3.18,
+          "key": "hailfellowwellmet",
+          "pieces": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "raw": "kind",
+          "start": 3.18,
+          "end": 3.44,
+          "key": "kind",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.44,
+          "end": 3.6,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "way,",
+          "start": 3.6,
+          "end": 3.84,
+          "key": "way",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "\"'How",
+          "start": 4.36,
+          "end": 4.66,
+          "key": "how",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 4.66,
+          "end": 4.82,
+          "key": "are",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.82,
+          "end": 5.06,
+          "key": "you",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.06,
+          "end": 5.32,
+          "key": "and",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 5.32,
+          "end": 5.46,
+          "key": "what",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 5.46,
+          "end": 5.58,
+          "key": "can",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.58,
+          "end": 5.7,
+          "key": "i",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 5.7,
+          "end": 5.84,
+          "key": "do",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 5.84,
+          "end": 6.02,
+          "key": "for",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "you?'\"",
+          "start": 6.02,
+          "end": 6.8,
+          "key": "you",
+          "pieces": [
+            22
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 6,
+          "text": "hail-fellow-well-met",
+          "heard": "hail -fellow -well -met",
+          "heard_indexes": [
+            6,
+            7,
+            8,
+            9
+          ],
+          "start": 2.28,
+          "end": 3.18
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Well!\"",
+          "start": 0.58,
+          "end": 1.0
+        },
+        {
+          "text": "said",
+          "start": 1.0,
+          "end": 1.28
+        },
+        {
+          "text": "Mr.",
+          "start": 1.28,
+          "end": 1.58
+        },
+        {
+          "text": "Trabb,",
+          "start": 1.58,
+          "end": 1.84
+        },
+        {
+          "text": "in",
+          "start": 2.1,
+          "end": 2.18
+        },
+        {
+          "text": "a",
+          "start": 2.18,
+          "end": 2.28
+        },
+        {
+          "text": "hail-fellow-well-met",
+          "start": 2.28,
+          "end": 3.18
+        },
+        {
+          "text": "kind",
+          "start": 3.18,
+          "end": 3.44
+        },
+        {
+          "text": "of",
+          "start": 3.44,
+          "end": 3.6
+        },
+        {
+          "text": "way.",
+          "start": 3.6,
+          "end": 3.84
+        },
+        {
+          "text": "\"How",
+          "start": 4.36,
+          "end": 4.66
+        },
+        {
+          "text": "are",
+          "start": 4.66,
+          "end": 4.82
+        },
+        {
+          "text": "you,",
+          "start": 4.82,
+          "end": 5.06
+        },
+        {
+          "text": "and",
+          "start": 5.06,
+          "end": 5.32
+        },
+        {
+          "text": "what",
+          "start": 5.32,
+          "end": 5.46
+        },
+        {
+          "text": "can",
+          "start": 5.46,
+          "end": 5.58
+        },
+        {
+          "text": "I",
+          "start": 5.58,
+          "end": 5.7
+        },
+        {
+          "text": "do",
+          "start": 5.7,
+          "end": 5.84
+        },
+        {
+          "text": "for",
+          "start": 5.84,
+          "end": 6.02
+        },
+        {
+          "text": "you?\"",
+          "start": 6.02,
+          "end": 6.8
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 19
+      },
+      "match_ratio": 0.95,
+      "rejection_reasons": [],
+      "seconds": 0.3860679501667619
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0787eebb6c8f88bdd3f27b58dfc24453dcd6cde59c8a62f3c7f405c73b341660",
+  "selected_reasons": []
+}

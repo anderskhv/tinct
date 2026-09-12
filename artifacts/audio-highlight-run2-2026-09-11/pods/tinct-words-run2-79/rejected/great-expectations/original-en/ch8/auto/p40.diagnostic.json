@@ -1,0 +1,670 @@
+{
+  "complete": true,
+  "signature": "692258f6f9df14725881965d692c6460edc48e56d78a445ec8ea2cfe93c0f836",
+  "attempts": [
+    {
+      "asr_seconds": 0.3561892658472061,
+      "alignment_seconds": 0.0005139410495758057,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "I regret to state that I was not afraid of telling the enormous lie comprehended in the answer \"No.\"",
+        "hotwords": "I, No"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I regret to state that I was not afraid of telling the enormous lie comprehended in the answer, No.",
+          "start": 0.05,
+          "end": 6.09,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.876953125
+            },
+            {
+              "text": " regret",
+              "start": 0.55,
+              "end": 0.85,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " to",
+              "start": 0.85,
+              "end": 1.05,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " state",
+              "start": 1.05,
+              "end": 1.31,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " that",
+              "start": 1.31,
+              "end": 1.59,
+              "probability": 0.982421875
+            },
+            {
+              "text": " I",
+              "start": 1.59,
+              "end": 1.71,
+              "probability": 0.986328125
+            },
+            {
+              "text": " was",
+              "start": 1.71,
+              "end": 1.81,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " not",
+              "start": 1.81,
+              "end": 2.03,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " afraid",
+              "start": 2.03,
+              "end": 2.33,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 2.33,
+              "end": 2.57,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " telling",
+              "start": 2.57,
+              "end": 2.81,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 2.81,
+              "end": 3.07,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " enormous",
+              "start": 3.07,
+              "end": 3.43,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " lie",
+              "start": 3.43,
+              "end": 3.91,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " comprehended",
+              "start": 3.91,
+              "end": 4.93,
+              "probability": 0.7232666015625
+            },
+            {
+              "text": " in",
+              "start": 4.93,
+              "end": 5.03,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 5.03,
+              "end": 5.13,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " answer,",
+              "start": 5.13,
+              "end": 5.51,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " No.",
+              "start": 5.87,
+              "end": 6.09,
+              "probability": 0.07177734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "regret",
+          "start": 0.55,
+          "end": 0.85
+        },
+        {
+          "raw": "to",
+          "start": 0.85,
+          "end": 1.05
+        },
+        {
+          "raw": "state",
+          "start": 1.05,
+          "end": 1.31
+        },
+        {
+          "raw": "that",
+          "start": 1.31,
+          "end": 1.59
+        },
+        {
+          "raw": "I",
+          "start": 1.59,
+          "end": 1.71
+        },
+        {
+          "raw": "was",
+          "start": 1.71,
+          "end": 1.81
+        },
+        {
+          "raw": "not",
+          "start": 1.81,
+          "end": 2.03
+        },
+        {
+          "raw": "afraid",
+          "start": 2.03,
+          "end": 2.33
+        },
+        {
+          "raw": "of",
+          "start": 2.33,
+          "end": 2.57
+        },
+        {
+          "raw": "telling",
+          "start": 2.57,
+          "end": 2.81
+        },
+        {
+          "raw": "the",
+          "start": 2.81,
+          "end": 3.07
+        },
+        {
+          "raw": "enormous",
+          "start": 3.07,
+          "end": 3.43
+        },
+        {
+          "raw": "lie",
+          "start": 3.43,
+          "end": 3.91
+        },
+        {
+          "raw": "comprehended",
+          "start": 3.91,
+          "end": 4.93
+        },
+        {
+          "raw": "in",
+          "start": 4.93,
+          "end": 5.03
+        },
+        {
+          "raw": "the",
+          "start": 5.03,
+          "end": 5.13
+        },
+        {
+          "raw": "answer,",
+          "start": 5.13,
+          "end": 5.51
+        },
+        {
+          "raw": "No.",
+          "start": 5.87,
+          "end": 6.09
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "regret",
+        "to",
+        "state",
+        "that",
+        "I",
+        "was",
+        "not",
+        "afraid",
+        "of",
+        "telling",
+        "the",
+        "enormous",
+        "lie",
+        "comprehended",
+        "in",
+        "the",
+        "answer",
+        "\"No.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "regret",
+          "start": 0.55,
+          "end": 0.85,
+          "key": "regret",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.85,
+          "end": 1.05,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "state",
+          "start": 1.05,
+          "end": 1.31,
+          "key": "state",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.31,
+          "end": 1.59,
+          "key": "that",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.59,
+          "end": 1.71,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 1.71,
+          "end": 1.81,
+          "key": "was",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.81,
+          "end": 2.03,
+          "key": "not",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "afraid",
+          "start": 2.03,
+          "end": 2.33,
+          "key": "afraid",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.33,
+          "end": 2.57,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "telling",
+          "start": 2.57,
+          "end": 2.81,
+          "key": "telling",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.81,
+          "end": 3.07,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "enormous",
+          "start": 3.07,
+          "end": 3.43,
+          "key": "enormous",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "lie",
+          "start": 3.43,
+          "end": 3.91,
+          "key": "lie",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "comprehended",
+          "start": 3.91,
+          "end": 4.93,
+          "key": "comprehended",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.93,
+          "end": 5.03,
+          "key": "in",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.03,
+          "end": 5.13,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "answer,",
+          "start": 5.13,
+          "end": 5.51,
+          "key": "answer",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "No.",
+          "start": 5.87,
+          "end": 6.09,
+          "key": "no",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "regret",
+          "start": 0.55,
+          "end": 0.85
+        },
+        {
+          "text": "to",
+          "start": 0.85,
+          "end": 1.05
+        },
+        {
+          "text": "state",
+          "start": 1.05,
+          "end": 1.31
+        },
+        {
+          "text": "that",
+          "start": 1.31,
+          "end": 1.59
+        },
+        {
+          "text": "I",
+          "start": 1.59,
+          "end": 1.71
+        },
+        {
+          "text": "was",
+          "start": 1.71,
+          "end": 1.81
+        },
+        {
+          "text": "not",
+          "start": 1.81,
+          "end": 2.03
+        },
+        {
+          "text": "afraid",
+          "start": 2.03,
+          "end": 2.33
+        },
+        {
+          "text": "of",
+          "start": 2.33,
+          "end": 2.57
+        },
+        {
+          "text": "telling",
+          "start": 2.57,
+          "end": 2.81
+        },
+        {
+          "text": "the",
+          "start": 2.81,
+          "end": 3.07
+        },
+        {
+          "text": "enormous",
+          "start": 3.07,
+          "end": 3.43
+        },
+        {
+          "text": "lie",
+          "start": 3.43,
+          "end": 3.91
+        },
+        {
+          "text": "comprehended",
+          "start": 3.91,
+          "end": 4.93
+        },
+        {
+          "text": "in",
+          "start": 4.93,
+          "end": 5.03
+        },
+        {
+          "text": "the",
+          "start": 5.03,
+          "end": 5.13
+        },
+        {
+          "text": "answer",
+          "start": 5.13,
+          "end": 5.51
+        },
+        {
+          "text": "\"No.\"",
+          "start": 5.87,
+          "end": 6.09
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3569190879352391
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "98f06b1ae4ff4ddcd90abaa28d39301f4b2cfc2b8bf76ce9a538e810c7a29a40",
+  "selected_reasons": []
+}

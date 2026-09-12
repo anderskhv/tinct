@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "e48735ce6166c7c8e06cde3393575244a5e05a2bfe482f8256d2ddcb2c16a906",
+  "attempts": [
+    {
+      "asr_seconds": 0.12786646466702223,
+      "alignment_seconds": 0.00033833691850304604,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Not so much so.",
+          "start": 0.02,
+          "end": 1.14,
+          "words": [
+            {
+              "text": " Not",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.84228515625
+            },
+            {
+              "text": " so",
+              "start": 0.56,
+              "end": 0.72,
+              "probability": 0.994140625
+            },
+            {
+              "text": " much",
+              "start": 0.72,
+              "end": 0.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " so.",
+              "start": 0.88,
+              "end": 1.14,
+              "probability": 0.9482421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Not",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "so",
+          "start": 0.56,
+          "end": 0.72
+        },
+        {
+          "raw": "much",
+          "start": 0.72,
+          "end": 0.88
+        },
+        {
+          "raw": "so.",
+          "start": 0.88,
+          "end": 1.14
+        }
+      ],
+      "expected_tokens": [
+        "\"Not",
+        "so",
+        "much",
+        "so?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Not",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "not",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 0.56,
+          "end": 0.72,
+          "key": "so",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 0.72,
+          "end": 0.88,
+          "key": "much",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "so.",
+          "start": 0.88,
+          "end": 1.14,
+          "key": "so",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Not",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "so",
+          "start": 0.56,
+          "end": 0.72
+        },
+        {
+          "text": "much",
+          "start": 0.72,
+          "end": 0.88
+        },
+        {
+          "text": "so?\"",
+          "start": 0.88,
+          "end": 1.14
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1283314200118184
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5bbccaa9e993a670259fb6013a017a7bfedeb786a5e38c00bbf29239fdecd4d1",
+  "selected_reasons": []
+}

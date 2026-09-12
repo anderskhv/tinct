@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "b71b2a96a80d2a70a889f5cec51308b794dbb3878942363827da1c386bc8a794",
+  "attempts": [
+    {
+      "asr_seconds": 0.25761022279039025,
+      "alignment_seconds": 0.0004164930433034897,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"And Mr. Jaggers is made your guardian?\"",
+        "hotwords": "And, Mr, Jaggers"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And Mr. Jaggers is made your guardian?",
+          "start": 0.08,
+          "end": 2.38,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.6923828125
+            },
+            {
+              "text": " Mr.",
+              "start": 0.54,
+              "end": 0.86,
+              "probability": 0.927734375
+            },
+            {
+              "text": " Jaggers",
+              "start": 1.18,
+              "end": 1.4,
+              "probability": 0.7308349609375
+            },
+            {
+              "text": " is",
+              "start": 1.4,
+              "end": 1.68,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " made",
+              "start": 1.68,
+              "end": 1.86,
+              "probability": 0.00390625
+            },
+            {
+              "text": " your",
+              "start": 1.86,
+              "end": 2.02,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " guardian?",
+              "start": 2.02,
+              "end": 2.38,
+              "probability": 0.94775390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "Mr.",
+          "start": 0.54,
+          "end": 0.86
+        },
+        {
+          "raw": "Jaggers",
+          "start": 1.18,
+          "end": 1.4
+        },
+        {
+          "raw": "is",
+          "start": 1.4,
+          "end": 1.68
+        },
+        {
+          "raw": "made",
+          "start": 1.68,
+          "end": 1.86
+        },
+        {
+          "raw": "your",
+          "start": 1.86,
+          "end": 2.02
+        },
+        {
+          "raw": "guardian?",
+          "start": 2.02,
+          "end": 2.38
+        }
+      ],
+      "expected_tokens": [
+        "\"And",
+        "Mr.",
+        "Jaggers",
+        "is",
+        "made",
+        "your",
+        "guardian?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 0.54,
+          "end": 0.86,
+          "key": "mr",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Jaggers",
+          "start": 1.18,
+          "end": 1.4,
+          "key": "jaggers",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.4,
+          "end": 1.68,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "made",
+          "start": 1.68,
+          "end": 1.86,
+          "key": "made",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.86,
+          "end": 2.02,
+          "key": "your",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "guardian?",
+          "start": 2.02,
+          "end": 2.38,
+          "key": "guardian",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"And",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "Mr.",
+          "start": 0.54,
+          "end": 0.86
+        },
+        {
+          "text": "Jaggers",
+          "start": 1.18,
+          "end": 1.4
+        },
+        {
+          "text": "is",
+          "start": 1.4,
+          "end": 1.68
+        },
+        {
+          "text": "made",
+          "start": 1.68,
+          "end": 1.86
+        },
+        {
+          "text": "your",
+          "start": 1.86,
+          "end": 2.02
+        },
+        {
+          "text": "guardian?\"",
+          "start": 2.02,
+          "end": 2.38
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2582077500410378
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d7e05b9a1b55a3c2bd855ddcc71a1f66611ede402ab82a68f6e0afe59a3247b6",
+  "selected_reasons": []
+}

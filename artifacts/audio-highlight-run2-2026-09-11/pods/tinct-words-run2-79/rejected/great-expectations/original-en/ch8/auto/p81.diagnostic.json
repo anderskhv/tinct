@@ -1,0 +1,453 @@
+{
+  "complete": true,
+  "signature": "621e98f0be384aed46940be0e43756f80db29704d0f2131e8200040ef82f85e9",
+  "attempts": [
+    {
+      "asr_seconds": 0.3288831068202853,
+      "alignment_seconds": 0.0006080437451601028,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"You shall go soon,\" said Miss Havisham, aloud. \"Play the game out.\"",
+        "hotwords": "You, Miss, Havisham, Play"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " You shall go soon,\" said Miss Havisham, aloud.",
+          "start": 0.02,
+          "end": 2.72,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.11651611328125
+            },
+            {
+              "text": " shall",
+              "start": 0.5,
+              "end": 0.64,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " go",
+              "start": 0.64,
+              "end": 0.86,
+              "probability": 0.998046875
+            },
+            {
+              "text": " soon,\"",
+              "start": 0.86,
+              "end": 1.46,
+              "probability": 0.89306640625
+            },
+            {
+              "text": " said",
+              "start": 1.46,
+              "end": 1.72,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Miss",
+              "start": 1.72,
+              "end": 1.88,
+              "probability": 0.85302734375
+            },
+            {
+              "text": " Havisham,",
+              "start": 1.88,
+              "end": 2.4,
+              "probability": 0.9733072916666666
+            },
+            {
+              "text": " aloud.",
+              "start": 2.48,
+              "end": 2.72,
+              "probability": 0.9609375
+            }
+          ]
+        },
+        {
+          "text": " Play the game out.",
+          "start": 2.72,
+          "end": 4.12,
+          "words": [
+            {
+              "text": " Play",
+              "start": 2.72,
+              "end": 3.48,
+              "probability": 0.5224609375
+            },
+            {
+              "text": " the",
+              "start": 3.48,
+              "end": 3.62,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " game",
+              "start": 3.62,
+              "end": 3.8,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " out.",
+              "start": 3.8,
+              "end": 4.12,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "shall",
+          "start": 0.5,
+          "end": 0.64
+        },
+        {
+          "raw": "go",
+          "start": 0.64,
+          "end": 0.86
+        },
+        {
+          "raw": "soon,\"",
+          "start": 0.86,
+          "end": 1.46
+        },
+        {
+          "raw": "said",
+          "start": 1.46,
+          "end": 1.72
+        },
+        {
+          "raw": "Miss",
+          "start": 1.72,
+          "end": 1.88
+        },
+        {
+          "raw": "Havisham,",
+          "start": 1.88,
+          "end": 2.4
+        },
+        {
+          "raw": "aloud.",
+          "start": 2.48,
+          "end": 2.72
+        },
+        {
+          "raw": "Play",
+          "start": 2.72,
+          "end": 3.48
+        },
+        {
+          "raw": "the",
+          "start": 3.48,
+          "end": 3.62
+        },
+        {
+          "raw": "game",
+          "start": 3.62,
+          "end": 3.8
+        },
+        {
+          "raw": "out.",
+          "start": 3.8,
+          "end": 4.12
+        }
+      ],
+      "expected_tokens": [
+        "\"You",
+        "shall",
+        "go",
+        "soon,\"",
+        "said",
+        "Miss",
+        "Havisham,",
+        "aloud.",
+        "\"Play",
+        "the",
+        "game",
+        "out.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 0.5,
+          "end": 0.64,
+          "key": "shall",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 0.64,
+          "end": 0.86,
+          "key": "go",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "soon,\"",
+          "start": 0.86,
+          "end": 1.46,
+          "key": "soon",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.46,
+          "end": 1.72,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Miss",
+          "start": 1.72,
+          "end": 1.88,
+          "key": "miss",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Havisham,",
+          "start": 1.88,
+          "end": 2.4,
+          "key": "havisham",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "aloud.",
+          "start": 2.48,
+          "end": 2.72,
+          "key": "aloud",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Play",
+          "start": 2.72,
+          "end": 3.48,
+          "key": "play",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.48,
+          "end": 3.62,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "game",
+          "start": 3.62,
+          "end": 3.8,
+          "key": "game",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "out.",
+          "start": 3.8,
+          "end": 4.12,
+          "key": "out",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"You",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "shall",
+          "start": 0.5,
+          "end": 0.64
+        },
+        {
+          "text": "go",
+          "start": 0.64,
+          "end": 0.86
+        },
+        {
+          "text": "soon,\"",
+          "start": 0.86,
+          "end": 1.46
+        },
+        {
+          "text": "said",
+          "start": 1.46,
+          "end": 1.72
+        },
+        {
+          "text": "Miss",
+          "start": 1.72,
+          "end": 1.88
+        },
+        {
+          "text": "Havisham,",
+          "start": 1.88,
+          "end": 2.4
+        },
+        {
+          "text": "aloud.",
+          "start": 2.48,
+          "end": 2.72
+        },
+        {
+          "text": "\"Play",
+          "start": 2.72,
+          "end": 3.48
+        },
+        {
+          "text": "the",
+          "start": 3.48,
+          "end": 3.62
+        },
+        {
+          "text": "game",
+          "start": 3.62,
+          "end": 3.8
+        },
+        {
+          "text": "out.\"",
+          "start": 3.8,
+          "end": 4.12
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.32978622196242213
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1076bdfc4d89c8af1035795cc94532a42946ae2de04a5a7d79720c6afb37ae86",
+  "selected_reasons": []
+}
