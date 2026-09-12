@@ -94,6 +94,7 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   'brothers-karamazov': { editions: EN, revision: '2026-09-12.1' },
   'don-quixote': { editions: EN, revision: '2026-09-12.1' },
   'war-and-peace': { editions: EN, revision: '2026-09-12.1' },
+  ulysses: { editions: EN, revision: '2026-09-12.1' },
 }
 const supportedEditions = (bookId: string): string[] | undefined => characterReleases[bookId]?.editions
 export async function verifyCharacters(asset: CharacterAsset, bookId: string, editionKey: string, raw: ArrayBuffer): Promise<VerifiedCharacters | null> {
