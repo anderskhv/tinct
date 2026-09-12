@@ -48,14 +48,18 @@
   /* Highlight colors (text background — muted) */
   --highlight-gold: #f5e6c8;
   --highlight-rose: #f5d0d0;
-  --highlight-sage: #d0e8d0;
+  /* Warm sage. The old #d0e8d0 was a cool, slightly acidic green that floated
+     above the cream paper; this one is shifted toward olive (blue pulled back,
+     red raised a little) so it sits on it. Still unmistakably the green one:
+     green stays the dominant channel by the same margin it had before. */
+  --highlight-sage: #cde3b4;
   --highlight-sky: #d0e0f5;
   --highlight-lavender: #e0d0f5;
 
   /* Popup dot colors (brighter, more saturated) */
   --highlight-popup-gold: #e6b84d;
   --highlight-popup-rose: #e66b6b;
-  --highlight-popup-sage: #5cb85c;
+  --highlight-popup-sage: #7fa03c;
   --highlight-popup-sky: #5b9bd5;
   --highlight-popup-lavender: #9b6bcc;
 }
@@ -95,13 +99,13 @@
 
   --highlight-gold: #5c4a2e;
   --highlight-rose: #5c3030;
-  --highlight-sage: #2e4a2e;
+  --highlight-sage: #4a5c2e;
   --highlight-sky: #2e3a5c;
   --highlight-lavender: #3a2e5c;
 
   --highlight-popup-gold: #d4a843;
   --highlight-popup-rose: #d45858;
-  --highlight-popup-sage: #4da84d;
+  --highlight-popup-sage: #7d9a43;
   --highlight-popup-sky: #4d8bc4;
   --highlight-popup-lavender: #8a5bbb;
 }

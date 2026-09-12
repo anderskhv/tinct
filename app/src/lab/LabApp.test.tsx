@@ -336,7 +336,11 @@ describe('lab chrome', () => {
     expect(css).toMatch(/\.lab-kicker\s*\{[^}]*display:\s*none/)
     expect(css).toMatch(/\.lab-ask-tab\s*\{/)
     expect(css).not.toMatch(/Helvetica/)
-    expect(css).not.toMatch(/gold|#f5d76e|#ffeaa7|#ffd54f|#fff59d/i)
+    // No gold accent anywhere in the lab chrome. References to the shared
+    // `--highlight-gold` mark token are not that colour language: they are
+    // how the five highlight colours keep one definition across surfaces.
+    expect(css.replace(/var\(--highlight-gold[^)]*\)/g, 'var(--mark-default)'))
+      .not.toMatch(/gold|#f5d76e|#ffeaa7|#ffd54f|#fff59d/i)
     expect(css).not.toMatch(/\.lab-ask\s*\{[^}]*background:\s*#faf9f6/)
     expect(css).not.toMatch(/\.lab-ask-composer\s*\{[^}]*background:\s*#fff/)
     expect(css).not.toMatch(/\.lab-phone-notice\s*\{[^}]*position:\s*fixed/)
@@ -2631,7 +2635,18 @@ describe('lab passage headline pages', () => {
     expect(words[2].textContent?.startsWith(' ')).toBe(true)
     expect(words[3].textContent?.startsWith(' ')).toBe(true)
     const css = readFileSync(resolve(process.cwd(), 'src/lab/lab.css'), 'utf8')
-    expect(css).toMatch(/\.lab-hearing-word\.is-selecting\s*\{[^}]*background:\s*#e8dcc4/)
+    // The provisional mark is the highlight the Highlight action would make,
+    // in the default colour, so the preview cannot lie about the result.
+    const backgroundOf = (selector: string) => [...css.matchAll(
+      new RegExp(`${selector.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*\\{[^}]*background:\\s*([^;]+);`, 'g'),
+    )].map(match => match[1].trim())
+    const warm = backgroundOf('.lab-hearing-word.is-hl-warm')
+    const selecting = backgroundOf('.lab-hearing-word.is-selecting')
+    expect(warm.length).toBeGreaterThan(0)
+    expect(selecting).toEqual(warm)
+    // ...and the mark colours have one definition, the shared tokens, so the
+    // same highlight is the same colour on every surface.
+    expect(warm.every(value => value.startsWith('var(--highlight-gold'))).toBe(true)
     expect(css).not.toMatch(/\.lab-hearing-word\.is-selecting\s*\{[^}]*box-shadow:/)
   })
 
@@ -2654,6 +2669,115 @@ describe('lab passage headline pages', () => {
     fireEvent.pointerUp(word, { pointerType: 'mouse', clientX: 190, clientY: 200 })
     expect(document.querySelector('.selection-popup')).toBeTruthy()
     expect(JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')).toHaveLength(0)
+  })
+
+  /** The provisional mark previews the action; only Highlight writes it. */
+  it('leaves no trace when a previewed selection is dismissed', async () => {
+    render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} />)
+    const words = screen.getAllByTestId('lab-word')
+    fireEvent.pointerDown(words[1], { pointerId: 41, pointerType: 'mouse', clientX: 150, clientY: 200 })
+    fireEvent.pointerMove(words[3], { pointerId: 41, pointerType: 'mouse', clientX: 230, clientY: 200 })
+    fireEvent.pointerUp(words[3], { pointerId: 41, pointerType: 'mouse', clientX: 230, clientY: 200 })
+    expect(document.querySelector('.selection-popup')).toBeTruthy()
+
+    fireEvent.pointerDown(document.body, { pointerId: 42, pointerType: 'touch', clientX: 10, clientY: 10 })
+    await waitFor(() => expect(document.querySelector('.selection-popup')).toBeNull())
+    expect(JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')).toHaveLength(0)
+    expect(document.querySelector('.lab-hearing-word.is-selecting')).toBeNull()
+  })
+
+  /**
+   * A click inside an existing highlight is a question about the thing the
+   * reader marked, not about the word under the cursor.
+   */
+  describe('a click inside an existing highlight acts on the whole highlight', () => {
+    const selectWords = async (from: number, to: number, id: number) => {
+      const words = screen.getAllByTestId('lab-word')
+      fireEvent.pointerDown(words[from], { pointerId: id, pointerType: 'mouse', clientX: 150, clientY: 200 })
+      fireEvent.pointerMove(words[to], { pointerId: id, pointerType: 'mouse', clientX: 230, clientY: 200 })
+      fireEvent.pointerUp(words[to], { pointerId: id, pointerType: 'mouse', clientX: 230, clientY: 200 })
+    }
+    const clickWord = (index: number, id: number) => {
+      const word = screen.getAllByTestId('lab-word')[index]
+      fireEvent.pointerDown(word, { pointerId: id, pointerType: 'mouse', button: 0, clientX: 190, clientY: 200 })
+      fireEvent.pointerUp(word, { pointerId: id, pointerType: 'mouse', clientX: 190, clientY: 200 })
+    }
+
+    it('takes the whole highlight for copy and ask, and the clicked word for define', async () => {
+      render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} />)
+      const words = screen.getAllByTestId('lab-word')
+      const whole = [1, 2, 3].map(i => words[i].textContent?.trim()).join(' ')
+      await selectWords(1, 3, 51)
+      fireEvent.click(screen.getByRole('button', { name: 'Highlight', exact: true }))
+      await waitFor(() => expect(JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')).toHaveLength(1))
+      fireEvent.pointerDown(document.body, { pointerId: 52, pointerType: 'mouse', clientX: 10, clientY: 10 })
+      await waitFor(() => expect(document.querySelector('.selection-popup')).toBeNull())
+
+      const copied: string[] = []
+      Object.defineProperty(navigator, 'clipboard', {
+        configurable: true,
+        value: { writeText: (text: string) => { copied.push(text); return Promise.resolve() } },
+      })
+      clickWord(2, 53)
+      const popup = await waitFor(() => {
+        const found = document.querySelector('.selection-popup')
+        expect(found).toBeTruthy()
+        return found as HTMLElement
+      })
+      // The subject the actions operate on is the whole highlight.
+      expect(popup.textContent).toBeTruthy()
+      fireEvent.click(screen.getByRole('button', { name: /copy/i }))
+      await waitFor(() => expect(copied).toHaveLength(1))
+      expect(copied[0]).toBe(whole)
+      expect(copied[0].split(/\s+/).length).toBeGreaterThan(1)
+      // ...and the highlight's own actions are still there.
+      expect(JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')).toHaveLength(1)
+    })
+
+    it('leaves a word outside any highlight on the word itself', async () => {
+      render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} />)
+      const words = screen.getAllByTestId('lab-word')
+      await selectWords(1, 2, 61)
+      fireEvent.click(screen.getByRole('button', { name: 'Highlight', exact: true }))
+      await waitFor(() => expect(JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')).toHaveLength(1))
+      fireEvent.pointerDown(document.body, { pointerId: 62, pointerType: 'mouse', clientX: 10, clientY: 10 })
+      await waitFor(() => expect(document.querySelector('.selection-popup')).toBeNull())
+
+      const copied: string[] = []
+      Object.defineProperty(navigator, 'clipboard', {
+        configurable: true,
+        value: { writeText: (text: string) => { copied.push(text); return Promise.resolve() } },
+      })
+      clickWord(5, 63)
+      await waitFor(() => expect(document.querySelector('.selection-popup')).toBeTruthy())
+      const copy = screen.queryByRole('button', { name: /copy/i })
+      if (copy) {
+        fireEvent.click(copy)
+        await waitFor(() => expect(copied).toHaveLength(1))
+        expect(copied[0]).toBe(words[5].textContent?.trim())
+      }
+    })
+
+    it('uses the dragged selection when a fresh drag overlaps a highlight', async () => {
+      render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} />)
+      const words = screen.getAllByTestId('lab-word')
+      await selectWords(1, 2, 71)
+      fireEvent.click(screen.getByRole('button', { name: 'Highlight', exact: true }))
+      await waitFor(() => expect(JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')).toHaveLength(1))
+      fireEvent.pointerDown(document.body, { pointerId: 72, pointerType: 'mouse', clientX: 10, clientY: 10 })
+      await waitFor(() => expect(document.querySelector('.selection-popup')).toBeNull())
+
+      const copied: string[] = []
+      Object.defineProperty(navigator, 'clipboard', {
+        configurable: true,
+        value: { writeText: (text: string) => { copied.push(text); return Promise.resolve() } },
+      })
+      await selectWords(0, 4, 73)
+      await waitFor(() => expect(document.querySelector('.selection-popup')).toBeTruthy())
+      fireEvent.click(screen.getByRole('button', { name: /copy/i }))
+      await waitFor(() => expect(copied).toHaveLength(1))
+      expect(copied[0]).toBe([0, 1, 2, 3, 4].map(i => words[i].textContent?.trim()).join(' '))
+    })
   })
 
   it('saves only after Highlight and recolors that same range without closing', async () => {

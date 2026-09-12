@@ -439,6 +439,43 @@ it('marks the active paragraph in desktop inline audio when word timings are una
 })
 
 
+describe('the end-of-chapter card on the desktop spread', () => {
+  const text = ['one two three four']
+  const card = <div className="lab-chapter-end" data-testid="end-card">End of chapter</div>
+  const props = () => passageProps(text, { paragraphIndex: 0, from: 0, to: 4 })
+
+  it('fills the empty facing leaf when the chapter ends on the first one', () => {
+    render(<LabPassage {...props()} desktopSpread chapterEnd={card} />)
+    const found = screen.getByTestId('end-card')
+    expect(found.closest('.lab-book-col-next')).toBeTruthy()
+    // The reader sees the text end and the card in one spread: no page turn
+    // to a card floating beside a blank leaf.
+    expect(screen.getByTestId('lab-next-page-col').contains(found)).toBe(true)
+  })
+
+  it('stays on the second leaf when that leaf carries the next page of text', () => {
+    render(<LabPassage {...props()} desktopSpread chapterEnd={card}
+      nextReadingPage={{ paragraphIndex: 0, from: 0, to: 4 }} />)
+    expect(screen.getByTestId('end-card').closest('.lab-book-col-next')).toBeTruthy()
+  })
+
+  it('is left in the single column on the phone', () => {
+    render(<LabPassage {...props()} chapterEnd={card} />)
+    const found = screen.getByTestId('end-card')
+    expect(found.closest('.lab-book-col-next')).toBeNull()
+    expect(found.closest('.lab-book-col')).toBeTruthy()
+  })
+
+  it('takes its own page when one is asked for, on either surface', () => {
+    const { unmount } = render(<LabPassage {...props()} desktopSpread chapterEndPage chapterEnd={card} />)
+    expect(screen.getByTestId('end-card').closest('[data-testid="lab-chapter-end-page"]')).toBeTruthy()
+    expect(screen.getByTestId('lab-next-page-col').querySelector('[data-testid="end-card"]')).toBeNull()
+    unmount()
+    render(<LabPassage {...props()} chapterEndPage chapterEnd={card} />)
+    expect(screen.getByTestId('end-card').closest('[data-testid="lab-chapter-end-page"]')).toBeTruthy()
+  })
+})
+
 describe('mouse word lookup and dragging', () => {
   const text = ['one two three four']
   const props = () => passageProps(text, { paragraphIndex: 0, from: 0, to: 4 })
@@ -462,6 +499,66 @@ describe('mouse word lookup and dragging', () => {
     fireEvent.pointerUp(screen.getByTestId('lab-book'), { pointerType: 'mouse', clientX: 105, clientY: 45 })
     expect(select).toHaveBeenCalledWith(expect.objectContaining({ text: 'one two three' }), 105, 45, undefined)
   })
+  /**
+   * The precedence rule: a click or tap that lands in a live page-turn zone
+   * turns the page and nothing else. One click can never both turn the page
+   * and pop a definition card.
+   */
+  describe('page-turn zones take precedence over word lookup', () => {
+    const surface = () => vi.spyOn(screen.getByTestId('lab-book'), 'getBoundingClientRect')
+      .mockReturnValue({ left: 0, right: 800, top: 0, bottom: 600, width: 800, height: 600, x: 0, y: 0, toJSON: () => ({}) } as DOMRect)
+
+    it('turns the page and opens no definition when the zone is live for this pointer', () => {
+      const select = vi.fn(), turn = vi.fn()
+      render(<LabPassage {...props()} tapZones="all" onSelectRange={select} onPageTurn={turn} />)
+      surface()
+      const word = screen.getAllByTestId('lab-word')[1]
+      fireEvent.pointerDown(word, { pointerType: 'mouse', button: 0, clientX: 20, clientY: 100 })
+      fireEvent.pointerUp(word, { pointerType: 'mouse', clientX: 20, clientY: 100 })
+      expect(turn).toHaveBeenCalledWith(-1)
+      expect(select).not.toHaveBeenCalled()
+    })
+
+    it('still defines a word clicked away from the zones', () => {
+      const select = vi.fn(), turn = vi.fn()
+      render(<LabPassage {...props()} tapZones="all" onSelectRange={select} onPageTurn={turn} />)
+      surface()
+      const word = screen.getAllByTestId('lab-word')[1]
+      fireEvent.pointerDown(word, { pointerType: 'mouse', button: 0, clientX: 400, clientY: 100 })
+      fireEvent.pointerUp(word, { pointerType: 'mouse', clientX: 400, clientY: 100 })
+      expect(turn).not.toHaveBeenCalled()
+      expect(select).toHaveBeenCalledWith(expect.objectContaining({ text: 'two' }), 400, 100, undefined, 'lookup')
+    })
+
+    it('defines at the edge when the mouse has buttons instead of zones', () => {
+      const select = vi.fn(), turn = vi.fn()
+      render(<LabPassage {...props()} tapZones="none" onSelectRange={select} onPageTurn={turn} />)
+      surface()
+      const word = screen.getAllByTestId('lab-word')[1]
+      fireEvent.pointerDown(word, { pointerType: 'mouse', button: 0, clientX: 20, clientY: 100 })
+      fireEvent.pointerUp(word, { pointerType: 'mouse', clientX: 20, clientY: 100 })
+      expect(turn).not.toHaveBeenCalled()
+      expect(select).toHaveBeenCalledWith(expect.objectContaining({ text: 'two' }), 20, 100, undefined, 'lookup')
+    })
+
+    it('on a machine with both, the finger turns the page and the mouse defines', () => {
+      const select = vi.fn(), turn = vi.fn()
+      render(<LabPassage {...props()} tapZones="touch" onSelectRange={select} onPageTurn={turn} />)
+      surface()
+      const word = screen.getAllByTestId('lab-word')[1]
+      fireEvent.pointerDown(word, { pointerType: 'touch', clientX: 780, clientY: 100 })
+      fireEvent.pointerUp(word, { pointerType: 'touch', clientX: 780, clientY: 100 })
+      expect(turn).toHaveBeenCalledWith(1)
+      expect(select).not.toHaveBeenCalled()
+
+      turn.mockClear()
+      fireEvent.pointerDown(word, { pointerType: 'mouse', button: 0, clientX: 780, clientY: 100 })
+      fireEvent.pointerUp(word, { pointerType: 'mouse', clientX: 780, clientY: 100 })
+      expect(turn).not.toHaveBeenCalled()
+      expect(select).toHaveBeenCalledWith(expect.objectContaining({ text: 'two' }), 780, 100, undefined, 'lookup')
+    })
+  })
+
   it('leaves short touch taps and secondary mouse buttons out of lookup', () => {
     const select = vi.fn()
     render(<LabPassage {...props()} onSelectRange={select} />)
