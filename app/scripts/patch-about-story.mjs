@@ -158,6 +158,9 @@ const edits = [
   ['story', 'edition name in header', 'children:[`Act I, Scene `,n.index===3?`II`:`IV`]})]})',
     'children:[`Act I, Scene `,n.index===3||t?`II`:`IV`]}),(0,_.jsx)(`em`,{className:`edition-name`,style:{opacity:n.index===1&&h?1:0},children:`Modern translation`})]})', 1],
   // Type and copy.
+  // 2026-09-12 (Anders): the character scene's answer is shorter — the page already shows the name being clicked.
+  ['story', 'character scene answer', '{problem:`Who is he? Is he important?`,answer:`Click a name. Find out.`,detail:``}',
+    '{problem:`Who is he? Is he important?`,answer:`Just click. Find out.`,detail:``}', 1],
   // 2026-09-12 (Anders): "or chat with it" read as a second, different feature under "Talk to the book."
   ['story', 'drop the chat-with-it line', '{problem:`I don’t understand this.`,answer:`Talk to the book.`,detail:`Or chat with it.`}',
     '{problem:`I don’t understand this.`,answer:`Talk to the book.`,detail:``}', 1],
