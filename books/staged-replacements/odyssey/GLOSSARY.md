@@ -302,6 +302,34 @@ Settled at Book 1 step 6 from records findings **R2** and **R1**; see
 - **`draughts`** (B01-P008) is not a spelling variant and stays: it is the
   game's name, and "checkers" would be an Americanism the register does not
   license.
+- **`toward`, never `towards`** (first met B03-P018 and B03-P024). *Added
+  2026-09-12 at Book 3's round 1, finding 18.2.* `towards` is the
+  British-preferred form, and the evidence base this glossary used for `gray`
+  says so more strongly here: the served `modern-en` is **toward 40,
+  towards 1**; Butler is **towards 55, toward 2**. Books 1 and 2 contain
+  neither form, so Book 3 sets the precedent for the remaining twenty-one
+  Books and for all fifty-five of Butler's.
+- **`scepter`, never `sceptre`** (first met B03-P032). *Added 2026-09-12 at
+  Book 3's round 1, finding 32.1, which **withdrew** an exemption.* Book 3's
+  v1 exempted `sceptre` on the `draughts` reasoning — "the object's ordinary
+  English name, not a spelling variant". That reasoning does not transfer:
+  *draughts* is a different **word** from *checkers*, whereas
+  *sceptre*/*scepter* is a US-UK spelling pair exactly like *centre*/*center*.
+  The served `modern-en` has **scepter 3, sceptre 0**, which is the test that
+  settled `gray`.
+- **Dead forms the archaism guard must name explicitly** (records finding
+  **R5**, Book 3 round 1): `twelvemonth`/`twelve-month`, `towards`, and the
+  article-less phrase `in course of time`. All three stood through a draft
+  because the guard did not list them; a regression guard catches only what it
+  is told to catch, and this is the maintenance that costs one line.
+  Implemented in `scripts/build_book3_v2.py` and inherited by every later
+  Book's build.
+- **`sweetmeats` is kept** (B03-P037, finding 37.2) with its reason recorded:
+  the plain modern word here would be *delicacies*, and `delicacies fit for
+  princes` is verbatim the served `modern-en` splice sitting inside the served
+  *original* at B03-P038 — the one wording the package must not use. Butler
+  prints `sweet meats` open; the candidate's closed-up form is the dictionary
+  form of the word, a typographic normalization and not a substitution.
 - **Typographic quotation marks and apostrophes throughout** — `“ ” ’` — as
   the served `original-en` has them and as the candidate's own double quotes
   already were. The ASCII apostrophe is not used.
@@ -339,9 +367,9 @@ Fixed before B03-P001 was drafted, per `WORKFLOW.md` step 2.
 
 | Butler (source) | Modern edition | Notes |
 |---|---|---|
-| "Beg of him to speak the truth, and he will tell no lies, for he is an excellent person." | **"Ask him to speak the truth, and he will tell you no lies, for he is an excellent man."** | Butler says it **twice in Book 3**, word for word — Athena of Nestor at B03-P002, Nestor of Menelaus at B03-P025 — and the repetition is the point: the same warranty is handed down the chain of hosts Telemachus is being passed along. Rendered identically both times. "excellent man" rather than "excellent person" matches accepted **B02-P003**, where the reviewer considered the same narrowing and let it go. |
+| B03-P002: "Beg of him to speak the truth, and he will tell no lies, for he is an excellent person."<br>B03-P025: "Beg of him to speak the truth, and he will tell **you** no lies, for he is an excellent person." | B03-P002: **"Ask him to speak the truth, and he will tell no lies, for he is an excellent man."**<br>B03-P025: **"Ask him to speak the truth, and he will tell you no lies, for he is an excellent man."** | Butler says it **twice in Book 3** — Athena of Nestor at B03-P002, Nestor of Menelaus at B03-P025 — and the repetition is the point: the same warranty is handed down the chain of hosts Telemachus is being passed along. **The two are NOT word for word: B03-P025 has `you` and B03-P002 does not**, and the edition prints each as he wrote it. *(Corrected 2026-09-12 at Book 3's round 1, finding 2.2 and records finding **R1**. This row previously said "word for word" and the v1 draft printed the P025 form in both places — the one place the package's consistency discipline was applied to a sameness Butler had not written. Settled under the package's own precedent four paragraphs later at B03-P016, where Butler's one-word difference from B01-P019 is kept because he wrote it.)* Every other word of the two sentences is identical. "excellent man" rather than "excellent person" matches accepted **B02-P003**, where the reviewer considered the same narrowing and let it go. |
 | "Nestor, knight of Gerene" | **"Nestor, the horseman of Gerene"** | Butler's standing epithet for Nestor (Γερήνιος ἱππότα Νέστωρ), once in Book 3 (B03-P008) and often later. **"knight" is the one word here that cannot stand**: in current English it is unambiguously medieval, and Butler's sense is the plain one — a man of the chariot and the horse, which is also why his sons are the ones who yoke and drive. Both elements kept: the place, and the horsemanship. Use this exact form every time it recurs. |
-| "honour to the Achaean name" (addressing Nestor) | **"honor of the Achaean name"** | Telemachus's fixed form of address, twice in Book 3 (B03-P011, B03-P017), both times after "Nestor, son of Neleus". American spelling per the standard. |
+| "honour to the Achaean name" (addressing Nestor) | **"honor to the Achaean name"** | Telemachus's fixed form of address, twice in Book 3 (B03-P011, B03-P017), both times after "Nestor, son of Neleus". American spelling per the standard; **`to`, not `of`** — Butler's idiom is the ordinary English *a credit to*, and a genitive does not mean that. *(Corrected 2026-09-12 at Book 3's round 1, findings 11.1 and 17.1; v1 printed `honor of` in both places.)* A fixed form of address that will recur, so it changes in both places or in neither. |
 | "peer of gods in counsel" | **"the equal of the gods in counsel"** | Butler uses it of Patroclus (B03-P012) and of Neleus (B03-P032) in one Book. Rendered identically; it is a formula, not a description of either man in particular. |
 | "Neptune lord of the Earthquake" | **"Poseidon, lord of the Earthquake"** | Butler's epithet at B03-P001. Kept whole — the earthquake is Poseidon's, not a decoration, and Book 3 opens on a sacrifice to him. |
 | "Minerva, daughter of Aegis-bearing Jove" / "Jove's daughter Minerva" | **"Athena, daughter of aegis-bearing Zeus"** / **"Zeus's daughter Athena"** | B03-P031 and B03-P013. *Aegis* is kept, not glossed: it is named again in later Books and a gloss at every occurrence would be noise; here it is plainly an attribute of Zeus and nothing in Book 3 turns on knowing it is a goatskin. Lower-cased "aegis-bearing" as an ordinary compound adjective. |

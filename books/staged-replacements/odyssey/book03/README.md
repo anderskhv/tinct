@@ -1,10 +1,26 @@
-# The Odyssey, Book 3 — package (frozen at candidate v1)
+# The Odyssey, Book 3 — package (accepted at candidate v2)
 
-Steps 1–3 of `../WORKFLOW.md` are done for Book 3, and the step-4 artefacts
-(packets, manifest, review instructions) are built. **Step 4 itself — the
-independent review — has not run**: `candidate-v1.json` is frozen and the
-packets are pushed. Book 3 was **not** self-reviewed and Book 4 was **not**
-started.
+**All eight steps of `../WORKFLOW.md` are done for Book 3.** Round 1 of the
+independent review ran (`review/findings-v1.md`, verdict *accept after
+corrections*, **zero substantive findings**); its 29 paragraph-level findings
+were applied at `candidate-v2.json` by `../scripts/build_book3_v2.py`
+(`changes-v1-to-v2.md`, none declined); the corrected Book was read straight
+through (`flow-read.md`, no further change); and acceptance is recorded in
+`ACCEPTANCE.md`.
+
+| | |
+|---|---|
+| Accepted file | `candidate-v2.json`, sha256 `7095ef4f9925f284d3a31937d298b39766d619d8d5f2a01b61508c434989b905` |
+| Butler token retention | **0.897** (v1 0.895) |
+| Review rounds | 1 |
+
+The sections below are the **v1 record**, unchanged, because that is what the
+reviewer read and re-ran. Two things in it are superseded and are marked where
+they occur: the mechanical-check block's British-spelling assertion exempts
+`sceptr` by name and its dead-form list omits `twelvemonth`, `towards` and
+`in course of time` — **records finding R5**, fixed in
+`../scripts/build_book3_v2.py`, which is the authoritative gate from v2
+onward and which every later Book's build inherits.
 
 **Step 1 was re-done from scratch for this Book, on the Book 2 *reviewer's*
 kind of rule rather than the Book 2 drafter's — and it found a defect in the
@@ -137,7 +153,9 @@ for i in (12, 13, 14, 15, 22, 23, 24):
 for brit in ('grey','honour','harbour','marvelled','woollen','travelled','travelling',
              'favour','neighbour','colour','sceptr'):
     assert n(brit) == 0 or brit == 'sceptr', f'British spelling survives: {brit}'
-assert 'sceptre' in ps[31]      # the object's ordinary English name, not a spelling variant
+assert 'sceptre' in ps[31]      # SUPERSEDED by finding 32.1 / records finding R5:
+# sceptre/scepter is a US-UK spelling pair, not a distinct word as `draughts` is,
+# so the exemption was wrong. v2 prints `scepter` and build_book3_v2.py asserts it.
 
 # --- D12 class B: the bracket mark dropped, Butler's words kept -------------
 assert '[' not in joined and ']' not in joined, "Butler's bracket mark must be dropped"
@@ -245,11 +263,22 @@ python3 scripts/build_book_package.py 3
 
 ## Next action
 
-Independent review of `candidate-v1.json` (step 4), by a separate reviewer
-session, following `review-instructions.md`. Findings go under
-`book03/review/`. On findings: `candidate-v2.json` via a change script in the
-established pattern, verification, flow read, `ACCEPTANCE.md` — steps 5–8.
+**None for Book 3** — it is accepted. Book 4 is next, and it is **unblocked**:
+decision **D12**'s class C was settled at Book 3's round 1 (ruling in
+`review/findings-v1.md` section D, recorded in `../GLOSSARY.md` and ledger
+**D12**). The first class-C bracket is at **PG 1552** — not PG 1551, records
+finding **R3** — on the first paragraph of Book 4, and it is never closed in
+the base text.
 
-**Book 4 is blocked** until the coordinator rules on decision **D12**'s class C
-— the passages Butler brackets as afterthoughts or interpolations, of which
-the first is at PG 1551 in Book 4. Books 1–3 contain none.
+To re-run the v2 gate:
+
+```bash
+cd books/staged-replacements/odyssey
+python3 scripts/build_book3_v2.py      # rewrites candidate-v2.json identically
+```
+
+Expected tail:
+
+```
+  candidate-v2.json sha256   7095ef4f9925f284d3a31937d298b39766d619d8d5f2a01b61508c434989b905
+```

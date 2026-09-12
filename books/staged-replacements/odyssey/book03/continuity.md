@@ -137,9 +137,9 @@ there. Listed here because Book 3 is where each is first met or first recurs.
 
 | Butler | Modern edition | Where |
 |---|---|---|
-| "Beg of him to speak the truth, and he will tell no lies, for he is an excellent person." | "Ask him to speak the truth, and he will tell you no lies, for he is an excellent man." | **B03-P002 and B03-P025, identical** — Butler says it twice, of two different hosts |
+| "Beg of him to speak the truth, and he will tell [you] no lies, for he is an excellent person." | "Ask him to speak the truth, and he will tell [you] no lies, for he is an excellent man." | **B03-P002 and B03-P025 — NOT identical.** Butler says it twice, of two different hosts, and writes `you` only the second time (records finding **R1**; corrected at v2, finding 2.2). Every other word of the two is the same |
 | "Nestor, knight of Gerene" | "Nestor, the horseman of Gerene" | B03-P008 |
-| "honour to the Achaean name" | "honor of the Achaean name" | B03-P011, B03-P017, identical |
+| "honour to the Achaean name" | "honor to the Achaean name" | B03-P011, B03-P017, identical (`to`, not `of`; corrected at v2, findings 11.1 and 17.1) |
 | "peer of gods in counsel" | "the equal of the gods in counsel" | B03-P012 (Patroclus), B03-P032 (Neleus), identical |
 | "Neptune lord of the Earthquake" | "Poseidon, lord of the Earthquake" | B03-P001 |
 | "Minerva, daughter of Aegis-bearing Jove" | "Athena, daughter of aegis-bearing Zeus" | B03-P031 |
@@ -159,8 +159,17 @@ there. Listed here because Book 3 is where each is first met or first recurs.
   candidate keeps that difference, because he wrote it.
 - **"tell me truly"** (B03-P021), the Book 1 formula row.
 - **"mound"** for Butler's *barrow* (B03-P022), the Book 1 / Book 2 row.
-- **"in due order"**, **"drink offering"**, **"heaven"** and the possessive
-  standard, all unchanged.
+- **"drink offering"**, **"heaven"** and the possessive standard, all
+  unchanged.
+- **"in due order"** (B03-P035) is **a Book 3 row, not a carried-over one**
+  (records finding **R2**, corrected 2026-09-12). Neither accepted Book
+  contains the phrase — checked, zero occurrences in `book01/candidate-v3.json`
+  and `book02/candidate-v2.json`. What Book 2 carries is **"in due course"** at
+  B02-P011, rendering the *temporal* sense of the same Butler idiom
+  (*all in due course*). Rendering the two senses differently is deliberate and
+  is kept: the modern idiom *in due course* has narrowed to *in time*, which is
+  not the sense at the sacrifice. The provenance claim was wrong, not the
+  text.
 
 ## Paragraph-level decisions
 
@@ -415,8 +424,12 @@ already print as part of his sentence, because unlike class C his bracket here
 records no doubt about what the poem says.
 
 **Put to the reviewer** for the ruling on class B, which D12 records as
-settled-but-weaker rather than as obvious. Book 3 contains **no class-C
-bracket**; the first is at PG 1551, in Book 4, and it is open and blocking.
+settled-but-weaker rather than as obvious. **Upheld at round 1, section F1**,
+with the reasoning endorsed as the argument to reuse at PG 4367, 4368, 5543,
+8057, 9351 and 10132. Book 3 contains **no class-C bracket**; the first is at
+**PG 1552** (not 1551 — records finding **R3**), in Book 4, and it was open and
+blocking until Book 3's round 1 settled it (`../GLOSSARY.md`, class C, and
+ledger **D12**). Book 4 is unblocked.
 
 ### 4. No other defect
 
@@ -425,3 +438,29 @@ No Gutenberg apparatus of any kind appears inside Book 3's paragraphs: zero
 indented lines, zero illustration markers, zero Greek spans, zero daggers,
 zero underscores. The twelve footnote markers (24–35) are correctly stripped,
 with no doubled space and no orphaned punctuation left behind.
+
+---
+
+## Round 1, and what it changed in this sheet
+
+The independent review of `candidate-v1.json` (`review/findings-v1.md`)
+returned **zero substantive findings** and **29 paragraph-level findings, all
+applied**, at `candidate-v2.json` (sha256
+`7095ef4f9925f284d3a31937d298b39766d619d8d5f2a01b61508c434989b905`); the
+change list is `changes-v1-to-v2.md` and the flow read is `flow-read.md`.
+Three of the review's five records findings are corrections to **this file**
+and are made above, in place, each marked:
+
+- **R1** — the "excellent man" warranty is not word for word in Butler.
+- **R2** — `in due order` is a Book 3 row, not carried over from Books 1–2.
+- **R3** — the first class-C bracket opens at **PG 1552**, not PG 1551.
+
+**R4** (four of the six class-C brackets are never closed; PG's body holds 15
+opening and 11 closing brackets, and the served `original-en` reproduces the
+same imbalance exactly) and **R5** (the archaism guard's dead-form list) are
+recorded in `../GLOSSARY.md`, where the enumeration and the spelling standard
+live. The retention question the drafter flagged is answered in the review's
+section E: the lightness is the source's — the least-changed paragraphs are
+the sacrifice and the voyage catalogues, where Butler is already plain
+narration, and the most-rewritten are the ones carrying *thou/thee/thy*,
+*vouchsafe*, *shewed*, *aforetime* and *the public weal*.
