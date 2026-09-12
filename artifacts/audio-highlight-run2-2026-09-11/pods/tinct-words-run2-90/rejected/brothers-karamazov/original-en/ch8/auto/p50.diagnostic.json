@@ -1,0 +1,766 @@
+{
+  "complete": true,
+  "signature": "4aa046a78d932c604d62be31a81827667cadc6f591f71db78452a70c81f96a69",
+  "attempts": [
+    {
+      "asr_seconds": 0.30397035274654627,
+      "alignment_seconds": 0.0005280282348394394,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Thanks, my dear, thanks! You are a good woman. I love you. I will do so certainly. Is that your little girl?\"",
+        "hotwords": "I, Is"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Thanks, my dear, thanks! You are a good woman. I love you. I will do so certainly. Is that your little girl?",
+          "start": 0.08,
+          "end": 6.32,
+          "words": [
+            {
+              "text": " Thanks,",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.66943359375
+            },
+            {
+              "text": " my",
+              "start": 0.86,
+              "end": 0.94,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " dear,",
+              "start": 0.94,
+              "end": 1.16,
+              "probability": 0.99609375
+            },
+            {
+              "text": " thanks!",
+              "start": 1.32,
+              "end": 1.52,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " You",
+              "start": 2.1,
+              "end": 2.18,
+              "probability": 0.982421875
+            },
+            {
+              "text": " are",
+              "start": 2.18,
+              "end": 2.3,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " a",
+              "start": 2.3,
+              "end": 2.42,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " good",
+              "start": 2.42,
+              "end": 2.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " woman.",
+              "start": 2.54,
+              "end": 2.8,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " I",
+              "start": 3.0,
+              "end": 3.14,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " love",
+              "start": 3.14,
+              "end": 3.34,
+              "probability": 0.982421875
+            },
+            {
+              "text": " you.",
+              "start": 3.34,
+              "end": 3.62,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " I",
+              "start": 3.98,
+              "end": 4.06,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " will",
+              "start": 4.06,
+              "end": 4.14,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " do",
+              "start": 4.14,
+              "end": 4.3,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " so",
+              "start": 4.3,
+              "end": 4.48,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " certainly.",
+              "start": 4.48,
+              "end": 4.86,
+              "probability": 0.71044921875
+            },
+            {
+              "text": " Is",
+              "start": 5.44,
+              "end": 5.54,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " that",
+              "start": 5.54,
+              "end": 5.74,
+              "probability": 0.99609375
+            },
+            {
+              "text": " your",
+              "start": 5.74,
+              "end": 5.88,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " little",
+              "start": 5.88,
+              "end": 6.08,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " girl?",
+              "start": 6.08,
+              "end": 6.32,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Thanks,",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "my",
+          "start": 0.86,
+          "end": 0.94
+        },
+        {
+          "raw": "dear,",
+          "start": 0.94,
+          "end": 1.16
+        },
+        {
+          "raw": "thanks!",
+          "start": 1.32,
+          "end": 1.52
+        },
+        {
+          "raw": "You",
+          "start": 2.1,
+          "end": 2.18
+        },
+        {
+          "raw": "are",
+          "start": 2.18,
+          "end": 2.3
+        },
+        {
+          "raw": "a",
+          "start": 2.3,
+          "end": 2.42
+        },
+        {
+          "raw": "good",
+          "start": 2.42,
+          "end": 2.54
+        },
+        {
+          "raw": "woman.",
+          "start": 2.54,
+          "end": 2.8
+        },
+        {
+          "raw": "I",
+          "start": 3.0,
+          "end": 3.14
+        },
+        {
+          "raw": "love",
+          "start": 3.14,
+          "end": 3.34
+        },
+        {
+          "raw": "you.",
+          "start": 3.34,
+          "end": 3.62
+        },
+        {
+          "raw": "I",
+          "start": 3.98,
+          "end": 4.06
+        },
+        {
+          "raw": "will",
+          "start": 4.06,
+          "end": 4.14
+        },
+        {
+          "raw": "do",
+          "start": 4.14,
+          "end": 4.3
+        },
+        {
+          "raw": "so",
+          "start": 4.3,
+          "end": 4.48
+        },
+        {
+          "raw": "certainly.",
+          "start": 4.48,
+          "end": 4.86
+        },
+        {
+          "raw": "Is",
+          "start": 5.44,
+          "end": 5.54
+        },
+        {
+          "raw": "that",
+          "start": 5.54,
+          "end": 5.74
+        },
+        {
+          "raw": "your",
+          "start": 5.74,
+          "end": 5.88
+        },
+        {
+          "raw": "little",
+          "start": 5.88,
+          "end": 6.08
+        },
+        {
+          "raw": "girl?",
+          "start": 6.08,
+          "end": 6.32
+        }
+      ],
+      "expected_tokens": [
+        "\"Thanks,",
+        "my",
+        "dear,",
+        "thanks!",
+        "You",
+        "are",
+        "a",
+        "good",
+        "woman.",
+        "I",
+        "love",
+        "you.",
+        "I",
+        "will",
+        "do",
+        "so",
+        "certainly.",
+        "Is",
+        "that",
+        "your",
+        "little",
+        "girl?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Thanks,",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "thanks",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 0.86,
+          "end": 0.94,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "dear,",
+          "start": 0.94,
+          "end": 1.16,
+          "key": "dear",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thanks!",
+          "start": 1.32,
+          "end": 1.52,
+          "key": "thanks",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 2.1,
+          "end": 2.18,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.18,
+          "end": 2.3,
+          "key": "are",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.3,
+          "end": 2.42,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 2.42,
+          "end": 2.54,
+          "key": "good",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "woman.",
+          "start": 2.54,
+          "end": 2.8,
+          "key": "woman",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.0,
+          "end": 3.14,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 3.14,
+          "end": 3.34,
+          "key": "love",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 3.34,
+          "end": 3.62,
+          "key": "you",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.98,
+          "end": 4.06,
+          "key": "i",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 4.06,
+          "end": 4.14,
+          "key": "will",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 4.14,
+          "end": 4.3,
+          "key": "do",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 4.3,
+          "end": 4.48,
+          "key": "so",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "certainly.",
+          "start": 4.48,
+          "end": 4.86,
+          "key": "certainly",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 5.44,
+          "end": 5.54,
+          "key": "is",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 5.54,
+          "end": 5.74,
+          "key": "that",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 5.74,
+          "end": 5.88,
+          "key": "your",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 5.88,
+          "end": 6.08,
+          "key": "little",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "girl?",
+          "start": 6.08,
+          "end": 6.32,
+          "key": "girl",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Thanks,",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "text": "my",
+          "start": 0.86,
+          "end": 0.94
+        },
+        {
+          "text": "dear,",
+          "start": 0.94,
+          "end": 1.16
+        },
+        {
+          "text": "thanks!",
+          "start": 1.32,
+          "end": 1.52
+        },
+        {
+          "text": "You",
+          "start": 2.1,
+          "end": 2.18
+        },
+        {
+          "text": "are",
+          "start": 2.18,
+          "end": 2.3
+        },
+        {
+          "text": "a",
+          "start": 2.3,
+          "end": 2.42
+        },
+        {
+          "text": "good",
+          "start": 2.42,
+          "end": 2.54
+        },
+        {
+          "text": "woman.",
+          "start": 2.54,
+          "end": 2.8
+        },
+        {
+          "text": "I",
+          "start": 3.0,
+          "end": 3.14
+        },
+        {
+          "text": "love",
+          "start": 3.14,
+          "end": 3.34
+        },
+        {
+          "text": "you.",
+          "start": 3.34,
+          "end": 3.62
+        },
+        {
+          "text": "I",
+          "start": 3.98,
+          "end": 4.06
+        },
+        {
+          "text": "will",
+          "start": 4.06,
+          "end": 4.14
+        },
+        {
+          "text": "do",
+          "start": 4.14,
+          "end": 4.3
+        },
+        {
+          "text": "so",
+          "start": 4.3,
+          "end": 4.48
+        },
+        {
+          "text": "certainly.",
+          "start": 4.48,
+          "end": 4.86
+        },
+        {
+          "text": "Is",
+          "start": 5.44,
+          "end": 5.54
+        },
+        {
+          "text": "that",
+          "start": 5.54,
+          "end": 5.74
+        },
+        {
+          "text": "your",
+          "start": 5.74,
+          "end": 5.88
+        },
+        {
+          "text": "little",
+          "start": 5.88,
+          "end": 6.08
+        },
+        {
+          "text": "girl?\"",
+          "start": 6.08,
+          "end": 6.32
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.30470707826316357
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "dc36c4f4d5e42fdde2ef001059dd6429f85b87a1c8209211f336dfc06f59e055",
+  "selected_reasons": []
+}

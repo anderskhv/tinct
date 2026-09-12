@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "2ad5d733822cddf3b7aa6ef5d124004bbcf29053e21ecea532eee382d648e880",
+  "attempts": [
+    {
+      "asr_seconds": 0.11828143056482077,
+      "alignment_seconds": 9.473413228988647e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " To father.",
+          "start": 0.05,
+          "end": 0.87,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.57470703125
+            },
+            {
+              "text": " father.",
+              "start": 0.51,
+              "end": 0.87,
+              "probability": 0.393310546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "father.",
+          "start": 0.51,
+          "end": 0.87
+        }
+      ],
+      "expected_tokens": [
+        "\"To",
+        "father?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "father.",
+          "start": 0.51,
+          "end": 0.87,
+          "key": "father",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"To",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "father?\"",
+          "start": 0.51,
+          "end": 0.87
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11840612534433603
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9c36bdb97cb030c8d3b6ea9ccb5e752766bbc4a652ba32b1f645c2a309907456",
+  "selected_reasons": []
+}

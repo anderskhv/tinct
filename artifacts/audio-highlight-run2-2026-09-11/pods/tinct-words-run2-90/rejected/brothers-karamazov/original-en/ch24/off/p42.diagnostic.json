@@ -1,0 +1,143 @@
+{
+  "complete": true,
+  "signature": "0334d2bfe7ac45c4349520bfc9fc891699e0229f17e27689d17f5db915835090",
+  "attempts": [
+    {
+      "asr_seconds": 0.09094168618321419,
+      "alignment_seconds": 0.0001592664048075676,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Part A.",
+          "start": 0.05,
+          "end": 0.85,
+          "words": [
+            {
+              "text": " Part",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.85107421875
+            },
+            {
+              "text": " A.",
+              "start": 0.59,
+              "end": 0.85,
+              "probability": 0.712890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Part",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "A.",
+          "start": 0.59,
+          "end": 0.85
+        }
+      ],
+      "expected_tokens": [
+        "Part",
+        "Ii"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Part",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "part",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "A.",
+          "start": 0.59,
+          "end": 0.85,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Part",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "Ii",
+          "start": 0.59,
+          "end": 0.72
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09115407336503267
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8e579ecdd036303126c92fddabcbe9450450c6755b84028bdfd3e01ea8a65bac",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

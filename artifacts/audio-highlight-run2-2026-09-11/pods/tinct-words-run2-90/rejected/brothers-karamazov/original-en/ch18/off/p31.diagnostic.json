@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "a10316f509e5d95019812e411c7a3eb3044257668e8c093c97872fba979f3c44",
+  "attempts": [
+    {
+      "asr_seconds": 0.09091111551970243,
+      "alignment_seconds": 0.00016784574836492538,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And what then?",
+          "start": 0.21,
+          "end": 0.99,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.21,
+              "end": 0.57,
+              "probability": 0.7939453125
+            },
+            {
+              "text": " what",
+              "start": 0.57,
+              "end": 0.71,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " then?",
+              "start": 0.71,
+              "end": 0.99,
+              "probability": 0.984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.21,
+          "end": 0.57
+        },
+        {
+          "raw": "what",
+          "start": 0.57,
+          "end": 0.71
+        },
+        {
+          "raw": "then?",
+          "start": 0.71,
+          "end": 0.99
+        }
+      ],
+      "expected_tokens": [
+        "\"And",
+        "what",
+        "then?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.21,
+          "end": 0.57,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 0.57,
+          "end": 0.71,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "then?",
+          "start": 0.71,
+          "end": 0.99,
+          "key": "then",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"And",
+          "start": 0.21,
+          "end": 0.57
+        },
+        {
+          "text": "what",
+          "start": 0.57,
+          "end": 0.71
+        },
+        {
+          "text": "then?\"",
+          "start": 0.71,
+          "end": 0.99
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09113820362836123
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7de1034ca052c85f71cca106240c2b7d560edf92690eb1b449be0d6d836f6a95",
+  "selected_reasons": []
+}

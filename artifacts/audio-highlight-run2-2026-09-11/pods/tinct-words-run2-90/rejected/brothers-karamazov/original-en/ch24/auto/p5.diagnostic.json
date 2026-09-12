@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "b47f09317d1ff664e67fcadbbaabd46cfbbc634ee1dce77e410d75cfe9ffee9c",
+  "attempts": [
+    {
+      "asr_seconds": 0.2241215007379651,
+      "alignment_seconds": 0.00037949252873659134,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Well, what of that? It's not seemly—is that it? Not suitable in my position?\"",
+        "hotwords": "Well, It's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Well, what of that? It's not seemly—is that it? Not suitable in my position?",
+          "start": 0.02,
+          "end": 4.64,
+          "words": [
+            {
+              "text": " Well,",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.75732421875
+            },
+            {
+              "text": " what",
+              "start": 0.68,
+              "end": 0.8,
+              "probability": 0.99609375
+            },
+            {
+              "text": " of",
+              "start": 0.8,
+              "end": 0.92,
+              "probability": 0.955078125
+            },
+            {
+              "text": " that?",
+              "start": 0.92,
+              "end": 1.16,
+              "probability": 0.9921875
+            },
+            {
+              "text": " It's",
+              "start": 1.58,
+              "end": 1.76,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " not",
+              "start": 1.76,
+              "end": 1.88,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " seemly—is",
+              "start": 1.88,
+              "end": 2.64,
+              "probability": 0.6144027709960938
+            },
+            {
+              "text": " that",
+              "start": 2.64,
+              "end": 2.86,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " it?",
+              "start": 2.86,
+              "end": 3.06,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Not",
+              "start": 3.4,
+              "end": 3.6,
+              "probability": 0.80859375
+            },
+            {
+              "text": " suitable",
+              "start": 3.6,
+              "end": 3.9,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " in",
+              "start": 3.9,
+              "end": 4.16,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " my",
+              "start": 4.16,
+              "end": 4.3,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " position?",
+              "start": 4.3,
+              "end": 4.64,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Well,",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "what",
+          "start": 0.68,
+          "end": 0.8
+        },
+        {
+          "raw": "of",
+          "start": 0.8,
+          "end": 0.92
+        },
+        {
+          "raw": "that?",
+          "start": 0.92,
+          "end": 1.16
+        },
+        {
+          "raw": "It's",
+          "start": 1.58,
+          "end": 1.76
+        },
+        {
+          "raw": "not",
+          "start": 1.76,
+          "end": 1.88
+        },
+        {
+          "raw": "seemly—is",
+          "start": 1.88,
+          "end": 2.64
+        },
+        {
+          "raw": "that",
+          "start": 2.64,
+          "end": 2.86
+        },
+        {
+          "raw": "it?",
+          "start": 2.86,
+          "end": 3.06
+        },
+        {
+          "raw": "Not",
+          "start": 3.4,
+          "end": 3.6
+        },
+        {
+          "raw": "suitable",
+          "start": 3.6,
+          "end": 3.9
+        },
+        {
+          "raw": "in",
+          "start": 3.9,
+          "end": 4.16
+        },
+        {
+          "raw": "my",
+          "start": 4.16,
+          "end": 4.3
+        },
+        {
+          "raw": "position?",
+          "start": 4.3,
+          "end": 4.64
+        }
+      ],
+      "expected_tokens": [
+        "\"Well,",
+        "what",
+        "of",
+        "that?",
+        "It's",
+        "not",
+        "seemly—is",
+        "that",
+        "it?",
+        "Not",
+        "suitable",
+        "in",
+        "my",
+        "position?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Well,",
+          "start": 0.02,
+          "end": 0.62,
+          "key": "well",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 0.68,
+          "end": 0.8,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.8,
+          "end": 0.92,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that?",
+          "start": 0.92,
+          "end": 1.16,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "It's",
+          "start": 1.58,
+          "end": 1.76,
+          "key": "its",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.76,
+          "end": 1.88,
+          "key": "not",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "seemly—is",
+          "start": 1.88,
+          "end": 2.64,
+          "key": "seemlyis",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.64,
+          "end": 2.86,
+          "key": "that",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "it?",
+          "start": 2.86,
+          "end": 3.06,
+          "key": "it",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Not",
+          "start": 3.4,
+          "end": 3.6,
+          "key": "not",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "suitable",
+          "start": 3.6,
+          "end": 3.9,
+          "key": "suitable",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.9,
+          "end": 4.16,
+          "key": "in",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 4.16,
+          "end": 4.3,
+          "key": "my",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "position?",
+          "start": 4.3,
+          "end": 4.64,
+          "key": "position",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Well,",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "text": "what",
+          "start": 0.68,
+          "end": 0.8
+        },
+        {
+          "text": "of",
+          "start": 0.8,
+          "end": 0.92
+        },
+        {
+          "text": "that?",
+          "start": 0.92,
+          "end": 1.16
+        },
+        {
+          "text": "It's",
+          "start": 1.58,
+          "end": 1.76
+        },
+        {
+          "text": "not",
+          "start": 1.76,
+          "end": 1.88
+        },
+        {
+          "text": "seemly—is",
+          "start": 1.88,
+          "end": 2.64
+        },
+        {
+          "text": "that",
+          "start": 2.64,
+          "end": 2.86
+        },
+        {
+          "text": "it?",
+          "start": 2.86,
+          "end": 3.06
+        },
+        {
+          "text": "Not",
+          "start": 3.4,
+          "end": 3.6
+        },
+        {
+          "text": "suitable",
+          "start": 3.6,
+          "end": 3.9
+        },
+        {
+          "text": "in",
+          "start": 3.9,
+          "end": 4.16
+        },
+        {
+          "text": "my",
+          "start": 4.16,
+          "end": 4.3
+        },
+        {
+          "text": "position?\"",
+          "start": 4.3,
+          "end": 4.64
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2246529795229435
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2b29ea061c6c2fad78af5dfd69ebf2307f1d2b796a24314c32eae5c051c2faf5",
+  "selected_reasons": []
+}

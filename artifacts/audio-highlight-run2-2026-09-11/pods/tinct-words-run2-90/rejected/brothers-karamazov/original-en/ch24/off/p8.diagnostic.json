@@ -1,0 +1,550 @@
+{
+  "complete": true,
+  "signature": "9efd523644571d52a1efbc836b3101d005665afb8e122c5eacd1a5c499dfef2d",
+  "attempts": [
+    {
+      "asr_seconds": 0.2422964321449399,
+      "alignment_seconds": 0.00021476764231920242,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " No, not that. There was nothing like that, Midia. Theirs, I found them both there.",
+          "start": 0.02,
+          "end": 4.92,
+          "words": [
+            {
+              "text": " No,",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.294677734375
+            },
+            {
+              "text": " not",
+              "start": 0.74,
+              "end": 0.86,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " that.",
+              "start": 0.86,
+              "end": 1.14,
+              "probability": 0.994140625
+            },
+            {
+              "text": " There",
+              "start": 1.66,
+              "end": 1.76,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " was",
+              "start": 1.76,
+              "end": 1.88,
+              "probability": 0.99609375
+            },
+            {
+              "text": " nothing",
+              "start": 1.88,
+              "end": 2.1,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " like",
+              "start": 2.1,
+              "end": 2.42,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " that,",
+              "start": 2.42,
+              "end": 2.66,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Midia.",
+              "start": 2.78,
+              "end": 3.02,
+              "probability": 0.663818359375
+            },
+            {
+              "text": " Theirs,",
+              "start": 3.46,
+              "end": 3.76,
+              "probability": 0.7119140625
+            },
+            {
+              "text": " I",
+              "start": 3.86,
+              "end": 3.96,
+              "probability": 0.99609375
+            },
+            {
+              "text": " found",
+              "start": 3.96,
+              "end": 4.2,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " them",
+              "start": 4.2,
+              "end": 4.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " both",
+              "start": 4.4,
+              "end": 4.56,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " there.",
+              "start": 4.56,
+              "end": 4.92,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No,",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "not",
+          "start": 0.74,
+          "end": 0.86
+        },
+        {
+          "raw": "that.",
+          "start": 0.86,
+          "end": 1.14
+        },
+        {
+          "raw": "There",
+          "start": 1.66,
+          "end": 1.76
+        },
+        {
+          "raw": "was",
+          "start": 1.76,
+          "end": 1.88
+        },
+        {
+          "raw": "nothing",
+          "start": 1.88,
+          "end": 2.1
+        },
+        {
+          "raw": "like",
+          "start": 2.1,
+          "end": 2.42
+        },
+        {
+          "raw": "that,",
+          "start": 2.42,
+          "end": 2.66
+        },
+        {
+          "raw": "Midia.",
+          "start": 2.78,
+          "end": 3.02
+        },
+        {
+          "raw": "Theirs,",
+          "start": 3.46,
+          "end": 3.76
+        },
+        {
+          "raw": "I",
+          "start": 3.86,
+          "end": 3.96
+        },
+        {
+          "raw": "found",
+          "start": 3.96,
+          "end": 4.2
+        },
+        {
+          "raw": "them",
+          "start": 4.2,
+          "end": 4.4
+        },
+        {
+          "raw": "both",
+          "start": 4.4,
+          "end": 4.56
+        },
+        {
+          "raw": "there.",
+          "start": 4.56,
+          "end": 4.92
+        }
+      ],
+      "expected_tokens": [
+        "\"No,",
+        "not",
+        "that....",
+        "There",
+        "was",
+        "nothing",
+        "like",
+        "that,",
+        "Mitya.",
+        "There—I",
+        "found",
+        "them",
+        "both",
+        "there.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          10,
+          8,
+          11
+        ],
+        [
+          "equal",
+          10,
+          14,
+          11,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          10,
+          8,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No,",
+          "start": 0.02,
+          "end": 0.62,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.74,
+          "end": 0.86,
+          "key": "not",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "that.",
+          "start": 0.86,
+          "end": 1.14,
+          "key": "that",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "There",
+          "start": 1.66,
+          "end": 1.76,
+          "key": "there",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 1.76,
+          "end": 1.88,
+          "key": "was",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "nothing",
+          "start": 1.88,
+          "end": 2.1,
+          "key": "nothing",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 2.1,
+          "end": 2.42,
+          "key": "like",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "that,",
+          "start": 2.42,
+          "end": 2.66,
+          "key": "that",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Midia.",
+          "start": 2.78,
+          "end": 3.02,
+          "key": "midia",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Theirs,",
+          "start": 3.46,
+          "end": 3.76,
+          "key": "theirs",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.86,
+          "end": 3.96,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "found",
+          "start": 3.96,
+          "end": 4.2,
+          "key": "found",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 4.2,
+          "end": 4.4,
+          "key": "them",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "both",
+          "start": 4.4,
+          "end": 4.56,
+          "key": "both",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "there.",
+          "start": 4.56,
+          "end": 4.92,
+          "key": "there",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"No,",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "text": "not",
+          "start": 0.74,
+          "end": 0.86
+        },
+        {
+          "text": "that....",
+          "start": 0.86,
+          "end": 1.14
+        },
+        {
+          "text": "There",
+          "start": 1.66,
+          "end": 1.76
+        },
+        {
+          "text": "was",
+          "start": 1.76,
+          "end": 1.88
+        },
+        {
+          "text": "nothing",
+          "start": 1.88,
+          "end": 2.1
+        },
+        {
+          "text": "like",
+          "start": 2.1,
+          "end": 2.42
+        },
+        {
+          "text": "that,",
+          "start": 2.42,
+          "end": 2.66
+        },
+        {
+          "text": "Mitya.",
+          "start": 2.66,
+          "end": 3.31
+        },
+        {
+          "text": "There—I",
+          "start": 3.31,
+          "end": 3.635
+        },
+        {
+          "text": "found",
+          "start": 3.96,
+          "end": 4.2
+        },
+        {
+          "text": "them",
+          "start": 4.2,
+          "end": 4.4
+        },
+        {
+          "text": "both",
+          "start": 4.4,
+          "end": 4.56
+        },
+        {
+          "text": "there.\"",
+          "start": 4.56,
+          "end": 4.92
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 15,
+        "matched_words": 12
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.24258742202073336
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3239b7c1a768289662d571c02d32c7b7af1a20266dfcaa208321f70a532d38bf",
+  "selected_reasons": []
+}

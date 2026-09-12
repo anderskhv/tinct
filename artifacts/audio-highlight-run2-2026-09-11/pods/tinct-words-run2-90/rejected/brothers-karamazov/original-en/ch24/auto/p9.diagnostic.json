@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "f42eb8d45cb8b6504f947fff09180eb4efd88547db4fb3aa7d826ac9ff3753f7",
+  "attempts": [
+    {
+      "asr_seconds": 0.09125382732599974,
+      "alignment_seconds": 0.00019245687872171402,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Both? Whom?\"",
+        "hotwords": "Both, Whom"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Both whom?",
+          "start": 0.05,
+          "end": 1.09,
+          "words": [
+            {
+              "text": " Both",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.56005859375
+            },
+            {
+              "text": " whom?",
+              "start": 0.63,
+              "end": 1.09,
+              "probability": 0.98046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Both",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "whom?",
+          "start": 0.63,
+          "end": 1.09
+        }
+      ],
+      "expected_tokens": [
+        "\"Both?",
+        "Whom?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Both",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "both",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "whom?",
+          "start": 0.63,
+          "end": 1.09,
+          "key": "whom",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Both?",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Whom?\"",
+          "start": 0.63,
+          "end": 1.09
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0915032560005784
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5a30eda6e0e2c00331367a76924a1c64050f20f01bb7a1b3a990c3d27c4607da",
+  "selected_reasons": []
+}

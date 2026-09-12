@@ -1,0 +1,2174 @@
+{
+  "complete": true,
+  "signature": "ede17e42229ae5481ae1a1a1b8348ff139a1bccaab0e202abd0ddea69b34f3ad",
+  "attempts": [
+    {
+      "asr_seconds": 0.5170949343591928,
+      "alignment_seconds": 0.0006104502826929092,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I've come to look at you. I have been to you before—or have you forgotten? You've no great memory if you've forgotten me. They told us you were ill. Thinks I, I'll go and see him for myself. Now I see you, and you're not ill! You'll live another twenty years. God bless you! There are plenty to pray for you; how should you be ill?\"",
+        "hotwords": "I've, I, They, Thinks, Now, You'll, God, There"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I've come to look at you. I have been to you before—or have you forgotten? You've no great memory if you've forgotten me. They told us you were ill. Thinks I, I'll go and see him for myself. Now I see you, and you're not ill. You'll live another twenty years. God bless you. There are plenty to pray for you. How should you be ill?",
+          "start": 0.05,
+          "end": 17.63,
+          "words": [
+            {
+              "text": " I've",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.737060546875
+            },
+            {
+              "text": " come",
+              "start": 0.57,
+              "end": 0.71,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " to",
+              "start": 0.71,
+              "end": 0.87,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " look",
+              "start": 0.87,
+              "end": 0.99,
+              "probability": 0.998046875
+            },
+            {
+              "text": " at",
+              "start": 0.99,
+              "end": 1.13,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " you.",
+              "start": 1.13,
+              "end": 1.35,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " I",
+              "start": 1.77,
+              "end": 1.87,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " have",
+              "start": 1.87,
+              "end": 1.97,
+              "probability": 0.8115234375
+            },
+            {
+              "text": " been",
+              "start": 1.97,
+              "end": 2.11,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 2.11,
+              "end": 2.27,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you",
+              "start": 2.27,
+              "end": 2.39,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " before—or",
+              "start": 2.39,
+              "end": 3.03,
+              "probability": 0.6391474405924479
+            },
+            {
+              "text": " have",
+              "start": 3.03,
+              "end": 3.21,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " you",
+              "start": 3.21,
+              "end": 3.35,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " forgotten?",
+              "start": 3.35,
+              "end": 3.69,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " You've",
+              "start": 4.13,
+              "end": 4.31,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " no",
+              "start": 4.31,
+              "end": 4.47,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " great",
+              "start": 4.47,
+              "end": 4.71,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " memory",
+              "start": 4.71,
+              "end": 5.07,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " if",
+              "start": 5.07,
+              "end": 5.31,
+              "probability": 0.900390625
+            },
+            {
+              "text": " you've",
+              "start": 5.31,
+              "end": 5.49,
+              "probability": 0.935302734375
+            },
+            {
+              "text": " forgotten",
+              "start": 5.49,
+              "end": 5.81,
+              "probability": 0.994140625
+            },
+            {
+              "text": " me.",
+              "start": 5.81,
+              "end": 6.09,
+              "probability": 0.982421875
+            },
+            {
+              "text": " They",
+              "start": 6.45,
+              "end": 6.59,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " told",
+              "start": 6.59,
+              "end": 6.79,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " us",
+              "start": 6.79,
+              "end": 6.99,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you",
+              "start": 6.99,
+              "end": 7.17,
+              "probability": 0.9921875
+            },
+            {
+              "text": " were",
+              "start": 7.17,
+              "end": 7.33,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " ill.",
+              "start": 7.33,
+              "end": 7.57,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Thinks",
+              "start": 8.27,
+              "end": 8.45,
+              "probability": 0.590576171875
+            },
+            {
+              "text": " I,",
+              "start": 8.45,
+              "end": 8.67,
+              "probability": 0.9921875
+            },
+            {
+              "text": " I'll",
+              "start": 8.73,
+              "end": 8.87,
+              "probability": 0.990234375
+            },
+            {
+              "text": " go",
+              "start": 8.87,
+              "end": 8.99,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 8.99,
+              "end": 9.17,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " see",
+              "start": 9.17,
+              "end": 9.35,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him",
+              "start": 9.35,
+              "end": 9.49,
+              "probability": 0.931640625
+            },
+            {
+              "text": " for",
+              "start": 9.49,
+              "end": 9.67,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " myself.",
+              "start": 9.67,
+              "end": 9.97,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Now",
+              "start": 10.71,
+              "end": 10.89,
+              "probability": 0.994140625
+            },
+            {
+              "text": " I",
+              "start": 10.89,
+              "end": 11.05,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " see",
+              "start": 11.05,
+              "end": 11.29,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " you,",
+              "start": 11.29,
+              "end": 11.53,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 11.57,
+              "end": 11.69,
+              "probability": 0.99609375
+            },
+            {
+              "text": " you're",
+              "start": 11.69,
+              "end": 11.81,
+              "probability": 0.994873046875
+            },
+            {
+              "text": " not",
+              "start": 11.81,
+              "end": 11.99,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " ill.",
+              "start": 11.99,
+              "end": 12.25,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " You'll",
+              "start": 12.71,
+              "end": 12.89,
+              "probability": 0.989501953125
+            },
+            {
+              "text": " live",
+              "start": 12.89,
+              "end": 13.01,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " another",
+              "start": 13.01,
+              "end": 13.25,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " twenty",
+              "start": 13.25,
+              "end": 13.55,
+              "probability": 0.81103515625
+            },
+            {
+              "text": " years.",
+              "start": 13.55,
+              "end": 13.89,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " God",
+              "start": 14.35,
+              "end": 14.57,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " bless",
+              "start": 14.57,
+              "end": 14.81,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " you.",
+              "start": 14.81,
+              "end": 15.15,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " There",
+              "start": 15.49,
+              "end": 15.61,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " are",
+              "start": 15.61,
+              "end": 15.71,
+              "probability": 0.99609375
+            },
+            {
+              "text": " plenty",
+              "start": 15.71,
+              "end": 15.89,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 15.89,
+              "end": 16.15,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " pray",
+              "start": 16.15,
+              "end": 16.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " for",
+              "start": 16.31,
+              "end": 16.49,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you.",
+              "start": 16.49,
+              "end": 16.67,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " How",
+              "start": 16.81,
+              "end": 16.93,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " should",
+              "start": 16.93,
+              "end": 17.07,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you",
+              "start": 17.07,
+              "end": 17.21,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " be",
+              "start": 17.21,
+              "end": 17.35,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " ill?",
+              "start": 17.35,
+              "end": 17.63,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I've",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "come",
+          "start": 0.57,
+          "end": 0.71
+        },
+        {
+          "raw": "to",
+          "start": 0.71,
+          "end": 0.87
+        },
+        {
+          "raw": "look",
+          "start": 0.87,
+          "end": 0.99
+        },
+        {
+          "raw": "at",
+          "start": 0.99,
+          "end": 1.13
+        },
+        {
+          "raw": "you.",
+          "start": 1.13,
+          "end": 1.35
+        },
+        {
+          "raw": "I",
+          "start": 1.77,
+          "end": 1.87
+        },
+        {
+          "raw": "have",
+          "start": 1.87,
+          "end": 1.97
+        },
+        {
+          "raw": "been",
+          "start": 1.97,
+          "end": 2.11
+        },
+        {
+          "raw": "to",
+          "start": 2.11,
+          "end": 2.27
+        },
+        {
+          "raw": "you",
+          "start": 2.27,
+          "end": 2.39
+        },
+        {
+          "raw": "before—or",
+          "start": 2.39,
+          "end": 3.03
+        },
+        {
+          "raw": "have",
+          "start": 3.03,
+          "end": 3.21
+        },
+        {
+          "raw": "you",
+          "start": 3.21,
+          "end": 3.35
+        },
+        {
+          "raw": "forgotten?",
+          "start": 3.35,
+          "end": 3.69
+        },
+        {
+          "raw": "You've",
+          "start": 4.13,
+          "end": 4.31
+        },
+        {
+          "raw": "no",
+          "start": 4.31,
+          "end": 4.47
+        },
+        {
+          "raw": "great",
+          "start": 4.47,
+          "end": 4.71
+        },
+        {
+          "raw": "memory",
+          "start": 4.71,
+          "end": 5.07
+        },
+        {
+          "raw": "if",
+          "start": 5.07,
+          "end": 5.31
+        },
+        {
+          "raw": "you've",
+          "start": 5.31,
+          "end": 5.49
+        },
+        {
+          "raw": "forgotten",
+          "start": 5.49,
+          "end": 5.81
+        },
+        {
+          "raw": "me.",
+          "start": 5.81,
+          "end": 6.09
+        },
+        {
+          "raw": "They",
+          "start": 6.45,
+          "end": 6.59
+        },
+        {
+          "raw": "told",
+          "start": 6.59,
+          "end": 6.79
+        },
+        {
+          "raw": "us",
+          "start": 6.79,
+          "end": 6.99
+        },
+        {
+          "raw": "you",
+          "start": 6.99,
+          "end": 7.17
+        },
+        {
+          "raw": "were",
+          "start": 7.17,
+          "end": 7.33
+        },
+        {
+          "raw": "ill.",
+          "start": 7.33,
+          "end": 7.57
+        },
+        {
+          "raw": "Thinks",
+          "start": 8.27,
+          "end": 8.45
+        },
+        {
+          "raw": "I,",
+          "start": 8.45,
+          "end": 8.67
+        },
+        {
+          "raw": "I'll",
+          "start": 8.73,
+          "end": 8.87
+        },
+        {
+          "raw": "go",
+          "start": 8.87,
+          "end": 8.99
+        },
+        {
+          "raw": "and",
+          "start": 8.99,
+          "end": 9.17
+        },
+        {
+          "raw": "see",
+          "start": 9.17,
+          "end": 9.35
+        },
+        {
+          "raw": "him",
+          "start": 9.35,
+          "end": 9.49
+        },
+        {
+          "raw": "for",
+          "start": 9.49,
+          "end": 9.67
+        },
+        {
+          "raw": "myself.",
+          "start": 9.67,
+          "end": 9.97
+        },
+        {
+          "raw": "Now",
+          "start": 10.71,
+          "end": 10.89
+        },
+        {
+          "raw": "I",
+          "start": 10.89,
+          "end": 11.05
+        },
+        {
+          "raw": "see",
+          "start": 11.05,
+          "end": 11.29
+        },
+        {
+          "raw": "you,",
+          "start": 11.29,
+          "end": 11.53
+        },
+        {
+          "raw": "and",
+          "start": 11.57,
+          "end": 11.69
+        },
+        {
+          "raw": "you're",
+          "start": 11.69,
+          "end": 11.81
+        },
+        {
+          "raw": "not",
+          "start": 11.81,
+          "end": 11.99
+        },
+        {
+          "raw": "ill.",
+          "start": 11.99,
+          "end": 12.25
+        },
+        {
+          "raw": "You'll",
+          "start": 12.71,
+          "end": 12.89
+        },
+        {
+          "raw": "live",
+          "start": 12.89,
+          "end": 13.01
+        },
+        {
+          "raw": "another",
+          "start": 13.01,
+          "end": 13.25
+        },
+        {
+          "raw": "twenty",
+          "start": 13.25,
+          "end": 13.55
+        },
+        {
+          "raw": "years.",
+          "start": 13.55,
+          "end": 13.89
+        },
+        {
+          "raw": "God",
+          "start": 14.35,
+          "end": 14.57
+        },
+        {
+          "raw": "bless",
+          "start": 14.57,
+          "end": 14.81
+        },
+        {
+          "raw": "you.",
+          "start": 14.81,
+          "end": 15.15
+        },
+        {
+          "raw": "There",
+          "start": 15.49,
+          "end": 15.61
+        },
+        {
+          "raw": "are",
+          "start": 15.61,
+          "end": 15.71
+        },
+        {
+          "raw": "plenty",
+          "start": 15.71,
+          "end": 15.89
+        },
+        {
+          "raw": "to",
+          "start": 15.89,
+          "end": 16.15
+        },
+        {
+          "raw": "pray",
+          "start": 16.15,
+          "end": 16.31
+        },
+        {
+          "raw": "for",
+          "start": 16.31,
+          "end": 16.49
+        },
+        {
+          "raw": "you.",
+          "start": 16.49,
+          "end": 16.67
+        },
+        {
+          "raw": "How",
+          "start": 16.81,
+          "end": 16.93
+        },
+        {
+          "raw": "should",
+          "start": 16.93,
+          "end": 17.07
+        },
+        {
+          "raw": "you",
+          "start": 17.07,
+          "end": 17.21
+        },
+        {
+          "raw": "be",
+          "start": 17.21,
+          "end": 17.35
+        },
+        {
+          "raw": "ill?",
+          "start": 17.35,
+          "end": 17.63
+        }
+      ],
+      "expected_tokens": [
+        "\"I've",
+        "come",
+        "to",
+        "look",
+        "at",
+        "you.",
+        "I",
+        "have",
+        "been",
+        "to",
+        "you",
+        "before—or",
+        "have",
+        "you",
+        "forgotten?",
+        "You've",
+        "no",
+        "great",
+        "memory",
+        "if",
+        "you've",
+        "forgotten",
+        "me.",
+        "They",
+        "told",
+        "us",
+        "you",
+        "were",
+        "ill.",
+        "Thinks",
+        "I,",
+        "I'll",
+        "go",
+        "and",
+        "see",
+        "him",
+        "for",
+        "myself.",
+        "Now",
+        "I",
+        "see",
+        "you,",
+        "and",
+        "you're",
+        "not",
+        "ill!",
+        "You'll",
+        "live",
+        "another",
+        "twenty",
+        "years.",
+        "God",
+        "bless",
+        "you!",
+        "There",
+        "are",
+        "plenty",
+        "to",
+        "pray",
+        "for",
+        "you;",
+        "how",
+        "should",
+        "you",
+        "be",
+        "ill?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          66,
+          0,
+          66
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I've",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "ive",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 0.57,
+          "end": 0.71,
+          "key": "come",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.71,
+          "end": 0.87,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 0.87,
+          "end": 0.99,
+          "key": "look",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 0.99,
+          "end": 1.13,
+          "key": "at",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 1.13,
+          "end": 1.35,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.77,
+          "end": 1.87,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.87,
+          "end": 1.97,
+          "key": "have",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 1.97,
+          "end": 2.11,
+          "key": "been",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.11,
+          "end": 2.27,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.27,
+          "end": 2.39,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "before—or",
+          "start": 2.39,
+          "end": 3.03,
+          "key": "beforeor",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 3.03,
+          "end": 3.21,
+          "key": "have",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.21,
+          "end": 3.35,
+          "key": "you",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "forgotten?",
+          "start": 3.35,
+          "end": 3.69,
+          "key": "forgotten",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "You've",
+          "start": 4.13,
+          "end": 4.31,
+          "key": "youve",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 4.31,
+          "end": 4.47,
+          "key": "no",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 4.47,
+          "end": 4.71,
+          "key": "great",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "memory",
+          "start": 4.71,
+          "end": 5.07,
+          "key": "memory",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 5.07,
+          "end": 5.31,
+          "key": "if",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "you've",
+          "start": 5.31,
+          "end": 5.49,
+          "key": "youve",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "forgotten",
+          "start": 5.49,
+          "end": 5.81,
+          "key": "forgotten",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 5.81,
+          "end": 6.09,
+          "key": "me",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 6.45,
+          "end": 6.59,
+          "key": "they",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "told",
+          "start": 6.59,
+          "end": 6.79,
+          "key": "told",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 6.79,
+          "end": 6.99,
+          "key": "us",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 6.99,
+          "end": 7.17,
+          "key": "you",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 7.17,
+          "end": 7.33,
+          "key": "were",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "ill.",
+          "start": 7.33,
+          "end": 7.57,
+          "key": "ill",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "Thinks",
+          "start": 8.27,
+          "end": 8.45,
+          "key": "thinks",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 8.45,
+          "end": 8.67,
+          "key": "i",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 8.73,
+          "end": 8.87,
+          "key": "ill",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 8.87,
+          "end": 8.99,
+          "key": "go",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 8.99,
+          "end": 9.17,
+          "key": "and",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 9.17,
+          "end": 9.35,
+          "key": "see",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 9.35,
+          "end": 9.49,
+          "key": "him",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 9.49,
+          "end": 9.67,
+          "key": "for",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "myself.",
+          "start": 9.67,
+          "end": 9.97,
+          "key": "myself",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "Now",
+          "start": 10.71,
+          "end": 10.89,
+          "key": "now",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 10.89,
+          "end": 11.05,
+          "key": "i",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 11.05,
+          "end": 11.29,
+          "key": "see",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 11.29,
+          "end": 11.53,
+          "key": "you",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 11.57,
+          "end": 11.69,
+          "key": "and",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "you're",
+          "start": 11.69,
+          "end": 11.81,
+          "key": "youre",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 11.81,
+          "end": 11.99,
+          "key": "not",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "ill.",
+          "start": 11.99,
+          "end": 12.25,
+          "key": "ill",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "You'll",
+          "start": 12.71,
+          "end": 12.89,
+          "key": "youll",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "live",
+          "start": 12.89,
+          "end": 13.01,
+          "key": "live",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "another",
+          "start": 13.01,
+          "end": 13.25,
+          "key": "another",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "twenty",
+          "start": 13.25,
+          "end": 13.55,
+          "key": "twenty",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "years.",
+          "start": 13.55,
+          "end": 13.89,
+          "key": "years",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "God",
+          "start": 14.35,
+          "end": 14.57,
+          "key": "god",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "bless",
+          "start": 14.57,
+          "end": 14.81,
+          "key": "bless",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 14.81,
+          "end": 15.15,
+          "key": "you",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "There",
+          "start": 15.49,
+          "end": 15.61,
+          "key": "there",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 15.61,
+          "end": 15.71,
+          "key": "are",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "plenty",
+          "start": 15.71,
+          "end": 15.89,
+          "key": "plenty",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 15.89,
+          "end": 16.15,
+          "key": "to",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "pray",
+          "start": 16.15,
+          "end": 16.31,
+          "key": "pray",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 16.31,
+          "end": 16.49,
+          "key": "for",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 16.49,
+          "end": 16.67,
+          "key": "you",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 16.81,
+          "end": 16.93,
+          "key": "how",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 16.93,
+          "end": 17.07,
+          "key": "should",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 17.07,
+          "end": 17.21,
+          "key": "you",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 17.21,
+          "end": 17.35,
+          "key": "be",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "ill?",
+          "start": 17.35,
+          "end": 17.63,
+          "key": "ill",
+          "pieces": [
+            65
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I've",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "come",
+          "start": 0.57,
+          "end": 0.71
+        },
+        {
+          "text": "to",
+          "start": 0.71,
+          "end": 0.87
+        },
+        {
+          "text": "look",
+          "start": 0.87,
+          "end": 0.99
+        },
+        {
+          "text": "at",
+          "start": 0.99,
+          "end": 1.13
+        },
+        {
+          "text": "you.",
+          "start": 1.13,
+          "end": 1.35
+        },
+        {
+          "text": "I",
+          "start": 1.77,
+          "end": 1.87
+        },
+        {
+          "text": "have",
+          "start": 1.87,
+          "end": 1.97
+        },
+        {
+          "text": "been",
+          "start": 1.97,
+          "end": 2.11
+        },
+        {
+          "text": "to",
+          "start": 2.11,
+          "end": 2.27
+        },
+        {
+          "text": "you",
+          "start": 2.27,
+          "end": 2.39
+        },
+        {
+          "text": "before—or",
+          "start": 2.39,
+          "end": 3.03
+        },
+        {
+          "text": "have",
+          "start": 3.03,
+          "end": 3.21
+        },
+        {
+          "text": "you",
+          "start": 3.21,
+          "end": 3.35
+        },
+        {
+          "text": "forgotten?",
+          "start": 3.35,
+          "end": 3.69
+        },
+        {
+          "text": "You've",
+          "start": 4.13,
+          "end": 4.31
+        },
+        {
+          "text": "no",
+          "start": 4.31,
+          "end": 4.47
+        },
+        {
+          "text": "great",
+          "start": 4.47,
+          "end": 4.71
+        },
+        {
+          "text": "memory",
+          "start": 4.71,
+          "end": 5.07
+        },
+        {
+          "text": "if",
+          "start": 5.07,
+          "end": 5.31
+        },
+        {
+          "text": "you've",
+          "start": 5.31,
+          "end": 5.49
+        },
+        {
+          "text": "forgotten",
+          "start": 5.49,
+          "end": 5.81
+        },
+        {
+          "text": "me.",
+          "start": 5.81,
+          "end": 6.09
+        },
+        {
+          "text": "They",
+          "start": 6.45,
+          "end": 6.59
+        },
+        {
+          "text": "told",
+          "start": 6.59,
+          "end": 6.79
+        },
+        {
+          "text": "us",
+          "start": 6.79,
+          "end": 6.99
+        },
+        {
+          "text": "you",
+          "start": 6.99,
+          "end": 7.17
+        },
+        {
+          "text": "were",
+          "start": 7.17,
+          "end": 7.33
+        },
+        {
+          "text": "ill.",
+          "start": 7.33,
+          "end": 7.57
+        },
+        {
+          "text": "Thinks",
+          "start": 8.27,
+          "end": 8.45
+        },
+        {
+          "text": "I,",
+          "start": 8.45,
+          "end": 8.67
+        },
+        {
+          "text": "I'll",
+          "start": 8.73,
+          "end": 8.87
+        },
+        {
+          "text": "go",
+          "start": 8.87,
+          "end": 8.99
+        },
+        {
+          "text": "and",
+          "start": 8.99,
+          "end": 9.17
+        },
+        {
+          "text": "see",
+          "start": 9.17,
+          "end": 9.35
+        },
+        {
+          "text": "him",
+          "start": 9.35,
+          "end": 9.49
+        },
+        {
+          "text": "for",
+          "start": 9.49,
+          "end": 9.67
+        },
+        {
+          "text": "myself.",
+          "start": 9.67,
+          "end": 9.97
+        },
+        {
+          "text": "Now",
+          "start": 10.71,
+          "end": 10.89
+        },
+        {
+          "text": "I",
+          "start": 10.89,
+          "end": 11.05
+        },
+        {
+          "text": "see",
+          "start": 11.05,
+          "end": 11.29
+        },
+        {
+          "text": "you,",
+          "start": 11.29,
+          "end": 11.53
+        },
+        {
+          "text": "and",
+          "start": 11.57,
+          "end": 11.69
+        },
+        {
+          "text": "you're",
+          "start": 11.69,
+          "end": 11.81
+        },
+        {
+          "text": "not",
+          "start": 11.81,
+          "end": 11.99
+        },
+        {
+          "text": "ill!",
+          "start": 11.99,
+          "end": 12.25
+        },
+        {
+          "text": "You'll",
+          "start": 12.71,
+          "end": 12.89
+        },
+        {
+          "text": "live",
+          "start": 12.89,
+          "end": 13.01
+        },
+        {
+          "text": "another",
+          "start": 13.01,
+          "end": 13.25
+        },
+        {
+          "text": "twenty",
+          "start": 13.25,
+          "end": 13.55
+        },
+        {
+          "text": "years.",
+          "start": 13.55,
+          "end": 13.89
+        },
+        {
+          "text": "God",
+          "start": 14.35,
+          "end": 14.57
+        },
+        {
+          "text": "bless",
+          "start": 14.57,
+          "end": 14.81
+        },
+        {
+          "text": "you!",
+          "start": 14.81,
+          "end": 15.15
+        },
+        {
+          "text": "There",
+          "start": 15.49,
+          "end": 15.61
+        },
+        {
+          "text": "are",
+          "start": 15.61,
+          "end": 15.71
+        },
+        {
+          "text": "plenty",
+          "start": 15.71,
+          "end": 15.89
+        },
+        {
+          "text": "to",
+          "start": 15.89,
+          "end": 16.15
+        },
+        {
+          "text": "pray",
+          "start": 16.15,
+          "end": 16.31
+        },
+        {
+          "text": "for",
+          "start": 16.31,
+          "end": 16.49
+        },
+        {
+          "text": "you;",
+          "start": 16.49,
+          "end": 16.67
+        },
+        {
+          "text": "how",
+          "start": 16.81,
+          "end": 16.93
+        },
+        {
+          "text": "should",
+          "start": 16.93,
+          "end": 17.07
+        },
+        {
+          "text": "you",
+          "start": 17.07,
+          "end": 17.21
+        },
+        {
+          "text": "be",
+          "start": 17.21,
+          "end": 17.35
+        },
+        {
+          "text": "ill?\"",
+          "start": 17.35,
+          "end": 17.63
+        }
+      ],
+      "stats": {
+        "expected_words": 66,
+        "heard_words": 66,
+        "matched_words": 66
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5179663430899382
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ad494623b9328863bcb827d92f220cb976c1b8aadaaa2c219958236caaaa9ff7",
+  "selected_reasons": []
+}

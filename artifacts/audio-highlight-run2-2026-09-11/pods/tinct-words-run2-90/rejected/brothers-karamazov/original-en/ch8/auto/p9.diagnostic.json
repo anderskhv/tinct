@@ -1,0 +1,4662 @@
+{
+  "complete": true,
+  "signature": "f50fc8f3dd337c34eb69724cb441d236f1663951eb2613338a2d3e476ddb577d",
+  "attempts": [
+    {
+      "asr_seconds": 0.4625354465097189,
+      "alignment_seconds": 0.0015391111373901367,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "There is silent and long-suffering sorrow to be met with among the peasantry. It withdraws into itself and is still. But there is a grief that breaks out, and from that minute it bursts into tears and finds vent in wailing. This is particularly common with women. But it is no lighter a grief than the silent. Lamentations comfort only by lacerating the heart still more. Such grief does not desire consolation. It feeds on the sense of its hopelessness. Lamentations spring only from the constant craving to reopen the wound.",
+        "hotwords": "But, This, Lamentations, Such"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lamentations spring only from the constant craving to reopen the wound.",
+          "start": 27.83,
+          "end": 30.03,
+          "words": [
+            {
+              "text": " Lamentations",
+              "start": 27.83,
+              "end": 28.23,
+              "probability": 0.6612717310587565
+            },
+            {
+              "text": " spring",
+              "start": 28.23,
+              "end": 28.43,
+              "probability": 0.359375
+            },
+            {
+              "text": " only",
+              "start": 28.43,
+              "end": 29.15,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " from",
+              "start": 29.15,
+              "end": 29.35,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 29.35,
+              "end": 29.47,
+              "probability": 0.990234375
+            },
+            {
+              "text": " constant",
+              "start": 29.47,
+              "end": 29.87,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " craving",
+              "start": 29.87,
+              "end": 30.03,
+              "probability": 0.0260009765625
+            },
+            {
+              "text": " to",
+              "start": 30.03,
+              "end": 30.03,
+              "probability": 0.015869140625
+            },
+            {
+              "text": " reopen",
+              "start": 30.03,
+              "end": 30.03,
+              "probability": 7.808208465576172e-06
+            },
+            {
+              "text": " the",
+              "start": 30.03,
+              "end": 30.03,
+              "probability": 0.1451416015625
+            },
+            {
+              "text": " wound.",
+              "start": 30.03,
+              "end": 30.03,
+              "probability": 0.0005269050598144531
+            }
+          ]
+        },
+        {
+          "text": " Lamentations come only from the constant craving to reopen the wound.",
+          "start": 30.03,
+          "end": 31.43,
+          "words": [
+            {
+              "text": " Lamentations",
+              "start": 30.03,
+              "end": 30.09,
+              "probability": 0.0010709961255391438
+            },
+            {
+              "text": " come",
+              "start": 30.09,
+              "end": 30.09,
+              "probability": 0.0011739730834960938
+            },
+            {
+              "text": " only",
+              "start": 30.09,
+              "end": 30.21,
+              "probability": 0.0003039836883544922
+            },
+            {
+              "text": " from",
+              "start": 30.21,
+              "end": 30.39,
+              "probability": 0.01157379150390625
+            },
+            {
+              "text": " the",
+              "start": 30.39,
+              "end": 30.39,
+              "probability": 0.56591796875
+            },
+            {
+              "text": " constant",
+              "start": 30.39,
+              "end": 30.39,
+              "probability": 1.049041748046875e-05
+            },
+            {
+              "text": " craving",
+              "start": 30.39,
+              "end": 30.39,
+              "probability": 0.3017578125
+            },
+            {
+              "text": " to",
+              "start": 30.39,
+              "end": 30.69,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " reopen",
+              "start": 30.69,
+              "end": 30.99,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " the",
+              "start": 30.99,
+              "end": 31.19,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " wound.",
+              "start": 31.19,
+              "end": 31.43,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lamentations",
+          "start": 27.83,
+          "end": 28.23
+        },
+        {
+          "raw": "spring",
+          "start": 28.23,
+          "end": 28.43
+        },
+        {
+          "raw": "only",
+          "start": 28.43,
+          "end": 29.15
+        },
+        {
+          "raw": "from",
+          "start": 29.15,
+          "end": 29.35
+        },
+        {
+          "raw": "the",
+          "start": 29.35,
+          "end": 29.47
+        },
+        {
+          "raw": "constant",
+          "start": 29.47,
+          "end": 29.87
+        },
+        {
+          "raw": "craving",
+          "start": 29.87,
+          "end": 30.03
+        },
+        {
+          "raw": "to",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "raw": "reopen",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "raw": "the",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "raw": "wound.",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "raw": "Lamentations",
+          "start": 30.03,
+          "end": 30.09
+        },
+        {
+          "raw": "come",
+          "start": 30.09,
+          "end": 30.09
+        },
+        {
+          "raw": "only",
+          "start": 30.09,
+          "end": 30.21
+        },
+        {
+          "raw": "from",
+          "start": 30.21,
+          "end": 30.39
+        },
+        {
+          "raw": "the",
+          "start": 30.39,
+          "end": 30.39
+        },
+        {
+          "raw": "constant",
+          "start": 30.39,
+          "end": 30.39
+        },
+        {
+          "raw": "craving",
+          "start": 30.39,
+          "end": 30.39
+        },
+        {
+          "raw": "to",
+          "start": 30.39,
+          "end": 30.69
+        },
+        {
+          "raw": "reopen",
+          "start": 30.69,
+          "end": 30.99
+        },
+        {
+          "raw": "the",
+          "start": 30.99,
+          "end": 31.19
+        },
+        {
+          "raw": "wound.",
+          "start": 31.19,
+          "end": 31.43
+        }
+      ],
+      "expected_tokens": [
+        "There",
+        "is",
+        "silent",
+        "and",
+        "long-suffering",
+        "sorrow",
+        "to",
+        "be",
+        "met",
+        "with",
+        "among",
+        "the",
+        "peasantry.",
+        "It",
+        "withdraws",
+        "into",
+        "itself",
+        "and",
+        "is",
+        "still.",
+        "But",
+        "there",
+        "is",
+        "a",
+        "grief",
+        "that",
+        "breaks",
+        "out,",
+        "and",
+        "from",
+        "that",
+        "minute",
+        "it",
+        "bursts",
+        "into",
+        "tears",
+        "and",
+        "finds",
+        "vent",
+        "in",
+        "wailing.",
+        "This",
+        "is",
+        "particularly",
+        "common",
+        "with",
+        "women.",
+        "But",
+        "it",
+        "is",
+        "no",
+        "lighter",
+        "a",
+        "grief",
+        "than",
+        "the",
+        "silent.",
+        "Lamentations",
+        "comfort",
+        "only",
+        "by",
+        "lacerating",
+        "the",
+        "heart",
+        "still",
+        "more.",
+        "Such",
+        "grief",
+        "does",
+        "not",
+        "desire",
+        "consolation.",
+        "It",
+        "feeds",
+        "on",
+        "the",
+        "sense",
+        "of",
+        "its",
+        "hopelessness.",
+        "Lamentations",
+        "spring",
+        "only",
+        "from",
+        "the",
+        "constant",
+        "craving",
+        "to",
+        "reopen",
+        "the",
+        "wound."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          80,
+          0,
+          0
+        ],
+        [
+          "equal",
+          80,
+          91,
+          0,
+          11
+        ],
+        [
+          "insert",
+          91,
+          91,
+          11,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 34,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 36,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 37,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 38,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 39,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 40,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 41,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 42,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 43,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 44,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 45,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 46,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 47,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 48,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 49,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 50,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 51,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 52,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 53,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 54,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 55,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 56,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 57,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 58,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 59,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 60,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 61,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 62,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 63,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 64,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 65,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 66,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 67,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 68,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 69,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 70,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 71,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 72,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 73,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 74,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 75,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 76,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 77,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 78,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 79,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          80,
+          0,
+          0
+        ],
+        [
+          "insert",
+          91,
+          91,
+          11,
+          22
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lamentations",
+          "start": 27.83,
+          "end": 28.23,
+          "key": "lamentations",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "spring",
+          "start": 28.23,
+          "end": 28.43,
+          "key": "spring",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 28.43,
+          "end": 29.15,
+          "key": "only",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 29.15,
+          "end": 29.35,
+          "key": "from",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 29.35,
+          "end": 29.47,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "constant",
+          "start": 29.47,
+          "end": 29.87,
+          "key": "constant",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "craving",
+          "start": 29.87,
+          "end": 30.03,
+          "key": "craving",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 30.03,
+          "end": 30.03,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "reopen",
+          "start": 30.03,
+          "end": 30.03,
+          "key": "reopen",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 30.03,
+          "end": 30.03,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "wound.",
+          "start": 30.03,
+          "end": 30.03,
+          "key": "wound",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Lamentations",
+          "start": 30.03,
+          "end": 30.09,
+          "key": "lamentations",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 30.09,
+          "end": 30.09,
+          "key": "come",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 30.09,
+          "end": 30.21,
+          "key": "only",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 30.21,
+          "end": 30.39,
+          "key": "from",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 30.39,
+          "end": 30.39,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "constant",
+          "start": 30.39,
+          "end": 30.39,
+          "key": "constant",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "craving",
+          "start": 30.39,
+          "end": 30.39,
+          "key": "craving",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 30.39,
+          "end": 30.69,
+          "key": "to",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "reopen",
+          "start": 30.69,
+          "end": 30.99,
+          "key": "reopen",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 30.99,
+          "end": 31.19,
+          "key": "the",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "wound.",
+          "start": 31.19,
+          "end": 31.43,
+          "key": "wound",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "There",
+          "start": 0.0,
+          "end": 13.915
+        },
+        {
+          "text": "is",
+          "start": 13.915,
+          "end": 20.872
+        },
+        {
+          "text": "silent",
+          "start": 20.872,
+          "end": 24.351
+        },
+        {
+          "text": "and",
+          "start": 24.351,
+          "end": 26.09
+        },
+        {
+          "text": "long-suffering",
+          "start": 26.09,
+          "end": 26.96
+        },
+        {
+          "text": "sorrow",
+          "start": 26.96,
+          "end": 27.395
+        },
+        {
+          "text": "to",
+          "start": 27.395,
+          "end": 27.612
+        },
+        {
+          "text": "be",
+          "start": 27.612,
+          "end": 27.721
+        },
+        {
+          "text": "met",
+          "start": 27.721,
+          "end": 27.776
+        },
+        {
+          "text": "with",
+          "start": 27.776,
+          "end": 27.803
+        },
+        {
+          "text": "among",
+          "start": 27.803,
+          "end": 27.816
+        },
+        {
+          "text": "the",
+          "start": 27.816,
+          "end": 27.823
+        },
+        {
+          "text": "peasantry.",
+          "start": 27.823,
+          "end": 27.826
+        },
+        {
+          "text": "It",
+          "start": 27.826,
+          "end": 27.828
+        },
+        {
+          "text": "withdraws",
+          "start": 27.828,
+          "end": 27.829
+        },
+        {
+          "text": "into",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "itself",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "and",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "is",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "still.",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "But",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "there",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "is",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "a",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "grief",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "that",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "breaks",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "out,",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "and",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "from",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "that",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "minute",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "it",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "bursts",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "into",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "tears",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "and",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "finds",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "vent",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "in",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "wailing.",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "This",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "is",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "particularly",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "common",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "with",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "women.",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "But",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "it",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "is",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "no",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "lighter",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "a",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "grief",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "than",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "the",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "silent.",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "Lamentations",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "comfort",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "only",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "by",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "lacerating",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "the",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "heart",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "still",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "more.",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "Such",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "grief",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "does",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "not",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "desire",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "consolation.",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "It",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "feeds",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "on",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "the",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "sense",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "of",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "its",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "hopelessness.",
+          "start": 27.829,
+          "end": 27.829
+        },
+        {
+          "text": "Lamentations",
+          "start": 27.83,
+          "end": 28.23
+        },
+        {
+          "text": "spring",
+          "start": 28.23,
+          "end": 28.43
+        },
+        {
+          "text": "only",
+          "start": 28.43,
+          "end": 29.15
+        },
+        {
+          "text": "from",
+          "start": 29.15,
+          "end": 29.35
+        },
+        {
+          "text": "the",
+          "start": 29.35,
+          "end": 29.47
+        },
+        {
+          "text": "constant",
+          "start": 29.47,
+          "end": 29.87
+        },
+        {
+          "text": "craving",
+          "start": 29.87,
+          "end": 30.03
+        },
+        {
+          "text": "to",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "reopen",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "the",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "wound.",
+          "start": 30.03,
+          "end": 30.03
+        }
+      ],
+      "stats": {
+        "expected_words": 91,
+        "heard_words": 22,
+        "matched_words": 11
+      },
+      "match_ratio": 0.12087912087912088,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.46428272407501936
+    },
+    {
+      "asr_seconds": 0.9422211963683367,
+      "alignment_seconds": 0.0018115006387233734,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "But, This, Lamentations, Such"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " There is silent and long-suffering sorrow to be met with among the peasantry. It withdraws",
+          "start": 0.05,
+          "end": 5.03,
+          "words": [
+            {
+              "text": " There",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.1810302734375
+            },
+            {
+              "text": " is",
+              "start": 0.53,
+              "end": 0.63,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " silent",
+              "start": 0.63,
+              "end": 1.05,
+              "probability": 0.8681640625
+            },
+            {
+              "text": " and",
+              "start": 1.05,
+              "end": 1.37,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " long",
+              "start": 1.37,
+              "end": 1.59,
+              "probability": 0.998046875
+            },
+            {
+              "text": "-suffering",
+              "start": 1.59,
+              "end": 2.03,
+              "probability": 0.9034830729166666
+            },
+            {
+              "text": " sorrow",
+              "start": 2.03,
+              "end": 2.37,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 2.37,
+              "end": 2.59,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " be",
+              "start": 2.59,
+              "end": 2.71,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " met",
+              "start": 2.71,
+              "end": 2.87,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " with",
+              "start": 2.87,
+              "end": 3.01,
+              "probability": 0.99609375
+            },
+            {
+              "text": " among",
+              "start": 3.01,
+              "end": 3.21,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 3.21,
+              "end": 3.39,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " peasantry.",
+              "start": 3.39,
+              "end": 3.93,
+              "probability": 0.997314453125
+            },
+            {
+              "text": " It",
+              "start": 4.41,
+              "end": 4.51,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " withdraws",
+              "start": 4.51,
+              "end": 5.03,
+              "probability": 0.993408203125
+            }
+          ]
+        },
+        {
+          "text": " into itself and is still. But there is a grief that breaks out, and from that minute",
+          "start": 5.03,
+          "end": 9.53,
+          "words": [
+            {
+              "text": " into",
+              "start": 5.03,
+              "end": 5.21,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " itself",
+              "start": 5.21,
+              "end": 5.63,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " and",
+              "start": 5.63,
+              "end": 5.87,
+              "probability": 0.91162109375
+            },
+            {
+              "text": " is",
+              "start": 5.87,
+              "end": 6.01,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " still.",
+              "start": 6.01,
+              "end": 6.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " But",
+              "start": 6.93,
+              "end": 7.07,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " there",
+              "start": 7.07,
+              "end": 7.21,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " is",
+              "start": 7.21,
+              "end": 7.35,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 7.35,
+              "end": 7.47,
+              "probability": 0.9609375
+            },
+            {
+              "text": " grief",
+              "start": 7.47,
+              "end": 7.69,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " that",
+              "start": 7.69,
+              "end": 7.93,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " breaks",
+              "start": 7.93,
+              "end": 8.19,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " out,",
+              "start": 8.19,
+              "end": 8.53,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 8.89,
+              "end": 8.99,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " from",
+              "start": 8.99,
+              "end": 9.13,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " that",
+              "start": 9.13,
+              "end": 9.37,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " minute",
+              "start": 9.37,
+              "end": 9.53,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " it bursts into tears and finds vent in wailing. This is particularly common with women. But",
+          "start": 9.53,
+          "end": 15.17,
+          "words": [
+            {
+              "text": " it",
+              "start": 9.53,
+              "end": 9.75,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " bursts",
+              "start": 9.75,
+              "end": 10.01,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " into",
+              "start": 10.01,
+              "end": 10.31,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " tears",
+              "start": 10.31,
+              "end": 10.63,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 10.63,
+              "end": 10.89,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " finds",
+              "start": 10.89,
+              "end": 11.21,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " vent",
+              "start": 11.21,
+              "end": 11.45,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " in",
+              "start": 11.45,
+              "end": 11.69,
+              "probability": 0.994140625
+            },
+            {
+              "text": " wailing.",
+              "start": 11.69,
+              "end": 12.01,
+              "probability": 0.91796875
+            },
+            {
+              "text": " This",
+              "start": 12.59,
+              "end": 12.83,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " is",
+              "start": 12.83,
+              "end": 13.03,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " particularly",
+              "start": 13.03,
+              "end": 13.47,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " common",
+              "start": 13.47,
+              "end": 13.99,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " with",
+              "start": 13.99,
+              "end": 14.21,
+              "probability": 0.998046875
+            },
+            {
+              "text": " women.",
+              "start": 14.21,
+              "end": 14.51,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " But",
+              "start": 14.99,
+              "end": 15.17,
+              "probability": 0.9873046875
+            }
+          ]
+        },
+        {
+          "text": " it is no lighter a grief than the silent. Lamentations comfort only by lacerating the",
+          "start": 15.17,
+          "end": 20.21,
+          "words": [
+            {
+              "text": " it",
+              "start": 15.17,
+              "end": 15.25,
+              "probability": 0.994140625
+            },
+            {
+              "text": " is",
+              "start": 15.25,
+              "end": 15.35,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " no",
+              "start": 15.35,
+              "end": 15.55,
+              "probability": 0.99609375
+            },
+            {
+              "text": " lighter",
+              "start": 15.55,
+              "end": 15.83,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " a",
+              "start": 15.83,
+              "end": 16.01,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " grief",
+              "start": 16.01,
+              "end": 16.21,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " than",
+              "start": 16.21,
+              "end": 16.41,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " the",
+              "start": 16.41,
+              "end": 16.55,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " silent.",
+              "start": 16.55,
+              "end": 16.89,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Lamentations",
+              "start": 17.77,
+              "end": 18.27,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " comfort",
+              "start": 18.27,
+              "end": 18.65,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " only",
+              "start": 18.65,
+              "end": 19.15,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " by",
+              "start": 19.15,
+              "end": 19.41,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " lacerating",
+              "start": 19.41,
+              "end": 20.01,
+              "probability": 0.9895833333333334
+            },
+            {
+              "text": " the",
+              "start": 20.01,
+              "end": 20.21,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " heart still more. Such grief does not desire consolation. It feeds on the sense of its",
+          "start": 20.21,
+          "end": 25.67,
+          "words": [
+            {
+              "text": " heart",
+              "start": 20.21,
+              "end": 20.39,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " still",
+              "start": 20.39,
+              "end": 20.71,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " more.",
+              "start": 20.71,
+              "end": 21.05,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Such",
+              "start": 21.69,
+              "end": 21.83,
+              "probability": 0.99609375
+            },
+            {
+              "text": " grief",
+              "start": 21.83,
+              "end": 22.17,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " does",
+              "start": 22.17,
+              "end": 22.41,
+              "probability": 0.998046875
+            },
+            {
+              "text": " not",
+              "start": 22.41,
+              "end": 22.67,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " desire",
+              "start": 22.67,
+              "end": 23.11,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " consolation.",
+              "start": 23.11,
+              "end": 23.69,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " It",
+              "start": 24.39,
+              "end": 24.57,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " feeds",
+              "start": 24.57,
+              "end": 24.87,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " on",
+              "start": 24.87,
+              "end": 25.05,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 25.05,
+              "end": 25.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sense",
+              "start": 25.17,
+              "end": 25.37,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 25.37,
+              "end": 25.55,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " its",
+              "start": 25.55,
+              "end": 25.67,
+              "probability": 0.99169921875
+            }
+          ]
+        },
+        {
+          "text": " hopelessness. Lamentations spring only from the constant",
+          "start": 25.67,
+          "end": 29.93,
+          "words": [
+            {
+              "text": " hopelessness.",
+              "start": 25.67,
+              "end": 26.41,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Lamentations",
+              "start": 27.75,
+              "end": 28.25,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " spring",
+              "start": 28.25,
+              "end": 28.79,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " only",
+              "start": 28.79,
+              "end": 29.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " from",
+              "start": 29.15,
+              "end": 29.35,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 29.35,
+              "end": 29.49,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " constant",
+              "start": 29.49,
+              "end": 29.93,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " craving to reopen the wound.",
+          "start": 29.93,
+          "end": 31.43,
+          "words": [
+            {
+              "text": " craving",
+              "start": 29.93,
+              "end": 30.33,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " to",
+              "start": 30.33,
+              "end": 30.69,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " reopen",
+              "start": 30.69,
+              "end": 30.99,
+              "probability": 0.96484375
+            },
+            {
+              "text": " the",
+              "start": 30.99,
+              "end": 31.19,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " wound.",
+              "start": 31.19,
+              "end": 31.43,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "There",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "is",
+          "start": 0.53,
+          "end": 0.63
+        },
+        {
+          "raw": "silent",
+          "start": 0.63,
+          "end": 1.05
+        },
+        {
+          "raw": "and",
+          "start": 1.05,
+          "end": 1.37
+        },
+        {
+          "raw": "long",
+          "start": 1.37,
+          "end": 1.59
+        },
+        {
+          "raw": "-suffering",
+          "start": 1.59,
+          "end": 2.03
+        },
+        {
+          "raw": "sorrow",
+          "start": 2.03,
+          "end": 2.37
+        },
+        {
+          "raw": "to",
+          "start": 2.37,
+          "end": 2.59
+        },
+        {
+          "raw": "be",
+          "start": 2.59,
+          "end": 2.71
+        },
+        {
+          "raw": "met",
+          "start": 2.71,
+          "end": 2.87
+        },
+        {
+          "raw": "with",
+          "start": 2.87,
+          "end": 3.01
+        },
+        {
+          "raw": "among",
+          "start": 3.01,
+          "end": 3.21
+        },
+        {
+          "raw": "the",
+          "start": 3.21,
+          "end": 3.39
+        },
+        {
+          "raw": "peasantry.",
+          "start": 3.39,
+          "end": 3.93
+        },
+        {
+          "raw": "It",
+          "start": 4.41,
+          "end": 4.51
+        },
+        {
+          "raw": "withdraws",
+          "start": 4.51,
+          "end": 5.03
+        },
+        {
+          "raw": "into",
+          "start": 5.03,
+          "end": 5.21
+        },
+        {
+          "raw": "itself",
+          "start": 5.21,
+          "end": 5.63
+        },
+        {
+          "raw": "and",
+          "start": 5.63,
+          "end": 5.87
+        },
+        {
+          "raw": "is",
+          "start": 5.87,
+          "end": 6.01
+        },
+        {
+          "raw": "still.",
+          "start": 6.01,
+          "end": 6.31
+        },
+        {
+          "raw": "But",
+          "start": 6.93,
+          "end": 7.07
+        },
+        {
+          "raw": "there",
+          "start": 7.07,
+          "end": 7.21
+        },
+        {
+          "raw": "is",
+          "start": 7.21,
+          "end": 7.35
+        },
+        {
+          "raw": "a",
+          "start": 7.35,
+          "end": 7.47
+        },
+        {
+          "raw": "grief",
+          "start": 7.47,
+          "end": 7.69
+        },
+        {
+          "raw": "that",
+          "start": 7.69,
+          "end": 7.93
+        },
+        {
+          "raw": "breaks",
+          "start": 7.93,
+          "end": 8.19
+        },
+        {
+          "raw": "out,",
+          "start": 8.19,
+          "end": 8.53
+        },
+        {
+          "raw": "and",
+          "start": 8.89,
+          "end": 8.99
+        },
+        {
+          "raw": "from",
+          "start": 8.99,
+          "end": 9.13
+        },
+        {
+          "raw": "that",
+          "start": 9.13,
+          "end": 9.37
+        },
+        {
+          "raw": "minute",
+          "start": 9.37,
+          "end": 9.53
+        },
+        {
+          "raw": "it",
+          "start": 9.53,
+          "end": 9.75
+        },
+        {
+          "raw": "bursts",
+          "start": 9.75,
+          "end": 10.01
+        },
+        {
+          "raw": "into",
+          "start": 10.01,
+          "end": 10.31
+        },
+        {
+          "raw": "tears",
+          "start": 10.31,
+          "end": 10.63
+        },
+        {
+          "raw": "and",
+          "start": 10.63,
+          "end": 10.89
+        },
+        {
+          "raw": "finds",
+          "start": 10.89,
+          "end": 11.21
+        },
+        {
+          "raw": "vent",
+          "start": 11.21,
+          "end": 11.45
+        },
+        {
+          "raw": "in",
+          "start": 11.45,
+          "end": 11.69
+        },
+        {
+          "raw": "wailing.",
+          "start": 11.69,
+          "end": 12.01
+        },
+        {
+          "raw": "This",
+          "start": 12.59,
+          "end": 12.83
+        },
+        {
+          "raw": "is",
+          "start": 12.83,
+          "end": 13.03
+        },
+        {
+          "raw": "particularly",
+          "start": 13.03,
+          "end": 13.47
+        },
+        {
+          "raw": "common",
+          "start": 13.47,
+          "end": 13.99
+        },
+        {
+          "raw": "with",
+          "start": 13.99,
+          "end": 14.21
+        },
+        {
+          "raw": "women.",
+          "start": 14.21,
+          "end": 14.51
+        },
+        {
+          "raw": "But",
+          "start": 14.99,
+          "end": 15.17
+        },
+        {
+          "raw": "it",
+          "start": 15.17,
+          "end": 15.25
+        },
+        {
+          "raw": "is",
+          "start": 15.25,
+          "end": 15.35
+        },
+        {
+          "raw": "no",
+          "start": 15.35,
+          "end": 15.55
+        },
+        {
+          "raw": "lighter",
+          "start": 15.55,
+          "end": 15.83
+        },
+        {
+          "raw": "a",
+          "start": 15.83,
+          "end": 16.01
+        },
+        {
+          "raw": "grief",
+          "start": 16.01,
+          "end": 16.21
+        },
+        {
+          "raw": "than",
+          "start": 16.21,
+          "end": 16.41
+        },
+        {
+          "raw": "the",
+          "start": 16.41,
+          "end": 16.55
+        },
+        {
+          "raw": "silent.",
+          "start": 16.55,
+          "end": 16.89
+        },
+        {
+          "raw": "Lamentations",
+          "start": 17.77,
+          "end": 18.27
+        },
+        {
+          "raw": "comfort",
+          "start": 18.27,
+          "end": 18.65
+        },
+        {
+          "raw": "only",
+          "start": 18.65,
+          "end": 19.15
+        },
+        {
+          "raw": "by",
+          "start": 19.15,
+          "end": 19.41
+        },
+        {
+          "raw": "lacerating",
+          "start": 19.41,
+          "end": 20.01
+        },
+        {
+          "raw": "the",
+          "start": 20.01,
+          "end": 20.21
+        },
+        {
+          "raw": "heart",
+          "start": 20.21,
+          "end": 20.39
+        },
+        {
+          "raw": "still",
+          "start": 20.39,
+          "end": 20.71
+        },
+        {
+          "raw": "more.",
+          "start": 20.71,
+          "end": 21.05
+        },
+        {
+          "raw": "Such",
+          "start": 21.69,
+          "end": 21.83
+        },
+        {
+          "raw": "grief",
+          "start": 21.83,
+          "end": 22.17
+        },
+        {
+          "raw": "does",
+          "start": 22.17,
+          "end": 22.41
+        },
+        {
+          "raw": "not",
+          "start": 22.41,
+          "end": 22.67
+        },
+        {
+          "raw": "desire",
+          "start": 22.67,
+          "end": 23.11
+        },
+        {
+          "raw": "consolation.",
+          "start": 23.11,
+          "end": 23.69
+        },
+        {
+          "raw": "It",
+          "start": 24.39,
+          "end": 24.57
+        },
+        {
+          "raw": "feeds",
+          "start": 24.57,
+          "end": 24.87
+        },
+        {
+          "raw": "on",
+          "start": 24.87,
+          "end": 25.05
+        },
+        {
+          "raw": "the",
+          "start": 25.05,
+          "end": 25.17
+        },
+        {
+          "raw": "sense",
+          "start": 25.17,
+          "end": 25.37
+        },
+        {
+          "raw": "of",
+          "start": 25.37,
+          "end": 25.55
+        },
+        {
+          "raw": "its",
+          "start": 25.55,
+          "end": 25.67
+        },
+        {
+          "raw": "hopelessness.",
+          "start": 25.67,
+          "end": 26.41
+        },
+        {
+          "raw": "Lamentations",
+          "start": 27.75,
+          "end": 28.25
+        },
+        {
+          "raw": "spring",
+          "start": 28.25,
+          "end": 28.79
+        },
+        {
+          "raw": "only",
+          "start": 28.79,
+          "end": 29.15
+        },
+        {
+          "raw": "from",
+          "start": 29.15,
+          "end": 29.35
+        },
+        {
+          "raw": "the",
+          "start": 29.35,
+          "end": 29.49
+        },
+        {
+          "raw": "constant",
+          "start": 29.49,
+          "end": 29.93
+        },
+        {
+          "raw": "craving",
+          "start": 29.93,
+          "end": 30.33
+        },
+        {
+          "raw": "to",
+          "start": 30.33,
+          "end": 30.69
+        },
+        {
+          "raw": "reopen",
+          "start": 30.69,
+          "end": 30.99
+        },
+        {
+          "raw": "the",
+          "start": 30.99,
+          "end": 31.19
+        },
+        {
+          "raw": "wound.",
+          "start": 31.19,
+          "end": 31.43
+        }
+      ],
+      "expected_tokens": [
+        "There",
+        "is",
+        "silent",
+        "and",
+        "long-suffering",
+        "sorrow",
+        "to",
+        "be",
+        "met",
+        "with",
+        "among",
+        "the",
+        "peasantry.",
+        "It",
+        "withdraws",
+        "into",
+        "itself",
+        "and",
+        "is",
+        "still.",
+        "But",
+        "there",
+        "is",
+        "a",
+        "grief",
+        "that",
+        "breaks",
+        "out,",
+        "and",
+        "from",
+        "that",
+        "minute",
+        "it",
+        "bursts",
+        "into",
+        "tears",
+        "and",
+        "finds",
+        "vent",
+        "in",
+        "wailing.",
+        "This",
+        "is",
+        "particularly",
+        "common",
+        "with",
+        "women.",
+        "But",
+        "it",
+        "is",
+        "no",
+        "lighter",
+        "a",
+        "grief",
+        "than",
+        "the",
+        "silent.",
+        "Lamentations",
+        "comfort",
+        "only",
+        "by",
+        "lacerating",
+        "the",
+        "heart",
+        "still",
+        "more.",
+        "Such",
+        "grief",
+        "does",
+        "not",
+        "desire",
+        "consolation.",
+        "It",
+        "feeds",
+        "on",
+        "the",
+        "sense",
+        "of",
+        "its",
+        "hopelessness.",
+        "Lamentations",
+        "spring",
+        "only",
+        "from",
+        "the",
+        "constant",
+        "craving",
+        "to",
+        "reopen",
+        "the",
+        "wound."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          91,
+          0,
+          91
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 90
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "There",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "there",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.53,
+          "end": 0.63,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "silent",
+          "start": 0.63,
+          "end": 1.05,
+          "key": "silent",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.05,
+          "end": 1.37,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "long -suffering",
+          "start": 1.37,
+          "end": 2.03,
+          "key": "longsuffering",
+          "pieces": [
+            4,
+            5
+          ]
+        },
+        {
+          "raw": "sorrow",
+          "start": 2.03,
+          "end": 2.37,
+          "key": "sorrow",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.37,
+          "end": 2.59,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.59,
+          "end": 2.71,
+          "key": "be",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "met",
+          "start": 2.71,
+          "end": 2.87,
+          "key": "met",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.87,
+          "end": 3.01,
+          "key": "with",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "among",
+          "start": 3.01,
+          "end": 3.21,
+          "key": "among",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.21,
+          "end": 3.39,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "peasantry.",
+          "start": 3.39,
+          "end": 3.93,
+          "key": "peasantry",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 4.41,
+          "end": 4.51,
+          "key": "it",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "withdraws",
+          "start": 4.51,
+          "end": 5.03,
+          "key": "withdraws",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 5.03,
+          "end": 5.21,
+          "key": "into",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "itself",
+          "start": 5.21,
+          "end": 5.63,
+          "key": "itself",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.63,
+          "end": 5.87,
+          "key": "and",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 5.87,
+          "end": 6.01,
+          "key": "is",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "still.",
+          "start": 6.01,
+          "end": 6.31,
+          "key": "still",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 6.93,
+          "end": 7.07,
+          "key": "but",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 7.07,
+          "end": 7.21,
+          "key": "there",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 7.21,
+          "end": 7.35,
+          "key": "is",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 7.35,
+          "end": 7.47,
+          "key": "a",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "grief",
+          "start": 7.47,
+          "end": 7.69,
+          "key": "grief",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 7.69,
+          "end": 7.93,
+          "key": "that",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "breaks",
+          "start": 7.93,
+          "end": 8.19,
+          "key": "breaks",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "out,",
+          "start": 8.19,
+          "end": 8.53,
+          "key": "out",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 8.89,
+          "end": 8.99,
+          "key": "and",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 8.99,
+          "end": 9.13,
+          "key": "from",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 9.13,
+          "end": 9.37,
+          "key": "that",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "minute",
+          "start": 9.37,
+          "end": 9.53,
+          "key": "minute",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 9.53,
+          "end": 9.75,
+          "key": "it",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "bursts",
+          "start": 9.75,
+          "end": 10.01,
+          "key": "bursts",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 10.01,
+          "end": 10.31,
+          "key": "into",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "tears",
+          "start": 10.31,
+          "end": 10.63,
+          "key": "tears",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 10.63,
+          "end": 10.89,
+          "key": "and",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "finds",
+          "start": 10.89,
+          "end": 11.21,
+          "key": "finds",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "vent",
+          "start": 11.21,
+          "end": 11.45,
+          "key": "vent",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 11.45,
+          "end": 11.69,
+          "key": "in",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "wailing.",
+          "start": 11.69,
+          "end": 12.01,
+          "key": "wailing",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "This",
+          "start": 12.59,
+          "end": 12.83,
+          "key": "this",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 12.83,
+          "end": 13.03,
+          "key": "is",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "particularly",
+          "start": 13.03,
+          "end": 13.47,
+          "key": "particularly",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "common",
+          "start": 13.47,
+          "end": 13.99,
+          "key": "common",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 13.99,
+          "end": 14.21,
+          "key": "with",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "women.",
+          "start": 14.21,
+          "end": 14.51,
+          "key": "women",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 14.99,
+          "end": 15.17,
+          "key": "but",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 15.17,
+          "end": 15.25,
+          "key": "it",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 15.25,
+          "end": 15.35,
+          "key": "is",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 15.35,
+          "end": 15.55,
+          "key": "no",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "lighter",
+          "start": 15.55,
+          "end": 15.83,
+          "key": "lighter",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 15.83,
+          "end": 16.01,
+          "key": "a",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "grief",
+          "start": 16.01,
+          "end": 16.21,
+          "key": "grief",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 16.21,
+          "end": 16.41,
+          "key": "than",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 16.41,
+          "end": 16.55,
+          "key": "the",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "silent.",
+          "start": 16.55,
+          "end": 16.89,
+          "key": "silent",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "Lamentations",
+          "start": 17.77,
+          "end": 18.27,
+          "key": "lamentations",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "comfort",
+          "start": 18.27,
+          "end": 18.65,
+          "key": "comfort",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 18.65,
+          "end": 19.15,
+          "key": "only",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 19.15,
+          "end": 19.41,
+          "key": "by",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "lacerating",
+          "start": 19.41,
+          "end": 20.01,
+          "key": "lacerating",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 20.01,
+          "end": 20.21,
+          "key": "the",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "heart",
+          "start": 20.21,
+          "end": 20.39,
+          "key": "heart",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "still",
+          "start": 20.39,
+          "end": 20.71,
+          "key": "still",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "more.",
+          "start": 20.71,
+          "end": 21.05,
+          "key": "more",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "Such",
+          "start": 21.69,
+          "end": 21.83,
+          "key": "such",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "grief",
+          "start": 21.83,
+          "end": 22.17,
+          "key": "grief",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 22.17,
+          "end": 22.41,
+          "key": "does",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 22.41,
+          "end": 22.67,
+          "key": "not",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "desire",
+          "start": 22.67,
+          "end": 23.11,
+          "key": "desire",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "consolation.",
+          "start": 23.11,
+          "end": 23.69,
+          "key": "consolation",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 24.39,
+          "end": 24.57,
+          "key": "it",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "feeds",
+          "start": 24.57,
+          "end": 24.87,
+          "key": "feeds",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 24.87,
+          "end": 25.05,
+          "key": "on",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 25.05,
+          "end": 25.17,
+          "key": "the",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "sense",
+          "start": 25.17,
+          "end": 25.37,
+          "key": "sense",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 25.37,
+          "end": 25.55,
+          "key": "of",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "its",
+          "start": 25.55,
+          "end": 25.67,
+          "key": "its",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "hopelessness.",
+          "start": 25.67,
+          "end": 26.41,
+          "key": "hopelessness",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "Lamentations",
+          "start": 27.75,
+          "end": 28.25,
+          "key": "lamentations",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "spring",
+          "start": 28.25,
+          "end": 28.79,
+          "key": "spring",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 28.79,
+          "end": 29.15,
+          "key": "only",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 29.15,
+          "end": 29.35,
+          "key": "from",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 29.35,
+          "end": 29.49,
+          "key": "the",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "constant",
+          "start": 29.49,
+          "end": 29.93,
+          "key": "constant",
+          "pieces": [
+            86
+          ]
+        },
+        {
+          "raw": "craving",
+          "start": 29.93,
+          "end": 30.33,
+          "key": "craving",
+          "pieces": [
+            87
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 30.33,
+          "end": 30.69,
+          "key": "to",
+          "pieces": [
+            88
+          ]
+        },
+        {
+          "raw": "reopen",
+          "start": 30.69,
+          "end": 30.99,
+          "key": "reopen",
+          "pieces": [
+            89
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 30.99,
+          "end": 31.19,
+          "key": "the",
+          "pieces": [
+            90
+          ]
+        },
+        {
+          "raw": "wound.",
+          "start": 31.19,
+          "end": 31.43,
+          "key": "wound",
+          "pieces": [
+            91
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 4,
+          "text": "long-suffering",
+          "heard": "long -suffering",
+          "heard_indexes": [
+            4,
+            5
+          ],
+          "start": 1.37,
+          "end": 2.03
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "There",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "is",
+          "start": 0.53,
+          "end": 0.63
+        },
+        {
+          "text": "silent",
+          "start": 0.63,
+          "end": 1.05
+        },
+        {
+          "text": "and",
+          "start": 1.05,
+          "end": 1.37
+        },
+        {
+          "text": "long-suffering",
+          "start": 1.37,
+          "end": 2.03
+        },
+        {
+          "text": "sorrow",
+          "start": 2.03,
+          "end": 2.37
+        },
+        {
+          "text": "to",
+          "start": 2.37,
+          "end": 2.59
+        },
+        {
+          "text": "be",
+          "start": 2.59,
+          "end": 2.71
+        },
+        {
+          "text": "met",
+          "start": 2.71,
+          "end": 2.87
+        },
+        {
+          "text": "with",
+          "start": 2.87,
+          "end": 3.01
+        },
+        {
+          "text": "among",
+          "start": 3.01,
+          "end": 3.21
+        },
+        {
+          "text": "the",
+          "start": 3.21,
+          "end": 3.39
+        },
+        {
+          "text": "peasantry.",
+          "start": 3.39,
+          "end": 3.93
+        },
+        {
+          "text": "It",
+          "start": 4.41,
+          "end": 4.51
+        },
+        {
+          "text": "withdraws",
+          "start": 4.51,
+          "end": 5.03
+        },
+        {
+          "text": "into",
+          "start": 5.03,
+          "end": 5.21
+        },
+        {
+          "text": "itself",
+          "start": 5.21,
+          "end": 5.63
+        },
+        {
+          "text": "and",
+          "start": 5.63,
+          "end": 5.87
+        },
+        {
+          "text": "is",
+          "start": 5.87,
+          "end": 6.01
+        },
+        {
+          "text": "still.",
+          "start": 6.01,
+          "end": 6.31
+        },
+        {
+          "text": "But",
+          "start": 6.93,
+          "end": 7.07
+        },
+        {
+          "text": "there",
+          "start": 7.07,
+          "end": 7.21
+        },
+        {
+          "text": "is",
+          "start": 7.21,
+          "end": 7.35
+        },
+        {
+          "text": "a",
+          "start": 7.35,
+          "end": 7.47
+        },
+        {
+          "text": "grief",
+          "start": 7.47,
+          "end": 7.69
+        },
+        {
+          "text": "that",
+          "start": 7.69,
+          "end": 7.93
+        },
+        {
+          "text": "breaks",
+          "start": 7.93,
+          "end": 8.19
+        },
+        {
+          "text": "out,",
+          "start": 8.19,
+          "end": 8.53
+        },
+        {
+          "text": "and",
+          "start": 8.89,
+          "end": 8.99
+        },
+        {
+          "text": "from",
+          "start": 8.99,
+          "end": 9.13
+        },
+        {
+          "text": "that",
+          "start": 9.13,
+          "end": 9.37
+        },
+        {
+          "text": "minute",
+          "start": 9.37,
+          "end": 9.53
+        },
+        {
+          "text": "it",
+          "start": 9.53,
+          "end": 9.75
+        },
+        {
+          "text": "bursts",
+          "start": 9.75,
+          "end": 10.01
+        },
+        {
+          "text": "into",
+          "start": 10.01,
+          "end": 10.31
+        },
+        {
+          "text": "tears",
+          "start": 10.31,
+          "end": 10.63
+        },
+        {
+          "text": "and",
+          "start": 10.63,
+          "end": 10.89
+        },
+        {
+          "text": "finds",
+          "start": 10.89,
+          "end": 11.21
+        },
+        {
+          "text": "vent",
+          "start": 11.21,
+          "end": 11.45
+        },
+        {
+          "text": "in",
+          "start": 11.45,
+          "end": 11.69
+        },
+        {
+          "text": "wailing.",
+          "start": 11.69,
+          "end": 12.01
+        },
+        {
+          "text": "This",
+          "start": 12.59,
+          "end": 12.83
+        },
+        {
+          "text": "is",
+          "start": 12.83,
+          "end": 13.03
+        },
+        {
+          "text": "particularly",
+          "start": 13.03,
+          "end": 13.47
+        },
+        {
+          "text": "common",
+          "start": 13.47,
+          "end": 13.99
+        },
+        {
+          "text": "with",
+          "start": 13.99,
+          "end": 14.21
+        },
+        {
+          "text": "women.",
+          "start": 14.21,
+          "end": 14.51
+        },
+        {
+          "text": "But",
+          "start": 14.99,
+          "end": 15.17
+        },
+        {
+          "text": "it",
+          "start": 15.17,
+          "end": 15.25
+        },
+        {
+          "text": "is",
+          "start": 15.25,
+          "end": 15.35
+        },
+        {
+          "text": "no",
+          "start": 15.35,
+          "end": 15.55
+        },
+        {
+          "text": "lighter",
+          "start": 15.55,
+          "end": 15.83
+        },
+        {
+          "text": "a",
+          "start": 15.83,
+          "end": 16.01
+        },
+        {
+          "text": "grief",
+          "start": 16.01,
+          "end": 16.21
+        },
+        {
+          "text": "than",
+          "start": 16.21,
+          "end": 16.41
+        },
+        {
+          "text": "the",
+          "start": 16.41,
+          "end": 16.55
+        },
+        {
+          "text": "silent.",
+          "start": 16.55,
+          "end": 16.89
+        },
+        {
+          "text": "Lamentations",
+          "start": 17.77,
+          "end": 18.27
+        },
+        {
+          "text": "comfort",
+          "start": 18.27,
+          "end": 18.65
+        },
+        {
+          "text": "only",
+          "start": 18.65,
+          "end": 19.15
+        },
+        {
+          "text": "by",
+          "start": 19.15,
+          "end": 19.41
+        },
+        {
+          "text": "lacerating",
+          "start": 19.41,
+          "end": 20.01
+        },
+        {
+          "text": "the",
+          "start": 20.01,
+          "end": 20.21
+        },
+        {
+          "text": "heart",
+          "start": 20.21,
+          "end": 20.39
+        },
+        {
+          "text": "still",
+          "start": 20.39,
+          "end": 20.71
+        },
+        {
+          "text": "more.",
+          "start": 20.71,
+          "end": 21.05
+        },
+        {
+          "text": "Such",
+          "start": 21.69,
+          "end": 21.83
+        },
+        {
+          "text": "grief",
+          "start": 21.83,
+          "end": 22.17
+        },
+        {
+          "text": "does",
+          "start": 22.17,
+          "end": 22.41
+        },
+        {
+          "text": "not",
+          "start": 22.41,
+          "end": 22.67
+        },
+        {
+          "text": "desire",
+          "start": 22.67,
+          "end": 23.11
+        },
+        {
+          "text": "consolation.",
+          "start": 23.11,
+          "end": 23.69
+        },
+        {
+          "text": "It",
+          "start": 24.39,
+          "end": 24.57
+        },
+        {
+          "text": "feeds",
+          "start": 24.57,
+          "end": 24.87
+        },
+        {
+          "text": "on",
+          "start": 24.87,
+          "end": 25.05
+        },
+        {
+          "text": "the",
+          "start": 25.05,
+          "end": 25.17
+        },
+        {
+          "text": "sense",
+          "start": 25.17,
+          "end": 25.37
+        },
+        {
+          "text": "of",
+          "start": 25.37,
+          "end": 25.55
+        },
+        {
+          "text": "its",
+          "start": 25.55,
+          "end": 25.67
+        },
+        {
+          "text": "hopelessness.",
+          "start": 25.67,
+          "end": 26.41
+        },
+        {
+          "text": "Lamentations",
+          "start": 27.75,
+          "end": 28.25
+        },
+        {
+          "text": "spring",
+          "start": 28.25,
+          "end": 28.79
+        },
+        {
+          "text": "only",
+          "start": 28.79,
+          "end": 29.15
+        },
+        {
+          "text": "from",
+          "start": 29.15,
+          "end": 29.35
+        },
+        {
+          "text": "the",
+          "start": 29.35,
+          "end": 29.49
+        },
+        {
+          "text": "constant",
+          "start": 29.49,
+          "end": 29.93
+        },
+        {
+          "text": "craving",
+          "start": 29.93,
+          "end": 30.33
+        },
+        {
+          "text": "to",
+          "start": 30.33,
+          "end": 30.69
+        },
+        {
+          "text": "reopen",
+          "start": 30.69,
+          "end": 30.99
+        },
+        {
+          "text": "the",
+          "start": 30.99,
+          "end": 31.19
+        },
+        {
+          "text": "wound.",
+          "start": 31.19,
+          "end": 31.43
+        }
+      ],
+      "stats": {
+        "expected_words": 91,
+        "heard_words": 91,
+        "matched_words": 91
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.9447782319039106
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "fb7338da004dd08c78c4dfb853a22045a1831d8c1bedc7bae2a0476f83497509",
+  "selected_reasons": []
+}

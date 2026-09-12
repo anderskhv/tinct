@@ -1,0 +1,1022 @@
+{
+  "complete": true,
+  "signature": "7533eb034e7bd6f9fa1ead4fab114435448bd6e9ecd348e0f3061ae0971cf9e1",
+  "attempts": [
+    {
+      "asr_seconds": 0.1554184090346098,
+      "alignment_seconds": 0.00029279012233018875,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Any one who can help it had better not.\"",
+        "hotwords": "Any"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Anyone who can help it had better not.",
+          "start": 0.05,
+          "end": 2.09,
+          "words": [
+            {
+              "text": " Anyone",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.6484375
+            },
+            {
+              "text": " who",
+              "start": 0.69,
+              "end": 0.95,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " can",
+              "start": 0.95,
+              "end": 1.07,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " help",
+              "start": 1.07,
+              "end": 1.29,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it",
+              "start": 1.29,
+              "end": 1.41,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " had",
+              "start": 1.41,
+              "end": 1.51,
+              "probability": 0.81787109375
+            },
+            {
+              "text": " better",
+              "start": 1.51,
+              "end": 1.69,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " not.",
+              "start": 1.69,
+              "end": 2.09,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Anyone",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "who",
+          "start": 0.69,
+          "end": 0.95
+        },
+        {
+          "raw": "can",
+          "start": 0.95,
+          "end": 1.07
+        },
+        {
+          "raw": "help",
+          "start": 1.07,
+          "end": 1.29
+        },
+        {
+          "raw": "it",
+          "start": 1.29,
+          "end": 1.41
+        },
+        {
+          "raw": "had",
+          "start": 1.41,
+          "end": 1.51
+        },
+        {
+          "raw": "better",
+          "start": 1.51,
+          "end": 1.69
+        },
+        {
+          "raw": "not.",
+          "start": 1.69,
+          "end": 2.09
+        }
+      ],
+      "expected_tokens": [
+        "\"Any",
+        "one",
+        "who",
+        "can",
+        "help",
+        "it",
+        "had",
+        "better",
+        "not.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ],
+        [
+          "equal",
+          2,
+          9,
+          1,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Anyone",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "anyone",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 0.69,
+          "end": 0.95,
+          "key": "who",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 0.95,
+          "end": 1.07,
+          "key": "can",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "help",
+          "start": 1.07,
+          "end": 1.29,
+          "key": "help",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.29,
+          "end": 1.41,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 1.41,
+          "end": 1.51,
+          "key": "had",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "better",
+          "start": 1.51,
+          "end": 1.69,
+          "key": "better",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "not.",
+          "start": 1.69,
+          "end": 2.09,
+          "key": "not",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Any",
+          "start": 0.0,
+          "end": 0.345
+        },
+        {
+          "text": "one",
+          "start": 0.345,
+          "end": 0.517
+        },
+        {
+          "text": "who",
+          "start": 0.69,
+          "end": 0.95
+        },
+        {
+          "text": "can",
+          "start": 0.95,
+          "end": 1.07
+        },
+        {
+          "text": "help",
+          "start": 1.07,
+          "end": 1.29
+        },
+        {
+          "text": "it",
+          "start": 1.29,
+          "end": 1.41
+        },
+        {
+          "text": "had",
+          "start": 1.41,
+          "end": 1.51
+        },
+        {
+          "text": "better",
+          "start": 1.51,
+          "end": 1.69
+        },
+        {
+          "text": "not.\"",
+          "start": 1.69,
+          "end": 2.09
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7777777777777778,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1558159338310361
+    },
+    {
+      "asr_seconds": 0.16335659753531218,
+      "alignment_seconds": 0.0001574857160449028,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Any"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Anyone who can help it had better not.",
+          "start": 0.05,
+          "end": 2.09,
+          "words": [
+            {
+              "text": " Anyone",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.6484375
+            },
+            {
+              "text": " who",
+              "start": 0.69,
+              "end": 0.95,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " can",
+              "start": 0.95,
+              "end": 1.07,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " help",
+              "start": 1.07,
+              "end": 1.29,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it",
+              "start": 1.29,
+              "end": 1.41,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " had",
+              "start": 1.41,
+              "end": 1.51,
+              "probability": 0.81787109375
+            },
+            {
+              "text": " better",
+              "start": 1.51,
+              "end": 1.69,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " not.",
+              "start": 1.69,
+              "end": 2.09,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Anyone",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "who",
+          "start": 0.69,
+          "end": 0.95
+        },
+        {
+          "raw": "can",
+          "start": 0.95,
+          "end": 1.07
+        },
+        {
+          "raw": "help",
+          "start": 1.07,
+          "end": 1.29
+        },
+        {
+          "raw": "it",
+          "start": 1.29,
+          "end": 1.41
+        },
+        {
+          "raw": "had",
+          "start": 1.41,
+          "end": 1.51
+        },
+        {
+          "raw": "better",
+          "start": 1.51,
+          "end": 1.69
+        },
+        {
+          "raw": "not.",
+          "start": 1.69,
+          "end": 2.09
+        }
+      ],
+      "expected_tokens": [
+        "\"Any",
+        "one",
+        "who",
+        "can",
+        "help",
+        "it",
+        "had",
+        "better",
+        "not.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ],
+        [
+          "equal",
+          2,
+          9,
+          1,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Anyone",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "anyone",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 0.69,
+          "end": 0.95,
+          "key": "who",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 0.95,
+          "end": 1.07,
+          "key": "can",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "help",
+          "start": 1.07,
+          "end": 1.29,
+          "key": "help",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.29,
+          "end": 1.41,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 1.41,
+          "end": 1.51,
+          "key": "had",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "better",
+          "start": 1.51,
+          "end": 1.69,
+          "key": "better",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "not.",
+          "start": 1.69,
+          "end": 2.09,
+          "key": "not",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Any",
+          "start": 0.0,
+          "end": 0.345
+        },
+        {
+          "text": "one",
+          "start": 0.345,
+          "end": 0.517
+        },
+        {
+          "text": "who",
+          "start": 0.69,
+          "end": 0.95
+        },
+        {
+          "text": "can",
+          "start": 0.95,
+          "end": 1.07
+        },
+        {
+          "text": "help",
+          "start": 1.07,
+          "end": 1.29
+        },
+        {
+          "text": "it",
+          "start": 1.29,
+          "end": 1.41
+        },
+        {
+          "text": "had",
+          "start": 1.41,
+          "end": 1.51
+        },
+        {
+          "text": "better",
+          "start": 1.51,
+          "end": 1.69
+        },
+        {
+          "text": "not.\"",
+          "start": 1.69,
+          "end": 2.09
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7777777777777778,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1635660259053111
+    },
+    {
+      "asr_seconds": 0.1544572450220585,
+      "alignment_seconds": 0.0002747001126408577,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Anyone who can help it had better not.",
+          "start": 0.05,
+          "end": 2.09,
+          "words": [
+            {
+              "text": " Anyone",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.6484375
+            },
+            {
+              "text": " who",
+              "start": 0.69,
+              "end": 0.95,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " can",
+              "start": 0.95,
+              "end": 1.07,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " help",
+              "start": 1.07,
+              "end": 1.29,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it",
+              "start": 1.29,
+              "end": 1.41,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " had",
+              "start": 1.41,
+              "end": 1.51,
+              "probability": 0.81787109375
+            },
+            {
+              "text": " better",
+              "start": 1.51,
+              "end": 1.69,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " not.",
+              "start": 1.69,
+              "end": 2.09,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Anyone",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "who",
+          "start": 0.69,
+          "end": 0.95
+        },
+        {
+          "raw": "can",
+          "start": 0.95,
+          "end": 1.07
+        },
+        {
+          "raw": "help",
+          "start": 1.07,
+          "end": 1.29
+        },
+        {
+          "raw": "it",
+          "start": 1.29,
+          "end": 1.41
+        },
+        {
+          "raw": "had",
+          "start": 1.41,
+          "end": 1.51
+        },
+        {
+          "raw": "better",
+          "start": 1.51,
+          "end": 1.69
+        },
+        {
+          "raw": "not.",
+          "start": 1.69,
+          "end": 2.09
+        }
+      ],
+      "expected_tokens": [
+        "\"Any",
+        "one",
+        "who",
+        "can",
+        "help",
+        "it",
+        "had",
+        "better",
+        "not.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ],
+        [
+          "equal",
+          2,
+          9,
+          1,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Anyone",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "anyone",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 0.69,
+          "end": 0.95,
+          "key": "who",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 0.95,
+          "end": 1.07,
+          "key": "can",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "help",
+          "start": 1.07,
+          "end": 1.29,
+          "key": "help",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.29,
+          "end": 1.41,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 1.41,
+          "end": 1.51,
+          "key": "had",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "better",
+          "start": 1.51,
+          "end": 1.69,
+          "key": "better",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "not.",
+          "start": 1.69,
+          "end": 2.09,
+          "key": "not",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Any",
+          "start": 0.0,
+          "end": 0.345
+        },
+        {
+          "text": "one",
+          "start": 0.345,
+          "end": 0.517
+        },
+        {
+          "text": "who",
+          "start": 0.69,
+          "end": 0.95
+        },
+        {
+          "text": "can",
+          "start": 0.95,
+          "end": 1.07
+        },
+        {
+          "text": "help",
+          "start": 1.07,
+          "end": 1.29
+        },
+        {
+          "text": "it",
+          "start": 1.29,
+          "end": 1.41
+        },
+        {
+          "text": "had",
+          "start": 1.41,
+          "end": 1.51
+        },
+        {
+          "text": "better",
+          "start": 1.51,
+          "end": 1.69
+        },
+        {
+          "text": "not.\"",
+          "start": 1.69,
+          "end": 2.09
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7777777777777778,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.15483085811138153
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1eed384cda5401beede4fd954f0a6f08a2e0dcb0fc2ee85ad57198e736aca0ca",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}
