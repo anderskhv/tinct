@@ -125,4 +125,144 @@ now checks that v2 is still selectable rather than that it is the default.
 
 ## Part B — the GPU run
 
-Filled in as the run moves; see `artifacts/audio-highlight-run3-2026-09-12/STATE.md`.
+### The headline: 15 editions completed
+
+Run 2 published 934 chapters and completed **zero** editions. Run 3 published
+**988** chapters and completed **15 editions**, measured the only way that
+counts — by re-probing production for every chapter of every English edition
+(`edition_completion.py` → `edition-completion.json`), not by counting the
+journal:
+
+| edition | chapters | gained this run |
+| --- | --- | --- |
+| `the-histories/original-en` | 1200 | 3 |
+| `divine-comedy/original-en` | 100 | 20 |
+| `werther/original-en` | 84 | 11 |
+| `werther/modern-en` | 84 | 3 |
+| `beowulf/modern-en` | 43 | 14 |
+| `iliad/modern-en` | 24 | 7 |
+| `jerusalem/modern-en` | 18 | 14 |
+| `confessions/modern-en` | 13 | 2 |
+| `frederick-douglass/modern-en` | 12 | 3 |
+| `oedipus-at-colonus/original-en` | 11 | 1 |
+| `nicomachean-ethics/modern-en` | 10 | 6 |
+| `midsummer/original-en` | 9 | 1 |
+| `aristotle-politics/modern-en` | 8 | 4 |
+| `phaedrus/modern-en` | 6 | 5 |
+| `heart-of-darkness/original-en` | 3 | 1 |
+
+38 English editions are now complete on production.
+
+### What actually made editions finish, and what did not
+
+**Ordering by "fewest chapters missing" is the wrong rank.** The first cut put
+the 24 one-chapter-short editions first. Batch 1 went out on that basis and
+published **3 of 17** — because the replay had already said twelve of those
+single chapters fail under v3 for reasons outside any normalisation class
+(Latin and French passages, a looped sentence in Odyssey 3, `'tis` heard
+`Tease`). Aligning them again buys almost nothing, and the GPU run confirmed the
+replay chapter for chapter.
+
+**The right rank is completability.** `build_batches2.py` scores an edition tier 0
+when every chapter it still needs either was never attempted or the replay says
+v3 passes it. Every edition in the table above came from a tier-0 batch.
+
+**The census found the cheapest wins.** Runs 1 and 2 worked from a Priority-1
+queue that is `original-en` only. `audit_production.py`'s full census showed the
+`modern-en` editions in the same state, several one or two chapters from
+complete, with no attempt on record — ten of the fifteen completed editions are
+`modern-en`. They are English, they have recordings and they are not on the skip
+list, so they belonged in the queue all along.
+
+### Throughput
+
+| | pods held | chapters published | rate |
+| --- | --- | --- | --- |
+| first wave | 10 | 629 | **288 / h** |
+| second wave | up to 28 | 359 | **435 / h** |
+
+The bottleneck was **the dispatcher's own `MAX_PODS`, nothing else**. Evidence:
+
+- **Not capacity.** Raising the cap to 30 produced 28 live pods within eleven
+  minutes and **zero** capacity refusals in `dispatch.log`.
+- **Not startup.** The pod records put setup and cohort at ~1.6 min of a 16-40
+  min pod, so alignment dominates: more pods is the lever, bigger batches are
+  not. Batches were still raised from 1,000 to 1,400 paragraphs to shave the
+  fixed cost.
+- **Not the wall clock.** The longest pod ran 40.0 min against the 50-minute
+  limit, so nothing was cut off and no pod's work was thrown away by the guard.
+- **Not the GPU class.** Asking for RTX 4090 and A6000 first changed nothing:
+  RunPod's `gpuTypePriority: availability` still landed every one of the 72 pods
+  on the same $0.49/hr tier. GPU class is not a usable lever here, and the
+  $1.00/hr ceiling was never approached.
+- **The harvester can keep up.** Harvests are serialised through one process to
+  keep publication and git linear; mean harvest 37 s, so ~97 pods/hour against
+  ~72/hour arriving at 30 concurrency.
+
+The second wave stopped on **budget, not on speed**: at 28 pods the envelope
+projection crossed the launch limit after about fifty minutes.
+
+### Disk, and why the harvest step now prunes
+
+At 22 concurrent pods the per-paragraph diagnostics grew to 8.5 GB and the disk
+reached 96%. That is a run-killing failure mode, so harvesting a pod now
+publishes, **distils and prunes in the same step**: `distil_rejections.py` keeps
+what a future tokenizer revision actually needs — for each below-gate paragraph,
+its expected tokens and the recogniser's own heard words and timings, as
+`rejected-extract.json`, a few hundred kilobytes a pod — and the bulky
+`rejected/`, `out/`, `cohort/` trees and tarballs are then removed. `batch.json`,
+`pod.json`, `collect-report.json`, `candidates.json`, `targets.json`,
+`status.json`, `rejections.md` and the logs are kept. This matters because helper
+v3 was built by replaying exactly those diagnostics from run 2; the extract is
+what keeps that possible for v4 without carrying gigabytes.
+
+### Pods and spend
+
+- **72 pods**, every one at $0.49/hr against the $1.00/hr ceiling, 1,977
+  pod-minutes, longest 40.0 min. Outcomes: 53 `done`, 15 `done-with-errors`,
+  1 `agent-unreachable`, 1 `failed`, 2 without a recorded outcome; the four that
+  produced no output at all were boot or agent failures and cost $0.41 between
+  them.
+- **Spend $16.14 of the $20 envelope** by the mandate's measure (each pod
+  record's `costPerHr` × uptime), mean $0.224 a pod.
+- The guard ran `enforce --apply` every five minutes for the life of the run
+  (`guard/guard.log`) at `--max-rate 1.00 --max-minutes 50 --budget 20`.
+
+### Publication
+
+- **988 chapters published**, 1 skipped (already present), across 78 editions.
+  Every one validated before upload, uploaded conditionally so nothing was ever
+  overwritten, and re-read from production at the journaled SHA-256.
+- Independent close-out re-fetch of all 988 from `tinct.app`:
+  **988 verified, 0 mismatched** (`verify-close.log`).
+- Committed and pushed after **every** pod harvest, never in batches.
+
+### Two stale pods cleaned up
+
+`tinct-words-run2-6`, left EXITED by the run-2 close-out, and `tinct-words-run3-45`
+at the end of this run. The guard never acts on EXITED pods by design, so both
+were terminated deliberately by id rather than with a bare `stop-all`.
+
+## What run 4 should do, in order
+
+1. **A helper v4 aimed at what is left.** The residue is no longer a
+   normalisation class: it is Latin, French and Greek passages, a looped
+   sentence, initials (`R.W.` heard `R` `.W.`), an unspaced `...` token, and
+   plain recognition misses. `rejected-extract.json` per pod is the corpus to
+   measure any v4 against, the way run 2's diagnostics were the corpus for v3.
+   Before building anything, count how many editions each candidate class
+   actually finishes — run 3's own lesson is that a class worth 1,887 paragraphs
+   finished 15 editions while a class worth twelve single chapters finished none.
+2. **The rest of the census.** 2,494 English chapters still have a recording and
+   no sidecar, in 102 batches already cut (`batch-manifest-refill.json`,
+   batches 401-502); most are the long books — Anna Karenina, War and Peace,
+   Imitation of Christ, Don Quixote — where an edition only completes when every
+   batch lands. At run 3's measured $0.224 a pod and 435 chapters an hour, the
+   remainder is roughly $12-15 and four hours at 30 concurrency.
+3. **The four missing recordings, the repair queue and Phaedo ch1/ch7** —
+   re-recording work, untouched and unchanged from run 1.
+
+Unchanged and untouched by this run: `bible/*`, `magna-carta`, `faust-part-1`,
+`as-you-like-it`, `henry-iv-part-2`, `taming-of-the-shrew`, and everything not
+English. Nothing was synthesised; the gate stayed at 0.85; neither older pinned
+helper was touched.
