@@ -1,0 +1,981 @@
+[
+ {
+  "key": "comedy-of-errors/modern-en/ch1",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9878246753246753,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-27/out/comedy-of-errors/modern-en/ch1/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9667207792207793,
+    "reasons": [
+     {
+      "paragraph": 12,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-27/out/comedy-of-errors/modern-en/ch1/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9878246753246753
+ },
+ {
+  "key": "comedy-of-errors/modern-en/ch2",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9968253968253968,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-27/out/comedy-of-errors/modern-en/ch2/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9756613756613757,
+    "reasons": [
+     {
+      "paragraph": 0,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-27/out/comedy-of-errors/modern-en/ch2/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9968253968253968
+ },
+ {
+  "key": "comedy-of-errors/modern-en/ch3",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9981185324553151,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-27/out/comedy-of-errors/modern-en/ch3/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9783631232361242,
+    "reasons": [
+     {
+      "paragraph": 0,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 6,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-27/out/comedy-of-errors/modern-en/ch3/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9981185324553151
+ },
+ {
+  "key": "comedy-of-errors/modern-en/ch4",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9943444730077121,
+    "reasons": [
+     {
+      "paragraph": 75,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-27/out/comedy-of-errors/modern-en/ch4/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9629820051413882,
+    "reasons": [
+     {
+      "paragraph": 0,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 14,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 24,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 28,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 32,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 34,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 44,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 45,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 48,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 50,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 61,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 75,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-27/out/comedy-of-errors/modern-en/ch4/off/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "midsummer/modern-en/ch9",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9936250362213851,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-27/out/midsummer/modern-en/ch9/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9617502173283107,
+    "reasons": [
+     {
+      "paragraph": 0,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 8,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 19,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 24,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 43,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 55,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 88,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 89,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 90,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 92,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 114,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 118,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 121,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 124,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 131,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-27/out/midsummer/modern-en/ch9/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9936250362213851
+ },
+ {
+  "key": "oresteia/modern-en/ch10",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9882897603485838,
+    "reasons": [
+     {
+      "paragraph": 67,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-27/out/oresteia/modern-en/ch10/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9539760348583878,
+    "reasons": [
+     {
+      "paragraph": 5,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 7,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 67,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 70,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-27/out/oresteia/modern-en/ch10/off/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "oresteia/modern-en/ch13",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9904761904761905,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-27/out/oresteia/modern-en/ch13/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.96,
+    "reasons": [
+     {
+      "paragraph": 33,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-27/out/oresteia/modern-en/ch13/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9904761904761905
+ },
+ {
+  "key": "oresteia/modern-en/ch14",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9802431610942249,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-27/out/oresteia/modern-en/ch14/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9551671732522796,
+    "reasons": [
+     {
+      "paragraph": 7,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 8,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-27/out/oresteia/modern-en/ch14/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9802431610942249
+ },
+ {
+  "key": "oresteia/modern-en/ch15",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9952996474735605,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-27/out/oresteia/modern-en/ch15/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9584802193497846,
+    "reasons": [
+     {
+      "paragraph": 26,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 39,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 51,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-27/out/oresteia/modern-en/ch15/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9952996474735605
+ },
+ {
+  "key": "oresteia/modern-en/ch17",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.983754512635379,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-27/out/oresteia/modern-en/ch17/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.946621970087674,
+    "reasons": [
+     {
+      "paragraph": 0,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 6,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 14,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 16,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 18,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 51,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 57,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 63,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 80,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 85,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-27/out/oresteia/modern-en/ch17/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.983754512635379
+ },
+ {
+  "key": "oresteia/modern-en/ch2",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9949057564951604,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-27/out/oresteia/modern-en/ch2/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9633214467651554,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-27/out/oresteia/modern-en/ch2/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9949057564951604
+ },
+ {
+  "key": "oresteia/modern-en/ch20",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9778571428571429,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-27/out/oresteia/modern-en/ch20/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.955,
+    "reasons": [
+     {
+      "paragraph": 12,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 37,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-27/out/oresteia/modern-en/ch20/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9778571428571429
+ },
+ {
+  "key": "oresteia/modern-en/ch22",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9728555917480999,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-27/out/oresteia/modern-en/ch22/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9619978284473398,
+    "reasons": [
+     {
+      "paragraph": 9,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 13,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-27/out/oresteia/modern-en/ch22/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9728555917480999
+ },
+ {
+  "key": "oresteia/modern-en/ch23",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9932203389830508,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-27/out/oresteia/modern-en/ch23/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9677966101694915,
+    "reasons": [
+     {
+      "paragraph": 3,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-27/out/oresteia/modern-en/ch23/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9932203389830508
+ },
+ {
+  "key": "oresteia/modern-en/ch24",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9835841313269493,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-27/out/oresteia/modern-en/ch24/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.957592339261286,
+    "reasons": [
+     {
+      "paragraph": 8,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 9,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 61,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-27/out/oresteia/modern-en/ch24/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9835841313269493
+ },
+ {
+  "key": "oresteia/modern-en/ch26",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9944247339077547,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-27/out/oresteia/modern-en/ch26/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9553978712620375,
+    "reasons": [
+     {
+      "paragraph": 7,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 13,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 32,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-27/out/oresteia/modern-en/ch26/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9944247339077547
+ },
+ {
+  "key": "oresteia/modern-en/ch3",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.990108803165183,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-27/out/oresteia/modern-en/ch3/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9703264094955489,
+    "reasons": [
+     {
+      "paragraph": 9,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-27/out/oresteia/modern-en/ch3/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.990108803165183
+ },
+ {
+  "key": "oresteia/modern-en/ch4",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9866962305986696,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-27/out/oresteia/modern-en/ch4/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9696969696969697,
+    "reasons": [
+     {
+      "paragraph": 0,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-27/out/oresteia/modern-en/ch4/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9866962305986696
+ },
+ {
+  "key": "oresteia/modern-en/ch5",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9847288046340179,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-27/out/oresteia/modern-en/ch5/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9599789362822538,
+    "reasons": [
+     {
+      "paragraph": 0,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 20,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 24,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-27/out/oresteia/modern-en/ch5/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9847288046340179
+ },
+ {
+  "key": "oresteia/modern-en/ch6",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9917525773195877,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-27/out/oresteia/modern-en/ch6/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9670103092783505,
+    "reasons": [
+     {
+      "paragraph": 14,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-27/out/oresteia/modern-en/ch6/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9917525773195877
+ },
+ {
+  "key": "oresteia/modern-en/ch8",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9949174078780177,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-27/out/oresteia/modern-en/ch8/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9606099110546379,
+    "reasons": [
+     {
+      "paragraph": 9,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-27/out/oresteia/modern-en/ch8/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9949174078780177
+ },
+ {
+  "key": "oresteia/modern-en/ch9",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9855348306052532,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-27/out/oresteia/modern-en/ch9/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9398553483060526,
+    "reasons": [
+     {
+      "paragraph": 0,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 2,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 4,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 50,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 51,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 69,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 72,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 74,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-27/out/oresteia/modern-en/ch9/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9855348306052532
+ }
+]

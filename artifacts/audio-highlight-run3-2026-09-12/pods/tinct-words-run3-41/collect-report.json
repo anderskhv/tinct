@@ -1,0 +1,859 @@
+[
+ {
+  "key": "julius-caesar/modern-en/ch10",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9932432432432432,
+    "reasons": [
+     {
+      "paragraph": 17,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-41/out/julius-caesar/modern-en/ch10/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9087837837837838,
+    "reasons": [
+     {
+      "paragraph": 17,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 18,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 19,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 21,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 23,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-41/out/julius-caesar/modern-en/ch10/off/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "julius-caesar/modern-en/ch12",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-41/out/julius-caesar/modern-en/ch12/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9617224880382775,
+    "reasons": [
+     {
+      "paragraph": 2,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 5,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 16,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-41/out/julius-caesar/modern-en/ch12/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "julius-caesar/modern-en/ch15",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-41/out/julius-caesar/modern-en/ch15/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9074074074074074,
+    "reasons": [
+     {
+      "paragraph": 0,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 2,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-41/out/julius-caesar/modern-en/ch15/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "julius-caesar/modern-en/ch16",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9936034115138592,
+    "reasons": [
+     {
+      "paragraph": 47,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-41/out/julius-caesar/modern-en/ch16/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9434968017057569,
+    "reasons": [
+     {
+      "paragraph": 3,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 11,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 13,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 16,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 27,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 30,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 34,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 37,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 39,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 40,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 43,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 47,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 49,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 50,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-41/out/julius-caesar/modern-en/ch16/off/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "julius-caesar/modern-en/ch17",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9898648648648649,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-41/out/julius-caesar/modern-en/ch17/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.956081081081081,
+    "reasons": [
+     {
+      "paragraph": 0,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-41/out/julius-caesar/modern-en/ch17/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9898648648648649
+ },
+ {
+  "key": "julius-caesar/modern-en/ch18",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9985974754558204,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-41/out/julius-caesar/modern-en/ch18/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9607293127629734,
+    "reasons": [
+     {
+      "paragraph": 12,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 17,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 19,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 21,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 24,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 42,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-41/out/julius-caesar/modern-en/ch18/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9985974754558204
+ },
+ {
+  "key": "julius-caesar/modern-en/ch2",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9921933085501858,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-41/out/julius-caesar/modern-en/ch2/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9721189591078067,
+    "reasons": [
+     {
+      "paragraph": 1,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 2,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 4,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 5,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 13,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 14,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 25,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 53,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 64,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 66,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 70,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 83,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 87,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 92,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-41/out/julius-caesar/modern-en/ch2/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9921933085501858
+ },
+ {
+  "key": "julius-caesar/modern-en/ch3",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.992553983618764,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-41/out/julius-caesar/modern-en/ch3/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9612807148175726,
+    "reasons": [
+     {
+      "paragraph": 13,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 16,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 29,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 32,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 40,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-41/out/julius-caesar/modern-en/ch3/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.992553983618764
+ },
+ {
+  "key": "julius-caesar/modern-en/ch4",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9890710382513661,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-41/out/julius-caesar/modern-en/ch4/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9646630236794171,
+    "reasons": [
+     {
+      "paragraph": 41,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 46,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 47,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 53,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 54,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 78,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 80,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 96,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 99,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-41/out/julius-caesar/modern-en/ch4/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9890710382513661
+ },
+ {
+  "key": "julius-caesar/modern-en/ch5",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9953874538745388,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-41/out/julius-caesar/modern-en/ch5/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9760147601476015,
+    "reasons": [
+     {
+      "paragraph": 7,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 15,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 20,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 24,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-41/out/julius-caesar/modern-en/ch5/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9953874538745388
+ },
+ {
+  "key": "julius-caesar/modern-en/ch7",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-41/out/julius-caesar/modern-en/ch7/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9572446555819477,
+    "reasons": [
+     {
+      "paragraph": 15,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-41/out/julius-caesar/modern-en/ch7/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "julius-caesar/modern-en/ch8",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9922779922779923,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-41/out/julius-caesar/modern-en/ch8/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9660231660231661,
+    "reasons": [
+     {
+      "paragraph": 7,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 9,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 13,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 14,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 16,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 18,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 35,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 41,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 46,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 47,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 63,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 91,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 98,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 105,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 109,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-41/out/julius-caesar/modern-en/ch8/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9922779922779923
+ },
+ {
+  "key": "julius-caesar/modern-en/ch9",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9927319367250962,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-41/out/julius-caesar/modern-en/ch9/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9687900812312954,
+    "reasons": [
+     {
+      "paragraph": 8,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 18,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 48,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 64,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 65,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 66,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 67,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 68,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 70,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 71,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 75,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 92,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-41/out/julius-caesar/modern-en/ch9/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9927319367250962
+ }
+]

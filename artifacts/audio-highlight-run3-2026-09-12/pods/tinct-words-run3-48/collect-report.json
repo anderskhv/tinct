@@ -1,0 +1,1212 @@
+[
+ {
+  "key": "hamlet/modern-en/ch1",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9992619926199262,
+    "reasons": [
+     {
+      "paragraph": 41,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-48/out/hamlet/modern-en/ch1/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9763837638376384,
+    "reasons": [
+     {
+      "paragraph": 34,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 41,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 58,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-48/out/hamlet/modern-en/ch1/off/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "hamlet/modern-en/ch11",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9927252378287633,
+    "reasons": [
+     {
+      "paragraph": 21,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-48/out/hamlet/modern-en/ch11/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9697817571348629,
+    "reasons": [
+     {
+      "paragraph": 4,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 20,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 21,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 52,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-48/out/hamlet/modern-en/ch11/off/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "hamlet/modern-en/ch12",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9973958333333334,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-48/out/hamlet/modern-en/ch12/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9765625,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-48/out/hamlet/modern-en/ch12/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9973958333333334
+ },
+ {
+  "key": "hamlet/modern-en/ch14",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9931972789115646,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-48/out/hamlet/modern-en/ch14/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9659863945578231,
+    "reasons": [
+     {
+      "paragraph": 3,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 10,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 22,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-48/out/hamlet/modern-en/ch14/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9931972789115646
+ },
+ {
+  "key": "hamlet/modern-en/ch15",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9908759124087592,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-48/out/hamlet/modern-en/ch15/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9726277372262774,
+    "reasons": [
+     {
+      "paragraph": 0,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 3,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 4,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 11,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 19,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 21,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-48/out/hamlet/modern-en/ch15/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9908759124087592
+ },
+ {
+  "key": "hamlet/modern-en/ch16",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9932318104906938,
+    "reasons": [
+     {
+      "paragraph": 17,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-48/out/hamlet/modern-en/ch16/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.949238578680203,
+    "reasons": [
+     {
+      "paragraph": 6,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 11,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 15,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 17,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 19,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 23,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 29,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 31,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 33,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 50,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 51,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 55,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 58,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 59,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 66,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 70,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 73,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 74,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 77,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 78,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 79,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 81,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 84,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 87,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-48/out/hamlet/modern-en/ch16/off/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "hamlet/modern-en/ch18",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9925742574257426,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-48/out/hamlet/modern-en/ch18/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9591584158415841,
+    "reasons": [
+     {
+      "paragraph": 0,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 14,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 24,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 26,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 32,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 41,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 43,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-48/out/hamlet/modern-en/ch18/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9925742574257426
+ },
+ {
+  "key": "hamlet/modern-en/ch2",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9912451361867705,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-48/out/hamlet/modern-en/ch2/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9698443579766537,
+    "reasons": [
+     {
+      "paragraph": 1,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 5,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 22,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 37,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 77,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 78,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-48/out/hamlet/modern-en/ch2/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9912451361867705
+ },
+ {
+  "key": "hamlet/modern-en/ch3",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9849548645937813,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-48/out/hamlet/modern-en/ch3/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9648946840521565,
+    "reasons": [
+     {
+      "paragraph": 0,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 11,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 17,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-48/out/hamlet/modern-en/ch3/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9849548645937813
+ },
+ {
+  "key": "hamlet/modern-en/ch4",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9971988795518207,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-48/out/hamlet/modern-en/ch4/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9775910364145658,
+    "reasons": [
+     {
+      "paragraph": 5,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 7,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 38,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-48/out/hamlet/modern-en/ch4/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9971988795518207
+ },
+ {
+  "key": "hamlet/modern-en/ch5",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9863294600136705,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-48/out/hamlet/modern-en/ch5/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9685577580314423,
+    "reasons": [
+     {
+      "paragraph": 7,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 11,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 32,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 33,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 51,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-48/out/hamlet/modern-en/ch5/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9863294600136705
+ },
+ {
+  "key": "hamlet/modern-en/ch6",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9881847475832438,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-48/out/hamlet/modern-en/ch6/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9570354457572503,
+    "reasons": [
+     {
+      "paragraph": 0,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 2,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 8,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 12,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 14,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 16,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 18,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 20,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 22,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 24,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 28,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-48/out/hamlet/modern-en/ch6/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9881847475832438
+ },
+ {
+  "key": "hamlet/modern-en/ch7",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9889658156642146,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-48/out/hamlet/modern-en/ch7/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9636520986585894,
+    "reasons": [
+     {
+      "paragraph": 5,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 9,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 21,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 24,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 27,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 54,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 58,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 68,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 130,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 154,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 157,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 174,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 192,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-48/out/hamlet/modern-en/ch7/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9889658156642146
+ },
+ {
+  "key": "hamlet/modern-en/ch8",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9921925829538061,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-48/out/hamlet/modern-en/ch8/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9733246584255042,
+    "reasons": [
+     {
+      "paragraph": 12,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 29,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-48/out/hamlet/modern-en/ch8/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9921925829538061
+ },
+ {
+  "key": "hamlet/modern-en/ch9",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9943697216140132,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-48/out/hamlet/modern-en/ch9/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9749765405067251,
+    "reasons": [
+     {
+      "paragraph": 18,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 38,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 52,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 85,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 104,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 117,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 121,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 128,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 166,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-48/out/hamlet/modern-en/ch9/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9943697216140132
+ },
+ {
+  "key": "king-lear/modern-en/ch23",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9965909090909091,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-48/out/king-lear/modern-en/ch23/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9806818181818182,
+    "reasons": [
+     {
+      "paragraph": 36,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 39,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-48/out/king-lear/modern-en/ch23/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9965909090909091
+ },
+ {
+  "key": "king-lear/modern-en/ch24",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-48/out/king-lear/modern-en/ch24/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9672386895475819,
+    "reasons": [
+     {
+      "paragraph": 0,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 6,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 10,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 13,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 14,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 18,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 26,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 28,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-48/out/king-lear/modern-en/ch24/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "king-lear/modern-en/ch25",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-48/out/king-lear/modern-en/ch25/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9354838709677419,
+    "reasons": [
+     {
+      "paragraph": 0,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 1,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 5,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-48/out/king-lear/modern-en/ch25/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "king-lear/modern-en/ch26",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9986595174262735,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-48/out/king-lear/modern-en/ch26/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.974195710455764,
+    "reasons": [
+     {
+      "paragraph": 20,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 30,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 32,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 33,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 36,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 45,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 49,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 50,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 52,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 87,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 113,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 118,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 130,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 154,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-48/out/king-lear/modern-en/ch26/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9986595174262735
+ }
+]

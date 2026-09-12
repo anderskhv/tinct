@@ -1,0 +1,370 @@
+[
+ {
+  "key": "much-ado-about-nothing/modern-en/ch13",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9955621301775148,
+    "reasons": [
+     {
+      "paragraph": 1,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 10,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-46/out/much-ado-about-nothing/modern-en/ch13/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9718934911242604,
+    "reasons": [
+     {
+      "paragraph": 1,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 9,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 10,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 11,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 14,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 37,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-46/out/much-ado-about-nothing/modern-en/ch13/off/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "much-ado-about-nothing/modern-en/ch14",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9974964234620887,
+    "reasons": [
+     {
+      "paragraph": 11,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 114,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 124,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-46/out/much-ado-about-nothing/modern-en/ch14/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9760371959942775,
+    "reasons": [
+     {
+      "paragraph": 0,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 11,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 21,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 27,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 29,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 31,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 34,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 38,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 39,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 40,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 41,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 42,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 59,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 74,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 98,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 99,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 114,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 119,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 124,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-46/out/much-ado-about-nothing/modern-en/ch14/off/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "much-ado-about-nothing/modern-en/ch15",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-46/out/much-ado-about-nothing/modern-en/ch15/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9728059332509271,
+    "reasons": [
+     {
+      "paragraph": 0,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 11,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 18,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 32,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-46/out/much-ado-about-nothing/modern-en/ch15/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "much-ado-about-nothing/modern-en/ch17",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9973799126637555,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-46/out/much-ado-about-nothing/modern-en/ch17/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9458515283842794,
+    "reasons": [
+     {
+      "paragraph": 0,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 3,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 10,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 11,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 12,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 22,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 30,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 33,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 41,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 44,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 54,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 64,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-46/out/much-ado-about-nothing/modern-en/ch17/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9973799126637555
+ }
+]

@@ -1,0 +1,244 @@
+[
+ {
+  "key": "confessions/modern-en/ch1",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9899932386747803,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-12/out/confessions/modern-en/ch1/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9875591615956727,
+    "reasons": [
+     {
+      "paragraph": 32,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-12/out/confessions/modern-en/ch1/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9899932386747803
+ },
+ {
+  "key": "confessions/modern-en/ch13",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9907914582837184,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-12/out/confessions/modern-en/ch13/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9872191791696435,
+    "reasons": [
+     {
+      "paragraph": 52,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-12/out/confessions/modern-en/ch13/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9907914582837184
+ },
+ {
+  "key": "discourse-on-inequality/modern-en/ch2",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9987117552334943,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-12/out/discourse-on-inequality/modern-en/ch2/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9938808373590983,
+    "reasons": [
+     {
+      "paragraph": 15,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-12/out/discourse-on-inequality/modern-en/ch2/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9987117552334943
+ },
+ {
+  "key": "fear-and-trembling/modern-en/ch1",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9170267934312878,
+    "reasons": [
+     {
+      "paragraph": 1,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-12/out/fear-and-trembling/modern-en/ch1/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9118409680207433,
+    "reasons": [
+     {
+      "paragraph": 1,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 4,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-12/out/fear-and-trembling/modern-en/ch1/off/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "fear-and-trembling/modern-en/ch7",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9852293340243586,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-12/out/fear-and-trembling/modern-en/ch7/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9773257320549366,
+    "reasons": [
+     {
+      "paragraph": 45,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 67,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-12/out/fear-and-trembling/modern-en/ch7/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9852293340243586
+ },
+ {
+  "key": "genealogy-of-morals/modern-en/ch3",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9810682893847193,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-12/out/genealogy-of-morals/modern-en/ch3/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9759296822177147,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-12/out/genealogy-of-morals/modern-en/ch3/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9810682893847193
+ },
+ {
+  "key": "odyssey/modern-en/ch22",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9967221381744831,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-12/out/odyssey/modern-en/ch22/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9853756933938477,
+    "reasons": [
+     {
+      "paragraph": 7,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-12/out/odyssey/modern-en/ch22/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9967221381744831
+ },
+ {
+  "key": "odyssey/modern-en/ch8",
+  "arms": {
+   "auto": {
+    "status": "running",
+    "matchRatio": null,
+    "reasons": [],
+    "validationErrors": null,
+    "sidecar": null
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9798604187437687,
+    "reasons": [
+     {
+      "paragraph": 7,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-12/out/odyssey/modern-en/ch8/off/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ }
+]

@@ -298,7 +298,7 @@ def main() -> int:
     p.add_argument("--max-seconds", type=int, default=2100, help="trial.py worker cap")
     p.add_argument("--arms", default="off auto")
     p.add_argument("--compute-type", default="float16", choices=["float16", "int8"])
-    p.add_argument("--helper", default="v2", choices=["v1", "v2"],
+    p.add_argument("--helper", default="v3", choices=["v1", "v2", "v3"],
                    help="pinned helper revision the pod aligns with (PINS.md)")
     p.add_argument("--boot-timeout", type=int, default=900)
     p.add_argument("--deadline-minutes", type=float, default=44.0,

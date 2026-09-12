@@ -1,0 +1,123 @@
+[2026-09-12T15:37:15Z] created 3xm4zhpntotknx tinct-words-run3-45 gpu=None $0.49/hr
+[2026-09-12T15:37:16Z] waiting: pod RUNNING agent HTTP 404
+[2026-09-12T15:37:31Z] waiting: pod RUNNING agent HTTP 404
+[2026-09-12T15:37:48Z] phase cohort at 0.5 min; setup={"versions": {"faster-whisper": "1.2.1", "ctranslate2": "4.8.2", "av": "18.1.0"}, "commit": "c43ab3799d5b71c58b770ed22e1bd7bb9b2774cf", "model_tree_sha256": "f1fe271c349229677131d389a96d0a28062a6a2c2fee54a8ce119c43538315c5", "ld_library_path": "/usr/local/lib/python3.11/dist-packages/nvidia/cublas/l
+[2026-09-12T15:37:48Z] 0.5 min: cohort {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-12T15:38:18Z] 1.1 min: cohort {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-12T15:38:49Z] 1.6 min: cohort {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-12T15:39:19Z] 2.1 min: cohort {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-12T15:39:50Z] 2.6 min: cohort {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-12T15:40:20Z] 3.1 min: cohort {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-12T15:40:50Z] 3.6 min: cohort {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-12T15:41:21Z] 4.1 min: cohort {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-12T15:41:51Z] 4.6 min: cohort {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-12T15:42:21Z] 5.1 min: cohort {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-12T15:42:52Z] 5.6 min: cohort {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-12T15:43:22Z] 6.1 min: cohort {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-12T15:43:53Z] snapshot 40135 bytes
+[2026-09-12T15:43:53Z] phase aligning at 6.6 min; setup={"versions": {"faster-whisper": "1.2.1", "ctranslate2": "4.8.2", "av": "18.1.0"}, "commit": "c43ab3799d5b71c58b770ed22e1bd7bb9b2774cf", "model_tree_sha256": "f1fe271c349229677131d389a96d0a28062a6a2c2fee54a8ce119c43538315c5", "ld_library_path": "/usr/local/lib/python3.11/dist-packages/nvidia/cublas/l
+[2026-09-12T15:43:53Z] 6.6 min: aligning {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 1, "paragraph_diagnostics": 26}
+[2026-09-12T15:44:23Z] 7.1 min: aligning {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 1, "paragraph_diagnostics": 120}
+[2026-09-12T15:44:54Z] 7.6 min: aligning {"arm_chapters_passed": 0, "arm_chapters_rejected": 1, "arm_chapters_running": 1, "paragraph_diagnostics": 164}
+[2026-09-12T15:45:24Z] 8.1 min: aligning {"arm_chapters_passed": 0, "arm_chapters_rejected": 1, "arm_chapters_running": 1, "paragraph_diagnostics": 236}
+[2026-09-12T15:45:54Z] 8.7 min: aligning {"arm_chapters_passed": 1, "arm_chapters_rejected": 2, "arm_chapters_running": 1, "paragraph_diagnostics": 327}
+[2026-09-12T15:46:25Z] 9.2 min: aligning {"arm_chapters_passed": 2, "arm_chapters_rejected": 3, "arm_chapters_running": 1, "paragraph_diagnostics": 394}
+[2026-09-12T15:46:55Z] 9.7 min: aligning {"arm_chapters_passed": 3, "arm_chapters_rejected": 3, "arm_chapters_running": 1, "paragraph_diagnostics": 475}
+[2026-09-12T15:47:25Z] 10.2 min: aligning {"arm_chapters_passed": 3, "arm_chapters_rejected": 4, "arm_chapters_running": 1, "paragraph_diagnostics": 545}
+[2026-09-12T15:47:57Z] snapshot 1000382 bytes
+[2026-09-12T15:47:57Z] 10.7 min: aligning {"arm_chapters_passed": 3, "arm_chapters_rejected": 4, "arm_chapters_running": 1, "paragraph_diagnostics": 594}
+[2026-09-12T15:48:28Z] 11.2 min: aligning {"arm_chapters_passed": 3, "arm_chapters_rejected": 4, "arm_chapters_running": 1, "paragraph_diagnostics": 638}
+[2026-09-12T15:48:58Z] 11.7 min: aligning {"arm_chapters_passed": 4, "arm_chapters_rejected": 7, "arm_chapters_running": 1, "paragraph_diagnostics": 700}
+[2026-09-12T15:49:28Z] 12.2 min: aligning {"arm_chapters_passed": 5, "arm_chapters_rejected": 7, "arm_chapters_running": 1, "paragraph_diagnostics": 792}
+[2026-09-12T15:49:59Z] 12.7 min: aligning {"arm_chapters_passed": 5, "arm_chapters_rejected": 8, "arm_chapters_running": 1, "paragraph_diagnostics": 879}
+[2026-09-12T15:50:29Z] 13.2 min: aligning {"arm_chapters_passed": 5, "arm_chapters_rejected": 8, "arm_chapters_running": 1, "paragraph_diagnostics": 924}
+[2026-09-12T15:50:59Z] 13.7 min: aligning {"arm_chapters_passed": 5, "arm_chapters_rejected": 8, "arm_chapters_running": 1, "paragraph_diagnostics": 986}
+[2026-09-12T15:51:30Z] 14.2 min: aligning {"arm_chapters_passed": 6, "arm_chapters_rejected": 9, "arm_chapters_running": 1, "paragraph_diagnostics": 1067}
+[2026-09-12T15:52:03Z] snapshot 2005306 bytes
+[2026-09-12T15:52:03Z] 14.8 min: aligning {"arm_chapters_passed": 7, "arm_chapters_rejected": 9, "arm_chapters_running": 1, "paragraph_diagnostics": 1163}
+[2026-09-12T15:52:34Z] 15.3 min: aligning {"arm_chapters_passed": 7, "arm_chapters_rejected": 10, "arm_chapters_running": 1, "paragraph_diagnostics": 1232}
+[2026-09-12T15:53:04Z] 15.8 min: aligning {"arm_chapters_passed": 7, "arm_chapters_rejected": 10, "arm_chapters_running": 1, "paragraph_diagnostics": 1273}
+[2026-09-12T15:53:35Z] 16.3 min: aligning {"arm_chapters_passed": 8, "arm_chapters_rejected": 10, "arm_chapters_running": 1, "paragraph_diagnostics": 1313}
+[2026-09-12T15:54:05Z] 16.8 min: aligning {"arm_chapters_passed": 9, "arm_chapters_rejected": 11, "arm_chapters_running": 1, "paragraph_diagnostics": 1399}
+[2026-09-12T15:54:35Z] 17.3 min: aligning {"arm_chapters_passed": 9, "arm_chapters_rejected": 12, "arm_chapters_running": 1, "paragraph_diagnostics": 1479}
+[2026-09-12T15:55:06Z] 17.8 min: aligning {"arm_chapters_passed": 10, "arm_chapters_rejected": 13, "arm_chapters_running": 1, "paragraph_diagnostics": 1568}
+[2026-09-12T15:55:36Z] 18.3 min: aligning {"arm_chapters_passed": 11, "arm_chapters_rejected": 13, "arm_chapters_running": 1, "paragraph_diagnostics": 1646}
+[2026-09-12T15:56:10Z] snapshot 2978751 bytes
+[2026-09-12T15:56:10Z] 18.9 min: aligning {"arm_chapters_passed": 11, "arm_chapters_rejected": 14, "arm_chapters_running": 1, "paragraph_diagnostics": 1730}
+[2026-09-12T15:56:41Z] 19.4 min: aligning {"arm_chapters_passed": 11, "arm_chapters_rejected": 15, "arm_chapters_running": 1, "paragraph_diagnostics": 1801}
+[2026-09-12T15:57:11Z] 19.9 min: aligning {"arm_chapters_passed": 11, "arm_chapters_rejected": 18, "arm_chapters_running": 1, "paragraph_diagnostics": 1877}
+[2026-09-12T15:57:42Z] 20.4 min: aligning {"arm_chapters_passed": 12, "arm_chapters_rejected": 18, "arm_chapters_running": 1, "paragraph_diagnostics": 1981}
+[2026-09-12T15:58:12Z] 21.0 min: aligning {"arm_chapters_passed": 12, "arm_chapters_rejected": 19, "arm_chapters_running": 1, "paragraph_diagnostics": 2080}
+[2026-09-12T15:58:43Z] 21.5 min: aligning {"arm_chapters_passed": 12, "arm_chapters_rejected": 19, "arm_chapters_running": 1, "paragraph_diagnostics": 2139}
+[2026-09-12T15:59:13Z] 22.0 min: aligning {"arm_chapters_passed": 12, "arm_chapters_rejected": 19, "arm_chapters_running": 1, "paragraph_diagnostics": 2192}
+[2026-09-12T15:59:43Z] 22.5 min: aligning {"arm_chapters_passed": 12, "arm_chapters_rejected": 19, "arm_chapters_running": 1, "paragraph_diagnostics": 2264}
+[2026-09-12T16:00:20Z] snapshot 4020916 bytes
+[2026-09-12T16:00:20Z] 23.0 min: aligning {"arm_chapters_passed": 14, "arm_chapters_rejected": 20, "arm_chapters_running": 1, "paragraph_diagnostics": 2356}
+[2026-09-12T16:00:50Z] 23.6 min: aligning {"arm_chapters_passed": 14, "arm_chapters_rejected": 21, "arm_chapters_running": 1, "paragraph_diagnostics": 2459}
+[2026-09-12T16:01:21Z] 24.1 min: aligning {"arm_chapters_passed": 15, "arm_chapters_rejected": 21, "arm_chapters_running": 1, "paragraph_diagnostics": 2556}
+[2026-09-12T16:01:51Z] 24.6 min: aligning {"arm_chapters_passed": 15, "arm_chapters_rejected": 22, "arm_chapters_running": 1, "paragraph_diagnostics": 2650}
+[2026-09-12T16:02:21Z] 25.1 min: aligning {"arm_chapters_passed": 15, "arm_chapters_rejected": 22, "arm_chapters_running": 1, "paragraph_diagnostics": 2704}
+[2026-09-12T16:02:52Z] 25.6 min: aligning {"arm_chapters_passed": 15, "arm_chapters_rejected": 22, "arm_chapters_running": 1, "paragraph_diagnostics": 2764}
+[2026-09-12T16:03:22Z] phase done at 26.1 min; setup={"versions": {"faster-whisper": "1.2.1", "ctranslate2": "4.8.2", "av": "18.1.0"}, "commit": "c43ab3799d5b71c58b770ed22e1bd7bb9b2774cf", "model_tree_sha256": "f1fe271c349229677131d389a96d0a28062a6a2c2fee54a8ce119c43538315c5", "ld_library_path": "/usr/local/lib/python3.11/dist-packages/nvidia/cublas/l
+[2026-09-12T16:03:22Z] 26.1 min: done {"arm_chapters_passed": 15, "arm_chapters_rejected": 23, "arm_chapters_running": 0, "paragraph_diagnostics": 2798}
+[2026-09-12T16:03:30Z] fetched out.tar.gz (4763615 bytes)
+Traceback (most recent call last):
+  File "/usr/lib/python3.11/urllib/request.py", line 1348, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "/usr/lib/python3.11/http/client.py", line 1323, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3.11/http/client.py", line 1369, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.11/http/client.py", line 1318, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.11/http/client.py", line 1078, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.11/http/client.py", line 1016, in send
+    self.connect()
+  File "/usr/lib/python3.11/http/client.py", line 1495, in connect
+    self.sock = self._context.wrap_socket(self.sock,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/ssl.py", line 517, in wrap_socket
+    return self.sslsocket_class._create(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/ssl.py", line 1104, in _create
+    self.do_handshake()
+  File "/usr/lib/python3.11/ssl.py", line 1382, in do_handshake
+    self._sslobj.do_handshake()
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/user/tinct/tools/audio-highlight/gpu/orchestrate.py", line 322, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/home/user/tinct/tools/audio-highlight/gpu/orchestrate.py", line 314, in main
+    return run(args)
+           ^^^^^^^^^
+  File "/home/user/tinct/tools/audio-highlight/gpu/orchestrate.py", line 280, in run
+    stop_and_terminate(pod_id, sink, record)
+  File "/home/user/tinct/tools/audio-highlight/gpu/orchestrate.py", line 134, in stop_and_terminate
+    status, body = api("POST", f"/pods/{pod_id}/stop")
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/tinct/tools/audio-highlight/gpu/orchestrate.py", line 69, in api
+    with urllib.request.urlopen(request, timeout=60) as response:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/urllib/request.py", line 216, in urlopen
+    return opener.open(url, data, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/urllib/request.py", line 519, in open
+    response = self._open(req, data)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/urllib/request.py", line 536, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/urllib/request.py", line 496, in _call_chain
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "/usr/lib/python3.11/urllib/request.py", line 1391, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/urllib/request.py", line 1351, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [Errno 104] Connection reset by peer>

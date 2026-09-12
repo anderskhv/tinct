@@ -1,0 +1,2844 @@
+[
+ {
+  "key": "antony-and-cleopatra/modern-en/ch25",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9983136593591906,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/antony-and-cleopatra/modern-en/ch25/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9612141652613828,
+    "reasons": [
+     {
+      "paragraph": 0,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 1,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 2,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 8,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 20,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 23,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 25,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 32,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 35,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 38,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 41,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 45,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 48,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 55,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 57,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 65,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 71,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 86,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/antony-and-cleopatra/modern-en/ch25/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9983136593591906
+ },
+ {
+  "key": "antony-and-cleopatra/modern-en/ch27",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9977064220183486,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/antony-and-cleopatra/modern-en/ch27/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.963302752293578,
+    "reasons": [
+     {
+      "paragraph": 0,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 2,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 12,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 20,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/antony-and-cleopatra/modern-en/ch27/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9977064220183486
+ },
+ {
+  "key": "antony-and-cleopatra/modern-en/ch28",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9959514170040485,
+    "reasons": [
+     {
+      "paragraph": 26,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/antony-and-cleopatra/modern-en/ch28/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9757085020242915,
+    "reasons": [
+     {
+      "paragraph": 13,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 26,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/antony-and-cleopatra/modern-en/ch28/off/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "antony-and-cleopatra/modern-en/ch29",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9945205479452055,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/antony-and-cleopatra/modern-en/ch29/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9753424657534246,
+    "reasons": [
+     {
+      "paragraph": 21,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/antony-and-cleopatra/modern-en/ch29/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9945205479452055
+ },
+ {
+  "key": "antony-and-cleopatra/modern-en/ch31",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9938461538461538,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/antony-and-cleopatra/modern-en/ch31/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.96,
+    "reasons": [
+     {
+      "paragraph": 0,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 12,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/antony-and-cleopatra/modern-en/ch31/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9938461538461538
+ },
+ {
+  "key": "antony-and-cleopatra/modern-en/ch32",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/antony-and-cleopatra/modern-en/ch32/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.927710843373494,
+    "reasons": [
+     {
+      "paragraph": 3,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 14,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/antony-and-cleopatra/modern-en/ch32/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "antony-and-cleopatra/modern-en/ch33",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9913294797687862,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/antony-and-cleopatra/modern-en/ch33/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9624277456647399,
+    "reasons": [
+     {
+      "paragraph": 3,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/antony-and-cleopatra/modern-en/ch33/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9913294797687862
+ },
+ {
+  "key": "antony-and-cleopatra/modern-en/ch34",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9837133550488599,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/antony-and-cleopatra/modern-en/ch34/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9478827361563518,
+    "reasons": [
+     {
+      "paragraph": 3,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 7,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 16,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 22,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/antony-and-cleopatra/modern-en/ch34/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9837133550488599
+ },
+ {
+  "key": "antony-and-cleopatra/modern-en/ch35",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/antony-and-cleopatra/modern-en/ch35/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9325842696629213,
+    "reasons": [
+     {
+      "paragraph": 2,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/antony-and-cleopatra/modern-en/ch35/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "antony-and-cleopatra/modern-en/ch37",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9866962305986696,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/antony-and-cleopatra/modern-en/ch37/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9379157427937915,
+    "reasons": [
+     {
+      "paragraph": 0,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/antony-and-cleopatra/modern-en/ch37/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9866962305986696
+ },
+ {
+  "key": "antony-and-cleopatra/modern-en/ch38",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/antony-and-cleopatra/modern-en/ch38/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9504950495049505,
+    "reasons": [
+     {
+      "paragraph": 0,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/antony-and-cleopatra/modern-en/ch38/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "antony-and-cleopatra/modern-en/ch39",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9954093343534812,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/antony-and-cleopatra/modern-en/ch39/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9571537872991583,
+    "reasons": [
+     {
+      "paragraph": 2,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 4,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 8,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 14,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 16,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 30,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 55,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 56,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 57,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 59,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 63,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 70,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 73,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/antony-and-cleopatra/modern-en/ch39/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9954093343534812
+ },
+ {
+  "key": "antony-and-cleopatra/modern-en/ch40",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9987405541561712,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/antony-and-cleopatra/modern-en/ch40/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9534005037783375,
+    "reasons": [
+     {
+      "paragraph": 4,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 7,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 13,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 28,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 32,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 33,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 35,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 37,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/antony-and-cleopatra/modern-en/ch40/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9987405541561712
+ },
+ {
+  "key": "antony-and-cleopatra/modern-en/ch41",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/antony-and-cleopatra/modern-en/ch41/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9588235294117647,
+    "reasons": [
+     {
+      "paragraph": 0,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 2,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 8,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 24,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 25,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 28,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 29,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/antony-and-cleopatra/modern-en/ch41/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "antony-and-cleopatra/modern-en/ch42",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9953860350661335,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/antony-and-cleopatra/modern-en/ch42/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9510919717010151,
+    "reasons": [
+     {
+      "paragraph": 0,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 2,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 5,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 13,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 16,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 22,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 25,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 27,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 31,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 34,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 36,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 38,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 40,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 42,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 44,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 50,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 53,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 54,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 56,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 57,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 90,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 91,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 94,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 97,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 99,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 101,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 103,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 104,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 109,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 114,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 117,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 119,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 129,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 140,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 146,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 150,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 156,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 166,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 167,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 174,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 176,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 182,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/antony-and-cleopatra/modern-en/ch42/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9953860350661335
+ },
+ {
+  "key": "around-the-world-80-days/modern-en/ch1",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9915552427867699,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/around-the-world-80-days/modern-en/ch1/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9641097818437719,
+    "reasons": [
+     {
+      "paragraph": 2,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 12,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/around-the-world-80-days/modern-en/ch1/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9915552427867699
+ },
+ {
+  "key": "around-the-world-80-days/modern-en/ch10",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9974042829331603,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/around-the-world-80-days/modern-en/ch10/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9630110317975341,
+    "reasons": [
+     {
+      "paragraph": 13,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/around-the-world-80-days/modern-en/ch10/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9974042829331603
+ },
+ {
+  "key": "around-the-world-80-days/modern-en/ch11",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9936356404136834,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/around-the-world-80-days/modern-en/ch11/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9618138424821002,
+    "reasons": [
+     {
+      "paragraph": 3,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 16,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 19,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 20,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 38,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/around-the-world-80-days/modern-en/ch11/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9936356404136834
+ },
+ {
+  "key": "around-the-world-80-days/modern-en/ch12",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9956917185256103,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/around-the-world-80-days/modern-en/ch12/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9664911440880805,
+    "reasons": [
+     {
+      "paragraph": 3,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 11,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 19,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 46,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/around-the-world-80-days/modern-en/ch12/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9956917185256103
+ },
+ {
+  "key": "around-the-world-80-days/modern-en/ch14",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9952456418383518,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/around-the-world-80-days/modern-en/ch14/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9572107765451664,
+    "reasons": [
+     {
+      "paragraph": 2,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 7,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/around-the-world-80-days/modern-en/ch14/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9952456418383518
+ },
+ {
+  "key": "around-the-world-80-days/modern-en/ch15",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9994535519125683,
+    "reasons": [
+     {
+      "paragraph": 28,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/around-the-world-80-days/modern-en/ch15/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9612021857923497,
+    "reasons": [
+     {
+      "paragraph": 26,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 28,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 29,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 48,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 49,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 60,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/around-the-world-80-days/modern-en/ch15/off/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "around-the-world-80-days/modern-en/ch17",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.992375366568915,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/around-the-world-80-days/modern-en/ch17/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.963049853372434,
+    "reasons": [
+     {
+      "paragraph": 28,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/around-the-world-80-days/modern-en/ch17/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.992375366568915
+ },
+ {
+  "key": "around-the-world-80-days/modern-en/ch19",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.009760858955588092,
+    "reasons": [
+     {
+      "paragraph": 0,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 1,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 2,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 3,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 4,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 5,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 7,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 8,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 9,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 10,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 11,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 12,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 13,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 14,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 15,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 16,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 17,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 18,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 19,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 20,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 21,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 22,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 23,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 24,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 25,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 26,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 27,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 28,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 29,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 30,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 31,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 32,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 33,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 34,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 35,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 36,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 37,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 38,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 39,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 40,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 41,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 42,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 43,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 44,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 45,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 46,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 47,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 48,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 49,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 50,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 51,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 52,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 53,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 54,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 55,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 56,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 57,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 58,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 59,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 60,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 61,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 62,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 63,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 64,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 65,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 66,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 67,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 68,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 69,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 70,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     }
+    ],
+    "validationErrors": [
+     "paragraph 0: words missing or empty",
+     "paragraph 1: words missing or empty",
+     "paragraph 2: words missing or empty",
+     "paragraph 3: words missing or empty",
+     "paragraph 4: words missing or empty",
+     "paragraph 5: words missing or empty",
+     "paragraph 7: words missing or empty",
+     "paragraph 8: words missing or empty",
+     "paragraph 9: words missing or empty",
+     "paragraph 10: words missing or empty",
+     "paragraph 11: words missing or empty",
+     "paragraph 12: words missing or empty",
+     "paragraph 13: words missing or empty",
+     "paragraph 14: words missing or empty",
+     "paragraph 15: words missing or empty",
+     "paragraph 16: words missing or empty",
+     "paragraph 17: words missing or empty",
+     "paragraph 18: words missing or empty",
+     "paragraph 19: words missing or empty",
+     "paragraph 20: words missing or empty",
+     "paragraph 21: words missing or empty",
+     "paragraph 22: words missing or empty",
+     "paragraph 23: words missing or empty",
+     "paragraph 24: words missing or empty",
+     "paragraph 25: words missing or empty",
+     "paragraph 26: words missing or empty",
+     "paragraph 27: words missing or empty",
+     "paragraph 28: words missing or empty",
+     "paragraph 29: words missing or empty",
+     "paragraph 30: words missing or empty",
+     "paragraph 31: words missing or empty",
+     "paragraph 32: words missing or empty",
+     "paragraph 33: words missing or empty",
+     "paragraph 34: words missing or empty",
+     "paragraph 35: words missing or empty",
+     "paragraph 36: words missing or empty",
+     "paragraph 37: words missing or empty",
+     "paragraph 38: words missing or empty",
+     "paragraph 39: words missing or empty",
+     "paragraph 40: words missing or empty",
+     "paragraph 41: words missing or empty",
+     "paragraph 42: words missing or empty",
+     "paragraph 43: words missing or empty",
+     "paragraph 44: words missing or empty",
+     "paragraph 45: words missing or empty",
+     "paragraph 46: words missing or empty",
+     "paragraph 47: words missing or empty",
+     "paragraph 48: words missing or empty",
+     "paragraph 49: words missing or empty",
+     "paragraph 50: words missing or empty",
+     "paragraph 51: words missing or empty",
+     "paragraph 52: words missing or empty",
+     "paragraph 53: words missing or empty",
+     "paragraph 54: words missing or empty",
+     "paragraph 55: words missing or empty",
+     "paragraph 56: words missing or empty",
+     "paragraph 57: words missing or empty",
+     "paragraph 58: words missing or empty",
+     "paragraph 59: words missing or empty",
+     "paragraph 60: words missing or empty",
+     "paragraph 61: words missing or empty",
+     "paragraph 62: words missing or empty",
+     "paragraph 63: words missing or empty",
+     "paragraph 64: words missing or empty",
+     "paragraph 65: words missing or empty",
+     "paragraph 66: words missing or empty",
+     "paragraph 67: words missing or empty",
+     "paragraph 68: words missing or empty",
+     "paragraph 69: words missing or empty",
+     "paragraph 70: words missing or empty"
+    ],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/around-the-world-80-days/modern-en/ch19/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.008784773060029283,
+    "reasons": [
+     {
+      "paragraph": 0,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 1,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 2,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 3,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 4,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 5,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 7,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 8,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 9,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 10,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 11,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 12,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 13,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 14,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 15,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 16,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 17,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 18,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 19,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 20,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 21,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 22,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 23,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 24,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 25,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 26,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 27,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 28,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 29,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 30,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 31,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 32,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 33,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 34,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 35,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 36,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 37,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 38,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 39,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 40,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 41,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 42,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 43,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 44,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 45,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 46,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 47,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 48,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 49,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 50,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 51,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 52,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 53,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 54,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 55,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 56,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 57,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 58,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 59,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 60,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 61,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 62,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 63,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 64,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 65,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 66,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 67,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 68,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 69,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 70,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     }
+    ],
+    "validationErrors": [
+     "paragraph 0: words missing or empty",
+     "paragraph 1: words missing or empty",
+     "paragraph 2: words missing or empty",
+     "paragraph 3: words missing or empty",
+     "paragraph 4: words missing or empty",
+     "paragraph 5: words missing or empty",
+     "paragraph 7: words missing or empty",
+     "paragraph 8: words missing or empty",
+     "paragraph 9: words missing or empty",
+     "paragraph 10: words missing or empty",
+     "paragraph 11: words missing or empty",
+     "paragraph 12: words missing or empty",
+     "paragraph 13: words missing or empty",
+     "paragraph 14: words missing or empty",
+     "paragraph 15: words missing or empty",
+     "paragraph 16: words missing or empty",
+     "paragraph 17: words missing or empty",
+     "paragraph 18: words missing or empty",
+     "paragraph 19: words missing or empty",
+     "paragraph 20: words missing or empty",
+     "paragraph 21: words missing or empty",
+     "paragraph 22: words missing or empty",
+     "paragraph 23: words missing or empty",
+     "paragraph 24: words missing or empty",
+     "paragraph 25: words missing or empty",
+     "paragraph 26: words missing or empty",
+     "paragraph 27: words missing or empty",
+     "paragraph 28: words missing or empty",
+     "paragraph 29: words missing or empty",
+     "paragraph 30: words missing or empty",
+     "paragraph 31: words missing or empty",
+     "paragraph 32: words missing or empty",
+     "paragraph 33: words missing or empty",
+     "paragraph 34: words missing or empty",
+     "paragraph 35: words missing or empty",
+     "paragraph 36: words missing or empty",
+     "paragraph 37: words missing or empty",
+     "paragraph 38: words missing or empty",
+     "paragraph 39: words missing or empty",
+     "paragraph 40: words missing or empty",
+     "paragraph 41: words missing or empty",
+     "paragraph 42: words missing or empty",
+     "paragraph 43: words missing or empty",
+     "paragraph 44: words missing or empty",
+     "paragraph 45: words missing or empty",
+     "paragraph 46: words missing or empty",
+     "paragraph 47: words missing or empty",
+     "paragraph 48: words missing or empty",
+     "paragraph 49: words missing or empty",
+     "paragraph 50: words missing or empty",
+     "paragraph 51: words missing or empty",
+     "paragraph 52: words missing or empty",
+     "paragraph 53: words missing or empty",
+     "paragraph 54: words missing or empty",
+     "paragraph 55: words missing or empty",
+     "paragraph 56: words missing or empty",
+     "paragraph 57: words missing or empty",
+     "paragraph 58: words missing or empty",
+     "paragraph 59: words missing or empty",
+     "paragraph 60: words missing or empty",
+     "paragraph 61: words missing or empty",
+     "paragraph 62: words missing or empty",
+     "paragraph 63: words missing or empty",
+     "paragraph 64: words missing or empty",
+     "paragraph 65: words missing or empty",
+     "paragraph 66: words missing or empty",
+     "paragraph 67: words missing or empty",
+     "paragraph 68: words missing or empty",
+     "paragraph 69: words missing or empty",
+     "paragraph 70: words missing or empty"
+    ],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/around-the-world-80-days/modern-en/ch19/off/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "around-the-world-80-days/modern-en/ch20",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9982404692082112,
+    "reasons": [
+     {
+      "paragraph": 41,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/around-the-world-80-days/modern-en/ch20/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9607038123167155,
+    "reasons": [
+     {
+      "paragraph": 24,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 39,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 41,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 58,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 61,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 62,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/around-the-world-80-days/modern-en/ch20/off/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "around-the-world-80-days/modern-en/ch3",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9873417721518988,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/around-the-world-80-days/modern-en/ch3/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9529113924050633,
+    "reasons": [
+     {
+      "paragraph": 15,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 19,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 23,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 27,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 29,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 33,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 45,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 49,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 52,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 61,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/around-the-world-80-days/modern-en/ch3/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9873417721518988
+ },
+ {
+  "key": "around-the-world-80-days/modern-en/ch4",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9968586387434555,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/around-the-world-80-days/modern-en/ch4/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.956020942408377,
+    "reasons": [
+     {
+      "paragraph": 5,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 13,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 23,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 39,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 42,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/around-the-world-80-days/modern-en/ch4/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9968586387434555
+ },
+ {
+  "key": "around-the-world-80-days/modern-en/ch5",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9945593035908596,
+    "reasons": [
+     {
+      "paragraph": 9,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/around-the-world-80-days/modern-en/ch5/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.969532100108814,
+    "reasons": [
+     {
+      "paragraph": 9,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/around-the-world-80-days/modern-en/ch5/off/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "around-the-world-80-days/modern-en/ch6",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9906103286384976,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/around-the-world-80-days/modern-en/ch6/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9702660406885759,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/around-the-world-80-days/modern-en/ch6/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9906103286384976
+ },
+ {
+  "key": "around-the-world-80-days/modern-en/ch7",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9867724867724867,
+    "reasons": [
+     {
+      "paragraph": 31,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 33,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/around-the-world-80-days/modern-en/ch7/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9457671957671958,
+    "reasons": [
+     {
+      "paragraph": 4,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 9,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 10,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 13,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 30,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 31,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 32,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 33,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 36,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/around-the-world-80-days/modern-en/ch7/off/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "around-the-world-80-days/modern-en/ch8",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/around-the-world-80-days/modern-en/ch8/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9710550887021475,
+    "reasons": [
+     {
+      "paragraph": 29,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 52,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/around-the-world-80-days/modern-en/ch8/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "around-the-world-80-days/modern-en/ch9",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9811074918566776,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/around-the-world-80-days/modern-en/ch9/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.962214983713355,
+    "reasons": [
+     {
+      "paragraph": 7,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-53/out/around-the-world-80-days/modern-en/ch9/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9811074918566776
+ }
+]
