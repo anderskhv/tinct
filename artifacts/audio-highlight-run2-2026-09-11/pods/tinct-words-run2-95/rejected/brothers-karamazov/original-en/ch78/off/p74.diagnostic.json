@@ -1,0 +1,614 @@
+{
+  "complete": true,
+  "signature": "2efcac24dc224c2dd9c24e3d831f0d58854b3adeff00ef27e1e29b8ee3a24917",
+  "attempts": [
+    {
+      "asr_seconds": 0.21278715506196022,
+      "alignment_seconds": 0.000394526869058609,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Not in the slightest. I have an a hundredth part of a grain of faith in you",
+          "start": 0.05,
+          "end": 4.39,
+          "words": [
+            {
+              "text": " Not",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.79833984375
+            },
+            {
+              "text": " in",
+              "start": 0.63,
+              "end": 0.75,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " the",
+              "start": 0.75,
+              "end": 0.87,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " slightest.",
+              "start": 0.87,
+              "end": 1.31,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " I",
+              "start": 1.83,
+              "end": 1.99,
+              "probability": 0.9921875
+            },
+            {
+              "text": " have",
+              "start": 1.99,
+              "end": 2.15,
+              "probability": 0.58837890625
+            },
+            {
+              "text": " an",
+              "start": 2.15,
+              "end": 2.27,
+              "probability": 0.6337890625
+            },
+            {
+              "text": " a",
+              "start": 2.27,
+              "end": 2.37,
+              "probability": 0.494384765625
+            },
+            {
+              "text": " hundredth",
+              "start": 2.37,
+              "end": 2.83,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " part",
+              "start": 2.83,
+              "end": 2.99,
+              "probability": 0.99609375
+            },
+            {
+              "text": " of",
+              "start": 2.99,
+              "end": 3.15,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " a",
+              "start": 3.15,
+              "end": 3.25,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " grain",
+              "start": 3.25,
+              "end": 3.47,
+              "probability": 0.9921875
+            },
+            {
+              "text": " of",
+              "start": 3.47,
+              "end": 3.67,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " faith",
+              "start": 3.67,
+              "end": 3.89,
+              "probability": 0.97265625
+            },
+            {
+              "text": " in",
+              "start": 3.89,
+              "end": 4.13,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you",
+              "start": 4.13,
+              "end": 4.39,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Not",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "in",
+          "start": 0.63,
+          "end": 0.75
+        },
+        {
+          "raw": "the",
+          "start": 0.75,
+          "end": 0.87
+        },
+        {
+          "raw": "slightest.",
+          "start": 0.87,
+          "end": 1.31
+        },
+        {
+          "raw": "I",
+          "start": 1.83,
+          "end": 1.99
+        },
+        {
+          "raw": "have",
+          "start": 1.99,
+          "end": 2.15
+        },
+        {
+          "raw": "an",
+          "start": 2.15,
+          "end": 2.27
+        },
+        {
+          "raw": "a",
+          "start": 2.27,
+          "end": 2.37
+        },
+        {
+          "raw": "hundredth",
+          "start": 2.37,
+          "end": 2.83
+        },
+        {
+          "raw": "part",
+          "start": 2.83,
+          "end": 2.99
+        },
+        {
+          "raw": "of",
+          "start": 2.99,
+          "end": 3.15
+        },
+        {
+          "raw": "a",
+          "start": 3.15,
+          "end": 3.25
+        },
+        {
+          "raw": "grain",
+          "start": 3.25,
+          "end": 3.47
+        },
+        {
+          "raw": "of",
+          "start": 3.47,
+          "end": 3.67
+        },
+        {
+          "raw": "faith",
+          "start": 3.67,
+          "end": 3.89
+        },
+        {
+          "raw": "in",
+          "start": 3.89,
+          "end": 4.13
+        },
+        {
+          "raw": "you",
+          "start": 4.13,
+          "end": 4.39
+        }
+      ],
+      "expected_tokens": [
+        "\"Not",
+        "in",
+        "the",
+        "slightest!",
+        "I",
+        "haven't",
+        "a",
+        "hundredth",
+        "part",
+        "of",
+        "a",
+        "grain",
+        "of",
+        "faith",
+        "in",
+        "you!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ],
+        [
+          "equal",
+          6,
+          16,
+          7,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Not",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "not",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.63,
+          "end": 0.75,
+          "key": "in",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.75,
+          "end": 0.87,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "slightest.",
+          "start": 0.87,
+          "end": 1.31,
+          "key": "slightest",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.83,
+          "end": 1.99,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.99,
+          "end": 2.15,
+          "key": "have",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 2.15,
+          "end": 2.27,
+          "key": "an",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.27,
+          "end": 2.37,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hundredth",
+          "start": 2.37,
+          "end": 2.83,
+          "key": "hundredth",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "part",
+          "start": 2.83,
+          "end": 2.99,
+          "key": "part",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.99,
+          "end": 3.15,
+          "key": "of",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.15,
+          "end": 3.25,
+          "key": "a",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "grain",
+          "start": 3.25,
+          "end": 3.47,
+          "key": "grain",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.47,
+          "end": 3.67,
+          "key": "of",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "faith",
+          "start": 3.67,
+          "end": 3.89,
+          "key": "faith",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.89,
+          "end": 4.13,
+          "key": "in",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.13,
+          "end": 4.39,
+          "key": "you",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Not",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "in",
+          "start": 0.63,
+          "end": 0.75
+        },
+        {
+          "text": "the",
+          "start": 0.75,
+          "end": 0.87
+        },
+        {
+          "text": "slightest!",
+          "start": 0.87,
+          "end": 1.31
+        },
+        {
+          "text": "I",
+          "start": 1.83,
+          "end": 1.99
+        },
+        {
+          "text": "haven't",
+          "start": 1.99,
+          "end": 2.13
+        },
+        {
+          "text": "a",
+          "start": 2.27,
+          "end": 2.37
+        },
+        {
+          "text": "hundredth",
+          "start": 2.37,
+          "end": 2.83
+        },
+        {
+          "text": "part",
+          "start": 2.83,
+          "end": 2.99
+        },
+        {
+          "text": "of",
+          "start": 2.99,
+          "end": 3.15
+        },
+        {
+          "text": "a",
+          "start": 3.15,
+          "end": 3.25
+        },
+        {
+          "text": "grain",
+          "start": 3.25,
+          "end": 3.47
+        },
+        {
+          "text": "of",
+          "start": 3.47,
+          "end": 3.67
+        },
+        {
+          "text": "faith",
+          "start": 3.67,
+          "end": 3.89
+        },
+        {
+          "text": "in",
+          "start": 3.89,
+          "end": 4.13
+        },
+        {
+          "text": "you!\"",
+          "start": 4.13,
+          "end": 4.39
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 17,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.21334418654441833
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f09a7e8d007ac4eb441d379875ea9d9e6b79f63f581d743f8488babb834ba55c",
+  "selected_reasons": []
+}

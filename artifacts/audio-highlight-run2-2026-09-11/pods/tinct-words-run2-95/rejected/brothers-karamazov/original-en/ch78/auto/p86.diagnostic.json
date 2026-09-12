@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "95bd7114f7178eb1bda854b341dba7eb4ed91f53e08bdb0ee88161581a887c8e",
+  "attempts": [
+    {
+      "asr_seconds": 0.17296072095632553,
+      "alignment_seconds": 0.0001456029713153839,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Fool, how stupid!\" cried Ivan.",
+        "hotwords": "Fool, Ivan"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Fool, how stupid! cried Ivan.",
+          "start": 0.11,
+          "end": 2.27,
+          "words": [
+            {
+              "text": " Fool,",
+              "start": 0.11,
+              "end": 0.67,
+              "probability": 0.4248046875
+            },
+            {
+              "text": " how",
+              "start": 0.83,
+              "end": 0.91,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " stupid!",
+              "start": 0.91,
+              "end": 1.37,
+              "probability": 0.998046875
+            },
+            {
+              "text": " cried",
+              "start": 1.95,
+              "end": 1.95,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " Ivan.",
+              "start": 1.95,
+              "end": 2.27,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fool,",
+          "start": 0.11,
+          "end": 0.67
+        },
+        {
+          "raw": "how",
+          "start": 0.83,
+          "end": 0.91
+        },
+        {
+          "raw": "stupid!",
+          "start": 0.91,
+          "end": 1.37
+        },
+        {
+          "raw": "cried",
+          "start": 1.95,
+          "end": 1.95
+        },
+        {
+          "raw": "Ivan.",
+          "start": 1.95,
+          "end": 2.27
+        }
+      ],
+      "expected_tokens": [
+        "\"Fool,",
+        "how",
+        "stupid!\"",
+        "cried",
+        "Ivan."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fool,",
+          "start": 0.11,
+          "end": 0.67,
+          "key": "fool",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 0.83,
+          "end": 0.91,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "stupid!",
+          "start": 0.91,
+          "end": 1.37,
+          "key": "stupid",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 1.95,
+          "end": 1.95,
+          "key": "cried",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Ivan.",
+          "start": 1.95,
+          "end": 2.27,
+          "key": "ivan",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Fool,",
+          "start": 0.11,
+          "end": 0.67
+        },
+        {
+          "text": "how",
+          "start": 0.83,
+          "end": 0.91
+        },
+        {
+          "text": "stupid!\"",
+          "start": 0.91,
+          "end": 1.37
+        },
+        {
+          "text": "cried",
+          "start": 1.95,
+          "end": 1.95
+        },
+        {
+          "text": "Ivan.",
+          "start": 1.95,
+          "end": 2.27
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17315718159079552
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ceb1268667768b8315a0010192ae96e5d886a7b9aa1305adbc45d26af3a69515",
+  "selected_reasons": []
+}

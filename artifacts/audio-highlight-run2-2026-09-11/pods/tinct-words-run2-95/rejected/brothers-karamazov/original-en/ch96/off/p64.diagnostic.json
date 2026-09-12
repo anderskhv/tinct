@@ -1,0 +1,732 @@
+{
+  "complete": true,
+  "signature": "a77ead2360ffca1fdd9d3dcbd61bef41ca525bbb8acf21ab9db98749f854160b",
+  "attempts": [
+    {
+      "asr_seconds": 0.33231598511338234,
+      "alignment_seconds": 0.0005757808685302734,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ah, children. Ah, dear friends, don't be afraid of life. How good life is when one does something good and just.",
+          "start": 0.27,
+          "end": 6.87,
+          "words": [
+            {
+              "text": " Ah,",
+              "start": 0.27,
+              "end": 0.69,
+              "probability": 0.68896484375
+            },
+            {
+              "text": " children.",
+              "start": 0.91,
+              "end": 1.05,
+              "probability": 0.9052734375
+            },
+            {
+              "text": " Ah,",
+              "start": 1.85,
+              "end": 1.97,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " dear",
+              "start": 2.23,
+              "end": 2.31,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " friends,",
+              "start": 2.31,
+              "end": 2.79,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " don't",
+              "start": 3.11,
+              "end": 3.25,
+              "probability": 0.984619140625
+            },
+            {
+              "text": " be",
+              "start": 3.25,
+              "end": 3.37,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " afraid",
+              "start": 3.37,
+              "end": 3.63,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 3.63,
+              "end": 3.77,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " life.",
+              "start": 3.77,
+              "end": 4.03,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " How",
+              "start": 4.65,
+              "end": 4.77,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " good",
+              "start": 4.77,
+              "end": 4.95,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " life",
+              "start": 4.95,
+              "end": 5.23,
+              "probability": 0.9921875
+            },
+            {
+              "text": " is",
+              "start": 5.23,
+              "end": 5.41,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " when",
+              "start": 5.41,
+              "end": 5.55,
+              "probability": 0.99609375
+            },
+            {
+              "text": " one",
+              "start": 5.55,
+              "end": 5.69,
+              "probability": 0.99609375
+            },
+            {
+              "text": " does",
+              "start": 5.69,
+              "end": 5.83,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " something",
+              "start": 5.83,
+              "end": 6.05,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " good",
+              "start": 6.05,
+              "end": 6.39,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 6.39,
+              "end": 6.59,
+              "probability": 0.9140625
+            },
+            {
+              "text": " just.",
+              "start": 6.59,
+              "end": 6.87,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ah,",
+          "start": 0.27,
+          "end": 0.69
+        },
+        {
+          "raw": "children.",
+          "start": 0.91,
+          "end": 1.05
+        },
+        {
+          "raw": "Ah,",
+          "start": 1.85,
+          "end": 1.97
+        },
+        {
+          "raw": "dear",
+          "start": 2.23,
+          "end": 2.31
+        },
+        {
+          "raw": "friends,",
+          "start": 2.31,
+          "end": 2.79
+        },
+        {
+          "raw": "don't",
+          "start": 3.11,
+          "end": 3.25
+        },
+        {
+          "raw": "be",
+          "start": 3.25,
+          "end": 3.37
+        },
+        {
+          "raw": "afraid",
+          "start": 3.37,
+          "end": 3.63
+        },
+        {
+          "raw": "of",
+          "start": 3.63,
+          "end": 3.77
+        },
+        {
+          "raw": "life.",
+          "start": 3.77,
+          "end": 4.03
+        },
+        {
+          "raw": "How",
+          "start": 4.65,
+          "end": 4.77
+        },
+        {
+          "raw": "good",
+          "start": 4.77,
+          "end": 4.95
+        },
+        {
+          "raw": "life",
+          "start": 4.95,
+          "end": 5.23
+        },
+        {
+          "raw": "is",
+          "start": 5.23,
+          "end": 5.41
+        },
+        {
+          "raw": "when",
+          "start": 5.41,
+          "end": 5.55
+        },
+        {
+          "raw": "one",
+          "start": 5.55,
+          "end": 5.69
+        },
+        {
+          "raw": "does",
+          "start": 5.69,
+          "end": 5.83
+        },
+        {
+          "raw": "something",
+          "start": 5.83,
+          "end": 6.05
+        },
+        {
+          "raw": "good",
+          "start": 6.05,
+          "end": 6.39
+        },
+        {
+          "raw": "and",
+          "start": 6.39,
+          "end": 6.59
+        },
+        {
+          "raw": "just.",
+          "start": 6.59,
+          "end": 6.87
+        }
+      ],
+      "expected_tokens": [
+        "\"Ah,",
+        "children,",
+        "ah,",
+        "dear",
+        "friends,",
+        "don't",
+        "be",
+        "afraid",
+        "of",
+        "life!",
+        "How",
+        "good",
+        "life",
+        "is",
+        "when",
+        "one",
+        "does",
+        "something",
+        "good",
+        "and",
+        "just!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ah,",
+          "start": 0.27,
+          "end": 0.69,
+          "key": "ah",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "children.",
+          "start": 0.91,
+          "end": 1.05,
+          "key": "children",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Ah,",
+          "start": 1.85,
+          "end": 1.97,
+          "key": "ah",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "dear",
+          "start": 2.23,
+          "end": 2.31,
+          "key": "dear",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "friends,",
+          "start": 2.31,
+          "end": 2.79,
+          "key": "friends",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 3.11,
+          "end": 3.25,
+          "key": "dont",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.25,
+          "end": 3.37,
+          "key": "be",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "afraid",
+          "start": 3.37,
+          "end": 3.63,
+          "key": "afraid",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.63,
+          "end": 3.77,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "life.",
+          "start": 3.77,
+          "end": 4.03,
+          "key": "life",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 4.65,
+          "end": 4.77,
+          "key": "how",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 4.77,
+          "end": 4.95,
+          "key": "good",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "life",
+          "start": 4.95,
+          "end": 5.23,
+          "key": "life",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 5.23,
+          "end": 5.41,
+          "key": "is",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 5.41,
+          "end": 5.55,
+          "key": "when",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 5.55,
+          "end": 5.69,
+          "key": "one",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 5.69,
+          "end": 5.83,
+          "key": "does",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "something",
+          "start": 5.83,
+          "end": 6.05,
+          "key": "something",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 6.05,
+          "end": 6.39,
+          "key": "good",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.39,
+          "end": 6.59,
+          "key": "and",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "just.",
+          "start": 6.59,
+          "end": 6.87,
+          "key": "just",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Ah,",
+          "start": 0.27,
+          "end": 0.69
+        },
+        {
+          "text": "children,",
+          "start": 0.91,
+          "end": 1.05
+        },
+        {
+          "text": "ah,",
+          "start": 1.85,
+          "end": 1.97
+        },
+        {
+          "text": "dear",
+          "start": 2.23,
+          "end": 2.31
+        },
+        {
+          "text": "friends,",
+          "start": 2.31,
+          "end": 2.79
+        },
+        {
+          "text": "don't",
+          "start": 3.11,
+          "end": 3.25
+        },
+        {
+          "text": "be",
+          "start": 3.25,
+          "end": 3.37
+        },
+        {
+          "text": "afraid",
+          "start": 3.37,
+          "end": 3.63
+        },
+        {
+          "text": "of",
+          "start": 3.63,
+          "end": 3.77
+        },
+        {
+          "text": "life!",
+          "start": 3.77,
+          "end": 4.03
+        },
+        {
+          "text": "How",
+          "start": 4.65,
+          "end": 4.77
+        },
+        {
+          "text": "good",
+          "start": 4.77,
+          "end": 4.95
+        },
+        {
+          "text": "life",
+          "start": 4.95,
+          "end": 5.23
+        },
+        {
+          "text": "is",
+          "start": 5.23,
+          "end": 5.41
+        },
+        {
+          "text": "when",
+          "start": 5.41,
+          "end": 5.55
+        },
+        {
+          "text": "one",
+          "start": 5.55,
+          "end": 5.69
+        },
+        {
+          "text": "does",
+          "start": 5.69,
+          "end": 5.83
+        },
+        {
+          "text": "something",
+          "start": 5.83,
+          "end": 6.05
+        },
+        {
+          "text": "good",
+          "start": 6.05,
+          "end": 6.39
+        },
+        {
+          "text": "and",
+          "start": 6.39,
+          "end": 6.59
+        },
+        {
+          "text": "just!\"",
+          "start": 6.59,
+          "end": 6.87
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3331199139356613
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a74fe33404aa6e3642c1eaebfd0bf987bb9117b8e78fd0ed8ca8b618e91c6134",
+  "selected_reasons": []
+}

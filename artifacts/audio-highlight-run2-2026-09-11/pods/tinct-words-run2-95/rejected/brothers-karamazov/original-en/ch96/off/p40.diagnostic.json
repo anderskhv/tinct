@@ -1,0 +1,882 @@
+{
+  "complete": true,
+  "signature": "2c741eae7a5c56fcae0f78306cf2575e340d39024ade4ef72d10b4ad26ee01d5",
+  "attempts": [
+    {
+      "asr_seconds": 0.27664028480648994,
+      "alignment_seconds": 0.00040273740887641907,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Let them weep, he said to Kalia. It's no use trying to comfort them just now. Let us wait a minute and then go back",
+          "start": 0.02,
+          "end": 6.96,
+          "words": [
+            {
+              "text": " Let",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.06573486328125
+            },
+            {
+              "text": " them",
+              "start": 0.56,
+              "end": 0.74,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " weep,",
+              "start": 0.74,
+              "end": 1.14,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " he",
+              "start": 1.48,
+              "end": 1.64,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " said",
+              "start": 1.64,
+              "end": 1.82,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 1.82,
+              "end": 1.98,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Kalia.",
+              "start": 1.98,
+              "end": 2.26,
+              "probability": 0.55126953125
+            },
+            {
+              "text": " It's",
+              "start": 2.9,
+              "end": 3.06,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " no",
+              "start": 3.06,
+              "end": 3.24,
+              "probability": 0.998046875
+            },
+            {
+              "text": " use",
+              "start": 3.24,
+              "end": 3.42,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " trying",
+              "start": 3.42,
+              "end": 3.72,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 3.72,
+              "end": 3.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " comfort",
+              "start": 3.9,
+              "end": 4.14,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " them",
+              "start": 4.14,
+              "end": 4.36,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " just",
+              "start": 4.36,
+              "end": 4.56,
+              "probability": 0.984375
+            },
+            {
+              "text": " now.",
+              "start": 4.56,
+              "end": 4.92,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Let",
+              "start": 5.44,
+              "end": 5.54,
+              "probability": 0.994140625
+            },
+            {
+              "text": " us",
+              "start": 5.54,
+              "end": 5.68,
+              "probability": 0.99609375
+            },
+            {
+              "text": " wait",
+              "start": 5.68,
+              "end": 5.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 5.84,
+              "end": 5.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " minute",
+              "start": 5.98,
+              "end": 6.1,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 6.1,
+              "end": 6.34,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " then",
+              "start": 6.34,
+              "end": 6.48,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " go",
+              "start": 6.48,
+              "end": 6.68,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " back",
+              "start": 6.68,
+              "end": 6.96,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Let",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "them",
+          "start": 0.56,
+          "end": 0.74
+        },
+        {
+          "raw": "weep,",
+          "start": 0.74,
+          "end": 1.14
+        },
+        {
+          "raw": "he",
+          "start": 1.48,
+          "end": 1.64
+        },
+        {
+          "raw": "said",
+          "start": 1.64,
+          "end": 1.82
+        },
+        {
+          "raw": "to",
+          "start": 1.82,
+          "end": 1.98
+        },
+        {
+          "raw": "Kalia.",
+          "start": 1.98,
+          "end": 2.26
+        },
+        {
+          "raw": "It's",
+          "start": 2.9,
+          "end": 3.06
+        },
+        {
+          "raw": "no",
+          "start": 3.06,
+          "end": 3.24
+        },
+        {
+          "raw": "use",
+          "start": 3.24,
+          "end": 3.42
+        },
+        {
+          "raw": "trying",
+          "start": 3.42,
+          "end": 3.72
+        },
+        {
+          "raw": "to",
+          "start": 3.72,
+          "end": 3.9
+        },
+        {
+          "raw": "comfort",
+          "start": 3.9,
+          "end": 4.14
+        },
+        {
+          "raw": "them",
+          "start": 4.14,
+          "end": 4.36
+        },
+        {
+          "raw": "just",
+          "start": 4.36,
+          "end": 4.56
+        },
+        {
+          "raw": "now.",
+          "start": 4.56,
+          "end": 4.92
+        },
+        {
+          "raw": "Let",
+          "start": 5.44,
+          "end": 5.54
+        },
+        {
+          "raw": "us",
+          "start": 5.54,
+          "end": 5.68
+        },
+        {
+          "raw": "wait",
+          "start": 5.68,
+          "end": 5.84
+        },
+        {
+          "raw": "a",
+          "start": 5.84,
+          "end": 5.98
+        },
+        {
+          "raw": "minute",
+          "start": 5.98,
+          "end": 6.1
+        },
+        {
+          "raw": "and",
+          "start": 6.1,
+          "end": 6.34
+        },
+        {
+          "raw": "then",
+          "start": 6.34,
+          "end": 6.48
+        },
+        {
+          "raw": "go",
+          "start": 6.48,
+          "end": 6.68
+        },
+        {
+          "raw": "back",
+          "start": 6.68,
+          "end": 6.96
+        }
+      ],
+      "expected_tokens": [
+        "\"Let",
+        "them",
+        "weep,\"",
+        "he",
+        "said",
+        "to",
+        "Kolya,",
+        "\"it's",
+        "no",
+        "use",
+        "trying",
+        "to",
+        "comfort",
+        "them",
+        "just",
+        "now.",
+        "Let",
+        "us",
+        "wait",
+        "a",
+        "minute",
+        "and",
+        "then",
+        "go",
+        "back.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          25,
+          7,
+          25
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Let",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "let",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 0.56,
+          "end": 0.74,
+          "key": "them",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "weep,",
+          "start": 0.74,
+          "end": 1.14,
+          "key": "weep",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.48,
+          "end": 1.64,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.64,
+          "end": 1.82,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.82,
+          "end": 1.98,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Kalia.",
+          "start": 1.98,
+          "end": 2.26,
+          "key": "kalia",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "It's",
+          "start": 2.9,
+          "end": 3.06,
+          "key": "its",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 3.06,
+          "end": 3.24,
+          "key": "no",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "use",
+          "start": 3.24,
+          "end": 3.42,
+          "key": "use",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "trying",
+          "start": 3.42,
+          "end": 3.72,
+          "key": "trying",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.72,
+          "end": 3.9,
+          "key": "to",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "comfort",
+          "start": 3.9,
+          "end": 4.14,
+          "key": "comfort",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 4.14,
+          "end": 4.36,
+          "key": "them",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 4.36,
+          "end": 4.56,
+          "key": "just",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "now.",
+          "start": 4.56,
+          "end": 4.92,
+          "key": "now",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Let",
+          "start": 5.44,
+          "end": 5.54,
+          "key": "let",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 5.54,
+          "end": 5.68,
+          "key": "us",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "wait",
+          "start": 5.68,
+          "end": 5.84,
+          "key": "wait",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.84,
+          "end": 5.98,
+          "key": "a",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "minute",
+          "start": 5.98,
+          "end": 6.1,
+          "key": "minute",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.1,
+          "end": 6.34,
+          "key": "and",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 6.34,
+          "end": 6.48,
+          "key": "then",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 6.48,
+          "end": 6.68,
+          "key": "go",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "back",
+          "start": 6.68,
+          "end": 6.96,
+          "key": "back",
+          "pieces": [
+            24
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Let",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "them",
+          "start": 0.56,
+          "end": 0.74
+        },
+        {
+          "text": "weep,\"",
+          "start": 0.74,
+          "end": 1.14
+        },
+        {
+          "text": "he",
+          "start": 1.48,
+          "end": 1.64
+        },
+        {
+          "text": "said",
+          "start": 1.64,
+          "end": 1.82
+        },
+        {
+          "text": "to",
+          "start": 1.82,
+          "end": 1.98
+        },
+        {
+          "text": "Kolya,",
+          "start": 1.98,
+          "end": 2.44
+        },
+        {
+          "text": "\"it's",
+          "start": 2.9,
+          "end": 3.06
+        },
+        {
+          "text": "no",
+          "start": 3.06,
+          "end": 3.24
+        },
+        {
+          "text": "use",
+          "start": 3.24,
+          "end": 3.42
+        },
+        {
+          "text": "trying",
+          "start": 3.42,
+          "end": 3.72
+        },
+        {
+          "text": "to",
+          "start": 3.72,
+          "end": 3.9
+        },
+        {
+          "text": "comfort",
+          "start": 3.9,
+          "end": 4.14
+        },
+        {
+          "text": "them",
+          "start": 4.14,
+          "end": 4.36
+        },
+        {
+          "text": "just",
+          "start": 4.36,
+          "end": 4.56
+        },
+        {
+          "text": "now.",
+          "start": 4.56,
+          "end": 4.92
+        },
+        {
+          "text": "Let",
+          "start": 5.44,
+          "end": 5.54
+        },
+        {
+          "text": "us",
+          "start": 5.54,
+          "end": 5.68
+        },
+        {
+          "text": "wait",
+          "start": 5.68,
+          "end": 5.84
+        },
+        {
+          "text": "a",
+          "start": 5.84,
+          "end": 5.98
+        },
+        {
+          "text": "minute",
+          "start": 5.98,
+          "end": 6.1
+        },
+        {
+          "text": "and",
+          "start": 6.1,
+          "end": 6.34
+        },
+        {
+          "text": "then",
+          "start": 6.34,
+          "end": 6.48
+        },
+        {
+          "text": "go",
+          "start": 6.48,
+          "end": 6.68
+        },
+        {
+          "text": "back.\"",
+          "start": 6.68,
+          "end": 6.96
+        }
+      ],
+      "stats": {
+        "expected_words": 25,
+        "heard_words": 25,
+        "matched_words": 24
+      },
+      "match_ratio": 0.96,
+      "rejection_reasons": [],
+      "seconds": 0.27723226696252823
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "21560d36a56adc0c3898163e603b97fc837d67611180b2897f49691af95fcb64",
+  "selected_reasons": []
+}

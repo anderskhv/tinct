@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "2b70a0dd2535f14af891d638449ddea8b7a8e3a7e809f841b46b7b07c4e86d30",
+  "attempts": [
+    {
+      "asr_seconds": 0.24048110842704773,
+      "alignment_seconds": 0.0003406740725040436,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Hurrah for Karamazov!\" Kolya shouted ecstatically.",
+        "hotwords": "Hurrah, Karamazov, Kolya"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hurrah for Karamazov, Kolya shouted ecstatically.",
+          "start": 0.05,
+          "end": 3.19,
+          "words": [
+            {
+              "text": " Hurrah",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.719482421875
+            },
+            {
+              "text": " for",
+              "start": 0.69,
+              "end": 0.87,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Karamazov,",
+              "start": 0.87,
+              "end": 1.55,
+              "probability": 0.9308268229166666
+            },
+            {
+              "text": " Kolya",
+              "start": 2.01,
+              "end": 2.27,
+              "probability": 0.465545654296875
+            },
+            {
+              "text": " shouted",
+              "start": 2.27,
+              "end": 2.51,
+              "probability": 0.98828125
+            },
+            {
+              "text": " ecstatically.",
+              "start": 2.51,
+              "end": 3.19,
+              "probability": 0.943359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hurrah",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "for",
+          "start": 0.69,
+          "end": 0.87
+        },
+        {
+          "raw": "Karamazov,",
+          "start": 0.87,
+          "end": 1.55
+        },
+        {
+          "raw": "Kolya",
+          "start": 2.01,
+          "end": 2.27
+        },
+        {
+          "raw": "shouted",
+          "start": 2.27,
+          "end": 2.51
+        },
+        {
+          "raw": "ecstatically.",
+          "start": 2.51,
+          "end": 3.19
+        }
+      ],
+      "expected_tokens": [
+        "\"Hurrah",
+        "for",
+        "Karamazov!\"",
+        "Kolya",
+        "shouted",
+        "ecstatically."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hurrah",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "hurrah",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 0.69,
+          "end": 0.87,
+          "key": "for",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Karamazov,",
+          "start": 0.87,
+          "end": 1.55,
+          "key": "karamazov",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Kolya",
+          "start": 2.01,
+          "end": 2.27,
+          "key": "kolya",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "shouted",
+          "start": 2.27,
+          "end": 2.51,
+          "key": "shouted",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "ecstatically.",
+          "start": 2.51,
+          "end": 3.19,
+          "key": "ecstatically",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Hurrah",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "for",
+          "start": 0.69,
+          "end": 0.87
+        },
+        {
+          "text": "Karamazov!\"",
+          "start": 0.87,
+          "end": 1.55
+        },
+        {
+          "text": "Kolya",
+          "start": 2.01,
+          "end": 2.27
+        },
+        {
+          "text": "shouted",
+          "start": 2.27,
+          "end": 2.51
+        },
+        {
+          "text": "ecstatically.",
+          "start": 2.51,
+          "end": 3.19
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24094771966338158
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "59cc49b654e931d38b86cde4ff1a0256a04428bb7c53275890b8da41d1b53092",
+  "selected_reasons": []
+}

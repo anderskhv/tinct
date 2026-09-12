@@ -1,0 +1,722 @@
+{
+  "complete": true,
+  "signature": "36c05b69963e267427e204c3b971461cbf22371c6510829e6c45f544f098dc69",
+  "attempts": [
+    {
+      "asr_seconds": 0.30561695992946625,
+      "alignment_seconds": 0.0005970075726509094,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " So he will perish an innocent victim, exclaimed Kalia. Though he is ruined, he is happy. I could envy him.",
+          "start": 0.08,
+          "end": 7.18,
+          "words": [
+            {
+              "text": " So",
+              "start": 0.08,
+              "end": 0.56,
+              "probability": 0.12744140625
+            },
+            {
+              "text": " he",
+              "start": 0.56,
+              "end": 0.74,
+              "probability": 0.80810546875
+            },
+            {
+              "text": " will",
+              "start": 0.74,
+              "end": 0.92,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " perish",
+              "start": 0.92,
+              "end": 1.24,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " an",
+              "start": 1.24,
+              "end": 1.46,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " innocent",
+              "start": 1.46,
+              "end": 1.76,
+              "probability": 0.99609375
+            },
+            {
+              "text": " victim,",
+              "start": 1.76,
+              "end": 2.4,
+              "probability": 0.98828125
+            },
+            {
+              "text": " exclaimed",
+              "start": 2.94,
+              "end": 3.3,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " Kalia.",
+              "start": 3.3,
+              "end": 3.8,
+              "probability": 0.627685546875
+            },
+            {
+              "text": " Though",
+              "start": 4.54,
+              "end": 4.62,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " he",
+              "start": 4.62,
+              "end": 4.8,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " is",
+              "start": 4.8,
+              "end": 4.92,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " ruined,",
+              "start": 4.92,
+              "end": 5.24,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " he",
+              "start": 5.46,
+              "end": 5.48,
+              "probability": 0.99609375
+            },
+            {
+              "text": " is",
+              "start": 5.48,
+              "end": 5.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " happy.",
+              "start": 5.6,
+              "end": 5.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " I",
+              "start": 6.32,
+              "end": 6.44,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " could",
+              "start": 6.44,
+              "end": 6.56,
+              "probability": 0.99609375
+            },
+            {
+              "text": " envy",
+              "start": 6.56,
+              "end": 6.84,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " him.",
+              "start": 6.84,
+              "end": 7.18,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "So",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "raw": "he",
+          "start": 0.56,
+          "end": 0.74
+        },
+        {
+          "raw": "will",
+          "start": 0.74,
+          "end": 0.92
+        },
+        {
+          "raw": "perish",
+          "start": 0.92,
+          "end": 1.24
+        },
+        {
+          "raw": "an",
+          "start": 1.24,
+          "end": 1.46
+        },
+        {
+          "raw": "innocent",
+          "start": 1.46,
+          "end": 1.76
+        },
+        {
+          "raw": "victim,",
+          "start": 1.76,
+          "end": 2.4
+        },
+        {
+          "raw": "exclaimed",
+          "start": 2.94,
+          "end": 3.3
+        },
+        {
+          "raw": "Kalia.",
+          "start": 3.3,
+          "end": 3.8
+        },
+        {
+          "raw": "Though",
+          "start": 4.54,
+          "end": 4.62
+        },
+        {
+          "raw": "he",
+          "start": 4.62,
+          "end": 4.8
+        },
+        {
+          "raw": "is",
+          "start": 4.8,
+          "end": 4.92
+        },
+        {
+          "raw": "ruined,",
+          "start": 4.92,
+          "end": 5.24
+        },
+        {
+          "raw": "he",
+          "start": 5.46,
+          "end": 5.48
+        },
+        {
+          "raw": "is",
+          "start": 5.48,
+          "end": 5.6
+        },
+        {
+          "raw": "happy.",
+          "start": 5.6,
+          "end": 5.94
+        },
+        {
+          "raw": "I",
+          "start": 6.32,
+          "end": 6.44
+        },
+        {
+          "raw": "could",
+          "start": 6.44,
+          "end": 6.56
+        },
+        {
+          "raw": "envy",
+          "start": 6.56,
+          "end": 6.84
+        },
+        {
+          "raw": "him.",
+          "start": 6.84,
+          "end": 7.18
+        }
+      ],
+      "expected_tokens": [
+        "\"So",
+        "he",
+        "will",
+        "perish",
+        "an",
+        "innocent",
+        "victim!\"",
+        "exclaimed",
+        "Kolya;",
+        "\"though",
+        "he",
+        "is",
+        "ruined",
+        "he",
+        "is",
+        "happy!",
+        "I",
+        "could",
+        "envy",
+        "him!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "equal",
+          9,
+          20,
+          9,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "So",
+          "start": 0.08,
+          "end": 0.56,
+          "key": "so",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.56,
+          "end": 0.74,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 0.74,
+          "end": 0.92,
+          "key": "will",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "perish",
+          "start": 0.92,
+          "end": 1.24,
+          "key": "perish",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 1.24,
+          "end": 1.46,
+          "key": "an",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "innocent",
+          "start": 1.46,
+          "end": 1.76,
+          "key": "innocent",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "victim,",
+          "start": 1.76,
+          "end": 2.4,
+          "key": "victim",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "exclaimed",
+          "start": 2.94,
+          "end": 3.3,
+          "key": "exclaimed",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Kalia.",
+          "start": 3.3,
+          "end": 3.8,
+          "key": "kalia",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Though",
+          "start": 4.54,
+          "end": 4.62,
+          "key": "though",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 4.62,
+          "end": 4.8,
+          "key": "he",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.8,
+          "end": 4.92,
+          "key": "is",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "ruined,",
+          "start": 4.92,
+          "end": 5.24,
+          "key": "ruined",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 5.46,
+          "end": 5.48,
+          "key": "he",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 5.48,
+          "end": 5.6,
+          "key": "is",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "happy.",
+          "start": 5.6,
+          "end": 5.94,
+          "key": "happy",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 6.32,
+          "end": 6.44,
+          "key": "i",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 6.44,
+          "end": 6.56,
+          "key": "could",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "envy",
+          "start": 6.56,
+          "end": 6.84,
+          "key": "envy",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 6.84,
+          "end": 7.18,
+          "key": "him",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"So",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "text": "he",
+          "start": 0.56,
+          "end": 0.74
+        },
+        {
+          "text": "will",
+          "start": 0.74,
+          "end": 0.92
+        },
+        {
+          "text": "perish",
+          "start": 0.92,
+          "end": 1.24
+        },
+        {
+          "text": "an",
+          "start": 1.24,
+          "end": 1.46
+        },
+        {
+          "text": "innocent",
+          "start": 1.46,
+          "end": 1.76
+        },
+        {
+          "text": "victim!\"",
+          "start": 1.76,
+          "end": 2.4
+        },
+        {
+          "text": "exclaimed",
+          "start": 2.94,
+          "end": 3.3
+        },
+        {
+          "text": "Kolya;",
+          "start": 3.3,
+          "end": 3.92
+        },
+        {
+          "text": "\"though",
+          "start": 4.54,
+          "end": 4.62
+        },
+        {
+          "text": "he",
+          "start": 4.62,
+          "end": 4.8
+        },
+        {
+          "text": "is",
+          "start": 4.8,
+          "end": 4.92
+        },
+        {
+          "text": "ruined",
+          "start": 4.92,
+          "end": 5.24
+        },
+        {
+          "text": "he",
+          "start": 5.46,
+          "end": 5.48
+        },
+        {
+          "text": "is",
+          "start": 5.48,
+          "end": 5.6
+        },
+        {
+          "text": "happy!",
+          "start": 5.6,
+          "end": 5.94
+        },
+        {
+          "text": "I",
+          "start": 6.32,
+          "end": 6.44
+        },
+        {
+          "text": "could",
+          "start": 6.44,
+          "end": 6.56
+        },
+        {
+          "text": "envy",
+          "start": 6.56,
+          "end": 6.84
+        },
+        {
+          "text": "him!\"",
+          "start": 6.84,
+          "end": 7.18
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 19
+      },
+      "match_ratio": 0.95,
+      "rejection_reasons": [],
+      "seconds": 0.3064332790672779
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9026a02a2b79bfee111ce24619d41acecae69fb836abd1defbe55d54f9400411",
+  "selected_reasons": []
+}

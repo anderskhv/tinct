@@ -1,0 +1,427 @@
+{
+  "complete": true,
+  "signature": "a177df81082a2944f9c1bdaa5e8297ba84c02e933b4f1194c6d4bb557160f637",
+  "attempts": [
+    {
+      "asr_seconds": 0.23003799468278885,
+      "alignment_seconds": 0.0003743767738342285,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Captain, give over, a brave man must show fortitude,\" muttered Kalia.",
+          "start": 0.05,
+          "end": 4.49,
+          "words": [
+            {
+              "text": " Captain,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.036346435546875
+            },
+            {
+              "text": " give",
+              "start": 1.09,
+              "end": 1.23,
+              "probability": 0.8984375
+            },
+            {
+              "text": " over,",
+              "start": 1.23,
+              "end": 1.51,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " a",
+              "start": 1.67,
+              "end": 1.75,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " brave",
+              "start": 1.75,
+              "end": 2.01,
+              "probability": 0.998046875
+            },
+            {
+              "text": " man",
+              "start": 2.01,
+              "end": 2.31,
+              "probability": 0.998046875
+            },
+            {
+              "text": " must",
+              "start": 2.31,
+              "end": 2.53,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " show",
+              "start": 2.53,
+              "end": 2.75,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " fortitude,\"",
+              "start": 2.75,
+              "end": 4.01,
+              "probability": 0.8079427083333334
+            },
+            {
+              "text": " muttered",
+              "start": 4.01,
+              "end": 4.11,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Kalia.",
+              "start": 4.11,
+              "end": 4.49,
+              "probability": 0.5748291015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Captain,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "give",
+          "start": 1.09,
+          "end": 1.23
+        },
+        {
+          "raw": "over,",
+          "start": 1.23,
+          "end": 1.51
+        },
+        {
+          "raw": "a",
+          "start": 1.67,
+          "end": 1.75
+        },
+        {
+          "raw": "brave",
+          "start": 1.75,
+          "end": 2.01
+        },
+        {
+          "raw": "man",
+          "start": 2.01,
+          "end": 2.31
+        },
+        {
+          "raw": "must",
+          "start": 2.31,
+          "end": 2.53
+        },
+        {
+          "raw": "show",
+          "start": 2.53,
+          "end": 2.75
+        },
+        {
+          "raw": "fortitude,\"",
+          "start": 2.75,
+          "end": 4.01
+        },
+        {
+          "raw": "muttered",
+          "start": 4.01,
+          "end": 4.11
+        },
+        {
+          "raw": "Kalia.",
+          "start": 4.11,
+          "end": 4.49
+        }
+      ],
+      "expected_tokens": [
+        "\"Captain,",
+        "give",
+        "over,",
+        "a",
+        "brave",
+        "man",
+        "must",
+        "show",
+        "fortitude,\"",
+        "muttered",
+        "Kolya."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Captain,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "captain",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 1.09,
+          "end": 1.23,
+          "key": "give",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "over,",
+          "start": 1.23,
+          "end": 1.51,
+          "key": "over",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.67,
+          "end": 1.75,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "brave",
+          "start": 1.75,
+          "end": 2.01,
+          "key": "brave",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 2.01,
+          "end": 2.31,
+          "key": "man",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 2.31,
+          "end": 2.53,
+          "key": "must",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "show",
+          "start": 2.53,
+          "end": 2.75,
+          "key": "show",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "fortitude,\"",
+          "start": 2.75,
+          "end": 4.01,
+          "key": "fortitude",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "muttered",
+          "start": 4.01,
+          "end": 4.11,
+          "key": "muttered",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Kalia.",
+          "start": 4.11,
+          "end": 4.49,
+          "key": "kalia",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Captain,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "give",
+          "start": 1.09,
+          "end": 1.23
+        },
+        {
+          "text": "over,",
+          "start": 1.23,
+          "end": 1.51
+        },
+        {
+          "text": "a",
+          "start": 1.67,
+          "end": 1.75
+        },
+        {
+          "text": "brave",
+          "start": 1.75,
+          "end": 2.01
+        },
+        {
+          "text": "man",
+          "start": 2.01,
+          "end": 2.31
+        },
+        {
+          "text": "must",
+          "start": 2.31,
+          "end": 2.53
+        },
+        {
+          "text": "show",
+          "start": 2.53,
+          "end": 2.75
+        },
+        {
+          "text": "fortitude,\"",
+          "start": 2.75,
+          "end": 4.01
+        },
+        {
+          "text": "muttered",
+          "start": 4.01,
+          "end": 4.11
+        },
+        {
+          "text": "Kolya.",
+          "start": 4.11,
+          "end": 4.3
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.23055671527981758
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1813f173dc8763238cdffa6485828e3bb0590ec2670bba9d8c311d2531349db6",
+  "selected_reasons": []
+}

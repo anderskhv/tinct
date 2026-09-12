@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "47e0f4ac8cb73b19eb923ba586a0b22a2d24bc5d7afa492bc7c50a4cec0e8447",
+  "attempts": [
+    {
+      "asr_seconds": 0.1089056096971035,
+      "alignment_seconds": 0.000215187668800354,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Fool, Ivan snapped out.",
+          "start": 0.11,
+          "end": 1.97,
+          "words": [
+            {
+              "text": " Fool,",
+              "start": 0.11,
+              "end": 0.71,
+              "probability": 0.67822265625
+            },
+            {
+              "text": " Ivan",
+              "start": 1.15,
+              "end": 1.31,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " snapped",
+              "start": 1.31,
+              "end": 1.65,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " out.",
+              "start": 1.65,
+              "end": 1.97,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fool,",
+          "start": 0.11,
+          "end": 0.71
+        },
+        {
+          "raw": "Ivan",
+          "start": 1.15,
+          "end": 1.31
+        },
+        {
+          "raw": "snapped",
+          "start": 1.31,
+          "end": 1.65
+        },
+        {
+          "raw": "out.",
+          "start": 1.65,
+          "end": 1.97
+        }
+      ],
+      "expected_tokens": [
+        "\"Fool!\"",
+        "Ivan",
+        "snapped",
+        "out."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fool,",
+          "start": 0.11,
+          "end": 0.71,
+          "key": "fool",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ivan",
+          "start": 1.15,
+          "end": 1.31,
+          "key": "ivan",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "snapped",
+          "start": 1.31,
+          "end": 1.65,
+          "key": "snapped",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "out.",
+          "start": 1.65,
+          "end": 1.97,
+          "key": "out",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Fool!\"",
+          "start": 0.11,
+          "end": 0.71
+        },
+        {
+          "text": "Ivan",
+          "start": 1.15,
+          "end": 1.31
+        },
+        {
+          "text": "snapped",
+          "start": 1.31,
+          "end": 1.65
+        },
+        {
+          "text": "out.",
+          "start": 1.65,
+          "end": 1.97
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10920029506087303
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a6cd48d9711c3806913e104d72d86d08451499e380f7792d2940c8ce108966a5",
+  "selected_reasons": []
+}

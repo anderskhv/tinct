@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "7ac89dbf4e4ed244fa9830e7ba0b6f24b2ccfe6dbe74a41f546aec5bbc1d46b3",
+  "attempts": [
+    {
+      "asr_seconds": 0.21962639316916466,
+      "alignment_seconds": 0.0003875456750392914,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Ah, how splendid it will be!\" broke from Kolya.",
+        "hotwords": "Ah, Kolya"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ah, how splendid it will be! broke from Kolya.",
+          "start": 0.21,
+          "end": 3.03,
+          "words": [
+            {
+              "text": " Ah,",
+              "start": 0.21,
+              "end": 0.61,
+              "probability": 0.451171875
+            },
+            {
+              "text": " how",
+              "start": 0.73,
+              "end": 0.83,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " splendid",
+              "start": 0.83,
+              "end": 1.15,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " it",
+              "start": 1.15,
+              "end": 1.35,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " will",
+              "start": 1.35,
+              "end": 1.45,
+              "probability": 0.99609375
+            },
+            {
+              "text": " be!",
+              "start": 1.45,
+              "end": 1.75,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " broke",
+              "start": 2.19,
+              "end": 2.25,
+              "probability": 0.044677734375
+            },
+            {
+              "text": " from",
+              "start": 2.25,
+              "end": 2.49,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Kolya.",
+              "start": 2.49,
+              "end": 3.03,
+              "probability": 0.5221716562906901
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ah,",
+          "start": 0.21,
+          "end": 0.61
+        },
+        {
+          "raw": "how",
+          "start": 0.73,
+          "end": 0.83
+        },
+        {
+          "raw": "splendid",
+          "start": 0.83,
+          "end": 1.15
+        },
+        {
+          "raw": "it",
+          "start": 1.15,
+          "end": 1.35
+        },
+        {
+          "raw": "will",
+          "start": 1.35,
+          "end": 1.45
+        },
+        {
+          "raw": "be!",
+          "start": 1.45,
+          "end": 1.75
+        },
+        {
+          "raw": "broke",
+          "start": 2.19,
+          "end": 2.25
+        },
+        {
+          "raw": "from",
+          "start": 2.25,
+          "end": 2.49
+        },
+        {
+          "raw": "Kolya.",
+          "start": 2.49,
+          "end": 3.03
+        }
+      ],
+      "expected_tokens": [
+        "\"Ah,",
+        "how",
+        "splendid",
+        "it",
+        "will",
+        "be!\"",
+        "broke",
+        "from",
+        "Kolya."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ah,",
+          "start": 0.21,
+          "end": 0.61,
+          "key": "ah",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 0.73,
+          "end": 0.83,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "splendid",
+          "start": 0.83,
+          "end": 1.15,
+          "key": "splendid",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.15,
+          "end": 1.35,
+          "key": "it",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.35,
+          "end": 1.45,
+          "key": "will",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "be!",
+          "start": 1.45,
+          "end": 1.75,
+          "key": "be",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "broke",
+          "start": 2.19,
+          "end": 2.25,
+          "key": "broke",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 2.25,
+          "end": 2.49,
+          "key": "from",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Kolya.",
+          "start": 2.49,
+          "end": 3.03,
+          "key": "kolya",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Ah,",
+          "start": 0.21,
+          "end": 0.61
+        },
+        {
+          "text": "how",
+          "start": 0.73,
+          "end": 0.83
+        },
+        {
+          "text": "splendid",
+          "start": 0.83,
+          "end": 1.15
+        },
+        {
+          "text": "it",
+          "start": 1.15,
+          "end": 1.35
+        },
+        {
+          "text": "will",
+          "start": 1.35,
+          "end": 1.45
+        },
+        {
+          "text": "be!\"",
+          "start": 1.45,
+          "end": 1.75
+        },
+        {
+          "text": "broke",
+          "start": 2.19,
+          "end": 2.25
+        },
+        {
+          "text": "from",
+          "start": 2.25,
+          "end": 2.49
+        },
+        {
+          "text": "Kolya.",
+          "start": 2.49,
+          "end": 3.03
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22017831355333328
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b13c393904633b766914fb9166e4f20ffbdac7898ce3f4f158d7eab1847c7882",
+  "selected_reasons": []
+}

@@ -1,0 +1,638 @@
+{
+  "complete": true,
+  "signature": "7d4c31ba51e62472708e16098d15b55908592870fc459e6e894834cdf5f390ce",
+  "attempts": [
+    {
+      "asr_seconds": 0.266781821846962,
+      "alignment_seconds": 0.00048270076513290405,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Not for one minute,\" cried Ivan furiously. \"But I should like to believe in you,\" he added strangely.",
+        "hotwords": "Not, Ivan, But, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Not for one minute, cried Ivan furiously. But I should like to believe in you,\" he added strangely.",
+          "start": 0.02,
+          "end": 6.32,
+          "words": [
+            {
+              "text": " Not",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.1961669921875
+            },
+            {
+              "text": " for",
+              "start": 0.6,
+              "end": 0.78,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " one",
+              "start": 0.78,
+              "end": 0.98,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " minute,",
+              "start": 0.98,
+              "end": 1.34,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " cried",
+              "start": 1.6,
+              "end": 1.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Ivan",
+              "start": 1.92,
+              "end": 2.26,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " furiously.",
+              "start": 2.26,
+              "end": 2.76,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " But",
+              "start": 3.6,
+              "end": 3.72,
+              "probability": 0.86181640625
+            },
+            {
+              "text": " I",
+              "start": 3.72,
+              "end": 3.84,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " should",
+              "start": 3.84,
+              "end": 3.98,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " like",
+              "start": 3.98,
+              "end": 4.18,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 4.18,
+              "end": 4.34,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " believe",
+              "start": 4.34,
+              "end": 4.64,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " in",
+              "start": 4.64,
+              "end": 4.88,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you,\"",
+              "start": 4.88,
+              "end": 5.5,
+              "probability": 0.632080078125
+            },
+            {
+              "text": " he",
+              "start": 5.5,
+              "end": 5.6,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " added",
+              "start": 5.6,
+              "end": 5.84,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " strangely.",
+              "start": 5.84,
+              "end": 6.32,
+              "probability": 0.98828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Not",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "for",
+          "start": 0.6,
+          "end": 0.78
+        },
+        {
+          "raw": "one",
+          "start": 0.78,
+          "end": 0.98
+        },
+        {
+          "raw": "minute,",
+          "start": 0.98,
+          "end": 1.34
+        },
+        {
+          "raw": "cried",
+          "start": 1.6,
+          "end": 1.92
+        },
+        {
+          "raw": "Ivan",
+          "start": 1.92,
+          "end": 2.26
+        },
+        {
+          "raw": "furiously.",
+          "start": 2.26,
+          "end": 2.76
+        },
+        {
+          "raw": "But",
+          "start": 3.6,
+          "end": 3.72
+        },
+        {
+          "raw": "I",
+          "start": 3.72,
+          "end": 3.84
+        },
+        {
+          "raw": "should",
+          "start": 3.84,
+          "end": 3.98
+        },
+        {
+          "raw": "like",
+          "start": 3.98,
+          "end": 4.18
+        },
+        {
+          "raw": "to",
+          "start": 4.18,
+          "end": 4.34
+        },
+        {
+          "raw": "believe",
+          "start": 4.34,
+          "end": 4.64
+        },
+        {
+          "raw": "in",
+          "start": 4.64,
+          "end": 4.88
+        },
+        {
+          "raw": "you,\"",
+          "start": 4.88,
+          "end": 5.5
+        },
+        {
+          "raw": "he",
+          "start": 5.5,
+          "end": 5.6
+        },
+        {
+          "raw": "added",
+          "start": 5.6,
+          "end": 5.84
+        },
+        {
+          "raw": "strangely.",
+          "start": 5.84,
+          "end": 6.32
+        }
+      ],
+      "expected_tokens": [
+        "\"Not",
+        "for",
+        "one",
+        "minute,\"",
+        "cried",
+        "Ivan",
+        "furiously.",
+        "\"But",
+        "I",
+        "should",
+        "like",
+        "to",
+        "believe",
+        "in",
+        "you,\"",
+        "he",
+        "added",
+        "strangely."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Not",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "not",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 0.6,
+          "end": 0.78,
+          "key": "for",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 0.78,
+          "end": 0.98,
+          "key": "one",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "minute,",
+          "start": 0.98,
+          "end": 1.34,
+          "key": "minute",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 1.6,
+          "end": 1.92,
+          "key": "cried",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Ivan",
+          "start": 1.92,
+          "end": 2.26,
+          "key": "ivan",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "furiously.",
+          "start": 2.26,
+          "end": 2.76,
+          "key": "furiously",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 3.6,
+          "end": 3.72,
+          "key": "but",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.72,
+          "end": 3.84,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 3.84,
+          "end": 3.98,
+          "key": "should",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 3.98,
+          "end": 4.18,
+          "key": "like",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.18,
+          "end": 4.34,
+          "key": "to",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "believe",
+          "start": 4.34,
+          "end": 4.64,
+          "key": "believe",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.64,
+          "end": 4.88,
+          "key": "in",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "you,\"",
+          "start": 4.88,
+          "end": 5.5,
+          "key": "you",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 5.5,
+          "end": 5.6,
+          "key": "he",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "added",
+          "start": 5.6,
+          "end": 5.84,
+          "key": "added",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "strangely.",
+          "start": 5.84,
+          "end": 6.32,
+          "key": "strangely",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Not",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "for",
+          "start": 0.6,
+          "end": 0.78
+        },
+        {
+          "text": "one",
+          "start": 0.78,
+          "end": 0.98
+        },
+        {
+          "text": "minute,\"",
+          "start": 0.98,
+          "end": 1.34
+        },
+        {
+          "text": "cried",
+          "start": 1.6,
+          "end": 1.92
+        },
+        {
+          "text": "Ivan",
+          "start": 1.92,
+          "end": 2.26
+        },
+        {
+          "text": "furiously.",
+          "start": 2.26,
+          "end": 2.76
+        },
+        {
+          "text": "\"But",
+          "start": 3.6,
+          "end": 3.72
+        },
+        {
+          "text": "I",
+          "start": 3.72,
+          "end": 3.84
+        },
+        {
+          "text": "should",
+          "start": 3.84,
+          "end": 3.98
+        },
+        {
+          "text": "like",
+          "start": 3.98,
+          "end": 4.18
+        },
+        {
+          "text": "to",
+          "start": 4.18,
+          "end": 4.34
+        },
+        {
+          "text": "believe",
+          "start": 4.34,
+          "end": 4.64
+        },
+        {
+          "text": "in",
+          "start": 4.64,
+          "end": 4.88
+        },
+        {
+          "text": "you,\"",
+          "start": 4.88,
+          "end": 5.5
+        },
+        {
+          "text": "he",
+          "start": 5.5,
+          "end": 5.6
+        },
+        {
+          "text": "added",
+          "start": 5.6,
+          "end": 5.84
+        },
+        {
+          "text": "strangely.",
+          "start": 5.84,
+          "end": 6.32
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2674664109945297
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5ba435b66c61617271157c17da1a92f61f364e923224f50358ab0b5be4092ff1",
+  "selected_reasons": []
+}

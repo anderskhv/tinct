@@ -1,0 +1,268 @@
+{
+  "complete": true,
+  "signature": "de8a7593a0b025cd43df6d044f933465ecbbab85e50309dbe1323a08c03e0292",
+  "attempts": [
+    {
+      "asr_seconds": 0.2029397450387478,
+      "alignment_seconds": 0.0004222355782985687,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " 2. A proverbial expression in Russia",
+          "start": 0.05,
+          "end": 2.41,
+          "words": [
+            {
+              "text": " 2.",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.52294921875
+            },
+            {
+              "text": " A",
+              "start": 1.03,
+              "end": 1.09,
+              "probability": 0.962890625
+            },
+            {
+              "text": " proverbial",
+              "start": 1.09,
+              "end": 1.35,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " expression",
+              "start": 1.35,
+              "end": 1.85,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " in",
+              "start": 1.85,
+              "end": 2.15,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Russia",
+              "start": 2.15,
+              "end": 2.41,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "2.",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "A",
+          "start": 1.03,
+          "end": 1.09
+        },
+        {
+          "raw": "proverbial",
+          "start": 1.09,
+          "end": 1.35
+        },
+        {
+          "raw": "expression",
+          "start": 1.35,
+          "end": 1.85
+        },
+        {
+          "raw": "in",
+          "start": 1.85,
+          "end": 2.15
+        },
+        {
+          "raw": "Russia",
+          "start": 2.15,
+          "end": 2.41
+        }
+      ],
+      "expected_tokens": [
+        "[2]",
+        "A",
+        "proverbial",
+        "expression",
+        "in",
+        "Russia."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          5,
+          1,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "unspoken",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [
+        0
+      ],
+      "compared_heard": [
+        {
+          "raw": "2.",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "two",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 1.03,
+          "end": 1.09,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "proverbial",
+          "start": 1.09,
+          "end": 1.35,
+          "key": "proverbial",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "expression",
+          "start": 1.35,
+          "end": 1.85,
+          "key": "expression",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.85,
+          "end": 2.15,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Russia",
+          "start": 2.15,
+          "end": 2.41,
+          "key": "russia",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[2]",
+          "start": 0.0,
+          "end": 0.515
+        },
+        {
+          "text": "A",
+          "start": 1.03,
+          "end": 1.09
+        },
+        {
+          "text": "proverbial",
+          "start": 1.09,
+          "end": 1.35
+        },
+        {
+          "text": "expression",
+          "start": 1.35,
+          "end": 1.85
+        },
+        {
+          "text": "in",
+          "start": 1.85,
+          "end": 2.15
+        },
+        {
+          "text": "Russia.",
+          "start": 2.15,
+          "end": 2.41
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20350615307688713
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1a5108f1fe14055ac2f65f129d0979216a78ff1c6fda6941bd02ece616f0f2f2",
+  "selected_reasons": []
+}

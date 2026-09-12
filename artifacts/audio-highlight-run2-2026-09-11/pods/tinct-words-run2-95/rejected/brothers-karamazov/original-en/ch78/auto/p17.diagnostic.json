@@ -1,0 +1,734 @@
+{
+  "complete": true,
+  "signature": "00bfd6abd2113e40a26f37860572babb6fdb193cfeb5c722e1032c9bfe7515aa",
+  "attempts": [
+    {
+      "asr_seconds": 0.30017588660120964,
+      "alignment_seconds": 0.0006829164922237396,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"And why were you so surly with Alyosha just now? He is a dear; I've treated him badly over Father Zossima.\"",
+        "hotwords": "And, Alyosha, He, I've, Father, Zossima"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And why were you so surly with Alyosha just now? He is a dear. I've treated him badly over Father Zossima.",
+          "start": 0.05,
+          "end": 6.99,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.703125
+            },
+            {
+              "text": " why",
+              "start": 0.51,
+              "end": 0.67,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " were",
+              "start": 0.67,
+              "end": 0.79,
+              "probability": 0.9921875
+            },
+            {
+              "text": " you",
+              "start": 0.79,
+              "end": 0.99,
+              "probability": 0.9921875
+            },
+            {
+              "text": " so",
+              "start": 0.99,
+              "end": 1.21,
+              "probability": 0.998046875
+            },
+            {
+              "text": " surly",
+              "start": 1.21,
+              "end": 1.73,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " with",
+              "start": 1.73,
+              "end": 1.91,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " Alyosha",
+              "start": 1.91,
+              "end": 2.51,
+              "probability": 0.9156901041666666
+            },
+            {
+              "text": " just",
+              "start": 2.51,
+              "end": 2.67,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " now?",
+              "start": 2.67,
+              "end": 3.05,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " He",
+              "start": 3.53,
+              "end": 3.71,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " is",
+              "start": 3.71,
+              "end": 3.83,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " a",
+              "start": 3.83,
+              "end": 3.97,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " dear.",
+              "start": 3.97,
+              "end": 4.17,
+              "probability": 0.1915283203125
+            },
+            {
+              "text": " I've",
+              "start": 4.75,
+              "end": 4.91,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " treated",
+              "start": 4.91,
+              "end": 5.11,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him",
+              "start": 5.11,
+              "end": 5.39,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " badly",
+              "start": 5.39,
+              "end": 5.73,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " over",
+              "start": 5.73,
+              "end": 6.11,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Father",
+              "start": 6.11,
+              "end": 6.47,
+              "probability": 0.7890625
+            },
+            {
+              "text": " Zossima.",
+              "start": 6.47,
+              "end": 6.99,
+              "probability": 0.83642578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "why",
+          "start": 0.51,
+          "end": 0.67
+        },
+        {
+          "raw": "were",
+          "start": 0.67,
+          "end": 0.79
+        },
+        {
+          "raw": "you",
+          "start": 0.79,
+          "end": 0.99
+        },
+        {
+          "raw": "so",
+          "start": 0.99,
+          "end": 1.21
+        },
+        {
+          "raw": "surly",
+          "start": 1.21,
+          "end": 1.73
+        },
+        {
+          "raw": "with",
+          "start": 1.73,
+          "end": 1.91
+        },
+        {
+          "raw": "Alyosha",
+          "start": 1.91,
+          "end": 2.51
+        },
+        {
+          "raw": "just",
+          "start": 2.51,
+          "end": 2.67
+        },
+        {
+          "raw": "now?",
+          "start": 2.67,
+          "end": 3.05
+        },
+        {
+          "raw": "He",
+          "start": 3.53,
+          "end": 3.71
+        },
+        {
+          "raw": "is",
+          "start": 3.71,
+          "end": 3.83
+        },
+        {
+          "raw": "a",
+          "start": 3.83,
+          "end": 3.97
+        },
+        {
+          "raw": "dear.",
+          "start": 3.97,
+          "end": 4.17
+        },
+        {
+          "raw": "I've",
+          "start": 4.75,
+          "end": 4.91
+        },
+        {
+          "raw": "treated",
+          "start": 4.91,
+          "end": 5.11
+        },
+        {
+          "raw": "him",
+          "start": 5.11,
+          "end": 5.39
+        },
+        {
+          "raw": "badly",
+          "start": 5.39,
+          "end": 5.73
+        },
+        {
+          "raw": "over",
+          "start": 5.73,
+          "end": 6.11
+        },
+        {
+          "raw": "Father",
+          "start": 6.11,
+          "end": 6.47
+        },
+        {
+          "raw": "Zossima.",
+          "start": 6.47,
+          "end": 6.99
+        }
+      ],
+      "expected_tokens": [
+        "\"And",
+        "why",
+        "were",
+        "you",
+        "so",
+        "surly",
+        "with",
+        "Alyosha",
+        "just",
+        "now?",
+        "He",
+        "is",
+        "a",
+        "dear;",
+        "I've",
+        "treated",
+        "him",
+        "badly",
+        "over",
+        "Father",
+        "Zossima.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "why",
+          "start": 0.51,
+          "end": 0.67,
+          "key": "why",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 0.67,
+          "end": 0.79,
+          "key": "were",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.79,
+          "end": 0.99,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 0.99,
+          "end": 1.21,
+          "key": "so",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "surly",
+          "start": 1.21,
+          "end": 1.73,
+          "key": "surly",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.73,
+          "end": 1.91,
+          "key": "with",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Alyosha",
+          "start": 1.91,
+          "end": 2.51,
+          "key": "alyosha",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 2.51,
+          "end": 2.67,
+          "key": "just",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "now?",
+          "start": 2.67,
+          "end": 3.05,
+          "key": "now",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 3.53,
+          "end": 3.71,
+          "key": "he",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.71,
+          "end": 3.83,
+          "key": "is",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.83,
+          "end": 3.97,
+          "key": "a",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "dear.",
+          "start": 3.97,
+          "end": 4.17,
+          "key": "dear",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "I've",
+          "start": 4.75,
+          "end": 4.91,
+          "key": "ive",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "treated",
+          "start": 4.91,
+          "end": 5.11,
+          "key": "treated",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 5.11,
+          "end": 5.39,
+          "key": "him",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "badly",
+          "start": 5.39,
+          "end": 5.73,
+          "key": "badly",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 5.73,
+          "end": 6.11,
+          "key": "over",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Father",
+          "start": 6.11,
+          "end": 6.47,
+          "key": "father",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Zossima.",
+          "start": 6.47,
+          "end": 6.99,
+          "key": "zossima",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "why",
+          "start": 0.51,
+          "end": 0.67
+        },
+        {
+          "text": "were",
+          "start": 0.67,
+          "end": 0.79
+        },
+        {
+          "text": "you",
+          "start": 0.79,
+          "end": 0.99
+        },
+        {
+          "text": "so",
+          "start": 0.99,
+          "end": 1.21
+        },
+        {
+          "text": "surly",
+          "start": 1.21,
+          "end": 1.73
+        },
+        {
+          "text": "with",
+          "start": 1.73,
+          "end": 1.91
+        },
+        {
+          "text": "Alyosha",
+          "start": 1.91,
+          "end": 2.51
+        },
+        {
+          "text": "just",
+          "start": 2.51,
+          "end": 2.67
+        },
+        {
+          "text": "now?",
+          "start": 2.67,
+          "end": 3.05
+        },
+        {
+          "text": "He",
+          "start": 3.53,
+          "end": 3.71
+        },
+        {
+          "text": "is",
+          "start": 3.71,
+          "end": 3.83
+        },
+        {
+          "text": "a",
+          "start": 3.83,
+          "end": 3.97
+        },
+        {
+          "text": "dear;",
+          "start": 3.97,
+          "end": 4.17
+        },
+        {
+          "text": "I've",
+          "start": 4.75,
+          "end": 4.91
+        },
+        {
+          "text": "treated",
+          "start": 4.91,
+          "end": 5.11
+        },
+        {
+          "text": "him",
+          "start": 5.11,
+          "end": 5.39
+        },
+        {
+          "text": "badly",
+          "start": 5.39,
+          "end": 5.73
+        },
+        {
+          "text": "over",
+          "start": 5.73,
+          "end": 6.11
+        },
+        {
+          "text": "Father",
+          "start": 6.11,
+          "end": 6.47
+        },
+        {
+          "text": "Zossima.\"",
+          "start": 6.47,
+          "end": 6.99
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3011367544531822
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8f3a77c900f6011299dfd727ee8913361c8304a3926dd30bbb87dbc407eb5445",
+  "selected_reasons": []
+}

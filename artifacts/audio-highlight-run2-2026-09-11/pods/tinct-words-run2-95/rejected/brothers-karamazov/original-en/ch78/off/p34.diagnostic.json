@@ -1,0 +1,535 @@
+{
+  "complete": true,
+  "signature": "fd15dbdc6bc3021874faa9774f5f8e0e0a8e44c69a23724906a8a81a317303db",
+  "attempts": [
+    {
+      "asr_seconds": 0.22831296920776367,
+      "alignment_seconds": 0.0006676465272903442,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " What what Satan some at Nile humanum that's not bad for the devil",
+          "start": 0.02,
+          "end": 4.3,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.7587890625
+            },
+            {
+              "text": " what",
+              "start": 0.6,
+              "end": 0.98,
+              "probability": 0.376708984375
+            },
+            {
+              "text": " Satan",
+              "start": 0.98,
+              "end": 1.38,
+              "probability": 0.63330078125
+            },
+            {
+              "text": " some",
+              "start": 1.38,
+              "end": 1.68,
+              "probability": 0.5361328125
+            },
+            {
+              "text": " at",
+              "start": 1.68,
+              "end": 1.82,
+              "probability": 0.86181640625
+            },
+            {
+              "text": " Nile",
+              "start": 1.82,
+              "end": 2.06,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " humanum",
+              "start": 2.06,
+              "end": 2.72,
+              "probability": 0.518798828125
+            },
+            {
+              "text": " that's",
+              "start": 2.72,
+              "end": 3.32,
+              "probability": 0.786865234375
+            },
+            {
+              "text": " not",
+              "start": 3.32,
+              "end": 3.48,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " bad",
+              "start": 3.48,
+              "end": 3.72,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " for",
+              "start": 3.72,
+              "end": 3.9,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 3.9,
+              "end": 4.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " devil",
+              "start": 4.02,
+              "end": 4.3,
+              "probability": 0.97607421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "what",
+          "start": 0.6,
+          "end": 0.98
+        },
+        {
+          "raw": "Satan",
+          "start": 0.98,
+          "end": 1.38
+        },
+        {
+          "raw": "some",
+          "start": 1.38,
+          "end": 1.68
+        },
+        {
+          "raw": "at",
+          "start": 1.68,
+          "end": 1.82
+        },
+        {
+          "raw": "Nile",
+          "start": 1.82,
+          "end": 2.06
+        },
+        {
+          "raw": "humanum",
+          "start": 2.06,
+          "end": 2.72
+        },
+        {
+          "raw": "that's",
+          "start": 2.72,
+          "end": 3.32
+        },
+        {
+          "raw": "not",
+          "start": 3.32,
+          "end": 3.48
+        },
+        {
+          "raw": "bad",
+          "start": 3.48,
+          "end": 3.72
+        },
+        {
+          "raw": "for",
+          "start": 3.72,
+          "end": 3.9
+        },
+        {
+          "raw": "the",
+          "start": 3.9,
+          "end": 4.02
+        },
+        {
+          "raw": "devil",
+          "start": 4.02,
+          "end": 4.3
+        }
+      ],
+      "expected_tokens": [
+        "\"What,",
+        "what,",
+        "Satan",
+        "_sum",
+        "et",
+        "nihil",
+        "humanum_",
+        "...",
+        "that's",
+        "not",
+        "bad",
+        "for",
+        "the",
+        "devil!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          6,
+          3,
+          6
+        ],
+        [
+          "equal",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "delete",
+          7,
+          8,
+          7,
+          7
+        ],
+        [
+          "equal",
+          8,
+          14,
+          7,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          6,
+          3,
+          6
+        ],
+        [
+          "delete",
+          7,
+          8,
+          7,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 0.6,
+          "end": 0.98,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Satan",
+          "start": 0.98,
+          "end": 1.38,
+          "key": "satan",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 1.38,
+          "end": 1.68,
+          "key": "some",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.68,
+          "end": 1.82,
+          "key": "at",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Nile",
+          "start": 1.82,
+          "end": 2.06,
+          "key": "nile",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "humanum",
+          "start": 2.06,
+          "end": 2.72,
+          "key": "humanum",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "that's",
+          "start": 2.72,
+          "end": 3.32,
+          "key": "thats",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.32,
+          "end": 3.48,
+          "key": "not",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "bad",
+          "start": 3.48,
+          "end": 3.72,
+          "key": "bad",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.72,
+          "end": 3.9,
+          "key": "for",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.9,
+          "end": 4.02,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "devil",
+          "start": 4.02,
+          "end": 4.3,
+          "key": "devil",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"What,",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "what,",
+          "start": 0.6,
+          "end": 0.98
+        },
+        {
+          "text": "Satan",
+          "start": 0.98,
+          "end": 1.38
+        },
+        {
+          "text": "_sum",
+          "start": 1.38,
+          "end": 1.72
+        },
+        {
+          "text": "et",
+          "start": 1.72,
+          "end": 1.89
+        },
+        {
+          "text": "nihil",
+          "start": 1.89,
+          "end": 1.975
+        },
+        {
+          "text": "humanum_",
+          "start": 2.06,
+          "end": 2.72
+        },
+        {
+          "text": "...",
+          "start": 2.72,
+          "end": 2.72
+        },
+        {
+          "text": "that's",
+          "start": 2.72,
+          "end": 3.32
+        },
+        {
+          "text": "not",
+          "start": 3.32,
+          "end": 3.48
+        },
+        {
+          "text": "bad",
+          "start": 3.48,
+          "end": 3.72
+        },
+        {
+          "text": "for",
+          "start": 3.72,
+          "end": 3.9
+        },
+        {
+          "text": "the",
+          "start": 3.9,
+          "end": 4.02
+        },
+        {
+          "text": "devil!\"",
+          "start": 4.02,
+          "end": 4.3
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 13,
+        "matched_words": 10
+      },
+      "match_ratio": 0.7142857142857143,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2292148359119892
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6a8b5f4993a54560c8a9f714a256c518300722df13cf777106fd0147101f41c9",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

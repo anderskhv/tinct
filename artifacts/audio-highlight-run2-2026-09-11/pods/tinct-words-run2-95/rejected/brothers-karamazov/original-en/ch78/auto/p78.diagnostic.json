@@ -1,0 +1,542 @@
+{
+  "complete": true,
+  "signature": "a24d993feaf9a88537080be557143aeb6ca62e0a6e8c40ef0f27535c9aaf3db6",
+  "attempts": [
+    {
+      "asr_seconds": 0.2970236949622631,
+      "alignment_seconds": 0.00047241151332855225,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"You are lying. The object of your visit is to convince me of your existence!\"",
+        "hotwords": "You, The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " You are lying. The object of your visit is to convince me of your existence.",
+          "start": 0.05,
+          "end": 4.47,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.91748046875
+            },
+            {
+              "text": " are",
+              "start": 0.59,
+              "end": 0.79,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " lying.",
+              "start": 0.79,
+              "end": 1.19,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " The",
+              "start": 1.73,
+              "end": 1.87,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " object",
+              "start": 1.87,
+              "end": 2.23,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " of",
+              "start": 2.23,
+              "end": 2.41,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " your",
+              "start": 2.41,
+              "end": 2.51,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " visit",
+              "start": 2.51,
+              "end": 2.77,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " is",
+              "start": 2.77,
+              "end": 2.99,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 2.99,
+              "end": 3.15,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " convince",
+              "start": 3.15,
+              "end": 3.47,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " me",
+              "start": 3.47,
+              "end": 3.77,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 3.77,
+              "end": 3.95,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " your",
+              "start": 3.95,
+              "end": 4.05,
+              "probability": 0.998046875
+            },
+            {
+              "text": " existence.",
+              "start": 4.05,
+              "end": 4.47,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "are",
+          "start": 0.59,
+          "end": 0.79
+        },
+        {
+          "raw": "lying.",
+          "start": 0.79,
+          "end": 1.19
+        },
+        {
+          "raw": "The",
+          "start": 1.73,
+          "end": 1.87
+        },
+        {
+          "raw": "object",
+          "start": 1.87,
+          "end": 2.23
+        },
+        {
+          "raw": "of",
+          "start": 2.23,
+          "end": 2.41
+        },
+        {
+          "raw": "your",
+          "start": 2.41,
+          "end": 2.51
+        },
+        {
+          "raw": "visit",
+          "start": 2.51,
+          "end": 2.77
+        },
+        {
+          "raw": "is",
+          "start": 2.77,
+          "end": 2.99
+        },
+        {
+          "raw": "to",
+          "start": 2.99,
+          "end": 3.15
+        },
+        {
+          "raw": "convince",
+          "start": 3.15,
+          "end": 3.47
+        },
+        {
+          "raw": "me",
+          "start": 3.47,
+          "end": 3.77
+        },
+        {
+          "raw": "of",
+          "start": 3.77,
+          "end": 3.95
+        },
+        {
+          "raw": "your",
+          "start": 3.95,
+          "end": 4.05
+        },
+        {
+          "raw": "existence.",
+          "start": 4.05,
+          "end": 4.47
+        }
+      ],
+      "expected_tokens": [
+        "\"You",
+        "are",
+        "lying.",
+        "The",
+        "object",
+        "of",
+        "your",
+        "visit",
+        "is",
+        "to",
+        "convince",
+        "me",
+        "of",
+        "your",
+        "existence!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 0.59,
+          "end": 0.79,
+          "key": "are",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lying.",
+          "start": 0.79,
+          "end": 1.19,
+          "key": "lying",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.73,
+          "end": 1.87,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "object",
+          "start": 1.87,
+          "end": 2.23,
+          "key": "object",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.23,
+          "end": 2.41,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.41,
+          "end": 2.51,
+          "key": "your",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "visit",
+          "start": 2.51,
+          "end": 2.77,
+          "key": "visit",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.77,
+          "end": 2.99,
+          "key": "is",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.99,
+          "end": 3.15,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "convince",
+          "start": 3.15,
+          "end": 3.47,
+          "key": "convince",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 3.47,
+          "end": 3.77,
+          "key": "me",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.77,
+          "end": 3.95,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.95,
+          "end": 4.05,
+          "key": "your",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "existence.",
+          "start": 4.05,
+          "end": 4.47,
+          "key": "existence",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"You",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "are",
+          "start": 0.59,
+          "end": 0.79
+        },
+        {
+          "text": "lying.",
+          "start": 0.79,
+          "end": 1.19
+        },
+        {
+          "text": "The",
+          "start": 1.73,
+          "end": 1.87
+        },
+        {
+          "text": "object",
+          "start": 1.87,
+          "end": 2.23
+        },
+        {
+          "text": "of",
+          "start": 2.23,
+          "end": 2.41
+        },
+        {
+          "text": "your",
+          "start": 2.41,
+          "end": 2.51
+        },
+        {
+          "text": "visit",
+          "start": 2.51,
+          "end": 2.77
+        },
+        {
+          "text": "is",
+          "start": 2.77,
+          "end": 2.99
+        },
+        {
+          "text": "to",
+          "start": 2.99,
+          "end": 3.15
+        },
+        {
+          "text": "convince",
+          "start": 3.15,
+          "end": 3.47
+        },
+        {
+          "text": "me",
+          "start": 3.47,
+          "end": 3.77
+        },
+        {
+          "text": "of",
+          "start": 3.77,
+          "end": 3.95
+        },
+        {
+          "text": "your",
+          "start": 3.95,
+          "end": 4.05
+        },
+        {
+          "text": "existence!\"",
+          "start": 4.05,
+          "end": 4.47
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.297693595290184
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c2d9e24bbe5fc86a3d1a3a8752f8bfc2cf537fc26f8b45501cf6f3c228e035c6",
+  "selected_reasons": []
+}

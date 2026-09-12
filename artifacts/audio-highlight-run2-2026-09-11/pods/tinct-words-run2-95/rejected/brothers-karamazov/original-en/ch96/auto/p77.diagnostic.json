@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "bfc0d589dc5a55329234ae4a9666cba4c94fb5ace1d44369744bba3ef5587ca2",
+  "attempts": [
+    {
+      "asr_seconds": 0.12767715007066727,
+      "alignment_seconds": 0.00021690130233764648,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Footnotes",
+        "hotwords": "Footnotes"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Footnotes",
+          "start": 0.08,
+          "end": 0.92,
+          "words": [
+            {
+              "text": " Footnotes",
+              "start": 0.08,
+              "end": 0.92,
+              "probability": 0.6448974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Footnotes",
+          "start": 0.08,
+          "end": 0.92
+        }
+      ],
+      "expected_tokens": [
+        "Footnotes"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Footnotes",
+          "start": 0.08,
+          "end": 0.92,
+          "key": "footnotes",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Footnotes",
+          "start": 0.08,
+          "end": 0.92
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1279626004397869
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d34265890254583ace40955943d395b2dd3ee85bddd740c8f18a52688fdf3328",
+  "selected_reasons": []
+}
