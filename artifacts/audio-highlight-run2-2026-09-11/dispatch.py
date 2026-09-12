@@ -27,8 +27,10 @@ def log(msg):
 
 
 def owned_running():
-    pods = api("GET", "/pods")
-    rows = pods.get("data", pods) if isinstance(pods, dict) else pods
+    status, body = api("GET", "/pods")
+    if status != 200:
+        raise RuntimeError(f"list pods HTTP {status}")
+    rows = body if isinstance(body, list) else (body or {}).get("data") or []
     return [p for p in rows if (p.get("name") or "").startswith("tinct-words-run2-")
             and p.get("desiredStatus") == "RUNNING"]
 

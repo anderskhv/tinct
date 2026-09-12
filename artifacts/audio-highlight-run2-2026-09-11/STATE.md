@@ -62,3 +62,18 @@ pod.json's estimatedCost; the guard loop reads that file.
 and adopt.py fetch and terminate, they do not publish.
 
 Published so far: the-republic ch5, the-tempest ch6 (journal has the truth).
+
+## 05:42Z — three daemons carry the run
+| process | job | restart command |
+|---|---|---|
+| `gloop.sh` | guard enforce every 5 min ($20, $1/hr, 50 min) | `nohup bash $A/gloop.sh &` |
+| `dispatch.py` | launch wave-2 batches from pending.json at 12 concurrent | `nohup python3 $A/dispatch.py &` |
+| `harvest_daemon.py` | harvest+publish+push each finished pod, one at a time | `nohup python3 $A/harvest_daemon.py &` |
+
+All three are idempotent and keep their state on disk (`pending.json`,
+`spent.txt`, `pods/*/candidates.json` as the harvested mark), so a fresh
+session restarts them and loses nothing. Check `dispatch.log`, `harvest.log`,
+`guard/guard.log`.
+
+Do not `pkill -f` these names — the pattern matches the invoking shell and
+kills the tool call instead.
