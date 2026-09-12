@@ -158,6 +158,10 @@ const edits = [
   ['story', 'edition name in header', 'children:[`Act I, Scene `,n.index===3?`II`:`IV`]})]})',
     'children:[`Act I, Scene `,n.index===3||t?`II`:`IV`]}),(0,_.jsx)(`em`,{className:`edition-name`,style:{opacity:n.index===1&&h?1:0},children:`Modern translation`})]})', 1],
   // Type and copy.
+  // 2026-09-12 (Anders): the closing scene says the trial costs nothing to start. Same line about.html's older
+  // server-rendered copy already carries; the numbers are unchanged.
+  ['story', 'no credit card required', '(0,_.jsx)(`p`,{className:`closing-trial`,children:`Your first 30 days of Premium are free with a new account.`})',
+    '(0,_.jsxs)(`p`,{className:`closing-trial`,children:[`Your first 30 days of Premium are free with a new account.`,(0,_.jsx)(`br`,{}),`No credit card required.`]})', 1],
   // 2026-09-12 (Anders): the character scene's answer is shorter — the page already shows the name being clicked.
   ['story', 'character scene answer', '{problem:`Who is he? Is he important?`,answer:`Click a name. Find out.`,detail:``}',
     '{problem:`Who is he? Is he important?`,answer:`Just click. Find out.`,detail:``}', 1],
