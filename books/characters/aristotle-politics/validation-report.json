@@ -1,0 +1,30 @@
+{
+  "bookId": "aristotle-politics",
+  "scope": "All eight Books in both English editions. A systematic treatise, not a dialogue -- per editorial policy's guidance for treatises, almost every entry is Reference. Two entries are Major for sustained, argued-with engagement across multiple Books: Socrates and Plato, the target of most of Book 2. Nine genuine namesake collisions (Dionysius, Periander, Thrasybulus, Pausanias x3, Cleisthenes, Timophanes, plus the clean epithet-resolved splits Amyntas/Chares/Pheidon) are resolved in build_aristotle_politics.py and documented in README.md, alongside a serious source defect: original-en's Gutenberg/Bekker-apparatus text bleeds editorial footnotes and page headers into the running prose at many points, accounting for the two \"Aristotle\" self-citations excluded as apparatus and the one entity (Sardanapalus) present in modern-en only.",
+  "authoredEntries": 159,
+  "editions": {
+    "original-en": {
+      "sourceSha256": "0bf42e46f4c5c3738c11c437513f104b0e92847432128873d10a49f9fc16c2fc",
+      "chapters": 8,
+      "paragraphs": 478,
+      "entries": 158,
+      "mentions": 330,
+      "omittedEntities": [
+        "sardanapalus"
+      ]
+    },
+    "modern-en": {
+      "sourceSha256": "8ce0b1f6570584b4ba8168b25cb6ae365afcd0cc157cc4a0f15cd2d3efc62224",
+      "chapters": 8,
+      "paragraphs": 478,
+      "entries": 159,
+      "mentions": 325,
+      "omittedEntities": []
+    }
+  },
+  "limits": [
+    "Authoring-agent source review; not independent editorial approval.",
+    "Named cast, speaking roles and named references; no claim of pronoun or every generic-title coverage.",
+    "No runtime registration or production verification in this content package."
+  ]
+}

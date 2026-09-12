@@ -57,7 +57,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | On Liberty (`on-liberty`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Utilitarianism (`utilitarianism`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | History of the Peloponnesian War (`peloponnesian-war`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
-| Politics (`aristotle-politics`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| Politics (`aristotle-politics`) | validated-package | awaiting-integration: register both English editions, version the asset, run app gates, and verify in production before changing appStatus |
 | Leviathan (`leviathan`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Fear and Trembling (`fear-and-trembling`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | The Communist Manifesto (`communist-manifesto`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
