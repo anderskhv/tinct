@@ -158,6 +158,9 @@ const edits = [
   ['story', 'edition name in header', 'children:[`Act I, Scene `,n.index===3?`II`:`IV`]})]})',
     'children:[`Act I, Scene `,n.index===3||t?`II`:`IV`]}),(0,_.jsx)(`em`,{className:`edition-name`,style:{opacity:n.index===1&&h?1:0},children:`Modern translation`})]})', 1],
   // Type and copy.
+  // 2026-09-12 (Anders): "or chat with it" read as a second, different feature under "Talk to the book."
+  ['story', 'drop the chat-with-it line', '{problem:`I don’t understand this.`,answer:`Talk to the book.`,detail:`Or chat with it.`}',
+    '{problem:`I don’t understand this.`,answer:`Talk to the book.`,detail:``}', 1],
   ['story', 'recap line', '(0,_.jsxs)(`span`,{className:`recap-time`,children:[(0,_.jsx)(`span`,{children:`LAST TIME YOU READ`}),(0,_.jsx)(`span`,{children:`THREE WEEKS AGO`})]})',
     '(0,_.jsx)(`span`,{className:`recap-time`,children:`Last time you read: three weeks ago`})', 1],
   ['story', 'character card kicker', '(0,_.jsx)(`small`,{children:`CHARACTERS · HAMLET`})', '(0,_.jsx)(`small`,{children:`Characters · Hamlet`})', 1],
