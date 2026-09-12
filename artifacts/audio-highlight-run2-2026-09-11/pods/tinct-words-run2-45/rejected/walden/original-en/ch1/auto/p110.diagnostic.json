@@ -1,0 +1,702 @@
+{
+  "complete": true,
+  "signature": "ea092eec2631dcc925d81b5910a7c597a55be591fdf588b6b55d76f7b69c036b",
+  "attempts": [
+    {
+      "asr_seconds": 0.3143600639887154,
+      "alignment_seconds": 0.0004352536052465439,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Not long since I was present at the auction of a deacon's effects, for his life had not been ineffectual:—",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Not long since I was present at the auction of a deacon's effects, for his life had not been ineffectual—",
+          "start": 0.05,
+          "end": 6.05,
+          "words": [
+            {
+              "text": " Not",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.7236328125
+            },
+            {
+              "text": " long",
+              "start": 0.63,
+              "end": 0.91,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " since",
+              "start": 0.91,
+              "end": 1.19,
+              "probability": 0.9921875
+            },
+            {
+              "text": " I",
+              "start": 1.19,
+              "end": 1.35,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " was",
+              "start": 1.35,
+              "end": 1.51,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " present",
+              "start": 1.51,
+              "end": 1.85,
+              "probability": 0.998046875
+            },
+            {
+              "text": " at",
+              "start": 1.85,
+              "end": 2.05,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 2.05,
+              "end": 2.17,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " auction",
+              "start": 2.17,
+              "end": 2.47,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " of",
+              "start": 2.47,
+              "end": 2.71,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " a",
+              "start": 2.71,
+              "end": 2.81,
+              "probability": 0.79736328125
+            },
+            {
+              "text": " deacon's",
+              "start": 2.81,
+              "end": 3.23,
+              "probability": 0.8146158854166666
+            },
+            {
+              "text": " effects,",
+              "start": 3.23,
+              "end": 3.63,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " for",
+              "start": 4.03,
+              "end": 4.25,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " his",
+              "start": 4.25,
+              "end": 4.43,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " life",
+              "start": 4.43,
+              "end": 4.79,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " had",
+              "start": 4.79,
+              "end": 5.11,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " not",
+              "start": 5.11,
+              "end": 5.31,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " been",
+              "start": 5.31,
+              "end": 5.49,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " ineffectual—",
+              "start": 5.49,
+              "end": 6.05,
+              "probability": 0.7442196607589722
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Not",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "long",
+          "start": 0.63,
+          "end": 0.91
+        },
+        {
+          "raw": "since",
+          "start": 0.91,
+          "end": 1.19
+        },
+        {
+          "raw": "I",
+          "start": 1.19,
+          "end": 1.35
+        },
+        {
+          "raw": "was",
+          "start": 1.35,
+          "end": 1.51
+        },
+        {
+          "raw": "present",
+          "start": 1.51,
+          "end": 1.85
+        },
+        {
+          "raw": "at",
+          "start": 1.85,
+          "end": 2.05
+        },
+        {
+          "raw": "the",
+          "start": 2.05,
+          "end": 2.17
+        },
+        {
+          "raw": "auction",
+          "start": 2.17,
+          "end": 2.47
+        },
+        {
+          "raw": "of",
+          "start": 2.47,
+          "end": 2.71
+        },
+        {
+          "raw": "a",
+          "start": 2.71,
+          "end": 2.81
+        },
+        {
+          "raw": "deacon's",
+          "start": 2.81,
+          "end": 3.23
+        },
+        {
+          "raw": "effects,",
+          "start": 3.23,
+          "end": 3.63
+        },
+        {
+          "raw": "for",
+          "start": 4.03,
+          "end": 4.25
+        },
+        {
+          "raw": "his",
+          "start": 4.25,
+          "end": 4.43
+        },
+        {
+          "raw": "life",
+          "start": 4.43,
+          "end": 4.79
+        },
+        {
+          "raw": "had",
+          "start": 4.79,
+          "end": 5.11
+        },
+        {
+          "raw": "not",
+          "start": 5.11,
+          "end": 5.31
+        },
+        {
+          "raw": "been",
+          "start": 5.31,
+          "end": 5.49
+        },
+        {
+          "raw": "ineffectual—",
+          "start": 5.49,
+          "end": 6.05
+        }
+      ],
+      "expected_tokens": [
+        "Not",
+        "long",
+        "since",
+        "I",
+        "was",
+        "present",
+        "at",
+        "the",
+        "auction",
+        "of",
+        "a",
+        "deacon's",
+        "effects,",
+        "for",
+        "his",
+        "life",
+        "had",
+        "not",
+        "been",
+        "ineffectual:—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Not",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "not",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "long",
+          "start": 0.63,
+          "end": 0.91,
+          "key": "long",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "since",
+          "start": 0.91,
+          "end": 1.19,
+          "key": "since",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.19,
+          "end": 1.35,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 1.35,
+          "end": 1.51,
+          "key": "was",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "present",
+          "start": 1.51,
+          "end": 1.85,
+          "key": "present",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.85,
+          "end": 2.05,
+          "key": "at",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.05,
+          "end": 2.17,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "auction",
+          "start": 2.17,
+          "end": 2.47,
+          "key": "auction",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.47,
+          "end": 2.71,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.71,
+          "end": 2.81,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "deacon's",
+          "start": 2.81,
+          "end": 3.23,
+          "key": "deacons",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "effects,",
+          "start": 3.23,
+          "end": 3.63,
+          "key": "effects",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.03,
+          "end": 4.25,
+          "key": "for",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.25,
+          "end": 4.43,
+          "key": "his",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "life",
+          "start": 4.43,
+          "end": 4.79,
+          "key": "life",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 4.79,
+          "end": 5.11,
+          "key": "had",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 5.11,
+          "end": 5.31,
+          "key": "not",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 5.31,
+          "end": 5.49,
+          "key": "been",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "ineffectual—",
+          "start": 5.49,
+          "end": 6.05,
+          "key": "ineffectual",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Not",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "long",
+          "start": 0.63,
+          "end": 0.91
+        },
+        {
+          "text": "since",
+          "start": 0.91,
+          "end": 1.19
+        },
+        {
+          "text": "I",
+          "start": 1.19,
+          "end": 1.35
+        },
+        {
+          "text": "was",
+          "start": 1.35,
+          "end": 1.51
+        },
+        {
+          "text": "present",
+          "start": 1.51,
+          "end": 1.85
+        },
+        {
+          "text": "at",
+          "start": 1.85,
+          "end": 2.05
+        },
+        {
+          "text": "the",
+          "start": 2.05,
+          "end": 2.17
+        },
+        {
+          "text": "auction",
+          "start": 2.17,
+          "end": 2.47
+        },
+        {
+          "text": "of",
+          "start": 2.47,
+          "end": 2.71
+        },
+        {
+          "text": "a",
+          "start": 2.71,
+          "end": 2.81
+        },
+        {
+          "text": "deacon's",
+          "start": 2.81,
+          "end": 3.23
+        },
+        {
+          "text": "effects,",
+          "start": 3.23,
+          "end": 3.63
+        },
+        {
+          "text": "for",
+          "start": 4.03,
+          "end": 4.25
+        },
+        {
+          "text": "his",
+          "start": 4.25,
+          "end": 4.43
+        },
+        {
+          "text": "life",
+          "start": 4.43,
+          "end": 4.79
+        },
+        {
+          "text": "had",
+          "start": 4.79,
+          "end": 5.11
+        },
+        {
+          "text": "not",
+          "start": 5.11,
+          "end": 5.31
+        },
+        {
+          "text": "been",
+          "start": 5.31,
+          "end": 5.49
+        },
+        {
+          "text": "ineffectual:—",
+          "start": 5.49,
+          "end": 6.05
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3149962620809674
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cfeee0e35d1b3e41c923c0a7238dcf68090676b9cfaf3a9b41399703215e60dd",
+  "selected_reasons": []
+}

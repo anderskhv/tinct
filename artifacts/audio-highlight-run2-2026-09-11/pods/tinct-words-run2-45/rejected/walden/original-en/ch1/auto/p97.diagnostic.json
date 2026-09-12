@@ -1,0 +1,1682 @@
+{
+  "complete": true,
+  "signature": "4b26d768a049ba1e158d1e71c732b6f76c1e2e9f3fe6a41bd45d35070b32b88d",
+  "attempts": [
+    {
+      "asr_seconds": 3.1723622190766037,
+      "alignment_seconds": 0.0009764088317751884,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "$23.44 Earned by day-labor,................... 13.34 —————— In all,............................ $36.78,",
+        "hotwords": "Earned, In"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " $23.44 Earned by day-labor,.................... 13.34 ———————— In all,.................... $36.78",
+          "start": 0.05,
+          "end": 10.15,
+          "words": [
+            {
+              "text": " $23",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.742431640625
+            },
+            {
+              "text": ".44",
+              "start": 0.89,
+              "end": 2.37,
+              "probability": 0.968994140625
+            },
+            {
+              "text": " Earned",
+              "start": 2.37,
+              "end": 3.09,
+              "probability": 0.5157012939453125
+            },
+            {
+              "text": " by",
+              "start": 3.09,
+              "end": 3.21,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " day",
+              "start": 3.21,
+              "end": 3.49,
+              "probability": 0.458251953125
+            },
+            {
+              "text": "-labor",
+              "start": 3.49,
+              "end": 3.85,
+              "probability": 0.6386820475260416
+            },
+            {
+              "text": ",....................",
+              "start": 3.85,
+              "end": 4.61,
+              "probability": 0.1043701171875
+            },
+            {
+              "text": " 13",
+              "start": 4.61,
+              "end": 4.61,
+              "probability": 0.128662109375
+            },
+            {
+              "text": ".34",
+              "start": 4.61,
+              "end": 5.61,
+              "probability": 0.988037109375
+            },
+            {
+              "text": " ————————",
+              "start": 5.61,
+              "end": 6.55,
+              "probability": 0.2774249315261841
+            },
+            {
+              "text": " In",
+              "start": 6.55,
+              "end": 6.63,
+              "probability": 0.295166015625
+            },
+            {
+              "text": " all",
+              "start": 6.63,
+              "end": 6.97,
+              "probability": 0.9755859375
+            },
+            {
+              "text": ",....................",
+              "start": 6.97,
+              "end": 8.17,
+              "probability": 0.23344715436299643
+            },
+            {
+              "text": " $36",
+              "start": 8.17,
+              "end": 8.85,
+              "probability": 0.775634765625
+            },
+            {
+              "text": ".78",
+              "start": 8.85,
+              "end": 10.15,
+              "probability": 0.993408203125
+            }
+          ]
+        },
+        {
+          "text": " ... ... ... ... .... $36.78.",
+          "start": 10.15,
+          "end": 10.57,
+          "words": [
+            {
+              "text": " ...",
+              "start": 10.15,
+              "end": 10.23,
+              "probability": 0.01035308837890625
+            },
+            {
+              "text": " ...",
+              "start": 10.23,
+              "end": 10.23,
+              "probability": 0.0321044921875
+            },
+            {
+              "text": " ...",
+              "start": 10.23,
+              "end": 10.23,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " ...",
+              "start": 10.23,
+              "end": 10.23,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " ....",
+              "start": 10.23,
+              "end": 10.27,
+              "probability": 0.003055572509765625
+            },
+            {
+              "text": " $36",
+              "start": 10.27,
+              "end": 10.33,
+              "probability": 0.00034040212631225586
+            },
+            {
+              "text": ".78.",
+              "start": 10.33,
+              "end": 10.57,
+              "probability": 0.276339054107666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "$23",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": ".44",
+          "start": 0.89,
+          "end": 2.37
+        },
+        {
+          "raw": "Earned",
+          "start": 2.37,
+          "end": 3.09
+        },
+        {
+          "raw": "by",
+          "start": 3.09,
+          "end": 3.21
+        },
+        {
+          "raw": "day",
+          "start": 3.21,
+          "end": 3.49
+        },
+        {
+          "raw": "-labor",
+          "start": 3.49,
+          "end": 3.85
+        },
+        {
+          "raw": ",....................",
+          "start": 3.85,
+          "end": 4.61
+        },
+        {
+          "raw": "13",
+          "start": 4.61,
+          "end": 4.61
+        },
+        {
+          "raw": ".34",
+          "start": 4.61,
+          "end": 5.61
+        },
+        {
+          "raw": "————————",
+          "start": 5.61,
+          "end": 6.55
+        },
+        {
+          "raw": "In",
+          "start": 6.55,
+          "end": 6.63
+        },
+        {
+          "raw": "all",
+          "start": 6.63,
+          "end": 6.97
+        },
+        {
+          "raw": ",....................",
+          "start": 6.97,
+          "end": 8.17
+        },
+        {
+          "raw": "$36",
+          "start": 8.17,
+          "end": 8.85
+        },
+        {
+          "raw": ".78",
+          "start": 8.85,
+          "end": 10.15
+        },
+        {
+          "raw": "...",
+          "start": 10.15,
+          "end": 10.23
+        },
+        {
+          "raw": "...",
+          "start": 10.23,
+          "end": 10.23
+        },
+        {
+          "raw": "...",
+          "start": 10.23,
+          "end": 10.23
+        },
+        {
+          "raw": "...",
+          "start": 10.23,
+          "end": 10.23
+        },
+        {
+          "raw": "....",
+          "start": 10.23,
+          "end": 10.27
+        },
+        {
+          "raw": "$36",
+          "start": 10.27,
+          "end": 10.33
+        },
+        {
+          "raw": ".78.",
+          "start": 10.33,
+          "end": 10.57
+        }
+      ],
+      "expected_tokens": [
+        "$23.44",
+        "Earned",
+        "by",
+        "day-labor,...................",
+        "13.34",
+        "——————",
+        "In",
+        "all,............................",
+        "$36.78,"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          4,
+          2,
+          5
+        ],
+        [
+          "replace",
+          4,
+          5,
+          5,
+          8
+        ],
+        [
+          "equal",
+          5,
+          8,
+          8,
+          11
+        ],
+        [
+          "replace",
+          8,
+          9,
+          11,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "replace",
+          4,
+          5,
+          5,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          11,
+          21
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "$23",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "twentythree",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": ".44",
+          "start": 0.89,
+          "end": 2.37,
+          "key": "fortyfour",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Earned",
+          "start": 2.37,
+          "end": 3.09,
+          "key": "earned",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 3.09,
+          "end": 3.21,
+          "key": "by",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "day -labor",
+          "start": 3.21,
+          "end": 3.85,
+          "key": "daylabor",
+          "pieces": [
+            4,
+            5
+          ]
+        },
+        {
+          "raw": ",....................",
+          "start": 3.85,
+          "end": 4.61,
+          "key": "",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "13",
+          "start": 4.61,
+          "end": 4.61,
+          "key": "thirteen",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": ".34",
+          "start": 4.61,
+          "end": 5.61,
+          "key": "thirtyfour",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "————————",
+          "start": 5.61,
+          "end": 6.55,
+          "key": "",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 6.55,
+          "end": 6.63,
+          "key": "in",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 6.63,
+          "end": 6.97,
+          "key": "all",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": ",....................",
+          "start": 6.97,
+          "end": 8.17,
+          "key": "",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "$36",
+          "start": 8.17,
+          "end": 8.85,
+          "key": "thirtysix",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": ".78",
+          "start": 8.85,
+          "end": 10.15,
+          "key": "seventyeight",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "...",
+          "start": 10.15,
+          "end": 10.23,
+          "key": "",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "...",
+          "start": 10.23,
+          "end": 10.23,
+          "key": "",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "...",
+          "start": 10.23,
+          "end": 10.23,
+          "key": "",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "...",
+          "start": 10.23,
+          "end": 10.23,
+          "key": "",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "....",
+          "start": 10.23,
+          "end": 10.27,
+          "key": "",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "$36",
+          "start": 10.27,
+          "end": 10.33,
+          "key": "thirtysix",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": ".78.",
+          "start": 10.33,
+          "end": 10.57,
+          "key": "seventyeight",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 3,
+          "text": "day-labor,...................",
+          "heard": "day -labor",
+          "heard_indexes": [
+            4,
+            5
+          ],
+          "start": 3.21,
+          "end": 3.85
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "$23.44",
+          "start": 0.0,
+          "end": 1.185
+        },
+        {
+          "text": "Earned",
+          "start": 2.37,
+          "end": 3.09
+        },
+        {
+          "text": "by",
+          "start": 3.09,
+          "end": 3.21
+        },
+        {
+          "text": "day-labor,...................",
+          "start": 3.21,
+          "end": 3.85
+        },
+        {
+          "text": "13.34",
+          "start": 3.85,
+          "end": 4.73
+        },
+        {
+          "text": "——————",
+          "start": 5.61,
+          "end": 6.55
+        },
+        {
+          "text": "In",
+          "start": 6.55,
+          "end": 6.63
+        },
+        {
+          "text": "all,............................",
+          "start": 6.63,
+          "end": 6.97
+        },
+        {
+          "text": "$36.78,",
+          "start": 6.97,
+          "end": 8.77
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 21,
+        "matched_words": 6
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 3.1736986148171127
+    },
+    {
+      "asr_seconds": 0.3578181150369346,
+      "alignment_seconds": 0.0004219408147037029,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Earned, In"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " 23 dollars and 44 cents earned by day labor 13.34 in all 36 dollars and 78 cents",
+          "start": 0.05,
+          "end": 10.55,
+          "words": [
+            {
+              "text": " 23",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.2154541015625
+            },
+            {
+              "text": " dollars",
+              "start": 0.81,
+              "end": 1.27,
+              "probability": 0.7255859375
+            },
+            {
+              "text": " and",
+              "start": 1.27,
+              "end": 1.61,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " 44",
+              "start": 1.61,
+              "end": 2.09,
+              "probability": 0.9296875
+            },
+            {
+              "text": " cents",
+              "start": 2.09,
+              "end": 2.65,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " earned",
+              "start": 2.65,
+              "end": 2.97,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " by",
+              "start": 2.97,
+              "end": 3.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " day",
+              "start": 3.23,
+              "end": 3.49,
+              "probability": 0.5791015625
+            },
+            {
+              "text": " labor",
+              "start": 3.49,
+              "end": 3.85,
+              "probability": 0.67724609375
+            },
+            {
+              "text": " 13",
+              "start": 3.85,
+              "end": 4.55,
+              "probability": 0.6923828125
+            },
+            {
+              "text": ".34",
+              "start": 4.55,
+              "end": 5.45,
+              "probability": 0.934326171875
+            },
+            {
+              "text": " in",
+              "start": 5.45,
+              "end": 6.37,
+              "probability": 0.81494140625
+            },
+            {
+              "text": " all",
+              "start": 6.37,
+              "end": 7.33,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " 36",
+              "start": 7.33,
+              "end": 8.55,
+              "probability": 0.89404296875
+            },
+            {
+              "text": " dollars",
+              "start": 8.55,
+              "end": 9.21,
+              "probability": 0.94921875
+            },
+            {
+              "text": " and",
+              "start": 9.21,
+              "end": 9.51,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " 78",
+              "start": 9.51,
+              "end": 10.03,
+              "probability": 0.98828125
+            },
+            {
+              "text": " cents",
+              "start": 10.03,
+              "end": 10.55,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "23",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "dollars",
+          "start": 0.81,
+          "end": 1.27
+        },
+        {
+          "raw": "and",
+          "start": 1.27,
+          "end": 1.61
+        },
+        {
+          "raw": "44",
+          "start": 1.61,
+          "end": 2.09
+        },
+        {
+          "raw": "cents",
+          "start": 2.09,
+          "end": 2.65
+        },
+        {
+          "raw": "earned",
+          "start": 2.65,
+          "end": 2.97
+        },
+        {
+          "raw": "by",
+          "start": 2.97,
+          "end": 3.23
+        },
+        {
+          "raw": "day",
+          "start": 3.23,
+          "end": 3.49
+        },
+        {
+          "raw": "labor",
+          "start": 3.49,
+          "end": 3.85
+        },
+        {
+          "raw": "13",
+          "start": 3.85,
+          "end": 4.55
+        },
+        {
+          "raw": ".34",
+          "start": 4.55,
+          "end": 5.45
+        },
+        {
+          "raw": "in",
+          "start": 5.45,
+          "end": 6.37
+        },
+        {
+          "raw": "all",
+          "start": 6.37,
+          "end": 7.33
+        },
+        {
+          "raw": "36",
+          "start": 7.33,
+          "end": 8.55
+        },
+        {
+          "raw": "dollars",
+          "start": 8.55,
+          "end": 9.21
+        },
+        {
+          "raw": "and",
+          "start": 9.21,
+          "end": 9.51
+        },
+        {
+          "raw": "78",
+          "start": 9.51,
+          "end": 10.03
+        },
+        {
+          "raw": "cents",
+          "start": 10.03,
+          "end": 10.55
+        }
+      ],
+      "expected_tokens": [
+        "$23.44",
+        "Earned",
+        "by",
+        "day-labor,...................",
+        "13.34",
+        "——————",
+        "In",
+        "all,............................",
+        "$36.78,"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          5
+        ],
+        [
+          "equal",
+          1,
+          4,
+          5,
+          8
+        ],
+        [
+          "replace",
+          4,
+          6,
+          8,
+          10
+        ],
+        [
+          "equal",
+          6,
+          8,
+          10,
+          12
+        ],
+        [
+          "replace",
+          8,
+          9,
+          12,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          5
+        ],
+        [
+          "replace",
+          4,
+          6,
+          8,
+          10
+        ],
+        [
+          "replace",
+          8,
+          9,
+          12,
+          17
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "23",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "twentythree",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "dollars",
+          "start": 0.81,
+          "end": 1.27,
+          "key": "dollars",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.27,
+          "end": 1.61,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "44",
+          "start": 1.61,
+          "end": 2.09,
+          "key": "fortyfour",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "cents",
+          "start": 2.09,
+          "end": 2.65,
+          "key": "cents",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "earned",
+          "start": 2.65,
+          "end": 2.97,
+          "key": "earned",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 2.97,
+          "end": 3.23,
+          "key": "by",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "day labor",
+          "start": 3.23,
+          "end": 3.85,
+          "key": "daylabor",
+          "pieces": [
+            7,
+            8
+          ]
+        },
+        {
+          "raw": "13",
+          "start": 3.85,
+          "end": 4.55,
+          "key": "thirteen",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": ".34",
+          "start": 4.55,
+          "end": 5.45,
+          "key": "thirtyfour",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.45,
+          "end": 6.37,
+          "key": "in",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 6.37,
+          "end": 7.33,
+          "key": "all",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "36",
+          "start": 7.33,
+          "end": 8.55,
+          "key": "thirtysix",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "dollars",
+          "start": 8.55,
+          "end": 9.21,
+          "key": "dollars",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 9.21,
+          "end": 9.51,
+          "key": "and",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "78",
+          "start": 9.51,
+          "end": 10.03,
+          "key": "seventyeight",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "cents",
+          "start": 10.03,
+          "end": 10.55,
+          "key": "cents",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 3,
+          "text": "day-labor,...................",
+          "heard": "day labor",
+          "heard_indexes": [
+            7,
+            8
+          ],
+          "start": 3.23,
+          "end": 3.85
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "$23.44",
+          "start": 0.0,
+          "end": 1.325
+        },
+        {
+          "text": "Earned",
+          "start": 2.65,
+          "end": 2.97
+        },
+        {
+          "text": "by",
+          "start": 2.97,
+          "end": 3.23
+        },
+        {
+          "text": "day-labor,...................",
+          "start": 3.23,
+          "end": 3.85
+        },
+        {
+          "text": "13.34",
+          "start": 3.85,
+          "end": 4.65
+        },
+        {
+          "text": "——————",
+          "start": 4.65,
+          "end": 5.05
+        },
+        {
+          "text": "In",
+          "start": 5.45,
+          "end": 6.37
+        },
+        {
+          "text": "all,............................",
+          "start": 6.37,
+          "end": 7.33
+        },
+        {
+          "text": "$36.78,",
+          "start": 7.33,
+          "end": 8.94
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 17,
+        "matched_words": 5
+      },
+      "match_ratio": 0.5555555555555556,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.35837422078475356
+    },
+    {
+      "asr_seconds": 0.38412069575861096,
+      "alignment_seconds": 0.00036107515916228294,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " $23.44 earned by Daylabor, $13.34 in all, $36.78.",
+          "start": 0.05,
+          "end": 10.17,
+          "words": [
+            {
+              "text": " $23",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.7431640625
+            },
+            {
+              "text": ".44",
+              "start": 0.89,
+              "end": 2.37,
+              "probability": 0.968994140625
+            },
+            {
+              "text": " earned",
+              "start": 2.37,
+              "end": 2.93,
+              "probability": 0.89599609375
+            },
+            {
+              "text": " by",
+              "start": 2.93,
+              "end": 3.23,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Daylabor,",
+              "start": 3.23,
+              "end": 3.87,
+              "probability": 0.6130777994791666
+            },
+            {
+              "text": " $13",
+              "start": 4.17,
+              "end": 4.69,
+              "probability": 0.61358642578125
+            },
+            {
+              "text": ".34",
+              "start": 4.69,
+              "end": 5.47,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 5.47,
+              "end": 6.63,
+              "probability": 0.487548828125
+            },
+            {
+              "text": " all,",
+              "start": 6.63,
+              "end": 6.99,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " $36",
+              "start": 7.45,
+              "end": 8.77,
+              "probability": 0.98388671875
+            },
+            {
+              "text": ".78.",
+              "start": 8.77,
+              "end": 10.17,
+              "probability": 0.998291015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "$23",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": ".44",
+          "start": 0.89,
+          "end": 2.37
+        },
+        {
+          "raw": "earned",
+          "start": 2.37,
+          "end": 2.93
+        },
+        {
+          "raw": "by",
+          "start": 2.93,
+          "end": 3.23
+        },
+        {
+          "raw": "Daylabor,",
+          "start": 3.23,
+          "end": 3.87
+        },
+        {
+          "raw": "$13",
+          "start": 4.17,
+          "end": 4.69
+        },
+        {
+          "raw": ".34",
+          "start": 4.69,
+          "end": 5.47
+        },
+        {
+          "raw": "in",
+          "start": 5.47,
+          "end": 6.63
+        },
+        {
+          "raw": "all,",
+          "start": 6.63,
+          "end": 6.99
+        },
+        {
+          "raw": "$36",
+          "start": 7.45,
+          "end": 8.77
+        },
+        {
+          "raw": ".78.",
+          "start": 8.77,
+          "end": 10.17
+        }
+      ],
+      "expected_tokens": [
+        "$23.44",
+        "Earned",
+        "by",
+        "day-labor,...................",
+        "13.34",
+        "——————",
+        "In",
+        "all,............................",
+        "$36.78,"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          4,
+          2,
+          5
+        ],
+        [
+          "replace",
+          4,
+          6,
+          5,
+          7
+        ],
+        [
+          "equal",
+          6,
+          8,
+          7,
+          9
+        ],
+        [
+          "replace",
+          8,
+          9,
+          9,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "replace",
+          4,
+          6,
+          5,
+          7
+        ],
+        [
+          "replace",
+          8,
+          9,
+          9,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "$23",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "twentythree",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": ".44",
+          "start": 0.89,
+          "end": 2.37,
+          "key": "fortyfour",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "earned",
+          "start": 2.37,
+          "end": 2.93,
+          "key": "earned",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 2.93,
+          "end": 3.23,
+          "key": "by",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Daylabor,",
+          "start": 3.23,
+          "end": 3.87,
+          "key": "daylabor",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "$13",
+          "start": 4.17,
+          "end": 4.69,
+          "key": "thirteen",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": ".34",
+          "start": 4.69,
+          "end": 5.47,
+          "key": "thirtyfour",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.47,
+          "end": 6.63,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "all,",
+          "start": 6.63,
+          "end": 6.99,
+          "key": "all",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "$36",
+          "start": 7.45,
+          "end": 8.77,
+          "key": "thirtysix",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": ".78.",
+          "start": 8.77,
+          "end": 10.17,
+          "key": "seventyeight",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "$23.44",
+          "start": 0.0,
+          "end": 1.185
+        },
+        {
+          "text": "Earned",
+          "start": 2.37,
+          "end": 2.93
+        },
+        {
+          "text": "by",
+          "start": 2.93,
+          "end": 3.23
+        },
+        {
+          "text": "day-labor,...................",
+          "start": 3.23,
+          "end": 3.87
+        },
+        {
+          "text": "13.34",
+          "start": 3.87,
+          "end": 4.67
+        },
+        {
+          "text": "——————",
+          "start": 4.67,
+          "end": 5.07
+        },
+        {
+          "text": "In",
+          "start": 5.47,
+          "end": 6.63
+        },
+        {
+          "text": "all,............................",
+          "start": 6.63,
+          "end": 6.99
+        },
+        {
+          "text": "$36.78,",
+          "start": 6.99,
+          "end": 8.58
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 11,
+        "matched_words": 5
+      },
+      "match_ratio": 0.5555555555555556,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.38458796590566635
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "185f6f96fb7fd8a807877168aa5dfa9cde2d32de1023676817a7b901a89cfd96",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

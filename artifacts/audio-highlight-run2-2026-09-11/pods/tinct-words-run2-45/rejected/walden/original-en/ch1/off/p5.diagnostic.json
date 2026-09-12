@@ -1,0 +1,497 @@
+{
+  "complete": true,
+  "signature": "3e899de9d7790a470f5b2c8679f2178bd5ccfaa248ce22db1fa66961e41275f2",
+  "attempts": [
+    {
+      "asr_seconds": 0.27494121389463544,
+      "alignment_seconds": 0.00039830291643738747,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Indigenus durum sumus, experience glaburum, et documenta damus quasimus origin nati.",
+          "start": 0.05,
+          "end": 6.83,
+          "words": [
+            {
+              "text": " Indigenus",
+              "start": 0.05,
+              "end": 1.09,
+              "probability": 0.6241048177083334
+            },
+            {
+              "text": " durum",
+              "start": 1.09,
+              "end": 1.47,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " sumus,",
+              "start": 1.47,
+              "end": 2.15,
+              "probability": 0.841796875
+            },
+            {
+              "text": " experience",
+              "start": 2.57,
+              "end": 3.09,
+              "probability": 0.54541015625
+            },
+            {
+              "text": " glaburum,",
+              "start": 3.09,
+              "end": 3.97,
+              "probability": 0.6029052734375
+            },
+            {
+              "text": " et",
+              "start": 4.37,
+              "end": 4.43,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " documenta",
+              "start": 4.43,
+              "end": 5.03,
+              "probability": 0.84326171875
+            },
+            {
+              "text": " damus",
+              "start": 5.03,
+              "end": 5.35,
+              "probability": 0.7822265625
+            },
+            {
+              "text": " quasimus",
+              "start": 5.35,
+              "end": 6.03,
+              "probability": 0.7623291015625
+            },
+            {
+              "text": " origin",
+              "start": 6.03,
+              "end": 6.31,
+              "probability": 0.5517578125
+            },
+            {
+              "text": " nati.",
+              "start": 6.31,
+              "end": 6.83,
+              "probability": 0.716064453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Indigenus",
+          "start": 0.05,
+          "end": 1.09
+        },
+        {
+          "raw": "durum",
+          "start": 1.09,
+          "end": 1.47
+        },
+        {
+          "raw": "sumus,",
+          "start": 1.47,
+          "end": 2.15
+        },
+        {
+          "raw": "experience",
+          "start": 2.57,
+          "end": 3.09
+        },
+        {
+          "raw": "glaburum,",
+          "start": 3.09,
+          "end": 3.97
+        },
+        {
+          "raw": "et",
+          "start": 4.37,
+          "end": 4.43
+        },
+        {
+          "raw": "documenta",
+          "start": 4.43,
+          "end": 5.03
+        },
+        {
+          "raw": "damus",
+          "start": 5.03,
+          "end": 5.35
+        },
+        {
+          "raw": "quasimus",
+          "start": 5.35,
+          "end": 6.03
+        },
+        {
+          "raw": "origin",
+          "start": 6.03,
+          "end": 6.31
+        },
+        {
+          "raw": "nati.",
+          "start": 6.31,
+          "end": 6.83
+        }
+      ],
+      "expected_tokens": [
+        "Inde",
+        "genus",
+        "durum",
+        "sumus,",
+        "experiensque",
+        "laborum,",
+        "Et",
+        "documenta",
+        "damus",
+        "quâ",
+        "simus",
+        "origine",
+        "nati."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ],
+        [
+          "equal",
+          2,
+          4,
+          1,
+          3
+        ],
+        [
+          "replace",
+          4,
+          6,
+          3,
+          5
+        ],
+        [
+          "equal",
+          6,
+          9,
+          5,
+          8
+        ],
+        [
+          "replace",
+          9,
+          12,
+          8,
+          10
+        ],
+        [
+          "equal",
+          12,
+          13,
+          10,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ],
+        [
+          "replace",
+          4,
+          6,
+          3,
+          5
+        ],
+        [
+          "replace",
+          9,
+          12,
+          8,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Indigenus",
+          "start": 0.05,
+          "end": 1.09,
+          "key": "indigenus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "durum",
+          "start": 1.09,
+          "end": 1.47,
+          "key": "durum",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sumus,",
+          "start": 1.47,
+          "end": 2.15,
+          "key": "sumus",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "experience",
+          "start": 2.57,
+          "end": 3.09,
+          "key": "experience",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "glaburum,",
+          "start": 3.09,
+          "end": 3.97,
+          "key": "glaburum",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "et",
+          "start": 4.37,
+          "end": 4.43,
+          "key": "et",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "documenta",
+          "start": 4.43,
+          "end": 5.03,
+          "key": "documenta",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "damus",
+          "start": 5.03,
+          "end": 5.35,
+          "key": "damus",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "quasimus",
+          "start": 5.35,
+          "end": 6.03,
+          "key": "quasimus",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "origin",
+          "start": 6.03,
+          "end": 6.31,
+          "key": "origin",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "nati.",
+          "start": 6.31,
+          "end": 6.83,
+          "key": "nati",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Inde",
+          "start": 0.0,
+          "end": 0.545
+        },
+        {
+          "text": "genus",
+          "start": 0.545,
+          "end": 0.818
+        },
+        {
+          "text": "durum",
+          "start": 1.09,
+          "end": 1.47
+        },
+        {
+          "text": "sumus,",
+          "start": 1.47,
+          "end": 2.15
+        },
+        {
+          "text": "experiensque",
+          "start": 2.15,
+          "end": 3.26
+        },
+        {
+          "text": "laborum,",
+          "start": 3.26,
+          "end": 3.815
+        },
+        {
+          "text": "Et",
+          "start": 4.37,
+          "end": 4.43
+        },
+        {
+          "text": "documenta",
+          "start": 4.43,
+          "end": 5.03
+        },
+        {
+          "text": "damus",
+          "start": 5.03,
+          "end": 5.35
+        },
+        {
+          "text": "quâ",
+          "start": 5.35,
+          "end": 5.83
+        },
+        {
+          "text": "simus",
+          "start": 5.83,
+          "end": 6.07
+        },
+        {
+          "text": "origine",
+          "start": 6.07,
+          "end": 6.19
+        },
+        {
+          "text": "nati.",
+          "start": 6.31,
+          "end": 6.83
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 11,
+        "matched_words": 6
+      },
+      "match_ratio": 0.46153846153846156,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2754615619778633
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "29e92f93e315f216cd315bb610956b69a459ab7dc311a53ca801542dd5c02273",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}
