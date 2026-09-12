@@ -54,10 +54,19 @@ def sha(p):
     return hashlib.sha256(open(p, 'rb').read()).hexdigest()
 
 
+def accepted(n):
+    """The accepted candidate for book n: v3 where the cross-book pass touched it,
+    otherwise v2. Books II, VIII, XI and XII have no v3 and are not opened."""
+    for v in ('candidate-v3.json', 'candidate-v2.json'):
+        f = os.path.join(PKG, f'book{n}', v)
+        if os.path.exists(f):
+            return json.load(open(f, encoding='utf-8'))
+    raise SystemExit(f'no accepted candidate for book {n}')
+
+
 def load():
     staged = json.load(open(os.path.join(PKG, 'meditations-original-en.staged.json'), encoding='utf-8'))
-    books = [json.load(open(os.path.join(PKG, f'book{n}', 'candidate-v2.json'), encoding='utf-8'))
-             for n in range(1, 13)]
+    books = [accepted(n) for n in range(1, 13)]
     return staged, books
 
 
