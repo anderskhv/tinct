@@ -24,11 +24,16 @@ test('parent and audio iframe comply with script-src self', () => {
   }
 });
 
+const WORKER_ROUTES = new Set(['/library']);
+
 test('all HTML asset references resolve inside the isolated namespace', () => {
   for (const document of [html, iframe]) {
     for (const match of document.matchAll(/(?:src|href)="(\/[^"]+)"/g)) {
       // Workers static assets serve /privacy from privacy.html (html_handling), so
-      // accept an extensionless page link when its .html file exists.
+      // accept an extensionless page link when its .html file exists. A few
+      // public URLs are worker routes with no file of their own: /library is
+      // served from /lab/ by src/worker/routes/seo.ts.
+      if (WORKER_ROUTES.has(match[1])) continue;
       assert.ok(existsSync(publicDir + match[1]) || existsSync(publicDir + match[1] + '.html'), match[1]);
     }
   }

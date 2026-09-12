@@ -37,17 +37,17 @@ for (const f of ['about-v21.css', 'about-v21.js', 'assets/devices-transparent-v1
   if (!existsSync(join(about, f))) throw new Error(`assets/about-v20/${f} is missing`);
 }
 
-const PILL_HTML = '<a class="floating-read" href="/read"><span class="cta-escape">Escape</span><span class="cta-read">Start reading</span></a>';
+const PILL_HTML = '<a class="floating-read" href="/library"><span class="cta-escape">Escape</span><span class="cta-read">Start reading</span></a>';
 const FOOTER_HTML =
   '<footer class="about-footer"><span class="about-footer-mark">Tinct</span>' +
-  '<nav aria-label="Footer"><a href="/read">Start reading</a><a href="/privacy">Privacy</a>' +
+  '<nav aria-label="Footer"><a href="/library">Start reading</a><a href="/privacy">Privacy</a>' +
   '<a href="mailto:anders@tinct.app">Contact</a></nav></footer>';
-const PILL_ROW = ',["$","a",null,{"className":"floating-read","href":"/read","children":[["$","span",null,{"className":"cta-escape","children":"Escape"}],["$","span",null,{"className":"cta-read","children":"Start reading"}]]}]';
+const PILL_ROW = ',["$","a",null,{"className":"floating-read","href":"/library","children":[["$","span",null,{"className":"cta-escape","children":"Escape"}],["$","span",null,{"className":"cta-read","children":"Start reading"}]]}]';
 const FOOTER_ROW =
   ',["$","footer",null,{"className":"about-footer","children":[' +
   '["$","span",null,{"className":"about-footer-mark","children":"Tinct"}],' +
   '["$","nav",null,{"aria-label":"Footer","children":[' +
-  '["$","a",null,{"href":"/read","children":"Start reading"}],' +
+  '["$","a",null,{"href":"/library","children":"Start reading"}],' +
   '["$","a",null,{"href":"/privacy","children":"Privacy"}],' +
   '["$","a",null,{"href":"mailto:anders@tinct.app","children":"Contact"}]]}]]}]';
 // The payload is JSON inside a JS string literal, so every quote is escaped.
@@ -58,9 +58,9 @@ const edits = [
   // The page opens on the slop screen: no header at all. The floating pill is the exit; every story CTA goes into the product.
   ['html', 'remove header', /<header class="site-header">.*?<\/header>/s, '', 1, 'no-header'],
   ['payload', 'remove header', /\[\\"\$\\",\\"header\\",null,\{\\"className\\":\\"site-header\\".*?\}\]\]\}\],/s, '', 1, 'no-header'],
-  ['html', 'story CTAs -> /read', '<a class="primary-link final-read-link" href="https://tinct.app"', '<a class="primary-link final-read-link" href="/read"', null],
-  ['html', 'pick up the thread -> /read', '<a href="https://tinct.app">Pick up the thread', '<a href="/read">Pick up the thread', null],
-  ['story', 'CTAs -> /read', 'href:`https://tinct.app`', 'href:`/read`', null],
+  ['html', 'story CTAs -> /library', '<a class="primary-link final-read-link" href="https://tinct.app"', '<a class="primary-link final-read-link" href="/library"', null],
+  ['html', 'pick up the thread -> /library', '<a href="https://tinct.app">Pick up the thread', '<a href="/library">Pick up the thread', null],
+  ['story', 'CTAs -> /library', 'href:`https://tinct.app`', 'href:`/library`', null],
   // Trust: no named competitor, share image, no cover preload storm.
   ['html', 'competitor name', 'BOOK SUMMARY · BLINKIST', 'BOOK SUMMARY', null],
   ['story', 'competitor name', 'BOOK SUMMARY · BLINKIST', 'BOOK SUMMARY', null],
