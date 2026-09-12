@@ -131,6 +131,32 @@ Kept current at every push.
   #1727's body; and **D13**, `Mycene` split by referent — the woman keeps
   Butler's spelling, the city becomes `Mycenae` under D8.
 
+- 2026-09-12 — **Book 3 source verified independently** (step 1, re-done from
+  scratch), and **it found a defect in the served original**.
+  `scripts/verify_source_book3.py` uses the Book 2 *reviewer's* kind of rule
+  rather than the Book 2 drafter's: it identifies nothing in advance, anchors
+  structurally on `BOOK III`/`BOOK IV` (never on `FOOTNOTES:`, which occurs
+  twice — line 75 indented in the table of contents, line 10843 the real
+  section, both asserted), cuts paragraphs mechanically so the count of 38 is
+  an *output*, diffs **with PG's apparatus still in**, and classifies every
+  difference before removing anything. **14 differences in 11 paragraphs: 12
+  footnote markers, one Book-opening capitalization — and one paragraph the
+  base text does not contain.** After removing only the markers, 36 of 38
+  paragraphs are byte-identical and 4,690 words match word-for-word over
+  B03-P001…P037. Two negative controls fail as they should.
+- 2026-09-12 — **The defect: the served `original-en`'s Book 3 ¶38 is not
+  Butler.** PG's Book III ends on a bare half-sentence completed by PG's Book
+  IV; the served file finishes it with **196 words taken verbatim from the
+  served `odyssey-modern-en.json`'s own ¶38**, which **duplicates the served
+  ¶37**. `scripts/scan_staged_original_vs_pg.py` then scanned all 24 Books
+  (1,027 paragraphs, 117,228 words): **paragraph counts match everywhere and
+  this is the only text-level difference in the whole file.** Also recorded
+  there, because it will bite a later Book's verifier: PG separates some
+  footnote markers from the preceding word with a **space** in Books 1, 4, 5,
+  8, 15, 17, 21 and 22, so a glued-only strip rule leaves part of the marker
+  behind — Books 2 and 3 have none, and both scripts assert it. `PROVENANCE.md`
+  §4. **Nothing here modifies the served file.**
+
 ## Decided, and why
 
 | # | Decision | Why |

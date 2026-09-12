@@ -135,7 +135,57 @@ would still be checked against this package's glossary rows, punctuation
 standard and continuity conventions, which the pilot predates. Nothing from
 the pilot is copied into this package at this time.
 
-## 4. Reproduction
+## 4. The served `original-en` against PG #1727 — the whole file, scanned
+
+**Added 2026-09-12 at Book 3's step 1**, because that Book's own verification
+turned up a paragraph in the served original that is **not in the base text at
+all**. One Book's defect might be one Book's defect or the first of many, and
+the answer matters to every later Book, so it is settled once, here, instead of
+being rediscovered at Book 12. `scripts/scan_staged_original_vs_pg.py`
+reconstructs all 24 Books from raw PG by Book 3's rule and diffs each against
+the served file. Read-only; it modifies nothing.
+
+**Result: 1,027 paragraphs, 117,228 words. Paragraph counts match in all 24
+Books, and the served file is Butler's translation body, complete, everywhere
+except one paragraph.**
+
+Three classes of difference, and only three:
+
+1. **PG footnote markers, stripped.** As already established for Books 1–2.
+   Recorded here for a reason that bites any later reconstruction: **PG
+   separates some markers from the preceding word with a space** — in **Books
+   1, 4, 5, 8, 15, 17, 21 and 22** — so a removal rule that only strips a digit
+   run *glued* to a preceding non-space character leaves part of the marker
+   behind in those Books (`others 10` loses the `0` and keeps the ` 1`).
+   **Books 2 and 3 have no space-separated marker**, which is why the
+   glued-only rule is safe in both, and both Books' verification scripts
+   *assert* that rather than assuming it. A later Book's verifier must handle
+   the whitespace case.
+2. **Book-opening capitalization**, at **Book 3 ¶1 and Book 4 ¶1** only. PG
+   prints `but as the sun was rising…` and `they reached the low lying city…`
+   in lower case, because Butler's Book openings run on from the previous
+   Book's printing; the served file capitalizes. No word changes.
+3. **One paragraph whose text differs: Book 3 ¶38, +1,147 characters.** This
+   is the single text-level defect in the served original, and it is
+   substantial. PG's Book III ends on a bare half-sentence — `Now when the sun
+   had set and darkness was over the land,` (PG line 1539) — whose other half
+   opens PG's Book IV (`they reached the low lying city of Lacedaemon…`, line
+   1549). The served `original-en` **completes that half-sentence with 196
+   words taken verbatim from the served `odyssey-modern-en.json`'s own
+   paragraph 38**, and the text it supplies **duplicates the served paragraph
+   37** — the same chariot, housekeeper, Pherae, Diocles, Dawn and corn lands,
+   told twice in succession.
+
+   So the served "original" carries, in that one place, the modern rewrite it
+   is supposed to be the original *of*. It is recorded in
+   `book03/continuity.md` as Book 3's one base-text defect, flagged for the
+   coordinator, and handled in the candidate by rendering **Butler's
+   half-sentence and nothing else** — see that file for the decision and the
+   alternatives. **Nothing in this package modifies the served file**; a repair
+   to `app/public/data/editions/` is outside this package's scope and is a
+   coordinator's call.
+
+## 5. Reproduction
 
 ```bash
 cd books/staged-replacements/odyssey
