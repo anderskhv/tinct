@@ -90,8 +90,10 @@ def main():
     assert (w, h) == (1536, 1024), im.size
 
     # 1. The laptop screen's cream fill -> the library screen's navy.
+    # The phone's top left corner stands in front of this corner of the laptop screen; its black
+    # frame is part of the photo and has to survive, so it is a hole in the repaint.
     navy = Image.new('RGBA', (w, h), SCREEN_NAVY + (255,))
-    im = Image.composite(navy, im, mask((w, h), [(outset(SCREEN, 3), 255)], blur=1.2))
+    im = Image.composite(navy, im, mask((w, h), [(outset(SCREEN, 3), 255), (outset(PHONE_SCREEN, 6), 0)], blur=1.2))
 
     # 2. The laptop body, minus the screen, the phone and the e-reader, through the tone curve.
     body = mask((w, h), [(LAPTOP, 255), (EREADER, 0), (outset(SCREEN, 1), 0), (outset(PHONE_SCREEN, 4), 0)], blur=.8)

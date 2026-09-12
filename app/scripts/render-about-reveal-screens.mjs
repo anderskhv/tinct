@@ -105,6 +105,27 @@ const html = `<!doctype html><html><head><meta charset="utf-8">
   })();
 </script></body></html>`;
 
+// The phone leans over the laptop screen's bottom right corner. The laptop's layer is a flat
+// rectangle projected onto the whole screen, and every device frame lives in the photo *under* the
+// screen layers, so without this the library screen paints across the phone's top left corner and
+// the corner reads as missing. Cut the phone's body out of the laptop's layer: its screen corners,
+// grown past the black frame (a couple of px of overshoot only exposes the photo's own screen fill,
+// which is now the same navy, while any undershoot would leave a bright sliver on the frame).
+const PHONE_BODY = outset(SCREENS[2].corners, 9);
+
+// Move every vertex of a convex polygon m px along its outward angle bisector.
+function outset(points, m) {
+  return points.map(([x, y], i) => {
+    const [px, py] = points[(i - 1 + points.length) % points.length];
+    const [nx, ny] = points[(i + 1) % points.length];
+    const u = norm(px - x, py - y), v = norm(nx - x, ny - y);
+    const b = norm(u[0] + v[0], u[1] + v[1]);
+    const half = Math.max(Math.hypot(u[0] + v[0], u[1] + v[1]) / 2, 0.2); // sin of half the interior angle
+    return [x - b[0] * m / half, y - b[1] * m / half];
+  });
+}
+function norm(x, y) { const l = Math.hypot(x, y) || 1; return [x / l, y / l]; }
+
 const types = { html: 'text/html', css: 'text/css', js: 'text/javascript', webp: 'image/webp', jpg: 'image/jpeg', jpeg: 'image/jpeg', png: 'image/png', svg: 'image/svg+xml', woff2: 'font/woff2', woff: 'font/woff', ttf: 'font/ttf' };
 
 // CHROMIUM_PATH points at a Chromium binary when Playwright's own download is not available.
@@ -129,12 +150,26 @@ for (const s of SCREENS) {
   }, s.kind);
   const png = await stage.screenshot({ omitBackground: true, type: 'png' });
   // Chromium encodes WebP with alpha; the layer is mostly transparent so it stays small.
-  const dataUrl = await page.evaluate(async b64 => {
+  const dataUrl = await page.evaluate(async ({ b64, cut, radius }) => {
     const img = new Image(); img.src = 'data:image/png;base64,' + b64; await img.decode();
     const c = document.createElement('canvas'); c.width = img.width; c.height = img.height;
-    c.getContext('2d').drawImage(img, 0, 0);
+    const g = c.getContext('2d');
+    g.drawImage(img, 0, 0);
+    if (cut) {
+      // A rounded path through the cut polygon: start at an edge midpoint, corner by corner.
+      g.beginPath();
+      const mid = (a, b) => [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2];
+      g.moveTo(...mid(cut[0], cut[1]));
+      for (let i = 1; i <= cut.length; i++) {
+        const b = cut[i % cut.length], n = cut[(i + 1) % cut.length];
+        g.arcTo(b[0], b[1], ...mid(b, n), radius);
+      }
+      g.closePath();
+      g.globalCompositeOperation = 'destination-out';
+      g.fill();
+    }
     return c.toDataURL('image/webp', 0.9);
-  }, png.toString('base64'));
+  }, { b64: png.toString('base64'), cut: s.kind === 'desktop' ? PHONE_BODY : null, radius: 32 });
   const out = join(assets, `screen-${s.kind}-v1.webp`);
   const bytes = Buffer.from(dataUrl.split(',')[1], 'base64');
   writeFileSync(out, bytes);
