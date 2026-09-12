@@ -62,18 +62,18 @@ PARAGRAPHS = [
     # D12 class C, the poem's first instance (PG 1552, fn 36). Mark dropped,
     # every word kept, and the sentence NOT recast across the point where the
     # bracket opens — which is why "abode" becomes "home" rather than "house".
-    "They reached the low lying city of Lacedaemon, where they drove "
-    "straight to the home of Menelaus and found him in his own house, "
-    "feasting with his many clansmen in honor of the wedding of his son, and "
-    "also of his daughter, whom he was marrying to the son of that valiant "
-    "warrior Achilles. He had given his consent and promised her to him while "
-    "he was still at Troy, and now the gods were bringing the marriage about; "
-    "so he was sending her with chariots and horses to the city of the "
-    "Myrmidons, over whom Achilles’s son was reigning. For his only son he "
-    "had found a bride from Sparta, the daughter of Alector. This son, "
-    "Megapenthes, was born to him of a bondwoman, for heaven granted Helen no "
-    "more children after she had borne Hermione, who was as fair as golden "
-    "Aphrodite herself.",
+    "They reached the low lying city of Lacedaemon, where they drove straight "
+    "to the home of Menelaus and found him in his own house, feasting with "
+    "his many clansmen in honor of the wedding of his son, and also of his "
+    "daughter, whom he was marrying to the son of that valiant warrior "
+    "Achilles. He had given his consent and promised her to him while he was "
+    "still at Troy, and now the gods were bringing the marriage about; so he "
+    "was sending her with chariots and horses to the city of the Myrmidons, "
+    "over whom Achilles’s son was reigning. For his only son he had found a "
+    "bride from Sparta, the daughter of Alector. This son, Megapenthes, was "
+    "born to him of a bondwoman, for heaven granted Helen no more children "
+    "after she had borne Hermione, who was as fair as golden Aphrodite "
+    "herself.",
 
     # B04-P002
     "So the neighbors and kinsmen of Menelaus were feasting and making merry "
@@ -129,7 +129,7 @@ PARAGRAPHS = [
     "are.”",
 
     # B04-P008
-    "On this he handed them a piece of fat roast loin, which had been set "
+    "At this he handed them a piece of fat roast loin, which had been set "
     "near him as a prime part, and they laid their hands on the good things "
     "that were before them. As soon as they had had enough to eat and drink, "
     "Telemachus said to the son of Nestor, with his head so close that no one "
@@ -155,8 +155,8 @@ PARAGRAPHS = [
     "being lord of all this wealth. Whoever your parents may be, they must "
     "have told you about all this, and of my heavy loss in the ruin of a "
     "stately house, fully and magnificently furnished. I wish I had only a "
-    "third of what I now have, so long as I had stayed at home, and all those "
-    "were living who died on the plain of Troy, far from Argos. I often "
+    "third of what I now have, so long as I had stayed at home, and that all "
+    "those were living who died on the plain of Troy, far from Argos. I often "
     "grieve, as I sit here in my house, for one and all of them. At times I "
     "cry aloud for sorrow, but presently I leave off again, for crying is "
     "cold comfort and one soon tires of it. Yet grieve for these as I may, I "
@@ -192,7 +192,7 @@ PARAGRAPHS = [
     "put her feet on the footstool, and began to question her husband.",
 
     # B04-P012
-    "“Do we know, Menelaus,” said she, “the names of these strangers who have "
+    "“Do we know, Menelaus,” she said, “the names of these strangers who have "
     "come to visit us? Shall I guess right or wrong?—but I cannot help saying "
     "what I think. Never yet have I seen either man or woman so like somebody "
     "else (indeed when I look at him I hardly know what to think) as this "
@@ -242,7 +242,7 @@ PARAGRAPHS = [
     "“Sir, my father Nestor, when we used to talk about you at home, told me "
     "you were a man of rare and excellent understanding. If, then, it is "
     "possible, do as I would urge you. I am not fond of crying while I am "
-    "getting my supper. Morning will come in due course, and in the morning I "
+    "getting my supper. Morning will come soon enough, and in the morning I "
     "do not care how much I cry for those that are dead and gone. This is all "
     "we can do for the poor things. We can only shave our heads for them and "
     "wring the tears from our cheeks. I had a brother who died at Troy; he "
@@ -253,8 +253,8 @@ PARAGRAPHS = [
     # B04-P018
     "“Your discretion, my friend,” answered Menelaus, “is beyond your years. "
     "It is plain you take after your father. One can soon see when a man is "
-    "son to one whom heaven has blessed both as regards wife and "
-    "offspring—and it has blessed Nestor from first to last all his days, "
+    "son to one whom heaven has blessed both in his wife and in his "
+    "children—and it has blessed Nestor from first to last all his days, "
     "giving him a green old age in his own house, with sons about him who are "
     "both well disposed and valiant. We will put an end, therefore, to all "
     "this weeping, and attend to our supper again. Let water be poured over "
@@ -262,7 +262,7 @@ PARAGRAPHS = [
     "morning.”",
 
     # B04-P019
-    "On this Asphalion, one of the servants, poured water over their hands "
+    "At this Asphalion, one of the servants, poured water over their hands "
     "and they laid their hands on the good things that were before them.",
 
     # B04-P020
@@ -289,17 +289,17 @@ PARAGRAPHS = [
     "enemy’s city looking like a servant or a beggar, and quite different "
     "from what he was among his own people. In this disguise he entered the "
     "city of Troy, and no one said anything to him. I alone recognized him "
-    "and began to question him, but he was too cunning for me. When, "
-    "however, I had washed and anointed him and had given him clothes, and "
-    "after I had sworn a solemn oath not to betray him to the Trojans till he "
-    "had got safely back to his own camp and to the ships, he told me all "
-    "that the Achaeans meant to do. He killed many Trojans and got much "
-    "information before he reached the Argive camp, for all which things the "
-    "Trojan women made lamentation, but for my own part I was glad, for my "
-    "heart was beginning to yearn after my home, and I was unhappy about the "
-    "wrong that Aphrodite had done me in taking me over there, away from my "
-    "country, my girl, and my lawful wedded husband, who is certainly not "
-    "lacking either in looks or in understanding.”",
+    "and began to question him, but he was too cunning for me. When, however, "
+    "I had washed and anointed him and had given him clothes, and after I had "
+    "sworn a solemn oath not to betray him to the Trojans till he had got "
+    "safely back to his own camp and to the ships, he told me all that the "
+    "Achaeans meant to do. He killed many Trojans and got much information "
+    "before he reached the Argive camp, for all which things the Trojan women "
+    "made lamentation, but for my own part I was glad, for my heart was "
+    "beginning to yearn after my home, and I was unhappy about the wrong that "
+    "Aphrodite had done me in taking me over there, away from my country, my "
+    "girl, and my lawful wedded husband, who is certainly not lacking either "
+    "in looks or in understanding.”",
 
     # B04-P022
     "Then Menelaus said, “All that you have been saying, my dear wife, is "
@@ -309,23 +309,23 @@ PARAGRAPHS = [
     "the Argives were lying in wait to bring death and destruction upon the "
     "Trojans. At that moment you came up to us; some god who wished well to "
     "the Trojans must have set you on to it, and you had Deiphobus with you. "
-    "Three times did you go all round our hiding place and pat it; you called "
-    "our chiefs each by his own name, and mimicked all our wives—Diomed, "
-    "Odysseus, and I from our seats inside heard what a noise you made. "
-    "Diomed and I could not make up our minds whether to spring out then and "
-    "there, or to answer you from inside, but Odysseus held us all in check, "
-    "so we sat quite still, all except Anticlus, who was beginning to answer "
-    "you, when Odysseus clapped his two brawny hands over his mouth, and kept "
-    "them there. It was this that saved us all, for he muzzled Anticlus till "
-    "Athena took you away again.”",
+    "Three times you went all round our hiding place and patted it; you "
+    "called our chiefs each by his own name, and mimicked all our "
+    "wives—Diomed, Odysseus, and I from our seats inside heard what a noise "
+    "you made. Diomed and I could not make up our minds whether to spring out "
+    "then and there, or to answer you from inside, but Odysseus held us all "
+    "in check, so we sat quite still, all except Anticlus, who was beginning "
+    "to answer you, when Odysseus clapped his two brawny hands over his "
+    "mouth, and kept them there. It was this that saved us all, for he "
+    "muzzled Anticlus till Athena took you away again.”",
 
     # B04-P023
     "“How sad,” exclaimed Telemachus, “that all this was of no use to save "
-    "him, nor yet his own iron courage. But now, sir, be pleased to send us "
-    "all to bed, that we may lie down and enjoy the blessed boon of sleep.”",
+    "him, nor was his own iron courage. But now, sir, please send us all to "
+    "bed, that we may lie down and enjoy the blessed boon of sleep.”",
 
     # B04-P024
-    "On this Helen told the maidservants to set beds in the room that was in "
+    "At this Helen told the maidservants to set beds in the room that was in "
     "the gatehouse, and to make them with good red rugs, and spread coverlets "
     "on the top of them with woolen cloaks for the guests to wear. So the "
     "maids went out, carrying a torch, and made the beds, to which a "
@@ -397,13 +397,13 @@ PARAGRAPHS = [
     "“She came to me one day when I was by myself, as I often was, for the "
     "men used to go with their barbed hooks, all over the island, in the hope "
     "of catching a fish or two to save them from the pangs of hunger. "
-    "‘Stranger,’ said she, ‘it seems to me that you like starving in this "
+    "‘Stranger,’ she said, ‘it seems to me that you like starving in this "
     "way—at any rate it does not greatly trouble you, for you stick here day "
     "after day, without even trying to get away, though your men are dying by "
     "inches.’",
 
     # B04-P031
-    "“‘Let me tell you,’ said I, ‘whichever of the goddesses you may happen "
+    "“‘Let me tell you,’ I said, ‘whichever of the goddesses you may happen "
     "to be, that I am not staying here of my own accord, but must have "
     "offended the gods that live in heaven. Tell me, therefore, for the gods "
     "know everything, which of the immortals it is that is hindering me in "
@@ -411,23 +411,23 @@ PARAGRAPHS = [
     "home.’",
 
     # B04-P032
-    "“‘Stranger,’ replied she, ‘I will make it all quite clear to you. There "
-    "is an old immortal who lives under the sea hereabouts and whose name is "
+    "“‘Stranger,’ she replied, ‘I will make it all quite clear to you. There "
+    "is an old immortal who lives under the sea near here and whose name is "
     "Proteus. He is an Egyptian, and people say he is my father; he is "
     "Poseidon’s head man and knows every inch of ground all over the bottom "
     "of the sea. If you can snare him and hold him tight, he will tell you "
     "about your voyage, what courses you are to take, and how you are to sail "
-    "the sea so as to reach your home. He will also tell you, if you so will, "
+    "the sea so as to reach your home. He will also tell you, if you wish, "
     "all that has been going on at your house both good and bad, while you "
     "have been away on your long and dangerous journey.’",
 
     # B04-P033
-    "“‘Can you show me,’ said I, ‘some stratagem by means of which I may "
-    "catch this old god without his suspecting it and finding me out? For a "
-    "god is not easily caught—not by a mortal man.’",
+    "“‘Can you show me,’ I said, ‘some trick by which I can catch this old "
+    "god without his suspecting it and finding me out? For a god is not "
+    "easily caught—not by a mortal man.’",
 
     # B04-P034
-    "“‘Stranger,’ said she, ‘I will make it all quite clear to you. About the "
+    "“‘Stranger,’ she said, ‘I will make it all quite clear to you. About the "
     "time when the sun has reached the middle of the sky, the old man of the "
     "sea comes up from under the waves, heralded by the West wind that "
     "ruffles the water over his head. As soon as he has come up he lies down, "
@@ -466,8 +466,8 @@ PARAGRAPHS = [
     "just skinned, for she meant playing a trick on her father. Then she dug "
     "four pits for us to lie in, and sat down to wait till we should come up. "
     "When we were close to her, she made us lie down in the pits one after "
-    "the other, and threw a seal skin over each of us. Our ambush would have "
-    "been unbearable, for the stench of the fishy seals was most "
+    "the other, and threw a seal skin over each of us. Lying in wait there "
+    "would have been unbearable, for the stench of the fishy seals was most "
     "distressing—who would go to bed with a sea monster if he could help "
     "it?—but here, too, the goddess helped us, and thought of something that "
     "gave us great relief, for she put some ambrosia under each man’s "
@@ -501,22 +501,22 @@ PARAGRAPHS = [
     # nested speech needs a single one. Repaired here and recorded in
     # continuity.md, "Base-text defects"; it is the class PUNCTUATION.md §3
     # normalizes, a mark a modern reader reads as an error because it is one.
-    "“‘Then,’ he said, ‘if you would finish your voyage and get home "
-    "quickly, you must offer sacrifices to Zeus and to the rest of the gods "
-    "before embarking; for it is decreed that you shall not get back to your "
-    "friends, and to your own house, till you have returned to the "
-    "heaven-fed stream of Egypt, and offered holy sacrifices to the immortal "
-    "gods that reign in heaven. When you have done this they will let you "
-    "finish your voyage.’",
+    "“‘Then,’ he said, ‘if you would finish your voyage and get home quickly, "
+    "you must offer sacrifices to Zeus and to the rest of the gods before "
+    "embarking; for it is decreed that you shall not get back to your "
+    "friends, and to your own house, till you have returned to the heaven-fed "
+    "stream of Egypt, and offered holy sacrifices to the immortal gods that "
+    "reign in heaven. When you have done this they will let you finish your "
+    "voyage.’",
 
     # B04-P041
-    "“I was broken hearted when I heard that I must go back all that long and "
+    "“I was heartbroken when I heard that I must go back all that long and "
     "terrible voyage to Egypt; nevertheless, I answered, ‘I will do all, old "
-    "man, that you have laid upon me; but now tell me, and tell me true, "
-    "whether all the Achaeans whom Nestor and I left behind us when we set "
-    "sail from Troy have got home safely, or whether any one of them came to "
-    "a bad end either on board his own ship or among his friends when the "
-    "days of his fighting were done.’",
+    "man, that you have laid upon me; but now tell me truly, whether all the "
+    "Achaeans whom Nestor and I left behind us when we set sail from Troy "
+    "have got home safely, or whether any one of them came to a bad end "
+    "either on board his own ship or among his friends when the days of his "
+    "fighting were done.’",
 
     # B04-P042
     "“‘Son of Atreus,’ he answered, ‘why ask me? You had better not know what "
@@ -534,4 +534,352 @@ PARAGRAPHS = [
     "split the rock of Gyrae in two pieces. The base remained where it was, "
     "but the part on which Ajax was sitting fell headlong into the sea and "
     "carried Ajax with it; so he drank salt water and was drowned.",
+
+    # B04-P043
+    # Juno -> Hera, the second of Book 4's three additions to the closed table.
+    "“‘Your brother and his ships escaped, for Hera protected him, but when "
+    "he was just about to reach the high promontory of Malea, he was caught "
+    "by a heavy gale which carried him out to sea again sorely against his "
+    "will, and drove him to the headland where Thyestes used to live, but "
+    "where Aegisthus was living then. By and by, however, it seemed as though "
+    "he was to return safely after all, for the gods backed the wind into its "
+    "old quarter and they reached home; and Agamemnon kissed his native soil, "
+    "and shed tears of joy at finding himself in his own country.",
+
+    # B04-P044
+    "“‘Now there was a watchman whom Aegisthus kept always on the watch, and "
+    "to whom he had promised two talents of gold. This man had been looking "
+    "out for a whole year to make sure that Agamemnon did not give him the "
+    "slip and prepare war; when, therefore, this man saw Agamemnon go by, he "
+    "went and told Aegisthus, who at once began to lay a plot for him. He "
+    "picked twenty of his bravest warriors and placed them in ambush on one "
+    "side of the gallery, while on the opposite side he prepared a banquet. "
+    "Then he sent his chariots and horsemen to Agamemnon, and invited him to "
+    "the feast, but he meant foul play. He got him there, all unsuspicious of "
+    "the doom that was awaiting him, and killed him when the banquet was over "
+    "as though he were butchering an ox in the slaughterhouse; not one of "
+    "Agamemnon’s followers was left alive, nor one of Aegisthus’s, but they "
+    "were all killed there in the galleries.’",
+
+    # B04-P045
+    "“So spoke Proteus, and I was heartbroken as I heard him. I sat down on "
+    "the sands and wept; I felt as though I could no longer bear to live nor "
+    "look upon the light of the sun. Presently, when I had had my fill of "
+    "weeping and writhing on the ground, the old man of the sea said, ‘Son of "
+    "Atreus, do not waste any more time in crying so bitterly; it can do no "
+    "manner of good; find your way home as fast as ever you can, for "
+    "Aegisthus may be still alive, and even though Orestes has been "
+    "beforehand with you in killing him, you may yet come in for his "
+    "funeral.’",
+
+    # B04-P046
+    "“At this I took comfort in spite of all my sorrow, and said, ‘I know, "
+    "then, about these two; tell me, therefore, about the third man of whom "
+    "you spoke; is he still alive, but at sea, and unable to get home? or is "
+    "he dead? Tell me, no matter how much it may grieve me.’",
+
+    # B04-P047
+    "“‘The third man,’ he answered, ‘is Odysseus, who lives in Ithaca. I can "
+    "see him on an island sorrowing bitterly in the house of the nymph "
+    "Calypso, who is keeping him prisoner, and he cannot reach his home, for "
+    "he has no ships nor sailors to take him over the sea. As for your own "
+    "end, Menelaus, you shall not die in Argos, but the gods will take you to "
+    "the Elysian plain, which is at the ends of the world. There fair-haired "
+    "Rhadamanthus reigns, and men lead an easier life than anywhere else in "
+    "the world, for in Elysium there falls neither rain, nor hail, nor snow, "
+    "but Oceanus breathes ever with a West wind that sings softly from the "
+    "sea, and gives fresh life to all men. This will happen to you because "
+    "you have married Helen, and are Zeus’s son-in-law.’",
+
+    # B04-P048
+    # D3 again ("hecatombs that were full and sufficient"), and the
+    # barrow -> mound row of Books 1, 2 and 3.
+    "“As he spoke he dived under the waves, and I turned back to the ships "
+    "with my companions, and my heart was clouded with care as I went along. "
+    "When we reached the ships we got supper ready, for night was falling, "
+    "and camped down on the beach. When Dawn, the rosy-fingered child of "
+    "morning, appeared, we drew our ships into the water, and put our masts "
+    "and sails within them; then we went on board ourselves, took our seats "
+    "on the benches, and struck the gray sea with our oars. I again stationed "
+    "my ships in the heaven-fed stream of Egypt, and offered sacrifices that "
+    "were full and sufficient. When I had thus appeased heaven’s anger, I "
+    "raised a mound to the memory of Agamemnon so that his name might live "
+    "for ever, after which I had a quick passage home, for the gods sent me a "
+    "fair wind.",
+
+    # B04-P049
+    # Menelaus's speech closes here, twenty-two paragraphs after it opened.
+    "“And now for yourself—stay here some ten or twelve days longer, and I "
+    "will then speed you on your way. I will make you a noble present of a "
+    "chariot and three horses. I will also give you a beautiful chalice, so "
+    "that as long as you live you may think of me whenever you make a drink "
+    "offering to the immortal gods.”",
+
+    # B04-P050
+    # The served original carries a DOUBLED SPACE after "for that." — the
+    # artefact of PG's space-set footnote marker 48 being removed. One space
+    # here. See continuity.md.
+    "“Son of Atreus,” replied Telemachus, “do not press me to stay longer; I "
+    "should be content to remain with you for another twelve months; I find "
+    "your conversation so delightful that I should never once wish myself at "
+    "home with my parents; but my crew, whom I have left at Pylos, are "
+    "already impatient, and you are keeping me from them. As for any present "
+    "you may be disposed to make me, I would rather it were a piece of plate. "
+    "I will take no horses back with me to Ithaca, but will leave them to "
+    "adorn your own stables, for you have much flat ground in your kingdom "
+    "where lotus thrives, as also meadow-sweet and wheat and barley, and oats "
+    "with their white and spreading ears; whereas in Ithaca we have neither "
+    "open fields nor racecourses, and the country is more fit for goats than "
+    "horses, and I like it the better for that. None of our islands have much "
+    "level ground, suitable for horses, and Ithaca least of all.”",
+
+    # B04-P051
+    # Vulcan -> Hephaestus, the third of Book 4's additions to the table.
+    # `mixing-bowl` hyphenated, the cross-Book row settled at Book 3's
+    # finding 27.1.
+    "Menelaus smiled and took Telemachus’s hand in his own. “What you say,” "
+    "he said, “shows that you come of good family. I both can, and will, make "
+    "this exchange for you, by giving you the finest and most precious piece "
+    "of plate in all my house. It is a mixing-bowl by Hephaestus’s own hand, "
+    "of pure silver, except the rim, which is inlaid with gold. Phaedimus, "
+    "king of the Sidonians, gave it me in the course of a visit which I paid "
+    "him when I returned there on my homeward journey. I will make you a "
+    "present of it.”",
+
+    # B04-P052
+    # D12 class C, the poem's second instance (PG 2067, closed at 2070,
+    # footnote 49). Mark dropped, every word kept, nothing recast across
+    # either boundary.
+    "So they talked together, and guests kept coming to the king’s house. "
+    "They brought sheep and wine, while their wives had put up bread for them "
+    "to take with them; so they were busy cooking their dinners in the "
+    "courts.",
+
+    # B04-P053
+    "Meanwhile the suitors were throwing discs or aiming with spears at a "
+    "mark on the leveled ground in front of Odysseus’s house, and were "
+    "behaving with all their old insolence. Antinous and Eurymachus, who were "
+    "their ringleaders and much the foremost among them all, were sitting "
+    "together when Noemon, son of Phronius, came up and said to Antinous,",
+
+    # B04-P054
+    "“Have we any idea, Antinous, on what day Telemachus returns from Pylos? "
+    "He has a ship of mine, and I want it, to cross over to Elis: I have "
+    "twelve brood mares there with yearling mule foals by their side not yet "
+    "broken in, and I want to bring one of them over here and break him.”",
+
+    # B04-P055
+    "They were astounded when they heard this, for they had made sure that "
+    "Telemachus had not gone to the city of Neleus. They thought he was only "
+    "away somewhere on the farms, and was with the sheep, or with the "
+    "swineherd; so Antinous said, “When did he go? Tell me truly, and what "
+    "young men did he take with him? Were they freemen or his own "
+    "bondservants—for he might manage that too? Tell me also, did you let him "
+    "have the ship of your own free will because he asked you, or did he take "
+    "it without your leave?”",
+
+    # B04-P056
+    "“I lent it to him,” Noemon answered, “what else could I do when a man of "
+    "his position said he was in a difficulty, and asked me to oblige him? I "
+    "could not possibly refuse. As for those who went with him, they were the "
+    "best young men we have, and I saw Mentor go on board as captain—or some "
+    "god who was exactly like him. I cannot understand it, for I saw Mentor "
+    "here myself yesterday morning, and yet he was then setting out for "
+    "Pylos.”",
+
+    # B04-P057
+    "Noemon then went back to his father’s house, but Antinous and Eurymachus "
+    "were very angry. They told the others to leave off playing, and to come "
+    "and sit down along with themselves. When they came, Antinous, son of "
+    "Eupeithes, spoke in anger. His heart was black with rage, and his eyes "
+    "flashed fire as he said:",
+
+    # B04-P058
+    "“Good heavens, this voyage of Telemachus is a very serious matter; we "
+    "had made sure that it would come to nothing, but the young fellow has "
+    "got away in spite of us, and with a picked crew too. He will be giving "
+    "us trouble presently; may Zeus take him before he is full grown. Find me "
+    "a ship, therefore, with a crew of twenty men, and I will lie in wait for "
+    "him in the straits between Ithaca and Samos; he will then rue the day "
+    "that he set out to try and get news of his father.”",
+
+    # B04-P059
+    "So he spoke, and the others applauded what he said; they then all of "
+    "them went inside the buildings.",
+
+    # B04-P060
+    "It was not long before Penelope came to know what the suitors were "
+    "plotting; for a manservant, Medon, overheard them from outside the outer "
+    "court as they were laying their schemes within, and went to tell his "
+    "mistress. As he crossed the threshold of her room Penelope said, “Medon, "
+    "what have the suitors sent you here for? Is it to tell the maids to "
+    "leave their master’s business and cook dinner for them? I wish they may "
+    "neither woo nor dine from now on, neither here nor anywhere else, but "
+    "let this be the very last time, for the waste you all make of my son’s "
+    "estate. Did not your fathers tell you when you were children how good "
+    "Odysseus had been to them—never doing anything high-handed, nor speaking "
+    "harshly to anybody? Kings may say things sometimes, and they may take a "
+    "fancy to one man and dislike another, but Odysseus never did an unjust "
+    "thing by anybody—which shows what bad hearts you have, and that there is "
+    "no such thing as gratitude left in this world.”",
+
+    # B04-P061
+    "Then Medon said, “I wish, Madam, that this were all; but they are "
+    "plotting something much more dreadful now—may heaven frustrate their "
+    "design. They are going to try and murder Telemachus as he is coming home "
+    "from Pylos and Lacedaemon, where he has been to get news of his father.”",
+
+    # B04-P062
+    "Then Penelope’s heart sank within her, and for a long time she was "
+    "speechless; her eyes filled with tears, and she could find no utterance. "
+    "At last, however, she said, “Why did my son leave me? What business had "
+    "he to go sailing off in ships that make long voyages over the ocean like "
+    "sea-horses? Does he want to die without leaving anyone behind him to "
+    "keep up his name?”",
+
+    # B04-P063
+    "“I do not know,” answered Medon, “whether some god set him on to it, or "
+    "whether he went on his own impulse to see if he could find out if his "
+    "father was dead, or alive and on his way home.”",
+
+    # B04-P064
+    "Then he went downstairs again, leaving Penelope in an agony of grief. "
+    "There were plenty of seats in the house, but she had no heart for "
+    "sitting on any one of them; she could only fling herself on the floor of "
+    "her own room and cry; at which all the maids in the house, both old and "
+    "young, gathered round her and began to cry too, till at last in a "
+    "transport of sorrow she exclaimed,",
+
+    # B04-P065
+    "“My dears, heaven has been pleased to try me with more affliction than "
+    "any other woman of my age and country. First I lost my brave and "
+    "lion-hearted husband, who had every good quality under heaven, and whose "
+    "name was great over all Hellas and middle Argos, and now my darling son "
+    "is at the mercy of the winds and waves, without my having heard one word "
+    "about his leaving home. You impudent girls, there was not one of you "
+    "would so much as think of giving me a call out of my bed, though you all "
+    "of you very well knew when he was starting. If I had known he meant "
+    "taking this voyage, he would have had to give it up, no matter how much "
+    "he was set on it, or leave me a corpse behind him—one or the other. Now, "
+    "however, go some of you and call old Dolius, who was given me by my "
+    "father on my marriage, and who is my gardener. Tell him to go at once "
+    "and tell everything to Laertes, who may be able to hit on some plan for "
+    "enlisting public sympathy on our side, as against those who are trying "
+    "to exterminate his own race and that of Odysseus.”",
+
+    # B04-P066
+    # D8 fires for the second time in the package: Butler's Euryclea takes
+    # the Cast's display name, Eurycleia.
+    "Then the dear old nurse Eurycleia said, “You may kill me, Madam, or let "
+    "me live on in your house, whichever you please, but I will tell you the "
+    "real truth. I knew all about it, and gave him everything he wanted in "
+    "the way of bread and wine, but he made me take my solemn oath that I "
+    "would not tell you anything for some ten or twelve days, unless you "
+    "asked or happened to hear of his having gone, for he did not want you to "
+    "spoil your beauty by crying. And now, Madam, wash your face, change your "
+    "dress, and go upstairs with your maids to offer prayers to Athena, "
+    "daughter of aegis-bearing Zeus, for she can save him even though he be "
+    "in the jaws of death. Do not trouble Laertes: he has trouble enough "
+    "already. Besides, I cannot think that the gods hate the race of the son "
+    "of Arceisius so much, but there will be a son left to come up after him, "
+    "and inherit both the house and the fair fields that lie far all round "
+    "it.”",
+
+    # B04-P067
+    "With these words she made her mistress leave off crying, and dried the "
+    "tears from her eyes. Penelope washed her face, changed her dress, and "
+    "went upstairs with her maids. She then put some bruised barley into a "
+    "basket and began praying to Athena.",
+
+    # B04-P068
+    "“Hear me,” she cried, “daughter of aegis-bearing Zeus, unwearying. If "
+    "ever Odysseus while he was here burned you fat thigh bones of sheep or "
+    "heifer, bear it in mind now in my favor, and save my darling son from "
+    "the villainy of the suitors.”",
+
+    # B04-P069
+    "She cried aloud as she spoke, and the goddess heard her prayer; "
+    "meanwhile the suitors grew loud throughout the covered gallery, and one "
+    "of them said:",
+
+    # B04-P070
+    "“The queen is preparing for her marriage with one or other of us. Little "
+    "does she dream that her son has now been doomed to die.”",
+
+    # B04-P071
+    "This was what they said, but they did not know what was going to happen. "
+    "Then Antinous said, “Comrades, let there be no loud talking, in case "
+    "some of it gets carried inside. Let us get up and do in silence the "
+    "thing we are all of a mind about.”",
+
+    # B04-P072
+    "He then chose twenty men, and they went down to their ship and to the "
+    "sea side; they drew the vessel into the water and got her mast and sails "
+    "inside her; they bound the oars to the thole pins with twisted thongs of "
+    "leather, each in its place, and spread the white sails aloft, while "
+    "their fine servants brought them their armor. Then they made the ship "
+    "fast a little way out, came on shore again, got their suppers, and "
+    "waited till night should fall.",
+
+    # B04-P073
+    "But Penelope lay in her own room upstairs unable to eat or drink, and "
+    "wondering whether her brave son would escape, or be overpowered by the "
+    "wicked suitors. Like a lioness caught in a net with huntsmen hemming her "
+    "in on every side, she thought and thought till she sank into a slumber, "
+    "and lay on her bed without thought or movement.",
+
+    # B04-P074
+    "Then Athena thought of another matter, and made a vision in the likeness "
+    "of Penelope’s sister Iphthime, daughter of Icarius, who had married "
+    "Eumelus and lived in Pherae. She told the vision to go to the house of "
+    "Odysseus, and to make Penelope leave off crying, so it came into her "
+    "room by the hole through which the thong went for pulling the door to, "
+    "and hovered over her head saying,",
+
+    # B04-P075
+    "“You are asleep, Penelope: the gods who live at ease will not let you "
+    "weep and be so sad. Your son has done them no wrong, so he will yet come "
+    "back to you.”",
+
+    # B04-P076
+    "Penelope, who was sleeping sweetly at the gates of dreamland, answered, "
+    "“Sister, why have you come here? You do not come very often, but I "
+    "suppose that is because you live such a long way off. Am I, then, to "
+    "leave off crying and refrain from all the sad thoughts that torture me? "
+    "I, who have lost my brave and lion-hearted husband, who had every good "
+    "quality under heaven, and whose name was great over all Hellas and "
+    "middle Argos; and now my darling son has gone off on board of a ship—a "
+    "foolish fellow who has never been used to roughing it, nor to going "
+    "about among gatherings of men. I am even more anxious about him than "
+    "about my husband; I am all in a tremble when I think of him, in case "
+    "something should happen to him, either from the people among whom he has "
+    "gone, or by sea, for he has many enemies who are plotting against him, "
+    "and are bent on killing him before he can return home.”",
+
+    # B04-P077
+    "Then the vision said, “Take heart, and do not be so much dismayed. There "
+    "is one gone with him whom many a man would be glad enough to have stand "
+    "by his side, I mean Athena; it is she who has compassion on you, and who "
+    "has sent me to bring you this message.”",
+
+    # B04-P078
+    "“Then,” said Penelope, “if you are a god or have been sent here by "
+    "divine command, tell me also about that other unhappy one—is he still "
+    "alive, or is he already dead and in the house of Hades?”",
+
+    # B04-P079
+    "And the vision said, “I shall not tell you for certain whether he is "
+    "alive or dead, and there is no use in idle conversation.”",
+
+    # B04-P080
+    "Then it vanished through the thong-hole of the door and was dissipated "
+    "into thin air; but Penelope rose from her sleep refreshed and comforted, "
+    "so vivid had been her dream.",
+
+    # B04-P081
+    "Meantime the suitors went on board and sailed their ways over the sea, "
+    "intent on murdering Telemachus. Now there is a rocky islet called "
+    "Asteris, of no great size, in mid channel between Ithaca and Samos, and "
+    "there is a harbor on either side of it where a ship can lie. Here, then, "
+    "the Achaeans placed themselves in ambush.",
 ]

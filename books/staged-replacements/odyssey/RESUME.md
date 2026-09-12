@@ -11,7 +11,7 @@ Updated continuously. Read this first, then `WORKFLOW.md`.
 | 1 | 8 — accepted, with recorded successor `candidate-v3.json` | `candidate-v2.json` (successor v3) | v3 `c97e20f5…4807b57c` | 0.721 |
 | 2 | 8 — accepted, with recorded successor `candidate-v3.json` | `candidate-v2.json` (successor v3) | v3 `dcf1e301…6f24088ac` | 0.902 |
 | 3 | **8 — accepted** | `candidate-v2.json` | `7095ef4f…4989b905` | 0.897 |
-| 4 | 1 done (source verified); drafting | — | — | — |
+| 4 | **1–3 done, frozen at v1; step-4 packets built** | `candidate-v1.json` | `9c7d54af…b912e6553` | 0.960 |
 
 ## Done
 
@@ -31,19 +31,29 @@ Updated continuously. Read this first, then `WORKFLOW.md`.
   stand, instances recorded) are in `00-progress-ledger.md`; class C's warrant,
   obligations and six corrected instances are in `GLOSSARY.md`. A3 now carries
   the exact repair text and before/after hashes. **Book 4 is unblocked.**
-- **Book 4 step 1 done** — `scripts/verify_source_book4.py`, a fourth kind of
-  rule (needle-located from the served file's own words, character-exact,
-  every difference classified before anything is removed). 81 of 81 paragraphs
-  byte-identical, 8,042 words word-for-word, 0 mismatches.
+- **Book 4 steps 1–3 done, and the step-4 artefacts built.**
+  `scripts/verify_source_book4.py` is a fourth kind of rule (needle-located
+  from the served file's own words, character-exact, every difference
+  classified before anything is removed): 81 of 81 paragraphs byte-identical,
+  8,042 words word-for-word, 0 mismatches. `candidate-v1.json` is **frozen**
+  at sha256 `9c7d54af4bc6e32fefe5d3946a08565820b76d3d3c58a9fc45ec138b912e6553`
+  — 81 paragraphs, ratio 0.9999, retention **0.960**, 27 packets. The
+  `GLOSSARY.md` name table gained three enumerated rows (Venus → Aphrodite,
+  Juno → Hera, Vulcan → Hephaestus).
 
 ## Next, in order
 
-1. **Book 4 step 2–3** — draft `scripts/candidates/book4.py` (81 paragraphs,
-   one per source paragraph, in order), then
-   `python3 scripts/build_book_package.py 4` to freeze v1 and build the
-   packets. Book 4 is long: 8,042 source words, twice Book 3.
-2. **Book 4 step 4** — push and stop. A separate reviewer session reviews it;
-   this task does not review its own draft.
+1. **Book 4 step 4 — the independent review.** A **separate reviewer session**,
+   following `book04/review-instructions.md`; findings go under
+   `book04/review/`. This task does not review its own draft. The first thing
+   put to that reviewer is the **retention figure 0.960**, the package's
+   highest — `book04/continuity.md` §6 states the evidence both ways and does
+   not defend it.
+2. **Book 4 steps 5–8** on the findings: `candidate-v2.json` via a
+   `build_book04_v2.py` in the established pattern, verification, flow read,
+   `ACCEPTANCE.md`.
+3. **Book 5** after that, in numerical order. Nothing blocks it: D12 class C
+   is settled, and D14 covers the served-original defect class.
 
 ## Hard rules
 

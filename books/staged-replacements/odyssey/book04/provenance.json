@@ -1,0 +1,83 @@
+{
+ "repository": "anderskhv/tinct",
+ "branch": "claude/odyssey-modern-en-20260911",
+ "staged_original_path": "app/public/data/editions/odyssey-original-en.json",
+ "staged_original_sha256": "da03f6ac9dfd5a19b9912adabfb9b0b48ed66bd85d8e1507a6b323a374822f07",
+ "chapter_extracted": {
+  "number": 4,
+  "title_source": "Book 4 — The visit to king Menelaus, who tells his story—meanwhile the suitors in Ithaca plot against Telemachus",
+  "title_candidate": "Book 4 — The visit to king Menelaus, who tells his story—meanwhile the suitors in Ithaca plot against Telemachus",
+  "title_note": "No name in this chapter title is a mapping-table row, so the candidate's title is byte-identical to the source's. The build maps titles through the closed table regardless; here it is a no-op.",
+  "paragraphs": 81,
+  "extraction": "found by chapter.number == 4 in odyssey-original-en.json; paragraphs byte-identical"
+ },
+ "source_book4_json_sha256": "b4899064632724ca5847868fc28f4261a1693293405af0280911e508889eec70",
+ "candidate_v1_json_sha256": "9c7d54af4bc6e32fefe5d3946a08565820b76d3d3c58a9fc45ec138b912e6553",
+ "candidate_v1_readable_md_sha256": "17fe7d71b2bcdd7a50cd26535da9209f2aeabc72f90f8b8c2b9c2d4bb95eb454",
+ "manifest_json_sha256": "e6b86d8bec7cdc92c41768a94d98e2c42fe38a9c4e4304933e467a4b18699e5f",
+ "pg_source_sha256": "ffbdb29c3dda284b65c11243db1a98167826a70c81bca2ed4b6232f86c905fb9",
+ "translation_source": "Samuel Butler, 1900. Project Gutenberg #1727 (source-texts/pg1727-butler-1900.txt). The only translation used for the candidate; no other translation consulted for wording (Fagles, Lattimore, Wilson, Fitzgerald not read). The served odyssey-modern-en.json was not consulted for wording; it was opened once, to count Aphrodite/Venus, Hera/Juno and Hephaestus/Vulcan for the naming decision in section naming.table_extension, and for nothing else.",
+ "source_verification": {
+  "script": "scripts/verify_source_book4.py",
+  "method": "A FOURTH kind of rule, unlike the three the package has already used (Book 2 drafter: PG's footnote-entry list, positionally. Book 3 drafter: the BOOK III / BOOK IV headings, bytes, apparatus-in diff. Book 3 reviewer: anchorless and digit-blind, one contiguous token block). This one is NEEDLE-LOCATED AND CHARACTER-EXACT: it uses no heading, no Book number, no FOOTNOTES: line and no digit to find Book 4. It takes two needles out of the SERVED text itself - the first 8 letter-tokens of its first paragraph and the last 8 of its last - locates each in PG's letter-token stream and REQUIRES EACH TO OCCUR EXACTLY ONCE, so the region is an output of the served file's own content. Inside that region paragraphs are cut mechanically on blank lines WITH PG'S APPARATUS STILL IN, so the count of 81 is an OUTPUT; every difference is then classified character by character BEFORE anything is removed.",
+  "crlf": "PG #1727 is CRLF throughout - asserted as 12,246 CRLF pairs with no bare CR and no bare LF. The file is read as BYTES and split on the newline byte, with the carriage return stripped explicitly, so universal-newline mode cannot silently translate it.",
+  "result": "81 of 81 paragraphs byte-identical after removing ONLY the 14 classified footnote markers (36-49, ascending, no repeats); 8,042 words compared word for word; 0 mismatches. TWO non-marker differences, both classified, neither a word: B04-P001, the served file capitalizes Butler's lower-case 'they' (PG opens Book IV mid-sentence, as it opens Book III); and B04-P034, where PG's marker 44 is SPACE-SET rather than glued to the word before it, so the served file removes the marker and one space.",
+  "whitespace_clause_fires": "Book 2's drafter wrote a whitespace clause into its rule and recorded that it was a no-op in Book 2. In Book 4 it fires: marker 44 is space-set. A glued-only removal rule would have left a stray space or a stray digit here.",
+  "served_file_artefact": "Marker 48's removal left a line BEGINNING WITH A SPACE in the served B04-P050 ('...for that.' / ' None of our islands'), which becomes a doubled space as soon as the paragraph is flattened for display, search or audio. PG minus the digits is exactly that, so the served file is faithful and the check passes; it is the only instance in Books 3 or 4. The candidate prints ONE space, and the check block asserts both halves.",
+  "negative_controls": "Four, all failing as they should: two paragraphs swapped; one letter changed; one word dropped; a needle that is not in PG occurring zero times.",
+  "bracket_census": "Two opening brackets and one closing in the served Book 4 - PG 1552 (B04-P001) never closes, PG 2067 (B04-P052) closes at PG 2070. Consistent with the whole-body count of 15 opening against 11 closing recorded at GLOSSARY.md's class-C ruling."
+ },
+ "word_counts": {
+  "source": 8042,
+  "candidate": 8041,
+  "ratio": 0.9999,
+  "min_paragraph_ratio": 0.939,
+  "min_paragraph_id": "B04-P006",
+  "butler_token_retention": 0.96,
+  "butler_token_retention_book1_v3": 0.721,
+  "butler_token_retention_book2_v2": 0.902,
+  "butler_token_retention_book3_v2": 0.897,
+  "note": "0.960 is the HIGHEST retention in the package and is recorded as a RISK, not as a pass - see book04/continuity.md section 6, which states the evidence for and against. For: Book 4 is mostly speech in Butler's plainest conversational register (71 opening quotation marks in 8,042 words), and its archaism density is 3.98 dead forms per 1,000 words against Book 3's 7.15 on one fixed list. Against: Book 1 has the LOWEST density of the four (2.68) and the LOWEST retention (0.721), so retention is not a function of the source alone, and on that measure this draft is lighter-handed than Book 1's. A second drafting pass before freezing took the figure from 0.967 to 0.960 by fixing thirty dated or stiff forms, one of which (whereupon) would have failed the package's own archaism guard. The reviewer is asked to read the least-changed paragraphs and rule.",
+  "paragraphs_byte_identical_to_butler": [
+   39,
+   54,
+   61,
+   63,
+   70,
+   79,
+   80
+  ],
+  "paragraphs_byte_identical_note": "Seven, recorded rather than fixed: each was read against the accessibility standard and each is already plain modern English in Butler. Book 3 could assert that NO paragraph was identical to its source; Book 4 cannot, and the check block asserts the exact list instead so a later edit cannot add an eighth."
+ },
+ "naming": {
+  "decision": "Greek forms per GLOSSARY.md D5-D8, applied from the closed table. Book 4 is the third Book drafted under the decision from the start.",
+  "counts": "Ulysses->Odysseus 18, Jove->Zeus 11, Minerva->Athena 7, Neptune->Poseidon 3, Venus->Aphrodite 2, Diana->Artemis 1, Juno->Hera 1, Vulcan->Hephaestus 1, Euryclea->Eurycleia 1; every one matching the source's count exactly. No Roman form survives.",
+  "table_extension": "Book 4 is the FIRST Book to meet Venus, Juno and Vulcan. D5 requires the Greek forms for the Olympians who have them, and D6 requires the table to be extended BY ENUMERATION, never generated from a general Roman->Greek deity list (which is what would turn Butler's 'Ops' into Rhea). Extended on D5's own evidence method: the served modern-en being replaced prints Aphrodite 14 / Venus 0, Hera 6 / Juno 0, Hephaestus 20 / Vulcan 0. Rows added to GLOSSARY.md.",
+  "d8_second_firing": "Butler's 'Euryclea' (B04-P066) takes the Cast's display name 'Eurycleia'.",
+  "flagged_not_corrected": "'Idothea' (B04-P029), Proteus's daughter - the served modern-en prints 'Eidothea', the Cast prints neither, so D8 is silent and Butler's spelling stands. 'Diomed' (B04-P022, twice), as in Book 3. Both are the disposition already given to 'Ilius' and to 'Mycene' the woman.",
+  "heaven": "15 in the candidate against 16 in the source - ONE deliberate difference, at B04-P034, where Butler's 'mid heaven' is a position in the sky and not the metonym for the gods; rendered 'the middle of the sky'. Every other occurrence, including every metonym, is untouched. Asserted, not assumed.",
+  "possessive": "D7 applied: Odysseus's, Achilles's, Telemachus's, Aegisthus's, Hephaestus's, Zeus's. One possessive is SUPPLIED at B04-P013, where Butler's 'His hands and feet are just like Ulysses' is elliptical to the point of ungrammatical in current English; recorded in continuity.md section 5."
+ },
+ "punctuation": {
+  "standard": "Typographic quotation marks and apostrophes throughout (PUNCTUATION.md 1). Zero ASCII apostrophes, zero ASCII double quotes.",
+  "quotation_balance": "71 open / 50 close - EXACTLY the source's counts.",
+  "d4_preserved": "The package's largest use of D4 by a wide margin. Menelaus's Proteus narrative runs unbroken from B04-P028 to B04-P049, so TWENTY-ONE consecutive paragraphs (B04-P028..P048) open their own mark and close none, and the candidate's unbalanced set is exactly the source's. Idothea's and Proteus's speeches are nested inside in single marks, reproduced mark for mark.",
+  "single_marks": "25 opening single marks in the candidate against the source's 24 - ONE deliberate difference, the B04-P040 repair below.",
+  "normalizations": "Eight inverted pronoun speech tags (said she / said I / said he / replied she) turned round to the accepted Books' convention, which uses 'he said' and 'she said' and never the inversion (0 occurrences across accepted Books 1-3). No mark count changes."
+ },
+ "base_text_defects": {
+  "1_B04_P040": "A QUOTATION-MARK SLIP IN BUTLER, repaired and recorded. PG and the served original both print '“Then,’ he said, ‘if you would finish your voyage' - a double opening mark where the nested speech needs a single one, leaving a single closing mark with nothing to close; every neighbouring paragraph of Proteus's speech opens with the pair. The candidate prints '“‘Then,’ he said, ‘if...'. This is the class PUNCTUATION.md section 3 normalizes: a mark a modern reader reads as an error, because it is one. No word changed, nothing supplied.",
+  "2_none_of_the_D14_class": "Nothing of Book 3 paragraph 38's kind. scripts/scan_staged_original_vs_pg.py already establishes that B03-P038 is the only text-level difference in the whole served file, and this Book's own verification confirms Book 4 carries none."
+ },
+ "d12_class_c": {
+  "status": "SETTLED at Book 3's round 1 and applied here for the first time in the poem. Mark dropped, every word stands, nothing recast across the bracket's boundaries, every instance recorded with Butler's note and with who bracketed it.",
+  "B04_P001": "PG 1552, Butler's bracket, footnote 36 quoted in full in continuity.md. NEVER CLOSED in the base text - one of the four unclosed class-C brackets - so the passage's extent is NOT determined here, per the class's obligation. Drafting consequence: Butler's 'abode' becomes 'home' rather than 'house', because the sentence is not recast across the point where the bracket opens and 'house' recurs four words later inside it.",
+  "B04_P052": "PG 2067, closed at PG 2070, Butler's bracket, footnote 49 ('an interpolation consisting only of four lines') - one of the two instances whose footnotes ARE about their brackets, which is why D12's original claim that only three of six were footnoted was wrong (records finding R3).",
+  "class_a_and_b": "Book 4 contains neither."
+ },
+ "generation": {
+  "method": "Drafted in the agent conversation and written to files. No Anthropic API call, no generate-editions.cjs, no network. scripts/build_book_package.py 4 rebuilds every artefact deterministically from scripts/candidates/book4.py and the served original.",
+  "scope": "Content only. Nothing merged, registered or deployed; app/public/data/editions/** is never written."
+ },
+ "drafting_mechanism_defect": "The second drafting pass rewrote scripts/candidates/book4.py from an edited in-memory list, and textwrap.wrap's default break_on_hyphens split three compounds across the string-literal boundary, producing 'scepter- bearing' (B04-P007), 'violet- colored' (B04-P011) and 'lion- hearted' (B04-P065). The package's own check block caught it - the assertion that Penelope's 'brave and lion-hearted husband' sentence occurs TWICE identically came back 1. Fixed by re-wrapping with break_on_hyphens=False and break_long_words=False and asserting the module round-trips to the exact edited text; a \\w+- \\w+ scan now runs over every candidate. The damaged build (a293f196d83ab6f6faa748288cad5a5568ecf1e8bd7f3cd7755adeba26add82a) was never pushed."
+}

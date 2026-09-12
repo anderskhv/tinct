@@ -48,7 +48,20 @@ modern edition is not Butler and does not owe them.
 | 4 | Neptune | **Poseidon** | 6 (5 plain + 1 possessive) | |
 | 5 | Mercury | **Hermes** | 3 | |
 | 6 | Saturn | **Cronus** | 2 | Both inside the fixed epithet; see the epithet table. |
-| 7 | Diana | **Artemis** | 0 in Book 1 | Recorded for later Books. |
+| 7 | Diana | **Artemis** | 0 in Book 1 | Recorded for later Books. First occurrence B04-P011. |
+| 8 | Euryclea | **Eurycleia** | 1 | Not a Roman→Greek row at all: **D8**, the Cast's display name wins. Second firing B04-P066. |
+| 9 | **Venus** | **Aphrodite** | 0 in Book 1 | *Added 2026-09-12 at Book 4 step 2, the first Book to meet her (B04-P001, B04-P021).* |
+| 10 | **Juno** | **Hera** | 0 in Book 1 | *Added 2026-09-12 at Book 4 step 2 (B04-P043).* |
+| 11 | **Vulcan** | **Hephaestus** | 0 in Book 1 | *Added 2026-09-12 at Book 4 step 2 (B04-P051).* |
+
+**The table is extended by enumeration when a Book meets a Roman name it does
+not yet carry, and never generated** (hazard 1). Rows 9–11 were added on D5's
+own evidence method — what the product already calls these figures: the served
+`modern-en` being replaced prints **Aphrodite 14 / Venus 0**, **Hera 6 /
+Juno 0**, **Hephaestus 20 / Vulcan 0**; the Cast (`odyssey-threads.json`)
+carries Hephaestus and neither of the other two. Each addition is recorded here
+with the Book and paragraph that forced it, so the table's growth is legible
+and no row ever arrives from a general deity list.
 
 **Chapter titles are remapped too.** The candidate's `title` field carries the
 served original's chapter title; in the modern edition it takes the Greek
@@ -65,8 +78,11 @@ rebuild cannot lose one silently.
    *Ops* is **also** the Roman name of Rhea, so any mapping table assembled
    from a general Roman→Greek deity list carries the row `Ops → Rhea`, and
    applying it here replaces a man's name with a goddess's and breaks the
-   genealogy. **The table above is closed: it has seven rows and no others.**
-   Assert `Ops` survives and `Rhea` never appears.
+   genealogy. **The table above is closed: it holds exactly the rows
+   listed and no others, and it grows only by an enumerated addition recorded
+   against the Book that forced it** (Book 4 added Venus, Juno and Vulcan;
+   it did not add `Ops`, and no Book ever will). Assert `Ops` survives and
+   `Rhea` never appears.
 2. **`Saturn` occurs only inside the fixed epithet**, so the epithet's row
    below is rewritten with it rather than the candidate alone. The Greek form
    is **`Cronus`** — this file previously spelled it *Cronos* in two places;
@@ -135,6 +151,12 @@ All three occurrences in Butler, verified directly in
 | 843 | II | "Tyro, Alcmena, **Mycene**, and the famous women of old" | the **woman** Mykene, in a list of women | **`Mycene`** — unchanged |
 | 1377 | III | "For seven years after he had killed Agamemnon he ruled in **Mycene**" | the **city** | **`Mycenae`** |
 | 9326 | XXI | "a woman whose peer is not to be found in Pylos, Argos, or **Mycene**" | the **city**, in a list of places | **`Mycenae`** |
+
+**Flagged, not corrected, on the same rule** (the Cast has no display name, so
+**D8** is silent and supplies no authority): `Ilius` beside Butler's own
+*Troy*; `Mycene` the woman; `Diomed` (B03-P015, B04-P022); and **`Idothea`**
+(B04-P029), Proteus's daughter — the served `modern-en` prints *Eidothea*, the
+Cast prints neither, and Butler's spelling therefore stands.
 
 **The city takes `Mycenae`, under decision D8** (the Cast's display name wins
 where the Cast has one): `app/public/data/editions/odyssey-threads.json` gives
