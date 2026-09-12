@@ -140,6 +140,27 @@ describe('library recap helpers', () => {
     expect(positionPlacesByBook(null, books).size).toBe(0)
   })
 
+  it('skips a record the catalogue cannot place instead of letting it take the Bible\u2019s row', () => {
+    const bible = books.get('bible')!.chapters
+    // With the Bible's chapter list in hand, only ids the Bible actually
+    // contains resolve to it; records of dropped books resolve to nothing.
+    expect(catalogueBookIdForPlace({ bookId: 'daniel' }, books, bible)).toBe('bible')
+    expect(catalogueBookIdForPlace({ bookId: 'a-book-we-dropped' }, books, bible)).toBeNull()
+    // No chapter list to check against: the historical assumption stands.
+    expect(catalogueBookIdForPlace({ bookId: 'a-book-we-dropped' }, books)).toBe('bible')
+
+    const daniel = place({ bookId: 'daniel', headerBook: 'Daniel', chapterNumber: 7, sequentialChapter: 857, updatedAt: T0 + 1_000 })
+    const droppedOld = place({ bookId: 'a-book-we-dropped', headerBook: 'Dropped', chapterNumber: 2, sequentialChapter: 2, updatedAt: T0 + 2_000 })
+    const droppedNew = place({ bookId: 'another-book-we-dropped', headerBook: 'Dropped', chapterNumber: 3, sequentialChapter: 3, updatedAt: T0 + 3_000 })
+    // The defect: three records, one surviving row, and it is not even the Bible's.
+    const collapsed = positionPlacesByBook(positions([daniel, droppedOld, droppedNew], null), books)
+    expect(collapsed.get('bible')?.bookId).toBe('another-book-we-dropped')
+    // Fixed: the unresolvable records are skipped and the Bible keeps its place.
+    const kept = positionPlacesByBook(positions([daniel, droppedOld, droppedNew], null), books, bible)
+    expect([...kept.keys()]).toEqual(['bible'])
+    expect(kept.get('bible')?.bookId).toBe('daniel')
+  })
+
   it('resolves Continue to the position store when it is newer than the memory session', () => {
     // The bug: the recap's newest memory session (Daniel 7) is older than the
     // reader's own position record (James 1); Continue must use the reader's.

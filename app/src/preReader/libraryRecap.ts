@@ -20,7 +20,7 @@
  */
 import { summaryMatchesSession, visibleToViewer, type ReadingMemoryState, type ReadingSession } from '../readingMemory'
 import { READING_SESSION_GAP_MS } from '../readingMemory/recorder'
-import { isHiddenFromReadingNow } from '../lab/labPosition'
+import { biblicalBookId, isHiddenFromReadingNow, parseBiblicalPlaceTitle } from '../lab/labPosition'
 import type { LabBookPlace, LabPositionState } from '../lab/labPosition'
 import { chapterProgress, includesPreviousChapter, positionLine, type ChapterProgress } from './recapPosition'
 
@@ -138,9 +138,29 @@ export function newestSessionsByBook(state: ReadingMemoryState, viewer: string |
  * so a record whose id is not a catalogue book counts for `bible` when the
  * catalogue has it.
  */
-export function catalogueBookIdForPlace(place: Pick<LabBookPlace, 'bookId'>, books: ReadonlyMap<string, unknown>): string | null {
+export function catalogueBookIdForPlace(
+  place: Pick<LabBookPlace, 'bookId'>,
+  books: ReadonlyMap<string, unknown>,
+  bibleChapters: readonly LibraryChapterRef[] = [],
+): string | null {
   if (books.has(place.bookId)) return place.bookId
-  return books.has('bible') ? 'bible' : null
+  if (!books.has('bible')) return null
+  // Without the Bible's chapter list there is nothing to check against, so the
+  // historical assumption stands: an unknown id is a biblical pin.
+  if (bibleChapters.length === 0) return 'bible'
+  // Otherwise the id must name a book the Bible actually contains. Whether the
+  // pin's chapter is one this client can open is the reader's question, not
+  // the shelf's — this only separates `revelation` from `a-book-the-catalogue-
+  // dropped`. Letting the latter pass as a biblical pin does not merely
+  // mislabel it: `positionPlacesByBook` keeps one place per catalogue book, so
+  // several such records would take the Bible's single row between them and
+  // every one but the newest would vanish from the shelf (2026-09-12).
+  return bibleContainsBook(bibleChapters, place.bookId) ? 'bible' : null
+}
+
+/** Does the Bible's chapter list carry any chapter of this biblical book? */
+function bibleContainsBook(chapters: readonly LibraryChapterRef[], bookId: string): boolean {
+  return chapters.some(chapter => biblicalBookId(parseBiblicalPlaceTitle(chapter.title).book) === bookId)
 }
 
 /**
@@ -148,12 +168,16 @@ export function catalogueBookIdForPlace(place: Pick<LabBookPlace, 'bookId'>, boo
  * resume rule applies: the settled book wins over a newer unsettled peek;
  * without a settled Bible book the newest record wins.
  */
-export function positionPlacesByBook(positions: LabPositionState | null | undefined, books: ReadonlyMap<string, unknown>): Map<string, LabBookPlace> {
+export function positionPlacesByBook(
+  positions: LabPositionState | null | undefined,
+  books: ReadonlyMap<string, unknown>,
+  bibleChapters: readonly LibraryChapterRef[] = [],
+): Map<string, LabBookPlace> {
   const result = new Map<string, LabBookPlace>()
   if (!positions) return result
   const settledId = positions.lastSettledBookId && positions.books[positions.lastSettledBookId] ? positions.lastSettledBookId : null
   for (const place of Object.values(positions.books)) {
-    const bookId = catalogueBookIdForPlace(place, books)
+    const bookId = catalogueBookIdForPlace(place, books, bibleChapters)
     if (!bookId) continue
     const current = result.get(bookId)
     if (!current) { result.set(bookId, place); continue }
@@ -324,7 +348,7 @@ export function movedBackIntoBook(input: {
  */
 export function readingList(input: ReadingListInput): ReadingList {
   const sessions = newestSessionsByBook(input.memory, input.viewer)
-  const places = positionPlacesByBook(input.positions, input.books)
+  const places = positionPlacesByBook(input.positions, input.books, input.books.get('bible')?.chapters ?? [])
   const completedMarks = input.completedBookIds ?? new Set<string>()
   const bookIds = new Set<string>([...sessions.keys(), ...places.keys(), ...completedMarks])
   const readingNow: ReadingListRow[] = []

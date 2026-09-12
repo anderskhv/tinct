@@ -125,6 +125,18 @@ describe('signed-in hint', () => {
     expect(labSignedInHint(localStorage, '')).toBe(true)
   })
 
+  it('survives storage that throws the moment it is touched', () => {
+    // Blocked site data: even reading `length` throws. Before 2026-09-12 that
+    // read sat outside the guard, so the boot script died and the library
+    // painted nothing.
+    const blocked = new Proxy({}, {
+      get() { throw new Error('storage blocked') },
+    }) as unknown as Storage
+    expect(() => readCachedSupabaseUser(blocked)).not.toThrow()
+    expect(readCachedSupabaseUser(blocked)).toBeNull()
+    expect(labSignedInHint(blocked, 'tinct_auth=1')).toBe(true)
+  })
+
   it('falls back to the signed-in cookie, and to nothing on a signed-out device', () => {
     expect(readCachedSupabaseUser()).toBeNull()
     expect(labSignedInHint(localStorage, 'tinct_auth=1; other=2')).toBe(true)
