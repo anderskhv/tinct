@@ -1,6 +1,6 @@
 {
-  "contentVersion": "2026-09-12.3",
-  "coverage": "Both full English editions. BOOKS 1-3 (chapters 1-11) are authored; chapters 12-26 are in progress. Named people and named peoples. Cities, rivers, mountains, seas and countries are not cast.",
+  "contentVersion": "2026-09-12.4",
+  "coverage": "Both full English editions. BOOKS 1-4 (chapters 1-14) are authored; chapters 15-26 are in progress. Named people and named peoples. Cities, rivers, mountains, seas and countries are not cast.",
   "entities": [
     {
       "id": "thucydides",
@@ -10,7 +10,15 @@
       "category": "central",
       "kind": "person",
       "subtitle": "",
-      "snapshots": []
+      "snapshots": [
+        {
+          "after": [
+            14,
+            33
+          ],
+          "body": "The Athenian who wrote this, and who appears in it once as a commander. He held the right to work the gold mines of that part of Thrace and had great influence on the mainland, and was at Thasos, half a day’s sail off, when Eucles sent for him. He sailed at once with seven ships. Brasidas, who knew exactly who was coming, offered Amphipolis terms good enough to be taken that same day; Thucydides reached Eion the same evening, within a night of losing that too, and secured it instead."
+        }
+      ]
     },
     {
       "id": "thucydides-samos",
@@ -680,6 +688,13 @@
             31
           ],
           "body": "King of the Macedonians and nobody’s reliable ally. Reconciled to Athens and given Therme back, he at once joined Phormio against the Chalcidians; he had promised Sitalces something for the reconciliation and never paid it, and Sitalces came down with a hundred and fifty thousand men and the pretender Amyntas in his baggage. Perdiccas bought the retreat by promising his sister to Sitalces’s nephew — and gave Stratonice to Seuthes as promised. He also sent a thousand Macedonians to Cnemus in Acarnania without the Athenians knowing, and they arrived too late."
+        },
+        {
+          "after": [
+            14,
+            67
+          ],
+          "body": "King of the Macedonians, who procured a Peloponnesian army and then quarrelled with it. He had brought Brasidas out chiefly to put down Arrhabaeus, and when Brasidas parleyed with Arrhabaeus instead he cut his contribution from a half to a third. On the second expedition his Illyrian mercenaries went over to the enemy, his own troops broke in a night panic and went home, and Brasidas’s soldiers cut down the oxen they found on the road. From that moment he made peace with Athens, and set his friends in Thessaly to stop the next Lacedaemonian army before it could start."
         }
       ]
     },
@@ -1281,6 +1296,13 @@
             13
           ],
           "body": "Nicias’s son, who took Pericles’s own force to the Chalcidians and Potidaea and brought the plague with him: he lost one thousand and fifty out of four thousand heavy infantry in about forty days, achieved nothing worthy of his preparations, and took his ships home. He went out again with Sitalces’s expedition as the Athenian general — for a fleet that never came."
+        },
+        {
+          "after": [
+            14,
+            28
+          ],
+          "body": "Nicias’s son, and the founder of Amphipolis — twenty-nine years after the ten thousand settlers sent to the same spot were cut off at Drabescus. He started from Eion, drove out the Edonians, and named the place for the Strymon running round it on two sides, running a long wall from river to river and building it to be conspicuous from sea and land alike."
         }
       ]
     },
@@ -1532,7 +1554,15 @@
       "category": "central",
       "kind": "group",
       "subtitle": "",
-      "snapshots": []
+      "snapshots": [
+        {
+          "after": [
+            13,
+            13
+          ],
+          "body": "Who lost four hundred and twenty men on an island and were never the same in this war. Nothing in it surprised the Hellenes so much: the opinion had been that no force or famine would make them give up their arms. With Pylos and Cythera held against them and descents possible anywhere, they stood on the defensive everywhere, raised four hundred horse and a force of archers for the first time, and grew afraid to take the field at all — new to adversity, and convinced they could not stir without making a blunder."
+        }
+      ]
     },
     {
       "id": "peloponnesians",
@@ -1570,7 +1600,15 @@
       "category": "major",
       "kind": "group",
       "subtitle": "",
-      "snapshots": []
+      "snapshots": [
+        {
+          "after": [
+            13,
+            6
+          ],
+          "body": "Whose revolution ended when the commons, afraid the Athenian generals would take the prisoners off to Athens alive, tempted a few of them into a boat to void the treaty — and then led the whole body out in twenties between two lines of heavy infantry to be beaten and stabbed. When the rest understood, they killed themselves inside the building with the arrows shot down at them through the roof, with bed-cords and strips of clothing. The women taken in the stronghold were sold. Of one party, Thucydides says, there was practically nothing left."
+        }
+      ]
     },
     {
       "id": "hellenes",
@@ -1674,7 +1712,15 @@
       "category": "major",
       "kind": "group",
       "subtitle": "",
-      "snapshots": []
+      "snapshots": [
+        {
+          "after": [
+            13,
+            32
+          ],
+          "body": "Ground between two Athenian invasions a year and their own exiles at Pegae, the city was on the point of taking the exiles back when the popular leaders offered the town to Athens instead. The long walls were lost in a night; the upper town was saved by one man denouncing the plot and by Brasidas arriving and standing in order of battle. The exiles came home under oaths to take no vengeance, held a review of the heavy infantry, picked out about a hundred of their enemies, compelled an open vote, and executed them — and set up an oligarchy that lasted a very long time, made by very few partisans."
+        }
+      ]
     },
     {
       "id": "aeginetans",
@@ -1696,6 +1742,13 @@
             29
           ],
           "body": "Expelled from Aegina with their wives and children in the first summer of the war, as the chief agents in bringing it on — and because the island lay too close to the Peloponnese to be left in their hands. Lacedaemon gave them Thyrea, partly out of the obligation they had put her under at the time of the earthquake and the Helot revolt; the rest scattered over Hellas."
+        },
+        {
+          "after": [
+            13,
+            15
+          ],
+          "body": "Who had been given Thyrea by Lacedaemon and were still there when the Athenians came round from Cythera. They abandoned the fort they were building on the coast; the Lacedaemonian garrison helping them would not shut itself up inside the walls with them. The town was burnt, and all the Aeginetans not killed in the action were taken to Athens and put to death on account of the old inveterate feud."
         }
       ]
     },
@@ -1786,9 +1839,7 @@
       "id": "chalcidians",
       "name": "The Chalcidians",
       "body": "Of the Thracian seaboard, who joined the Potidaean revolt and, at Perdiccas’s urging, demolished their own towns and moved inland to Olynthus.",
-      "aliases": [
-        "Chalcidians"
-      ],
+      "aliases": [],
       "category": "supporting",
       "kind": "group",
       "subtitle": "",
@@ -1882,7 +1933,15 @@
       "category": "major",
       "kind": "group",
       "subtitle": "",
-      "snapshots": []
+      "snapshots": [
+        {
+          "after": [
+            14,
+            25
+          ],
+          "body": "Who would not have fought at Delium at all if Pagondas had not argued the other ten Boeotarchs down. Seven thousand heavy infantry, the Thebans twenty-five shields deep, the peoples of the lake in the centre, the Thespians and Tanagraeans and Orchomenians on the left. They lost the left and won with the right, and two squadrons of horse sent unseen round a hill finished it. Afterwards they refused the Athenian dead until the sanctuary was evacuated, argued the law of the Hellenes with heralds for seventeen days, and burnt the fort down with a cauldron of coals and pitch blown through a hollowed beam."
+        }
+      ]
     },
     {
       "id": "thessalians",
@@ -2102,7 +2161,15 @@
       "category": "major",
       "kind": "group",
       "subtitle": "",
-      "snapshots": []
+      "snapshots": [
+        {
+          "after": [
+            14,
+            4
+          ],
+          "body": "Whose numbers and stubbornness governed Lacedaemonian policy at all times. With Pylos held against them, the Spartans invited the Helots to pick out those who claimed to have distinguished themselves most against the enemy, in order to receive their freedom — really to find out which of them were high-spirited enough to rebel. Two thousand were chosen, crowned themselves and went round the temples; they were done away with soon afterwards, and no one ever knew how each of them perished. Seven hundred more were sent safely out of the country as heavy infantry with Brasidas."
+        }
+      ]
     },
     {
       "id": "perioeci",
@@ -2133,6 +2200,13 @@
             19
           ],
           "body": "Settled by Athens at Naupactus after Ithome, and now the garrison that marched along the shore beside Phormio’s ships — and that waded into the sea in armour to board the disabled Athenian hulls the Peloponnesians were towing away, and took them back."
+        },
+        {
+          "after": [
+            12,
+            49
+          ],
+          "body": "Whose old country Pylos had once been, and who supplied the forty heavy infantry, the thirty-oared privateer and the shields that held it. Their commander found the path round the Lacedaemonian rear on Sphacteria when the struggle seemed endless. Afterwards Naupactus sent the likeliest of them back to the old country to raid Laconia, which their common dialect made all the more destructive."
         }
       ]
     },
@@ -2167,7 +2241,8 @@
       "name": "The Edonians",
       "body": "From whom Athens took Nine Ways, and at whose town of Drabescus the settlers were cut off.",
       "aliases": [
-        "Edonians"
+        "Edonians",
+        "Edonian"
       ],
       "category": "reference",
       "kind": "group",
@@ -2179,7 +2254,8 @@
       "name": "The Thasians",
       "body": "Who revolted over the trading posts on the Thracian coast and the mine, were beaten at sea and besieged, appealed to Lacedaemon, and gave up walls, ships, mainland possessions and the mine in the third year.",
       "aliases": [
-        "Thasians"
+        "Thasians",
+        "Thasian"
       ],
       "category": "supporting",
       "kind": "group",
@@ -2740,7 +2816,22 @@
       "category": "major",
       "kind": "person",
       "subtitle": "",
-      "snapshots": []
+      "snapshots": [
+        {
+          "after": [
+            12,
+            11
+          ],
+          "body": "Tellis’s son, and captain of a galley in the assault on Pylos. Seeing the captains and steersmen hang back for fear of wrecking their ships on that coast, he shouted that they must not spare timber while an enemy fortified himself in their country, forced his own steersman to run the ship ashore, and was cut down on the gangway. His shield slipped into the sea, washed ashore, and went into the Athenian trophy."
+        },
+        {
+          "after": [
+            14,
+            63
+          ],
+          "body": "Tellis’s son, and the best advertisement Lacedaemon had. He relieved Megara by standing in order of battle and not fighting; walked seventeen hundred men through hostile Thessaly by keeping just ahead of the news; and then took the Thracian towns by speech and moderation rather than by siege — Acanthus with an argument and a threat to the vintage, Amphipolis with terms so fair that the townsmen stopped listening to their own general, Torone through a postern, Scione by crossing at night in a small boat behind a galley. Scione crowned him with gold as the liberator of Hellas. Thucydides says he was the first to go out and show himself so good a man at all points that he left behind the conviction that the rest were like him, and that this was what afterwards made the allies of Athens want the Lacedaemonians. Sparta sent him no reinforcements: partly envy among the chief men, partly a fixed wish to get the prisoners back and end the war."
+        }
+      ]
     },
     {
       "id": "tellis",
@@ -2808,7 +2899,15 @@
       "category": "major",
       "kind": "person",
       "subtitle": "",
-      "snapshots": []
+      "snapshots": [
+        {
+          "after": [
+            14,
+            27
+          ],
+          "body": "Teres’s son and king of the Odrysians, who died about the time of Delium, defeated in battle in a campaign against the Triballi."
+        }
+      ]
     },
     {
       "id": "teres",
@@ -3408,14 +3507,23 @@
       "category": "supporting",
       "kind": "person",
       "subtitle": "",
-      "snapshots": []
+      "snapshots": [
+        {
+          "after": [
+            14,
+            27
+          ],
+          "body": "Spardacus’s son and Sitalces’s nephew, who succeeded to the kingdom of the Odrysians and to the rest of Thrace that Sitalces had ruled."
+        }
+      ]
     },
     {
       "id": "spardacus",
       "name": "Spardacus",
-      "body": "Seuthes’s father.",
+      "body": "Seuthes’s father. The history spells him Spardacus in Book 2 and Sparadocus in Book 4.",
       "aliases": [
-        "Spardacus"
+        "Spardacus",
+        "Sparadocus"
       ],
       "category": "reference",
       "kind": "person",
@@ -3731,7 +3839,9 @@
       "name": "The Lyncestae",
       "body": "Macedonians by blood and allies and dependants of their kindred, but with their own separate government.",
       "aliases": [
-        "Lyncestae"
+        "Lyncestae",
+        "Lyncestians",
+        "Lyncestian"
       ],
       "category": "reference",
       "kind": "group",
@@ -4266,7 +4376,15 @@
       "category": "central",
       "kind": "person",
       "subtitle": "",
-      "snapshots": []
+      "snapshots": [
+        {
+          "after": [
+            12,
+            47
+          ],
+          "body": "Cleaenetus’s son, who talked Athens out of the peace the Lacedaemonians offered for the men on the island, and then had to live with it. Accused of blocking the treaty, he called the reports from Pylos lies; offered the command of an expedition as a taunt to Nicias; found the offer taken seriously; and could not get out of his own words. He asked for no Athenian troops, promised to bring the Lacedaemonians back alive or kill them there within twenty days, and — crazy as the promise was — kept it, having chosen Demosthenes, who had already planned the landing, as his colleague."
+        }
+      ]
     },
     {
       "id": "cleaenetus",
@@ -4397,7 +4515,15 @@
       "category": "central",
       "kind": "person",
       "subtitle": "",
-      "snapshots": []
+      "snapshots": [
+        {
+          "after": [
+            14,
+            65
+          ],
+          "body": "Niceratus’s son, and the general Cleon taunted into losing his command at Pylos — he resigned it in the assembly and called the Athenians to witness that he had. He beat the Corinthians at Solygia, took Cythera by a mixture of battle and private correspondence, burnt Thyrea, and was wounded on the hill outside Mende; and it was to him that Perdiccas had to prove his change of side."
+        }
+      ]
     },
     {
       "id": "niceratus",
@@ -4498,9 +4624,9 @@
     {
       "id": "diitrephes",
       "name": "Diitrephes",
-      "body": "Nicostratus’s father.",
+      "body": "Nicostratus’s father, spelled Diotrephes at the taking of Cythera. Not the commander who leads the Thracians home in the later books.",
       "aliases": [
-        "Diitrephes"
+        "Diotrephes"
       ],
       "category": "reference",
       "kind": "person",
@@ -4629,7 +4755,8 @@
       "name": "The Rhegians",
       "body": "Of Italy, who were for their Leontine kinsmen, and whose town the Athenians made their base.",
       "aliases": [
-        "Rhegians"
+        "Rhegians",
+        "Rhegian"
       ],
       "category": "supporting",
       "kind": "group",
@@ -4668,7 +4795,15 @@
       "category": "central",
       "kind": "person",
       "subtitle": "",
-      "snapshots": []
+      "snapshots": [
+        {
+          "after": [
+            12,
+            47
+          ],
+          "body": "Alcisthenes’s son, who asked for nothing but leave to use the fleet on the Peloponnesian coast, was carried into Pylos by a squall, and could not persuade the generals or the soldiers to fortify it — until the soldiers, with no iron tools, did it themselves in six days with stones that happened to fit and mortar carried on their backs. He was left with five ships, armed his sailors with osier shields off a Messenian privateer, and held the one landing place he had judged the enemy would choose. Afterwards, with the island burnt bare by an accidental fire, he planned the descent that surrounded four hundred and twenty Lacedaemonians with light troops who could conquer in flight, and would not let the killing finish."
+        }
+      ]
     },
     {
       "id": "alcisthenes",
@@ -5315,6 +5450,1232 @@
       "aliases": [
         "Cephallenians"
       ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "epitadas",
+      "name": "Epitadas",
+      "body": "Molobrus’s son, who commanded the four hundred and twenty heavy infantry drafted by lot onto Sphacteria. He kept them on half rations while Helots ran corn and wine in by night for the promise of freedom, held the level middle of the island where the water was, closed ranks when the outpost was cut off, and could neither reach the light troops nor be let alone by them. He was killed before the surrender.",
+      "aliases": [
+        "Epitadas"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "molobrus",
+      "name": "Molobrus",
+      "body": "Epitadas’s father.",
+      "aliases": [
+        "Molobrus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "thrasymelidas",
+      "name": "Thrasymelidas",
+      "body": "Cratesicles’s son, a Spartan, and admiral of the forty-three ships that attacked the new fort from the sea at exactly the point Demosthenes had expected.",
+      "aliases": [
+        "Thrasymelidas"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cratesicles",
+      "name": "Cratesicles",
+      "body": "Thrasymelidas’s father.",
+      "aliases": [
+        "Cratesicles"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "simonides",
+      "name": "Simonides",
+      "body": "The Athenian general who gathered a few men from the garrisons and some allies of those parts and took Eion in Thrace by treachery — and was beaten out of it again by the Chalcidians and Bottiaeans with the loss of many of his soldiers.",
+      "aliases": [
+        "Simonides"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "demoteles",
+      "name": "Demoteles",
+      "body": "Who commanded the garrison left in Messina after the disaster at Naxos, and led the sally that broke most of the Leontine army.",
+      "aliases": [
+        "Demoteles"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "archias-camarina",
+      "name": "Archias",
+      "body": "Whose party was about to betray Camarina to Syracuse when the Athenians got warning and sailed there. Not the Corinthian who founded Syracuse.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "styphon",
+      "name": "Styphon",
+      "body": "Pharax’s son, and third in the Spartan line of command on the island: Epitadas was dead and Hippagretas left for dead among the slain, so by law it fell to him. He asked the mainland what to do, and after the question had gone back and forth two or three times was told to decide for himself, so long as he did nothing dishonourable.",
+      "aliases": [
+        "Styphon"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pharax",
+      "name": "Pharax",
+      "body": "Styphon’s father.",
+      "aliases": [
+        "Pharax"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hippagretas",
+      "name": "Hippagretas",
+      "body": "The Spartan next in command after Epitadas, left for dead among the slain and still alive.",
+      "aliases": [
+        "Hippagretas"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "theagenes-athens",
+      "name": "Theagenes",
+      "body": "Chosen with Cleon to go and see for himself whether the reports from Pylos were true — a commission Cleon talked the assembly out of before it could sail. Not the tyrant of Megara.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ulysses",
+      "name": "Ulysses",
+      "body": "Whom the story makes sail through the Charybdis: the strait between Rhegium and Messina, where Sicily comes nearest the continent, and where the current out of the Tyrrhenian and Sicilian mains has rightly given the narrows a bad name.",
+      "aliases": [
+        "Ulysses"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "messinese",
+      "name": "The Messinese",
+      "body": "The people of Messina in Sicily, who let in the Syracusan and Locrian ships and revolted from Athens, then attacked Chalcidian Naxos and lost more than a thousand men to a sally and most of the rest to the barbarians on the road home — and who still had a sally left in them that broke the Leontine army.",
+      "aliases": [
+        "Messinese",
+        "Messinian"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "naxians",
+      "name": "The Naxians",
+      "body": "The Chalcidian people of Naxos in Sicily, kept inside their walls on the first day and out of their gates on the second: they saw the Sicels coming down from the high country, believed the Leontines were coming too, and routed the Messinese.",
+      "aliases": [
+        "Naxians"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "battus",
+      "name": "Battus",
+      "body": "One of the two Corinthian generals at Solygia, who took a company to hold the unwalled village while Lycophron gave battle with the rest.",
+      "aliases": [
+        "Battus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lycophron-corinth",
+      "name": "Lycophron",
+      "body": "The Corinthian general at Solygia, who held the right wing against the Athenian left for a long time and was among the dead when the Athenian cavalry — the Corinthians had none — finally turned it. Not the Lacedaemonian commissioner sent to Cnemus.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aristides-archippus",
+      "name": "Aristides",
+      "body": "Archippus’s son, one of the commanders of the squadron sent round to collect money from the allies. He arrested Artaphernes at Eion with the King’s dispatches on him, and afterwards helped Demodocus retake Antandrus from the Mitylenian exiles. Not Lysimachus’s son.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "archippus",
+      "name": "Archippus",
+      "body": "Aristides the commander’s father.",
+      "aliases": [
+        "Archippus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "artaphernes",
+      "name": "Artaphernes",
+      "body": "The Persian taken at Eion on his way from the King to Lacedaemon. His dispatches, translated at Athens out of the Assyrian script, said that the King could not make out what the Lacedaemonians wanted, since of the many ambassadors they had sent him no two ever told the same story: let them send plain men with this Persian and say so. The Athenians sent him back to Ephesus with envoys of their own.",
+      "aliases": [
+        "Artaphernes"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hermocrates",
+      "name": "Hermocrates",
+      "body": "Hermon’s son, a Syracusan, and the most influential man at the congress of Gela. He told the Sicilians that the question before them was not their several grievances but whether there was still time to save the island; that no one should think the Dorians alone were the enemy while Chalcidian blood protected the rest, since the attack was aimed not at a nationality but at what was in Sicily, the common property of them all; and that the quickest way to be rid of the guests was to stop giving them a reason to stay. They took his advice and kept what they had.",
+      "aliases": [
+        "Hermocrates"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hermon",
+      "name": "Hermon",
+      "body": "Hermocrates’s father.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "autocles",
+      "name": "Autocles",
+      "body": "Tolmaeus’s son, third in the command that took Cythera, and one of the three Athenian generals who swore to the year’s armistice.",
+      "aliases": [
+        "Autocles"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tolmaeus-father-of-autocles",
+      "name": "Tolmaeus",
+      "body": "Autocles’s father. The history never says whether he is the Tolmaeus whose son Tolmides sailed round the Peloponnese.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tantalus",
+      "name": "Tantalus",
+      "body": "Patrocles’s son, the Lacedaemonian commanding at Thyrea, wounded and taken alive when the Athenians burnt the town, and sent to share the imprisonment of the men from the island.",
+      "aliases": [
+        "Tantalus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "patrocles",
+      "name": "Patrocles",
+      "body": "Tantalus’s father.",
+      "aliases": [
+        "Patrocles"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hippocrates-ariphron",
+      "name": "Hippocrates",
+      "body": "Ariphron’s son. With Demosthenes he took the long walls of Megara by an ambush at a gate that was opened every night for a smuggler’s boat on a cart; and then designed the double stroke on Boeotia — Siphae and Chaeronea handed over on an appointed day while he fortified Delium, so that the Boeotians could not unite against any of it. The days were mistaken and the plot was betrayed, and he was left to fortify the sanctuary of Apollo alone and to fight Pagondas with a mass levy that had mostly gone home. He fell in the rout with nearly a thousand Athenians. Not the Lacedaemonian of the later books.",
+      "aliases": [],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ariphron",
+      "name": "Ariphron",
+      "body": "Hippocrates the general’s father.",
+      "aliases": [
+        "Ariphron"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "enyalius",
+      "name": "Enyalius",
+      "body": "In whose precinct, nearer Megara than the quarry, Demosthenes lay in ambush with the Plataean light troops and the Peripoli.",
+      "aliases": [
+        "Enyalius"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "andrians",
+      "name": "The Andrians",
+      "body": "Whose contingent served under Nicias against Corinth; and whose colonies — Acanthus, Stagirus, Argilus, Sane — stand in the Thracian country Brasidas was about to walk through.",
+      "aliases": [
+        "Andrians",
+        "Andrian"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "carystians",
+      "name": "The Carystians",
+      "body": "Placed at the end of the Athenian line at Solygia, where with the Athenian right they took the first Corinthian charge, gave ground, and twice drove it back.",
+      "aliases": [
+        "Carystians"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cytherians",
+      "name": "The Cytherians",
+      "body": "Lacedaemonians of the Perioeci class, on the island that took the merchantmen from Egypt and Libya and kept privateers off the one assailable stretch of the Laconian coast. A judge went over to them from Sparta every year. They held their ground a little while, capitulated to Nicias — with whom some of them had been in correspondence — and kept their lands at four talents tribute.",
+      "aliases": [
+        "Cytherians"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "peripoli",
+      "name": "The Peripoli",
+      "body": "The Athenian frontier patrol, who ran in at the Megarian gates with Demosthenes and the Plataeans, just where the trophy now stands.",
+      "aliases": [
+        "Peripoli"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "demodocus",
+      "name": "Demodocus",
+      "body": "One of the two commanders of the Athenian money-collecting squadron, who heard on the Hellespont what was being done at Antandrus and retook the place before it could become a second Anaia.",
+      "aliases": [
+        "Demodocus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lamachus",
+      "name": "Lamachus",
+      "body": "Their third colleague, who took ten ships into the Pontus and lost them at anchor in the Calex when rain inland brought a flood down on them, and marched his men overland through the Bithynian Thracians to Chalcedon.",
+      "aliases": [
+        "Lamachus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ptoeodorus",
+      "name": "Ptoeodorus",
+      "body": "A Theban exile, and the chief mover in the plot to change the constitutions of the Boeotian cities and bring in democracy as at Athens.",
+      "aliases": [
+        "Ptoeodorus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "panaerus",
+      "name": "Panaerus",
+      "body": "One of the Thessalians who came to Melitia to escort Brasidas through a country whose people had always sympathised with Athens — and which, Thucydides says, he could never have crossed at all if it had not been governed by a close oligarchy.",
+      "aliases": [
+        "Panaerus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "dorus",
+      "name": "Dorus",
+      "body": "One of Brasidas’s Thessalian escort.",
+      "aliases": [
+        "Dorus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hippolochidas",
+      "name": "Hippolochidas",
+      "body": "One of Brasidas’s Thessalian escort.",
+      "aliases": [
+        "Hippolochidas"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "torylaus",
+      "name": "Torylaus",
+      "body": "One of Brasidas’s Thessalian escort.",
+      "aliases": [
+        "Torylaus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "strophacus",
+      "name": "Strophacus",
+      "body": "The Chalcidian proxenus among Brasidas’s Thessalian escort.",
+      "aliases": [
+        "Strophacus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "niconidas",
+      "name": "Niconidas",
+      "body": "Of Larissa, a friend of Perdiccas, and one of the other Thessalians who went along.",
+      "aliases": [
+        "Niconidas"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "arrhabaeus",
+      "name": "Arrhabaeus",
+      "body": "Bromerus’s son and king of the Lyncestian Macedonians — the neighbour Perdiccas most wanted put down, and the reason he had paid for a Peloponnesian army. Brasidas parleyed with him instead of invading, and Perdiccas cut his contribution from half the army’s keep to a third. On the second expedition the Lyncestians were beaten in the field and took to the heights; then the Illyrian mercenaries hired for Perdiccas came over to Arrhabaeus instead, and it was the Peloponnesians who had to fight their way home.",
+      "aliases": [
+        "Arrhabaeus"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "bromerus",
+      "name": "Bromerus",
+      "body": "Arrhabaeus’s father.",
+      "aliases": [
+        "Bromerus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "nicomachus",
+      "name": "Nicomachus",
+      "body": "A Phocian of Phanotis, who betrayed the plot on Siphae and Chaeronea to the Lacedaemonians, and they to the Boeotians.",
+      "aliases": [
+        "Nicomachus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pagondas",
+      "name": "Pagondas",
+      "body": "Aeolidas’s son, Boeotarch of Thebes and commander-in-chief at Delium, and the one of the eleven who wanted to fight after the Athenians had already crossed back over the border. He told them that with a neighbour like this there is no frontier to argue about, since conquest would mean one frontier for the whole country; massed the Thebans twenty-five shields deep on the right; and when his left was breaking sent two squadrons of horse round the hill where they could not be seen, whose sudden appearance panicked the winning Athenian wing into thinking a second army had come.",
+      "aliases": [
+        "Pagondas"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aeolidas",
+      "name": "Aeolidas",
+      "body": "Pagondas’s father.",
+      "aliases": [
+        "Aeolidas"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "arianthides",
+      "name": "Arianthides",
+      "body": "Lysimachidas’s son, and the other Boeotarch of Thebes.",
+      "aliases": [
+        "Arianthides"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lysimachidas",
+      "name": "Lysimachidas",
+      "body": "Arianthides’s father.",
+      "aliases": [
+        "Lysimachidas"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aristagoras",
+      "name": "Aristagoras",
+      "body": "The Milesian who first tried to settle the spot that became Amphipolis, when he fled from King Darius, and was dislodged by the Edonians.",
+      "aliases": [
+        "Aristagoras"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eucles",
+      "name": "Eucles",
+      "body": "The general sent from Athens to defend Amphipolis. He could not get the gates held, sent down the coast for Thucydides, and watched the town accept Brasidas’s terms while the citizens stopped listening to him.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "olorus",
+      "name": "Olorus",
+      "body": "Thucydides’s father.",
+      "aliases": [
+        "Olorus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pittacus",
+      "name": "Pittacus",
+      "body": "King of the Edonians, killed by the sons of Goaxis and by his own wife Brauro — after which his town of Myrcinus came over to Brasidas.",
+      "aliases": [
+        "Pittacus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "goaxis",
+      "name": "Goaxis",
+      "body": "Whose sons killed the Edonian king.",
+      "aliases": [
+        "Goaxis"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "brauro",
+      "name": "Brauro",
+      "body": "Pittacus’s wife, and one of his killers.",
+      "aliases": [
+        "Brauro"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lysistratus",
+      "name": "Lysistratus",
+      "body": "An Olynthian, who commanded the seven light-armed men with daggers — the only ones of twenty ordered on the service who dared go in — that passed through the sea wall at Torone and cut down the guard of the highest post in the town.",
+      "aliases": [
+        "Lysistratus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "phoenippus",
+      "name": "Phoenippus",
+      "body": "Secretary when the Athenians voted the year’s armistice.",
+      "aliases": [
+        "Phoenippus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "niciades",
+      "name": "Niciades",
+      "body": "Chairman when the Athenians voted the year’s armistice.",
+      "aliases": [
+        "Niciades"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "taurus",
+      "name": "Taurus",
+      "body": "Echetimides’s son, one of the three Lacedaemonians who concluded the armistice and poured the libation.",
+      "aliases": [
+        "Taurus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "echetimides",
+      "name": "Echetimides",
+      "body": "Taurus’s father.",
+      "aliases": [
+        "Echetimides"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "athenaeus",
+      "name": "Athenaeus",
+      "body": "Pericleidas’s son, a Lacedaemonian signatory to the armistice, and the commissioner who carried it round to Brasidas in Thrace.",
+      "aliases": [
+        "Athenaeus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pericleidas",
+      "name": "Pericleidas",
+      "body": "Athenaeus’s father.",
+      "aliases": [
+        "Pericleidas"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "philocharidas",
+      "name": "Philocharidas",
+      "body": "Eryxidaidas’s son, the third of the Lacedaemonian signatories.",
+      "aliases": [
+        "Philocharidas"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eryxidaidas",
+      "name": "Eryxidaidas",
+      "body": "Philocharidas’s father.",
+      "aliases": [
+        "Eryxidaidas"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aeneas",
+      "name": "Aeneas",
+      "body": "Ocytus’s son, one of the two Corinthian signatories.",
+      "aliases": [
+        "Aeneas"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ocytus",
+      "name": "Ocytus",
+      "body": "Aeneas’s father.",
+      "aliases": [
+        "Ocytus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "damotimus",
+      "name": "Damotimus",
+      "body": "Naucrates’s son, one of the two Sicyonian signatories.",
+      "aliases": [
+        "Damotimus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "naucrates",
+      "name": "Naucrates",
+      "body": "Damotimus’s father.",
+      "aliases": [
+        "Naucrates"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "onasimus",
+      "name": "Onasimus",
+      "body": "Megacles’s son, the other Sicyonian signatory.",
+      "aliases": [
+        "Onasimus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "megacles",
+      "name": "Megacles",
+      "body": "Onasimus’s father.",
+      "aliases": [
+        "Megacles"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "nicasus",
+      "name": "Nicasus",
+      "body": "Cecalus’s son, one of the two Megarian signatories.",
+      "aliases": [
+        "Nicasus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cecalus",
+      "name": "Cecalus",
+      "body": "Nicasus’s father.",
+      "aliases": [
+        "Cecalus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "menecrates",
+      "name": "Menecrates",
+      "body": "Amphidorus’s son, the other Megarian signatory.",
+      "aliases": [
+        "Menecrates"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "amphidorus",
+      "name": "Amphidorus",
+      "body": "Menecrates’s father.",
+      "aliases": [
+        "Amphidorus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "amphias",
+      "name": "Amphias",
+      "body": "Eupaidas’s son, an Epidaurian, and the last of the signatories before the three Athenian generals.",
+      "aliases": [
+        "Amphias"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eupaidas",
+      "name": "Eupaidas",
+      "body": "Amphias’s father.",
+      "aliases": [
+        "Eupaidas"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aristonymus-athens",
+      "name": "Aristonymus",
+      "body": "The Athenian commissioner who carried the armistice round the Thracian towns. He made no difficulty about the rest, but counted the days, found that Scione had gone over after the convention, and refused to include it — on which Brasidas said flatly that the revolt had come first and would not give the town up. The facts were rather as the Athenians contended. Not Euphamidas’s father.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "polydamidas",
+      "name": "Polydamidas",
+      "body": "The commander Brasidas sent over to Scione and Mende with five hundred Peloponnesian heavy infantry and three hundred Chalcidian targeteers. Inside Mende he drew up the piled arms for a sortie, was answered factiously by one of the popular party, and dragged the man by the arm and knocked him about — which put the commons into their arms and lost him the town in an afternoon.",
+      "aliases": [
+        "Polydamidas"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ischagoras",
+      "name": "Ischagoras",
+      "body": "The Lacedaemonian whose overland army for Brasidas was stopped before it started, by Perdiccas setting his friends in Thessaly in motion. He got through himself with Ameinias and Aristeus to see how matters stood, and brought out from Sparta — in violation of all precedent — young men to be put in command of the towns, rather than leave them to persons on the spot.",
+      "aliases": [
+        "Ischagoras"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ameinias",
+      "name": "Ameinias",
+      "body": "One of the two who reached Brasidas with Ischagoras.",
+      "aliases": [
+        "Ameinias"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aristeus-lacedaemon",
+      "name": "Aristeus",
+      "body": "The third of the Lacedaemonians who reached Brasidas to inspect the state of affairs. Neither of the two Corinthians of that name.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "clearidas",
+      "name": "Clearidas",
+      "body": "Cleonymus’s son, one of the young Spartans brought out against precedent to command the towns, and placed by Brasidas in Amphipolis.",
+      "aliases": [
+        "Clearidas"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cleonymus",
+      "name": "Cleonymus",
+      "body": "Clearidas’s father.",
+      "aliases": [
+        "Cleonymus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pasitelidas",
+      "name": "Pasitelidas",
+      "body": "Hegesander’s son, the other of the young Spartans, and placed in Torone.",
+      "aliases": [
+        "Pasitelidas"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hegesander",
+      "name": "Hegesander",
+      "body": "Pasitelidas’s father.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "phaeinis",
+      "name": "Phaeinis",
+      "body": "The priestess the Argives appointed in Chrysis’s place, agreeably to the law in such a case, after the temple of Hera burned.",
+      "aliases": [
+        "Phaeinis"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "nisus",
+      "name": "Nisus",
+      "body": "Whose temple at Nisaea marks one end of the road that the armistice forbade either side to cross.",
+      "aliases": [
+        "Nisus"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "acanthians",
+      "name": "The Acanthians",
+      "body": "Divided over whether to admit Brasidas, they let him in alone to speak and then voted in secret — swayed, Thucydides says, as much by fear for a vintage still out on the vines as by his seductive arguments. They would not admit the army until he had given his personal security for the oaths sworn at home.",
+      "aliases": [
+        "Acanthians"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "toronaeans",
+      "name": "The Toronaeans",
+      "body": "Whose few partisans broke down the postern from within, cut through the bar of the market gates, and let the targeteers in; and whose other party fled to Lecythus with the Athenians and were invited home again without fear for their rights or persons.",
+      "aliases": [
+        "Toronaeans"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "scionaeans",
+      "name": "The Scionaeans",
+      "body": "Who say they are Pallenians from the Peloponnese, carried in to the spot by the storm that caught the Achaeans on the voyage from Troy. They revolted while the armistice was being carried round, crowned Brasidas with a crown of gold as the liberator of Hellas and garlanded him privately like an athlete — and had a decree passed at Athens, on Cleon’s motion, to reduce them and put them to death.",
+      "aliases": [
+        "Scionaeans"
+      ],
+      "category": "major",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "mendaeans",
+      "name": "The Mendaeans",
+      "body": "An Eretrian colony in Pallene, brought over by a few conspirators who had carried on their practices too long not to fear detection; and the commons who turned on Polydamidas, let the Athenians in without any convention, and were told afterwards that they might keep their civil rights and judge the authors of the revolt themselves.",
+      "aliases": [
+        "Mendaeans",
+        "Mendaean"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "perrhaebians",
+      "name": "The Perrhaebians",
+      "body": "Subjects of Thessaly, who took Brasidas on from the border and set him down at Dium in Perdiccas’s country, under Mount Olympus.",
+      "aliases": [
+        "Perrhaebians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "thespians",
+      "name": "The Thespians",
+      "body": "Who stood where the Boeotian left was worsted at Delium, and when the troops beside them gave way were surrounded in a narrow space and cut down fighting hand to hand. That same summer the Thebans pulled down their wall on the charge of Atticism, having always wished to, and finding it easy now that the flower of the Thespian youth was gone.",
+      "aliases": [
+        "Thespians",
+        "Thespian"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "orchomenians-boeotia",
+      "name": "The Orchomenians",
+      "body": "Of the Boeotian Orchomenus — formerly the Minyan — on the left at Delium. Not the Arcadians of the same name.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "haliartians",
+      "name": "The Haliartians",
+      "body": "One of the peoples about the lake, in the Boeotian centre at Delium.",
+      "aliases": [
+        "Haliartians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "coronaeans",
+      "name": "The Coronaeans",
+      "body": "One of the peoples about the lake, in the Boeotian centre at Delium.",
+      "aliases": [
+        "Coronaeans"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "copaeans",
+      "name": "The Copaeans",
+      "body": "One of the peoples about the lake, in the Boeotian centre at Delium.",
+      "aliases": [
+        "Copaeans"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "bisaltians",
+      "name": "The Bisaltians",
+      "body": "One of the stocks in the small mixed towns of Acte, under Athos, where two languages are spoken.",
+      "aliases": [
+        "Bisaltians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "crestonians",
+      "name": "The Crestonians",
+      "body": "Another of the stocks in the small towns of Acte.",
+      "aliases": [
+        "Crestonians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "methonaeans",
+      "name": "The Methonaeans",
+      "body": "A hundred and twenty of their light-armed went up the path outside Mende with Nicias and the archers.",
+      "aliases": [
+        "Methonaeans"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "amphipolitans",
+      "name": "The Amphipolitans",
+      "body": "Who had houses all over the quarter outside the wall, and of whom only a small number were Athenians — which is why Brasidas’s moderate proclamation looked fair to them compared with what their fear had suggested.",
+      "aliases": [
+        "Amphipolitans"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pallenians",
+      "name": "The Pallenians",
+      "body": "From the Peloponnese, whom the Scionaeans claim as their first founders.",
+      "aliases": [
+        "Pallenians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "euboeans",
+      "name": "The Euboeans",
+      "body": "At whose condition, and at most of the rest of Hellas, Pagondas told the Boeotians to look and be convinced.",
+      "aliases": [
+        "Euboeans"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "acamantis",
+      "name": "Acamantis",
+      "body": "The Athenian tribe that held the prytany when the armistice was voted.",
+      "aliases": [
+        "Acamantis"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "chalcidians-sicily",
+      "name": "The Sicilian Chalcidians",
+      "body": "Naxos and the cities out of it, Ionian by blood — which Hermocrates told the congress at Gela would not save them, since the attack was not inspired by hatred of one of two nationalities but by a desire for the good things in Sicily.",
+      "aliases": [],
       "category": "supporting",
       "kind": "group",
       "subtitle": "",

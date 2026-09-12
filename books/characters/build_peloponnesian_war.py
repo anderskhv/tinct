@@ -1,7 +1,7 @@
 """Reviewed bindings for the History of the Peloponnesian War.
 
 Crawley in both editions, 26 chapters covering Thucydides's eight books, 998
-paragraphs per edition. AUTHORING IS IN PROGRESS: Books 1-3 (chapters 1-11) are
+paragraphs per edition. AUTHORING IS IN PROGRESS: Books 1-4 (chapters 1-14) are
 authored.
 
 The two editions share almost all their transliterations, so unlike most of this
@@ -29,12 +29,14 @@ SPLIT={
  # given no patronymic and is never said to be him.
  'Thucydides':({(1,0):'thucydides',(7,25):'thucydides',(8,33):'thucydides',
                 (9,24):'thucydides',(11,1):'thucydides',(11,34):'thucydides',
+                **{k:'thucydides' for k in [(13,9),(14,30),(14,31),(14,32),
+                   (14,33),(14,70)]},
                 (4,20):'thucydides-samos'},None),
  # The King who dethroned Croesus, and the King's son who paid for the
  # Peloponnesian navy — the second belongs to Book 2 and is not yet authored.
  'Cyrus':({(1,13):'cyrus',(1,15):'cyrus'},None),
  # Darius son of Hystaspes here; Darius son of Artaxerxes in Book 8.
- 'Darius':({(1,13):'darius',(1,15):'darius'},None),
+ 'Darius':({(1,13):'darius',(1,15):'darius',(14,28):'darius'},None),
  # The tyrant, not the Arcadian commander of Book 3.
  'Hippias':({(1,19):'hippias',(9,33):'hippias-arcadia'},None),
  # The tyrant, not his grandson the archon.
@@ -43,7 +45,8 @@ SPLIT={
  # commands at Potidaea. Twenty-six paragraphs apart, same chapter.
  'Aristeus':({(2,4):'aristeus-pellichas',
               **{(2,i):'aristeus-adimantus' for i in [30,31,32,33]},
-              (7,22):'aristeus-adimantus'},None),
+              (7,22):'aristeus-adimantus',
+              (14,67):'aristeus-lacedaemon'},None),
  # Callicrates's father is a Corinthian; Calliades's son is the Athenian general
  # killed at Potidaea.
  'Callias':({(2,4):'callias-father-of-callicrates',
@@ -71,12 +74,16 @@ SPLIT={
  'Sthenelaidas':({(3,19):'sthenelaidas'},None),
  'Lysicles':({(4,1):'lysicles',(9,18):'lysicles-general'},None),
  'Lysimachus':({(4,1):'lysimachus'},None),
- 'Aristides':({(4,1):'aristides'},None),
+ 'Aristides':({(4,1):'aristides',
+               (13,8):'aristides-archippus',(14,0):'aristides-archippus'},None),
  'Tolmides':({(4,13):'tolmides',(4,17):'tolmides',(9,19):'tolmides-soothsayer'},None),
- 'Tolmaeus':({(4,13):'tolmaeus',(4,17):'tolmaeus'},None),
- 'Hagnon':({(4,20):'hagnon',(7,13):'hagnon',(8,24):'hagnon'},None),
+ 'Tolmaeus':({(4,13):'tolmaeus',(4,17):'tolmaeus',
+              (13,11):'tolmaeus-father-of-autocles',
+              (14,54):'tolmaeus-father-of-autocles'},None),
+ 'Hagnon':({(4,20):'hagnon',(7,13):'hagnon',(8,24):'hagnon',
+            (14,28):'hagnon'},None),
  'Cleombrotus':({(4,4):'cleombrotus',(4,12):'cleombrotus',(8,0):'cleombrotus'},None),
- 'Theagenes':({(5,7):'theagenes'},None),
+ 'Theagenes':({(5,7):'theagenes',(12,34):'theagenes-athens'},None),
  'Cleomenes':({(5,7):'cleomenes',(9,25):'cleomenes-commander'},None),
  'Gongylus':({(5,9):'gongylus'},None),
  'Artabazus':({(5,10):'artabazus',(5,15):'artabazus'},None),
@@ -87,17 +94,21 @@ SPLIT={
  # ------------------------------------------------- Book 2 (chapters 6-8)
  # The priestess of Hera at Argos by whose year of office the war is dated, and
  # a Corinthian commander's father.
- 'Chrysis':({(6,1):'chrysis-argos',(6,33):'chrysis-father-of-eumachus'},None),
+ 'Chrysis':({(6,1):'chrysis-argos',(6,33):'chrysis-father-of-eumachus',
+             (14,68):'chrysis-argos'},None),
  # The archon of the year the war began; a different Pythodorus commands in
  # Book 3.
- 'Pythodorus':({(6,1):'pythodorus',(11,33):'pythodorus-isolochus'},None),
- 'Tellis':({(6,27):'tellis',(10,19):'tellis'},None),
+ 'Pythodorus':({(6,1):'pythodorus',(11,33):'pythodorus-isolochus',
+                (12,1):'pythodorus-isolochus',
+                (13,23):'pythodorus-isolochus'},None),
+ 'Tellis':({(6,27):'tellis',(10,19):'tellis',(13,28):'tellis'},None),
  # Cleopompus's father, not Alcibiades's.
  'Clinias':({(6,28):'clinias',(7,13):'clinias'},None),
  # The tyrant of Astacus, not the Catanaean of Book 6.
  'Evarchus':({(6,32):'evarchus',(6,33):'evarchus'},None),
- 'Euphamidas':({(6,33):'euphamidas'},None),
- 'Aristonymus':({(6,33):'aristonymus'},None),
+ 'Euphamidas':({(6,33):'euphamidas',(14,54):'euphamidas'},None),
+ 'Aristonymus':({(6,33):'aristonymus',(14,54):'aristonymus',
+                 (14,57):'aristonymus-athens'},None),
  # Timoxenus's father is a Corinthian; the commissioner who killed himself off
  # Naupactus is a Lacedaemonian.
  'Timocrates':({(6,33):'timocrates-corinth',
@@ -106,19 +117,24 @@ SPLIT={
  # Hagnon's father, and the Cretan of Gortys. Neither is the Nicias son of
  # Niceratus who fills the later books, and who is not yet authored.
  'Nicias':({(7,13):'nicias-father-of-hagnon',(8,14):'nicias-gortys',
-            (10,0):'nicias-niceratus',(11,4):'nicias-niceratus'},None),
+            (14,28):'nicias-father-of-hagnon',
+            **{k:'nicias-niceratus' for k in [(10,0),(11,4),(12,34),(12,35),
+               (13,0),(13,11),(13,12),(14,54),(14,64),(14,65),(14,67)]}},None),
  'Timagoras':({(7,22):'timagoras-tegea'},None),
  'Pharnabazus':({(7,22):'pharnabazus'},None),
  # Learchus's father and Phanomachus's father, three paragraphs apart.
  'Callimachus':({(7,22):'callimachus-father-of-learchus',
                  (7,25):'callimachus-father-of-phanomachus'},None),
- 'Lycophron':({(8,14):'lycophron'},None),
+ 'Lycophron':({(8,14):'lycophron',
+               (13,1):'lycophron-corinth',(13,2):'lycophron-corinth'},None),
 
  # ------------------------------------------------ Book 3 (chapters 9-11)
  # Thucles's son, the general. The Eurymedon of Book 1 is a river in Pamphylia
  # and carries no card; the Thucles of Book 6 founded Naxos in Sicily.
  'Eurymedon':({(10,30):'eurymedon',(10,31):'eurymedon',(10,35):'eurymedon',
-               (11,4):'eurymedon',(11,33):'eurymedon'},None),
+               (11,4):'eurymedon',(11,33):'eurymedon',
+               **{k:'eurymedon' for k in [(12,1),(12,2),(12,7),(13,4),
+                  (13,23)]}},None),
  'Thucles':({(10,30):'thucles',(11,4):'thucles',(11,33):'thucles'},None),
  # Demosthenes's colleague, not the Spartan of the peace of Book 5.
  'Procles':({(11,4):'procles',(11,12):'procles'},None),
@@ -129,8 +145,41 @@ SPLIT={
  'Dorieus':({(9,7):'dorieus'},None),
  # The Locrians of Italy, allies of Syracuse, against the Ozolian and Opuntian
  # Locrians of Greece.
- 'Locrians':({(10,36):'locrians-italy',(11,13):'locrians-italy',
-              (11,17):'locrians-italy',(11,33):'locrians-italy'},'locrians'),
+ 'Locrians':({k:'locrians-italy' for k in [(10,36),(11,13),(11,17),(11,33),
+                                            (12,0),(12,30),(12,31),(12,32)]},'locrians'),
+ # The singular carries no default: the Opuntian and Ozolian coasts of Greece and
+ # the Locrian fort in Italy are all called Locrian.
+ 'Locrian':({(11,2):'locrians',(11,4):'locrians',(11,11):'locrians',
+             (11,33):'locrians-italy',(12,0):'locrians-italy'},None),
+
+ # ----------------------------------------------- Book 4 (chapters 12-14)
+ # The Camarinaean traitor, not the Corinthian who founded Syracuse.
+ 'Archias':({(12,32):'archias-camarina'},None),
+ # Ariphron's son, who took the long walls of Megara and died at Delium. The
+ # tyrant of Gela and the Lacedaemonian of Book 8 are other men.
+ 'Hippocrates':({k:'hippocrates-ariphron' for k in [(13,24),(13,25),(14,1),
+                 (14,2),(14,13),(14,14),(14,17),(14,18),(14,20),(14,25)]},None),
+ # Hermocrates's father; the Hermon of Book 8 commands the Peripoli at Munychia.
+ 'Hermon':({(13,16):'hermon'},None),
+ # Nicostratus's father. The Diitrephes who takes the Thracians home in Books 7
+ # and 8 is not said to be the same man, and carries no card yet.
+ 'Diitrephes':({(10,25):'diitrephes',(14,54):'diitrephes',
+                (14,64):'diitrephes'},None),
+ # The Athenian general at Amphipolis, not the Syracusan elected in Book 6.
+ 'Eucles':({(14,30):'eucles'},None),
+ # Pasitelidas's father, not the Thespian commander of Book 7.
+ 'Hegesander':({(14,67):'hegesander'},None),
+ # Boeotian Orchomenus at Delium; the Orchomenians of Book 5 are Arcadians.
+ 'Orchomenians':({(14,17):'orchomenians-boeotia'},None),
+ # Of Thrace here; the Chalcidian race in Sicily is a different people, and the
+ # Chalcidians of Books 6 and 7 are theirs, so neither form takes a default.
+ 'Chalcidians':({k:'chalcidians' for k in [(2,28),(2,29),(2,32),(2,33),(6,31),
+                 (7,13),(8,8),(8,24),(8,28),(8,31),(12,6),(14,4),(14,5),(14,8),
+                 (14,29),(14,59)]},None),
+ 'Chalcidian':({**{k:'chalcidians' for k in [(8,8),(8,24),(14,3),(14,7),
+                  (14,35),(14,40),(14,58)]},
+                **{k:'chalcidians-sicily' for k in [(10,36),(12,32),(13,19),
+                  (13,22)]}},None),
 
  # Adjectival forms of two peoples, bound by default rather than by alias. The
  # Hellenic sea is water and is excluded by lookahead (the older translation
