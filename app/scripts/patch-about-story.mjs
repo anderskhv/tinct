@@ -64,6 +64,15 @@ const edits = [
   // Trust: no named competitor, share image, no cover preload storm.
   ['html', 'competitor name', 'BOOK SUMMARY · BLINKIST', 'BOOK SUMMARY', null],
   ['story', 'competitor name', 'BOOK SUMMARY · BLINKIST', 'BOOK SUMMARY', null],
+  // Engagement numbers: the export gives all 48 cards of the slop takeover the same 2.4K likes, and the
+  // opening thread card the same 2.4K. One plausible number per card instead, varied in shape.
+  ['story', 'varied slop like counts', 'function Ja({progress:e,unique:t=!1}){',
+    'var slopLikes=[`847`,`3.1K`,`12K`,`96`,`4.8K`,`1.2K`,`218`,`27K`,`5.6K`,`74`,`9.3K`,`460`,`1.9K`,`88K`,`133`,`6.4K`,`15K`,`302`,`41K`];' +
+    'function Ja({progress:e,unique:t=!1}){', 1, 'var slopLikes='],
+  ['story', 'slop card reads its own count', 'children:`\u2661 2.4K \\xA0 \u2197 \\xA0 \u00b7\u00b7\u00b7`',
+    'children:`\u2661 `+slopLikes[r%slopLikes.length]+` \\xA0 \u2197 \\xA0 \u00b7\u00b7\u00b7`', 1],
+  ['story', 'opening thread card metrics', 'children:`\u2661 2.4K \\xA0 \u21bb 618`', 'children:`\u2661 3.1K \\xA0 \u21bb 412`', 1],
+  ['html', 'opening thread card metrics', '\u2661 2.4K \u00a0 \u21bb 618', '\u2661 3.1K \u00a0 \u21bb 412', 2],
   ['html', 'og:image + twitter card', '<meta property="og:type" content="website"/>',
     '<meta property="og:type" content="website"/>' +
     '<meta property="og:image" content="https://tinct.app/og-image.png"/>' +
