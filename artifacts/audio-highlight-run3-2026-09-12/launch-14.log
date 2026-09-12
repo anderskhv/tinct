@@ -82,3 +82,9 @@
 [2026-09-12T14:34:07Z] 36.0 min: aligning {"arm_chapters_passed": 14, "arm_chapters_rejected": 19, "arm_chapters_running": 1, "paragraph_diagnostics": 1627}
 [2026-09-12T14:34:38Z] 36.5 min: aligning {"arm_chapters_passed": 14, "arm_chapters_rejected": 19, "arm_chapters_running": 1, "paragraph_diagnostics": 1632}
 [2026-09-12T14:35:08Z] 37.0 min: aligning {"arm_chapters_passed": 14, "arm_chapters_rejected": 19, "arm_chapters_running": 1, "paragraph_diagnostics": 1639}
+[2026-09-12T14:35:38Z] phase done-with-errors at 37.5 min; setup={"versions": {"faster-whisper": "1.2.1", "ctranslate2": "4.8.2", "av": "18.1.0"}, "commit": "c43ab3799d5b71c58b770ed22e1bd7bb9b2774cf", "model_tree_sha256": "f1fe271c349229677131d389a96d0a28062a6a2c2fee54a8ce119c43538315c5", "ld_library_path": "/usr/local/lib/python3.11/dist-packages/nvidia/cublas/l
+[2026-09-12T14:35:38Z] 37.5 min: done-with-errors {"arm_chapters_passed": 14, "arm_chapters_rejected": 19, "arm_chapters_running": 1, "paragraph_diagnostics": 1648}
+[2026-09-12T14:35:54Z] fetched out.tar.gz (13939862 bytes)
+[2026-09-12T14:35:55Z] stop 2yddxz0lnevbsz: HTTP 200
+[2026-09-12T14:35:56Z] terminate 2yddxz0lnevbsz: HTTP 204
+[2026-09-12T14:35:56Z] pod 2yddxz0lnevbsz done: outcome=done-with-errors uptime=37.8m est $0.31
