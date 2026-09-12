@@ -49,3 +49,16 @@ Relaunch helper: `launch_wave2.sh <first-pod-number> <batch>...` (add
 `harvest_one.sh <pod-name>` runs harvest.py --apply against
 publication-journal.json and commits+pushes that single pod. Run it per pod,
 never in batches.
+
+## 05:38Z — dispatcher running
+`dispatch.py` (background) holds 12 concurrent pods, launches the next
+`wave2-batch-N.json` from `pending.json` whenever RunPod frees capacity,
+retries "no instances currently available" forever (that failure costs
+nothing), and stops launching at $16 projected so the close-out stays inside
+the $20 envelope. `recompute_spent.py` refreshes `spent.txt` from every
+pod.json's estimatedCost; the guard loop reads that file.
+
+**Every finished pod still needs `harvest_one.sh <pod-name>`** — orchestrate.py
+and adopt.py fetch and terminate, they do not publish.
+
+Published so far: the-republic ch5, the-tempest ch6 (journal has the truth).
