@@ -78,3 +78,9 @@
 [2026-09-12T15:07:11Z] 34.8 min: aligning {"arm_chapters_passed": 8, "arm_chapters_rejected": 47, "arm_chapters_running": 1, "paragraph_diagnostics": 1551}
 [2026-09-12T15:07:42Z] 35.7 min: aligning {"arm_chapters_passed": 8, "arm_chapters_rejected": 48, "arm_chapters_running": 1, "paragraph_diagnostics": 1574}
 [2026-09-12T15:08:13Z] 36.2 min: aligning {"arm_chapters_passed": 8, "arm_chapters_rejected": 49, "arm_chapters_running": 1, "paragraph_diagnostics": 1597}
+[2026-09-12T15:08:43Z] phase done-with-errors at 36.7 min; setup={"versions": {"faster-whisper": "1.2.1", "ctranslate2": "4.8.2", "av": "18.1.0"}, "commit": "c43ab3799d5b71c58b770ed22e1bd7bb9b2774cf", "model_tree_sha256": "f1fe271c349229677131d389a96d0a28062a6a2c2fee54a8ce119c43538315c5", "ld_library_path": "/usr/local/lib/python3.11/dist-packages/nvidia/cublas/l
+[2026-09-12T15:08:43Z] 36.7 min: done-with-errors {"arm_chapters_passed": 8, "arm_chapters_rejected": 49, "arm_chapters_running": 1, "paragraph_diagnostics": 1603}
+[2026-09-12T15:09:10Z] fetched out.tar.gz (19548837 bytes)
+[2026-09-12T15:09:12Z] stop oks31m2jzb2v0o: HTTP 200
+[2026-09-12T15:09:14Z] terminate oks31m2jzb2v0o: HTTP 204
+[2026-09-12T15:09:14Z] pod oks31m2jzb2v0o done: outcome=done-with-errors uptime=37.2m est $0.30
