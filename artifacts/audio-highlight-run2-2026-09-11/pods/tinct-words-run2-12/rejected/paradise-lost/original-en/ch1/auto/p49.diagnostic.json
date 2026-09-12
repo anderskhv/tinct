@@ -1,0 +1,741 @@
+{
+  "complete": true,
+  "signature": "d72e5462c56a05a7571f0f0840d79cc3ec0a7d01f3254408239611555eddf448",
+  "attempts": [
+    {
+      "asr_seconds": 0.31177441496402025,
+      "alignment_seconds": 0.0003784389700740576,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Witness the streets of Sodom, and that night In Gibeah, when the hospitable door Exposed a matron, to avoid worse rape.",
+        "hotwords": "Witness, Sodom, In, Gibeah, Exposed"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Witness the streets of Sodom, and that night In Gibeah, when the hospitable door Exposed",
+          "start": 0.02,
+          "end": 5.6,
+          "words": [
+            {
+              "text": " Witness",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.263671875
+            },
+            {
+              "text": " the",
+              "start": 0.64,
+              "end": 1.04,
+              "probability": 0.72998046875
+            },
+            {
+              "text": " streets",
+              "start": 1.04,
+              "end": 1.26,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " of",
+              "start": 1.26,
+              "end": 1.66,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Sodom,",
+              "start": 1.66,
+              "end": 1.96,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " and",
+              "start": 2.24,
+              "end": 2.44,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " that",
+              "start": 2.44,
+              "end": 2.62,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " night",
+              "start": 2.62,
+              "end": 2.86,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " In",
+              "start": 2.86,
+              "end": 3.08,
+              "probability": 0.0009860992431640625
+            },
+            {
+              "text": " Gibeah,",
+              "start": 3.08,
+              "end": 3.56,
+              "probability": 0.014827728271484375
+            },
+            {
+              "text": " when",
+              "start": 3.92,
+              "end": 4.0,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " the",
+              "start": 4.0,
+              "end": 4.12,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " hospitable",
+              "start": 4.12,
+              "end": 4.64,
+              "probability": 0.988037109375
+            },
+            {
+              "text": " door",
+              "start": 4.64,
+              "end": 4.98,
+              "probability": 0.9052734375
+            },
+            {
+              "text": " Exposed",
+              "start": 4.98,
+              "end": 5.6,
+              "probability": 0.532379150390625
+            }
+          ]
+        },
+        {
+          "text": " a matron, to avoid worse rape.",
+          "start": 5.6,
+          "end": 7.62,
+          "words": [
+            {
+              "text": " a",
+              "start": 5.6,
+              "end": 5.72,
+              "probability": 0.9921875
+            },
+            {
+              "text": " matron,",
+              "start": 5.72,
+              "end": 6.12,
+              "probability": 0.80712890625
+            },
+            {
+              "text": " to",
+              "start": 6.48,
+              "end": 6.62,
+              "probability": 0.9453125
+            },
+            {
+              "text": " avoid",
+              "start": 6.62,
+              "end": 6.94,
+              "probability": 0.99609375
+            },
+            {
+              "text": " worse",
+              "start": 6.94,
+              "end": 7.26,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " rape.",
+              "start": 7.26,
+              "end": 7.62,
+              "probability": 0.9208984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Witness",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "the",
+          "start": 0.64,
+          "end": 1.04
+        },
+        {
+          "raw": "streets",
+          "start": 1.04,
+          "end": 1.26
+        },
+        {
+          "raw": "of",
+          "start": 1.26,
+          "end": 1.66
+        },
+        {
+          "raw": "Sodom,",
+          "start": 1.66,
+          "end": 1.96
+        },
+        {
+          "raw": "and",
+          "start": 2.24,
+          "end": 2.44
+        },
+        {
+          "raw": "that",
+          "start": 2.44,
+          "end": 2.62
+        },
+        {
+          "raw": "night",
+          "start": 2.62,
+          "end": 2.86
+        },
+        {
+          "raw": "In",
+          "start": 2.86,
+          "end": 3.08
+        },
+        {
+          "raw": "Gibeah,",
+          "start": 3.08,
+          "end": 3.56
+        },
+        {
+          "raw": "when",
+          "start": 3.92,
+          "end": 4.0
+        },
+        {
+          "raw": "the",
+          "start": 4.0,
+          "end": 4.12
+        },
+        {
+          "raw": "hospitable",
+          "start": 4.12,
+          "end": 4.64
+        },
+        {
+          "raw": "door",
+          "start": 4.64,
+          "end": 4.98
+        },
+        {
+          "raw": "Exposed",
+          "start": 4.98,
+          "end": 5.6
+        },
+        {
+          "raw": "a",
+          "start": 5.6,
+          "end": 5.72
+        },
+        {
+          "raw": "matron,",
+          "start": 5.72,
+          "end": 6.12
+        },
+        {
+          "raw": "to",
+          "start": 6.48,
+          "end": 6.62
+        },
+        {
+          "raw": "avoid",
+          "start": 6.62,
+          "end": 6.94
+        },
+        {
+          "raw": "worse",
+          "start": 6.94,
+          "end": 7.26
+        },
+        {
+          "raw": "rape.",
+          "start": 7.26,
+          "end": 7.62
+        }
+      ],
+      "expected_tokens": [
+        "Witness",
+        "the",
+        "streets",
+        "of",
+        "Sodom,",
+        "and",
+        "that",
+        "night",
+        "In",
+        "Gibeah,",
+        "when",
+        "the",
+        "hospitable",
+        "door",
+        "Exposed",
+        "a",
+        "matron,",
+        "to",
+        "avoid",
+        "worse",
+        "rape."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Witness",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "witness",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.64,
+          "end": 1.04,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "streets",
+          "start": 1.04,
+          "end": 1.26,
+          "key": "streets",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.26,
+          "end": 1.66,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Sodom,",
+          "start": 1.66,
+          "end": 1.96,
+          "key": "sodom",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.24,
+          "end": 2.44,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.44,
+          "end": 2.62,
+          "key": "that",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "night",
+          "start": 2.62,
+          "end": 2.86,
+          "key": "night",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 2.86,
+          "end": 3.08,
+          "key": "in",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Gibeah,",
+          "start": 3.08,
+          "end": 3.56,
+          "key": "gibeah",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 3.92,
+          "end": 4.0,
+          "key": "when",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.0,
+          "end": 4.12,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "hospitable",
+          "start": 4.12,
+          "end": 4.64,
+          "key": "hospitable",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "door",
+          "start": 4.64,
+          "end": 4.98,
+          "key": "door",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Exposed",
+          "start": 4.98,
+          "end": 5.6,
+          "key": "exposed",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.6,
+          "end": 5.72,
+          "key": "a",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "matron,",
+          "start": 5.72,
+          "end": 6.12,
+          "key": "matron",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 6.48,
+          "end": 6.62,
+          "key": "to",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "avoid",
+          "start": 6.62,
+          "end": 6.94,
+          "key": "avoid",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "worse",
+          "start": 6.94,
+          "end": 7.26,
+          "key": "worse",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "rape.",
+          "start": 7.26,
+          "end": 7.62,
+          "key": "rape",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Witness",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "the",
+          "start": 0.64,
+          "end": 1.04
+        },
+        {
+          "text": "streets",
+          "start": 1.04,
+          "end": 1.26
+        },
+        {
+          "text": "of",
+          "start": 1.26,
+          "end": 1.66
+        },
+        {
+          "text": "Sodom,",
+          "start": 1.66,
+          "end": 1.96
+        },
+        {
+          "text": "and",
+          "start": 2.24,
+          "end": 2.44
+        },
+        {
+          "text": "that",
+          "start": 2.44,
+          "end": 2.62
+        },
+        {
+          "text": "night",
+          "start": 2.62,
+          "end": 2.86
+        },
+        {
+          "text": "In",
+          "start": 2.86,
+          "end": 3.08
+        },
+        {
+          "text": "Gibeah,",
+          "start": 3.08,
+          "end": 3.56
+        },
+        {
+          "text": "when",
+          "start": 3.92,
+          "end": 4.0
+        },
+        {
+          "text": "the",
+          "start": 4.0,
+          "end": 4.12
+        },
+        {
+          "text": "hospitable",
+          "start": 4.12,
+          "end": 4.64
+        },
+        {
+          "text": "door",
+          "start": 4.64,
+          "end": 4.98
+        },
+        {
+          "text": "Exposed",
+          "start": 4.98,
+          "end": 5.6
+        },
+        {
+          "text": "a",
+          "start": 5.6,
+          "end": 5.72
+        },
+        {
+          "text": "matron,",
+          "start": 5.72,
+          "end": 6.12
+        },
+        {
+          "text": "to",
+          "start": 6.48,
+          "end": 6.62
+        },
+        {
+          "text": "avoid",
+          "start": 6.62,
+          "end": 6.94
+        },
+        {
+          "text": "worse",
+          "start": 6.94,
+          "end": 7.26
+        },
+        {
+          "text": "rape.",
+          "start": 7.26,
+          "end": 7.62
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3123843679204583
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "72492a977a97937f8954418cade39f7fbc62d8a7d9e4e567c179f4ae4ce7e4b6",
+  "selected_reasons": []
+}

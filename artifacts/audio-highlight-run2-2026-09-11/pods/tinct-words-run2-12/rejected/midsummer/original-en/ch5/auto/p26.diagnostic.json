@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "26f80c431ac62479528d14e2e8c7077dea23de584372744defcdaea62c87c566",
+  "attempts": [
+    {
+      "asr_seconds": 0.13536855694837868,
+      "alignment_seconds": 0.0002219988964498043,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Enter Puck behind.]",
+        "hotwords": "Enter, Puck"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Puck behind.",
+          "start": 0.02,
+          "end": 1.34,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " Puck",
+              "start": 0.66,
+              "end": 1.0,
+              "probability": 0.576416015625
+            },
+            {
+              "text": " behind.",
+              "start": 1.0,
+              "end": 1.34,
+              "probability": 0.53515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "Puck",
+          "start": 0.66,
+          "end": 1.0
+        },
+        {
+          "raw": "behind.",
+          "start": 1.0,
+          "end": 1.34
+        }
+      ],
+      "expected_tokens": [
+        "[Enter",
+        "Puck",
+        "behind.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Puck",
+          "start": 0.66,
+          "end": 1.0,
+          "key": "puck",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "behind.",
+          "start": 1.0,
+          "end": 1.34,
+          "key": "behind",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Enter",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "Puck",
+          "start": 0.66,
+          "end": 1.0
+        },
+        {
+          "text": "behind.]",
+          "start": 1.0,
+          "end": 1.34
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1356582490261644
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e9a817f0a282d9d0c18618a0bd72ae92c75e9681e9fedfaa36b532c17644493d",
+  "selected_reasons": []
+}

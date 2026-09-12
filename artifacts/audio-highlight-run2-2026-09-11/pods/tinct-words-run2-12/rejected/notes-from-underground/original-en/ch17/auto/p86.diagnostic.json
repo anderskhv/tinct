@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "82bd67732641ed7e9d187e21e2b3c7c8dac56c2b0df392641d7574a164e92297",
+  "attempts": [
+    {
+      "asr_seconds": 0.13678487692959607,
+      "alignment_seconds": 0.0002405459526926279,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Yes!\" she assented sharply and hurriedly.",
+        "hotwords": "Yes"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, she assented sharply and hurriedly.",
+          "start": 0.05,
+          "end": 2.87,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.305908203125
+            },
+            {
+              "text": " she",
+              "start": 1.17,
+              "end": 1.33,
+              "probability": 0.984375
+            },
+            {
+              "text": " assented",
+              "start": 1.33,
+              "end": 1.67,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " sharply",
+              "start": 1.67,
+              "end": 2.11,
+              "probability": 0.986328125
+            },
+            {
+              "text": " and",
+              "start": 2.11,
+              "end": 2.33,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " hurriedly.",
+              "start": 2.33,
+              "end": 2.87,
+              "probability": 0.999755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "she",
+          "start": 1.17,
+          "end": 1.33
+        },
+        {
+          "raw": "assented",
+          "start": 1.33,
+          "end": 1.67
+        },
+        {
+          "raw": "sharply",
+          "start": 1.67,
+          "end": 2.11
+        },
+        {
+          "raw": "and",
+          "start": 2.11,
+          "end": 2.33
+        },
+        {
+          "raw": "hurriedly.",
+          "start": 2.33,
+          "end": 2.87
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes!\"",
+        "she",
+        "assented",
+        "sharply",
+        "and",
+        "hurriedly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.17,
+          "end": 1.33,
+          "key": "she",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "assented",
+          "start": 1.33,
+          "end": 1.67,
+          "key": "assented",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sharply",
+          "start": 1.67,
+          "end": 2.11,
+          "key": "sharply",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.11,
+          "end": 2.33,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "hurriedly.",
+          "start": 2.33,
+          "end": 2.87,
+          "key": "hurriedly",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Yes!\"",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "she",
+          "start": 1.17,
+          "end": 1.33
+        },
+        {
+          "text": "assented",
+          "start": 1.33,
+          "end": 1.67
+        },
+        {
+          "text": "sharply",
+          "start": 1.67,
+          "end": 2.11
+        },
+        {
+          "text": "and",
+          "start": 2.11,
+          "end": 2.33
+        },
+        {
+          "text": "hurriedly.",
+          "start": 2.33,
+          "end": 2.87
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13712931284680963
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d9b37ce2bed3e8c7408ea858785ba329d3729892ba602a8d8b931c1c01f51458",
+  "selected_reasons": []
+}

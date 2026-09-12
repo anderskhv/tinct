@@ -1,0 +1,1346 @@
+{
+  "complete": true,
+  "signature": "8777866d5c7ec80ea2f76652db95f7efa60cafdb66ed0d8fd5f9f4974633dc62",
+  "attempts": [
+    {
+      "asr_seconds": 0.22289785207249224,
+      "alignment_seconds": 0.00031347014009952545,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Thisbe. O, _As true as truest horse, that yet would never tire._",
+        "hotwords": "Thisbe, O"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Thisbe, O As true as truest horse, that yet would never tire._",
+          "start": 0.05,
+          "end": 4.67,
+          "words": [
+            {
+              "text": " Thisbe,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.22000885009765625
+            },
+            {
+              "text": " O",
+              "start": 1.09,
+              "end": 1.35,
+              "probability": 0.1224365234375
+            },
+            {
+              "text": " As",
+              "start": 1.35,
+              "end": 1.53,
+              "probability": 0.0179595947265625
+            },
+            {
+              "text": " true",
+              "start": 1.53,
+              "end": 1.73,
+              "probability": 0.148681640625
+            },
+            {
+              "text": " as",
+              "start": 1.73,
+              "end": 1.91,
+              "probability": 0.896484375
+            },
+            {
+              "text": " truest",
+              "start": 1.91,
+              "end": 2.33,
+              "probability": 0.966552734375
+            },
+            {
+              "text": " horse,",
+              "start": 2.33,
+              "end": 2.61,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " that",
+              "start": 2.95,
+              "end": 3.03,
+              "probability": 0.5908203125
+            },
+            {
+              "text": " yet",
+              "start": 3.03,
+              "end": 3.17,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " would",
+              "start": 3.17,
+              "end": 3.31,
+              "probability": 0.98828125
+            },
+            {
+              "text": " never",
+              "start": 3.31,
+              "end": 3.55,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " tire._",
+              "start": 3.55,
+              "end": 4.67,
+              "probability": 0.4890137314796448
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Thisbe,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "O",
+          "start": 1.09,
+          "end": 1.35
+        },
+        {
+          "raw": "As",
+          "start": 1.35,
+          "end": 1.53
+        },
+        {
+          "raw": "true",
+          "start": 1.53,
+          "end": 1.73
+        },
+        {
+          "raw": "as",
+          "start": 1.73,
+          "end": 1.91
+        },
+        {
+          "raw": "truest",
+          "start": 1.91,
+          "end": 2.33
+        },
+        {
+          "raw": "horse,",
+          "start": 2.33,
+          "end": 2.61
+        },
+        {
+          "raw": "that",
+          "start": 2.95,
+          "end": 3.03
+        },
+        {
+          "raw": "yet",
+          "start": 3.03,
+          "end": 3.17
+        },
+        {
+          "raw": "would",
+          "start": 3.17,
+          "end": 3.31
+        },
+        {
+          "raw": "never",
+          "start": 3.31,
+          "end": 3.55
+        },
+        {
+          "raw": "tire._",
+          "start": 3.55,
+          "end": 4.67
+        }
+      ],
+      "expected_tokens": [
+        "Thisbe.",
+        "O,",
+        "_As",
+        "true",
+        "as",
+        "truest",
+        "horse,",
+        "that",
+        "yet",
+        "would",
+        "never",
+        "tire._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Thisbe,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "thisbe",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 1.09,
+          "end": 1.35,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "As",
+          "start": 1.35,
+          "end": 1.53,
+          "key": "as",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "true",
+          "start": 1.53,
+          "end": 1.73,
+          "key": "true",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.73,
+          "end": 1.91,
+          "key": "as",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "truest",
+          "start": 1.91,
+          "end": 2.33,
+          "key": "truest",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "horse,",
+          "start": 2.33,
+          "end": 2.61,
+          "key": "horse",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.95,
+          "end": 3.03,
+          "key": "that",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "yet",
+          "start": 3.03,
+          "end": 3.17,
+          "key": "yet",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 3.17,
+          "end": 3.31,
+          "key": "would",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 3.31,
+          "end": 3.55,
+          "key": "never",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "tire._",
+          "start": 3.55,
+          "end": 4.67,
+          "key": "tire_",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Thisbe.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "O,",
+          "start": 1.09,
+          "end": 1.35
+        },
+        {
+          "text": "_As",
+          "start": 1.35,
+          "end": 1.53
+        },
+        {
+          "text": "true",
+          "start": 1.53,
+          "end": 1.73
+        },
+        {
+          "text": "as",
+          "start": 1.73,
+          "end": 1.91
+        },
+        {
+          "text": "truest",
+          "start": 1.91,
+          "end": 2.33
+        },
+        {
+          "text": "horse,",
+          "start": 2.33,
+          "end": 2.61
+        },
+        {
+          "text": "that",
+          "start": 2.95,
+          "end": 3.03
+        },
+        {
+          "text": "yet",
+          "start": 3.03,
+          "end": 3.17
+        },
+        {
+          "text": "would",
+          "start": 3.17,
+          "end": 3.31
+        },
+        {
+          "text": "never",
+          "start": 3.31,
+          "end": 3.55
+        },
+        {
+          "text": "tire._",
+          "start": 3.55,
+          "end": 4.11
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.22332723415456712
+    },
+    {
+      "asr_seconds": 0.2133744980674237,
+      "alignment_seconds": 0.0005544819869101048,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Thisbe, O"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " as true as truest horse, that yet would never tire.",
+          "start": 0.05,
+          "end": 3.91,
+          "words": [
+            {
+              "text": " as",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 6.836652755737305e-05
+            },
+            {
+              "text": " true",
+              "start": 0.61,
+              "end": 1.73,
+              "probability": 0.67041015625
+            },
+            {
+              "text": " as",
+              "start": 1.73,
+              "end": 1.91,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " truest",
+              "start": 1.91,
+              "end": 2.31,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " horse,",
+              "start": 2.31,
+              "end": 2.63,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " that",
+              "start": 2.97,
+              "end": 3.03,
+              "probability": 0.90625
+            },
+            {
+              "text": " yet",
+              "start": 3.03,
+              "end": 3.17,
+              "probability": 0.98046875
+            },
+            {
+              "text": " would",
+              "start": 3.17,
+              "end": 3.31,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " never",
+              "start": 3.31,
+              "end": 3.55,
+              "probability": 0.99609375
+            },
+            {
+              "text": " tire.",
+              "start": 3.55,
+              "end": 3.91,
+              "probability": 0.98779296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "as",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "true",
+          "start": 0.61,
+          "end": 1.73
+        },
+        {
+          "raw": "as",
+          "start": 1.73,
+          "end": 1.91
+        },
+        {
+          "raw": "truest",
+          "start": 1.91,
+          "end": 2.31
+        },
+        {
+          "raw": "horse,",
+          "start": 2.31,
+          "end": 2.63
+        },
+        {
+          "raw": "that",
+          "start": 2.97,
+          "end": 3.03
+        },
+        {
+          "raw": "yet",
+          "start": 3.03,
+          "end": 3.17
+        },
+        {
+          "raw": "would",
+          "start": 3.17,
+          "end": 3.31
+        },
+        {
+          "raw": "never",
+          "start": 3.31,
+          "end": 3.55
+        },
+        {
+          "raw": "tire.",
+          "start": 3.55,
+          "end": 3.91
+        }
+      ],
+      "expected_tokens": [
+        "Thisbe.",
+        "O,",
+        "_As",
+        "true",
+        "as",
+        "truest",
+        "horse,",
+        "that",
+        "yet",
+        "would",
+        "never",
+        "tire._"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          "equal",
+          2,
+          12,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          2,
+          0,
+          0
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "as",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "as",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "true",
+          "start": 0.61,
+          "end": 1.73,
+          "key": "true",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.73,
+          "end": 1.91,
+          "key": "as",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "truest",
+          "start": 1.91,
+          "end": 2.31,
+          "key": "truest",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "horse,",
+          "start": 2.31,
+          "end": 2.63,
+          "key": "horse",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.97,
+          "end": 3.03,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "yet",
+          "start": 3.03,
+          "end": 3.17,
+          "key": "yet",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 3.17,
+          "end": 3.31,
+          "key": "would",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 3.31,
+          "end": 3.55,
+          "key": "never",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "tire.",
+          "start": 3.55,
+          "end": 3.91,
+          "key": "tire",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Thisbe.",
+          "start": 0.0,
+          "end": 0.025
+        },
+        {
+          "text": "O,",
+          "start": 0.025,
+          "end": 0.038
+        },
+        {
+          "text": "_As",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "true",
+          "start": 0.61,
+          "end": 1.73
+        },
+        {
+          "text": "as",
+          "start": 1.73,
+          "end": 1.91
+        },
+        {
+          "text": "truest",
+          "start": 1.91,
+          "end": 2.31
+        },
+        {
+          "text": "horse,",
+          "start": 2.31,
+          "end": 2.63
+        },
+        {
+          "text": "that",
+          "start": 2.97,
+          "end": 3.03
+        },
+        {
+          "text": "yet",
+          "start": 3.03,
+          "end": 3.17
+        },
+        {
+          "text": "would",
+          "start": 3.17,
+          "end": 3.31
+        },
+        {
+          "text": "never",
+          "start": 3.31,
+          "end": 3.55
+        },
+        {
+          "text": "tire._",
+          "start": 3.55,
+          "end": 3.91
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.21411820012144744
+    },
+    {
+      "asr_seconds": 0.19168778415769339,
+      "alignment_seconds": 0.0005971358623355627,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " This be oh as true as truest horse that yet would never tire",
+          "start": 0.05,
+          "end": 3.95,
+          "words": [
+            {
+              "text": " This",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.427490234375
+            },
+            {
+              "text": " be",
+              "start": 0.53,
+              "end": 0.79,
+              "probability": 0.65771484375
+            },
+            {
+              "text": " oh",
+              "start": 0.79,
+              "end": 1.33,
+              "probability": 0.478271484375
+            },
+            {
+              "text": " as",
+              "start": 1.33,
+              "end": 1.53,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " true",
+              "start": 1.53,
+              "end": 1.75,
+              "probability": 0.982421875
+            },
+            {
+              "text": " as",
+              "start": 1.75,
+              "end": 1.91,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " truest",
+              "start": 1.91,
+              "end": 2.33,
+              "probability": 0.975341796875
+            },
+            {
+              "text": " horse",
+              "start": 2.33,
+              "end": 2.63,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " that",
+              "start": 2.63,
+              "end": 3.03,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " yet",
+              "start": 3.03,
+              "end": 3.19,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " would",
+              "start": 3.19,
+              "end": 3.31,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " never",
+              "start": 3.31,
+              "end": 3.57,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " tire",
+              "start": 3.57,
+              "end": 3.95,
+              "probability": 0.986328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "This",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "be",
+          "start": 0.53,
+          "end": 0.79
+        },
+        {
+          "raw": "oh",
+          "start": 0.79,
+          "end": 1.33
+        },
+        {
+          "raw": "as",
+          "start": 1.33,
+          "end": 1.53
+        },
+        {
+          "raw": "true",
+          "start": 1.53,
+          "end": 1.75
+        },
+        {
+          "raw": "as",
+          "start": 1.75,
+          "end": 1.91
+        },
+        {
+          "raw": "truest",
+          "start": 1.91,
+          "end": 2.33
+        },
+        {
+          "raw": "horse",
+          "start": 2.33,
+          "end": 2.63
+        },
+        {
+          "raw": "that",
+          "start": 2.63,
+          "end": 3.03
+        },
+        {
+          "raw": "yet",
+          "start": 3.03,
+          "end": 3.19
+        },
+        {
+          "raw": "would",
+          "start": 3.19,
+          "end": 3.31
+        },
+        {
+          "raw": "never",
+          "start": 3.31,
+          "end": 3.57
+        },
+        {
+          "raw": "tire",
+          "start": 3.57,
+          "end": 3.95
+        }
+      ],
+      "expected_tokens": [
+        "Thisbe.",
+        "O,",
+        "_As",
+        "true",
+        "as",
+        "truest",
+        "horse,",
+        "that",
+        "yet",
+        "would",
+        "never",
+        "tire._"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          3
+        ],
+        [
+          "equal",
+          2,
+          12,
+          3,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "This",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "this",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 0.53,
+          "end": 0.79,
+          "key": "be",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "oh",
+          "start": 0.79,
+          "end": 1.33,
+          "key": "oh",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.33,
+          "end": 1.53,
+          "key": "as",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "true",
+          "start": 1.53,
+          "end": 1.75,
+          "key": "true",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.75,
+          "end": 1.91,
+          "key": "as",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "truest",
+          "start": 1.91,
+          "end": 2.33,
+          "key": "truest",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "horse",
+          "start": 2.33,
+          "end": 2.63,
+          "key": "horse",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.63,
+          "end": 3.03,
+          "key": "that",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "yet",
+          "start": 3.03,
+          "end": 3.19,
+          "key": "yet",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 3.19,
+          "end": 3.31,
+          "key": "would",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 3.31,
+          "end": 3.57,
+          "key": "never",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "tire",
+          "start": 3.57,
+          "end": 3.95,
+          "key": "tire",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Thisbe.",
+          "start": 0.0,
+          "end": 0.665
+        },
+        {
+          "text": "O,",
+          "start": 0.665,
+          "end": 0.998
+        },
+        {
+          "text": "_As",
+          "start": 1.33,
+          "end": 1.53
+        },
+        {
+          "text": "true",
+          "start": 1.53,
+          "end": 1.75
+        },
+        {
+          "text": "as",
+          "start": 1.75,
+          "end": 1.91
+        },
+        {
+          "text": "truest",
+          "start": 1.91,
+          "end": 2.33
+        },
+        {
+          "text": "horse,",
+          "start": 2.33,
+          "end": 2.63
+        },
+        {
+          "text": "that",
+          "start": 2.63,
+          "end": 3.03
+        },
+        {
+          "text": "yet",
+          "start": 3.03,
+          "end": 3.19
+        },
+        {
+          "text": "would",
+          "start": 3.19,
+          "end": 3.31
+        },
+        {
+          "text": "never",
+          "start": 3.31,
+          "end": 3.57
+        },
+        {
+          "text": "tire._",
+          "start": 3.57,
+          "end": 3.95
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 13,
+        "matched_words": 10
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19252120913006365
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "58b1a15ab6ebb8b2bc3a4902c28bf691488bff5232efa9d772a22fd9b0d6b684",
+  "selected_reasons": []
+}

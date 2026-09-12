@@ -1,0 +1,163 @@
+{
+  "complete": true,
+  "signature": "998d07fc56db6fbcfca66f341d6c9db8c4f229f8330c7390770271c247ca85ca",
+  "attempts": [
+    {
+      "asr_seconds": 0.1391595199238509,
+      "alignment_seconds": 0.0002072781790047884,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Mustard seed, hail.",
+          "start": 0.02,
+          "end": 1.62,
+          "words": [
+            {
+              "text": " Mustard",
+              "start": 0.02,
+              "end": 0.86,
+              "probability": 0.961669921875
+            },
+            {
+              "text": " seed,",
+              "start": 0.86,
+              "end": 1.08,
+              "probability": 0.60986328125
+            },
+            {
+              "text": " hail.",
+              "start": 1.54,
+              "end": 1.62,
+              "probability": 0.6982421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mustard",
+          "start": 0.02,
+          "end": 0.86
+        },
+        {
+          "raw": "seed,",
+          "start": 0.86,
+          "end": 1.08
+        },
+        {
+          "raw": "hail.",
+          "start": 1.54,
+          "end": 1.62
+        }
+      ],
+      "expected_tokens": [
+        "Mustardseed.",
+        "Hail!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          2,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mustard",
+          "start": 0.02,
+          "end": 0.86,
+          "key": "mustard",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "seed,",
+          "start": 0.86,
+          "end": 1.08,
+          "key": "seed",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hail.",
+          "start": 1.54,
+          "end": 1.62,
+          "key": "hail",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Mustardseed.",
+          "start": 0.0,
+          "end": 0.77
+        },
+        {
+          "text": "Hail!",
+          "start": 1.54,
+          "end": 1.62
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 3,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1394285298883915
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0ad35148f5757b05dba87278122fef1f489514db8331f5b8a2e05be01cfe3d99",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,195 @@
+{
+  "complete": true,
+  "signature": "0504ab5fcee0a5fb1515ccc3460a8683a064369cdac667134dd81301e9c9b739",
+  "attempts": [
+    {
+      "asr_seconds": 0.20430167601443827,
+      "alignment_seconds": 0.0003487737849354744,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Peace blossom hail mortal",
+          "start": 0.05,
+          "end": 1.91,
+          "words": [
+            {
+              "text": " Peace",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.791015625
+            },
+            {
+              "text": " blossom",
+              "start": 0.59,
+              "end": 1.05,
+              "probability": 0.6409912109375
+            },
+            {
+              "text": " hail",
+              "start": 1.05,
+              "end": 1.55,
+              "probability": 0.353271484375
+            },
+            {
+              "text": " mortal",
+              "start": 1.55,
+              "end": 1.91,
+              "probability": 0.95556640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Peace",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "blossom",
+          "start": 0.59,
+          "end": 1.05
+        },
+        {
+          "raw": "hail",
+          "start": 1.05,
+          "end": 1.55
+        },
+        {
+          "raw": "mortal",
+          "start": 1.55,
+          "end": 1.91
+        }
+      ],
+      "expected_tokens": [
+        "Peaseblossom.",
+        "Hail,",
+        "mortal!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          3,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Peace",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "peace",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "blossom",
+          "start": 0.59,
+          "end": 1.05,
+          "key": "blossom",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hail",
+          "start": 1.05,
+          "end": 1.55,
+          "key": "hail",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "mortal",
+          "start": 1.55,
+          "end": 1.91,
+          "key": "mortal",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Peaseblossom.",
+          "start": 0.0,
+          "end": 0.525
+        },
+        {
+          "text": "Hail,",
+          "start": 1.05,
+          "end": 1.55
+        },
+        {
+          "text": "mortal!",
+          "start": 1.55,
+          "end": 1.91
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2047739669214934
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2cfd5ac9c5fedf4abdf344c87c1fa7789fc9c5b3e178773e576b52987096d13f",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "2aefebfa16bfbd0525161015904352c29c97bbd33b67255290c194adfd9c46fd",
+  "attempts": [
+    {
+      "asr_seconds": 0.12410411215387285,
+      "alignment_seconds": 0.0002543339505791664,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Oh, nothing.\"",
+        "hotwords": "Oh"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Oh, nothing.",
+          "start": 0.05,
+          "end": 0.85,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.80322265625
+            },
+            {
+              "text": " nothing.",
+              "start": 0.69,
+              "end": 0.85,
+              "probability": 0.97802734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oh,",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "nothing.",
+          "start": 0.69,
+          "end": 0.85
+        }
+      ],
+      "expected_tokens": [
+        "\"Oh,",
+        "nothing.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oh,",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "oh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "nothing.",
+          "start": 0.69,
+          "end": 0.85,
+          "key": "nothing",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Oh,",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "nothing.\"",
+          "start": 0.69,
+          "end": 0.85
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12444755109027028
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "eaebc8c07a0c40f25217d980916969362671308c5fd8ca29a80bed43b9471db1",
+  "selected_reasons": []
+}

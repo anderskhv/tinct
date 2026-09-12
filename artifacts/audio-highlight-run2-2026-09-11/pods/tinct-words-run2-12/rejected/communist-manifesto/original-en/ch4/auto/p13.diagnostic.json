@@ -1,0 +1,182 @@
+{
+  "complete": true,
+  "signature": "71a1e83c1bb96ef0d9fe3cb79a4af3e4de8f0fa56a159f9a47d7475b044899bc",
+  "attempts": [
+    {
+      "asr_seconds": 0.13734750798903406,
+      "alignment_seconds": 0.0003952649421989918,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_B. Petty-Bourgeois Socialism_",
+        "hotwords": "Petty-Bourgeois, Socialism_"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " B. Petty-Bourgeois Socialism.",
+          "start": 0.08,
+          "end": 1.72,
+          "words": [
+            {
+              "text": " B.",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.1644287109375
+            },
+            {
+              "text": " Petty",
+              "start": 0.7,
+              "end": 0.94,
+              "probability": 0.024505615234375
+            },
+            {
+              "text": "-Bourgeois",
+              "start": 0.94,
+              "end": 1.2,
+              "probability": 0.3966267903645833
+            },
+            {
+              "text": " Socialism.",
+              "start": 1.2,
+              "end": 1.72,
+              "probability": 0.34228515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "B.",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "Petty",
+          "start": 0.7,
+          "end": 0.94
+        },
+        {
+          "raw": "-Bourgeois",
+          "start": 0.94,
+          "end": 1.2
+        },
+        {
+          "raw": "Socialism.",
+          "start": 1.2,
+          "end": 1.72
+        }
+      ],
+      "expected_tokens": [
+        "_B.",
+        "Petty-Bourgeois",
+        "Socialism_"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "B.",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "b",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Petty -Bourgeois",
+          "start": 0.7,
+          "end": 1.2,
+          "key": "pettybourgeois",
+          "pieces": [
+            1,
+            2
+          ]
+        },
+        {
+          "raw": "Socialism.",
+          "start": 1.2,
+          "end": 1.72,
+          "key": "socialism",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 1,
+          "text": "Petty-Bourgeois",
+          "heard": "Petty -Bourgeois",
+          "heard_indexes": [
+            1,
+            2
+          ],
+          "start": 0.7,
+          "end": 1.2
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "_B.",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "text": "Petty-Bourgeois",
+          "start": 0.7,
+          "end": 1.2
+        },
+        {
+          "text": "Socialism_",
+          "start": 1.2,
+          "end": 1.72
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1378750449512154
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cb73cd60179df5f1af75d5b993fb81c509309f7eb5087f602b729c517f8565ec",
+  "selected_reasons": []
+}

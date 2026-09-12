@@ -1,0 +1,195 @@
+{
+  "complete": true,
+  "signature": "abfd907fd00913430959b111abf81e56cddb06f5edf9f37731d6e3f7c44a80b2",
+  "attempts": [
+    {
+      "asr_seconds": 0.12785363011062145,
+      "alignment_seconds": 0.0004086229018867016,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Be Peddie Bourgeois socialism",
+          "start": 0.08,
+          "end": 1.72,
+          "words": [
+            {
+              "text": " Be",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.52685546875
+            },
+            {
+              "text": " Peddie",
+              "start": 0.62,
+              "end": 0.98,
+              "probability": 0.4033203125
+            },
+            {
+              "text": " Bourgeois",
+              "start": 0.98,
+              "end": 1.22,
+              "probability": 0.842529296875
+            },
+            {
+              "text": " socialism",
+              "start": 1.22,
+              "end": 1.72,
+              "probability": 0.70947265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Be",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "Peddie",
+          "start": 0.62,
+          "end": 0.98
+        },
+        {
+          "raw": "Bourgeois",
+          "start": 0.98,
+          "end": 1.22
+        },
+        {
+          "raw": "socialism",
+          "start": 1.22,
+          "end": 1.72
+        }
+      ],
+      "expected_tokens": [
+        "_B.",
+        "Petty-Bourgeois",
+        "Socialism_"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          3
+        ],
+        [
+          "equal",
+          2,
+          3,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Be",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "be",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Peddie",
+          "start": 0.62,
+          "end": 0.98,
+          "key": "peddie",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Bourgeois",
+          "start": 0.98,
+          "end": 1.22,
+          "key": "bourgeois",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "socialism",
+          "start": 1.22,
+          "end": 1.72,
+          "key": "socialism",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_B.",
+          "start": 0.0,
+          "end": 0.61
+        },
+        {
+          "text": "Petty-Bourgeois",
+          "start": 0.61,
+          "end": 0.915
+        },
+        {
+          "text": "Socialism_",
+          "start": 1.22,
+          "end": 1.72
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 4,
+        "matched_words": 1
+      },
+      "match_ratio": 0.3333333333333333,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12837743014097214
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cb73cd60179df5f1af75d5b993fb81c509309f7eb5087f602b729c517f8565ec",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,2685 @@
+{
+  "complete": true,
+  "signature": "abe71c2e64bd308555d6963d5f943151b1332775c73244c856cc74dd9fb8c67c",
+  "attempts": [
+    {
+      "asr_seconds": 0.7605472248978913,
+      "alignment_seconds": 0.0018298740033060312,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "In countries like France, where the peasants constitute far more than half of the population, it was natural that writers who sided with the proletariat against the bourgeoisie, should use, in their criticism of the bourgeois _regime_, the standard of the peasant and petty bourgeois, and from the standpoint of these intermediate classes should take up the cudgels for the working class. Thus arose petty-bourgeois Socialism. Sismondi was the head of this school, not only in France but also in England.",
+        "hotwords": "France, Thus, Socialism, Sismondi, England"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " In countries like France, where the peasants constitute far more than half of the population, it was natural that writers who sided with the proletariat against the bourgeoisie, should use, in their criticism of the bourgeois regime, the standard of the peasant and petty bourgeois,",
+          "start": 0.05,
+          "end": 15.45,
+          "words": [
+            {
+              "text": " In",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.8876953125
+            },
+            {
+              "text": " countries",
+              "start": 0.55,
+              "end": 0.91,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " like",
+              "start": 0.91,
+              "end": 1.19,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " France,",
+              "start": 1.19,
+              "end": 1.65,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " where",
+              "start": 2.09,
+              "end": 2.23,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 2.23,
+              "end": 2.37,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " peasants",
+              "start": 2.37,
+              "end": 2.63,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " constitute",
+              "start": 2.63,
+              "end": 3.27,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " far",
+              "start": 3.27,
+              "end": 3.61,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " more",
+              "start": 3.61,
+              "end": 3.79,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " than",
+              "start": 3.79,
+              "end": 3.97,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " half",
+              "start": 3.97,
+              "end": 4.13,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 4.13,
+              "end": 4.25,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " the",
+              "start": 4.25,
+              "end": 4.33,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " population,",
+              "start": 4.33,
+              "end": 4.85,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " it",
+              "start": 5.13,
+              "end": 5.59,
+              "probability": 0.9921875
+            },
+            {
+              "text": " was",
+              "start": 5.59,
+              "end": 5.71,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " natural",
+              "start": 5.71,
+              "end": 6.19,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " that",
+              "start": 6.19,
+              "end": 6.43,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " writers",
+              "start": 6.43,
+              "end": 6.83,
+              "probability": 0.9921875
+            },
+            {
+              "text": " who",
+              "start": 6.83,
+              "end": 7.07,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " sided",
+              "start": 7.07,
+              "end": 7.29,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " with",
+              "start": 7.29,
+              "end": 7.53,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 7.53,
+              "end": 7.67,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " proletariat",
+              "start": 7.67,
+              "end": 8.13,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " against",
+              "start": 8.13,
+              "end": 8.61,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 8.61,
+              "end": 8.85,
+              "probability": 0.998046875
+            },
+            {
+              "text": " bourgeoisie,",
+              "start": 8.85,
+              "end": 9.15,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " should",
+              "start": 9.93,
+              "end": 10.15,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " use,",
+              "start": 10.15,
+              "end": 10.51,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 10.85,
+              "end": 11.07,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " their",
+              "start": 11.07,
+              "end": 11.21,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " criticism",
+              "start": 11.21,
+              "end": 11.67,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 11.67,
+              "end": 11.97,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 11.97,
+              "end": 12.13,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " bourgeois",
+              "start": 12.13,
+              "end": 12.39,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " regime,",
+              "start": 12.39,
+              "end": 12.89,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 13.39,
+              "end": 13.55,
+              "probability": 0.98046875
+            },
+            {
+              "text": " standard",
+              "start": 13.55,
+              "end": 13.91,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " of",
+              "start": 13.91,
+              "end": 14.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 14.15,
+              "end": 14.27,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " peasant",
+              "start": 14.27,
+              "end": 14.55,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 14.55,
+              "end": 14.81,
+              "probability": 0.99609375
+            },
+            {
+              "text": " petty",
+              "start": 14.81,
+              "end": 15.09,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " bourgeois,",
+              "start": 15.09,
+              "end": 15.45,
+              "probability": 0.97900390625
+            }
+          ]
+        },
+        {
+          "text": " and from the standpoint of these intermediate classes should take up the cudgels for the working class. Thus arose petty-bourgeois Socialism. Sismondi was the head of this school, not only in France but also in England.",
+          "start": 15.45,
+          "end": 28.07,
+          "words": [
+            {
+              "text": " and",
+              "start": 15.45,
+              "end": 16.21,
+              "probability": 0.71875
+            },
+            {
+              "text": " from",
+              "start": 16.21,
+              "end": 16.35,
+              "probability": 0.978515625
+            },
+            {
+              "text": " the",
+              "start": 16.35,
+              "end": 16.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " standpoint",
+              "start": 16.49,
+              "end": 16.93,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " of",
+              "start": 16.93,
+              "end": 17.15,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " these",
+              "start": 17.15,
+              "end": 17.35,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " intermediate",
+              "start": 17.35,
+              "end": 17.81,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " classes",
+              "start": 17.81,
+              "end": 18.39,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " should",
+              "start": 18.39,
+              "end": 18.67,
+              "probability": 0.8818359375
+            },
+            {
+              "text": " take",
+              "start": 18.67,
+              "end": 18.85,
+              "probability": 0.998046875
+            },
+            {
+              "text": " up",
+              "start": 18.85,
+              "end": 19.01,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 19.01,
+              "end": 19.13,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " cudgels",
+              "start": 19.13,
+              "end": 19.41,
+              "probability": 0.9727783203125
+            },
+            {
+              "text": " for",
+              "start": 19.41,
+              "end": 19.59,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 19.59,
+              "end": 19.69,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " working",
+              "start": 19.69,
+              "end": 19.91,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " class.",
+              "start": 19.91,
+              "end": 20.39,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " Thus",
+              "start": 20.87,
+              "end": 21.15,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " arose",
+              "start": 21.15,
+              "end": 21.51,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " petty",
+              "start": 21.51,
+              "end": 21.91,
+              "probability": 0.14111328125
+            },
+            {
+              "text": "-bourgeois",
+              "start": 21.91,
+              "end": 22.39,
+              "probability": 0.7403430938720703
+            },
+            {
+              "text": " Socialism.",
+              "start": 22.39,
+              "end": 22.93,
+              "probability": 0.003398895263671875
+            },
+            {
+              "text": " Sismondi",
+              "start": 23.97,
+              "end": 24.43,
+              "probability": 0.76983642578125
+            },
+            {
+              "text": " was",
+              "start": 24.43,
+              "end": 24.57,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 24.57,
+              "end": 24.73,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " head",
+              "start": 24.73,
+              "end": 24.85,
+              "probability": 0.986328125
+            },
+            {
+              "text": " of",
+              "start": 24.85,
+              "end": 24.99,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " this",
+              "start": 24.99,
+              "end": 25.15,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " school,",
+              "start": 25.15,
+              "end": 25.45,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " not",
+              "start": 25.93,
+              "end": 26.05,
+              "probability": 0.998046875
+            },
+            {
+              "text": " only",
+              "start": 26.05,
+              "end": 26.31,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " in",
+              "start": 26.31,
+              "end": 26.51,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " France",
+              "start": 26.51,
+              "end": 26.85,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " but",
+              "start": 26.85,
+              "end": 27.25,
+              "probability": 0.429443359375
+            },
+            {
+              "text": " also",
+              "start": 27.25,
+              "end": 27.59,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 27.59,
+              "end": 27.79,
+              "probability": 0.99609375
+            },
+            {
+              "text": " England.",
+              "start": 27.79,
+              "end": 28.07,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "In",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "countries",
+          "start": 0.55,
+          "end": 0.91
+        },
+        {
+          "raw": "like",
+          "start": 0.91,
+          "end": 1.19
+        },
+        {
+          "raw": "France,",
+          "start": 1.19,
+          "end": 1.65
+        },
+        {
+          "raw": "where",
+          "start": 2.09,
+          "end": 2.23
+        },
+        {
+          "raw": "the",
+          "start": 2.23,
+          "end": 2.37
+        },
+        {
+          "raw": "peasants",
+          "start": 2.37,
+          "end": 2.63
+        },
+        {
+          "raw": "constitute",
+          "start": 2.63,
+          "end": 3.27
+        },
+        {
+          "raw": "far",
+          "start": 3.27,
+          "end": 3.61
+        },
+        {
+          "raw": "more",
+          "start": 3.61,
+          "end": 3.79
+        },
+        {
+          "raw": "than",
+          "start": 3.79,
+          "end": 3.97
+        },
+        {
+          "raw": "half",
+          "start": 3.97,
+          "end": 4.13
+        },
+        {
+          "raw": "of",
+          "start": 4.13,
+          "end": 4.25
+        },
+        {
+          "raw": "the",
+          "start": 4.25,
+          "end": 4.33
+        },
+        {
+          "raw": "population,",
+          "start": 4.33,
+          "end": 4.85
+        },
+        {
+          "raw": "it",
+          "start": 5.13,
+          "end": 5.59
+        },
+        {
+          "raw": "was",
+          "start": 5.59,
+          "end": 5.71
+        },
+        {
+          "raw": "natural",
+          "start": 5.71,
+          "end": 6.19
+        },
+        {
+          "raw": "that",
+          "start": 6.19,
+          "end": 6.43
+        },
+        {
+          "raw": "writers",
+          "start": 6.43,
+          "end": 6.83
+        },
+        {
+          "raw": "who",
+          "start": 6.83,
+          "end": 7.07
+        },
+        {
+          "raw": "sided",
+          "start": 7.07,
+          "end": 7.29
+        },
+        {
+          "raw": "with",
+          "start": 7.29,
+          "end": 7.53
+        },
+        {
+          "raw": "the",
+          "start": 7.53,
+          "end": 7.67
+        },
+        {
+          "raw": "proletariat",
+          "start": 7.67,
+          "end": 8.13
+        },
+        {
+          "raw": "against",
+          "start": 8.13,
+          "end": 8.61
+        },
+        {
+          "raw": "the",
+          "start": 8.61,
+          "end": 8.85
+        },
+        {
+          "raw": "bourgeoisie,",
+          "start": 8.85,
+          "end": 9.15
+        },
+        {
+          "raw": "should",
+          "start": 9.93,
+          "end": 10.15
+        },
+        {
+          "raw": "use,",
+          "start": 10.15,
+          "end": 10.51
+        },
+        {
+          "raw": "in",
+          "start": 10.85,
+          "end": 11.07
+        },
+        {
+          "raw": "their",
+          "start": 11.07,
+          "end": 11.21
+        },
+        {
+          "raw": "criticism",
+          "start": 11.21,
+          "end": 11.67
+        },
+        {
+          "raw": "of",
+          "start": 11.67,
+          "end": 11.97
+        },
+        {
+          "raw": "the",
+          "start": 11.97,
+          "end": 12.13
+        },
+        {
+          "raw": "bourgeois",
+          "start": 12.13,
+          "end": 12.39
+        },
+        {
+          "raw": "regime,",
+          "start": 12.39,
+          "end": 12.89
+        },
+        {
+          "raw": "the",
+          "start": 13.39,
+          "end": 13.55
+        },
+        {
+          "raw": "standard",
+          "start": 13.55,
+          "end": 13.91
+        },
+        {
+          "raw": "of",
+          "start": 13.91,
+          "end": 14.15
+        },
+        {
+          "raw": "the",
+          "start": 14.15,
+          "end": 14.27
+        },
+        {
+          "raw": "peasant",
+          "start": 14.27,
+          "end": 14.55
+        },
+        {
+          "raw": "and",
+          "start": 14.55,
+          "end": 14.81
+        },
+        {
+          "raw": "petty",
+          "start": 14.81,
+          "end": 15.09
+        },
+        {
+          "raw": "bourgeois,",
+          "start": 15.09,
+          "end": 15.45
+        },
+        {
+          "raw": "and",
+          "start": 15.45,
+          "end": 16.21
+        },
+        {
+          "raw": "from",
+          "start": 16.21,
+          "end": 16.35
+        },
+        {
+          "raw": "the",
+          "start": 16.35,
+          "end": 16.49
+        },
+        {
+          "raw": "standpoint",
+          "start": 16.49,
+          "end": 16.93
+        },
+        {
+          "raw": "of",
+          "start": 16.93,
+          "end": 17.15
+        },
+        {
+          "raw": "these",
+          "start": 17.15,
+          "end": 17.35
+        },
+        {
+          "raw": "intermediate",
+          "start": 17.35,
+          "end": 17.81
+        },
+        {
+          "raw": "classes",
+          "start": 17.81,
+          "end": 18.39
+        },
+        {
+          "raw": "should",
+          "start": 18.39,
+          "end": 18.67
+        },
+        {
+          "raw": "take",
+          "start": 18.67,
+          "end": 18.85
+        },
+        {
+          "raw": "up",
+          "start": 18.85,
+          "end": 19.01
+        },
+        {
+          "raw": "the",
+          "start": 19.01,
+          "end": 19.13
+        },
+        {
+          "raw": "cudgels",
+          "start": 19.13,
+          "end": 19.41
+        },
+        {
+          "raw": "for",
+          "start": 19.41,
+          "end": 19.59
+        },
+        {
+          "raw": "the",
+          "start": 19.59,
+          "end": 19.69
+        },
+        {
+          "raw": "working",
+          "start": 19.69,
+          "end": 19.91
+        },
+        {
+          "raw": "class.",
+          "start": 19.91,
+          "end": 20.39
+        },
+        {
+          "raw": "Thus",
+          "start": 20.87,
+          "end": 21.15
+        },
+        {
+          "raw": "arose",
+          "start": 21.15,
+          "end": 21.51
+        },
+        {
+          "raw": "petty",
+          "start": 21.51,
+          "end": 21.91
+        },
+        {
+          "raw": "-bourgeois",
+          "start": 21.91,
+          "end": 22.39
+        },
+        {
+          "raw": "Socialism.",
+          "start": 22.39,
+          "end": 22.93
+        },
+        {
+          "raw": "Sismondi",
+          "start": 23.97,
+          "end": 24.43
+        },
+        {
+          "raw": "was",
+          "start": 24.43,
+          "end": 24.57
+        },
+        {
+          "raw": "the",
+          "start": 24.57,
+          "end": 24.73
+        },
+        {
+          "raw": "head",
+          "start": 24.73,
+          "end": 24.85
+        },
+        {
+          "raw": "of",
+          "start": 24.85,
+          "end": 24.99
+        },
+        {
+          "raw": "this",
+          "start": 24.99,
+          "end": 25.15
+        },
+        {
+          "raw": "school,",
+          "start": 25.15,
+          "end": 25.45
+        },
+        {
+          "raw": "not",
+          "start": 25.93,
+          "end": 26.05
+        },
+        {
+          "raw": "only",
+          "start": 26.05,
+          "end": 26.31
+        },
+        {
+          "raw": "in",
+          "start": 26.31,
+          "end": 26.51
+        },
+        {
+          "raw": "France",
+          "start": 26.51,
+          "end": 26.85
+        },
+        {
+          "raw": "but",
+          "start": 26.85,
+          "end": 27.25
+        },
+        {
+          "raw": "also",
+          "start": 27.25,
+          "end": 27.59
+        },
+        {
+          "raw": "in",
+          "start": 27.59,
+          "end": 27.79
+        },
+        {
+          "raw": "England.",
+          "start": 27.79,
+          "end": 28.07
+        }
+      ],
+      "expected_tokens": [
+        "In",
+        "countries",
+        "like",
+        "France,",
+        "where",
+        "the",
+        "peasants",
+        "constitute",
+        "far",
+        "more",
+        "than",
+        "half",
+        "of",
+        "the",
+        "population,",
+        "it",
+        "was",
+        "natural",
+        "that",
+        "writers",
+        "who",
+        "sided",
+        "with",
+        "the",
+        "proletariat",
+        "against",
+        "the",
+        "bourgeoisie,",
+        "should",
+        "use,",
+        "in",
+        "their",
+        "criticism",
+        "of",
+        "the",
+        "bourgeois",
+        "_regime_,",
+        "the",
+        "standard",
+        "of",
+        "the",
+        "peasant",
+        "and",
+        "petty",
+        "bourgeois,",
+        "and",
+        "from",
+        "the",
+        "standpoint",
+        "of",
+        "these",
+        "intermediate",
+        "classes",
+        "should",
+        "take",
+        "up",
+        "the",
+        "cudgels",
+        "for",
+        "the",
+        "working",
+        "class.",
+        "Thus",
+        "arose",
+        "petty-bourgeois",
+        "Socialism.",
+        "Sismondi",
+        "was",
+        "the",
+        "head",
+        "of",
+        "this",
+        "school,",
+        "not",
+        "only",
+        "in",
+        "France",
+        "but",
+        "also",
+        "in",
+        "England."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          81,
+          0,
+          81
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 80
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "In",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "in",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "countries",
+          "start": 0.55,
+          "end": 0.91,
+          "key": "countries",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 0.91,
+          "end": 1.19,
+          "key": "like",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "France,",
+          "start": 1.19,
+          "end": 1.65,
+          "key": "france",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 2.09,
+          "end": 2.23,
+          "key": "where",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.23,
+          "end": 2.37,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "peasants",
+          "start": 2.37,
+          "end": 2.63,
+          "key": "peasants",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "constitute",
+          "start": 2.63,
+          "end": 3.27,
+          "key": "constitute",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "far",
+          "start": 3.27,
+          "end": 3.61,
+          "key": "far",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 3.61,
+          "end": 3.79,
+          "key": "more",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 3.79,
+          "end": 3.97,
+          "key": "than",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "half",
+          "start": 3.97,
+          "end": 4.13,
+          "key": "half",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.13,
+          "end": 4.25,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.25,
+          "end": 4.33,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "population,",
+          "start": 4.33,
+          "end": 4.85,
+          "key": "population",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 5.13,
+          "end": 5.59,
+          "key": "it",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 5.59,
+          "end": 5.71,
+          "key": "was",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "natural",
+          "start": 5.71,
+          "end": 6.19,
+          "key": "natural",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 6.19,
+          "end": 6.43,
+          "key": "that",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "writers",
+          "start": 6.43,
+          "end": 6.83,
+          "key": "writers",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 6.83,
+          "end": 7.07,
+          "key": "who",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "sided",
+          "start": 7.07,
+          "end": 7.29,
+          "key": "sided",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 7.29,
+          "end": 7.53,
+          "key": "with",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.53,
+          "end": 7.67,
+          "key": "the",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "proletariat",
+          "start": 7.67,
+          "end": 8.13,
+          "key": "proletariat",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "against",
+          "start": 8.13,
+          "end": 8.61,
+          "key": "against",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.61,
+          "end": 8.85,
+          "key": "the",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "bourgeoisie,",
+          "start": 8.85,
+          "end": 9.15,
+          "key": "bourgeoisie",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 9.93,
+          "end": 10.15,
+          "key": "should",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "use,",
+          "start": 10.15,
+          "end": 10.51,
+          "key": "use",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 10.85,
+          "end": 11.07,
+          "key": "in",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 11.07,
+          "end": 11.21,
+          "key": "their",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "criticism",
+          "start": 11.21,
+          "end": 11.67,
+          "key": "criticism",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 11.67,
+          "end": 11.97,
+          "key": "of",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.97,
+          "end": 12.13,
+          "key": "the",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "bourgeois",
+          "start": 12.13,
+          "end": 12.39,
+          "key": "bourgeois",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "regime,",
+          "start": 12.39,
+          "end": 12.89,
+          "key": "regime",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.39,
+          "end": 13.55,
+          "key": "the",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "standard",
+          "start": 13.55,
+          "end": 13.91,
+          "key": "standard",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 13.91,
+          "end": 14.15,
+          "key": "of",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 14.15,
+          "end": 14.27,
+          "key": "the",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "peasant",
+          "start": 14.27,
+          "end": 14.55,
+          "key": "peasant",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 14.55,
+          "end": 14.81,
+          "key": "and",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "petty",
+          "start": 14.81,
+          "end": 15.09,
+          "key": "petty",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "bourgeois,",
+          "start": 15.09,
+          "end": 15.45,
+          "key": "bourgeois",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 15.45,
+          "end": 16.21,
+          "key": "and",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 16.21,
+          "end": 16.35,
+          "key": "from",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 16.35,
+          "end": 16.49,
+          "key": "the",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "standpoint",
+          "start": 16.49,
+          "end": 16.93,
+          "key": "standpoint",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 16.93,
+          "end": 17.15,
+          "key": "of",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 17.15,
+          "end": 17.35,
+          "key": "these",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "intermediate",
+          "start": 17.35,
+          "end": 17.81,
+          "key": "intermediate",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "classes",
+          "start": 17.81,
+          "end": 18.39,
+          "key": "classes",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 18.39,
+          "end": 18.67,
+          "key": "should",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 18.67,
+          "end": 18.85,
+          "key": "take",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 18.85,
+          "end": 19.01,
+          "key": "up",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 19.01,
+          "end": 19.13,
+          "key": "the",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "cudgels",
+          "start": 19.13,
+          "end": 19.41,
+          "key": "cudgels",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 19.41,
+          "end": 19.59,
+          "key": "for",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 19.59,
+          "end": 19.69,
+          "key": "the",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "working",
+          "start": 19.69,
+          "end": 19.91,
+          "key": "working",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "class.",
+          "start": 19.91,
+          "end": 20.39,
+          "key": "class",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "Thus",
+          "start": 20.87,
+          "end": 21.15,
+          "key": "thus",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "arose",
+          "start": 21.15,
+          "end": 21.51,
+          "key": "arose",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "petty -bourgeois",
+          "start": 21.51,
+          "end": 22.39,
+          "key": "pettybourgeois",
+          "pieces": [
+            64,
+            65
+          ]
+        },
+        {
+          "raw": "Socialism.",
+          "start": 22.39,
+          "end": 22.93,
+          "key": "socialism",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "Sismondi",
+          "start": 23.97,
+          "end": 24.43,
+          "key": "sismondi",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 24.43,
+          "end": 24.57,
+          "key": "was",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 24.57,
+          "end": 24.73,
+          "key": "the",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "head",
+          "start": 24.73,
+          "end": 24.85,
+          "key": "head",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 24.85,
+          "end": 24.99,
+          "key": "of",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 24.99,
+          "end": 25.15,
+          "key": "this",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "school,",
+          "start": 25.15,
+          "end": 25.45,
+          "key": "school",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 25.93,
+          "end": 26.05,
+          "key": "not",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 26.05,
+          "end": 26.31,
+          "key": "only",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 26.31,
+          "end": 26.51,
+          "key": "in",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "France",
+          "start": 26.51,
+          "end": 26.85,
+          "key": "france",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 26.85,
+          "end": 27.25,
+          "key": "but",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "also",
+          "start": 27.25,
+          "end": 27.59,
+          "key": "also",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 27.59,
+          "end": 27.79,
+          "key": "in",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "England.",
+          "start": 27.79,
+          "end": 28.07,
+          "key": "england",
+          "pieces": [
+            81
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 64,
+          "text": "petty-bourgeois",
+          "heard": "petty -bourgeois",
+          "heard_indexes": [
+            64,
+            65
+          ],
+          "start": 21.51,
+          "end": 22.39
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "In",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "countries",
+          "start": 0.55,
+          "end": 0.91
+        },
+        {
+          "text": "like",
+          "start": 0.91,
+          "end": 1.19
+        },
+        {
+          "text": "France,",
+          "start": 1.19,
+          "end": 1.65
+        },
+        {
+          "text": "where",
+          "start": 2.09,
+          "end": 2.23
+        },
+        {
+          "text": "the",
+          "start": 2.23,
+          "end": 2.37
+        },
+        {
+          "text": "peasants",
+          "start": 2.37,
+          "end": 2.63
+        },
+        {
+          "text": "constitute",
+          "start": 2.63,
+          "end": 3.27
+        },
+        {
+          "text": "far",
+          "start": 3.27,
+          "end": 3.61
+        },
+        {
+          "text": "more",
+          "start": 3.61,
+          "end": 3.79
+        },
+        {
+          "text": "than",
+          "start": 3.79,
+          "end": 3.97
+        },
+        {
+          "text": "half",
+          "start": 3.97,
+          "end": 4.13
+        },
+        {
+          "text": "of",
+          "start": 4.13,
+          "end": 4.25
+        },
+        {
+          "text": "the",
+          "start": 4.25,
+          "end": 4.33
+        },
+        {
+          "text": "population,",
+          "start": 4.33,
+          "end": 4.85
+        },
+        {
+          "text": "it",
+          "start": 5.13,
+          "end": 5.59
+        },
+        {
+          "text": "was",
+          "start": 5.59,
+          "end": 5.71
+        },
+        {
+          "text": "natural",
+          "start": 5.71,
+          "end": 6.19
+        },
+        {
+          "text": "that",
+          "start": 6.19,
+          "end": 6.43
+        },
+        {
+          "text": "writers",
+          "start": 6.43,
+          "end": 6.83
+        },
+        {
+          "text": "who",
+          "start": 6.83,
+          "end": 7.07
+        },
+        {
+          "text": "sided",
+          "start": 7.07,
+          "end": 7.29
+        },
+        {
+          "text": "with",
+          "start": 7.29,
+          "end": 7.53
+        },
+        {
+          "text": "the",
+          "start": 7.53,
+          "end": 7.67
+        },
+        {
+          "text": "proletariat",
+          "start": 7.67,
+          "end": 8.13
+        },
+        {
+          "text": "against",
+          "start": 8.13,
+          "end": 8.61
+        },
+        {
+          "text": "the",
+          "start": 8.61,
+          "end": 8.85
+        },
+        {
+          "text": "bourgeoisie,",
+          "start": 8.85,
+          "end": 9.15
+        },
+        {
+          "text": "should",
+          "start": 9.93,
+          "end": 10.15
+        },
+        {
+          "text": "use,",
+          "start": 10.15,
+          "end": 10.51
+        },
+        {
+          "text": "in",
+          "start": 10.85,
+          "end": 11.07
+        },
+        {
+          "text": "their",
+          "start": 11.07,
+          "end": 11.21
+        },
+        {
+          "text": "criticism",
+          "start": 11.21,
+          "end": 11.67
+        },
+        {
+          "text": "of",
+          "start": 11.67,
+          "end": 11.97
+        },
+        {
+          "text": "the",
+          "start": 11.97,
+          "end": 12.13
+        },
+        {
+          "text": "bourgeois",
+          "start": 12.13,
+          "end": 12.39
+        },
+        {
+          "text": "_regime_,",
+          "start": 12.39,
+          "end": 12.89
+        },
+        {
+          "text": "the",
+          "start": 13.39,
+          "end": 13.55
+        },
+        {
+          "text": "standard",
+          "start": 13.55,
+          "end": 13.91
+        },
+        {
+          "text": "of",
+          "start": 13.91,
+          "end": 14.15
+        },
+        {
+          "text": "the",
+          "start": 14.15,
+          "end": 14.27
+        },
+        {
+          "text": "peasant",
+          "start": 14.27,
+          "end": 14.55
+        },
+        {
+          "text": "and",
+          "start": 14.55,
+          "end": 14.81
+        },
+        {
+          "text": "petty",
+          "start": 14.81,
+          "end": 15.09
+        },
+        {
+          "text": "bourgeois,",
+          "start": 15.09,
+          "end": 15.45
+        },
+        {
+          "text": "and",
+          "start": 15.45,
+          "end": 16.21
+        },
+        {
+          "text": "from",
+          "start": 16.21,
+          "end": 16.35
+        },
+        {
+          "text": "the",
+          "start": 16.35,
+          "end": 16.49
+        },
+        {
+          "text": "standpoint",
+          "start": 16.49,
+          "end": 16.93
+        },
+        {
+          "text": "of",
+          "start": 16.93,
+          "end": 17.15
+        },
+        {
+          "text": "these",
+          "start": 17.15,
+          "end": 17.35
+        },
+        {
+          "text": "intermediate",
+          "start": 17.35,
+          "end": 17.81
+        },
+        {
+          "text": "classes",
+          "start": 17.81,
+          "end": 18.39
+        },
+        {
+          "text": "should",
+          "start": 18.39,
+          "end": 18.67
+        },
+        {
+          "text": "take",
+          "start": 18.67,
+          "end": 18.85
+        },
+        {
+          "text": "up",
+          "start": 18.85,
+          "end": 19.01
+        },
+        {
+          "text": "the",
+          "start": 19.01,
+          "end": 19.13
+        },
+        {
+          "text": "cudgels",
+          "start": 19.13,
+          "end": 19.41
+        },
+        {
+          "text": "for",
+          "start": 19.41,
+          "end": 19.59
+        },
+        {
+          "text": "the",
+          "start": 19.59,
+          "end": 19.69
+        },
+        {
+          "text": "working",
+          "start": 19.69,
+          "end": 19.91
+        },
+        {
+          "text": "class.",
+          "start": 19.91,
+          "end": 20.39
+        },
+        {
+          "text": "Thus",
+          "start": 20.87,
+          "end": 21.15
+        },
+        {
+          "text": "arose",
+          "start": 21.15,
+          "end": 21.51
+        },
+        {
+          "text": "petty-bourgeois",
+          "start": 21.51,
+          "end": 22.39
+        },
+        {
+          "text": "Socialism.",
+          "start": 22.39,
+          "end": 22.93
+        },
+        {
+          "text": "Sismondi",
+          "start": 23.97,
+          "end": 24.43
+        },
+        {
+          "text": "was",
+          "start": 24.43,
+          "end": 24.57
+        },
+        {
+          "text": "the",
+          "start": 24.57,
+          "end": 24.73
+        },
+        {
+          "text": "head",
+          "start": 24.73,
+          "end": 24.85
+        },
+        {
+          "text": "of",
+          "start": 24.85,
+          "end": 24.99
+        },
+        {
+          "text": "this",
+          "start": 24.99,
+          "end": 25.15
+        },
+        {
+          "text": "school,",
+          "start": 25.15,
+          "end": 25.45
+        },
+        {
+          "text": "not",
+          "start": 25.93,
+          "end": 26.05
+        },
+        {
+          "text": "only",
+          "start": 26.05,
+          "end": 26.31
+        },
+        {
+          "text": "in",
+          "start": 26.31,
+          "end": 26.51
+        },
+        {
+          "text": "France",
+          "start": 26.51,
+          "end": 26.85
+        },
+        {
+          "text": "but",
+          "start": 26.85,
+          "end": 27.25
+        },
+        {
+          "text": "also",
+          "start": 27.25,
+          "end": 27.59
+        },
+        {
+          "text": "in",
+          "start": 27.59,
+          "end": 27.79
+        },
+        {
+          "text": "England.",
+          "start": 27.79,
+          "end": 28.07
+        }
+      ],
+      "stats": {
+        "expected_words": 81,
+        "heard_words": 81,
+        "matched_words": 81
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.7631427529267967
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5f141068eb76de210aeac1d925116ead9d088e9354e290f43961302c359e9b3b",
+  "selected_reasons": []
+}

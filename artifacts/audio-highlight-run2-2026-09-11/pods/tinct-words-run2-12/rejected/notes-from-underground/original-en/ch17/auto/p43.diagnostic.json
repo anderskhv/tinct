@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "78884467eeb864143a3eb6e61883548eae6195667f63433a422468024f008a3d",
+  "attempts": [
+    {
+      "asr_seconds": 0.10915461299009621,
+      "alignment_seconds": 0.00016866810619831085,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Silence.",
+        "hotwords": "Silence"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Silence.",
+          "start": 0.11,
+          "end": 0.77,
+          "words": [
+            {
+              "text": " Silence.",
+              "start": 0.11,
+              "end": 0.77,
+              "probability": 0.85546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Silence.",
+          "start": 0.11,
+          "end": 0.77
+        }
+      ],
+      "expected_tokens": [
+        "Silence."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Silence.",
+          "start": 0.11,
+          "end": 0.77,
+          "key": "silence",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Silence.",
+          "start": 0.11,
+          "end": 0.77
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10937719698995352
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0c4f9e63c09951bfdbb09426a768deaa07273119439f6c4c4dafa3a03cf176d2",
+  "selected_reasons": []
+}

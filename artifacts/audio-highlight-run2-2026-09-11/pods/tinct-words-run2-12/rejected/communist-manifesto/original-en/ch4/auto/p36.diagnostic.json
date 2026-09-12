@@ -1,0 +1,2290 @@
+{
+  "complete": true,
+  "signature": "dddb26a0cc0e82f4f6b7f972b8baaeef15ab53b38f826ce4bb93d9da2452eb89",
+  "attempts": [
+    {
+      "asr_seconds": 0.7342030380386859,
+      "alignment_seconds": 0.0007450459524989128,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The robe of speculative cobwebs, embroidered with flowers of rhetoric, steeped in the dew of sickly sentiment, this transcendental robe in which the German Socialists wrapped their sorry \"eternal truths,\" all skin and bone, served to wonderfully increase the sale of their goods amongst such a public. And on its part, German Socialism recognised, more and more, its own calling as the bombastic representative of the petty-bourgeois Philistine.",
+        "hotwords": "German, Socialists, Socialism, Philistine"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The robe of speculative cobwebs, embroidered with flowers of rhetoric, steeped in the dew",
+          "start": 0.02,
+          "end": 5.36,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.67626953125
+            },
+            {
+              "text": " robe",
+              "start": 0.5,
+              "end": 0.78,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " of",
+              "start": 0.78,
+              "end": 0.96,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " speculative",
+              "start": 0.96,
+              "end": 1.48,
+              "probability": 0.9921875
+            },
+            {
+              "text": " cobwebs,",
+              "start": 1.48,
+              "end": 2.26,
+              "probability": 0.998046875
+            },
+            {
+              "text": " embroidered",
+              "start": 2.56,
+              "end": 2.98,
+              "probability": 0.998291015625
+            },
+            {
+              "text": " with",
+              "start": 2.98,
+              "end": 3.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " flowers",
+              "start": 3.22,
+              "end": 3.56,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " of",
+              "start": 3.56,
+              "end": 3.8,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " rhetoric,",
+              "start": 3.8,
+              "end": 4.18,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " steeped",
+              "start": 4.68,
+              "end": 5.02,
+              "probability": 0.99609375
+            },
+            {
+              "text": " in",
+              "start": 5.02,
+              "end": 5.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 5.1,
+              "end": 5.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " dew",
+              "start": 5.18,
+              "end": 5.36,
+              "probability": 0.96533203125
+            }
+          ]
+        },
+        {
+          "text": " of sickly sentiment, this transcendental robe in which the German Socialists wrapped their",
+          "start": 5.36,
+          "end": 10.12,
+          "words": [
+            {
+              "text": " of",
+              "start": 5.36,
+              "end": 5.48,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " sickly",
+              "start": 5.48,
+              "end": 5.82,
+              "probability": 0.995361328125
+            },
+            {
+              "text": " sentiment,",
+              "start": 5.82,
+              "end": 6.3,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " this",
+              "start": 6.82,
+              "end": 7.02,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " transcendental",
+              "start": 7.02,
+              "end": 7.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " robe",
+              "start": 7.78,
+              "end": 8.08,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 8.08,
+              "end": 8.32,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " which",
+              "start": 8.32,
+              "end": 8.48,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 8.48,
+              "end": 8.66,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " German",
+              "start": 8.66,
+              "end": 8.94,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " Socialists",
+              "start": 8.94,
+              "end": 9.6,
+              "probability": 0.6650390625
+            },
+            {
+              "text": " wrapped",
+              "start": 9.6,
+              "end": 9.86,
+              "probability": 0.92578125
+            },
+            {
+              "text": " their",
+              "start": 9.86,
+              "end": 10.12,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " sorry, eternal truths, all skin and bone, served to wonderfully increase the sale of",
+          "start": 10.12,
+          "end": 16.02,
+          "words": [
+            {
+              "text": " sorry,",
+              "start": 10.12,
+              "end": 10.42,
+              "probability": 0.5380859375
+            },
+            {
+              "text": " eternal",
+              "start": 11.26,
+              "end": 11.26,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " truths,",
+              "start": 11.26,
+              "end": 11.8,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " all",
+              "start": 12.52,
+              "end": 12.72,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " skin",
+              "start": 12.72,
+              "end": 13.1,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " and",
+              "start": 13.1,
+              "end": 13.32,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " bone,",
+              "start": 13.32,
+              "end": 13.62,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " served",
+              "start": 14.08,
+              "end": 14.3,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " to",
+              "start": 14.3,
+              "end": 14.54,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " wonderfully",
+              "start": 14.54,
+              "end": 14.9,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " increase",
+              "start": 14.9,
+              "end": 15.38,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 15.38,
+              "end": 15.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sale",
+              "start": 15.6,
+              "end": 15.84,
+              "probability": 0.9921875
+            },
+            {
+              "text": " of",
+              "start": 15.84,
+              "end": 16.02,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " their goods amongst such a public. And on its part, German Socialism recognised, more and",
+          "start": 16.02,
+          "end": 21.78,
+          "words": [
+            {
+              "text": " their",
+              "start": 16.02,
+              "end": 16.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " goods",
+              "start": 16.16,
+              "end": 16.46,
+              "probability": 0.998046875
+            },
+            {
+              "text": " amongst",
+              "start": 16.46,
+              "end": 16.8,
+              "probability": 0.85302734375
+            },
+            {
+              "text": " such",
+              "start": 16.8,
+              "end": 17.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 17.12,
+              "end": 17.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " public.",
+              "start": 17.26,
+              "end": 17.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " And",
+              "start": 18.3,
+              "end": 18.42,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " on",
+              "start": 18.42,
+              "end": 18.54,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " its",
+              "start": 18.54,
+              "end": 18.7,
+              "probability": 0.982421875
+            },
+            {
+              "text": " part,",
+              "start": 18.7,
+              "end": 19.02,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " German",
+              "start": 19.46,
+              "end": 19.7,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Socialism",
+              "start": 19.7,
+              "end": 20.16,
+              "probability": 0.435791015625
+            },
+            {
+              "text": " recognised,",
+              "start": 20.16,
+              "end": 20.96,
+              "probability": 0.036651611328125
+            },
+            {
+              "text": " more",
+              "start": 21.34,
+              "end": 21.6,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 21.6,
+              "end": 21.78,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " more, its own calling as the bombastic representative of the petty-bourgeois Philistine.",
+          "start": 21.78,
+          "end": 26.62,
+          "words": [
+            {
+              "text": " more,",
+              "start": 21.78,
+              "end": 22.06,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " its",
+              "start": 22.54,
+              "end": 22.68,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " own",
+              "start": 22.68,
+              "end": 22.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " calling",
+              "start": 22.94,
+              "end": 23.32,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " as",
+              "start": 23.32,
+              "end": 23.58,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 23.58,
+              "end": 23.72,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " bombastic",
+              "start": 23.72,
+              "end": 24.34,
+              "probability": 0.988525390625
+            },
+            {
+              "text": " representative",
+              "start": 24.34,
+              "end": 24.9,
+              "probability": 0.99609375
+            },
+            {
+              "text": " of",
+              "start": 24.9,
+              "end": 25.32,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 25.32,
+              "end": 25.44,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " petty",
+              "start": 25.44,
+              "end": 25.64,
+              "probability": 0.921875
+            },
+            {
+              "text": "-bourgeois",
+              "start": 25.64,
+              "end": 26.12,
+              "probability": 0.7364935874938965
+            },
+            {
+              "text": " Philistine.",
+              "start": 26.12,
+              "end": 26.62,
+              "probability": 0.856689453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "robe",
+          "start": 0.5,
+          "end": 0.78
+        },
+        {
+          "raw": "of",
+          "start": 0.78,
+          "end": 0.96
+        },
+        {
+          "raw": "speculative",
+          "start": 0.96,
+          "end": 1.48
+        },
+        {
+          "raw": "cobwebs,",
+          "start": 1.48,
+          "end": 2.26
+        },
+        {
+          "raw": "embroidered",
+          "start": 2.56,
+          "end": 2.98
+        },
+        {
+          "raw": "with",
+          "start": 2.98,
+          "end": 3.22
+        },
+        {
+          "raw": "flowers",
+          "start": 3.22,
+          "end": 3.56
+        },
+        {
+          "raw": "of",
+          "start": 3.56,
+          "end": 3.8
+        },
+        {
+          "raw": "rhetoric,",
+          "start": 3.8,
+          "end": 4.18
+        },
+        {
+          "raw": "steeped",
+          "start": 4.68,
+          "end": 5.02
+        },
+        {
+          "raw": "in",
+          "start": 5.02,
+          "end": 5.1
+        },
+        {
+          "raw": "the",
+          "start": 5.1,
+          "end": 5.18
+        },
+        {
+          "raw": "dew",
+          "start": 5.18,
+          "end": 5.36
+        },
+        {
+          "raw": "of",
+          "start": 5.36,
+          "end": 5.48
+        },
+        {
+          "raw": "sickly",
+          "start": 5.48,
+          "end": 5.82
+        },
+        {
+          "raw": "sentiment,",
+          "start": 5.82,
+          "end": 6.3
+        },
+        {
+          "raw": "this",
+          "start": 6.82,
+          "end": 7.02
+        },
+        {
+          "raw": "transcendental",
+          "start": 7.02,
+          "end": 7.78
+        },
+        {
+          "raw": "robe",
+          "start": 7.78,
+          "end": 8.08
+        },
+        {
+          "raw": "in",
+          "start": 8.08,
+          "end": 8.32
+        },
+        {
+          "raw": "which",
+          "start": 8.32,
+          "end": 8.48
+        },
+        {
+          "raw": "the",
+          "start": 8.48,
+          "end": 8.66
+        },
+        {
+          "raw": "German",
+          "start": 8.66,
+          "end": 8.94
+        },
+        {
+          "raw": "Socialists",
+          "start": 8.94,
+          "end": 9.6
+        },
+        {
+          "raw": "wrapped",
+          "start": 9.6,
+          "end": 9.86
+        },
+        {
+          "raw": "their",
+          "start": 9.86,
+          "end": 10.12
+        },
+        {
+          "raw": "sorry,",
+          "start": 10.12,
+          "end": 10.42
+        },
+        {
+          "raw": "eternal",
+          "start": 11.26,
+          "end": 11.26
+        },
+        {
+          "raw": "truths,",
+          "start": 11.26,
+          "end": 11.8
+        },
+        {
+          "raw": "all",
+          "start": 12.52,
+          "end": 12.72
+        },
+        {
+          "raw": "skin",
+          "start": 12.72,
+          "end": 13.1
+        },
+        {
+          "raw": "and",
+          "start": 13.1,
+          "end": 13.32
+        },
+        {
+          "raw": "bone,",
+          "start": 13.32,
+          "end": 13.62
+        },
+        {
+          "raw": "served",
+          "start": 14.08,
+          "end": 14.3
+        },
+        {
+          "raw": "to",
+          "start": 14.3,
+          "end": 14.54
+        },
+        {
+          "raw": "wonderfully",
+          "start": 14.54,
+          "end": 14.9
+        },
+        {
+          "raw": "increase",
+          "start": 14.9,
+          "end": 15.38
+        },
+        {
+          "raw": "the",
+          "start": 15.38,
+          "end": 15.6
+        },
+        {
+          "raw": "sale",
+          "start": 15.6,
+          "end": 15.84
+        },
+        {
+          "raw": "of",
+          "start": 15.84,
+          "end": 16.02
+        },
+        {
+          "raw": "their",
+          "start": 16.02,
+          "end": 16.16
+        },
+        {
+          "raw": "goods",
+          "start": 16.16,
+          "end": 16.46
+        },
+        {
+          "raw": "amongst",
+          "start": 16.46,
+          "end": 16.8
+        },
+        {
+          "raw": "such",
+          "start": 16.8,
+          "end": 17.12
+        },
+        {
+          "raw": "a",
+          "start": 17.12,
+          "end": 17.26
+        },
+        {
+          "raw": "public.",
+          "start": 17.26,
+          "end": 17.58
+        },
+        {
+          "raw": "And",
+          "start": 18.3,
+          "end": 18.42
+        },
+        {
+          "raw": "on",
+          "start": 18.42,
+          "end": 18.54
+        },
+        {
+          "raw": "its",
+          "start": 18.54,
+          "end": 18.7
+        },
+        {
+          "raw": "part,",
+          "start": 18.7,
+          "end": 19.02
+        },
+        {
+          "raw": "German",
+          "start": 19.46,
+          "end": 19.7
+        },
+        {
+          "raw": "Socialism",
+          "start": 19.7,
+          "end": 20.16
+        },
+        {
+          "raw": "recognised,",
+          "start": 20.16,
+          "end": 20.96
+        },
+        {
+          "raw": "more",
+          "start": 21.34,
+          "end": 21.6
+        },
+        {
+          "raw": "and",
+          "start": 21.6,
+          "end": 21.78
+        },
+        {
+          "raw": "more,",
+          "start": 21.78,
+          "end": 22.06
+        },
+        {
+          "raw": "its",
+          "start": 22.54,
+          "end": 22.68
+        },
+        {
+          "raw": "own",
+          "start": 22.68,
+          "end": 22.94
+        },
+        {
+          "raw": "calling",
+          "start": 22.94,
+          "end": 23.32
+        },
+        {
+          "raw": "as",
+          "start": 23.32,
+          "end": 23.58
+        },
+        {
+          "raw": "the",
+          "start": 23.58,
+          "end": 23.72
+        },
+        {
+          "raw": "bombastic",
+          "start": 23.72,
+          "end": 24.34
+        },
+        {
+          "raw": "representative",
+          "start": 24.34,
+          "end": 24.9
+        },
+        {
+          "raw": "of",
+          "start": 24.9,
+          "end": 25.32
+        },
+        {
+          "raw": "the",
+          "start": 25.32,
+          "end": 25.44
+        },
+        {
+          "raw": "petty",
+          "start": 25.44,
+          "end": 25.64
+        },
+        {
+          "raw": "-bourgeois",
+          "start": 25.64,
+          "end": 26.12
+        },
+        {
+          "raw": "Philistine.",
+          "start": 26.12,
+          "end": 26.62
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "robe",
+        "of",
+        "speculative",
+        "cobwebs,",
+        "embroidered",
+        "with",
+        "flowers",
+        "of",
+        "rhetoric,",
+        "steeped",
+        "in",
+        "the",
+        "dew",
+        "of",
+        "sickly",
+        "sentiment,",
+        "this",
+        "transcendental",
+        "robe",
+        "in",
+        "which",
+        "the",
+        "German",
+        "Socialists",
+        "wrapped",
+        "their",
+        "sorry",
+        "\"eternal",
+        "truths,\"",
+        "all",
+        "skin",
+        "and",
+        "bone,",
+        "served",
+        "to",
+        "wonderfully",
+        "increase",
+        "the",
+        "sale",
+        "of",
+        "their",
+        "goods",
+        "amongst",
+        "such",
+        "a",
+        "public.",
+        "And",
+        "on",
+        "its",
+        "part,",
+        "German",
+        "Socialism",
+        "recognised,",
+        "more",
+        "and",
+        "more,",
+        "its",
+        "own",
+        "calling",
+        "as",
+        "the",
+        "bombastic",
+        "representative",
+        "of",
+        "the",
+        "petty-bourgeois",
+        "Philistine."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          68,
+          0,
+          68
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "robe",
+          "start": 0.5,
+          "end": 0.78,
+          "key": "robe",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.78,
+          "end": 0.96,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "speculative",
+          "start": 0.96,
+          "end": 1.48,
+          "key": "speculative",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "cobwebs,",
+          "start": 1.48,
+          "end": 2.26,
+          "key": "cobwebs",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "embroidered",
+          "start": 2.56,
+          "end": 2.98,
+          "key": "embroidered",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.98,
+          "end": 3.22,
+          "key": "with",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "flowers",
+          "start": 3.22,
+          "end": 3.56,
+          "key": "flowers",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.56,
+          "end": 3.8,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "rhetoric,",
+          "start": 3.8,
+          "end": 4.18,
+          "key": "rhetoric",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "steeped",
+          "start": 4.68,
+          "end": 5.02,
+          "key": "steeped",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.02,
+          "end": 5.1,
+          "key": "in",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.1,
+          "end": 5.18,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "dew",
+          "start": 5.18,
+          "end": 5.36,
+          "key": "dew",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.36,
+          "end": 5.48,
+          "key": "of",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "sickly",
+          "start": 5.48,
+          "end": 5.82,
+          "key": "sickly",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "sentiment,",
+          "start": 5.82,
+          "end": 6.3,
+          "key": "sentiment",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 6.82,
+          "end": 7.02,
+          "key": "this",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "transcendental",
+          "start": 7.02,
+          "end": 7.78,
+          "key": "transcendental",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "robe",
+          "start": 7.78,
+          "end": 8.08,
+          "key": "robe",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 8.08,
+          "end": 8.32,
+          "key": "in",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 8.32,
+          "end": 8.48,
+          "key": "which",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.48,
+          "end": 8.66,
+          "key": "the",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "German",
+          "start": 8.66,
+          "end": 8.94,
+          "key": "german",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Socialists",
+          "start": 8.94,
+          "end": 9.6,
+          "key": "socialists",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "wrapped",
+          "start": 9.6,
+          "end": 9.86,
+          "key": "wrapped",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 9.86,
+          "end": 10.12,
+          "key": "their",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "sorry,",
+          "start": 10.12,
+          "end": 10.42,
+          "key": "sorry",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "eternal",
+          "start": 11.26,
+          "end": 11.26,
+          "key": "eternal",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "truths,",
+          "start": 11.26,
+          "end": 11.8,
+          "key": "truths",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 12.52,
+          "end": 12.72,
+          "key": "all",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "skin",
+          "start": 12.72,
+          "end": 13.1,
+          "key": "skin",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 13.1,
+          "end": 13.32,
+          "key": "and",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "bone,",
+          "start": 13.32,
+          "end": 13.62,
+          "key": "bone",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "served",
+          "start": 14.08,
+          "end": 14.3,
+          "key": "served",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 14.3,
+          "end": 14.54,
+          "key": "to",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "wonderfully",
+          "start": 14.54,
+          "end": 14.9,
+          "key": "wonderfully",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "increase",
+          "start": 14.9,
+          "end": 15.38,
+          "key": "increase",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 15.38,
+          "end": 15.6,
+          "key": "the",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "sale",
+          "start": 15.6,
+          "end": 15.84,
+          "key": "sale",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 15.84,
+          "end": 16.02,
+          "key": "of",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 16.02,
+          "end": 16.16,
+          "key": "their",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "goods",
+          "start": 16.16,
+          "end": 16.46,
+          "key": "goods",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "amongst",
+          "start": 16.46,
+          "end": 16.8,
+          "key": "amongst",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 16.8,
+          "end": 17.12,
+          "key": "such",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 17.12,
+          "end": 17.26,
+          "key": "a",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "public.",
+          "start": 17.26,
+          "end": 17.58,
+          "key": "public",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 18.3,
+          "end": 18.42,
+          "key": "and",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 18.42,
+          "end": 18.54,
+          "key": "on",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "its",
+          "start": 18.54,
+          "end": 18.7,
+          "key": "its",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "part,",
+          "start": 18.7,
+          "end": 19.02,
+          "key": "part",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "German",
+          "start": 19.46,
+          "end": 19.7,
+          "key": "german",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "Socialism",
+          "start": 19.7,
+          "end": 20.16,
+          "key": "socialism",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "recognised,",
+          "start": 20.16,
+          "end": 20.96,
+          "key": "recognised",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 21.34,
+          "end": 21.6,
+          "key": "more",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 21.6,
+          "end": 21.78,
+          "key": "and",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "more,",
+          "start": 21.78,
+          "end": 22.06,
+          "key": "more",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "its",
+          "start": 22.54,
+          "end": 22.68,
+          "key": "its",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "own",
+          "start": 22.68,
+          "end": 22.94,
+          "key": "own",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "calling",
+          "start": 22.94,
+          "end": 23.32,
+          "key": "calling",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 23.32,
+          "end": 23.58,
+          "key": "as",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 23.58,
+          "end": 23.72,
+          "key": "the",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "bombastic",
+          "start": 23.72,
+          "end": 24.34,
+          "key": "bombastic",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "representative",
+          "start": 24.34,
+          "end": 24.9,
+          "key": "representative",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 24.9,
+          "end": 25.32,
+          "key": "of",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 25.32,
+          "end": 25.44,
+          "key": "the",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "petty -bourgeois",
+          "start": 25.44,
+          "end": 26.12,
+          "key": "pettybourgeois",
+          "pieces": [
+            66,
+            67
+          ]
+        },
+        {
+          "raw": "Philistine.",
+          "start": 26.12,
+          "end": 26.62,
+          "key": "philistine",
+          "pieces": [
+            68
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 66,
+          "text": "petty-bourgeois",
+          "heard": "petty -bourgeois",
+          "heard_indexes": [
+            66,
+            67
+          ],
+          "start": 25.44,
+          "end": 26.12
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "robe",
+          "start": 0.5,
+          "end": 0.78
+        },
+        {
+          "text": "of",
+          "start": 0.78,
+          "end": 0.96
+        },
+        {
+          "text": "speculative",
+          "start": 0.96,
+          "end": 1.48
+        },
+        {
+          "text": "cobwebs,",
+          "start": 1.48,
+          "end": 2.26
+        },
+        {
+          "text": "embroidered",
+          "start": 2.56,
+          "end": 2.98
+        },
+        {
+          "text": "with",
+          "start": 2.98,
+          "end": 3.22
+        },
+        {
+          "text": "flowers",
+          "start": 3.22,
+          "end": 3.56
+        },
+        {
+          "text": "of",
+          "start": 3.56,
+          "end": 3.8
+        },
+        {
+          "text": "rhetoric,",
+          "start": 3.8,
+          "end": 4.18
+        },
+        {
+          "text": "steeped",
+          "start": 4.68,
+          "end": 5.02
+        },
+        {
+          "text": "in",
+          "start": 5.02,
+          "end": 5.1
+        },
+        {
+          "text": "the",
+          "start": 5.1,
+          "end": 5.18
+        },
+        {
+          "text": "dew",
+          "start": 5.18,
+          "end": 5.36
+        },
+        {
+          "text": "of",
+          "start": 5.36,
+          "end": 5.48
+        },
+        {
+          "text": "sickly",
+          "start": 5.48,
+          "end": 5.82
+        },
+        {
+          "text": "sentiment,",
+          "start": 5.82,
+          "end": 6.3
+        },
+        {
+          "text": "this",
+          "start": 6.82,
+          "end": 7.02
+        },
+        {
+          "text": "transcendental",
+          "start": 7.02,
+          "end": 7.78
+        },
+        {
+          "text": "robe",
+          "start": 7.78,
+          "end": 8.08
+        },
+        {
+          "text": "in",
+          "start": 8.08,
+          "end": 8.32
+        },
+        {
+          "text": "which",
+          "start": 8.32,
+          "end": 8.48
+        },
+        {
+          "text": "the",
+          "start": 8.48,
+          "end": 8.66
+        },
+        {
+          "text": "German",
+          "start": 8.66,
+          "end": 8.94
+        },
+        {
+          "text": "Socialists",
+          "start": 8.94,
+          "end": 9.6
+        },
+        {
+          "text": "wrapped",
+          "start": 9.6,
+          "end": 9.86
+        },
+        {
+          "text": "their",
+          "start": 9.86,
+          "end": 10.12
+        },
+        {
+          "text": "sorry",
+          "start": 10.12,
+          "end": 10.42
+        },
+        {
+          "text": "\"eternal",
+          "start": 11.26,
+          "end": 11.26
+        },
+        {
+          "text": "truths,\"",
+          "start": 11.26,
+          "end": 11.8
+        },
+        {
+          "text": "all",
+          "start": 12.52,
+          "end": 12.72
+        },
+        {
+          "text": "skin",
+          "start": 12.72,
+          "end": 13.1
+        },
+        {
+          "text": "and",
+          "start": 13.1,
+          "end": 13.32
+        },
+        {
+          "text": "bone,",
+          "start": 13.32,
+          "end": 13.62
+        },
+        {
+          "text": "served",
+          "start": 14.08,
+          "end": 14.3
+        },
+        {
+          "text": "to",
+          "start": 14.3,
+          "end": 14.54
+        },
+        {
+          "text": "wonderfully",
+          "start": 14.54,
+          "end": 14.9
+        },
+        {
+          "text": "increase",
+          "start": 14.9,
+          "end": 15.38
+        },
+        {
+          "text": "the",
+          "start": 15.38,
+          "end": 15.6
+        },
+        {
+          "text": "sale",
+          "start": 15.6,
+          "end": 15.84
+        },
+        {
+          "text": "of",
+          "start": 15.84,
+          "end": 16.02
+        },
+        {
+          "text": "their",
+          "start": 16.02,
+          "end": 16.16
+        },
+        {
+          "text": "goods",
+          "start": 16.16,
+          "end": 16.46
+        },
+        {
+          "text": "amongst",
+          "start": 16.46,
+          "end": 16.8
+        },
+        {
+          "text": "such",
+          "start": 16.8,
+          "end": 17.12
+        },
+        {
+          "text": "a",
+          "start": 17.12,
+          "end": 17.26
+        },
+        {
+          "text": "public.",
+          "start": 17.26,
+          "end": 17.58
+        },
+        {
+          "text": "And",
+          "start": 18.3,
+          "end": 18.42
+        },
+        {
+          "text": "on",
+          "start": 18.42,
+          "end": 18.54
+        },
+        {
+          "text": "its",
+          "start": 18.54,
+          "end": 18.7
+        },
+        {
+          "text": "part,",
+          "start": 18.7,
+          "end": 19.02
+        },
+        {
+          "text": "German",
+          "start": 19.46,
+          "end": 19.7
+        },
+        {
+          "text": "Socialism",
+          "start": 19.7,
+          "end": 20.16
+        },
+        {
+          "text": "recognised,",
+          "start": 20.16,
+          "end": 20.96
+        },
+        {
+          "text": "more",
+          "start": 21.34,
+          "end": 21.6
+        },
+        {
+          "text": "and",
+          "start": 21.6,
+          "end": 21.78
+        },
+        {
+          "text": "more,",
+          "start": 21.78,
+          "end": 22.06
+        },
+        {
+          "text": "its",
+          "start": 22.54,
+          "end": 22.68
+        },
+        {
+          "text": "own",
+          "start": 22.68,
+          "end": 22.94
+        },
+        {
+          "text": "calling",
+          "start": 22.94,
+          "end": 23.32
+        },
+        {
+          "text": "as",
+          "start": 23.32,
+          "end": 23.58
+        },
+        {
+          "text": "the",
+          "start": 23.58,
+          "end": 23.72
+        },
+        {
+          "text": "bombastic",
+          "start": 23.72,
+          "end": 24.34
+        },
+        {
+          "text": "representative",
+          "start": 24.34,
+          "end": 24.9
+        },
+        {
+          "text": "of",
+          "start": 24.9,
+          "end": 25.32
+        },
+        {
+          "text": "the",
+          "start": 25.32,
+          "end": 25.44
+        },
+        {
+          "text": "petty-bourgeois",
+          "start": 25.44,
+          "end": 26.12
+        },
+        {
+          "text": "Philistine.",
+          "start": 26.12,
+          "end": 26.62
+        }
+      ],
+      "stats": {
+        "expected_words": 68,
+        "heard_words": 68,
+        "matched_words": 68
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.7352447600569576
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a3ec8bd3e9b87fec4f147d9527037928ec40fb366e4a426777d9b2d19d00897b",
+  "selected_reasons": []
+}

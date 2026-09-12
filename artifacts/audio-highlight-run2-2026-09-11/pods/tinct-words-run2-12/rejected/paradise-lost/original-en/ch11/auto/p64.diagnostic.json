@@ -1,0 +1,4012 @@
+{
+  "complete": true,
+  "signature": "7bcbdfe9a5f61bd68c2377b8dd8c69999b8fa05e96d73725868de93aba1f6031",
+  "attempts": [
+    {
+      "asr_seconds": 0.4722246481105685,
+      "alignment_seconds": 0.001338684931397438,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Therefore so abject is their punishment, Disfiguring not God's likeness, but their own; Or if his likeness, by themselves defaced; While they pervert pure Nature's healthful rules To loathsome sickness; worthily, since they God's image did not reverence in themselves.",
+        "hotwords": "Therefore, Disfiguring, God's, Or, While, Nature's, To"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Therefore, Disfiguring not God's likeness, but their own, Or if his likeness, by themselves defaced,",
+          "start": 0.05,
+          "end": 8.69,
+          "words": [
+            {
+              "text": " Therefore,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.4658203125
+            },
+            {
+              "text": " Disfiguring",
+              "start": 1.19,
+              "end": 3.45,
+              "probability": 0.6329753994941711
+            },
+            {
+              "text": " not",
+              "start": 3.45,
+              "end": 3.73,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " God's",
+              "start": 3.73,
+              "end": 4.25,
+              "probability": 0.958984375
+            },
+            {
+              "text": " likeness,",
+              "start": 4.25,
+              "end": 4.59,
+              "probability": 0.990234375
+            },
+            {
+              "text": " but",
+              "start": 5.19,
+              "end": 5.19,
+              "probability": 0.68359375
+            },
+            {
+              "text": " their",
+              "start": 5.19,
+              "end": 5.39,
+              "probability": 0.931640625
+            },
+            {
+              "text": " own,",
+              "start": 5.39,
+              "end": 5.73,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " Or",
+              "start": 6.37,
+              "end": 6.37,
+              "probability": 0.392578125
+            },
+            {
+              "text": " if",
+              "start": 6.37,
+              "end": 6.51,
+              "probability": 0.80859375
+            },
+            {
+              "text": " his",
+              "start": 6.51,
+              "end": 6.65,
+              "probability": 0.48828125
+            },
+            {
+              "text": " likeness,",
+              "start": 6.65,
+              "end": 7.07,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " by",
+              "start": 7.35,
+              "end": 7.49,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " themselves",
+              "start": 7.49,
+              "end": 7.97,
+              "probability": 0.97265625
+            },
+            {
+              "text": " defaced,",
+              "start": 7.97,
+              "end": 8.69,
+              "probability": 0.846435546875
+            }
+          ]
+        },
+        {
+          "text": " While they pervert pure Nature's healthful rules To loathsome sickness, worthily, since",
+          "start": 8.69,
+          "end": 14.45,
+          "words": [
+            {
+              "text": " While",
+              "start": 8.69,
+              "end": 9.37,
+              "probability": 0.26806640625
+            },
+            {
+              "text": " they",
+              "start": 9.37,
+              "end": 9.51,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " pervert",
+              "start": 9.51,
+              "end": 9.91,
+              "probability": 0.994873046875
+            },
+            {
+              "text": " pure",
+              "start": 9.91,
+              "end": 10.21,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " Nature's",
+              "start": 10.21,
+              "end": 10.79,
+              "probability": 0.553924560546875
+            },
+            {
+              "text": " healthful",
+              "start": 10.79,
+              "end": 11.31,
+              "probability": 0.955078125
+            },
+            {
+              "text": " rules",
+              "start": 11.31,
+              "end": 11.63,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " To",
+              "start": 11.63,
+              "end": 11.89,
+              "probability": 0.00833892822265625
+            },
+            {
+              "text": " loathsome",
+              "start": 11.89,
+              "end": 12.33,
+              "probability": 0.9583333333333334
+            },
+            {
+              "text": " sickness,",
+              "start": 12.33,
+              "end": 12.75,
+              "probability": 0.990234375
+            },
+            {
+              "text": " worthily,",
+              "start": 13.63,
+              "end": 14.03,
+              "probability": 0.53228759765625
+            },
+            {
+              "text": " since",
+              "start": 14.35,
+              "end": 14.45,
+              "probability": 0.55029296875
+            }
+          ]
+        },
+        {
+          "text": " they God's image did not reverence in themselves.",
+          "start": 14.45,
+          "end": 16.83,
+          "words": [
+            {
+              "text": " they",
+              "start": 14.45,
+              "end": 14.65,
+              "probability": 0.7021484375
+            },
+            {
+              "text": " God's",
+              "start": 14.65,
+              "end": 15.11,
+              "probability": 0.954833984375
+            },
+            {
+              "text": " image",
+              "start": 15.11,
+              "end": 15.31,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " did",
+              "start": 15.31,
+              "end": 15.57,
+              "probability": 0.2034912109375
+            },
+            {
+              "text": " not",
+              "start": 15.57,
+              "end": 15.81,
+              "probability": 0.966796875
+            },
+            {
+              "text": " reverence",
+              "start": 15.81,
+              "end": 16.19,
+              "probability": 0.91796875
+            },
+            {
+              "text": " in",
+              "start": 16.19,
+              "end": 16.47,
+              "probability": 0.84716796875
+            },
+            {
+              "text": " themselves.",
+              "start": 16.47,
+              "end": 16.83,
+              "probability": 0.97216796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Therefore,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "Disfiguring",
+          "start": 1.19,
+          "end": 3.45
+        },
+        {
+          "raw": "not",
+          "start": 3.45,
+          "end": 3.73
+        },
+        {
+          "raw": "God's",
+          "start": 3.73,
+          "end": 4.25
+        },
+        {
+          "raw": "likeness,",
+          "start": 4.25,
+          "end": 4.59
+        },
+        {
+          "raw": "but",
+          "start": 5.19,
+          "end": 5.19
+        },
+        {
+          "raw": "their",
+          "start": 5.19,
+          "end": 5.39
+        },
+        {
+          "raw": "own,",
+          "start": 5.39,
+          "end": 5.73
+        },
+        {
+          "raw": "Or",
+          "start": 6.37,
+          "end": 6.37
+        },
+        {
+          "raw": "if",
+          "start": 6.37,
+          "end": 6.51
+        },
+        {
+          "raw": "his",
+          "start": 6.51,
+          "end": 6.65
+        },
+        {
+          "raw": "likeness,",
+          "start": 6.65,
+          "end": 7.07
+        },
+        {
+          "raw": "by",
+          "start": 7.35,
+          "end": 7.49
+        },
+        {
+          "raw": "themselves",
+          "start": 7.49,
+          "end": 7.97
+        },
+        {
+          "raw": "defaced,",
+          "start": 7.97,
+          "end": 8.69
+        },
+        {
+          "raw": "While",
+          "start": 8.69,
+          "end": 9.37
+        },
+        {
+          "raw": "they",
+          "start": 9.37,
+          "end": 9.51
+        },
+        {
+          "raw": "pervert",
+          "start": 9.51,
+          "end": 9.91
+        },
+        {
+          "raw": "pure",
+          "start": 9.91,
+          "end": 10.21
+        },
+        {
+          "raw": "Nature's",
+          "start": 10.21,
+          "end": 10.79
+        },
+        {
+          "raw": "healthful",
+          "start": 10.79,
+          "end": 11.31
+        },
+        {
+          "raw": "rules",
+          "start": 11.31,
+          "end": 11.63
+        },
+        {
+          "raw": "To",
+          "start": 11.63,
+          "end": 11.89
+        },
+        {
+          "raw": "loathsome",
+          "start": 11.89,
+          "end": 12.33
+        },
+        {
+          "raw": "sickness,",
+          "start": 12.33,
+          "end": 12.75
+        },
+        {
+          "raw": "worthily,",
+          "start": 13.63,
+          "end": 14.03
+        },
+        {
+          "raw": "since",
+          "start": 14.35,
+          "end": 14.45
+        },
+        {
+          "raw": "they",
+          "start": 14.45,
+          "end": 14.65
+        },
+        {
+          "raw": "God's",
+          "start": 14.65,
+          "end": 15.11
+        },
+        {
+          "raw": "image",
+          "start": 15.11,
+          "end": 15.31
+        },
+        {
+          "raw": "did",
+          "start": 15.31,
+          "end": 15.57
+        },
+        {
+          "raw": "not",
+          "start": 15.57,
+          "end": 15.81
+        },
+        {
+          "raw": "reverence",
+          "start": 15.81,
+          "end": 16.19
+        },
+        {
+          "raw": "in",
+          "start": 16.19,
+          "end": 16.47
+        },
+        {
+          "raw": "themselves.",
+          "start": 16.47,
+          "end": 16.83
+        }
+      ],
+      "expected_tokens": [
+        "Therefore",
+        "so",
+        "abject",
+        "is",
+        "their",
+        "punishment,",
+        "Disfiguring",
+        "not",
+        "God's",
+        "likeness,",
+        "but",
+        "their",
+        "own;",
+        "Or",
+        "if",
+        "his",
+        "likeness,",
+        "by",
+        "themselves",
+        "defaced;",
+        "While",
+        "they",
+        "pervert",
+        "pure",
+        "Nature's",
+        "healthful",
+        "rules",
+        "To",
+        "loathsome",
+        "sickness;",
+        "worthily,",
+        "since",
+        "they",
+        "God's",
+        "image",
+        "did",
+        "not",
+        "reverence",
+        "in",
+        "themselves."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "delete",
+          1,
+          6,
+          1,
+          1
+        ],
+        [
+          "equal",
+          6,
+          40,
+          1,
+          35
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 34
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          1,
+          6,
+          1,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Therefore,",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "therefore",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Disfiguring",
+          "start": 1.19,
+          "end": 3.45,
+          "key": "disfiguring",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.45,
+          "end": 3.73,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "God's",
+          "start": 3.73,
+          "end": 4.25,
+          "key": "gods",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "likeness,",
+          "start": 4.25,
+          "end": 4.59,
+          "key": "likeness",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 5.19,
+          "end": 5.19,
+          "key": "but",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 5.19,
+          "end": 5.39,
+          "key": "their",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "own,",
+          "start": 5.39,
+          "end": 5.73,
+          "key": "own",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Or",
+          "start": 6.37,
+          "end": 6.37,
+          "key": "or",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 6.37,
+          "end": 6.51,
+          "key": "if",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 6.51,
+          "end": 6.65,
+          "key": "his",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "likeness,",
+          "start": 6.65,
+          "end": 7.07,
+          "key": "likeness",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 7.35,
+          "end": 7.49,
+          "key": "by",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "themselves",
+          "start": 7.49,
+          "end": 7.97,
+          "key": "themselves",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "defaced,",
+          "start": 7.97,
+          "end": 8.69,
+          "key": "defaced",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "While",
+          "start": 8.69,
+          "end": 9.37,
+          "key": "while",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 9.37,
+          "end": 9.51,
+          "key": "they",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "pervert",
+          "start": 9.51,
+          "end": 9.91,
+          "key": "pervert",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "pure",
+          "start": 9.91,
+          "end": 10.21,
+          "key": "pure",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Nature's",
+          "start": 10.21,
+          "end": 10.79,
+          "key": "natures",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "healthful",
+          "start": 10.79,
+          "end": 11.31,
+          "key": "healthful",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "rules",
+          "start": 11.31,
+          "end": 11.63,
+          "key": "rules",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 11.63,
+          "end": 11.89,
+          "key": "to",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "loathsome",
+          "start": 11.89,
+          "end": 12.33,
+          "key": "loathsome",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "sickness,",
+          "start": 12.33,
+          "end": 12.75,
+          "key": "sickness",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "worthily,",
+          "start": 13.63,
+          "end": 14.03,
+          "key": "worthily",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "since",
+          "start": 14.35,
+          "end": 14.45,
+          "key": "since",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 14.45,
+          "end": 14.65,
+          "key": "they",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "God's",
+          "start": 14.65,
+          "end": 15.11,
+          "key": "gods",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "image",
+          "start": 15.11,
+          "end": 15.31,
+          "key": "image",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 15.31,
+          "end": 15.57,
+          "key": "did",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 15.57,
+          "end": 15.81,
+          "key": "not",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "reverence",
+          "start": 15.81,
+          "end": 16.19,
+          "key": "reverence",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 16.19,
+          "end": 16.47,
+          "key": "in",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "themselves.",
+          "start": 16.47,
+          "end": 16.83,
+          "key": "themselves",
+          "pieces": [
+            34
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Therefore",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "so",
+          "start": 0.69,
+          "end": 0.94
+        },
+        {
+          "text": "abject",
+          "start": 0.94,
+          "end": 1.065
+        },
+        {
+          "text": "is",
+          "start": 1.065,
+          "end": 1.127
+        },
+        {
+          "text": "their",
+          "start": 1.127,
+          "end": 1.159
+        },
+        {
+          "text": "punishment,",
+          "start": 1.159,
+          "end": 1.175
+        },
+        {
+          "text": "Disfiguring",
+          "start": 1.19,
+          "end": 3.45
+        },
+        {
+          "text": "not",
+          "start": 3.45,
+          "end": 3.73
+        },
+        {
+          "text": "God's",
+          "start": 3.73,
+          "end": 4.25
+        },
+        {
+          "text": "likeness,",
+          "start": 4.25,
+          "end": 4.59
+        },
+        {
+          "text": "but",
+          "start": 5.19,
+          "end": 5.19
+        },
+        {
+          "text": "their",
+          "start": 5.19,
+          "end": 5.39
+        },
+        {
+          "text": "own;",
+          "start": 5.39,
+          "end": 5.73
+        },
+        {
+          "text": "Or",
+          "start": 6.37,
+          "end": 6.37
+        },
+        {
+          "text": "if",
+          "start": 6.37,
+          "end": 6.51
+        },
+        {
+          "text": "his",
+          "start": 6.51,
+          "end": 6.65
+        },
+        {
+          "text": "likeness,",
+          "start": 6.65,
+          "end": 7.07
+        },
+        {
+          "text": "by",
+          "start": 7.35,
+          "end": 7.49
+        },
+        {
+          "text": "themselves",
+          "start": 7.49,
+          "end": 7.97
+        },
+        {
+          "text": "defaced;",
+          "start": 7.97,
+          "end": 8.69
+        },
+        {
+          "text": "While",
+          "start": 8.69,
+          "end": 9.37
+        },
+        {
+          "text": "they",
+          "start": 9.37,
+          "end": 9.51
+        },
+        {
+          "text": "pervert",
+          "start": 9.51,
+          "end": 9.91
+        },
+        {
+          "text": "pure",
+          "start": 9.91,
+          "end": 10.21
+        },
+        {
+          "text": "Nature's",
+          "start": 10.21,
+          "end": 10.79
+        },
+        {
+          "text": "healthful",
+          "start": 10.79,
+          "end": 11.31
+        },
+        {
+          "text": "rules",
+          "start": 11.31,
+          "end": 11.63
+        },
+        {
+          "text": "To",
+          "start": 11.63,
+          "end": 11.89
+        },
+        {
+          "text": "loathsome",
+          "start": 11.89,
+          "end": 12.33
+        },
+        {
+          "text": "sickness;",
+          "start": 12.33,
+          "end": 12.75
+        },
+        {
+          "text": "worthily,",
+          "start": 13.63,
+          "end": 14.03
+        },
+        {
+          "text": "since",
+          "start": 14.35,
+          "end": 14.45
+        },
+        {
+          "text": "they",
+          "start": 14.45,
+          "end": 14.65
+        },
+        {
+          "text": "God's",
+          "start": 14.65,
+          "end": 15.11
+        },
+        {
+          "text": "image",
+          "start": 15.11,
+          "end": 15.31
+        },
+        {
+          "text": "did",
+          "start": 15.31,
+          "end": 15.57
+        },
+        {
+          "text": "not",
+          "start": 15.57,
+          "end": 15.81
+        },
+        {
+          "text": "reverence",
+          "start": 15.81,
+          "end": 16.19
+        },
+        {
+          "text": "in",
+          "start": 16.19,
+          "end": 16.47
+        },
+        {
+          "text": "themselves.",
+          "start": 16.47,
+          "end": 16.83
+        }
+      ],
+      "stats": {
+        "expected_words": 40,
+        "heard_words": 35,
+        "matched_words": 35
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.4741445011459291
+    },
+    {
+      "asr_seconds": 0.6239805319346488,
+      "alignment_seconds": 0.0006989052053540945,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Therefore, Disfiguring, God's, Or, While, Nature's, To"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Therefore, So, Abject, Is Their Punishment, Disfiguring, Not God's, Likeness, But Their",
+          "start": 0.05,
+          "end": 5.39,
+          "words": [
+            {
+              "text": " Therefore,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.46630859375
+            },
+            {
+              "text": " So,",
+              "start": 1.03,
+              "end": 1.03,
+              "probability": 0.0011997222900390625
+            },
+            {
+              "text": " Abject,",
+              "start": 1.25,
+              "end": 1.49,
+              "probability": 0.62078857421875
+            },
+            {
+              "text": " Is",
+              "start": 1.63,
+              "end": 1.69,
+              "probability": 0.2978515625
+            },
+            {
+              "text": " Their",
+              "start": 1.69,
+              "end": 1.93,
+              "probability": 0.61669921875
+            },
+            {
+              "text": " Punishment,",
+              "start": 1.93,
+              "end": 2.55,
+              "probability": 0.937744140625
+            },
+            {
+              "text": " Disfiguring,",
+              "start": 3.01,
+              "end": 3.43,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " Not",
+              "start": 3.51,
+              "end": 3.75,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " God's,",
+              "start": 3.75,
+              "end": 4.25,
+              "probability": 0.956298828125
+            },
+            {
+              "text": " Likeness,",
+              "start": 4.25,
+              "end": 4.71,
+              "probability": 0.7186279296875
+            },
+            {
+              "text": " But",
+              "start": 5.01,
+              "end": 5.21,
+              "probability": 0.89013671875
+            },
+            {
+              "text": " Their",
+              "start": 5.21,
+              "end": 5.39,
+              "probability": 0.97265625
+            }
+          ]
+        },
+        {
+          "text": " Own, Or, If His Likeness, By Themselves Defaced, While They Pervert Pure Nature's Healthful",
+          "start": 5.39,
+          "end": 11.29,
+          "words": [
+            {
+              "text": " Own,",
+              "start": 5.39,
+              "end": 5.67,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Or,",
+              "start": 6.15,
+              "end": 6.37,
+              "probability": 0.8349609375
+            },
+            {
+              "text": " If",
+              "start": 6.43,
+              "end": 6.51,
+              "probability": 0.904296875
+            },
+            {
+              "text": " His",
+              "start": 6.51,
+              "end": 6.65,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " Likeness,",
+              "start": 6.65,
+              "end": 7.13,
+              "probability": 0.7444661458333334
+            },
+            {
+              "text": " By",
+              "start": 7.33,
+              "end": 7.49,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " Themselves",
+              "start": 7.49,
+              "end": 7.99,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " Defaced,",
+              "start": 7.99,
+              "end": 8.61,
+              "probability": 0.831787109375
+            },
+            {
+              "text": " While",
+              "start": 9.23,
+              "end": 9.37,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " They",
+              "start": 9.37,
+              "end": 9.55,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " Pervert",
+              "start": 9.55,
+              "end": 9.87,
+              "probability": 0.901611328125
+            },
+            {
+              "text": " Pure",
+              "start": 9.87,
+              "end": 10.19,
+              "probability": 0.88330078125
+            },
+            {
+              "text": " Nature's",
+              "start": 10.19,
+              "end": 10.83,
+              "probability": 0.984375
+            },
+            {
+              "text": " Healthful",
+              "start": 10.83,
+              "end": 11.29,
+              "probability": 0.9599609375
+            }
+          ]
+        },
+        {
+          "text": " Rules To Lothsome Sickness, Worthyly, Since They God's Image Did Not Reverence In Themselves.",
+          "start": 11.29,
+          "end": 16.91,
+          "words": [
+            {
+              "text": " Rules",
+              "start": 11.29,
+              "end": 11.55,
+              "probability": 0.98828125
+            },
+            {
+              "text": " To",
+              "start": 11.55,
+              "end": 11.89,
+              "probability": 0.57666015625
+            },
+            {
+              "text": " Lothsome",
+              "start": 11.89,
+              "end": 12.35,
+              "probability": 0.7794596354166666
+            },
+            {
+              "text": " Sickness,",
+              "start": 12.35,
+              "end": 12.95,
+              "probability": 0.991455078125
+            },
+            {
+              "text": " Worthyly,",
+              "start": 13.65,
+              "end": 14.07,
+              "probability": 0.6598307291666666
+            },
+            {
+              "text": " Since",
+              "start": 14.33,
+              "end": 14.45,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " They",
+              "start": 14.45,
+              "end": 14.65,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " God's",
+              "start": 14.65,
+              "end": 15.09,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " Image",
+              "start": 15.09,
+              "end": 15.31,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " Did",
+              "start": 15.31,
+              "end": 15.59,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " Not",
+              "start": 15.59,
+              "end": 15.83,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " Reverence",
+              "start": 15.83,
+              "end": 16.27,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " In",
+              "start": 16.27,
+              "end": 16.47,
+              "probability": 0.81396484375
+            },
+            {
+              "text": " Themselves.",
+              "start": 16.47,
+              "end": 16.91,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Therefore,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "So,",
+          "start": 1.03,
+          "end": 1.03
+        },
+        {
+          "raw": "Abject,",
+          "start": 1.25,
+          "end": 1.49
+        },
+        {
+          "raw": "Is",
+          "start": 1.63,
+          "end": 1.69
+        },
+        {
+          "raw": "Their",
+          "start": 1.69,
+          "end": 1.93
+        },
+        {
+          "raw": "Punishment,",
+          "start": 1.93,
+          "end": 2.55
+        },
+        {
+          "raw": "Disfiguring,",
+          "start": 3.01,
+          "end": 3.43
+        },
+        {
+          "raw": "Not",
+          "start": 3.51,
+          "end": 3.75
+        },
+        {
+          "raw": "God's,",
+          "start": 3.75,
+          "end": 4.25
+        },
+        {
+          "raw": "Likeness,",
+          "start": 4.25,
+          "end": 4.71
+        },
+        {
+          "raw": "But",
+          "start": 5.01,
+          "end": 5.21
+        },
+        {
+          "raw": "Their",
+          "start": 5.21,
+          "end": 5.39
+        },
+        {
+          "raw": "Own,",
+          "start": 5.39,
+          "end": 5.67
+        },
+        {
+          "raw": "Or,",
+          "start": 6.15,
+          "end": 6.37
+        },
+        {
+          "raw": "If",
+          "start": 6.43,
+          "end": 6.51
+        },
+        {
+          "raw": "His",
+          "start": 6.51,
+          "end": 6.65
+        },
+        {
+          "raw": "Likeness,",
+          "start": 6.65,
+          "end": 7.13
+        },
+        {
+          "raw": "By",
+          "start": 7.33,
+          "end": 7.49
+        },
+        {
+          "raw": "Themselves",
+          "start": 7.49,
+          "end": 7.99
+        },
+        {
+          "raw": "Defaced,",
+          "start": 7.99,
+          "end": 8.61
+        },
+        {
+          "raw": "While",
+          "start": 9.23,
+          "end": 9.37
+        },
+        {
+          "raw": "They",
+          "start": 9.37,
+          "end": 9.55
+        },
+        {
+          "raw": "Pervert",
+          "start": 9.55,
+          "end": 9.87
+        },
+        {
+          "raw": "Pure",
+          "start": 9.87,
+          "end": 10.19
+        },
+        {
+          "raw": "Nature's",
+          "start": 10.19,
+          "end": 10.83
+        },
+        {
+          "raw": "Healthful",
+          "start": 10.83,
+          "end": 11.29
+        },
+        {
+          "raw": "Rules",
+          "start": 11.29,
+          "end": 11.55
+        },
+        {
+          "raw": "To",
+          "start": 11.55,
+          "end": 11.89
+        },
+        {
+          "raw": "Lothsome",
+          "start": 11.89,
+          "end": 12.35
+        },
+        {
+          "raw": "Sickness,",
+          "start": 12.35,
+          "end": 12.95
+        },
+        {
+          "raw": "Worthyly,",
+          "start": 13.65,
+          "end": 14.07
+        },
+        {
+          "raw": "Since",
+          "start": 14.33,
+          "end": 14.45
+        },
+        {
+          "raw": "They",
+          "start": 14.45,
+          "end": 14.65
+        },
+        {
+          "raw": "God's",
+          "start": 14.65,
+          "end": 15.09
+        },
+        {
+          "raw": "Image",
+          "start": 15.09,
+          "end": 15.31
+        },
+        {
+          "raw": "Did",
+          "start": 15.31,
+          "end": 15.59
+        },
+        {
+          "raw": "Not",
+          "start": 15.59,
+          "end": 15.83
+        },
+        {
+          "raw": "Reverence",
+          "start": 15.83,
+          "end": 16.27
+        },
+        {
+          "raw": "In",
+          "start": 16.27,
+          "end": 16.47
+        },
+        {
+          "raw": "Themselves.",
+          "start": 16.47,
+          "end": 16.91
+        }
+      ],
+      "expected_tokens": [
+        "Therefore",
+        "so",
+        "abject",
+        "is",
+        "their",
+        "punishment,",
+        "Disfiguring",
+        "not",
+        "God's",
+        "likeness,",
+        "but",
+        "their",
+        "own;",
+        "Or",
+        "if",
+        "his",
+        "likeness,",
+        "by",
+        "themselves",
+        "defaced;",
+        "While",
+        "they",
+        "pervert",
+        "pure",
+        "Nature's",
+        "healthful",
+        "rules",
+        "To",
+        "loathsome",
+        "sickness;",
+        "worthily,",
+        "since",
+        "they",
+        "God's",
+        "image",
+        "did",
+        "not",
+        "reverence",
+        "in",
+        "themselves."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          28,
+          0,
+          28
+        ],
+        [
+          "replace",
+          28,
+          29,
+          28,
+          29
+        ],
+        [
+          "equal",
+          29,
+          30,
+          29,
+          30
+        ],
+        [
+          "replace",
+          30,
+          31,
+          30,
+          31
+        ],
+        [
+          "equal",
+          31,
+          40,
+          31,
+          40
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          28,
+          29,
+          28,
+          29
+        ],
+        [
+          "replace",
+          30,
+          31,
+          30,
+          31
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Therefore,",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "therefore",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "So,",
+          "start": 1.03,
+          "end": 1.03,
+          "key": "so",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Abject,",
+          "start": 1.25,
+          "end": 1.49,
+          "key": "abject",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 1.63,
+          "end": 1.69,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Their",
+          "start": 1.69,
+          "end": 1.93,
+          "key": "their",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Punishment,",
+          "start": 1.93,
+          "end": 2.55,
+          "key": "punishment",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Disfiguring,",
+          "start": 3.01,
+          "end": 3.43,
+          "key": "disfiguring",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Not",
+          "start": 3.51,
+          "end": 3.75,
+          "key": "not",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "God's,",
+          "start": 3.75,
+          "end": 4.25,
+          "key": "gods",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Likeness,",
+          "start": 4.25,
+          "end": 4.71,
+          "key": "likeness",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 5.01,
+          "end": 5.21,
+          "key": "but",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Their",
+          "start": 5.21,
+          "end": 5.39,
+          "key": "their",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Own,",
+          "start": 5.39,
+          "end": 5.67,
+          "key": "own",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Or,",
+          "start": 6.15,
+          "end": 6.37,
+          "key": "or",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 6.43,
+          "end": 6.51,
+          "key": "if",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "His",
+          "start": 6.51,
+          "end": 6.65,
+          "key": "his",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Likeness,",
+          "start": 6.65,
+          "end": 7.13,
+          "key": "likeness",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "By",
+          "start": 7.33,
+          "end": 7.49,
+          "key": "by",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Themselves",
+          "start": 7.49,
+          "end": 7.99,
+          "key": "themselves",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Defaced,",
+          "start": 7.99,
+          "end": 8.61,
+          "key": "defaced",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "While",
+          "start": 9.23,
+          "end": 9.37,
+          "key": "while",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 9.37,
+          "end": 9.55,
+          "key": "they",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Pervert",
+          "start": 9.55,
+          "end": 9.87,
+          "key": "pervert",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Pure",
+          "start": 9.87,
+          "end": 10.19,
+          "key": "pure",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Nature's",
+          "start": 10.19,
+          "end": 10.83,
+          "key": "natures",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Healthful",
+          "start": 10.83,
+          "end": 11.29,
+          "key": "healthful",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Rules",
+          "start": 11.29,
+          "end": 11.55,
+          "key": "rules",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 11.55,
+          "end": 11.89,
+          "key": "to",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "Lothsome",
+          "start": 11.89,
+          "end": 12.35,
+          "key": "lothsome",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "Sickness,",
+          "start": 12.35,
+          "end": 12.95,
+          "key": "sickness",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "Worthyly,",
+          "start": 13.65,
+          "end": 14.07,
+          "key": "worthyly",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "Since",
+          "start": 14.33,
+          "end": 14.45,
+          "key": "since",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 14.45,
+          "end": 14.65,
+          "key": "they",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "God's",
+          "start": 14.65,
+          "end": 15.09,
+          "key": "gods",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "Image",
+          "start": 15.09,
+          "end": 15.31,
+          "key": "image",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "Did",
+          "start": 15.31,
+          "end": 15.59,
+          "key": "did",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "Not",
+          "start": 15.59,
+          "end": 15.83,
+          "key": "not",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "Reverence",
+          "start": 15.83,
+          "end": 16.27,
+          "key": "reverence",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 16.27,
+          "end": 16.47,
+          "key": "in",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "Themselves.",
+          "start": 16.47,
+          "end": 16.91,
+          "key": "themselves",
+          "pieces": [
+            39
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Therefore",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "so",
+          "start": 1.03,
+          "end": 1.03
+        },
+        {
+          "text": "abject",
+          "start": 1.25,
+          "end": 1.49
+        },
+        {
+          "text": "is",
+          "start": 1.63,
+          "end": 1.69
+        },
+        {
+          "text": "their",
+          "start": 1.69,
+          "end": 1.93
+        },
+        {
+          "text": "punishment,",
+          "start": 1.93,
+          "end": 2.55
+        },
+        {
+          "text": "Disfiguring",
+          "start": 3.01,
+          "end": 3.43
+        },
+        {
+          "text": "not",
+          "start": 3.51,
+          "end": 3.75
+        },
+        {
+          "text": "God's",
+          "start": 3.75,
+          "end": 4.25
+        },
+        {
+          "text": "likeness,",
+          "start": 4.25,
+          "end": 4.71
+        },
+        {
+          "text": "but",
+          "start": 5.01,
+          "end": 5.21
+        },
+        {
+          "text": "their",
+          "start": 5.21,
+          "end": 5.39
+        },
+        {
+          "text": "own;",
+          "start": 5.39,
+          "end": 5.67
+        },
+        {
+          "text": "Or",
+          "start": 6.15,
+          "end": 6.37
+        },
+        {
+          "text": "if",
+          "start": 6.43,
+          "end": 6.51
+        },
+        {
+          "text": "his",
+          "start": 6.51,
+          "end": 6.65
+        },
+        {
+          "text": "likeness,",
+          "start": 6.65,
+          "end": 7.13
+        },
+        {
+          "text": "by",
+          "start": 7.33,
+          "end": 7.49
+        },
+        {
+          "text": "themselves",
+          "start": 7.49,
+          "end": 7.99
+        },
+        {
+          "text": "defaced;",
+          "start": 7.99,
+          "end": 8.61
+        },
+        {
+          "text": "While",
+          "start": 9.23,
+          "end": 9.37
+        },
+        {
+          "text": "they",
+          "start": 9.37,
+          "end": 9.55
+        },
+        {
+          "text": "pervert",
+          "start": 9.55,
+          "end": 9.87
+        },
+        {
+          "text": "pure",
+          "start": 9.87,
+          "end": 10.19
+        },
+        {
+          "text": "Nature's",
+          "start": 10.19,
+          "end": 10.83
+        },
+        {
+          "text": "healthful",
+          "start": 10.83,
+          "end": 11.29
+        },
+        {
+          "text": "rules",
+          "start": 11.29,
+          "end": 11.55
+        },
+        {
+          "text": "To",
+          "start": 11.55,
+          "end": 11.89
+        },
+        {
+          "text": "loathsome",
+          "start": 11.89,
+          "end": 12.12
+        },
+        {
+          "text": "sickness;",
+          "start": 12.35,
+          "end": 12.95
+        },
+        {
+          "text": "worthily,",
+          "start": 12.95,
+          "end": 13.64
+        },
+        {
+          "text": "since",
+          "start": 14.33,
+          "end": 14.45
+        },
+        {
+          "text": "they",
+          "start": 14.45,
+          "end": 14.65
+        },
+        {
+          "text": "God's",
+          "start": 14.65,
+          "end": 15.09
+        },
+        {
+          "text": "image",
+          "start": 15.09,
+          "end": 15.31
+        },
+        {
+          "text": "did",
+          "start": 15.31,
+          "end": 15.59
+        },
+        {
+          "text": "not",
+          "start": 15.59,
+          "end": 15.83
+        },
+        {
+          "text": "reverence",
+          "start": 15.83,
+          "end": 16.27
+        },
+        {
+          "text": "in",
+          "start": 16.27,
+          "end": 16.47
+        },
+        {
+          "text": "themselves.",
+          "start": 16.47,
+          "end": 16.91
+        }
+      ],
+      "stats": {
+        "expected_words": 40,
+        "heard_words": 40,
+        "matched_words": 38
+      },
+      "match_ratio": 0.95,
+      "rejection_reasons": [],
+      "seconds": 0.6249753979500383
+    },
+    {
+      "asr_seconds": 0.531969296047464,
+      "alignment_seconds": 0.00042548286728560925,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Therefore, so abject is their punishment, disfiguring not God's likeness, but their",
+          "start": 0.05,
+          "end": 5.39,
+          "words": [
+            {
+              "text": " Therefore,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.466796875
+            },
+            {
+              "text": " so",
+              "start": 0.97,
+              "end": 1.03,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " abject",
+              "start": 1.03,
+              "end": 1.49,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " is",
+              "start": 1.49,
+              "end": 1.69,
+              "probability": 0.9609375
+            },
+            {
+              "text": " their",
+              "start": 1.69,
+              "end": 1.93,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " punishment,",
+              "start": 1.93,
+              "end": 2.45,
+              "probability": 0.994140625
+            },
+            {
+              "text": " disfiguring",
+              "start": 2.99,
+              "end": 3.43,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " not",
+              "start": 3.43,
+              "end": 3.75,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " God's",
+              "start": 3.75,
+              "end": 4.25,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " likeness,",
+              "start": 4.25,
+              "end": 4.55,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " but",
+              "start": 5.01,
+              "end": 5.21,
+              "probability": 0.9921875
+            },
+            {
+              "text": " their",
+              "start": 5.21,
+              "end": 5.39,
+              "probability": 0.99609375
+            }
+          ]
+        },
+        {
+          "text": " own, or if His likeness by themselves defaced, while they pervert pure nature's healthful",
+          "start": 5.39,
+          "end": 11.29,
+          "words": [
+            {
+              "text": " own,",
+              "start": 5.39,
+              "end": 5.71,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " or",
+              "start": 6.13,
+              "end": 6.37,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " if",
+              "start": 6.37,
+              "end": 6.51,
+              "probability": 0.73828125
+            },
+            {
+              "text": " His",
+              "start": 6.51,
+              "end": 6.65,
+              "probability": 0.5263671875
+            },
+            {
+              "text": " likeness",
+              "start": 6.65,
+              "end": 7.07,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " by",
+              "start": 7.07,
+              "end": 7.49,
+              "probability": 0.46728515625
+            },
+            {
+              "text": " themselves",
+              "start": 7.49,
+              "end": 7.99,
+              "probability": 0.9921875
+            },
+            {
+              "text": " defaced,",
+              "start": 7.99,
+              "end": 8.69,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " while",
+              "start": 9.11,
+              "end": 9.37,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " they",
+              "start": 9.37,
+              "end": 9.55,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " pervert",
+              "start": 9.55,
+              "end": 9.91,
+              "probability": 0.997802734375
+            },
+            {
+              "text": " pure",
+              "start": 9.91,
+              "end": 10.19,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " nature's",
+              "start": 10.19,
+              "end": 10.79,
+              "probability": 0.88232421875
+            },
+            {
+              "text": " healthful",
+              "start": 10.79,
+              "end": 11.29,
+              "probability": 0.98779296875
+            }
+          ]
+        },
+        {
+          "text": " rules to loathsome sickness, worthily, since they God's image did not reverence in themselves.",
+          "start": 11.29,
+          "end": 16.85,
+          "words": [
+            {
+              "text": " rules",
+              "start": 11.29,
+              "end": 11.61,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 11.61,
+              "end": 11.89,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " loathsome",
+              "start": 11.89,
+              "end": 12.33,
+              "probability": 0.9850260416666666
+            },
+            {
+              "text": " sickness,",
+              "start": 12.33,
+              "end": 12.77,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " worthily,",
+              "start": 13.61,
+              "end": 14.01,
+              "probability": 0.877685546875
+            },
+            {
+              "text": " since",
+              "start": 14.33,
+              "end": 14.45,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " they",
+              "start": 14.45,
+              "end": 14.65,
+              "probability": 0.953125
+            },
+            {
+              "text": " God's",
+              "start": 14.65,
+              "end": 15.09,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " image",
+              "start": 15.09,
+              "end": 15.31,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " did",
+              "start": 15.31,
+              "end": 15.59,
+              "probability": 0.998046875
+            },
+            {
+              "text": " not",
+              "start": 15.59,
+              "end": 15.81,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " reverence",
+              "start": 15.81,
+              "end": 16.19,
+              "probability": 0.978515625
+            },
+            {
+              "text": " in",
+              "start": 16.19,
+              "end": 16.47,
+              "probability": 0.99609375
+            },
+            {
+              "text": " themselves.",
+              "start": 16.47,
+              "end": 16.85,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Therefore,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "so",
+          "start": 0.97,
+          "end": 1.03
+        },
+        {
+          "raw": "abject",
+          "start": 1.03,
+          "end": 1.49
+        },
+        {
+          "raw": "is",
+          "start": 1.49,
+          "end": 1.69
+        },
+        {
+          "raw": "their",
+          "start": 1.69,
+          "end": 1.93
+        },
+        {
+          "raw": "punishment,",
+          "start": 1.93,
+          "end": 2.45
+        },
+        {
+          "raw": "disfiguring",
+          "start": 2.99,
+          "end": 3.43
+        },
+        {
+          "raw": "not",
+          "start": 3.43,
+          "end": 3.75
+        },
+        {
+          "raw": "God's",
+          "start": 3.75,
+          "end": 4.25
+        },
+        {
+          "raw": "likeness,",
+          "start": 4.25,
+          "end": 4.55
+        },
+        {
+          "raw": "but",
+          "start": 5.01,
+          "end": 5.21
+        },
+        {
+          "raw": "their",
+          "start": 5.21,
+          "end": 5.39
+        },
+        {
+          "raw": "own,",
+          "start": 5.39,
+          "end": 5.71
+        },
+        {
+          "raw": "or",
+          "start": 6.13,
+          "end": 6.37
+        },
+        {
+          "raw": "if",
+          "start": 6.37,
+          "end": 6.51
+        },
+        {
+          "raw": "His",
+          "start": 6.51,
+          "end": 6.65
+        },
+        {
+          "raw": "likeness",
+          "start": 6.65,
+          "end": 7.07
+        },
+        {
+          "raw": "by",
+          "start": 7.07,
+          "end": 7.49
+        },
+        {
+          "raw": "themselves",
+          "start": 7.49,
+          "end": 7.99
+        },
+        {
+          "raw": "defaced,",
+          "start": 7.99,
+          "end": 8.69
+        },
+        {
+          "raw": "while",
+          "start": 9.11,
+          "end": 9.37
+        },
+        {
+          "raw": "they",
+          "start": 9.37,
+          "end": 9.55
+        },
+        {
+          "raw": "pervert",
+          "start": 9.55,
+          "end": 9.91
+        },
+        {
+          "raw": "pure",
+          "start": 9.91,
+          "end": 10.19
+        },
+        {
+          "raw": "nature's",
+          "start": 10.19,
+          "end": 10.79
+        },
+        {
+          "raw": "healthful",
+          "start": 10.79,
+          "end": 11.29
+        },
+        {
+          "raw": "rules",
+          "start": 11.29,
+          "end": 11.61
+        },
+        {
+          "raw": "to",
+          "start": 11.61,
+          "end": 11.89
+        },
+        {
+          "raw": "loathsome",
+          "start": 11.89,
+          "end": 12.33
+        },
+        {
+          "raw": "sickness,",
+          "start": 12.33,
+          "end": 12.77
+        },
+        {
+          "raw": "worthily,",
+          "start": 13.61,
+          "end": 14.01
+        },
+        {
+          "raw": "since",
+          "start": 14.33,
+          "end": 14.45
+        },
+        {
+          "raw": "they",
+          "start": 14.45,
+          "end": 14.65
+        },
+        {
+          "raw": "God's",
+          "start": 14.65,
+          "end": 15.09
+        },
+        {
+          "raw": "image",
+          "start": 15.09,
+          "end": 15.31
+        },
+        {
+          "raw": "did",
+          "start": 15.31,
+          "end": 15.59
+        },
+        {
+          "raw": "not",
+          "start": 15.59,
+          "end": 15.81
+        },
+        {
+          "raw": "reverence",
+          "start": 15.81,
+          "end": 16.19
+        },
+        {
+          "raw": "in",
+          "start": 16.19,
+          "end": 16.47
+        },
+        {
+          "raw": "themselves.",
+          "start": 16.47,
+          "end": 16.85
+        }
+      ],
+      "expected_tokens": [
+        "Therefore",
+        "so",
+        "abject",
+        "is",
+        "their",
+        "punishment,",
+        "Disfiguring",
+        "not",
+        "God's",
+        "likeness,",
+        "but",
+        "their",
+        "own;",
+        "Or",
+        "if",
+        "his",
+        "likeness,",
+        "by",
+        "themselves",
+        "defaced;",
+        "While",
+        "they",
+        "pervert",
+        "pure",
+        "Nature's",
+        "healthful",
+        "rules",
+        "To",
+        "loathsome",
+        "sickness;",
+        "worthily,",
+        "since",
+        "they",
+        "God's",
+        "image",
+        "did",
+        "not",
+        "reverence",
+        "in",
+        "themselves."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          40,
+          0,
+          40
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Therefore,",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "therefore",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 0.97,
+          "end": 1.03,
+          "key": "so",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "abject",
+          "start": 1.03,
+          "end": 1.49,
+          "key": "abject",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.49,
+          "end": 1.69,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 1.69,
+          "end": 1.93,
+          "key": "their",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "punishment,",
+          "start": 1.93,
+          "end": 2.45,
+          "key": "punishment",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "disfiguring",
+          "start": 2.99,
+          "end": 3.43,
+          "key": "disfiguring",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.43,
+          "end": 3.75,
+          "key": "not",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "God's",
+          "start": 3.75,
+          "end": 4.25,
+          "key": "gods",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "likeness,",
+          "start": 4.25,
+          "end": 4.55,
+          "key": "likeness",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 5.01,
+          "end": 5.21,
+          "key": "but",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 5.21,
+          "end": 5.39,
+          "key": "their",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "own,",
+          "start": 5.39,
+          "end": 5.71,
+          "key": "own",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 6.13,
+          "end": 6.37,
+          "key": "or",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 6.37,
+          "end": 6.51,
+          "key": "if",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "His",
+          "start": 6.51,
+          "end": 6.65,
+          "key": "his",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "likeness",
+          "start": 6.65,
+          "end": 7.07,
+          "key": "likeness",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 7.07,
+          "end": 7.49,
+          "key": "by",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "themselves",
+          "start": 7.49,
+          "end": 7.99,
+          "key": "themselves",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "defaced,",
+          "start": 7.99,
+          "end": 8.69,
+          "key": "defaced",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "while",
+          "start": 9.11,
+          "end": 9.37,
+          "key": "while",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 9.37,
+          "end": 9.55,
+          "key": "they",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "pervert",
+          "start": 9.55,
+          "end": 9.91,
+          "key": "pervert",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "pure",
+          "start": 9.91,
+          "end": 10.19,
+          "key": "pure",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "nature's",
+          "start": 10.19,
+          "end": 10.79,
+          "key": "natures",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "healthful",
+          "start": 10.79,
+          "end": 11.29,
+          "key": "healthful",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "rules",
+          "start": 11.29,
+          "end": 11.61,
+          "key": "rules",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 11.61,
+          "end": 11.89,
+          "key": "to",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "loathsome",
+          "start": 11.89,
+          "end": 12.33,
+          "key": "loathsome",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "sickness,",
+          "start": 12.33,
+          "end": 12.77,
+          "key": "sickness",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "worthily,",
+          "start": 13.61,
+          "end": 14.01,
+          "key": "worthily",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "since",
+          "start": 14.33,
+          "end": 14.45,
+          "key": "since",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 14.45,
+          "end": 14.65,
+          "key": "they",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "God's",
+          "start": 14.65,
+          "end": 15.09,
+          "key": "gods",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "image",
+          "start": 15.09,
+          "end": 15.31,
+          "key": "image",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 15.31,
+          "end": 15.59,
+          "key": "did",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 15.59,
+          "end": 15.81,
+          "key": "not",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "reverence",
+          "start": 15.81,
+          "end": 16.19,
+          "key": "reverence",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 16.19,
+          "end": 16.47,
+          "key": "in",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "themselves.",
+          "start": 16.47,
+          "end": 16.85,
+          "key": "themselves",
+          "pieces": [
+            39
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Therefore",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "so",
+          "start": 0.97,
+          "end": 1.03
+        },
+        {
+          "text": "abject",
+          "start": 1.03,
+          "end": 1.49
+        },
+        {
+          "text": "is",
+          "start": 1.49,
+          "end": 1.69
+        },
+        {
+          "text": "their",
+          "start": 1.69,
+          "end": 1.93
+        },
+        {
+          "text": "punishment,",
+          "start": 1.93,
+          "end": 2.45
+        },
+        {
+          "text": "Disfiguring",
+          "start": 2.99,
+          "end": 3.43
+        },
+        {
+          "text": "not",
+          "start": 3.43,
+          "end": 3.75
+        },
+        {
+          "text": "God's",
+          "start": 3.75,
+          "end": 4.25
+        },
+        {
+          "text": "likeness,",
+          "start": 4.25,
+          "end": 4.55
+        },
+        {
+          "text": "but",
+          "start": 5.01,
+          "end": 5.21
+        },
+        {
+          "text": "their",
+          "start": 5.21,
+          "end": 5.39
+        },
+        {
+          "text": "own;",
+          "start": 5.39,
+          "end": 5.71
+        },
+        {
+          "text": "Or",
+          "start": 6.13,
+          "end": 6.37
+        },
+        {
+          "text": "if",
+          "start": 6.37,
+          "end": 6.51
+        },
+        {
+          "text": "his",
+          "start": 6.51,
+          "end": 6.65
+        },
+        {
+          "text": "likeness,",
+          "start": 6.65,
+          "end": 7.07
+        },
+        {
+          "text": "by",
+          "start": 7.07,
+          "end": 7.49
+        },
+        {
+          "text": "themselves",
+          "start": 7.49,
+          "end": 7.99
+        },
+        {
+          "text": "defaced;",
+          "start": 7.99,
+          "end": 8.69
+        },
+        {
+          "text": "While",
+          "start": 9.11,
+          "end": 9.37
+        },
+        {
+          "text": "they",
+          "start": 9.37,
+          "end": 9.55
+        },
+        {
+          "text": "pervert",
+          "start": 9.55,
+          "end": 9.91
+        },
+        {
+          "text": "pure",
+          "start": 9.91,
+          "end": 10.19
+        },
+        {
+          "text": "Nature's",
+          "start": 10.19,
+          "end": 10.79
+        },
+        {
+          "text": "healthful",
+          "start": 10.79,
+          "end": 11.29
+        },
+        {
+          "text": "rules",
+          "start": 11.29,
+          "end": 11.61
+        },
+        {
+          "text": "To",
+          "start": 11.61,
+          "end": 11.89
+        },
+        {
+          "text": "loathsome",
+          "start": 11.89,
+          "end": 12.33
+        },
+        {
+          "text": "sickness;",
+          "start": 12.33,
+          "end": 12.77
+        },
+        {
+          "text": "worthily,",
+          "start": 13.61,
+          "end": 14.01
+        },
+        {
+          "text": "since",
+          "start": 14.33,
+          "end": 14.45
+        },
+        {
+          "text": "they",
+          "start": 14.45,
+          "end": 14.65
+        },
+        {
+          "text": "God's",
+          "start": 14.65,
+          "end": 15.09
+        },
+        {
+          "text": "image",
+          "start": 15.09,
+          "end": 15.31
+        },
+        {
+          "text": "did",
+          "start": 15.31,
+          "end": 15.59
+        },
+        {
+          "text": "not",
+          "start": 15.59,
+          "end": 15.81
+        },
+        {
+          "text": "reverence",
+          "start": 15.81,
+          "end": 16.19
+        },
+        {
+          "text": "in",
+          "start": 16.19,
+          "end": 16.47
+        },
+        {
+          "text": "themselves.",
+          "start": 16.47,
+          "end": 16.85
+        }
+      ],
+      "stats": {
+        "expected_words": 40,
+        "heard_words": 40,
+        "matched_words": 40
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5325691560283303
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f0df168e455d9fc8504a8ae5837ff97055e949ed3d2119f4beb3295a808b5ee9",
+  "selected_reasons": []
+}

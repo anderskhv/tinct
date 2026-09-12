@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "f5a052923bc0348028e162da126a1f4303065d62a90996e7564381c0a205a994",
+  "attempts": [
+    {
+      "asr_seconds": 0.129791694926098,
+      "alignment_seconds": 0.000375252915546298,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Where do you come from?\"",
+        "hotwords": "Where"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Where do you come from?",
+          "start": 0.02,
+          "end": 1.16,
+          "words": [
+            {
+              "text": " Where",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.9169921875
+            },
+            {
+              "text": " do",
+              "start": 0.52,
+              "end": 0.62,
+              "probability": 0.99609375
+            },
+            {
+              "text": " you",
+              "start": 0.62,
+              "end": 0.72,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " come",
+              "start": 0.72,
+              "end": 0.9,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " from?",
+              "start": 0.9,
+              "end": 1.16,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Where",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "do",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "raw": "you",
+          "start": 0.62,
+          "end": 0.72
+        },
+        {
+          "raw": "come",
+          "start": 0.72,
+          "end": 0.9
+        },
+        {
+          "raw": "from?",
+          "start": 0.9,
+          "end": 1.16
+        }
+      ],
+      "expected_tokens": [
+        "\"Where",
+        "do",
+        "you",
+        "come",
+        "from?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Where",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "where",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 0.52,
+          "end": 0.62,
+          "key": "do",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.62,
+          "end": 0.72,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 0.72,
+          "end": 0.9,
+          "key": "come",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "from?",
+          "start": 0.9,
+          "end": 1.16,
+          "key": "from",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Where",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "do",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "text": "you",
+          "start": 0.62,
+          "end": 0.72
+        },
+        {
+          "text": "come",
+          "start": 0.72,
+          "end": 0.9
+        },
+        {
+          "text": "from?\"",
+          "start": 0.9,
+          "end": 1.16
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13030370487831533
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e412b1dcfc4618650a2615cd6104d5ff82d081703772a33db6e9932202405641",
+  "selected_reasons": []
+}

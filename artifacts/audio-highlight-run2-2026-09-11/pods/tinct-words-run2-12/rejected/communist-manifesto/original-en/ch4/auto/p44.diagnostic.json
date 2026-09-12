@@ -1,0 +1,574 @@
+{
+  "complete": true,
+  "signature": "0452ece9edaca4bed53d9d2fea18401c4968b3380729ad82d913eada0b38eeb0",
+  "attempts": [
+    {
+      "asr_seconds": 0.3169933978933841,
+      "alignment_seconds": 0.0003294241614639759,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Bourgeois Socialism attains adequate expression, when, and only when, it becomes a mere figure of speech.",
+        "hotwords": "Bourgeois, Socialism"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Bourgeois Socialism attains adequate expression, when, and only when, it becomes a mere figure of speech.",
+          "start": 0.05,
+          "end": 6.93,
+          "words": [
+            {
+              "text": " Bourgeois",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.664794921875
+            },
+            {
+              "text": " Socialism",
+              "start": 0.71,
+              "end": 1.37,
+              "probability": 0.0389404296875
+            },
+            {
+              "text": " attains",
+              "start": 1.37,
+              "end": 2.01,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " adequate",
+              "start": 2.01,
+              "end": 2.43,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " expression,",
+              "start": 2.43,
+              "end": 3.03,
+              "probability": 0.990234375
+            },
+            {
+              "text": " when,",
+              "start": 3.57,
+              "end": 3.81,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " and",
+              "start": 4.31,
+              "end": 4.43,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " only",
+              "start": 4.43,
+              "end": 4.65,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " when,",
+              "start": 4.65,
+              "end": 4.97,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it",
+              "start": 5.25,
+              "end": 5.37,
+              "probability": 0.99609375
+            },
+            {
+              "text": " becomes",
+              "start": 5.37,
+              "end": 5.65,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " a",
+              "start": 5.65,
+              "end": 5.85,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " mere",
+              "start": 5.85,
+              "end": 6.01,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " figure",
+              "start": 6.01,
+              "end": 6.33,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " of",
+              "start": 6.33,
+              "end": 6.63,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " speech.",
+              "start": 6.63,
+              "end": 6.93,
+              "probability": 0.98583984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bourgeois",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "Socialism",
+          "start": 0.71,
+          "end": 1.37
+        },
+        {
+          "raw": "attains",
+          "start": 1.37,
+          "end": 2.01
+        },
+        {
+          "raw": "adequate",
+          "start": 2.01,
+          "end": 2.43
+        },
+        {
+          "raw": "expression,",
+          "start": 2.43,
+          "end": 3.03
+        },
+        {
+          "raw": "when,",
+          "start": 3.57,
+          "end": 3.81
+        },
+        {
+          "raw": "and",
+          "start": 4.31,
+          "end": 4.43
+        },
+        {
+          "raw": "only",
+          "start": 4.43,
+          "end": 4.65
+        },
+        {
+          "raw": "when,",
+          "start": 4.65,
+          "end": 4.97
+        },
+        {
+          "raw": "it",
+          "start": 5.25,
+          "end": 5.37
+        },
+        {
+          "raw": "becomes",
+          "start": 5.37,
+          "end": 5.65
+        },
+        {
+          "raw": "a",
+          "start": 5.65,
+          "end": 5.85
+        },
+        {
+          "raw": "mere",
+          "start": 5.85,
+          "end": 6.01
+        },
+        {
+          "raw": "figure",
+          "start": 6.01,
+          "end": 6.33
+        },
+        {
+          "raw": "of",
+          "start": 6.33,
+          "end": 6.63
+        },
+        {
+          "raw": "speech.",
+          "start": 6.63,
+          "end": 6.93
+        }
+      ],
+      "expected_tokens": [
+        "Bourgeois",
+        "Socialism",
+        "attains",
+        "adequate",
+        "expression,",
+        "when,",
+        "and",
+        "only",
+        "when,",
+        "it",
+        "becomes",
+        "a",
+        "mere",
+        "figure",
+        "of",
+        "speech."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bourgeois",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "bourgeois",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Socialism",
+          "start": 0.71,
+          "end": 1.37,
+          "key": "socialism",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "attains",
+          "start": 1.37,
+          "end": 2.01,
+          "key": "attains",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "adequate",
+          "start": 2.01,
+          "end": 2.43,
+          "key": "adequate",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "expression,",
+          "start": 2.43,
+          "end": 3.03,
+          "key": "expression",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "when,",
+          "start": 3.57,
+          "end": 3.81,
+          "key": "when",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.31,
+          "end": 4.43,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 4.43,
+          "end": 4.65,
+          "key": "only",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "when,",
+          "start": 4.65,
+          "end": 4.97,
+          "key": "when",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 5.25,
+          "end": 5.37,
+          "key": "it",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "becomes",
+          "start": 5.37,
+          "end": 5.65,
+          "key": "becomes",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.65,
+          "end": 5.85,
+          "key": "a",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "mere",
+          "start": 5.85,
+          "end": 6.01,
+          "key": "mere",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "figure",
+          "start": 6.01,
+          "end": 6.33,
+          "key": "figure",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.33,
+          "end": 6.63,
+          "key": "of",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "speech.",
+          "start": 6.63,
+          "end": 6.93,
+          "key": "speech",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Bourgeois",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "Socialism",
+          "start": 0.71,
+          "end": 1.37
+        },
+        {
+          "text": "attains",
+          "start": 1.37,
+          "end": 2.01
+        },
+        {
+          "text": "adequate",
+          "start": 2.01,
+          "end": 2.43
+        },
+        {
+          "text": "expression,",
+          "start": 2.43,
+          "end": 3.03
+        },
+        {
+          "text": "when,",
+          "start": 3.57,
+          "end": 3.81
+        },
+        {
+          "text": "and",
+          "start": 4.31,
+          "end": 4.43
+        },
+        {
+          "text": "only",
+          "start": 4.43,
+          "end": 4.65
+        },
+        {
+          "text": "when,",
+          "start": 4.65,
+          "end": 4.97
+        },
+        {
+          "text": "it",
+          "start": 5.25,
+          "end": 5.37
+        },
+        {
+          "text": "becomes",
+          "start": 5.37,
+          "end": 5.65
+        },
+        {
+          "text": "a",
+          "start": 5.65,
+          "end": 5.85
+        },
+        {
+          "text": "mere",
+          "start": 5.85,
+          "end": 6.01
+        },
+        {
+          "text": "figure",
+          "start": 6.01,
+          "end": 6.33
+        },
+        {
+          "text": "of",
+          "start": 6.33,
+          "end": 6.63
+        },
+        {
+          "text": "speech.",
+          "start": 6.63,
+          "end": 6.93
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3174506099894643
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d0227d2e37eafccd911f4174b8b11b142abb6be9bcd8679f1ced87e413c4e146",
+  "selected_reasons": []
+}

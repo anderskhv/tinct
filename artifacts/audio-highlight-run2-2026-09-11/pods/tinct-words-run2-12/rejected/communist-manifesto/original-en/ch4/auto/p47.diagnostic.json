@@ -1,0 +1,246 @@
+{
+  "complete": true,
+  "signature": "d2aad5e5c91328c7b69f255826f34ece45be1cf3faaf32707fff217717339bc2",
+  "attempts": [
+    {
+      "asr_seconds": 0.2261230768635869,
+      "alignment_seconds": 0.0002995440736413002,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "3. Critical-Utopian Socialism And Communism",
+        "hotwords": "Critical-Utopian, Socialism, And, Communism"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " 3. Critical-Utopian Socialism And Communism",
+          "start": 0.08,
+          "end": 3.42,
+          "words": [
+            {
+              "text": " 3.",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.67919921875
+            },
+            {
+              "text": " Critical",
+              "start": 1.48,
+              "end": 1.48,
+              "probability": 0.94580078125
+            },
+            {
+              "text": "-Utopian",
+              "start": 1.48,
+              "end": 2.12,
+              "probability": 0.5175349712371826
+            },
+            {
+              "text": " Socialism",
+              "start": 2.12,
+              "end": 2.56,
+              "probability": 0.3515625
+            },
+            {
+              "text": " And",
+              "start": 2.56,
+              "end": 3.02,
+              "probability": 0.009185791015625
+            },
+            {
+              "text": " Communism",
+              "start": 3.02,
+              "end": 3.42,
+              "probability": 0.94580078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "3.",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "Critical",
+          "start": 1.48,
+          "end": 1.48
+        },
+        {
+          "raw": "-Utopian",
+          "start": 1.48,
+          "end": 2.12
+        },
+        {
+          "raw": "Socialism",
+          "start": 2.12,
+          "end": 2.56
+        },
+        {
+          "raw": "And",
+          "start": 2.56,
+          "end": 3.02
+        },
+        {
+          "raw": "Communism",
+          "start": 3.02,
+          "end": 3.42
+        }
+      ],
+      "expected_tokens": [
+        "3.",
+        "Critical-Utopian",
+        "Socialism",
+        "And",
+        "Communism"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "3.",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "three",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Critical -Utopian",
+          "start": 1.48,
+          "end": 2.12,
+          "key": "criticalutopian",
+          "pieces": [
+            1,
+            2
+          ]
+        },
+        {
+          "raw": "Socialism",
+          "start": 2.12,
+          "end": 2.56,
+          "key": "socialism",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 2.56,
+          "end": 3.02,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Communism",
+          "start": 3.02,
+          "end": 3.42,
+          "key": "communism",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 1,
+          "text": "Critical-Utopian",
+          "heard": "Critical -Utopian",
+          "heard_indexes": [
+            1,
+            2
+          ],
+          "start": 1.48,
+          "end": 2.12
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "3.",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "Critical-Utopian",
+          "start": 1.48,
+          "end": 2.12
+        },
+        {
+          "text": "Socialism",
+          "start": 2.12,
+          "end": 2.56
+        },
+        {
+          "text": "And",
+          "start": 2.56,
+          "end": 3.02
+        },
+        {
+          "text": "Communism",
+          "start": 3.02,
+          "end": 3.42
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22651712480001152
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e2bde780e2dcfaa31098f2d00102f32c86fb1d405e962e73d60e008070dab043",
+  "selected_reasons": []
+}

@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "44d3f011b239118d4437cde00105c813eb0cb86f1d014829e7641de1d5c9a2d6",
+  "attempts": [
+    {
+      "asr_seconds": 0.2601135899312794,
+      "alignment_seconds": 0.00039019202813506126,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"No need,\" she whispered hardly audibly, and again made a faint movement.",
+        "hotwords": "No"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " No need, she whispered hardly audibly, and again made a faint movement.",
+          "start": 0.08,
+          "end": 4.5,
+          "words": [
+            {
+              "text": " No",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.192626953125
+            },
+            {
+              "text": " need,",
+              "start": 0.64,
+              "end": 1.0,
+              "probability": 0.978515625
+            },
+            {
+              "text": " she",
+              "start": 1.48,
+              "end": 1.58,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " whispered",
+              "start": 1.58,
+              "end": 1.86,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " hardly",
+              "start": 1.86,
+              "end": 2.34,
+              "probability": 0.78662109375
+            },
+            {
+              "text": " audibly,",
+              "start": 2.34,
+              "end": 2.82,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " and",
+              "start": 3.2,
+              "end": 3.28,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " again",
+              "start": 3.28,
+              "end": 3.52,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " made",
+              "start": 3.52,
+              "end": 3.74,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " a",
+              "start": 3.74,
+              "end": 3.88,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " faint",
+              "start": 3.88,
+              "end": 4.08,
+              "probability": 0.99609375
+            },
+            {
+              "text": " movement.",
+              "start": 4.08,
+              "end": 4.5,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "need,",
+          "start": 0.64,
+          "end": 1.0
+        },
+        {
+          "raw": "she",
+          "start": 1.48,
+          "end": 1.58
+        },
+        {
+          "raw": "whispered",
+          "start": 1.58,
+          "end": 1.86
+        },
+        {
+          "raw": "hardly",
+          "start": 1.86,
+          "end": 2.34
+        },
+        {
+          "raw": "audibly,",
+          "start": 2.34,
+          "end": 2.82
+        },
+        {
+          "raw": "and",
+          "start": 3.2,
+          "end": 3.28
+        },
+        {
+          "raw": "again",
+          "start": 3.28,
+          "end": 3.52
+        },
+        {
+          "raw": "made",
+          "start": 3.52,
+          "end": 3.74
+        },
+        {
+          "raw": "a",
+          "start": 3.74,
+          "end": 3.88
+        },
+        {
+          "raw": "faint",
+          "start": 3.88,
+          "end": 4.08
+        },
+        {
+          "raw": "movement.",
+          "start": 4.08,
+          "end": 4.5
+        }
+      ],
+      "expected_tokens": [
+        "\"No",
+        "need,\"",
+        "she",
+        "whispered",
+        "hardly",
+        "audibly,",
+        "and",
+        "again",
+        "made",
+        "a",
+        "faint",
+        "movement."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "need,",
+          "start": 0.64,
+          "end": 1.0,
+          "key": "need",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.48,
+          "end": 1.58,
+          "key": "she",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "whispered",
+          "start": 1.58,
+          "end": 1.86,
+          "key": "whispered",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hardly",
+          "start": 1.86,
+          "end": 2.34,
+          "key": "hardly",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "audibly,",
+          "start": 2.34,
+          "end": 2.82,
+          "key": "audibly",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.2,
+          "end": 3.28,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "again",
+          "start": 3.28,
+          "end": 3.52,
+          "key": "again",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "made",
+          "start": 3.52,
+          "end": 3.74,
+          "key": "made",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.74,
+          "end": 3.88,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "faint",
+          "start": 3.88,
+          "end": 4.08,
+          "key": "faint",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "movement.",
+          "start": 4.08,
+          "end": 4.5,
+          "key": "movement",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"No",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "need,\"",
+          "start": 0.64,
+          "end": 1.0
+        },
+        {
+          "text": "she",
+          "start": 1.48,
+          "end": 1.58
+        },
+        {
+          "text": "whispered",
+          "start": 1.58,
+          "end": 1.86
+        },
+        {
+          "text": "hardly",
+          "start": 1.86,
+          "end": 2.34
+        },
+        {
+          "text": "audibly,",
+          "start": 2.34,
+          "end": 2.82
+        },
+        {
+          "text": "and",
+          "start": 3.2,
+          "end": 3.28
+        },
+        {
+          "text": "again",
+          "start": 3.28,
+          "end": 3.52
+        },
+        {
+          "text": "made",
+          "start": 3.52,
+          "end": 3.74
+        },
+        {
+          "text": "a",
+          "start": 3.74,
+          "end": 3.88
+        },
+        {
+          "text": "faint",
+          "start": 3.88,
+          "end": 4.08
+        },
+        {
+          "text": "movement.",
+          "start": 4.08,
+          "end": 4.5
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2606904450803995
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ccf4c46c47726873e902c8f9d2d02be9d46b83d77c4000ccf1c8739106660e1d",
+  "selected_reasons": []
+}

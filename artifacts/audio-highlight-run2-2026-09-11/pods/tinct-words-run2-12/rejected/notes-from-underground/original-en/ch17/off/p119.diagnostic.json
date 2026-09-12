@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "4c50e3cbb038c986c50d49d8883ce27c8b5e44479f293a88b43a4305b3f91e4e",
+  "attempts": [
+    {
+      "asr_seconds": 0.1194046710152179,
+      "alignment_seconds": 0.0003230390138924122,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Wait a bit. I thought",
+          "start": 0.02,
+          "end": 1.56,
+          "words": [
+            {
+              "text": " Wait",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.51416015625
+            },
+            {
+              "text": " a",
+              "start": 0.54,
+              "end": 0.64,
+              "probability": 0.99609375
+            },
+            {
+              "text": " bit.",
+              "start": 0.64,
+              "end": 0.92,
+              "probability": 0.99609375
+            },
+            {
+              "text": " I",
+              "start": 0.92,
+              "end": 1.24,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " thought",
+              "start": 1.24,
+              "end": 1.56,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Wait",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "a",
+          "start": 0.54,
+          "end": 0.64
+        },
+        {
+          "raw": "bit.",
+          "start": 0.64,
+          "end": 0.92
+        },
+        {
+          "raw": "I",
+          "start": 0.92,
+          "end": 1.24
+        },
+        {
+          "raw": "thought",
+          "start": 1.24,
+          "end": 1.56
+        }
+      ],
+      "expected_tokens": [
+        "\"Wait",
+        "a",
+        "bit!\"",
+        "I",
+        "thought."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Wait",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "wait",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.54,
+          "end": 0.64,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "bit.",
+          "start": 0.64,
+          "end": 0.92,
+          "key": "bit",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.92,
+          "end": 1.24,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thought",
+          "start": 1.24,
+          "end": 1.56,
+          "key": "thought",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Wait",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "a",
+          "start": 0.54,
+          "end": 0.64
+        },
+        {
+          "text": "bit!\"",
+          "start": 0.64,
+          "end": 0.92
+        },
+        {
+          "text": "I",
+          "start": 0.92,
+          "end": 1.24
+        },
+        {
+          "text": "thought.",
+          "start": 1.24,
+          "end": 1.56
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1198503419291228
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a820f7d9602315c7d3f93923cbd65601fae4721ea478e9d667f20e1b87e70b26",
+  "selected_reasons": []
+}

@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "16fe3a482ce346506d683f092ec6ba186b3f6b4aa73622b6605cd548a747a455",
+  "attempts": [
+    {
+      "asr_seconds": 0.12925865198485553,
+      "alignment_seconds": 0.00025201798416674137,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cobweb. Hail!",
+        "hotwords": "Cobweb, Hail"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cobweb, Hail!",
+          "start": 0.02,
+          "end": 1.08,
+          "words": [
+            {
+              "text": " Cobweb,",
+              "start": 0.02,
+              "end": 0.76,
+              "probability": 0.3212890625
+            },
+            {
+              "text": " Hail!",
+              "start": 0.88,
+              "end": 1.08,
+              "probability": 0.3349609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cobweb,",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "raw": "Hail!",
+          "start": 0.88,
+          "end": 1.08
+        }
+      ],
+      "expected_tokens": [
+        "Cobweb.",
+        "Hail!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cobweb,",
+          "start": 0.02,
+          "end": 0.76,
+          "key": "cobweb",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Hail!",
+          "start": 0.88,
+          "end": 1.08,
+          "key": "hail",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cobweb.",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "text": "Hail!",
+          "start": 0.88,
+          "end": 1.08
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12959401099942625
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "70aea7e7eaffe92531607ecaab8dc335a0d4ae2b29ada36cc13235fe70e12d94",
+  "selected_reasons": []
+}

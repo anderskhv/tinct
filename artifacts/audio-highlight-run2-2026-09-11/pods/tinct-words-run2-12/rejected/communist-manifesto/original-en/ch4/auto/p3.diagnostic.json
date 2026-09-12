@@ -1,0 +1,1921 @@
+{
+  "complete": true,
+  "signature": "03a7c464c3110b0721dd0283c66184538c90f5974d90622410440c11c159c499",
+  "attempts": [
+    {
+      "asr_seconds": 2.39868197706528,
+      "alignment_seconds": 0.001840048935264349,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "In order to arouse sympathy, the aristocracy were obliged to lose sight, apparently, of their own interests, and to formulate their indictment against the bourgeoisie in the interest of the exploited working class alone. Thus the aristocracy took their revenge by singing lampoons on their new master, and whispering in his ears sinister prophecies of coming catastrophe.",
+        "hotwords": "Thus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Thus In order to arouse sympathy, the aristocracy were obliged to lose sight, apparently, of their own interests, and to formulate their indictment against the bourgeoisie in the interest of the exploited working class alone. Thus the aristocracy took their revenge by singing lampoons on their new master, and whispering in his ears sinister prophecies of coming catastrophe.",
+          "start": 0.05,
+          "end": 22.51,
+          "words": [
+            {
+              "text": " Thus",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 6.943941116333008e-05
+            },
+            {
+              "text": " In",
+              "start": 0.55,
+              "end": 0.55,
+              "probability": 0.00013887882232666016
+            },
+            {
+              "text": " order",
+              "start": 0.55,
+              "end": 0.69,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " to",
+              "start": 0.69,
+              "end": 0.91,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " arouse",
+              "start": 0.91,
+              "end": 1.29,
+              "probability": 0.990966796875
+            },
+            {
+              "text": " sympathy,",
+              "start": 1.29,
+              "end": 1.79,
+              "probability": 0.974609375
+            },
+            {
+              "text": " the",
+              "start": 2.37,
+              "end": 2.43,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " aristocracy",
+              "start": 2.43,
+              "end": 2.91,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " were",
+              "start": 2.91,
+              "end": 3.37,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " obliged",
+              "start": 3.37,
+              "end": 3.75,
+              "probability": 0.994140625
+            },
+            {
+              "text": " to",
+              "start": 3.75,
+              "end": 4.07,
+              "probability": 0.9921875
+            },
+            {
+              "text": " lose",
+              "start": 4.07,
+              "end": 4.25,
+              "probability": 0.98828125
+            },
+            {
+              "text": " sight,",
+              "start": 4.25,
+              "end": 4.69,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " apparently,",
+              "start": 5.09,
+              "end": 5.41,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " of",
+              "start": 5.83,
+              "end": 5.85,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " their",
+              "start": 5.85,
+              "end": 6.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " own",
+              "start": 6.01,
+              "end": 6.29,
+              "probability": 0.998046875
+            },
+            {
+              "text": " interests,",
+              "start": 6.29,
+              "end": 6.81,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " and",
+              "start": 7.41,
+              "end": 7.51,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " to",
+              "start": 7.51,
+              "end": 7.63,
+              "probability": 0.99609375
+            },
+            {
+              "text": " formulate",
+              "start": 7.63,
+              "end": 7.99,
+              "probability": 0.998046875
+            },
+            {
+              "text": " their",
+              "start": 7.99,
+              "end": 8.31,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " indictment",
+              "start": 8.31,
+              "end": 8.75,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " against",
+              "start": 8.75,
+              "end": 9.17,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 9.17,
+              "end": 9.39,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " bourgeoisie",
+              "start": 9.39,
+              "end": 9.75,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " in",
+              "start": 9.75,
+              "end": 10.37,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " the",
+              "start": 10.37,
+              "end": 10.47,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " interest",
+              "start": 10.47,
+              "end": 10.83,
+              "probability": 0.97265625
+            },
+            {
+              "text": " of",
+              "start": 10.83,
+              "end": 11.05,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 11.05,
+              "end": 11.17,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " exploited",
+              "start": 11.17,
+              "end": 11.61,
+              "probability": 0.994140625
+            },
+            {
+              "text": " working",
+              "start": 11.61,
+              "end": 12.01,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " class",
+              "start": 12.01,
+              "end": 12.39,
+              "probability": 0.83447265625
+            },
+            {
+              "text": " alone.",
+              "start": 12.39,
+              "end": 12.83,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Thus",
+              "start": 13.71,
+              "end": 13.85,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " the",
+              "start": 13.85,
+              "end": 14.05,
+              "probability": 0.64794921875
+            },
+            {
+              "text": " aristocracy",
+              "start": 14.05,
+              "end": 14.59,
+              "probability": 0.998046875
+            },
+            {
+              "text": " took",
+              "start": 14.59,
+              "end": 15.07,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " their",
+              "start": 15.07,
+              "end": 15.29,
+              "probability": 0.998046875
+            },
+            {
+              "text": " revenge",
+              "start": 15.29,
+              "end": 15.73,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " by",
+              "start": 15.73,
+              "end": 16.31,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " singing",
+              "start": 16.31,
+              "end": 16.67,
+              "probability": 0.986328125
+            },
+            {
+              "text": " lampoons",
+              "start": 16.67,
+              "end": 17.27,
+              "probability": 0.948486328125
+            },
+            {
+              "text": " on",
+              "start": 17.27,
+              "end": 17.49,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " their",
+              "start": 17.49,
+              "end": 17.61,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " new",
+              "start": 17.61,
+              "end": 17.81,
+              "probability": 0.974609375
+            },
+            {
+              "text": " master,",
+              "start": 17.81,
+              "end": 18.23,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " and",
+              "start": 18.81,
+              "end": 18.91,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " whispering",
+              "start": 18.91,
+              "end": 19.31,
+              "probability": 0.99609375
+            },
+            {
+              "text": " in",
+              "start": 19.31,
+              "end": 19.61,
+              "probability": 0.990234375
+            },
+            {
+              "text": " his",
+              "start": 19.61,
+              "end": 19.73,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " ears",
+              "start": 19.73,
+              "end": 19.99,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " sinister",
+              "start": 19.99,
+              "end": 20.57,
+              "probability": 0.94140625
+            },
+            {
+              "text": " prophecies",
+              "start": 20.57,
+              "end": 21.29,
+              "probability": 0.992431640625
+            },
+            {
+              "text": " of",
+              "start": 21.29,
+              "end": 21.55,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " coming",
+              "start": 21.55,
+              "end": 21.89,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " catastrophe.",
+              "start": 21.89,
+              "end": 22.51,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Thus",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "In",
+          "start": 0.55,
+          "end": 0.55
+        },
+        {
+          "raw": "order",
+          "start": 0.55,
+          "end": 0.69
+        },
+        {
+          "raw": "to",
+          "start": 0.69,
+          "end": 0.91
+        },
+        {
+          "raw": "arouse",
+          "start": 0.91,
+          "end": 1.29
+        },
+        {
+          "raw": "sympathy,",
+          "start": 1.29,
+          "end": 1.79
+        },
+        {
+          "raw": "the",
+          "start": 2.37,
+          "end": 2.43
+        },
+        {
+          "raw": "aristocracy",
+          "start": 2.43,
+          "end": 2.91
+        },
+        {
+          "raw": "were",
+          "start": 2.91,
+          "end": 3.37
+        },
+        {
+          "raw": "obliged",
+          "start": 3.37,
+          "end": 3.75
+        },
+        {
+          "raw": "to",
+          "start": 3.75,
+          "end": 4.07
+        },
+        {
+          "raw": "lose",
+          "start": 4.07,
+          "end": 4.25
+        },
+        {
+          "raw": "sight,",
+          "start": 4.25,
+          "end": 4.69
+        },
+        {
+          "raw": "apparently,",
+          "start": 5.09,
+          "end": 5.41
+        },
+        {
+          "raw": "of",
+          "start": 5.83,
+          "end": 5.85
+        },
+        {
+          "raw": "their",
+          "start": 5.85,
+          "end": 6.01
+        },
+        {
+          "raw": "own",
+          "start": 6.01,
+          "end": 6.29
+        },
+        {
+          "raw": "interests,",
+          "start": 6.29,
+          "end": 6.81
+        },
+        {
+          "raw": "and",
+          "start": 7.41,
+          "end": 7.51
+        },
+        {
+          "raw": "to",
+          "start": 7.51,
+          "end": 7.63
+        },
+        {
+          "raw": "formulate",
+          "start": 7.63,
+          "end": 7.99
+        },
+        {
+          "raw": "their",
+          "start": 7.99,
+          "end": 8.31
+        },
+        {
+          "raw": "indictment",
+          "start": 8.31,
+          "end": 8.75
+        },
+        {
+          "raw": "against",
+          "start": 8.75,
+          "end": 9.17
+        },
+        {
+          "raw": "the",
+          "start": 9.17,
+          "end": 9.39
+        },
+        {
+          "raw": "bourgeoisie",
+          "start": 9.39,
+          "end": 9.75
+        },
+        {
+          "raw": "in",
+          "start": 9.75,
+          "end": 10.37
+        },
+        {
+          "raw": "the",
+          "start": 10.37,
+          "end": 10.47
+        },
+        {
+          "raw": "interest",
+          "start": 10.47,
+          "end": 10.83
+        },
+        {
+          "raw": "of",
+          "start": 10.83,
+          "end": 11.05
+        },
+        {
+          "raw": "the",
+          "start": 11.05,
+          "end": 11.17
+        },
+        {
+          "raw": "exploited",
+          "start": 11.17,
+          "end": 11.61
+        },
+        {
+          "raw": "working",
+          "start": 11.61,
+          "end": 12.01
+        },
+        {
+          "raw": "class",
+          "start": 12.01,
+          "end": 12.39
+        },
+        {
+          "raw": "alone.",
+          "start": 12.39,
+          "end": 12.83
+        },
+        {
+          "raw": "Thus",
+          "start": 13.71,
+          "end": 13.85
+        },
+        {
+          "raw": "the",
+          "start": 13.85,
+          "end": 14.05
+        },
+        {
+          "raw": "aristocracy",
+          "start": 14.05,
+          "end": 14.59
+        },
+        {
+          "raw": "took",
+          "start": 14.59,
+          "end": 15.07
+        },
+        {
+          "raw": "their",
+          "start": 15.07,
+          "end": 15.29
+        },
+        {
+          "raw": "revenge",
+          "start": 15.29,
+          "end": 15.73
+        },
+        {
+          "raw": "by",
+          "start": 15.73,
+          "end": 16.31
+        },
+        {
+          "raw": "singing",
+          "start": 16.31,
+          "end": 16.67
+        },
+        {
+          "raw": "lampoons",
+          "start": 16.67,
+          "end": 17.27
+        },
+        {
+          "raw": "on",
+          "start": 17.27,
+          "end": 17.49
+        },
+        {
+          "raw": "their",
+          "start": 17.49,
+          "end": 17.61
+        },
+        {
+          "raw": "new",
+          "start": 17.61,
+          "end": 17.81
+        },
+        {
+          "raw": "master,",
+          "start": 17.81,
+          "end": 18.23
+        },
+        {
+          "raw": "and",
+          "start": 18.81,
+          "end": 18.91
+        },
+        {
+          "raw": "whispering",
+          "start": 18.91,
+          "end": 19.31
+        },
+        {
+          "raw": "in",
+          "start": 19.31,
+          "end": 19.61
+        },
+        {
+          "raw": "his",
+          "start": 19.61,
+          "end": 19.73
+        },
+        {
+          "raw": "ears",
+          "start": 19.73,
+          "end": 19.99
+        },
+        {
+          "raw": "sinister",
+          "start": 19.99,
+          "end": 20.57
+        },
+        {
+          "raw": "prophecies",
+          "start": 20.57,
+          "end": 21.29
+        },
+        {
+          "raw": "of",
+          "start": 21.29,
+          "end": 21.55
+        },
+        {
+          "raw": "coming",
+          "start": 21.55,
+          "end": 21.89
+        },
+        {
+          "raw": "catastrophe.",
+          "start": 21.89,
+          "end": 22.51
+        }
+      ],
+      "expected_tokens": [
+        "In",
+        "order",
+        "to",
+        "arouse",
+        "sympathy,",
+        "the",
+        "aristocracy",
+        "were",
+        "obliged",
+        "to",
+        "lose",
+        "sight,",
+        "apparently,",
+        "of",
+        "their",
+        "own",
+        "interests,",
+        "and",
+        "to",
+        "formulate",
+        "their",
+        "indictment",
+        "against",
+        "the",
+        "bourgeoisie",
+        "in",
+        "the",
+        "interest",
+        "of",
+        "the",
+        "exploited",
+        "working",
+        "class",
+        "alone.",
+        "Thus",
+        "the",
+        "aristocracy",
+        "took",
+        "their",
+        "revenge",
+        "by",
+        "singing",
+        "lampoons",
+        "on",
+        "their",
+        "new",
+        "master,",
+        "and",
+        "whispering",
+        "in",
+        "his",
+        "ears",
+        "sinister",
+        "prophecies",
+        "of",
+        "coming",
+        "catastrophe."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          57,
+          1,
+          58
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Thus",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "thus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 0.55,
+          "end": 0.55,
+          "key": "in",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "order",
+          "start": 0.55,
+          "end": 0.69,
+          "key": "order",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.69,
+          "end": 0.91,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "arouse",
+          "start": 0.91,
+          "end": 1.29,
+          "key": "arouse",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sympathy,",
+          "start": 1.29,
+          "end": 1.79,
+          "key": "sympathy",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.37,
+          "end": 2.43,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "aristocracy",
+          "start": 2.43,
+          "end": 2.91,
+          "key": "aristocracy",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 2.91,
+          "end": 3.37,
+          "key": "were",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "obliged",
+          "start": 3.37,
+          "end": 3.75,
+          "key": "obliged",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.75,
+          "end": 4.07,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "lose",
+          "start": 4.07,
+          "end": 4.25,
+          "key": "lose",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "sight,",
+          "start": 4.25,
+          "end": 4.69,
+          "key": "sight",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "apparently,",
+          "start": 5.09,
+          "end": 5.41,
+          "key": "apparently",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.83,
+          "end": 5.85,
+          "key": "of",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 5.85,
+          "end": 6.01,
+          "key": "their",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "own",
+          "start": 6.01,
+          "end": 6.29,
+          "key": "own",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "interests,",
+          "start": 6.29,
+          "end": 6.81,
+          "key": "interests",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 7.41,
+          "end": 7.51,
+          "key": "and",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 7.51,
+          "end": 7.63,
+          "key": "to",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "formulate",
+          "start": 7.63,
+          "end": 7.99,
+          "key": "formulate",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 7.99,
+          "end": 8.31,
+          "key": "their",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "indictment",
+          "start": 8.31,
+          "end": 8.75,
+          "key": "indictment",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "against",
+          "start": 8.75,
+          "end": 9.17,
+          "key": "against",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.17,
+          "end": 9.39,
+          "key": "the",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "bourgeoisie",
+          "start": 9.39,
+          "end": 9.75,
+          "key": "bourgeoisie",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 9.75,
+          "end": 10.37,
+          "key": "in",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.37,
+          "end": 10.47,
+          "key": "the",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "interest",
+          "start": 10.47,
+          "end": 10.83,
+          "key": "interest",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 10.83,
+          "end": 11.05,
+          "key": "of",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.05,
+          "end": 11.17,
+          "key": "the",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "exploited",
+          "start": 11.17,
+          "end": 11.61,
+          "key": "exploited",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "working",
+          "start": 11.61,
+          "end": 12.01,
+          "key": "working",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "class",
+          "start": 12.01,
+          "end": 12.39,
+          "key": "class",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "alone.",
+          "start": 12.39,
+          "end": 12.83,
+          "key": "alone",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "Thus",
+          "start": 13.71,
+          "end": 13.85,
+          "key": "thus",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.85,
+          "end": 14.05,
+          "key": "the",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "aristocracy",
+          "start": 14.05,
+          "end": 14.59,
+          "key": "aristocracy",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "took",
+          "start": 14.59,
+          "end": 15.07,
+          "key": "took",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 15.07,
+          "end": 15.29,
+          "key": "their",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "revenge",
+          "start": 15.29,
+          "end": 15.73,
+          "key": "revenge",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 15.73,
+          "end": 16.31,
+          "key": "by",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "singing",
+          "start": 16.31,
+          "end": 16.67,
+          "key": "singing",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "lampoons",
+          "start": 16.67,
+          "end": 17.27,
+          "key": "lampoons",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 17.27,
+          "end": 17.49,
+          "key": "on",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 17.49,
+          "end": 17.61,
+          "key": "their",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "new",
+          "start": 17.61,
+          "end": 17.81,
+          "key": "new",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "master,",
+          "start": 17.81,
+          "end": 18.23,
+          "key": "master",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 18.81,
+          "end": 18.91,
+          "key": "and",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "whispering",
+          "start": 18.91,
+          "end": 19.31,
+          "key": "whispering",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 19.31,
+          "end": 19.61,
+          "key": "in",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 19.61,
+          "end": 19.73,
+          "key": "his",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "ears",
+          "start": 19.73,
+          "end": 19.99,
+          "key": "ears",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "sinister",
+          "start": 19.99,
+          "end": 20.57,
+          "key": "sinister",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "prophecies",
+          "start": 20.57,
+          "end": 21.29,
+          "key": "prophecies",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 21.29,
+          "end": 21.55,
+          "key": "of",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "coming",
+          "start": 21.55,
+          "end": 21.89,
+          "key": "coming",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "catastrophe.",
+          "start": 21.89,
+          "end": 22.51,
+          "key": "catastrophe",
+          "pieces": [
+            57
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "In",
+          "start": 0.55,
+          "end": 0.55
+        },
+        {
+          "text": "order",
+          "start": 0.55,
+          "end": 0.69
+        },
+        {
+          "text": "to",
+          "start": 0.69,
+          "end": 0.91
+        },
+        {
+          "text": "arouse",
+          "start": 0.91,
+          "end": 1.29
+        },
+        {
+          "text": "sympathy,",
+          "start": 1.29,
+          "end": 1.79
+        },
+        {
+          "text": "the",
+          "start": 2.37,
+          "end": 2.43
+        },
+        {
+          "text": "aristocracy",
+          "start": 2.43,
+          "end": 2.91
+        },
+        {
+          "text": "were",
+          "start": 2.91,
+          "end": 3.37
+        },
+        {
+          "text": "obliged",
+          "start": 3.37,
+          "end": 3.75
+        },
+        {
+          "text": "to",
+          "start": 3.75,
+          "end": 4.07
+        },
+        {
+          "text": "lose",
+          "start": 4.07,
+          "end": 4.25
+        },
+        {
+          "text": "sight,",
+          "start": 4.25,
+          "end": 4.69
+        },
+        {
+          "text": "apparently,",
+          "start": 5.09,
+          "end": 5.41
+        },
+        {
+          "text": "of",
+          "start": 5.83,
+          "end": 5.85
+        },
+        {
+          "text": "their",
+          "start": 5.85,
+          "end": 6.01
+        },
+        {
+          "text": "own",
+          "start": 6.01,
+          "end": 6.29
+        },
+        {
+          "text": "interests,",
+          "start": 6.29,
+          "end": 6.81
+        },
+        {
+          "text": "and",
+          "start": 7.41,
+          "end": 7.51
+        },
+        {
+          "text": "to",
+          "start": 7.51,
+          "end": 7.63
+        },
+        {
+          "text": "formulate",
+          "start": 7.63,
+          "end": 7.99
+        },
+        {
+          "text": "their",
+          "start": 7.99,
+          "end": 8.31
+        },
+        {
+          "text": "indictment",
+          "start": 8.31,
+          "end": 8.75
+        },
+        {
+          "text": "against",
+          "start": 8.75,
+          "end": 9.17
+        },
+        {
+          "text": "the",
+          "start": 9.17,
+          "end": 9.39
+        },
+        {
+          "text": "bourgeoisie",
+          "start": 9.39,
+          "end": 9.75
+        },
+        {
+          "text": "in",
+          "start": 9.75,
+          "end": 10.37
+        },
+        {
+          "text": "the",
+          "start": 10.37,
+          "end": 10.47
+        },
+        {
+          "text": "interest",
+          "start": 10.47,
+          "end": 10.83
+        },
+        {
+          "text": "of",
+          "start": 10.83,
+          "end": 11.05
+        },
+        {
+          "text": "the",
+          "start": 11.05,
+          "end": 11.17
+        },
+        {
+          "text": "exploited",
+          "start": 11.17,
+          "end": 11.61
+        },
+        {
+          "text": "working",
+          "start": 11.61,
+          "end": 12.01
+        },
+        {
+          "text": "class",
+          "start": 12.01,
+          "end": 12.39
+        },
+        {
+          "text": "alone.",
+          "start": 12.39,
+          "end": 12.83
+        },
+        {
+          "text": "Thus",
+          "start": 13.71,
+          "end": 13.85
+        },
+        {
+          "text": "the",
+          "start": 13.85,
+          "end": 14.05
+        },
+        {
+          "text": "aristocracy",
+          "start": 14.05,
+          "end": 14.59
+        },
+        {
+          "text": "took",
+          "start": 14.59,
+          "end": 15.07
+        },
+        {
+          "text": "their",
+          "start": 15.07,
+          "end": 15.29
+        },
+        {
+          "text": "revenge",
+          "start": 15.29,
+          "end": 15.73
+        },
+        {
+          "text": "by",
+          "start": 15.73,
+          "end": 16.31
+        },
+        {
+          "text": "singing",
+          "start": 16.31,
+          "end": 16.67
+        },
+        {
+          "text": "lampoons",
+          "start": 16.67,
+          "end": 17.27
+        },
+        {
+          "text": "on",
+          "start": 17.27,
+          "end": 17.49
+        },
+        {
+          "text": "their",
+          "start": 17.49,
+          "end": 17.61
+        },
+        {
+          "text": "new",
+          "start": 17.61,
+          "end": 17.81
+        },
+        {
+          "text": "master,",
+          "start": 17.81,
+          "end": 18.23
+        },
+        {
+          "text": "and",
+          "start": 18.81,
+          "end": 18.91
+        },
+        {
+          "text": "whispering",
+          "start": 18.91,
+          "end": 19.31
+        },
+        {
+          "text": "in",
+          "start": 19.31,
+          "end": 19.61
+        },
+        {
+          "text": "his",
+          "start": 19.61,
+          "end": 19.73
+        },
+        {
+          "text": "ears",
+          "start": 19.73,
+          "end": 19.99
+        },
+        {
+          "text": "sinister",
+          "start": 19.99,
+          "end": 20.57
+        },
+        {
+          "text": "prophecies",
+          "start": 20.57,
+          "end": 21.29
+        },
+        {
+          "text": "of",
+          "start": 21.29,
+          "end": 21.55
+        },
+        {
+          "text": "coming",
+          "start": 21.55,
+          "end": 21.89
+        },
+        {
+          "text": "catastrophe.",
+          "start": 21.89,
+          "end": 22.51
+        }
+      ],
+      "stats": {
+        "expected_words": 57,
+        "heard_words": 58,
+        "matched_words": 57
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.4013853000942618
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "28c22d1e7d260f01a8288dc6317a2d2c37f0eaa50772c572ae998fe3d7d3d544",
+  "selected_reasons": []
+}
