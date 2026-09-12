@@ -329,6 +329,28 @@ describe('the foot', () => {
   })
 })
 
+describe('Escape on the phone', () => {
+  it('closes the Chat sheet, leaves the menu shut, and keeps the draft', () => {
+    renderPhone()
+    fireEvent.click(screen.getByTestId('lab-super'))
+    fireEvent.click(screen.getByTestId('lab-super-row-chat'))
+    expect(root().className).toContain('has-phone-ask')
+
+    fireEvent.change(screen.getByTestId('lab-ask-input'), { target: { value: 'half a thought' } })
+    fireEvent.keyDown(window, { key: 'Escape' })
+
+    expect(root().className).not.toContain('has-phone-ask')
+    // The menu the Chat was chosen from does not come back in its place.
+    expect(root().getAttribute('data-super-menu')).toBe('closed')
+    expect(screen.queryByTestId('lab-super-menu')).toBeNull()
+
+    // The half-typed line is still there when Chat is opened again.
+    fireEvent.click(screen.getByTestId('lab-super'))
+    fireEvent.click(screen.getByTestId('lab-super-row-chat'))
+    expect((screen.getByTestId('lab-ask-input') as HTMLTextAreaElement).value).toBe('half a thought')
+  })
+})
+
 describe('the desktop', () => {
   it('gets the same two controls, and the same menu and sheet behind them', () => {
     render(<LabApp pathname="/lab/desktop" search="?chrome=v2" source={fallbackLabSource()} authToken={null} />)

@@ -3449,13 +3449,20 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     else resumeListenAfterAsk()
   }, [callOpen, endCall, resumeListenAfterAsk])
 
-  // Escape closes the desktop Chat panel like every other sheet. A menu, a
-  // settings sheet, the contents, a card or a call already answer Escape for
-  // themselves and are left to it; the composer's own draft is not cleared.
-  const desktopChatEscapes = chromeV2 && !showPhoneChrome && desktopAskOpen && chrome !== 'talking'
+  // Escape closes the Chat panel like every other sheet, on the phone as well
+  // as the desktop — a phone with a hardware or Bluetooth keyboard is a real
+  // reader, so this is not gated on pointer type. A menu, a settings sheet,
+  // the contents, a card, a prompt or a call already answer Escape for
+  // themselves and are left to it: while one of them is in front, this stays
+  // out of the way and the layer on top closes first. The composer's own
+  // draft is not cleared — it is held in `draft` above the panel, so the same
+  // half-typed line is there when Chat opens again.
+  const chatPanelEscapes = chromeV2 && chrome !== 'talking'
+    && (showPhoneChrome ? phoneAskOpen : desktopAskOpen)
     && !superMenuOpen && superSheet === null && !tocOpen && !inTheBookOpen && !callOpen && selectionPopup == null
+    && !gearOpen && !speedPopoverOpen && accountPrompt == null && !prefaceVisible
   useEffect(() => {
-    if (!desktopChatEscapes) return
+    if (!chatPanelEscapes) return
     const onKey = (event: KeyboardEvent) => {
       if (event.key !== 'Escape' || event.defaultPrevented) return
       event.preventDefault()
@@ -3464,7 +3471,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [closePhoneAsk, desktopChatEscapes, dictation])
+  }, [chatPanelEscapes, closePhoneAsk, dictation])
 
   const handleOrb = useCallback(() => {
     if (ask.voiceActive) {
