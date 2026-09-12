@@ -1,7 +1,7 @@
 """Reviewed bindings for the Histories.
 
 Nine books, 1,525 sections, 1,626 paragraphs per edition, aligned paragraph for
-paragraph. AUTHORING IS IN PROGRESS: Books 1-8 (sections 1-1403) are authored.
+paragraph. All nine books are authored.
 
 Herodotus reuses names across generations and empires, so most of the work here
 is position tables rather than aliases. In Book 1 alone there are two men called
@@ -35,10 +35,10 @@ SPLIT={
               (123,0):'cambyses-i',(206,0):'cambyses-i',
               (207,0):'cambyses-ii',(1027,0):'cambyses-ii',(1034,0):'cambyses-ii',(1044,0):'cambyses-ii',
              (1037,0):'cambyses-i',(1075,0):'cambyses-i'},None),
- # The Mede whose son the boy Cyrus whipped. A different Artembares appears in
- # the last section of Book 9 and is not yet authored.
+ # The Mede whose son the boy Cyrus whipped, and the Persian forefather of
+ # Artayctes who advised Cyrus to move to a softer country.
  'Artembares':({(113,0):'artembares-mede',(114,0):'artembares-mede',
-                (115,0):'artembares-mede'},None),
+                (115,0):'artembares-mede',(1525,0):'artembares-persia'},None),
  # The Spartan king of Croesus's day.
  'Ariston': ({(66,0):'ariston-spartan',(836,0):'ariston-spartan',
               **{(n,0):'ariston-spartan' for n in [937,947,948,949,950,951,952,954,955,1029,1123,1231,1260]},
@@ -49,7 +49,8 @@ SPLIT={
  # Agron's grandfather. The Ninos who fathered Sardanapallos is another man.
  'Nin(?:us|os)':({(7,0):'ninus'},None),
  # Bias of Priene. The Bias of Book 9 is Melampus's brother at Argos.
- 'Bias':    ({(27,0):'bias',(169,0):'bias'},None),
+ # Bias of Priene, and Melampus's brother in the Argive bargain.
+ 'Bias':    ({(27,0):'bias',(169,0):'bias',(1437,0):'bias-argos'},None),
  # Book 2. The king Moeris, not the lake that carries his name; the lake is a
  # place and is not cast.
  'Mo(?:e|i)ris':({(221,0):'moeris-king',(228,0):'moeris-king',
@@ -60,15 +61,17 @@ SPLIT={
  'Heracl(?:e)?ides':({(798,0):'heracleides-cyme',(881,0):'heracleides-mylasa'},None),
  # Anaxandrides's youngest son, named once as Pausanias's father and once in
  # the list of brothers.
- 'Cleombrot(?:us|os)':({(793,0):'cleombrotus-sparta',(802,0):'cleombrotus-sparta',(1227,0):'cleombrotus-sparta',(1331,0):'cleombrotus-sparta'},None),
+ 'Cleombrot(?:us|os)':({(637,0):'cleombrotus-sparta',(793,0):'cleombrotus-sparta',(802,0):'cleombrotus-sparta',
+                        (1227,0):'cleombrotus-sparta',(1331,0):'cleombrotus-sparta',(1413,0):'cleombrotus-sparta',
+                        (1467,0):'cleombrotus-sparta',(1481,0):'cleombrotus-sparta'},None),
  # BOOK 5. Two men called Aristagoras, two called Cleisthenes, a third Otanes,
  # a second Adrastus, and the Macedonian Alexander, who has been left unbound
  # since section 3 so that Paris could have the name to himself.
  # The Milesian is the default, but not every Aristagoras is him: the tyrant of
- # Cyzicus in Darius's fleet (694) is another man, and the Samian father of
- # Hegesistratos (1493) belongs to Book 9, which is not yet authored.
+ # Cyzicus in Darius's fleet (694) is another man, and so is the Samian father
+ # of Hegesistratos the envoy (1493).
  'Aristagoras':({(694,0):'aristagoras-kyzikos',(798,0):['aristagoras-cyme','aristagoras-miletus'],
-                 (1493,0):None},'aristagoras-miletus'),
+                 (1493,0):'aristagoras-samos'},'aristagoras-miletus'),
  'Cleisthenes':({(827,0):'cleisthenes-athens',(829,0):'cleisthenes-sicyon',
                  (831,0):'cleisthenes-athens',(833,0):'cleisthenes-athens',
                  (834,0):'cleisthenes-athens',
@@ -205,7 +208,10 @@ SPLIT={
  # Book 1 is the Chian who made the iron stand and is not cast.
  '(?:Glaucus|Glaucos)':({(972,1):'glaucus',(972,2):'glaucus',(972,3):'glaucus'},None),
  '(?:Polycritus|Polycritos)':({(936,0):'polycritus',(959,0):'polycritus',(1351,0):'polycritos-aegina',(1352,0):'polycritos-aegina'},None),
- 'Thersander':({(703,0):'thersander',(938,0):'thersander'},None),
+ # Polyneices's son in the Theban descent, and the Orchomenian who reported the
+ # weeping Persian at Attaginus's dinner.
+ 'Thersander':({(703,0):'thersander',(938,0):'thersander',
+                (1419,0):'thersander-orchomenos'},None),
  'Aristodem(?:us|os)':({(703,0):'aristodemus',(938,0):'aristodemus',
                         (1226,0):'aristodemus',(1390,0):'aristodemus',
                         **{(n,0):'aristodemus-thermopylae' for n in [1250,1251,1252,1474]}},None),
@@ -248,8 +254,14 @@ SPLIT={
  'Lyc(?:us|os)':({(172,0):'lycos',(1114,0):'lycos'},None),
  # The Silenus, not the river of Book 5.
  'Marsyas':({(1052,0):'marsyas'},None),
- 'Arta(?:y|ÿ)ntes':({(1090,0):'artayntes',(1389,0):'artayntes-samos'},None),
- 'O(?:eobazus|iobazos)':({(1091,0):'oeobazus'},None),
+ 'Arta(?:y|ÿ)ntes':({(1090,0):'artayntes',(1389,0):'artayntes-samos',
+                     (1505,0):'artayntes-samos',(1510,0):'artayntes-samos'},None),
+ # Three Persians of the name: the father whose three sons Darius killed for
+ # asking, Siromitres's father in the catalogue, and the man who carried the
+ # bridge-ropes into Sestos.
+ 'O(?:eobazus|iobazos)':({(640,0):'oeobazus-three-sons',(1091,0):'oeobazus',
+                          (1518,0):'oeobazus-cardia',(1521,0):'oeobazus-cardia',
+                          (1522,0):'oeobazus-cardia'},None),
  'Badres':({(1099,0):'badres'},None),
  'Polydoros':({(1226,0):'polydorus-sparta'},None),
  'Hegesilaos':({(1226,0):'hegesilaus',(1390,0):'hegesilaus-eurypontid'},None),
@@ -267,7 +279,8 @@ SPLIT={
  'Phylacos':({(1299,0):'phylacos-delphi',(1345,0):'phylacos-samos'},None),
  'Temenos':({(1396,0):'temenus',(1397,0):'temenus'},None),
  'A(?:e|ë)ropos':({(1396,0):'aeropos-brother',
-                   (1398,0):'aeropos-father-of-alketes'},None),
+                   (1398,0):'aeropos-father-of-alketes',
+                   (1429,0):'aeropos-tegea'},None),
  'Philip':({(1398,0):'philip-macedon'},None),
  'Silen(?:os|us)':({(1397,0):'silenus'},None),
  'Critobulos':({(1386,0):'critobulos'},None),
@@ -278,7 +291,38 @@ SPLIT={
  'Amyntas':({(1395,0):['amyntas','amyntas','amyntas-asia']},'amyntas'),
  'Lemnians':({(1333,0):'lemnians'},None),
  # Artayntes's father in Book 7, his brother's son in Book 8.
- 'Ithamitres':({(1090,0):'ithamitres',(1389,0):'ithamitres-samos'},None),
+ 'Ithamitres':({(1090,0):'ithamitres',(1389,0):'ithamitres-samos',
+                (1505,0):'ithamitres-samos'},None),
+ # ------------------------------------------------------- Book 9 (Calliope)
+ # Autesion's father in the Theban descent — printed Tisamenes once in the older
+ # translation — and the Elean diviner the Spartans made a citizen.
+ 'Tisamen(?:us|os|es)':({(703,0):'tisamenus',(938,0):'tisamenus',
+                         (1436,0):'tisamenus-diviner',(1438,0):'tisamenus-diviner',
+                         (1439,0):'tisamenus-diviner'},None),
+ # Peisistratus's son at Sigeum, Mardonius's diviner, and the Samian envoy whose
+ # name Leotychides took for an omen.
+ 'Hegesistrat(?:us|os)':({(855,0):'hegesistratus-sigeum',
+                          (1440,0):'hegesistratus-elis',(1441,0):'hegesistratus-elis',
+                          (1444,0):'hegesistratus-elis',
+                          (1493,0):'hegesistratus-samos',(1494,0):'hegesistratus-samos',
+                          (1495,0):'hegesistratus-samos'},None),
+ # Olympiodorus's father, the Aeginetan who proposed impaling Mardonius, and one
+ # of the three Samian envoys — all in the ninth book.
+ 'Lampon':({(1424,0):'lampon-athens',(1481,0):'lampon-aegina',
+            (1493,0):'lampon-samos'},None),
+ # The Aeginetan marine hacked to pieces, and Lampon of Aegina's father, whom
+ # Herodotus never identifies with him.
+ 'Pytheas':({(1203,0):'pytheas',(1351,0):'pytheas',
+             (1481,0):'pytheas-father-of-lampon'},None),
+ # Bagaeus's father, and Mardonius's son.
+ 'Artontes':({(525,0):'artontes',(1487,0):'artontes-son-of-mardonius'},None),
+ # The Spartan who killed Mardonius, and the Plataean who heard Callicrates die.
+ 'Arimnest(?:us|os)':({(1467,0):'arimnestus-sparta',(1475,0):'arimnestus-plataea'},None),
+ # Megara on the Isthmus everywhere but Sicily, where Gelon sold the commons.
+ 'Megarians|Megarian':({(1178,0):'megarians-sicily'},'megarians'),
+ # The sheep at Apollonia are sacred to the Sun; every other capitalised Sun in
+ # the work is the sun in the sky.
+ 'Sun':({(1496,0):'helios'},None),
 }
 
 # Section 476 mixes the two usurpers with the caste being massacred, and the two

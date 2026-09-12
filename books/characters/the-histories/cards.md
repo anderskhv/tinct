@@ -992,7 +992,7 @@ The son of Artontes who drew the lot, went to Sardis with a bundle of letters, a
 
 ## Artontes · reference
 
-Bagaios’s father.
+Bagaios’s father. Not Mardonius’s son.
 
 ## Melissa · supporting
 
@@ -1214,7 +1214,7 @@ Theras’s father.
 
 ## Tisamenus · reference
 
-Autesion’s father, in the descent from Cadmus.
+Autesion’s father, in the descent from Cadmus. The older translation prints Tisamenes in one of the two places. Not the diviner at Plataea.
 
 ## Membliarus · reference
 
@@ -1557,6 +1557,8 @@ Anaxandrides’s third son, named here only in the list of brothers — the man 
 ## Cleombrotus · supporting
 
 Anaxandrides’s youngest son, named with Leonidas; Pausanias was his son.
+
+After source chapter 1413, paragraph 1: Anaxandrides’s youngest son and Leonidas’s brother, and Pausanias’s father. He led the army home from the Isthmus when the wall was finished and died not long after: the sun was darkened in the sky while he was sacrificing for the war against Persia.
 
 ## Telys · supporting
 
@@ -1908,6 +1910,8 @@ Gobryas’s son and Darius’s son-in-law, sent down to the coast young. He put 
 
 After source chapter 1359, paragraph 1: He talked Xerxes into the war and kept at his side through it, and after Salamis he asked to stay behind with three hundred thousand picked men rather than answer for it — wintering in Thessaly, sending Mys round the oracles and Alexander of Macedon to Athens.
 
+After source chapter 1467, paragraph 1: He came back over Boeotia with the Thebans telling him to buy Greece instead of fighting for it, burned what was left of Athens, and chose to be beaten at Plataea rather than wait. He fought on a white horse with the thousand best Persians round him, and while he lived they held; Arimnestus of Sparta killed him, and the Spartans took it for the satisfaction the oracle had promised them for Leonidas. His body disappeared the next day and Herodotus could never establish who buried it.
+
 ## Artozostra · reference
 
 Darius’s daughter, whom Mardonius had lately married.
@@ -1933,6 +1937,8 @@ Ariston’s son and king of Sparta of the younger house, who accused Cleomenes o
 Demaratus’s kinsman, who had lost his bride to him and swore the charge that unseated him. He took the throne, was sentenced to be handed over to the Aeginetans for the hostages, told the Athenians the story of Glaucus instead, and ended in exile at Tegea after being caught in camp sitting on a glove stuffed with money.
 
 After source chapter 1390, paragraph 1: In the spring after Salamis he commanded the Greek fleet at Aegina — a hundred and ten ships — and would take the Ionian envoys no further east than Delos.
+
+After source chapter 1501, paragraph 1: He took the fleet from Delos to Samos and then to the mainland, heard out the Samian envoy only as far as his name, and called out to the Ionians along the shore at Mycale to remember the freedom of all and the watchword Hebe — Themistocles’s trick at Artemisium over again, which works whether the barbarians hear it or not. When the bridges proved broken he sailed the Peloponnesians home.
 
 ## Crius · supporting
 
@@ -2121,6 +2127,8 @@ The Argive volunteer commander at Aegina, a trained pentathlete, who killed thre
 ## Sophanes · supporting
 
 The Athenian of Deceleia who killed Eurybates.
+
+After source chapter 1477, paragraph 1: Eutychides’s son, of the deme of Deceleia, and the best of all the Athenians at Plataea. One story says he carried an iron anchor on a bronze chain at his belt and threw it down when the enemy came up, so that no one could shift him, and took it up again to pursue; the other says the anchor was the device on a shield that never stopped moving. He killed Eurybates the Argive pentathlete at the siege of Aegina, and was killed by the Edonians at Datum, general with Leagrus, fighting for the gold mines.
 
 ## Datis · major
 
@@ -2350,6 +2358,8 @@ The people Alcon came from.
 
 The Athenian who married the younger Agariste and, when Miltiades came back from Paros, brought him before the people and demanded the death penalty.
 
+After source chapter 1517, paragraph 1: The Athenian commander at the Hellespont, who would not sail home with the Peloponnesians when the bridges were found broken up but crossed to the Chersonese and besieged Sestos through the autumn — and refused Artayctes’s three hundred talents.
+
 ## Ariphron · reference
 
 Xanthippus’s father.
@@ -2482,6 +2492,8 @@ Commander of the Persian contingent and father of Xerxes’s wife Amestris. Hero
 
 Xerxes’s wife, who in her old age buried twice seven children of noble Persians alive as a thank-offering for her own life.
 
+After source chapter 1515, paragraph 1: Xerxes’s wife, who wove him a great mantle and then saw it on Artaynte. She did not blame the girl but her mother, and waited for the one feast in the year at which a request to the king cannot be refused to ask for the wife of Masistes. She cut away the woman’s breasts and threw them to the dogs, cut off her nose, ears, lips and tongue, and sent her home.
+
 ## Cepheus · reference
 
 Belus’s son, whose daughter Perseus married; he had no son, and the Persian race is named from his grandson.
@@ -2541,6 +2553,8 @@ Commander of the Arians. Not the judge whose skin Cambyses had stretched over a 
 ## Artabazus · major
 
 Son of Pharnaces, commander of the Parthians and Chorasmians, and afterwards the general who brought the remnant of the army home.
+
+After source chapter 1469, paragraph 1: Son of Pharnaces, a man Xerxes esteemed above almost all Persians, who wanted the army moved behind the walls of Thebes and the Greek leaders bought with the gold instead of fought — and was told by Mardonius that the king would hear of his cowardice. He led his forty thousand out as if into the battle, saw the Persians already running, and ran by the quickest road for the Hellespont, telling the Thessalians on the way that Mardonius was following close behind. He reached Byzantium with a fraction of them and crossed to Asia.
 
 ## Pharnaces · reference
 
@@ -2626,6 +2640,8 @@ Badres’s father.
 
 Son of Cherasmis, commander of the Macrones and Mossynoeci and governor of Sestos — the man who used to take women into the shrine of Protesilaus, and whom the Athenians nailed alive to a plank.
 
+After source chapter 1523, paragraph 1: Governor of Sestos under Xerxes, and a desperate and reckless man: he got the treasures of Protesilaus’s tomb out of the king by describing the dead hero as a Greek who had invaded Persian land, then sowed the sacred precinct and used the inner shrine for women. Besieged without warning, he slipped out by night and was caught above Aegospotami. He offered a hundred talents to the god and two hundred for himself and his son; the people of Elaeus wanted vengeance, and Xanthippus nailed him to boards and had his son stoned to death in front of him.
+
 ## Cherasmis · reference
 
 Artayctes’s father.
@@ -2637,6 +2653,8 @@ Son of Teaspis, commander of the Mares and Colchians.
 ## Masistius · supporting
 
 Son of Siromitres, commander of the Alarodians and Saspires, and afterwards the cavalry commander whose death before Plataea the Persians mourned.
+
+After source chapter 1425, paragraph 1: Son of Siromitres, commander of the Alarodians and Saspires in the catalogue and afterwards Mardonius’s cavalry commander, on a Nesaean horse with a golden bridle. An arrow in the horse’s side threw him; the Athenians could do nothing against the gold-scaled cuirass under his crimson tunic until somebody thrust into his eye. Persians and horses had their hair cut for him and Boeotia was filled with the sound of it, because after Mardonius he was of the greatest account with the Persians and the king. The Greeks carried the body along their ranks in a cart and left their places to look at it.
 
 ## Mardontes · supporting
 
@@ -2653,6 +2671,8 @@ Son of Otanes, a cousin of Xerxes and one of the six generals of the infantry.
 ## Masistes · major
 
 Darius’s son by Atossa, one of the six generals of the infantry, and the brother whose family Amestris destroyed.
+
+After source chapter 1516, paragraph 1: Xerxes’s brother, governor of Bactria, who called Artayntes worse than a woman on the road from Mycale and nearly died for it. Xerxes wanted his wife, could not have her, married his daughter to his own son instead, and ended by handing the wife to Amestris to be mutilated; when Masistes refused to put her away he was told he would keep neither her nor the king’s daughter. He came home, saw what had been done, and set out for Bactria with his sons to raise the province — which Herodotus thinks he would have managed, had the army sent after him not caught and killed them all.
 
 ## Gergis · reference
 
@@ -3298,6 +3318,8 @@ One of two of the three hundred sent out of the camp with eye disease. Told that
 
 The other man with the eye disease, who stayed behind fainting and came home. No Spartan would give him fire or speak to him, and he was called Aristodemus the Coward — until Plataea, where he made it good.
 
+After source chapter 1474, paragraph 1: By far the best man at Plataea in Herodotus’s opinion. The Spartans there said he had plainly wanted to be killed because of the charge against him, and had left his place in the ranks as if in a frenzy — which, Herodotus suspects, they said out of ill will. He was the one man of the honoured dead who was not honoured.
+
 ## Pantites · supporting
 
 The other survivor of the three hundred, sent as a messenger to Thessaly, who came home to dishonour and hanged himself.
@@ -3610,6 +3632,8 @@ Commander of the men of Scione, who arranged to betray Potidaea to Artabazus by 
 
 Son of Artachaees, one of the new commanders sent down to the fleet at Samos in the spring, who took his brother’s son Ithamitres into joint command with him. Not the commander of the Pactyes, who was Ithamitres’s son.
 
+After source chapter 1510, paragraph 1: One of the two fleet commanders who got away from Mycale. On the road to Sardis Masistes told him he had shown himself worse than a woman as a general — for a Persian the worst thing that can be said — and he drew his sword, and was thrown to the ground by a man of Halicarnassus before he could use it.
+
 ## Ithamitres · reference
 
 Artayntes of Samos’s brother’s son, added to the joint command by Artayntes himself. Not the Ithamitres whose son commanded the Pactyes.
@@ -3805,3 +3829,405 @@ Whose king withdrew to Mount Rhodope rather than serve Xerxes, and put out his s
 ## The Illyrians · reference
 
 To whom the three Temenid brothers fled out of Argos.
+
+## Pausanias · central
+
+Cleombrotus’s son, of the elder Spartan royal house. Book 4 names him as the dedicator of a bronze mixing-bowl at the mouth of the Pontus six times the size of the one there; Book 5 as the man who afterwards sought a Persian satrap’s daughter in marriage; and Book 8 as the commander whose arrogance the Athenians later used for their pretext in taking the leadership of Greece away from Sparta.
+
+After source chapter 1413, paragraph 1: Cleombrotus’s son, regent of Sparta for Leonidas’s boy Pleistarchus — his ward and his cousin — and commander of the five thousand Spartans sent out of the city by night for Plataea, with Euryanax of his own house as his fellow general.
+
+After source chapter 1467, paragraph 1: The general of the most famous victory Herodotus knows of. He would not impale Mardonius’s body when an Aeginetan suggested it, saying such things are fitter for barbarians; he released Attaginus’s sons as innocent of their father’s medising and had the rest of the Thebans killed at Corinth without the trial they had counted on; and he set a Persian banquet beside a Laconian meal to show the Greek commanders what the leader of the Medes had come to take from them.
+
+## Euryanax · supporting
+
+Dorieus’s son, of the same royal house, chosen by Pausanias as his fellow commander — and the man who stood with him through the night-long quarrel with Amompharetus over whether the Pitanate division would move.
+
+## Pleistarchus · reference
+
+Leonidas’s son, to whom the leadership actually belonged; he was still a boy, and Pausanias was his guardian.
+
+## Amompharetus · major
+
+Poliades’s son, commander of the Pitanate division, who had not been at the council and would not withdraw: he set a rock at Pausanias’s feet and said that with this pebble he voted not to flee from the strangers. He was left behind, came up slowly to the halted army at the Moloeis, and died at Plataea among the men the Spartans buried with their best.
+
+## Poliades · reference
+
+Amompharetus’s father.
+
+## Chileos · supporting
+
+The Tegean who had more influence in Lacedaemon than any other foreigner, and who told the Ephors that however strong the wall across the Isthmus might be, a wide gate stood open into the Peloponnese if Athens went over to the barbarian. The army marched out that night.
+
+## Lycidas · supporting
+
+The Athenian councillor on Salamis who thought Mardonius’s second offer ought to go before the assembly of the people. The Council and the crowd outside gathered round him and stoned him to death; and the Athenian women, hearing the uproar, went of their own accord to his house and stoned his wife and children.
+
+## Morychides · supporting
+
+The man of the Hellespont whom Mardonius sent from captured Athens to Salamis with the same terms Alexander the Macedonian had carried, and who was dismissed unharmed — while the one councillor who thought his offer worth hearing was stoned.
+
+## The Pitanate division · reference
+
+Amompharetus’s command, the one body of Lacedaemonians left standing in the old position when Pausanias led the rest away before dawn.
+
+## Thorax · supporting
+
+Of Larissa, one of the sons of Aleuas, who had helped escort Xerxes out of Greece and then openly gave Mardonius passage for the second invasion. On the morning of Plataea he had to stand and hear Mardonius jeer that the Lacedaemonians he had praised were a worthless race who ran away in the night.
+
+## Eurypylus · reference
+
+Thorax of Larissa’s brother, one of the sons of Aleuas.
+
+## Thrasydeus · reference
+
+Thorax of Larissa’s other brother.
+
+## Attaginus · major
+
+Phyrnon’s son, the Theban who made magnificent preparations and gave Mardonius and fifty of the first Persians a dinner at Thebes, seating a Persian and a Theban on every couch. When the Greeks besieged the city to get him, he escaped out of it and left his sons to be handed over in his place.
+
+## Phyrnon · reference
+
+Attaginus’s father.
+
+## Thersander · major
+
+The Orchomenian of great reputation who told Herodotus what happened at Attaginus’s dinner: his Persian couch-fellow, speaking Greek, wept and said that of all the Persians feasting there and all the army on the river, a little time from now he would see very few alive — and that the most hateful of all human griefs is to have knowledge of the truth and no power over the outcome. He told it to various people before the battle, not after. Not Polyneices’s son.
+
+## Timagenides · major
+
+Herpys’s son, the Theban who told Mardonius to put a guard on the Kithairon pass and cut off the Greeks streaming in — advice that caught five hundred pack-animals and their drivers. Twenty days into the siege of Thebes he told his countrymen to stop letting Boeotia suffer on his account and give him up. Pausanias took him to Corinth and had him killed there.
+
+## Herpys · reference
+
+Timagenides’s father.
+
+## Asopodorus · supporting
+
+Timander’s son, commander of the Theban cavalry, who caught the Megarians and Phliasians hurrying across the plain in no order after the battle was lost, killed six hundred of them and drove the rest up Kithairon.
+
+## Timander · reference
+
+Asopodorus’s father.
+
+## The Asopians · reference
+
+Those of them living near the line of march, sent for by the chiefs of Boeotia to guide Mardonius by the road to Sphendale and Tanagra.
+
+## Harmocydes · supporting
+
+The man of greatest repute among the Phocians, who brought their thousand hoplites to Thebes; and when Mardonius’s whole cavalry closed on them with missiles already levelled, told them it was better to end their lives performing deeds of valour than to be destroyed like offered victims. They closed ranks, and the horsemen turned and rode back.
+
+## Echemus · supporting
+
+Aëropus’s son and Phegeus’s grandson, the Tegeans’ commander and king, who made a voluntary offer of himself for the single combat at the Isthmus and killed Hyllus — the deed for which, the Tegeans said at Plataea, they had led the other wing ever since.
+
+## Aëropos · reference
+
+Echemus’s father. Neither of the Macedonian men of the name.
+
+## Phegeus · reference
+
+Echemus’s grandfather.
+
+## Eurystheus · reference
+
+The king whose insolence the sons of Heracles were fleeing; the Tegeans date their privilege from his death, and the Athenians say that they alone took the fugitives in and beat him in the field for it.
+
+## Androcrates · reference
+
+The hero whose sacred precinct stood beside the spring Gargaphia, where the Greeks posted themselves by nations over the low hills and the level ground.
+
+## Olympiodorus · supporting
+
+Lampon’s son, captain of the three hundred picked Athenians who volunteered for the Megarians’ exposed post at Erythrae when nobody else would take it, and who brought down Masistius.
+
+## Lampon · reference
+
+Olympiodorus’s father.
+
+## Tisamenus · major
+
+Antiochus’s son, an Elean of the Iamidae, told at Delphi that he would win five of the greatest contests. Taking it for athletics he trained for the pentathlon and came within one fall of an Olympic crown; the Lacedaemonians worked out that the oracle meant wars, and he held out against every payment until they made him a Spartan citizen with full rights — and then raised the price again and made them do the same for his brother Hegias. Plataea was the first of his five.
+
+## Hegias · supporting
+
+Tisamenus the diviner’s brother, made a Spartan on the same terms because his brother would not come without him; they are the only men ever granted it.
+
+## Antiochus · reference
+
+Tisamenus the diviner’s father.
+
+## Hieronymus · reference
+
+Of Andros, the man Tisamenus was matched against at Olympia, and who cost him the victory by a single fall.
+
+## The Iamidae · reference
+
+The Elean family of seers that Tisamenus belonged to.
+
+## Bias · reference
+
+Melampus’s brother, for whom Melampus raised his price and extorted a third share of the kingship of Argos as well — the precedent Herodotus says Tisamenus followed, if royal power may be compared with citizenship. Not Bias of Priene.
+
+## Hegesistratus · major
+
+An Elean and the most famous of the Telliadae, hired by Mardonius at no small price. The Spartans had once had him fastened in an iron-bound block to be put to death for the mischief he had done them; he calculated how much of his own foot would have to go, cut off the flat of it, broke through the wall, and travelled to Tegea in three nights, resting in a wood by day. They found the piece of foot and never found him. He got himself a wooden one and was their open enemy until they caught him practising divination in Zacynthus and killed him — later than Plataea.
+
+## The Telliadae · reference
+
+The family of seers that Hegesistratus of Elis was the most famous of.
+
+## Hippomachus · reference
+
+The Leucadian who was diviner for the Greeks on the king’s side, and whose sacrifices were no more favourable for a battle than anyone else’s.
+
+## Hegesistratus · supporting
+
+Peisistratus’s natural son by an Argive woman, set over Sigeum when his father took it from the Mytilenaeans by force of arms — and left to hold what he had received the same way.
+
+## Arimnestus · major
+
+The man of standing in Sparta who killed Mardonius. When the Median wars were over he took three hundred men against the whole Messenian army at Stenyclerus, and died there with all three hundred.
+
+## Arimnestus · supporting
+
+The Plataean to whom the dying Callicrates said that it did not grieve him to die for Greece, only that he had done no deed worthy of the spirit he had in him.
+
+## Poseidonius · supporting
+
+One of the best men at Plataea after Aristodemus — and the better of the two, the Spartans there said, because he had proved himself good without wanting to be killed. Buried with the younger Spartans.
+
+## Philocyon · supporting
+
+One of the best men at Plataea, and buried with the younger Spartans.
+
+## Callicrates · supporting
+
+The handsomest man in the camp, not of the Lacedaemonians only but of all the Greeks of his time, who was struck in the side by an arrow while sitting in his place in the ranks and Pausanias was still sacrificing. He died slowly, out of the line, without having struck a blow.
+
+## Hegetorides · supporting
+
+Of Cos, Antagoras’s son, bound to Pausanias as guest-friend more than any other man in those parts — which is why his daughter, taken by force in Cos and kept a prisoner, was safe the moment she said his name.
+
+## Antagoras · reference
+
+Hegetorides of Cos’s father.
+
+## Lampon · supporting
+
+Pytheas’s son, one of the leading men of Aegina, who came to Pausanias in haste with the proposal that Mardonius’s body be impaled in payment for Leonidas — and was told that he had missed a good opinion, that such deeds are fitter for barbarians, and that he should be thankful to go unpunished.
+
+## Pytheas · reference
+
+Lampon of Aegina’s father. Herodotus does not say whether he is the Pytheas son of Ischenous.
+
+## Artontes · reference
+
+Mardonius’s son, who gave presents to a good many men from a good many cities for having buried his father — though Herodotus cannot find out which of them actually did it.
+
+## Dionysophanes · reference
+
+An Ephesian, and the man reported with most plausibility to have taken up and buried Mardonius’s body, which had disappeared the day after the battle.
+
+## Cleades · reference
+
+Autodicus’s son, a Plataean and the Aeginetans’ public guest-friend, who raised their empty burial-mound at Plataea for them no less than ten years after the battle.
+
+## Autodicus · reference
+
+Cleades’s father.
+
+## Decelus · reference
+
+The man of Deceleia — or, as some say, the deme itself — who was aggrieved at Theseus’s insolence, feared for the whole land of the Athenians, and told the sons of Tyndareus where Helen was hidden.
+
+## Titacus · reference
+
+Sprung from the soil, who delivered up Aphidnae by treachery to the sons of Tyndareus.
+
+## Theseus · reference
+
+Whose insolence in hiding Helen at Aphidnae aggrieved the men of Deceleia into telling her brothers where she was.
+
+## Tyndareus · supporting
+
+Helen’s father. His sons sailed in the Argo, which is why the Lacedaemonians took in the Minyae; one of them is the reason a Spartan king may leave a colleague behind when he goes to war; and they invaded Attica with a great army to bring their sister back.
+
+## Eutychides · reference
+
+Sophanes’s father.
+
+## Leagrus · reference
+
+Glaucon’s son, general of the Athenians together with Sophanes at Datum, where both were killed by the Edonians fighting for the gold mines.
+
+## Glaucon · reference
+
+Leagrus’s father.
+
+## The Deceleians · supporting
+
+The men of the deme whose ancestors told the sons of Tyndareus where Helen was: they have had freedom from dues at Sparta and front seats at the games ever since, and when the Lacedaemonians laid waste the rest of Attica a lifetime later they left Deceleia alone.
+
+## The Edonians · supporting
+
+Whose district of Myrcinus Histiaeus asked Darius for and began to fortify, whose coast-dwellers followed Xerxes inland, and by whom Sophanes and Leagrus were killed at Datum over the gold mines.
+
+## Lampon · reference
+
+Thrasycles’s son, one of the three Samians sent to the Greek fleet at Delos without the knowledge either of the Persians or of Theomestor.
+
+## Thrasycles · reference
+
+Lampon of Samos’s father.
+
+## Athenagoras · reference
+
+Archestratides’s son, the second of the three Samian envoys at Delos.
+
+## Archestratides · reference
+
+Athenagoras’s father.
+
+## Hegesistratus · supporting
+
+Aristagoras’s son and the third of the Samian envoys, who argued at length that the Ionians would revolt on sight and offered himself and his companions as hostages. Leotychides cut him short as soon as he heard the name — Army-leader — accepted it as the omen, and made him sail with the fleet.
+
+## Aristagoras · reference
+
+Hegesistratus of Samos’s father.
+
+## Deïphonus · supporting
+
+Euenius’s son, brought by the Corinthians to be the fleet’s diviner before Mycale — though Herodotus has heard that he was no son of Euenius at all and was trading on the name for work of this kind around Greece.
+
+## Euenius · major
+
+The Apolloniate who fell asleep on his year’s watch over the sheep sacred to the Sun and let the wolves into the cave, and kept it quiet meaning to buy replacements. His city blinded him for it; then the flocks stopped bearing and the land stopped yielding, and Delphi and Dodona told them the gods had sent the wolves themselves and would not stop until Euenius had whatever satisfaction he chose. Sitting beside him without telling him why, they asked what he would take: he named the two best plots of land in Apollonia and the best house in it. They bought them and gave them to him. He was angry when he understood, and was given the gift of prophecy.
+
+## The Apolloniates · supporting
+
+Who set great store by the sheep sacred to the Sun, blinded the watchman who slept, paid for it with barren flocks and barren fields, and bought him the best land and the best house in the city to settle the account.
+
+## Philistus · reference
+
+Pasicles’s son, who built the temple of Eleusinian Demeter at Scolopoeis in Mycale when he went with Neileus for the founding of Miletus.
+
+## Pasicles · reference
+
+Philistus’s father.
+
+## Neileus · reference
+
+Codrus’s son, the founder of Miletus.
+
+## Codrus · supporting
+
+Melanthus’s son and king of Athens. The Cauconian rulers of Pylos in Ionia are reckoned from him, and so is the Neleid descent the Peisistratidae claimed; Megara was founded in his reign; and his son Neileus founded Miletus.
+
+## Melanthus · reference
+
+Codrus’s father, one of the kings of Athens who came from abroad.
+
+## Neleus · reference
+
+The Pylian from whom the Peisistratidae reckoned themselves sons of Neleus.
+
+## Perilaus · reference
+
+The Sicyonian commander killed at Mycale, where a good many of his men fell with him.
+
+## Hermolycus · supporting
+
+Euthoenus’s son, a trained pancratiast and the best of the Athenians at Mycale; he was killed later in the Carystian war at Cyrnus near Geraestus and buried there.
+
+## Euthoenus · reference
+
+Hermolycus’s father.
+
+## Xeinagoras · supporting
+
+Prexilaus’s son of Halicarnassus, standing just behind Artayntes when Artayntes drew on Masistes; he caught him round the waist, lifted him and dashed him to the ground, and was made ruler of all Cilicia by the king for saving his brother’s life.
+
+## Prexilaus · reference
+
+Xeinagoras’s father.
+
+## Artaÿnte · major
+
+Masistes’s daughter, married to Xerxes’s son Darius and then taken by Xerxes himself. Offered cities, gold and an army of her own, she asked instead for the mantle Amestris had woven — and wore it, and pulled her mother and her whole house down with her.
+
+## Oeobazus · supporting
+
+The Persian who came into Sestos from the city of Cardia bringing the ropes of the bridges, climbed down the back of the wall by night with Artayctes when the garrison had been reduced to boiling their bedding, and was caught in Thrace by the Apsinthians and sacrificed to Pleistorus.
+
+## Oeobazus · supporting
+
+The Persian who asked Darius, since all three of his sons were serving on the Scythian expedition, to leave one of them behind. Darius said that as he was a friend and the request reasonable he would leave all three — and had all three put to death.
+
+## Pleistorus · reference
+
+The native god of the Apsinthian Thracians, to whom they sacrificed Oeobazus by their own rites.
+
+## Protesilaus · major
+
+Iphiclus’s son, whose tomb and precinct at Elaeus in the Chersonese Artayctes stripped of its gold and silver and robes, having asked Xerxes for the house of a Greek who had once made an expedition against the king’s land. When the dried fish leapt on the fire, Artayctes read it as Protesilaus signifying that the dead still have power given them by the gods to exact vengeance.
+
+## Iphiclus · reference
+
+Protesilaus’s father.
+
+## Artembares · supporting
+
+Artayctes’s forefather, who put it to the Persians and through them to Cyrus that since their own land was small and rugged they should move to a better one. Cyrus was not surprised, and told them to prepare in that case to be subjects instead of rulers, because soft country does not grow men who are good in war. They chose the poor land. Not the Mede whose son the boy Cyrus whipped.
+
+## The Megarians · supporting
+
+Of Megara on the Isthmus. Peisistratus made his reputation in command against them and took Nisaea; a Megarian, Eupalinus son of Naustrophus, cut the conduit through the hill at Samos; they sent twenty ships to Artemisium and the same number to Salamis, and argued with the Athenians and Aeginetans for standing and fighting rather than falling back on the Peloponnese.
+
+After source chapter 1424, paragraph 1: Three thousand of them at Plataea. They drew the most assailable ground in the whole position and sent a herald to say they could not hold it alone; three hundred Athenians took it over. After the battle six hundred of them were caught by the Theban horse crossing the plain in no order, and they buried those dead in a grave apart.
+
+## The Megarians of Sicily · supporting
+
+Whom Gelon besieged until they capitulated: the wealthy who had brought the war on he made citizens of Syracuse, and the common people, who had no share in the guilt and expected no harm, he sold out of Sicily.
+
+## The Phliasians · reference
+
+Of Phlius, who came to the help of Greece at the Isthmus and stood a thousand strong at Plataea; some of them were caught with the Megarians by the Theban cavalry, and buried with them.
+
+## The Lepreates · reference
+
+Two hundred of them at Plataea, next to the Troezenians and opposite the Bactrians.
+
+## The Anactorians · reference
+
+Who stood with the Leucadians at Plataea, eight hundred between them.
+
+## The Palians · reference
+
+The men of Pale in Cephallenia, two hundred of them, ranged opposite the Sacae.
+
+## The Tirynthians · reference
+
+Of Tiryns, counted in with the men of Mycenae at Plataea — four hundred between the two towns.
+
+## The Mycenaeans · reference
+
+Of Mycenae, counted with the Tirynthians at Plataea; and, the Athenians say, the people whose slavery the sons of Heracles were fleeing when all the Greeks but Athens turned them away.
+
+## The Orchomenians · reference
+
+The Arcadians of Orchomenus, six hundred of them at Plataea, ranged opposite the Medes. Not the Boeotian Orchomenus that Thersander came from.
+
+## The Cadmeians · supporting
+
+The old people of Thebes. Some of them were mixed into Ionia; they were driven out by the Argives in Laodamas’s reign and went off to the Enchelians, leaving the Gephyraeans behind; and the Athenians say they marched against them to recover the Argive dead who lay unburied under the walls.
+
+## The Enchelians · reference
+
+To whom the Cadmeians went when the Argives drove them out — and whose army, Herodotus says, the oracle Mardonius took for a Persian one was actually composed about, along with the Illyrians.
+
+## The Messenians · supporting
+
+Against whom the Samians say they helped Sparta with ships, and whom a Spartan king was once told not to risk battles against for the sake of foreigners. A Messenian named Panites told the Spartans how to find out which of Aristodemus’s twins was the elder; one of Tisamenus’s five contests was fought against them at Ithome; and Arimnestus died at Stenyclerus taking three hundred men against their whole army.

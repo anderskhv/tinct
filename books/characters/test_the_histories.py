@@ -1,5 +1,4 @@
-"""Focused checks for the Histories. AUTHORING IN PROGRESS: Books 1-8
-(sections 1-1403) are authored; Book 9 is not."""
+"""Focused checks for the Histories — all nine books, sections 1-1525."""
 import unittest
 from build_the_histories import compile_package
 
@@ -569,9 +568,9 @@ class TheHistories(unittest.TestCase):
         # Artachaees, whose brother's son Ithamitres shares the command.
         for ed in ['original-en','modern-en']:
             self.assertEqual(where(ed,'artayntes'),[(1090,0)],ed)
-            self.assertEqual(sorted({c for c,_ in where(ed,'artayntes-samos')}),[1389],ed)
+            self.assertEqual(sorted({c for c,_ in where(ed,'artayntes-samos')}),[1389,1505,1510],ed)
             self.assertEqual(where(ed,'ithamitres'),[(1090,0)],ed)
-            self.assertEqual(where(ed,'ithamitres-samos'),[(1389,0)],ed)
+            self.assertEqual(where(ed,'ithamitres-samos'),[(1389,0),(1505,0)],ed)
 
     def test_the_eurypontid_king_list_is_not_the_agiad_one(self):
         # Section 1390 recites the other royal house, and four of its names
@@ -620,9 +619,166 @@ class TheHistories(unittest.TestCase):
             self.assertEqual([s['availableAt']['chapterNumber'] for s in snapshots('artemisia',ed)][1:],
                              [1347],ed)
             self.assertEqual([s['availableAt']['chapterNumber'] for s in snapshots('mardonius',ed)][1:],
-                             [1359],ed)
+                             [1359,1467],ed)
             self.assertEqual([s['availableAt']['chapterNumber'] for s in snapshots('themistocles',ed)][1:],
                              [1371],ed)
+
+    # ------------------------------------------------- Book 9 — Calliope
+    def test_pausanias_is_one_man_across_four_books(self):
+        # The bowl at the Bosphorus (4), the Persian marriage (5), the arrogance
+        # the Athenians used as a pretext (8), and the command at Plataea (9).
+        for ed in ['original-en','modern-en']:
+            w=where(ed,'pausanias')
+            self.assertEqual(sorted({c for c,_ in w})[:4],[637,793,1263,1413],ed)
+            self.assertGreater(len(w),40,ed)
+            self.assertIn((1504,0),w,ed)
+        # Macaulay's Pausanias answers Lampon without being named; the modern
+        # edition names him.
+        self.assertNotIn((1482,0),where('original-en','pausanias'))
+        self.assertIn((1482,0),where('modern-en','pausanias'))
+
+    def test_the_three_men_called_hegesistratus(self):
+        # Peisistratus's son at Sigeum, Mardonius's diviner, and the Samian
+        # envoy whose name Leotychides took for an omen.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(sorted(set(where(ed,'hegesistratus-sigeum'))),[(855,0)],ed)
+            self.assertEqual(sorted(set(where(ed,'hegesistratus-elis'))),
+                             [(1440,0),(1441,0),(1444,0)],ed)
+            self.assertEqual(sorted(set(where(ed,'hegesistratus-samos'))),
+                             [(1493,0),(1494,0),(1495,0)],ed)
+
+    def test_the_three_men_called_lampon(self):
+        # Olympiodorus's father, the Aeginetan who wanted Mardonius impaled, and
+        # one of the three Samian envoys — all within one book.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(where(ed,'lampon-athens'),[(1424,0)],ed)
+            self.assertEqual(where(ed,'lampon-aegina'),[(1481,0)],ed)
+            self.assertEqual(where(ed,'lampon-samos'),[(1493,0)],ed)
+
+    def test_the_diviner_tisamenus_is_not_the_theban_ancestor(self):
+        # The alias that used to bind both was dropped for a position table.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(sorted(set(where(ed,'tisamenus'))),[(703,0),(938,0)],ed)
+            self.assertEqual(sorted(set(where(ed,'tisamenus-diviner'))),
+                             [(1436,0),(1438,0),(1439,0)],ed)
+            self.assertEqual(where(ed,'hegias'),[(1436,0)],ed)
+
+    def test_the_two_men_called_arimnestus(self):
+        # The Spartan who killed Mardonius, and the Plataean who heard
+        # Callicrates die — eight sections apart.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(where(ed,'arimnestus-sparta'),[(1467,0)],ed)
+            self.assertEqual(where(ed,'arimnestus-plataea'),[(1475,0)],ed)
+
+    def test_the_three_men_called_oeobazus(self):
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(sorted(set(where(ed,'oeobazus-three-sons'))),[(640,0)],ed)
+            self.assertEqual(where(ed,'oeobazus'),[(1091,0)],ed)
+            self.assertEqual(sorted(set(where(ed,'oeobazus-cardia'))),
+                             [(1518,0),(1521,0),(1522,0)],ed)
+
+    def test_artembares_of_the_last_section_is_not_the_mede(self):
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(sorted({c for c,_ in where(ed,'artembares-mede')}),[113,114,115],ed)
+            self.assertEqual(where(ed,'artembares-persia'),[(1525,0)],ed)
+
+    def test_the_samian_commanders_carry_forward_into_mycale(self):
+        # Artayntes son of Artachaees and his brother's son, not the pair in the
+        # catalogue of Book 7.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(sorted(set(where(ed,'artayntes-samos'))),
+                             [(1389,0),(1505,0),(1510,0)],ed)
+            self.assertEqual(sorted(set(where(ed,'ithamitres-samos'))),[(1389,0),(1505,0)],ed)
+            self.assertEqual(where(ed,'artayntes'),[(1090,0)],ed)
+            self.assertEqual(where(ed,'ithamitres'),[(1090,0)],ed)
+
+    def test_lampons_father_is_not_assumed_to_be_the_aeginetan_marine(self):
+        # Herodotus names both men Pytheas of Aegina and never connects them.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(sorted({c for c,_ in where(ed,'pytheas')}),[1203,1351],ed)
+            self.assertEqual(where(ed,'pytheas-father-of-lampon'),[(1481,0)],ed)
+
+    def test_artontes_the_father_is_not_artontes_the_son(self):
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(where(ed,'artontes'),[(525,0)],ed)
+            self.assertEqual(where(ed,'artontes-son-of-mardonius'),[(1487,0)],ed)
+
+    def test_the_megarians_of_sicily_are_a_separate_people(self):
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(sorted(set(where(ed,'megarians-sicily'))),[(1178,0)],ed)
+            self.assertNotIn((1178,0),where(ed,'megarians'),ed)
+            self.assertIn((1431,0),where(ed,'megarians'),ed)
+
+    def test_thersander_of_orchomenos_is_not_polyneicess_son(self):
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(sorted(set(where(ed,'thersander'))),[(703,0),(938,0)],ed)
+            self.assertEqual(sorted(set(where(ed,'thersander-orchomenos'))),[(1419,0)],ed)
+
+    def test_bias_of_priene_is_not_melampuss_brother(self):
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(sorted({c for c,_ in where(ed,'bias')}),[27,169],ed)
+            self.assertEqual(where(ed,'bias-argos'),[(1437,0)],ed)
+
+    def test_the_third_aeropos_is_the_tegean(self):
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(where(ed,'aeropos-tegea'),[(1429,0)],ed)
+            self.assertEqual(where(ed,'aeropos-brother'),[(1396,0),(1396,0)],ed)
+            self.assertEqual(where(ed,'aeropos-father-of-alketes'),[(1398,0)],ed)
+
+    def test_the_athenian_descent_at_miletus(self):
+        # Codrus is named in four books; Neileus and Neleus are different men
+        # with names one letter apart.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(sorted(set(where(ed,'codrus'))),[(146,0),(826,0),(837,0),(1500,0)],ed)
+            self.assertEqual(where(ed,'neileus'),[(1500,0)],ed)
+            self.assertEqual(where(ed,'neleus'),[(826,0)],ed)
+            self.assertEqual(sorted(set(where(ed,'melanthus'))),[(146,0),(826,0)],ed)
+
+    def test_the_sacred_sheep_belong_to_the_god(self):
+        # Every other capitalised Sun in the work is the sun in the sky; the
+        # sheep at Apollonia are the Sun's.
+        for ed in ['original-en','modern-en']:
+            self.assertIn((1496,0),where(ed,'helios'),ed)
+
+    def test_the_macaulay_misprint_of_mardonius_is_bound_not_repaired(self):
+        # "Mardonions" at 1441, in the older translation only.
+        texts=[m['text'] for m in mentions('original-en')
+               if m['characterId']=='mardonius' and m['chapterNumber']==1441]
+        self.assertIn('Mardonions',texts)
+        self.assertNotIn('Mardonions',[m['text'] for m in mentions('modern-en')])
+
+    def test_territorial_adjectives_are_not_cast_as_peoples(self):
+        # "the Plataean land", "the Theban Zeus" in Egypt and "the Carystian
+        # land" are places, so the singular forms stay unbound.
+        for ed in ['original-en','modern-en']:
+            seen={m['text'] for m in mentions(ed)}
+            for w in ['Plataean','Plataian','Theban','Carystian']:
+                self.assertNotIn(w,seen,(ed,w))
+
+    def test_book_nine_outcomes_are_gated(self):
+        for ed in ['original-en','modern-en']:
+            for cid,gates in [('pausanias',[637,1413,1467]),
+                              ('mardonius',[929,1359,1467]),
+                              ('artabazus',[1090,1469]),
+                              ('masistius',[1101,1425]),
+                              ('aristodemus-thermopylae',[1250,1474]),
+                              ('sophanes',[978,1477]),
+                              ('cleombrotus-sparta',[637,1413]),
+                              ('leotychides',[951,1390,1501]),
+                              ('xanthippus',[1017,1517]),
+                              ('artayctes',[1059,1523]),
+                              ('amestris',[1085,1515]),
+                              ('masistes',[1104,1516]),
+                              ('artayntes-samos',[1389,1510]),
+                              ('megarians',[58,1424])]:
+                self.assertEqual([s['availableAt']['chapterNumber'] for s in snapshots(cid,ed)],
+                                 gates,(ed,cid))
+
+    def test_the_ninth_book_is_bound_in_both_editions(self):
+        for ed in ['original-en','modern-en']:
+            ms=[m for m in mentions(ed) if 1404<=m['chapterNumber']<=1525]
+            self.assertGreater(len(ms),1000,ed)
+            self.assertGreater(len({m['characterId'] for m in ms}),190,ed)
 
     def test_no_entity_is_missing_from_both_editions(self):
         o=set(REPORT['editions']['original-en']['omittedEntities'])

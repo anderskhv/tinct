@@ -1,15 +1,17 @@
-# The Histories character package — IN PROGRESS
+# The Histories character package
 
-**Books 1–8 (sections 1–1403) are authored. Book 9 is not.** Status stays
-`in-progress` and the package must not be integrated until all nine books are
-covered.
+**All nine books (Clio to Calliope, sections 1–1525) are authored.**
 
-Current state: 944 entities authored, 941 bound in the older translation and all
-944 in the modern edition, 11,011 and 11,009 exact mentions. The mention counts are
-by a wide margin the highest in the library, because the nations Herodotus names —
-Persians, Hellenes, Athenians, Lacedaemonians — recur through all nine books and
-are bound wherever they appear, not only where they were first cast. Content
-revision 2026-09-12.4.
+Current state: 1,043 entities authored, 1,040 bound in the older translation and
+all 1,043 in the modern edition, 11,285 exact mentions in each. The mention counts
+are by a wide margin the highest in the library, because the nations Herodotus
+names — Persians, Hellenes, Athenians, Lacedaemonians — recur through all nine
+books and are bound wherever they appear, not only where they were first cast.
+Content revision 2026-09-12.5.
+
+`contentStatus` is `validated-package`; `appStatus` stays `not-integrated`.
+Nothing here has been registered in the app or verified in production, and this
+package makes no claim that it has.
 
 ## Why this is the hardest book in the queue
 
@@ -25,21 +27,26 @@ who will rule Macedon in Book 5.
 None of that can be resolved by a name list. Almost all the work here is position
 tables.
 
-## How the unauthored books are handled
+## Names that stay unbound on purpose
 
-Where a name in Books 2–9 belongs to somebody this pass has not authored, it is
-**left unbound rather than defaulted to the Book 1 man of the same name.** That is
-why every table in the builder has `None` for its default. Three cases are already
-in place:
+Where a name belongs to somebody who is not carded, it is **left unbound rather
+than defaulted to the first man of that name.** That is why nearly every table in
+the builder has `None` for its default. The rule survived the whole nine books,
+and two of the three open cases this file used to list were closed when Book 9 was
+authored:
 
 - **Leon** king of Sparta is bound at 64, 800 and 1226; the Leon sacrificed by the
-  Persians at 1202 is a different man and carries no card.
+  Persians at 1202 is a different man, is never identified further, and carries no
+  card. Still open.
 - **Ninus** father of Agron is bound at 7; the Ninos who fathered Sardanapallos at
-  365 is not.
-- **Bias** of Priene is bound at 27 and 169; the Bias of Argos at 1437 is not.
+  365 is not. Still open.
+- **Bias** of Priene is bound at 27 and 169; the Bias of Argos at 1437 is now
+  `bias-argos`. Closed in Book 9.
+- **Artembares** the Mede is bound at 113–115; the Persian Artembares of the last
+  section is now `artembares-persia`. Closed in Book 9.
 
 Each of those was caught by the spot-read, not by a coverage test, and each is
-pinned by a test now.
+pinned by a test.
 
 ## Two translations, two transliteration systems
 
@@ -53,12 +60,15 @@ entity: **Heracleidai / Heraclids**, **Mermnadai**, **Alcaios**, **Ninos**,
 **Lacedemonians**, **Aiolians**, **Lykians**, **Phocaians**, **Massagetae**. A
 test pins eleven of them.
 
-## Editorial checks — Books 1 to 5
+## Editorial checks — the whole work
 
 **1. Namesakes.** The four resolved above (Atys, Lycurgus, Cambyses, Alexander),
-plus Leon, Ninus and Bias against their later namesakes, plus **Artembares** the
-Mede in sections 113–115 against the Persian Artembares of the very last section
-of the work, who is not yet authored and not bound.
+plus Leon and Ninus against their later namesakes, and the sets resolved in each
+later book — listed under Books 5, 6, 7, 8 and 9 below. Across the nine books
+there are **111 position tables**, and every namesake pair or triple in them is
+pinned by a test. Both of the namesake cases this file once listed as deferred —
+**Bias** of Argos and the Persian **Artembares** of the very last section of the
+work — were closed when Book 9 was authored.
 
 **2. Person or not.** Cities, rivers, mountains, seas and countries are excluded,
 which in Herodotus removes more than half the proper nouns. Four judgement calls:
@@ -72,6 +82,16 @@ which in Herodotus removes more than half the proper nouns. Four judgement calls
 - **Kyme**, **Smyrna** and **Phocaia** are cities and are not cast; the peoples of
   the first two appear only in the modern edition and are recorded as omissions.
 
+  Book 9 added four more. **Pleistorus**, the native god the Apsinthians sacrifice
+  Oeobazus to, is cast as a deity, on the same footing as the Winds and Boreas in
+  Book 8. **The Sun** whose sacred sheep Euenius fell asleep over is bound to the
+  existing `helios`, by a one-entry position table, because every other
+  capitalised Sun in the work is the sun in the sky. **The Pitanate division** is
+  cast as a group, because it acts: it is the body that refuses to move. And the
+  **adjectival forms of peoples** — *the Plataean land*, *the Theban territory*,
+  *the Carystian land* — are not bound at all, since most of them are territory
+  and the Theban ones are mostly the Theban Zeus in Egypt.
+
 **3. Scriptural and mythological figures.** The four abductions that open the work
 — Io, Europa, Medea, Helen — are cast as the mythological figures they are, with
 cards that say what each abduction is doing in Herodotus's argument rather than
@@ -82,13 +102,26 @@ and as the Assyrians' Mylitta.
 
 **4. Ambiguous references.** Left unbound: **Croesus's mute son**, who has no
 name in the text; the **Persian who nearly kills Croesus at Sardis**, likewise
-unnamed; and every name in Books 2–9 that belongs to a person this pass has not
-authored.
+unnamed; the **woman of Cos** who takes Pausanias by the knees at 1479, one of
+the most memorable people in Book 9 and nameless in it; the **Leon** of 1202 and
+the **Ninos** of 365, whom Herodotus never identifies further; and **Argos** at
+1437, which is the city. Nothing is bound on an identification the text does not
+make — which is also why `pytheas-father-of-lampon` is a separate card from the
+Aeginetan marine, though commentators join them.
 
-**5. Spot-read.** Sixty-four mentions drawn at random, twelve per edition per
-book through Book 5 and eight more per edition for Book 6, read back against
-their paragraphs. All correct after the three fixes
-above; before them, the Leon of 1202 was carrying the Spartan king's card.
+**5. Spot-read.** Mentions drawn at random and read back against their own
+paragraphs, book by book as each was authored: twelve per edition per book through
+Book 5, eight per edition for Book 6, eight for Book 7, eight for Book 8, fourteen
+for Book 9, and a final twenty drawn from the whole work at once. All correct after
+the three fixes above; before them, the Leon of 1202 was carrying the Spartan
+king's card.
+
+The **adjacency sweep** — every mention whose matched text abuts a capitalised
+word — is the check that actually earns its keep. It is what caught the bare alias
+`Royal` binding the king's Royal Judges and Royal Secretaries in Book 6, the
+translator's gloss at 936 binding the Hellenes to the Greek *language*, and
+**"Plataean Hera"** at 1464 binding the goddess's epithet to the people. No test
+written from the cards would have found any of the three.
 
 **Book 2 adds its own namesake and its own place-versus-person case.**
 **Alexander** is Paris again in the long Egyptian passage of sections 327-335,
@@ -97,11 +130,13 @@ there as well as in section 3, and the Macedonian of Books 5 and 7-9 still is
 not. **Moeris** is a king in sections 221, 228 and 316 and a lake everywhere
 else; only the king is cast, and a test pins it.
 
-**6. Both editions independently.** Two entities are missing from the older
+**6. Both editions independently.** Three entities are missing from the older
 translation — the **Smyrnaeans**, the **Cymeans** and the **Crotoniats**, where
 Macaulay writes only "the men of Smyrna", "the men of Kyme" and "those of
-Croton" — and none from the modern. **No entity
-is missing from both.** Book 2 added another twelve transliteration divergences,
+Croton" — and none from the modern. **No entity is missing from both**, in all
+nine books, and a test asserts it. Both editions finish on 11,285 mentions, which
+is a coincidence rather than a guarantee: the per-edition counts diverged at every
+earlier stage and are reported separately for that reason. Book 2 added another twelve transliteration divergences,
 all of them closed with aliases: Ladike, Esop, Etearchos, Hecataios, Menelaos,
 Lynkeus, Linos, Dioscuroi, Samothrakians, Keltoi, Kilikians, and the Hephaistos
 / Hephaestus and Dionysos / Dionysus pairs that alternate within both editions.
@@ -114,23 +149,28 @@ Lynkeus, Linos, Dioscuroi, Samothrakians, Keltoi, Kilikians, and the Hephaistos
 | Stray editorial section numbers survive inside the running text of the older translation — e.g. "against the Medes, 15 and he drove the Kimmerians", "to Egypt, not agreeing therein with the Hellenes, 3" | Cosmetic in the reader; **do not strip them**, since removing them would move every UTF-16 offset in the file and invalidate this package's hashes. |
 | The modern edition inserts a translator's parenthetical at section 936 — *(The Greek word krios also means "ram.")* — where the older translation carries the same information as a footnote. | The word *Greek* there means the language, and the package-wide alias binds it to the Hellenes. One mention in one edition; not repaired, because editing it would move every offset after 936. |
 | Both editions print **Erechththeus** for Erechtheus at section 1211, though both spell him correctly at 843, 1304 and 1315. | Carried as an alias rather than repaired; editing it would move every offset after 1211. |
+| The older translation prints **Mardonions** for Mardonios at section 1441. | Carried as an alias on `mardonius`, so the mention binds; a test pins the misprint so that nobody later "fixes" the alias away. |
+| The older translation prints **Tisamenes** at section 938 where it prints Tisamenos at 703 for the same man. | Carried as an alternative in the position table's pattern. |
+| The older translation writes "when **he** gave this counsel to Mardonios" at section 1442 where the modern edition writes "when **Timagenides** gave this advice". | Not a defect — the modern edition resolves a pronoun. It is the reason Timagenides has one more mention in the modern edition than in Macaulay, and the reason mention counts are reported per edition rather than as one number. |
 
 No edition byte was touched.
 
-## Remaining work
+## Remaining work — for the release owner, not for authoring
 
-- Book 9 (sections 1404–1525): Plataea and Mycale. Mardonius, Artabazus,
-  Masistius, Leotychides, Aristides, Themistocles, Artayntes and the Immortals
-  are already bound forward out of Books 7 and 8, so what remains is Pausanias
-  and the Spartan command, the Tegean and Athenian aristeia lists, the Theban
-  and Boeotian medisers, Masistes and Amestris at the end, and the last of the
-  men called Otanes and Artembares.
+Authoring is complete. What is left is outside this package's remit:
 
-  Books 1 to 8 are done. Book 9 remains.
-
-- The namesake tables extended as each book is authored, and the `None` defaults
-  replaced only where the later man is actually carded.
-- The six editorial checks re-run over the whole work, and a fresh spot-read.
+- **Runtime registration and production verification.** `appStatus` is
+  `not-integrated`. Nothing here has been loaded by the app, and only the release
+  owner can move that status on evidence.
+- **Two `None` defaults stay open by design** — the Leon of 1202 and the Ninos of
+  365 — because Herodotus never identifies either man further. They are not
+  oversights and should not be closed by guessing.
+- **Three entities are absent from the older translation only**: `smyrnaeans`,
+  `cymeans`, `crotoniats`, where Macaulay writes "the men of Kyme" and the modern
+  edition names the people. Recorded as edition divergences, not repaired.
+- **The edition defects in the table above** are for the edition owner. No edition
+  byte was touched by this package, and none should be until somebody has decided
+  what the offset churn costs.
 
 ## The Smerdis problem, and how it is solved
 
@@ -611,8 +651,113 @@ sweep over Book 8's mentions turned up nothing — the first book where it found
 mis-binding, which is what it should look like once the namesake tables are right
 before the sweep is run rather than after.
 
+## Book 9: Plataea, Mycale, and the last of the namesakes
+
+Calliope is the shortest book of the nine and the one with the smallest new cast,
+because almost everybody who matters at Plataea was already carded in Books 7 and
+8 and is bound forward: **Mardonius**, **Artabazus**, **Masistius**,
+**Leotychides**, **Aristides**, **Themistocles**, **Xerxes**, **Amestris**,
+**Masistes**, **Artayctes**, **Artayntes of Samos**, **Ithamitres of Samos**,
+**Tigranes**, **Mardontes**, **Alexander of Macedon**, **Theomestor**,
+**Aristodemus the Coward**, **Xanthippus**, **Sophanes**, **Eurybates**,
+**Pharandates**. It adds **99 entities**, and 1,123 mentions in the older
+translation and 1,117 in the modern one fall inside its own sections.
+
+### Pausanias was never carded, and he is named in four books
+
+The general of the most famous victory in the work had **no card at all** before
+this pass, although his name stands in Book 4 (the bronze mixing-bowl at the mouth
+of the Pontus), Book 5 (the satrap's daughter he afterwards sought in marriage)
+and Book 8 (the arrogance the Athenians later used as their pretext for taking the
+leadership of Greece away from Sparta). Forty-five mentions in Macaulay and
+forty-seven in the modern edition were going unbound. He is `pausanias`, `central`,
+with two gated updates — the regency and the march out at 1413, and the victory and
+what he did with it at 1467.
+
+That is the one thing the coverage tests could not have caught: a name that appears
+in four books and is nobody's namesake simply never got written. It was the Book 9
+name census that found it, on a run whose purpose was to list what the *new* book
+needed.
+
+### Namesakes
+
+Nine this time, and three of them are three-way:
+
+| Entity | Where | Against |
+|---|---|---|
+| `hegesistratus-sigeum` / `hegesistratus-elis` / `hegesistratus-samos` | 855 / 1440–1444 / 1493–1495 | Peisistratus's son, Mardonius's diviner, and the Samian envoy whose name Leotychides took for an omen |
+| `lampon-athens` / `lampon-aegina` / `lampon-samos` | 1424 / 1481 / 1493 | Olympiodorus's father, the Aeginetan who wanted Mardonius impaled, and the Samian envoy — all in one book |
+| `oeobazus-three-sons` / `oeobazus` / `oeobazus-cardia` | 640 / 1091 / 1518–1522 | the father whose three sons Darius killed for asking, Siromitres's father in the catalogue, and the man who carried the bridge-ropes into Sestos |
+| `tisamenus` / `tisamenus-diviner` | 703, 938 / 1436–1439 | Autesion's father in the Theban descent, and the Elean the Spartans made a citizen |
+| `arimnestus-sparta` / `arimnestus-plataea` | 1467 / 1475 | the Spartan who killed Mardonius, and the Plataean who heard Callicrates die — eight sections apart |
+| `artembares-mede` / `artembares-persia` | 113–115 / 1525 | the Mede whose son the boy Cyrus whipped, and Artayctes's forefather in the last sentence of the work |
+| `thersander` / `thersander-orchomenos` | 703, 938 / 1419 | Polyneices's son, and the Orchomenian who reported the weeping Persian |
+| `bias` / `bias-argos` | 27, 169 / 1437 | Bias of Priene, and Melampus's brother in the Argive bargain |
+| `artontes` / `artontes-son-of-mardonius` | 525 / 1487 | Bagaeus's father, and Mardonius's son paying men to say they buried him |
+| `aeropos-brother` / `aeropos-father-of-alketes` / `aeropos-tegea` | 1396 / 1398 / 1429 | two Macedonians and Echemus's father |
+| `megarians` / `megarians-sicily` | passim / 1178 | Megara on the Isthmus, and the Megarians Gelon sold out of Sicily |
+
+Two of those closed `None` defaults the earlier books had deliberately left open
+and recorded in this file: **Bias of Argos** and the **Persian Artembares**. Both
+are now bound, and the notes above have been updated rather than left standing.
+
+### Two aliases had to be withdrawn to make room
+
+`tisamenus` carried the aliases *Tisamenus* and *Tisamenos*, which bound the
+Theban ancestor to the diviner at Plataea as well; `pytheas` carried *Pytheas*,
+which bound the Aeginetan marine of Book 7 to Lampon's father at 1481; and
+`artontes` carried *Artontes*. In each case the alias was stripped and a position
+table put in its place, because the compiler refuses two ids on the same span —
+which is how the collision surfaces, and is the reason the check for it is run
+before every build rather than after a failure.
+
+### Lampon's father is left unidentified on purpose
+
+Herodotus writes "Lampon son of Pytheas, one of the leading men of Aegina" at 1481
+and never says whether this is the Pytheas son of Ischenous whom the Persians
+dressed in myrrh and fine linen and showed off to the army. Commentators identify
+them; the text does not. So `pytheas-father-of-lampon` is its own reference card
+and says so in its body. The same restraint applies to Herodotus's unnamed
+figures: the woman of Cos who took Pausanias by the knees is one of the most
+memorable people in the book and has no name in it, so she has no card — the scope
+line says named people and named peoples, and it means it.
+
+### The adjectival forms of peoples are not bound
+
+Book 9 is full of them: *the Plataean land*, *the Plataean region*, *the Plataean
+city*, *the Theban territory*, *the Carystian land*. Six of the nine singular
+"Plataean"s are territory rather than people, and of the ten "Theban"s in the work
+most are **the Theban Zeus in Egypt**, which has nothing to do with the Thebans of
+Boeotia at all. Singular forms were added for `eleians`, `tegeans`, `apsinthians`
+and `megarians`, where every occurrence is ethnic, and withdrawn again for
+Plataean, Theban and Carystian after the sweep showed what they were binding. A
+test pins the withdrawal.
+
+### Peoples the catalogue at 1431 named and nobody had cast
+
+The battle order of the Greek army names twenty-four contingents, and eleven of
+them had no card: the **Megarians** (sixteen mentions across five books), the
+**Phliasians**, **Lepreates**, **Anactorians**, **Palians** of Pale in
+Cephallenia, **Tirynthians**, **Mycenaeans** and the Arcadian **Orchomenians** —
+distinct from the Boeotian Orchomenus that Thersander came from — plus the
+**Messenians** (five books), **Cadmeians**, **Enchelians**, **Dekeleians**,
+**Edonians**, **Asopians**, **Apolloniates**, **Iamidae** and **Telliadae**.
+Herodotus's battle orders are the densest source of uncast peoples in the work,
+which is worth knowing for the next translated history in the queue.
+
+### Spot-read and sweep
+
+Twenty-eight mentions drawn at random, fourteen per edition: all correct. The
+adjacency sweep over Book 9's mentions found eighty-odd hits and no mis-binding
+except **"Plataean Hera"** at 1464, which is the goddess's epithet and not the
+people — the finding that led to withdrawing the singular adjectives above. The
+unbound-tabled-names audit over 1404–1525 came back with a single line,
+**"Argos"** at 1437, which is the city and correctly carries no card.
+
 ## Validation
 
 `python3 books/characters/build_the_histories.py --check`, then
-`python3 -m unittest discover -s books/characters -p 'test_*.py'`. Fifty-nine
-focused tests so far. No edition changes, no network generation.
+`python3 -m unittest discover -s books/characters -p 'test_*.py'`. Seventy-nine
+focused tests for this package. No edition changes, no network generation, no API
+spend: every card in this package was written in the authoring conversation and
+committed as a file.
