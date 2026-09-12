@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "c08d9429c0e8adf0b89a5d85c5dcad830fa43d84b2f4ec19d31373c7a542bf97",
+  "attempts": [
+    {
+      "asr_seconds": 0.11668512597680092,
+      "alignment_seconds": 0.00024579092860221863,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The latter.",
+        "hotwords": "The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The latter.",
+          "start": 0.05,
+          "end": 0.81,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.6435546875
+            },
+            {
+              "text": " latter.",
+              "start": 0.53,
+              "end": 0.81,
+              "probability": 0.417724609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "latter.",
+          "start": 0.53,
+          "end": 0.81
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "latter."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "latter.",
+          "start": 0.53,
+          "end": 0.81,
+          "key": "latter",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "latter.",
+          "start": 0.53,
+          "end": 0.81
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11702412366867065
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2776aa08b117568f63271d763085d4b036ed6af01b1e0e20922e69fd578ded49",
+  "selected_reasons": []
+}

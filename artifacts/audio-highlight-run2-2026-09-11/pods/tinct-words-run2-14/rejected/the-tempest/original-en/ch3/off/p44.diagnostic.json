@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "0d24e06abd37b0f4fa546bcc1571aa8302d2aaab07900ace40b907e56c41228a",
+  "attempts": [
+    {
+      "asr_seconds": 0.17726798728108406,
+      "alignment_seconds": 0.00031549856066703796,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sebastian, as many vouched rarities are.",
+          "start": 0.08,
+          "end": 2.78,
+          "words": [
+            {
+              "text": " Sebastian,",
+              "start": 0.08,
+              "end": 0.92,
+              "probability": 0.82421875
+            },
+            {
+              "text": " as",
+              "start": 1.34,
+              "end": 1.54,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " many",
+              "start": 1.54,
+              "end": 1.74,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " vouched",
+              "start": 1.74,
+              "end": 2.1,
+              "probability": 0.879150390625
+            },
+            {
+              "text": " rarities",
+              "start": 2.1,
+              "end": 2.48,
+              "probability": 0.986328125
+            },
+            {
+              "text": " are.",
+              "start": 2.48,
+              "end": 2.78,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sebastian,",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "raw": "as",
+          "start": 1.34,
+          "end": 1.54
+        },
+        {
+          "raw": "many",
+          "start": 1.54,
+          "end": 1.74
+        },
+        {
+          "raw": "vouched",
+          "start": 1.74,
+          "end": 2.1
+        },
+        {
+          "raw": "rarities",
+          "start": 2.1,
+          "end": 2.48
+        },
+        {
+          "raw": "are.",
+          "start": 2.48,
+          "end": 2.78
+        }
+      ],
+      "expected_tokens": [
+        "Sebastian.",
+        "As",
+        "many",
+        "vouched",
+        "rarities",
+        "are."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sebastian,",
+          "start": 0.08,
+          "end": 0.92,
+          "key": "sebastian",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.34,
+          "end": 1.54,
+          "key": "as",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "many",
+          "start": 1.54,
+          "end": 1.74,
+          "key": "many",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "vouched",
+          "start": 1.74,
+          "end": 2.1,
+          "key": "vouched",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "rarities",
+          "start": 2.1,
+          "end": 2.48,
+          "key": "rarities",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "are.",
+          "start": 2.48,
+          "end": 2.78,
+          "key": "are",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sebastian.",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "text": "As",
+          "start": 1.34,
+          "end": 1.54
+        },
+        {
+          "text": "many",
+          "start": 1.54,
+          "end": 1.74
+        },
+        {
+          "text": "vouched",
+          "start": 1.74,
+          "end": 2.1
+        },
+        {
+          "text": "rarities",
+          "start": 2.1,
+          "end": 2.48
+        },
+        {
+          "text": "are.",
+          "start": 2.48,
+          "end": 2.78
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17770585790276527
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c6eb12fdb162283bbaa100f48ed8d28c2ad7caccf938c0b0b17753e1a43478a6",
+  "selected_reasons": []
+}

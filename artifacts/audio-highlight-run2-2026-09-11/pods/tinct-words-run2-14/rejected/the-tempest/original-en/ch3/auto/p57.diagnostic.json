@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "6946ff9faaf2850fe261852090a0e6b41b87cf211619506ca0f68a8717bf8bbe",
+  "attempts": [
+    {
+      "asr_seconds": 0.222705390304327,
+      "alignment_seconds": 0.00037446245551109314,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Gonzalo. I assure you, Carthage.",
+        "hotwords": "Gonzalo, I, Carthage"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Gonzalo, I assure you, Carthage.",
+          "start": 0.05,
+          "end": 2.29,
+          "words": [
+            {
+              "text": " Gonzalo,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.920654296875
+            },
+            {
+              "text": " I",
+              "start": 1.27,
+              "end": 1.37,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " assure",
+              "start": 1.37,
+              "end": 1.59,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " you,",
+              "start": 1.59,
+              "end": 1.79,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Carthage.",
+              "start": 1.89,
+              "end": 2.29,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gonzalo,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "I",
+          "start": 1.27,
+          "end": 1.37
+        },
+        {
+          "raw": "assure",
+          "start": 1.37,
+          "end": 1.59
+        },
+        {
+          "raw": "you,",
+          "start": 1.59,
+          "end": 1.79
+        },
+        {
+          "raw": "Carthage.",
+          "start": 1.89,
+          "end": 2.29
+        }
+      ],
+      "expected_tokens": [
+        "Gonzalo.",
+        "I",
+        "assure",
+        "you,",
+        "Carthage."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gonzalo,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "gonzalo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.27,
+          "end": 1.37,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "assure",
+          "start": 1.37,
+          "end": 1.59,
+          "key": "assure",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 1.59,
+          "end": 1.79,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Carthage.",
+          "start": 1.89,
+          "end": 2.29,
+          "key": "carthage",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gonzalo.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "I",
+          "start": 1.27,
+          "end": 1.37
+        },
+        {
+          "text": "assure",
+          "start": 1.37,
+          "end": 1.59
+        },
+        {
+          "text": "you,",
+          "start": 1.59,
+          "end": 1.79
+        },
+        {
+          "text": "Carthage.",
+          "start": 1.89,
+          "end": 2.29
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22320672869682312
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "072e285f33d5b9d7c3d281ea46755bfbf758f5cec51b579a4765dc1763990ef5",
+  "selected_reasons": []
+}

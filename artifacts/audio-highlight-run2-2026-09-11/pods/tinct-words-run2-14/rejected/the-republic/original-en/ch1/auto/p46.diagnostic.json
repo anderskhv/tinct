@@ -1,0 +1,670 @@
+{
+  "complete": true,
+  "signature": "ea038942bf115830bace77a5d6e0311a82e5a0896829a4bb919246c1afe925cc",
+  "attempts": [
+    {
+      "asr_seconds": 0.27200398221611977,
+      "alignment_seconds": 0.0007365457713603973,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Certainly not; for he thinks that a friend ought always to do good to a friend and never evil.",
+        "hotwords": "Certainly"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Certainly not. For he thinks that a friend ought always to do good to a friend and never evil.",
+          "start": 0.08,
+          "end": 5.58,
+          "words": [
+            {
+              "text": " Certainly",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.74365234375
+            },
+            {
+              "text": " not.",
+              "start": 0.7,
+              "end": 1.14,
+              "probability": 0.982421875
+            },
+            {
+              "text": " For",
+              "start": 1.7,
+              "end": 1.76,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " he",
+              "start": 1.76,
+              "end": 1.94,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " thinks",
+              "start": 1.94,
+              "end": 2.14,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " that",
+              "start": 2.14,
+              "end": 2.38,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " a",
+              "start": 2.38,
+              "end": 2.48,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " friend",
+              "start": 2.48,
+              "end": 2.68,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " ought",
+              "start": 2.68,
+              "end": 2.96,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " always",
+              "start": 2.96,
+              "end": 3.4,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " to",
+              "start": 3.4,
+              "end": 3.64,
+              "probability": 0.990234375
+            },
+            {
+              "text": " do",
+              "start": 3.64,
+              "end": 3.78,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " good",
+              "start": 3.78,
+              "end": 3.96,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 3.96,
+              "end": 4.12,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 4.12,
+              "end": 4.24,
+              "probability": 0.998046875
+            },
+            {
+              "text": " friend",
+              "start": 4.24,
+              "end": 4.56,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 4.56,
+              "end": 5.02,
+              "probability": 0.57275390625
+            },
+            {
+              "text": " never",
+              "start": 5.02,
+              "end": 5.26,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " evil.",
+              "start": 5.26,
+              "end": 5.58,
+              "probability": 0.966796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Certainly",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "not.",
+          "start": 0.7,
+          "end": 1.14
+        },
+        {
+          "raw": "For",
+          "start": 1.7,
+          "end": 1.76
+        },
+        {
+          "raw": "he",
+          "start": 1.76,
+          "end": 1.94
+        },
+        {
+          "raw": "thinks",
+          "start": 1.94,
+          "end": 2.14
+        },
+        {
+          "raw": "that",
+          "start": 2.14,
+          "end": 2.38
+        },
+        {
+          "raw": "a",
+          "start": 2.38,
+          "end": 2.48
+        },
+        {
+          "raw": "friend",
+          "start": 2.48,
+          "end": 2.68
+        },
+        {
+          "raw": "ought",
+          "start": 2.68,
+          "end": 2.96
+        },
+        {
+          "raw": "always",
+          "start": 2.96,
+          "end": 3.4
+        },
+        {
+          "raw": "to",
+          "start": 3.4,
+          "end": 3.64
+        },
+        {
+          "raw": "do",
+          "start": 3.64,
+          "end": 3.78
+        },
+        {
+          "raw": "good",
+          "start": 3.78,
+          "end": 3.96
+        },
+        {
+          "raw": "to",
+          "start": 3.96,
+          "end": 4.12
+        },
+        {
+          "raw": "a",
+          "start": 4.12,
+          "end": 4.24
+        },
+        {
+          "raw": "friend",
+          "start": 4.24,
+          "end": 4.56
+        },
+        {
+          "raw": "and",
+          "start": 4.56,
+          "end": 5.02
+        },
+        {
+          "raw": "never",
+          "start": 5.02,
+          "end": 5.26
+        },
+        {
+          "raw": "evil.",
+          "start": 5.26,
+          "end": 5.58
+        }
+      ],
+      "expected_tokens": [
+        "Certainly",
+        "not;",
+        "for",
+        "he",
+        "thinks",
+        "that",
+        "a",
+        "friend",
+        "ought",
+        "always",
+        "to",
+        "do",
+        "good",
+        "to",
+        "a",
+        "friend",
+        "and",
+        "never",
+        "evil."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Certainly",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "certainly",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "not.",
+          "start": 0.7,
+          "end": 1.14,
+          "key": "not",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 1.7,
+          "end": 1.76,
+          "key": "for",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.76,
+          "end": 1.94,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thinks",
+          "start": 1.94,
+          "end": 2.14,
+          "key": "thinks",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.14,
+          "end": 2.38,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.38,
+          "end": 2.48,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "friend",
+          "start": 2.48,
+          "end": 2.68,
+          "key": "friend",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "ought",
+          "start": 2.68,
+          "end": 2.96,
+          "key": "ought",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "always",
+          "start": 2.96,
+          "end": 3.4,
+          "key": "always",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.4,
+          "end": 3.64,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 3.64,
+          "end": 3.78,
+          "key": "do",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 3.78,
+          "end": 3.96,
+          "key": "good",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.96,
+          "end": 4.12,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.12,
+          "end": 4.24,
+          "key": "a",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "friend",
+          "start": 4.24,
+          "end": 4.56,
+          "key": "friend",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.56,
+          "end": 5.02,
+          "key": "and",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 5.02,
+          "end": 5.26,
+          "key": "never",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "evil.",
+          "start": 5.26,
+          "end": 5.58,
+          "key": "evil",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Certainly",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "not;",
+          "start": 0.7,
+          "end": 1.14
+        },
+        {
+          "text": "for",
+          "start": 1.7,
+          "end": 1.76
+        },
+        {
+          "text": "he",
+          "start": 1.76,
+          "end": 1.94
+        },
+        {
+          "text": "thinks",
+          "start": 1.94,
+          "end": 2.14
+        },
+        {
+          "text": "that",
+          "start": 2.14,
+          "end": 2.38
+        },
+        {
+          "text": "a",
+          "start": 2.38,
+          "end": 2.48
+        },
+        {
+          "text": "friend",
+          "start": 2.48,
+          "end": 2.68
+        },
+        {
+          "text": "ought",
+          "start": 2.68,
+          "end": 2.96
+        },
+        {
+          "text": "always",
+          "start": 2.96,
+          "end": 3.4
+        },
+        {
+          "text": "to",
+          "start": 3.4,
+          "end": 3.64
+        },
+        {
+          "text": "do",
+          "start": 3.64,
+          "end": 3.78
+        },
+        {
+          "text": "good",
+          "start": 3.78,
+          "end": 3.96
+        },
+        {
+          "text": "to",
+          "start": 3.96,
+          "end": 4.12
+        },
+        {
+          "text": "a",
+          "start": 4.12,
+          "end": 4.24
+        },
+        {
+          "text": "friend",
+          "start": 4.24,
+          "end": 4.56
+        },
+        {
+          "text": "and",
+          "start": 4.56,
+          "end": 5.02
+        },
+        {
+          "text": "never",
+          "start": 5.02,
+          "end": 5.26
+        },
+        {
+          "text": "evil.",
+          "start": 5.26,
+          "end": 5.58
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.27306216955184937
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e8f695fdc4f804c9f1eb224c96e4d1d84b42a5145ec2501493331179055dceb8",
+  "selected_reasons": []
+}

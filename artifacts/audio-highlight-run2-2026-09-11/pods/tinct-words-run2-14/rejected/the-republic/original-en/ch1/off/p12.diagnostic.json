@@ -1,0 +1,476 @@
+{
+  "complete": true,
+  "signature": "093ca0e2c230e787cc59398a45440cb26d6ac290ed416e9fba1d7096cd64a073",
+  "attempts": [
+    {
+      "asr_seconds": 0.21199198439717293,
+      "alignment_seconds": 0.000554058700799942,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Then we are not going to listen, of that you may be assured.",
+          "start": 0.05,
+          "end": 3.27,
+          "words": [
+            {
+              "text": " Then",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.69091796875
+            },
+            {
+              "text": " we",
+              "start": 0.55,
+              "end": 0.71,
+              "probability": 0.9375
+            },
+            {
+              "text": " are",
+              "start": 0.71,
+              "end": 0.81,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " not",
+              "start": 0.81,
+              "end": 0.99,
+              "probability": 0.994140625
+            },
+            {
+              "text": " going",
+              "start": 0.99,
+              "end": 1.19,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 1.19,
+              "end": 1.39,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " listen,",
+              "start": 1.39,
+              "end": 1.69,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 2.13,
+              "end": 2.29,
+              "probability": 0.990234375
+            },
+            {
+              "text": " that",
+              "start": 2.29,
+              "end": 2.49,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you",
+              "start": 2.49,
+              "end": 2.63,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " may",
+              "start": 2.63,
+              "end": 2.77,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " be",
+              "start": 2.77,
+              "end": 2.93,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " assured.",
+              "start": 2.93,
+              "end": 3.27,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Then",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "we",
+          "start": 0.55,
+          "end": 0.71
+        },
+        {
+          "raw": "are",
+          "start": 0.71,
+          "end": 0.81
+        },
+        {
+          "raw": "not",
+          "start": 0.81,
+          "end": 0.99
+        },
+        {
+          "raw": "going",
+          "start": 0.99,
+          "end": 1.19
+        },
+        {
+          "raw": "to",
+          "start": 1.19,
+          "end": 1.39
+        },
+        {
+          "raw": "listen,",
+          "start": 1.39,
+          "end": 1.69
+        },
+        {
+          "raw": "of",
+          "start": 2.13,
+          "end": 2.29
+        },
+        {
+          "raw": "that",
+          "start": 2.29,
+          "end": 2.49
+        },
+        {
+          "raw": "you",
+          "start": 2.49,
+          "end": 2.63
+        },
+        {
+          "raw": "may",
+          "start": 2.63,
+          "end": 2.77
+        },
+        {
+          "raw": "be",
+          "start": 2.77,
+          "end": 2.93
+        },
+        {
+          "raw": "assured.",
+          "start": 2.93,
+          "end": 3.27
+        }
+      ],
+      "expected_tokens": [
+        "Then",
+        "we",
+        "are",
+        "not",
+        "going",
+        "to",
+        "listen;",
+        "of",
+        "that",
+        "you",
+        "may",
+        "be",
+        "assured."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Then",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "then",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 0.55,
+          "end": 0.71,
+          "key": "we",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 0.71,
+          "end": 0.81,
+          "key": "are",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.81,
+          "end": 0.99,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "going",
+          "start": 0.99,
+          "end": 1.19,
+          "key": "going",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.19,
+          "end": 1.39,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "listen,",
+          "start": 1.39,
+          "end": 1.69,
+          "key": "listen",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.13,
+          "end": 2.29,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.29,
+          "end": 2.49,
+          "key": "that",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.49,
+          "end": 2.63,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 2.63,
+          "end": 2.77,
+          "key": "may",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.77,
+          "end": 2.93,
+          "key": "be",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "assured.",
+          "start": 2.93,
+          "end": 3.27,
+          "key": "assured",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Then",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "we",
+          "start": 0.55,
+          "end": 0.71
+        },
+        {
+          "text": "are",
+          "start": 0.71,
+          "end": 0.81
+        },
+        {
+          "text": "not",
+          "start": 0.81,
+          "end": 0.99
+        },
+        {
+          "text": "going",
+          "start": 0.99,
+          "end": 1.19
+        },
+        {
+          "text": "to",
+          "start": 1.19,
+          "end": 1.39
+        },
+        {
+          "text": "listen;",
+          "start": 1.39,
+          "end": 1.69
+        },
+        {
+          "text": "of",
+          "start": 2.13,
+          "end": 2.29
+        },
+        {
+          "text": "that",
+          "start": 2.29,
+          "end": 2.49
+        },
+        {
+          "text": "you",
+          "start": 2.49,
+          "end": 2.63
+        },
+        {
+          "text": "may",
+          "start": 2.63,
+          "end": 2.77
+        },
+        {
+          "text": "be",
+          "start": 2.77,
+          "end": 2.93
+        },
+        {
+          "text": "assured.",
+          "start": 2.93,
+          "end": 3.27
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21277494356036186
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e1776cfd8fddf8ccd0c6cdd8a4b8dee4da94b78ab733236e0f1f899506eee64f",
+  "selected_reasons": []
+}

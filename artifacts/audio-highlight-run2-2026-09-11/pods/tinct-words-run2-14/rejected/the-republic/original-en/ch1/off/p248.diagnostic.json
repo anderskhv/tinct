@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "e34069c96b8c5b90289568b2bf278a9e3462389d5146b39d55e8e6d5eb5222fa",
+  "attempts": [
+    {
+      "asr_seconds": 0.18776655942201614,
+      "alignment_seconds": 0.0003609694540500641,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " A healer of the sick, he replied.",
+          "start": 0.08,
+          "end": 1.94,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.08,
+              "end": 0.5,
+              "probability": 0.295654296875
+            },
+            {
+              "text": " healer",
+              "start": 0.5,
+              "end": 0.76,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " of",
+              "start": 0.76,
+              "end": 0.92,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 0.92,
+              "end": 1.04,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " sick,",
+              "start": 1.04,
+              "end": 1.3,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " he",
+              "start": 1.46,
+              "end": 1.54,
+              "probability": 0.99609375
+            },
+            {
+              "text": " replied.",
+              "start": 1.54,
+              "end": 1.94,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "raw": "healer",
+          "start": 0.5,
+          "end": 0.76
+        },
+        {
+          "raw": "of",
+          "start": 0.76,
+          "end": 0.92
+        },
+        {
+          "raw": "the",
+          "start": 0.92,
+          "end": 1.04
+        },
+        {
+          "raw": "sick,",
+          "start": 1.04,
+          "end": 1.3
+        },
+        {
+          "raw": "he",
+          "start": 1.46,
+          "end": 1.54
+        },
+        {
+          "raw": "replied.",
+          "start": 1.54,
+          "end": 1.94
+        }
+      ],
+      "expected_tokens": [
+        "A",
+        "healer",
+        "of",
+        "the",
+        "sick,",
+        "he",
+        "replied."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.08,
+          "end": 0.5,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "healer",
+          "start": 0.5,
+          "end": 0.76,
+          "key": "healer",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.76,
+          "end": 0.92,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.92,
+          "end": 1.04,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sick,",
+          "start": 1.04,
+          "end": 1.3,
+          "key": "sick",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.46,
+          "end": 1.54,
+          "key": "he",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "replied.",
+          "start": 1.54,
+          "end": 1.94,
+          "key": "replied",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "A",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "text": "healer",
+          "start": 0.5,
+          "end": 0.76
+        },
+        {
+          "text": "of",
+          "start": 0.76,
+          "end": 0.92
+        },
+        {
+          "text": "the",
+          "start": 0.92,
+          "end": 1.04
+        },
+        {
+          "text": "sick,",
+          "start": 1.04,
+          "end": 1.3
+        },
+        {
+          "text": "he",
+          "start": 1.46,
+          "end": 1.54
+        },
+        {
+          "text": "replied.",
+          "start": 1.54,
+          "end": 1.94
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1882622018456459
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "59c93939c37ddd1d8e6a2dcfe7f476ca9f994d546520aa079175a78408fbff3b",
+  "selected_reasons": []
+}

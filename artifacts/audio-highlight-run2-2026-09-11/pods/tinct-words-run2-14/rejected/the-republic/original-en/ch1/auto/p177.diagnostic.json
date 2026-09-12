@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "491fb6aabd626c77624d0d3f084cd2118bcf7bac75cbadd6b3deadc535b2c11f",
+  "attempts": [
+    {
+      "asr_seconds": 0.11593928933143616,
+      "alignment_seconds": 0.00020385533571243286,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Whose?",
+        "hotwords": "Whose"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Whose",
+          "start": 0.05,
+          "end": 0.85,
+          "words": [
+            {
+              "text": " Whose",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.57208251953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Whose",
+          "start": 0.05,
+          "end": 0.85
+        }
+      ],
+      "expected_tokens": [
+        "Whose?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Whose",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "whose",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Whose?",
+          "start": 0.05,
+          "end": 0.85
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1162109225988388
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "08bee9e165d39adf5950bbc8f06cf27f46724a861a947e01cce9eb7ea5abda57",
+  "selected_reasons": []
+}

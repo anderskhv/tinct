@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "d497123aab6308465ceb5750219fb0eaf86cd7ba6b4562173f8744fbfa10b40b",
+  "attempts": [
+    {
+      "asr_seconds": 0.23412233963608742,
+      "alignment_seconds": 0.0004500485956668854,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Or like shoemaking for the acquisition of shoes,—that is what you mean?",
+        "hotwords": "Or"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Or like shoemaking for the acquisition of shoes,—that is what you mean?",
+          "start": 0.05,
+          "end": 3.95,
+          "words": [
+            {
+              "text": " Or",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.265625
+            },
+            {
+              "text": " like",
+              "start": 0.53,
+              "end": 0.71,
+              "probability": 0.96875
+            },
+            {
+              "text": " shoemaking",
+              "start": 0.71,
+              "end": 1.25,
+              "probability": 0.8026529947916666
+            },
+            {
+              "text": " for",
+              "start": 1.25,
+              "end": 1.49,
+              "probability": 0.990234375
+            },
+            {
+              "text": " the",
+              "start": 1.49,
+              "end": 1.61,
+              "probability": 0.998046875
+            },
+            {
+              "text": " acquisition",
+              "start": 1.61,
+              "end": 2.07,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " of",
+              "start": 2.07,
+              "end": 2.33,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " shoes,—that",
+              "start": 2.33,
+              "end": 3.35,
+              "probability": 0.5664063890775045
+            },
+            {
+              "text": " is",
+              "start": 3.35,
+              "end": 3.45,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " what",
+              "start": 3.45,
+              "end": 3.59,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you",
+              "start": 3.59,
+              "end": 3.71,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " mean?",
+              "start": 3.71,
+              "end": 3.95,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Or",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "like",
+          "start": 0.53,
+          "end": 0.71
+        },
+        {
+          "raw": "shoemaking",
+          "start": 0.71,
+          "end": 1.25
+        },
+        {
+          "raw": "for",
+          "start": 1.25,
+          "end": 1.49
+        },
+        {
+          "raw": "the",
+          "start": 1.49,
+          "end": 1.61
+        },
+        {
+          "raw": "acquisition",
+          "start": 1.61,
+          "end": 2.07
+        },
+        {
+          "raw": "of",
+          "start": 2.07,
+          "end": 2.33
+        },
+        {
+          "raw": "shoes,—that",
+          "start": 2.33,
+          "end": 3.35
+        },
+        {
+          "raw": "is",
+          "start": 3.35,
+          "end": 3.45
+        },
+        {
+          "raw": "what",
+          "start": 3.45,
+          "end": 3.59
+        },
+        {
+          "raw": "you",
+          "start": 3.59,
+          "end": 3.71
+        },
+        {
+          "raw": "mean?",
+          "start": 3.71,
+          "end": 3.95
+        }
+      ],
+      "expected_tokens": [
+        "Or",
+        "like",
+        "shoemaking",
+        "for",
+        "the",
+        "acquisition",
+        "of",
+        "shoes,—that",
+        "is",
+        "what",
+        "you",
+        "mean?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Or",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "or",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 0.53,
+          "end": 0.71,
+          "key": "like",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "shoemaking",
+          "start": 0.71,
+          "end": 1.25,
+          "key": "shoemaking",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.25,
+          "end": 1.49,
+          "key": "for",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.49,
+          "end": 1.61,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "acquisition",
+          "start": 1.61,
+          "end": 2.07,
+          "key": "acquisition",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.07,
+          "end": 2.33,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "shoes,—that",
+          "start": 2.33,
+          "end": 3.35,
+          "key": "shoesthat",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.35,
+          "end": 3.45,
+          "key": "is",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 3.45,
+          "end": 3.59,
+          "key": "what",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.59,
+          "end": 3.71,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "mean?",
+          "start": 3.71,
+          "end": 3.95,
+          "key": "mean",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Or",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "like",
+          "start": 0.53,
+          "end": 0.71
+        },
+        {
+          "text": "shoemaking",
+          "start": 0.71,
+          "end": 1.25
+        },
+        {
+          "text": "for",
+          "start": 1.25,
+          "end": 1.49
+        },
+        {
+          "text": "the",
+          "start": 1.49,
+          "end": 1.61
+        },
+        {
+          "text": "acquisition",
+          "start": 1.61,
+          "end": 2.07
+        },
+        {
+          "text": "of",
+          "start": 2.07,
+          "end": 2.33
+        },
+        {
+          "text": "shoes,—that",
+          "start": 2.33,
+          "end": 3.35
+        },
+        {
+          "text": "is",
+          "start": 3.35,
+          "end": 3.45
+        },
+        {
+          "text": "what",
+          "start": 3.45,
+          "end": 3.59
+        },
+        {
+          "text": "you",
+          "start": 3.59,
+          "end": 3.71
+        },
+        {
+          "text": "mean?",
+          "start": 3.71,
+          "end": 3.95
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.234762504696846
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c19151a5ce67bbf848a93a4adb5b11bbd5e79931bbb6b7c2aef38e0ebcef1de5",
+  "selected_reasons": []
+}

@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "81fa95909791404cd458a689688672441859e6f30fb9fc57e5051fe0be32e483",
+  "attempts": [
+    {
+      "asr_seconds": 0.20379114151000977,
+      "alignment_seconds": 0.0004678778350353241,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And you would say the same sort of thing of the physician?",
+        "hotwords": "And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And you would say the same sort of thing of the physician?",
+          "start": 0.05,
+          "end": 2.57,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.66357421875
+            },
+            {
+              "text": " you",
+              "start": 0.51,
+              "end": 0.67,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " would",
+              "start": 0.67,
+              "end": 0.81,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " say",
+              "start": 0.81,
+              "end": 1.07,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 1.07,
+              "end": 1.23,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " same",
+              "start": 1.23,
+              "end": 1.51,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " sort",
+              "start": 1.51,
+              "end": 1.71,
+              "probability": 0.990234375
+            },
+            {
+              "text": " of",
+              "start": 1.71,
+              "end": 1.87,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " thing",
+              "start": 1.87,
+              "end": 2.01,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 2.01,
+              "end": 2.15,
+              "probability": 0.970703125
+            },
+            {
+              "text": " the",
+              "start": 2.15,
+              "end": 2.25,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " physician?",
+              "start": 2.25,
+              "end": 2.57,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "you",
+          "start": 0.51,
+          "end": 0.67
+        },
+        {
+          "raw": "would",
+          "start": 0.67,
+          "end": 0.81
+        },
+        {
+          "raw": "say",
+          "start": 0.81,
+          "end": 1.07
+        },
+        {
+          "raw": "the",
+          "start": 1.07,
+          "end": 1.23
+        },
+        {
+          "raw": "same",
+          "start": 1.23,
+          "end": 1.51
+        },
+        {
+          "raw": "sort",
+          "start": 1.51,
+          "end": 1.71
+        },
+        {
+          "raw": "of",
+          "start": 1.71,
+          "end": 1.87
+        },
+        {
+          "raw": "thing",
+          "start": 1.87,
+          "end": 2.01
+        },
+        {
+          "raw": "of",
+          "start": 2.01,
+          "end": 2.15
+        },
+        {
+          "raw": "the",
+          "start": 2.15,
+          "end": 2.25
+        },
+        {
+          "raw": "physician?",
+          "start": 2.25,
+          "end": 2.57
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "you",
+        "would",
+        "say",
+        "the",
+        "same",
+        "sort",
+        "of",
+        "thing",
+        "of",
+        "the",
+        "physician?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.51,
+          "end": 0.67,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 0.67,
+          "end": 0.81,
+          "key": "would",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 0.81,
+          "end": 1.07,
+          "key": "say",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.07,
+          "end": 1.23,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "same",
+          "start": 1.23,
+          "end": 1.51,
+          "key": "same",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sort",
+          "start": 1.51,
+          "end": 1.71,
+          "key": "sort",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.71,
+          "end": 1.87,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "thing",
+          "start": 1.87,
+          "end": 2.01,
+          "key": "thing",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.01,
+          "end": 2.15,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.15,
+          "end": 2.25,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "physician?",
+          "start": 2.25,
+          "end": 2.57,
+          "key": "physician",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "you",
+          "start": 0.51,
+          "end": 0.67
+        },
+        {
+          "text": "would",
+          "start": 0.67,
+          "end": 0.81
+        },
+        {
+          "text": "say",
+          "start": 0.81,
+          "end": 1.07
+        },
+        {
+          "text": "the",
+          "start": 1.07,
+          "end": 1.23
+        },
+        {
+          "text": "same",
+          "start": 1.23,
+          "end": 1.51
+        },
+        {
+          "text": "sort",
+          "start": 1.51,
+          "end": 1.71
+        },
+        {
+          "text": "of",
+          "start": 1.71,
+          "end": 1.87
+        },
+        {
+          "text": "thing",
+          "start": 1.87,
+          "end": 2.01
+        },
+        {
+          "text": "of",
+          "start": 2.01,
+          "end": 2.15
+        },
+        {
+          "text": "the",
+          "start": 2.15,
+          "end": 2.25
+        },
+        {
+          "text": "physician?",
+          "start": 2.25,
+          "end": 2.57
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20445794984698296
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bdb52c93a307e7fba00623f3be96191353680267e7284582b7c2b3f90f183c7e",
+  "selected_reasons": []
+}

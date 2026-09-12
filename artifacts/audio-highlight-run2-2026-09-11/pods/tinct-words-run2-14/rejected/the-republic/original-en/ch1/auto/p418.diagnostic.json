@@ -1,0 +1,478 @@
+{
+  "complete": true,
+  "signature": "c09caaa86788236d173abf967c8c3f205f081abd83d1f1b29981f3cdda1961be",
+  "attempts": [
+    {
+      "asr_seconds": 0.17219871282577515,
+      "alignment_seconds": 0.00033828988671302795,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "I agree, he said, because I do not wish to quarrel with you.",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I agree, he said, because I do not wish to quarrel with you.",
+          "start": 0.08,
+          "end": 3.64,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.184814453125
+            },
+            {
+              "text": " agree,",
+              "start": 0.54,
+              "end": 0.9,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " he",
+              "start": 1.24,
+              "end": 1.36,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " said,",
+              "start": 1.36,
+              "end": 1.66,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " because",
+              "start": 2.06,
+              "end": 2.22,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " I",
+              "start": 2.22,
+              "end": 2.36,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " do",
+              "start": 2.36,
+              "end": 2.46,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " not",
+              "start": 2.46,
+              "end": 2.64,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " wish",
+              "start": 2.64,
+              "end": 2.78,
+              "probability": 0.994140625
+            },
+            {
+              "text": " to",
+              "start": 2.78,
+              "end": 2.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " quarrel",
+              "start": 2.94,
+              "end": 3.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 3.18,
+              "end": 3.4,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " you.",
+              "start": 3.4,
+              "end": 3.64,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "agree,",
+          "start": 0.54,
+          "end": 0.9
+        },
+        {
+          "raw": "he",
+          "start": 1.24,
+          "end": 1.36
+        },
+        {
+          "raw": "said,",
+          "start": 1.36,
+          "end": 1.66
+        },
+        {
+          "raw": "because",
+          "start": 2.06,
+          "end": 2.22
+        },
+        {
+          "raw": "I",
+          "start": 2.22,
+          "end": 2.36
+        },
+        {
+          "raw": "do",
+          "start": 2.36,
+          "end": 2.46
+        },
+        {
+          "raw": "not",
+          "start": 2.46,
+          "end": 2.64
+        },
+        {
+          "raw": "wish",
+          "start": 2.64,
+          "end": 2.78
+        },
+        {
+          "raw": "to",
+          "start": 2.78,
+          "end": 2.94
+        },
+        {
+          "raw": "quarrel",
+          "start": 2.94,
+          "end": 3.18
+        },
+        {
+          "raw": "with",
+          "start": 3.18,
+          "end": 3.4
+        },
+        {
+          "raw": "you.",
+          "start": 3.4,
+          "end": 3.64
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "agree,",
+        "he",
+        "said,",
+        "because",
+        "I",
+        "do",
+        "not",
+        "wish",
+        "to",
+        "quarrel",
+        "with",
+        "you."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "agree,",
+          "start": 0.54,
+          "end": 0.9,
+          "key": "agree",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.24,
+          "end": 1.36,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 1.36,
+          "end": 1.66,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "because",
+          "start": 2.06,
+          "end": 2.22,
+          "key": "because",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.22,
+          "end": 2.36,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 2.36,
+          "end": 2.46,
+          "key": "do",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.46,
+          "end": 2.64,
+          "key": "not",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "wish",
+          "start": 2.64,
+          "end": 2.78,
+          "key": "wish",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.78,
+          "end": 2.94,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "quarrel",
+          "start": 2.94,
+          "end": 3.18,
+          "key": "quarrel",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.18,
+          "end": 3.4,
+          "key": "with",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 3.4,
+          "end": 3.64,
+          "key": "you",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "agree,",
+          "start": 0.54,
+          "end": 0.9
+        },
+        {
+          "text": "he",
+          "start": 1.24,
+          "end": 1.36
+        },
+        {
+          "text": "said,",
+          "start": 1.36,
+          "end": 1.66
+        },
+        {
+          "text": "because",
+          "start": 2.06,
+          "end": 2.22
+        },
+        {
+          "text": "I",
+          "start": 2.22,
+          "end": 2.36
+        },
+        {
+          "text": "do",
+          "start": 2.36,
+          "end": 2.46
+        },
+        {
+          "text": "not",
+          "start": 2.46,
+          "end": 2.64
+        },
+        {
+          "text": "wish",
+          "start": 2.64,
+          "end": 2.78
+        },
+        {
+          "text": "to",
+          "start": 2.78,
+          "end": 2.94
+        },
+        {
+          "text": "quarrel",
+          "start": 2.94,
+          "end": 3.18
+        },
+        {
+          "text": "with",
+          "start": 3.18,
+          "end": 3.4
+        },
+        {
+          "text": "you.",
+          "start": 3.4,
+          "end": 3.64
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17266995832324028
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f6eac767a825a2978bd6a2460478ec69e9cde344d5ff1a153dab5b2706a57492",
+  "selected_reasons": []
+}

@@ -1,0 +1,701 @@
+{
+  "complete": true,
+  "signature": "f0c734960f434f419050e376901d3937d8edeff91bf5d4ec2a6b19501bd1f086",
+  "attempts": [
+    {
+      "asr_seconds": 0.3209446407854557,
+      "alignment_seconds": 0.000555824488401413,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And the same is true of all other things; they have each of them an end and a special excellence?"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And the same is true of all other things? They have each of them an end and a special excellence?",
+          "start": 0.05,
+          "end": 5.43,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.630859375
+            },
+            {
+              "text": " the",
+              "start": 0.51,
+              "end": 0.65,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " same",
+              "start": 0.65,
+              "end": 0.87,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " is",
+              "start": 0.87,
+              "end": 1.11,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " true",
+              "start": 1.11,
+              "end": 1.39,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 1.39,
+              "end": 1.59,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " all",
+              "start": 1.59,
+              "end": 1.79,
+              "probability": 0.998046875
+            },
+            {
+              "text": " other",
+              "start": 1.79,
+              "end": 1.99,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " things?",
+              "start": 1.99,
+              "end": 2.39,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " They",
+              "start": 2.87,
+              "end": 3.03,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " have",
+              "start": 3.03,
+              "end": 3.19,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " each",
+              "start": 3.19,
+              "end": 3.41,
+              "probability": 0.99609375
+            },
+            {
+              "text": " of",
+              "start": 3.41,
+              "end": 3.55,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " them",
+              "start": 3.55,
+              "end": 3.69,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " an",
+              "start": 3.69,
+              "end": 3.87,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " end",
+              "start": 3.87,
+              "end": 4.17,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " and",
+              "start": 4.17,
+              "end": 4.49,
+              "probability": 0.80859375
+            },
+            {
+              "text": " a",
+              "start": 4.49,
+              "end": 4.59,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " special",
+              "start": 4.59,
+              "end": 4.93,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " excellence?",
+              "start": 4.93,
+              "end": 5.43,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "the",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "raw": "same",
+          "start": 0.65,
+          "end": 0.87
+        },
+        {
+          "raw": "is",
+          "start": 0.87,
+          "end": 1.11
+        },
+        {
+          "raw": "true",
+          "start": 1.11,
+          "end": 1.39
+        },
+        {
+          "raw": "of",
+          "start": 1.39,
+          "end": 1.59
+        },
+        {
+          "raw": "all",
+          "start": 1.59,
+          "end": 1.79
+        },
+        {
+          "raw": "other",
+          "start": 1.79,
+          "end": 1.99
+        },
+        {
+          "raw": "things?",
+          "start": 1.99,
+          "end": 2.39
+        },
+        {
+          "raw": "They",
+          "start": 2.87,
+          "end": 3.03
+        },
+        {
+          "raw": "have",
+          "start": 3.03,
+          "end": 3.19
+        },
+        {
+          "raw": "each",
+          "start": 3.19,
+          "end": 3.41
+        },
+        {
+          "raw": "of",
+          "start": 3.41,
+          "end": 3.55
+        },
+        {
+          "raw": "them",
+          "start": 3.55,
+          "end": 3.69
+        },
+        {
+          "raw": "an",
+          "start": 3.69,
+          "end": 3.87
+        },
+        {
+          "raw": "end",
+          "start": 3.87,
+          "end": 4.17
+        },
+        {
+          "raw": "and",
+          "start": 4.17,
+          "end": 4.49
+        },
+        {
+          "raw": "a",
+          "start": 4.49,
+          "end": 4.59
+        },
+        {
+          "raw": "special",
+          "start": 4.59,
+          "end": 4.93
+        },
+        {
+          "raw": "excellence?",
+          "start": 4.93,
+          "end": 5.43
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "the",
+        "same",
+        "is",
+        "true",
+        "of",
+        "all",
+        "other",
+        "things;",
+        "they",
+        "have",
+        "each",
+        "of",
+        "them",
+        "an",
+        "end",
+        "and",
+        "a",
+        "special",
+        "excellence?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.51,
+          "end": 0.65,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "same",
+          "start": 0.65,
+          "end": 0.87,
+          "key": "same",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.87,
+          "end": 1.11,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "true",
+          "start": 1.11,
+          "end": 1.39,
+          "key": "true",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.39,
+          "end": 1.59,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.59,
+          "end": 1.79,
+          "key": "all",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 1.79,
+          "end": 1.99,
+          "key": "other",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "things?",
+          "start": 1.99,
+          "end": 2.39,
+          "key": "things",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 2.87,
+          "end": 3.03,
+          "key": "they",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 3.03,
+          "end": 3.19,
+          "key": "have",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "each",
+          "start": 3.19,
+          "end": 3.41,
+          "key": "each",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.41,
+          "end": 3.55,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 3.55,
+          "end": 3.69,
+          "key": "them",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 3.69,
+          "end": 3.87,
+          "key": "an",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "end",
+          "start": 3.87,
+          "end": 4.17,
+          "key": "end",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.17,
+          "end": 4.49,
+          "key": "and",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.49,
+          "end": 4.59,
+          "key": "a",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "special",
+          "start": 4.59,
+          "end": 4.93,
+          "key": "special",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "excellence?",
+          "start": 4.93,
+          "end": 5.43,
+          "key": "excellence",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "the",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "text": "same",
+          "start": 0.65,
+          "end": 0.87
+        },
+        {
+          "text": "is",
+          "start": 0.87,
+          "end": 1.11
+        },
+        {
+          "text": "true",
+          "start": 1.11,
+          "end": 1.39
+        },
+        {
+          "text": "of",
+          "start": 1.39,
+          "end": 1.59
+        },
+        {
+          "text": "all",
+          "start": 1.59,
+          "end": 1.79
+        },
+        {
+          "text": "other",
+          "start": 1.79,
+          "end": 1.99
+        },
+        {
+          "text": "things;",
+          "start": 1.99,
+          "end": 2.39
+        },
+        {
+          "text": "they",
+          "start": 2.87,
+          "end": 3.03
+        },
+        {
+          "text": "have",
+          "start": 3.03,
+          "end": 3.19
+        },
+        {
+          "text": "each",
+          "start": 3.19,
+          "end": 3.41
+        },
+        {
+          "text": "of",
+          "start": 3.41,
+          "end": 3.55
+        },
+        {
+          "text": "them",
+          "start": 3.55,
+          "end": 3.69
+        },
+        {
+          "text": "an",
+          "start": 3.69,
+          "end": 3.87
+        },
+        {
+          "text": "end",
+          "start": 3.87,
+          "end": 4.17
+        },
+        {
+          "text": "and",
+          "start": 4.17,
+          "end": 4.49
+        },
+        {
+          "text": "a",
+          "start": 4.49,
+          "end": 4.59
+        },
+        {
+          "text": "special",
+          "start": 4.59,
+          "end": 4.93
+        },
+        {
+          "text": "excellence?",
+          "start": 4.93,
+          "end": 5.43
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3217380791902542
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "212549d6c56a3cff23116df915cf1c0de58060c4f6b2240d9b0fd9070cb9b1d5",
+  "selected_reasons": []
+}

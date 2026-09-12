@@ -1,0 +1,214 @@
+{
+  "complete": true,
+  "signature": "99a515306f789b48e4a0f0aee65a0dd7fcaebf4e08f4df0dab6c3e350b7cd060",
+  "attempts": [
+    {
+      "asr_seconds": 0.1803823485970497,
+      "alignment_seconds": 0.0002914220094680786,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Gonzalo. Marvelous sweet music.",
+          "start": 0.05,
+          "end": 2.29,
+          "words": [
+            {
+              "text": " Gonzalo.",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.894775390625
+            },
+            {
+              "text": " Marvelous",
+              "start": 1.49,
+              "end": 1.73,
+              "probability": 0.967041015625
+            },
+            {
+              "text": " sweet",
+              "start": 1.73,
+              "end": 1.95,
+              "probability": 0.5986328125
+            },
+            {
+              "text": " music.",
+              "start": 1.95,
+              "end": 2.29,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gonzalo.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "Marvelous",
+          "start": 1.49,
+          "end": 1.73
+        },
+        {
+          "raw": "sweet",
+          "start": 1.73,
+          "end": 1.95
+        },
+        {
+          "raw": "music.",
+          "start": 1.95,
+          "end": 2.29
+        }
+      ],
+      "expected_tokens": [
+        "Gonzalo.",
+        "Marvellous",
+        "sweet",
+        "music!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          4,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gonzalo.",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "gonzalo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Marvelous",
+          "start": 1.49,
+          "end": 1.73,
+          "key": "marvelous",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sweet",
+          "start": 1.73,
+          "end": 1.95,
+          "key": "sweet",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "music.",
+          "start": 1.95,
+          "end": 2.29,
+          "key": "music",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gonzalo.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "Marvellous",
+          "start": 0.91,
+          "end": 1.32
+        },
+        {
+          "text": "sweet",
+          "start": 1.73,
+          "end": 1.95
+        },
+        {
+          "text": "music!",
+          "start": 1.95,
+          "end": 2.29
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.18077534064650536
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3e1e5aec47590a101e58aa8bb7ad56b13d5e2b35217360d91bd523104bd0a1ac",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

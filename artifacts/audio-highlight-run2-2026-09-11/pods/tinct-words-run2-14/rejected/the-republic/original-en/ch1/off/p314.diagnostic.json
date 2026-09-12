@@ -1,0 +1,604 @@
+{
+  "complete": true,
+  "signature": "117528d22fa09458d0aa9edc7bc3b671d8363e395a22000b535015fd225089ff",
+  "attempts": [
+    {
+      "asr_seconds": 0.26995840296149254,
+      "alignment_seconds": 0.000554397702217102,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I, for my part, deem the life of the just to be the more advantageous,\" he answered.",
+          "start": 0.11,
+          "end": 4.63,
+          "words": [
+            {
+              "text": " I,",
+              "start": 0.11,
+              "end": 0.53,
+              "probability": 0.7099609375
+            },
+            {
+              "text": " for",
+              "start": 0.65,
+              "end": 0.65,
+              "probability": 0.998046875
+            },
+            {
+              "text": " my",
+              "start": 0.65,
+              "end": 0.81,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " part,",
+              "start": 0.81,
+              "end": 1.05,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " deem",
+              "start": 1.25,
+              "end": 1.35,
+              "probability": 0.7109375
+            },
+            {
+              "text": " the",
+              "start": 1.35,
+              "end": 1.59,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " life",
+              "start": 1.59,
+              "end": 1.79,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " of",
+              "start": 1.79,
+              "end": 1.95,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 1.95,
+              "end": 2.07,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " just",
+              "start": 2.07,
+              "end": 2.23,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " to",
+              "start": 2.23,
+              "end": 2.43,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " be",
+              "start": 2.43,
+              "end": 2.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 2.55,
+              "end": 2.65,
+              "probability": 0.96484375
+            },
+            {
+              "text": " more",
+              "start": 2.65,
+              "end": 2.83,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " advantageous,\"",
+              "start": 2.83,
+              "end": 4.09,
+              "probability": 0.798095703125
+            },
+            {
+              "text": " he",
+              "start": 4.09,
+              "end": 4.25,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " answered.",
+              "start": 4.25,
+              "end": 4.63,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I,",
+          "start": 0.11,
+          "end": 0.53
+        },
+        {
+          "raw": "for",
+          "start": 0.65,
+          "end": 0.65
+        },
+        {
+          "raw": "my",
+          "start": 0.65,
+          "end": 0.81
+        },
+        {
+          "raw": "part,",
+          "start": 0.81,
+          "end": 1.05
+        },
+        {
+          "raw": "deem",
+          "start": 1.25,
+          "end": 1.35
+        },
+        {
+          "raw": "the",
+          "start": 1.35,
+          "end": 1.59
+        },
+        {
+          "raw": "life",
+          "start": 1.59,
+          "end": 1.79
+        },
+        {
+          "raw": "of",
+          "start": 1.79,
+          "end": 1.95
+        },
+        {
+          "raw": "the",
+          "start": 1.95,
+          "end": 2.07
+        },
+        {
+          "raw": "just",
+          "start": 2.07,
+          "end": 2.23
+        },
+        {
+          "raw": "to",
+          "start": 2.23,
+          "end": 2.43
+        },
+        {
+          "raw": "be",
+          "start": 2.43,
+          "end": 2.55
+        },
+        {
+          "raw": "the",
+          "start": 2.55,
+          "end": 2.65
+        },
+        {
+          "raw": "more",
+          "start": 2.65,
+          "end": 2.83
+        },
+        {
+          "raw": "advantageous,\"",
+          "start": 2.83,
+          "end": 4.09
+        },
+        {
+          "raw": "he",
+          "start": 4.09,
+          "end": 4.25
+        },
+        {
+          "raw": "answered.",
+          "start": 4.25,
+          "end": 4.63
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "for",
+        "my",
+        "part",
+        "deem",
+        "the",
+        "life",
+        "of",
+        "the",
+        "just",
+        "to",
+        "be",
+        "the",
+        "more",
+        "advantageous,",
+        "he",
+        "answered."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I,",
+          "start": 0.11,
+          "end": 0.53,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 0.65,
+          "end": 0.65,
+          "key": "for",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 0.65,
+          "end": 0.81,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "part,",
+          "start": 0.81,
+          "end": 1.05,
+          "key": "part",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "deem",
+          "start": 1.25,
+          "end": 1.35,
+          "key": "deem",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.35,
+          "end": 1.59,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "life",
+          "start": 1.59,
+          "end": 1.79,
+          "key": "life",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.79,
+          "end": 1.95,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.95,
+          "end": 2.07,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 2.07,
+          "end": 2.23,
+          "key": "just",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.23,
+          "end": 2.43,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.43,
+          "end": 2.55,
+          "key": "be",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.55,
+          "end": 2.65,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 2.65,
+          "end": 2.83,
+          "key": "more",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "advantageous,\"",
+          "start": 2.83,
+          "end": 4.09,
+          "key": "advantageous",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 4.09,
+          "end": 4.25,
+          "key": "he",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "answered.",
+          "start": 4.25,
+          "end": 4.63,
+          "key": "answered",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.11,
+          "end": 0.53
+        },
+        {
+          "text": "for",
+          "start": 0.65,
+          "end": 0.65
+        },
+        {
+          "text": "my",
+          "start": 0.65,
+          "end": 0.81
+        },
+        {
+          "text": "part",
+          "start": 0.81,
+          "end": 1.05
+        },
+        {
+          "text": "deem",
+          "start": 1.25,
+          "end": 1.35
+        },
+        {
+          "text": "the",
+          "start": 1.35,
+          "end": 1.59
+        },
+        {
+          "text": "life",
+          "start": 1.59,
+          "end": 1.79
+        },
+        {
+          "text": "of",
+          "start": 1.79,
+          "end": 1.95
+        },
+        {
+          "text": "the",
+          "start": 1.95,
+          "end": 2.07
+        },
+        {
+          "text": "just",
+          "start": 2.07,
+          "end": 2.23
+        },
+        {
+          "text": "to",
+          "start": 2.23,
+          "end": 2.43
+        },
+        {
+          "text": "be",
+          "start": 2.43,
+          "end": 2.55
+        },
+        {
+          "text": "the",
+          "start": 2.55,
+          "end": 2.65
+        },
+        {
+          "text": "more",
+          "start": 2.65,
+          "end": 2.83
+        },
+        {
+          "text": "advantageous,",
+          "start": 2.83,
+          "end": 4.09
+        },
+        {
+          "text": "he",
+          "start": 4.09,
+          "end": 4.25
+        },
+        {
+          "text": "answered.",
+          "start": 4.25,
+          "end": 4.63
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2707891911268234
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2e667a109551f25f916b0f91949121800c4b3e93f8ffe3dad25cec1f38252e7e",
+  "selected_reasons": []
+}

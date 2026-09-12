@@ -1,0 +1,503 @@
+{
+  "complete": true,
+  "signature": "f64b647d0fcec33690cdd4b662bf62f5618a292b3717523685dc9236a3a0406e",
+  "attempts": [
+    {
+      "asr_seconds": 0.24695022776722908,
+      "alignment_seconds": 0.000253140926361084,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " dogs are deteriorated in the good qualities of dogs and not of horses.",
+          "start": 0.08,
+          "end": 4.48,
+          "words": [
+            {
+              "text": " dogs",
+              "start": 0.08,
+              "end": 0.92,
+              "probability": 0.07830810546875
+            },
+            {
+              "text": " are",
+              "start": 0.92,
+              "end": 1.12,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " deteriorated",
+              "start": 1.12,
+              "end": 1.72,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 1.72,
+              "end": 1.94,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 1.94,
+              "end": 2.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " good",
+              "start": 2.06,
+              "end": 2.24,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " qualities",
+              "start": 2.24,
+              "end": 2.66,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 2.66,
+              "end": 2.9,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " dogs",
+              "start": 2.9,
+              "end": 3.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 3.26,
+              "end": 3.86,
+              "probability": 0.78076171875
+            },
+            {
+              "text": " not",
+              "start": 3.86,
+              "end": 4.04,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 4.04,
+              "end": 4.16,
+              "probability": 0.998046875
+            },
+            {
+              "text": " horses.",
+              "start": 4.16,
+              "end": 4.48,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "dogs",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "raw": "are",
+          "start": 0.92,
+          "end": 1.12
+        },
+        {
+          "raw": "deteriorated",
+          "start": 1.12,
+          "end": 1.72
+        },
+        {
+          "raw": "in",
+          "start": 1.72,
+          "end": 1.94
+        },
+        {
+          "raw": "the",
+          "start": 1.94,
+          "end": 2.06
+        },
+        {
+          "raw": "good",
+          "start": 2.06,
+          "end": 2.24
+        },
+        {
+          "raw": "qualities",
+          "start": 2.24,
+          "end": 2.66
+        },
+        {
+          "raw": "of",
+          "start": 2.66,
+          "end": 2.9
+        },
+        {
+          "raw": "dogs",
+          "start": 2.9,
+          "end": 3.26
+        },
+        {
+          "raw": "and",
+          "start": 3.26,
+          "end": 3.86
+        },
+        {
+          "raw": "not",
+          "start": 3.86,
+          "end": 4.04
+        },
+        {
+          "raw": "of",
+          "start": 4.04,
+          "end": 4.16
+        },
+        {
+          "raw": "horses.",
+          "start": 4.16,
+          "end": 4.48
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "dogs",
+        "are",
+        "deteriorated",
+        "in",
+        "the",
+        "good",
+        "qualities",
+        "of",
+        "dogs,",
+        "and",
+        "not",
+        "of",
+        "horses?"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "equal",
+          1,
+          14,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "dogs",
+          "start": 0.08,
+          "end": 0.92,
+          "key": "dogs",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 0.92,
+          "end": 1.12,
+          "key": "are",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "deteriorated",
+          "start": 1.12,
+          "end": 1.72,
+          "key": "deteriorated",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.72,
+          "end": 1.94,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.94,
+          "end": 2.06,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 2.06,
+          "end": 2.24,
+          "key": "good",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "qualities",
+          "start": 2.24,
+          "end": 2.66,
+          "key": "qualities",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.66,
+          "end": 2.9,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "dogs",
+          "start": 2.9,
+          "end": 3.26,
+          "key": "dogs",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.26,
+          "end": 3.86,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.86,
+          "end": 4.04,
+          "key": "not",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.04,
+          "end": 4.16,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "horses.",
+          "start": 4.16,
+          "end": 4.48,
+          "key": "horses",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.0,
+          "end": 0.04
+        },
+        {
+          "text": "dogs",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "text": "are",
+          "start": 0.92,
+          "end": 1.12
+        },
+        {
+          "text": "deteriorated",
+          "start": 1.12,
+          "end": 1.72
+        },
+        {
+          "text": "in",
+          "start": 1.72,
+          "end": 1.94
+        },
+        {
+          "text": "the",
+          "start": 1.94,
+          "end": 2.06
+        },
+        {
+          "text": "good",
+          "start": 2.06,
+          "end": 2.24
+        },
+        {
+          "text": "qualities",
+          "start": 2.24,
+          "end": 2.66
+        },
+        {
+          "text": "of",
+          "start": 2.66,
+          "end": 2.9
+        },
+        {
+          "text": "dogs,",
+          "start": 2.9,
+          "end": 3.26
+        },
+        {
+          "text": "and",
+          "start": 3.26,
+          "end": 3.86
+        },
+        {
+          "text": "not",
+          "start": 3.86,
+          "end": 4.04
+        },
+        {
+          "text": "of",
+          "start": 4.04,
+          "end": 4.16
+        },
+        {
+          "text": "horses?",
+          "start": 4.16,
+          "end": 4.48
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.24729512259364128
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4a0dbd080db923b41bc7e96dd9e12329fafdbbadbe7cce1cb73b04df5e1be31c",
+  "selected_reasons": []
+}

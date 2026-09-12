@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "2b90ccdcc904a5709f815f627af1e99787d67514454b3f9628fa661a93d5001e",
+  "attempts": [
+    {
+      "asr_seconds": 0.24546653032302856,
+      "alignment_seconds": 0.00039649754762649536,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Antonio. Or as 'twere perfumed by a fen.",
+        "hotwords": "Antonio, Or"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Antonio, Or as twere perfumed by a fen.",
+          "start": 0.11,
+          "end": 3.07,
+          "words": [
+            {
+              "text": " Antonio,",
+              "start": 0.11,
+              "end": 0.85,
+              "probability": 0.88037109375
+            },
+            {
+              "text": " Or",
+              "start": 1.29,
+              "end": 1.51,
+              "probability": 0.0043792724609375
+            },
+            {
+              "text": " as",
+              "start": 1.51,
+              "end": 1.65,
+              "probability": 0.031951904296875
+            },
+            {
+              "text": " twere",
+              "start": 1.65,
+              "end": 1.97,
+              "probability": 0.130340576171875
+            },
+            {
+              "text": " perfumed",
+              "start": 1.97,
+              "end": 2.41,
+              "probability": 0.983154296875
+            },
+            {
+              "text": " by",
+              "start": 2.41,
+              "end": 2.59,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " a",
+              "start": 2.59,
+              "end": 2.71,
+              "probability": 0.986328125
+            },
+            {
+              "text": " fen.",
+              "start": 2.71,
+              "end": 3.07,
+              "probability": 0.7705078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antonio,",
+          "start": 0.11,
+          "end": 0.85
+        },
+        {
+          "raw": "Or",
+          "start": 1.29,
+          "end": 1.51
+        },
+        {
+          "raw": "as",
+          "start": 1.51,
+          "end": 1.65
+        },
+        {
+          "raw": "twere",
+          "start": 1.65,
+          "end": 1.97
+        },
+        {
+          "raw": "perfumed",
+          "start": 1.97,
+          "end": 2.41
+        },
+        {
+          "raw": "by",
+          "start": 2.41,
+          "end": 2.59
+        },
+        {
+          "raw": "a",
+          "start": 2.59,
+          "end": 2.71
+        },
+        {
+          "raw": "fen.",
+          "start": 2.71,
+          "end": 3.07
+        }
+      ],
+      "expected_tokens": [
+        "Antonio.",
+        "Or",
+        "as",
+        "'twere",
+        "perfumed",
+        "by",
+        "a",
+        "fen."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antonio,",
+          "start": 0.11,
+          "end": 0.85,
+          "key": "antonio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Or",
+          "start": 1.29,
+          "end": 1.51,
+          "key": "or",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.51,
+          "end": 1.65,
+          "key": "as",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "twere",
+          "start": 1.65,
+          "end": 1.97,
+          "key": "twere",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "perfumed",
+          "start": 1.97,
+          "end": 2.41,
+          "key": "perfumed",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 2.41,
+          "end": 2.59,
+          "key": "by",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.59,
+          "end": 2.71,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "fen.",
+          "start": 2.71,
+          "end": 3.07,
+          "key": "fen",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antonio.",
+          "start": 0.11,
+          "end": 0.85
+        },
+        {
+          "text": "Or",
+          "start": 1.29,
+          "end": 1.51
+        },
+        {
+          "text": "as",
+          "start": 1.51,
+          "end": 1.65
+        },
+        {
+          "text": "'twere",
+          "start": 1.65,
+          "end": 1.97
+        },
+        {
+          "text": "perfumed",
+          "start": 1.97,
+          "end": 2.41
+        },
+        {
+          "text": "by",
+          "start": 2.41,
+          "end": 2.59
+        },
+        {
+          "text": "a",
+          "start": 2.59,
+          "end": 2.71
+        },
+        {
+          "text": "fen.",
+          "start": 2.71,
+          "end": 3.07
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2460131086409092
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6f45e5cd3f4245fab2fb5c34854fb392e84adf41d67cf2736dc56f1d7f1334a9",
+  "selected_reasons": []
+}

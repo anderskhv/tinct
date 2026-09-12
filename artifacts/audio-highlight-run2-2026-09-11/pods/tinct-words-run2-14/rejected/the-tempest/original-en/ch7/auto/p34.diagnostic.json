@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "f9b21b36baba3d2a82cce77243b1521060a19b17efbe4901d8a4d4390c5ea12a",
+  "attempts": [
+    {
+      "asr_seconds": 0.15611787885427475,
+      "alignment_seconds": 0.0003385096788406372,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Antonio. I'll be thy second.",
+        "hotwords": "Antonio, I'll"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Antonio, I'll be thy second.",
+          "start": 0.11,
+          "end": 2.07,
+          "words": [
+            {
+              "text": " Antonio,",
+              "start": 0.11,
+              "end": 0.83,
+              "probability": 0.884765625
+            },
+            {
+              "text": " I'll",
+              "start": 1.29,
+              "end": 1.47,
+              "probability": 0.980712890625
+            },
+            {
+              "text": " be",
+              "start": 1.47,
+              "end": 1.55,
+              "probability": 0.998046875
+            },
+            {
+              "text": " thy",
+              "start": 1.55,
+              "end": 1.69,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " second.",
+              "start": 1.69,
+              "end": 2.07,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antonio,",
+          "start": 0.11,
+          "end": 0.83
+        },
+        {
+          "raw": "I'll",
+          "start": 1.29,
+          "end": 1.47
+        },
+        {
+          "raw": "be",
+          "start": 1.47,
+          "end": 1.55
+        },
+        {
+          "raw": "thy",
+          "start": 1.55,
+          "end": 1.69
+        },
+        {
+          "raw": "second.",
+          "start": 1.69,
+          "end": 2.07
+        }
+      ],
+      "expected_tokens": [
+        "Antonio.",
+        "I'll",
+        "be",
+        "thy",
+        "second."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antonio,",
+          "start": 0.11,
+          "end": 0.83,
+          "key": "antonio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 1.29,
+          "end": 1.47,
+          "key": "ill",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.47,
+          "end": 1.55,
+          "key": "be",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 1.55,
+          "end": 1.69,
+          "key": "thy",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "second.",
+          "start": 1.69,
+          "end": 2.07,
+          "key": "second",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antonio.",
+          "start": 0.11,
+          "end": 0.83
+        },
+        {
+          "text": "I'll",
+          "start": 1.29,
+          "end": 1.47
+        },
+        {
+          "text": "be",
+          "start": 1.47,
+          "end": 1.55
+        },
+        {
+          "text": "thy",
+          "start": 1.55,
+          "end": 1.69
+        },
+        {
+          "text": "second.",
+          "start": 1.69,
+          "end": 2.07
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15657704696059227
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e35c2459cb9b09402923df48bcf42cb6170f57ed8ca9def7600703f21eeb48cd",
+  "selected_reasons": []
+}

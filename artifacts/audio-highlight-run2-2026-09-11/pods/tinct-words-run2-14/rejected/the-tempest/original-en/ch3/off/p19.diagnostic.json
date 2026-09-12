@@ -1,0 +1,195 @@
+{
+  "complete": true,
+  "signature": "56677da56e9bb1dbd6e3ff211fb0e159ae155ae6f615952e5f253736de1e0476",
+  "attempts": [
+    {
+      "asr_seconds": 0.1226431131362915,
+      "alignment_seconds": 0.0003288276493549347,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Antonio, the cock role.",
+          "start": 0.11,
+          "end": 1.79,
+          "words": [
+            {
+              "text": " Antonio,",
+              "start": 0.11,
+              "end": 0.83,
+              "probability": 0.8662109375
+            },
+            {
+              "text": " the",
+              "start": 1.25,
+              "end": 1.35,
+              "probability": 0.63623046875
+            },
+            {
+              "text": " cock",
+              "start": 1.35,
+              "end": 1.55,
+              "probability": 0.54541015625
+            },
+            {
+              "text": " role.",
+              "start": 1.55,
+              "end": 1.79,
+              "probability": 0.160888671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antonio,",
+          "start": 0.11,
+          "end": 0.83
+        },
+        {
+          "raw": "the",
+          "start": 1.25,
+          "end": 1.35
+        },
+        {
+          "raw": "cock",
+          "start": 1.35,
+          "end": 1.55
+        },
+        {
+          "raw": "role.",
+          "start": 1.55,
+          "end": 1.79
+        }
+      ],
+      "expected_tokens": [
+        "Antonio.",
+        "The",
+        "cockerel."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antonio,",
+          "start": 0.11,
+          "end": 0.83,
+          "key": "antonio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.25,
+          "end": 1.35,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "cock",
+          "start": 1.35,
+          "end": 1.55,
+          "key": "cock",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "role.",
+          "start": 1.55,
+          "end": 1.79,
+          "key": "role",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antonio.",
+          "start": 0.11,
+          "end": 0.83
+        },
+        {
+          "text": "The",
+          "start": 1.25,
+          "end": 1.35
+        },
+        {
+          "text": "cockerel.",
+          "start": 1.35,
+          "end": 1.57
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12308159470558167
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b86de3d534aa445356fd7e0ffcc942215b11587003d242db4bd83b9406ea6df9",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

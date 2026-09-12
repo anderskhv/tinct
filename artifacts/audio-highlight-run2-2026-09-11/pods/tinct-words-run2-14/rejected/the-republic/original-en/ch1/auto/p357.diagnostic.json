@@ -1,0 +1,445 @@
+{
+  "complete": true,
+  "signature": "75333033ad6503aa97289fdaeeaf814141cad7c14cfd43d20e68a53bcf61b70e",
+  "attempts": [
+    {
+      "asr_seconds": 0.20244651287794113,
+      "alignment_seconds": 0.0004071183502674103,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And the unjust is good and wise, and the just is neither?"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And the unjust is good and wise, and the just is neither?",
+          "start": 0.05,
+          "end": 3.35,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.59033203125
+            },
+            {
+              "text": " the",
+              "start": 0.51,
+              "end": 0.61,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " unjust",
+              "start": 0.61,
+              "end": 0.99,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " is",
+              "start": 0.99,
+              "end": 1.33,
+              "probability": 0.998046875
+            },
+            {
+              "text": " good",
+              "start": 1.33,
+              "end": 1.57,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 1.57,
+              "end": 1.73,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " wise,",
+              "start": 1.73,
+              "end": 2.05,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 2.61,
+              "end": 2.67,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " the",
+              "start": 2.67,
+              "end": 2.77,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " just",
+              "start": 2.77,
+              "end": 2.95,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " is",
+              "start": 2.95,
+              "end": 3.13,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " neither?",
+              "start": 3.13,
+              "end": 3.35,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "the",
+          "start": 0.51,
+          "end": 0.61
+        },
+        {
+          "raw": "unjust",
+          "start": 0.61,
+          "end": 0.99
+        },
+        {
+          "raw": "is",
+          "start": 0.99,
+          "end": 1.33
+        },
+        {
+          "raw": "good",
+          "start": 1.33,
+          "end": 1.57
+        },
+        {
+          "raw": "and",
+          "start": 1.57,
+          "end": 1.73
+        },
+        {
+          "raw": "wise,",
+          "start": 1.73,
+          "end": 2.05
+        },
+        {
+          "raw": "and",
+          "start": 2.61,
+          "end": 2.67
+        },
+        {
+          "raw": "the",
+          "start": 2.67,
+          "end": 2.77
+        },
+        {
+          "raw": "just",
+          "start": 2.77,
+          "end": 2.95
+        },
+        {
+          "raw": "is",
+          "start": 2.95,
+          "end": 3.13
+        },
+        {
+          "raw": "neither?",
+          "start": 3.13,
+          "end": 3.35
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "the",
+        "unjust",
+        "is",
+        "good",
+        "and",
+        "wise,",
+        "and",
+        "the",
+        "just",
+        "is",
+        "neither?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.51,
+          "end": 0.61,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "unjust",
+          "start": 0.61,
+          "end": 0.99,
+          "key": "unjust",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.99,
+          "end": 1.33,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.33,
+          "end": 1.57,
+          "key": "good",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.57,
+          "end": 1.73,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "wise,",
+          "start": 1.73,
+          "end": 2.05,
+          "key": "wise",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.61,
+          "end": 2.67,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.67,
+          "end": 2.77,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 2.77,
+          "end": 2.95,
+          "key": "just",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.95,
+          "end": 3.13,
+          "key": "is",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "neither?",
+          "start": 3.13,
+          "end": 3.35,
+          "key": "neither",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "the",
+          "start": 0.51,
+          "end": 0.61
+        },
+        {
+          "text": "unjust",
+          "start": 0.61,
+          "end": 0.99
+        },
+        {
+          "text": "is",
+          "start": 0.99,
+          "end": 1.33
+        },
+        {
+          "text": "good",
+          "start": 1.33,
+          "end": 1.57
+        },
+        {
+          "text": "and",
+          "start": 1.57,
+          "end": 1.73
+        },
+        {
+          "text": "wise,",
+          "start": 1.73,
+          "end": 2.05
+        },
+        {
+          "text": "and",
+          "start": 2.61,
+          "end": 2.67
+        },
+        {
+          "text": "the",
+          "start": 2.67,
+          "end": 2.77
+        },
+        {
+          "text": "just",
+          "start": 2.77,
+          "end": 2.95
+        },
+        {
+          "text": "is",
+          "start": 2.95,
+          "end": 3.13
+        },
+        {
+          "text": "neither?",
+          "start": 3.13,
+          "end": 3.35
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20302672684192657
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3a17d76a54eb27b97746968e08b8cdb027114e854c60b6b7a57b73d6997ff1a6",
+  "selected_reasons": []
+}

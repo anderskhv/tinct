@@ -1,0 +1,764 @@
+{
+  "complete": true,
+  "signature": "d782f4ad234ef0168d0fab5589453c06e2af00d3b98f8d9382021fc3628e8af5",
+  "attempts": [
+    {
+      "asr_seconds": 0.19983791559934616,
+      "alignment_seconds": 0.00040909647941589355,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Antonio. He'ld sow't with nettle-seed.",
+        "hotwords": "Antonio, He'ld"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Antonio, He'ld sow't with nettle-seed.",
+          "start": 0.11,
+          "end": 2.51,
+          "words": [
+            {
+              "text": " Antonio,",
+              "start": 0.11,
+              "end": 0.87,
+              "probability": 0.88232421875
+            },
+            {
+              "text": " He",
+              "start": 1.39,
+              "end": 1.45,
+              "probability": 0.034423828125
+            },
+            {
+              "text": "'ld",
+              "start": 1.45,
+              "end": 1.55,
+              "probability": 0.1670776605606079
+            },
+            {
+              "text": " sow't",
+              "start": 1.55,
+              "end": 1.83,
+              "probability": 0.000982046127319336
+            },
+            {
+              "text": " with",
+              "start": 1.83,
+              "end": 1.91,
+              "probability": 0.84326171875
+            },
+            {
+              "text": " nettle",
+              "start": 1.91,
+              "end": 2.25,
+              "probability": 0.822509765625
+            },
+            {
+              "text": "-seed.",
+              "start": 2.25,
+              "end": 2.51,
+              "probability": 0.4988522529602051
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antonio,",
+          "start": 0.11,
+          "end": 0.87
+        },
+        {
+          "raw": "He",
+          "start": 1.39,
+          "end": 1.45
+        },
+        {
+          "raw": "'ld",
+          "start": 1.45,
+          "end": 1.55
+        },
+        {
+          "raw": "sow't",
+          "start": 1.55,
+          "end": 1.83
+        },
+        {
+          "raw": "with",
+          "start": 1.83,
+          "end": 1.91
+        },
+        {
+          "raw": "nettle",
+          "start": 1.91,
+          "end": 2.25
+        },
+        {
+          "raw": "-seed.",
+          "start": 2.25,
+          "end": 2.51
+        }
+      ],
+      "expected_tokens": [
+        "Antonio.",
+        "He'ld",
+        "sow't",
+        "with",
+        "nettle-seed."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          5,
+          3,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antonio,",
+          "start": 0.11,
+          "end": 0.87,
+          "key": "antonio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 1.39,
+          "end": 1.45,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "'ld",
+          "start": 1.45,
+          "end": 1.55,
+          "key": "ld",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sow't",
+          "start": 1.55,
+          "end": 1.83,
+          "key": "sowt",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.83,
+          "end": 1.91,
+          "key": "with",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "nettle -seed.",
+          "start": 1.91,
+          "end": 2.51,
+          "key": "nettleseed",
+          "pieces": [
+            5,
+            6
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 4,
+          "text": "nettle-seed.",
+          "heard": "nettle -seed.",
+          "heard_indexes": [
+            5,
+            6
+          ],
+          "start": 1.91,
+          "end": 2.51
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Antonio.",
+          "start": 0.11,
+          "end": 0.87
+        },
+        {
+          "text": "He'ld",
+          "start": 0.87,
+          "end": 1.21
+        },
+        {
+          "text": "sow't",
+          "start": 1.55,
+          "end": 1.83
+        },
+        {
+          "text": "with",
+          "start": 1.83,
+          "end": 1.91
+        },
+        {
+          "text": "nettle-seed.",
+          "start": 1.91,
+          "end": 2.51
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20035942643880844
+    },
+    {
+      "asr_seconds": 0.1556653268635273,
+      "alignment_seconds": 0.0004519931972026825,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Antonio, He'ld"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Soap with Nettle Seed.",
+          "start": 1.19,
+          "end": 2.55,
+          "words": [
+            {
+              "text": " Soap",
+              "start": 1.19,
+              "end": 1.87,
+              "probability": 0.04313722252845764
+            },
+            {
+              "text": " with",
+              "start": 1.87,
+              "end": 1.89,
+              "probability": 0.76220703125
+            },
+            {
+              "text": " Nettle",
+              "start": 1.89,
+              "end": 2.21,
+              "probability": 0.4873046875
+            },
+            {
+              "text": " Seed.",
+              "start": 2.21,
+              "end": 2.55,
+              "probability": 0.78662109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Soap",
+          "start": 1.19,
+          "end": 1.87
+        },
+        {
+          "raw": "with",
+          "start": 1.87,
+          "end": 1.89
+        },
+        {
+          "raw": "Nettle",
+          "start": 1.89,
+          "end": 2.21
+        },
+        {
+          "raw": "Seed.",
+          "start": 2.21,
+          "end": 2.55
+        }
+      ],
+      "expected_tokens": [
+        "Antonio.",
+        "He'ld",
+        "sow't",
+        "with",
+        "nettle-seed."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          1
+        ],
+        [
+          "equal",
+          3,
+          5,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Soap",
+          "start": 1.19,
+          "end": 1.87,
+          "key": "soap",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.87,
+          "end": 1.89,
+          "key": "with",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Nettle Seed.",
+          "start": 1.89,
+          "end": 2.55,
+          "key": "nettleseed",
+          "pieces": [
+            2,
+            3
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 4,
+          "text": "nettle-seed.",
+          "heard": "Nettle Seed.",
+          "heard_indexes": [
+            2,
+            3
+          ],
+          "start": 1.89,
+          "end": 2.55
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Antonio.",
+          "start": 0.0,
+          "end": 0.935
+        },
+        {
+          "text": "He'ld",
+          "start": 0.935,
+          "end": 1.403
+        },
+        {
+          "text": "sow't",
+          "start": 1.403,
+          "end": 1.637
+        },
+        {
+          "text": "with",
+          "start": 1.87,
+          "end": 1.89
+        },
+        {
+          "text": "nettle-seed.",
+          "start": 1.89,
+          "end": 2.55
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.4,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.15622537583112717
+    },
+    {
+      "asr_seconds": 0.2066212221980095,
+      "alignment_seconds": 0.0005564801394939423,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Antonio, he'll coat with nettle seed.",
+          "start": 0.11,
+          "end": 2.53,
+          "words": [
+            {
+              "text": " Antonio,",
+              "start": 0.11,
+              "end": 0.87,
+              "probability": 0.88232421875
+            },
+            {
+              "text": " he'll",
+              "start": 1.31,
+              "end": 1.53,
+              "probability": 0.74462890625
+            },
+            {
+              "text": " coat",
+              "start": 1.53,
+              "end": 1.73,
+              "probability": 0.1954345703125
+            },
+            {
+              "text": " with",
+              "start": 1.73,
+              "end": 1.91,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " nettle",
+              "start": 1.91,
+              "end": 2.25,
+              "probability": 0.915283203125
+            },
+            {
+              "text": " seed.",
+              "start": 2.25,
+              "end": 2.53,
+              "probability": 0.86865234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antonio,",
+          "start": 0.11,
+          "end": 0.87
+        },
+        {
+          "raw": "he'll",
+          "start": 1.31,
+          "end": 1.53
+        },
+        {
+          "raw": "coat",
+          "start": 1.53,
+          "end": 1.73
+        },
+        {
+          "raw": "with",
+          "start": 1.73,
+          "end": 1.91
+        },
+        {
+          "raw": "nettle",
+          "start": 1.91,
+          "end": 2.25
+        },
+        {
+          "raw": "seed.",
+          "start": 2.25,
+          "end": 2.53
+        }
+      ],
+      "expected_tokens": [
+        "Antonio.",
+        "He'ld",
+        "sow't",
+        "with",
+        "nettle-seed."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "equal",
+          3,
+          5,
+          3,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          3,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antonio,",
+          "start": 0.11,
+          "end": 0.87,
+          "key": "antonio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he'll",
+          "start": 1.31,
+          "end": 1.53,
+          "key": "hell",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "coat",
+          "start": 1.53,
+          "end": 1.73,
+          "key": "coat",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.73,
+          "end": 1.91,
+          "key": "with",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "nettle seed.",
+          "start": 1.91,
+          "end": 2.53,
+          "key": "nettleseed",
+          "pieces": [
+            4,
+            5
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 4,
+          "text": "nettle-seed.",
+          "heard": "nettle seed.",
+          "heard_indexes": [
+            4,
+            5
+          ],
+          "start": 1.91,
+          "end": 2.53
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Antonio.",
+          "start": 0.11,
+          "end": 0.87
+        },
+        {
+          "text": "He'ld",
+          "start": 0.87,
+          "end": 1.3
+        },
+        {
+          "text": "sow't",
+          "start": 1.3,
+          "end": 1.515
+        },
+        {
+          "text": "with",
+          "start": 1.73,
+          "end": 1.91
+        },
+        {
+          "text": "nettle-seed.",
+          "start": 1.91,
+          "end": 2.53
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 3
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20733066648244858
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b8b1df1de5b46595bc6c83e2e042a7ef6e59cf3ecd1a92b3e9ade16ca2c7a0fa",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

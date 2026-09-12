@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "d56522bd64fec240fce969662ca8c2fc19577edebae37110cb8b5db80253eb51",
+  "attempts": [
+    {
+      "asr_seconds": 0.1538269817829132,
+      "alignment_seconds": 0.0003000721335411072,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Prospero. [Aside] Praise in departing.",
+        "hotwords": "Prospero, Aside, Praise"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Prospero, Aside, Praise in departing.",
+          "start": 0.05,
+          "end": 2.61,
+          "words": [
+            {
+              "text": " Prospero,",
+              "start": 0.05,
+              "end": 1.09,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " Aside,",
+              "start": 1.31,
+              "end": 1.71,
+              "probability": 0.00490570068359375
+            },
+            {
+              "text": " Praise",
+              "start": 1.91,
+              "end": 2.19,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " in",
+              "start": 2.19,
+              "end": 2.29,
+              "probability": 0.0011262893676757812
+            },
+            {
+              "text": " departing.",
+              "start": 2.29,
+              "end": 2.61,
+              "probability": 0.007266998291015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Prospero,",
+          "start": 0.05,
+          "end": 1.09
+        },
+        {
+          "raw": "Aside,",
+          "start": 1.31,
+          "end": 1.71
+        },
+        {
+          "raw": "Praise",
+          "start": 1.91,
+          "end": 2.19
+        },
+        {
+          "raw": "in",
+          "start": 2.19,
+          "end": 2.29
+        },
+        {
+          "raw": "departing.",
+          "start": 2.29,
+          "end": 2.61
+        }
+      ],
+      "expected_tokens": [
+        "Prospero.",
+        "[Aside]",
+        "Praise",
+        "in",
+        "departing."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Prospero,",
+          "start": 0.05,
+          "end": 1.09,
+          "key": "prospero",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Aside,",
+          "start": 1.31,
+          "end": 1.71,
+          "key": "aside",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Praise",
+          "start": 1.91,
+          "end": 2.19,
+          "key": "praise",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.19,
+          "end": 2.29,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "departing.",
+          "start": 2.29,
+          "end": 2.61,
+          "key": "departing",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Prospero.",
+          "start": 0.05,
+          "end": 1.09
+        },
+        {
+          "text": "[Aside]",
+          "start": 1.31,
+          "end": 1.71
+        },
+        {
+          "text": "Praise",
+          "start": 1.91,
+          "end": 2.19
+        },
+        {
+          "text": "in",
+          "start": 2.19,
+          "end": 2.29
+        },
+        {
+          "text": "departing.",
+          "start": 2.29,
+          "end": 2.61
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15423446893692017
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b0b0fa9cf11d336e1ed42d57f8e67f8243eb41cacea56fdf1e099ea6c9150e04",
+  "selected_reasons": []
+}

@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "558ce8b008b16e60ac7a796b52fb90ed32172d2884aac21cf56764be15d41725",
+  "attempts": [
+    {
+      "asr_seconds": 0.1746700368821621,
+      "alignment_seconds": 0.00034199655055999756,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sebastian. He will be talking.",
+        "hotwords": "Sebastian, He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sebastian, He will be talking.",
+          "start": 0.08,
+          "end": 1.96,
+          "words": [
+            {
+              "text": " Sebastian,",
+              "start": 0.08,
+              "end": 0.8,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " He",
+              "start": 1.26,
+              "end": 1.4,
+              "probability": 0.008819580078125
+            },
+            {
+              "text": " will",
+              "start": 1.4,
+              "end": 1.5,
+              "probability": 0.9072265625
+            },
+            {
+              "text": " be",
+              "start": 1.5,
+              "end": 1.62,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " talking.",
+              "start": 1.62,
+              "end": 1.96,
+              "probability": 0.97607421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sebastian,",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "raw": "He",
+          "start": 1.26,
+          "end": 1.4
+        },
+        {
+          "raw": "will",
+          "start": 1.4,
+          "end": 1.5
+        },
+        {
+          "raw": "be",
+          "start": 1.5,
+          "end": 1.62
+        },
+        {
+          "raw": "talking.",
+          "start": 1.62,
+          "end": 1.96
+        }
+      ],
+      "expected_tokens": [
+        "Sebastian.",
+        "He",
+        "will",
+        "be",
+        "talking."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sebastian,",
+          "start": 0.08,
+          "end": 0.8,
+          "key": "sebastian",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 1.26,
+          "end": 1.4,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.4,
+          "end": 1.5,
+          "key": "will",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.5,
+          "end": 1.62,
+          "key": "be",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "talking.",
+          "start": 1.62,
+          "end": 1.96,
+          "key": "talking",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sebastian.",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "text": "He",
+          "start": 1.26,
+          "end": 1.4
+        },
+        {
+          "text": "will",
+          "start": 1.4,
+          "end": 1.5
+        },
+        {
+          "text": "be",
+          "start": 1.5,
+          "end": 1.62
+        },
+        {
+          "text": "talking.",
+          "start": 1.62,
+          "end": 1.96
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17515907436609268
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f66c0f17ca23a62e3dfc4abcd8c4b8c49479eb02dc27f788ab2ab41ec78274fb",
+  "selected_reasons": []
+}

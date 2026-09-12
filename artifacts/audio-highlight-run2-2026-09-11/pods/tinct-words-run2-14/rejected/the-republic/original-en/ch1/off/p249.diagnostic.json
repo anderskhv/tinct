@@ -1,0 +1,719 @@
+{
+  "complete": true,
+  "signature": "9b21d75d5ee8c02adec3c7569fd489bc7d50e304578281001f0936e5988a5092",
+  "attempts": [
+    {
+      "asr_seconds": 0.27274294570088387,
+      "alignment_seconds": 0.0007387511432170868,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And the pilot? That is to say, the true pilot. Is he a captain of sailors or a mere sailor?",
+          "start": 0.02,
+          "end": 5.42,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.7978515625
+            },
+            {
+              "text": " the",
+              "start": 0.5,
+              "end": 0.6,
+              "probability": 0.9765625
+            },
+            {
+              "text": " pilot?",
+              "start": 0.6,
+              "end": 0.88,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " That",
+              "start": 1.44,
+              "end": 1.6,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " is",
+              "start": 1.6,
+              "end": 1.72,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 1.72,
+              "end": 1.88,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " say,",
+              "start": 1.88,
+              "end": 2.16,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 2.34,
+              "end": 2.42,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " true",
+              "start": 2.42,
+              "end": 2.62,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " pilot.",
+              "start": 2.62,
+              "end": 3.0,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Is",
+              "start": 3.5,
+              "end": 3.58,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " he",
+              "start": 3.58,
+              "end": 3.7,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 3.7,
+              "end": 3.9,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " captain",
+              "start": 3.9,
+              "end": 4.0,
+              "probability": 0.8984375
+            },
+            {
+              "text": " of",
+              "start": 4.0,
+              "end": 4.28,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " sailors",
+              "start": 4.28,
+              "end": 4.5,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " or",
+              "start": 4.5,
+              "end": 4.88,
+              "probability": 0.8662109375
+            },
+            {
+              "text": " a",
+              "start": 4.88,
+              "end": 4.98,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " mere",
+              "start": 4.98,
+              "end": 5.14,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " sailor?",
+              "start": 5.14,
+              "end": 5.42,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "the",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "raw": "pilot?",
+          "start": 0.6,
+          "end": 0.88
+        },
+        {
+          "raw": "That",
+          "start": 1.44,
+          "end": 1.6
+        },
+        {
+          "raw": "is",
+          "start": 1.6,
+          "end": 1.72
+        },
+        {
+          "raw": "to",
+          "start": 1.72,
+          "end": 1.88
+        },
+        {
+          "raw": "say,",
+          "start": 1.88,
+          "end": 2.16
+        },
+        {
+          "raw": "the",
+          "start": 2.34,
+          "end": 2.42
+        },
+        {
+          "raw": "true",
+          "start": 2.42,
+          "end": 2.62
+        },
+        {
+          "raw": "pilot.",
+          "start": 2.62,
+          "end": 3.0
+        },
+        {
+          "raw": "Is",
+          "start": 3.5,
+          "end": 3.58
+        },
+        {
+          "raw": "he",
+          "start": 3.58,
+          "end": 3.7
+        },
+        {
+          "raw": "a",
+          "start": 3.7,
+          "end": 3.9
+        },
+        {
+          "raw": "captain",
+          "start": 3.9,
+          "end": 4.0
+        },
+        {
+          "raw": "of",
+          "start": 4.0,
+          "end": 4.28
+        },
+        {
+          "raw": "sailors",
+          "start": 4.28,
+          "end": 4.5
+        },
+        {
+          "raw": "or",
+          "start": 4.5,
+          "end": 4.88
+        },
+        {
+          "raw": "a",
+          "start": 4.88,
+          "end": 4.98
+        },
+        {
+          "raw": "mere",
+          "start": 4.98,
+          "end": 5.14
+        },
+        {
+          "raw": "sailor?",
+          "start": 5.14,
+          "end": 5.42
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "the",
+        "pilot—that",
+        "is",
+        "to",
+        "say,",
+        "the",
+        "true",
+        "pilot—is",
+        "he",
+        "a",
+        "captain",
+        "of",
+        "sailors",
+        "or",
+        "a",
+        "mere",
+        "sailor?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          8,
+          4,
+          9
+        ],
+        [
+          "replace",
+          8,
+          9,
+          9,
+          11
+        ],
+        [
+          "equal",
+          9,
+          18,
+          11,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "replace",
+          8,
+          9,
+          9,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.5,
+          "end": 0.6,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "pilot?",
+          "start": 0.6,
+          "end": 0.88,
+          "key": "pilot",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 1.44,
+          "end": 1.6,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.6,
+          "end": 1.72,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.72,
+          "end": 1.88,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "say,",
+          "start": 1.88,
+          "end": 2.16,
+          "key": "say",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.34,
+          "end": 2.42,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "true",
+          "start": 2.42,
+          "end": 2.62,
+          "key": "true",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "pilot.",
+          "start": 2.62,
+          "end": 3.0,
+          "key": "pilot",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 3.5,
+          "end": 3.58,
+          "key": "is",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.58,
+          "end": 3.7,
+          "key": "he",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.7,
+          "end": 3.9,
+          "key": "a",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "captain",
+          "start": 3.9,
+          "end": 4.0,
+          "key": "captain",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.0,
+          "end": 4.28,
+          "key": "of",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "sailors",
+          "start": 4.28,
+          "end": 4.5,
+          "key": "sailors",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 4.5,
+          "end": 4.88,
+          "key": "or",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.88,
+          "end": 4.98,
+          "key": "a",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "mere",
+          "start": 4.98,
+          "end": 5.14,
+          "key": "mere",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "sailor?",
+          "start": 5.14,
+          "end": 5.42,
+          "key": "sailor",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "the",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "text": "pilot—that",
+          "start": 0.6,
+          "end": 1.1
+        },
+        {
+          "text": "is",
+          "start": 1.6,
+          "end": 1.72
+        },
+        {
+          "text": "to",
+          "start": 1.72,
+          "end": 1.88
+        },
+        {
+          "text": "say,",
+          "start": 1.88,
+          "end": 2.16
+        },
+        {
+          "text": "the",
+          "start": 2.34,
+          "end": 2.42
+        },
+        {
+          "text": "true",
+          "start": 2.42,
+          "end": 2.62
+        },
+        {
+          "text": "pilot—is",
+          "start": 2.62,
+          "end": 3.1
+        },
+        {
+          "text": "he",
+          "start": 3.58,
+          "end": 3.7
+        },
+        {
+          "text": "a",
+          "start": 3.7,
+          "end": 3.9
+        },
+        {
+          "text": "captain",
+          "start": 3.9,
+          "end": 4.0
+        },
+        {
+          "text": "of",
+          "start": 4.0,
+          "end": 4.28
+        },
+        {
+          "text": "sailors",
+          "start": 4.28,
+          "end": 4.5
+        },
+        {
+          "text": "or",
+          "start": 4.5,
+          "end": 4.88
+        },
+        {
+          "text": "a",
+          "start": 4.88,
+          "end": 4.98
+        },
+        {
+          "text": "mere",
+          "start": 4.98,
+          "end": 5.14
+        },
+        {
+          "text": "sailor?",
+          "start": 5.14,
+          "end": 5.42
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 20,
+        "matched_words": 16
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.27377229556441307
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "86879099a749b259672f096bb7bfa03a7af31c8622666690e5f6efc70577b8a6",
+  "selected_reasons": []
+}

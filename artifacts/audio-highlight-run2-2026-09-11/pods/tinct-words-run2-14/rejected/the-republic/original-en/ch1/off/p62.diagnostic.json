@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "92e7fb3d995d476c823743bf0034186db23917e8194bd6c4ef2bf1a8a19995dd",
+  "attempts": [
+    {
+      "asr_seconds": 0.09673459827899933,
+      "alignment_seconds": 0.0001243017613887787,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The physician.",
+          "start": 0.02,
+          "end": 0.84,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.70361328125
+            },
+            {
+              "text": " physician.",
+              "start": 0.48,
+              "end": 0.84,
+              "probability": 0.61865234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "physician.",
+          "start": 0.48,
+          "end": 0.84
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "physician."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "physician.",
+          "start": 0.48,
+          "end": 0.84,
+          "key": "physician",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "physician.",
+          "start": 0.48,
+          "end": 0.84
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09690232947468758
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "332331f26593816bb824a3e27230c19b32a4990a587f2e6b1134b325a1706c66",
+  "selected_reasons": []
+}

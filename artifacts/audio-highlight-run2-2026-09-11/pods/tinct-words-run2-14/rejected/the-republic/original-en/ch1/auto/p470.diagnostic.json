@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "080a7c03867ba2de042c6454037bd8c5a62bed63372e5f0baba35afe03780ee7",
+  "attempts": [
+    {
+      "asr_seconds": 0.12039453536272049,
+      "alignment_seconds": 0.00024314969778060913,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "To no other.",
+        "hotwords": "To"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " To no other.",
+          "start": 0.05,
+          "end": 0.99,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.338134765625
+            },
+            {
+              "text": " no",
+              "start": 0.53,
+              "end": 0.71,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " other.",
+              "start": 0.71,
+              "end": 0.99,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "no",
+          "start": 0.53,
+          "end": 0.71
+        },
+        {
+          "raw": "other.",
+          "start": 0.71,
+          "end": 0.99
+        }
+      ],
+      "expected_tokens": [
+        "To",
+        "no",
+        "other."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 0.53,
+          "end": 0.71,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "other.",
+          "start": 0.71,
+          "end": 0.99,
+          "key": "other",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "To",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "no",
+          "start": 0.53,
+          "end": 0.71
+        },
+        {
+          "text": "other.",
+          "start": 0.71,
+          "end": 0.99
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12072961404919624
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a94c232494d01f798e95852b8afb40c428decb312e235626f7d3c289c01c8111",
+  "selected_reasons": []
+}

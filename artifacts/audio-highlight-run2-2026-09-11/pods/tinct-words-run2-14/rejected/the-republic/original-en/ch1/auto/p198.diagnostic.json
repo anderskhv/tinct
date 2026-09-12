@@ -1,0 +1,2632 @@
+{
+  "complete": true,
+  "signature": "502d7b4bbc84ed1da9bafbeb85597e96353772648fb2e17e0dcd339fb8695c7d",
+  "attempts": [
+    {
+      "asr_seconds": 0.6711688451468945,
+      "alignment_seconds": 0.0024698153138160706,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Glaucon and the rest of the company joined in my request, and Thrasymachus, as any one might see, was in reality eager to speak; for he thought that he had an excellent answer, and would distinguish himself. But at first he affected to insist on my answering; at length he consented to begin. Behold, he said, the wisdom of Socrates; he refuses to teach himself, and goes about learning of others, to whom he never even says Thank you.",
+        "hotwords": "Glaucon, Thrasymachus, But, Behold, Socrates, Thank"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Thank Glaucon and the rest of the company joined in my request, and Thrasymachus, as any one might see, was in reality eager to speak, for he thought that he had an excellent answer, and would distinguish himself. But at first he affected to insist on my answering, at length he consented to begin.",
+          "start": 0.05,
+          "end": 16.65,
+          "words": [
+            {
+              "text": " Thank",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.0002428293228149414
+            },
+            {
+              "text": " Glaucon",
+              "start": 0.55,
+              "end": 0.81,
+              "probability": 0.25553393363952637
+            },
+            {
+              "text": " and",
+              "start": 0.81,
+              "end": 0.97,
+              "probability": 0.2042236328125
+            },
+            {
+              "text": " the",
+              "start": 0.97,
+              "end": 1.09,
+              "probability": 0.986328125
+            },
+            {
+              "text": " rest",
+              "start": 1.09,
+              "end": 1.25,
+              "probability": 0.99609375
+            },
+            {
+              "text": " of",
+              "start": 1.25,
+              "end": 1.43,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 1.43,
+              "end": 1.53,
+              "probability": 0.9921875
+            },
+            {
+              "text": " company",
+              "start": 1.53,
+              "end": 1.87,
+              "probability": 0.916015625
+            },
+            {
+              "text": " joined",
+              "start": 1.87,
+              "end": 2.25,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " in",
+              "start": 2.25,
+              "end": 2.45,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " my",
+              "start": 2.45,
+              "end": 2.59,
+              "probability": 0.998046875
+            },
+            {
+              "text": " request,",
+              "start": 2.59,
+              "end": 3.09,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " and",
+              "start": 3.57,
+              "end": 3.67,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " Thrasymachus,",
+              "start": 3.67,
+              "end": 4.39,
+              "probability": 0.464324951171875
+            },
+            {
+              "text": " as",
+              "start": 4.61,
+              "end": 4.77,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " any",
+              "start": 4.77,
+              "end": 4.93,
+              "probability": 0.10052490234375
+            },
+            {
+              "text": " one",
+              "start": 4.93,
+              "end": 5.09,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " might",
+              "start": 5.09,
+              "end": 5.25,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " see,",
+              "start": 5.25,
+              "end": 5.59,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " was",
+              "start": 5.85,
+              "end": 5.95,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " in",
+              "start": 5.95,
+              "end": 6.13,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " reality",
+              "start": 6.13,
+              "end": 6.59,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " eager",
+              "start": 6.59,
+              "end": 6.91,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " to",
+              "start": 6.91,
+              "end": 7.21,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " speak,",
+              "start": 7.21,
+              "end": 7.53,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " for",
+              "start": 7.99,
+              "end": 8.19,
+              "probability": 0.99609375
+            },
+            {
+              "text": " he",
+              "start": 8.19,
+              "end": 8.29,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " thought",
+              "start": 8.29,
+              "end": 8.45,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " that",
+              "start": 8.45,
+              "end": 8.59,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " he",
+              "start": 8.59,
+              "end": 8.75,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " had",
+              "start": 8.75,
+              "end": 8.89,
+              "probability": 0.99609375
+            },
+            {
+              "text": " an",
+              "start": 8.89,
+              "end": 9.03,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " excellent",
+              "start": 9.03,
+              "end": 9.45,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " answer,",
+              "start": 9.45,
+              "end": 9.91,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 10.15,
+              "end": 10.27,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " would",
+              "start": 10.27,
+              "end": 10.37,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " distinguish",
+              "start": 10.37,
+              "end": 10.73,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " himself.",
+              "start": 10.73,
+              "end": 11.31,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " But",
+              "start": 11.99,
+              "end": 12.21,
+              "probability": 0.98828125
+            },
+            {
+              "text": " at",
+              "start": 12.21,
+              "end": 12.33,
+              "probability": 0.970703125
+            },
+            {
+              "text": " first",
+              "start": 12.33,
+              "end": 12.59,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " he",
+              "start": 12.59,
+              "end": 12.83,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " affected",
+              "start": 12.83,
+              "end": 13.19,
+              "probability": 0.85888671875
+            },
+            {
+              "text": " to",
+              "start": 13.19,
+              "end": 13.43,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " insist",
+              "start": 13.43,
+              "end": 13.77,
+              "probability": 0.998046875
+            },
+            {
+              "text": " on",
+              "start": 13.77,
+              "end": 13.99,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " my",
+              "start": 13.99,
+              "end": 14.15,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " answering,",
+              "start": 14.15,
+              "end": 14.61,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " at",
+              "start": 15.07,
+              "end": 15.25,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " length",
+              "start": 15.25,
+              "end": 15.47,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " he",
+              "start": 15.47,
+              "end": 15.69,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " consented",
+              "start": 15.69,
+              "end": 16.13,
+              "probability": 0.997802734375
+            },
+            {
+              "text": " to",
+              "start": 16.13,
+              "end": 16.33,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " begin.",
+              "start": 16.33,
+              "end": 16.65,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " Behold, he said, the wisdom of Socrates, he refuses to teach himself, and goes about learning of others, to whom he never even says Thank you.",
+          "start": 17.31,
+          "end": 25.65,
+          "words": [
+            {
+              "text": " Behold,",
+              "start": 17.31,
+              "end": 17.85,
+              "probability": 0.681396484375
+            },
+            {
+              "text": " he",
+              "start": 18.03,
+              "end": 18.11,
+              "probability": 0.89599609375
+            },
+            {
+              "text": " said,",
+              "start": 18.11,
+              "end": 18.37,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 18.65,
+              "end": 18.79,
+              "probability": 0.95703125
+            },
+            {
+              "text": " wisdom",
+              "start": 18.79,
+              "end": 19.07,
+              "probability": 0.865234375
+            },
+            {
+              "text": " of",
+              "start": 19.07,
+              "end": 19.29,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Socrates,",
+              "start": 19.29,
+              "end": 19.75,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " he",
+              "start": 20.35,
+              "end": 20.49,
+              "probability": 0.97265625
+            },
+            {
+              "text": " refuses",
+              "start": 20.49,
+              "end": 20.87,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " to",
+              "start": 20.87,
+              "end": 21.19,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " teach",
+              "start": 21.19,
+              "end": 21.39,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " himself,",
+              "start": 21.39,
+              "end": 21.81,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 22.13,
+              "end": 22.23,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " goes",
+              "start": 22.23,
+              "end": 22.43,
+              "probability": 0.998046875
+            },
+            {
+              "text": " about",
+              "start": 22.43,
+              "end": 22.73,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " learning",
+              "start": 22.73,
+              "end": 23.03,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " of",
+              "start": 23.03,
+              "end": 23.21,
+              "probability": 0.998046875
+            },
+            {
+              "text": " others,",
+              "start": 23.21,
+              "end": 23.47,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 23.83,
+              "end": 23.89,
+              "probability": 0.998046875
+            },
+            {
+              "text": " whom",
+              "start": 23.89,
+              "end": 24.09,
+              "probability": 0.998046875
+            },
+            {
+              "text": " he",
+              "start": 24.09,
+              "end": 24.25,
+              "probability": 0.99609375
+            },
+            {
+              "text": " never",
+              "start": 24.25,
+              "end": 24.45,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " even",
+              "start": 24.45,
+              "end": 24.67,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " says",
+              "start": 24.67,
+              "end": 25.03,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Thank",
+              "start": 25.03,
+              "end": 25.37,
+              "probability": 0.01322174072265625
+            },
+            {
+              "text": " you.",
+              "start": 25.37,
+              "end": 25.65,
+              "probability": 0.58056640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Thank",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "Glaucon",
+          "start": 0.55,
+          "end": 0.81
+        },
+        {
+          "raw": "and",
+          "start": 0.81,
+          "end": 0.97
+        },
+        {
+          "raw": "the",
+          "start": 0.97,
+          "end": 1.09
+        },
+        {
+          "raw": "rest",
+          "start": 1.09,
+          "end": 1.25
+        },
+        {
+          "raw": "of",
+          "start": 1.25,
+          "end": 1.43
+        },
+        {
+          "raw": "the",
+          "start": 1.43,
+          "end": 1.53
+        },
+        {
+          "raw": "company",
+          "start": 1.53,
+          "end": 1.87
+        },
+        {
+          "raw": "joined",
+          "start": 1.87,
+          "end": 2.25
+        },
+        {
+          "raw": "in",
+          "start": 2.25,
+          "end": 2.45
+        },
+        {
+          "raw": "my",
+          "start": 2.45,
+          "end": 2.59
+        },
+        {
+          "raw": "request,",
+          "start": 2.59,
+          "end": 3.09
+        },
+        {
+          "raw": "and",
+          "start": 3.57,
+          "end": 3.67
+        },
+        {
+          "raw": "Thrasymachus,",
+          "start": 3.67,
+          "end": 4.39
+        },
+        {
+          "raw": "as",
+          "start": 4.61,
+          "end": 4.77
+        },
+        {
+          "raw": "any",
+          "start": 4.77,
+          "end": 4.93
+        },
+        {
+          "raw": "one",
+          "start": 4.93,
+          "end": 5.09
+        },
+        {
+          "raw": "might",
+          "start": 5.09,
+          "end": 5.25
+        },
+        {
+          "raw": "see,",
+          "start": 5.25,
+          "end": 5.59
+        },
+        {
+          "raw": "was",
+          "start": 5.85,
+          "end": 5.95
+        },
+        {
+          "raw": "in",
+          "start": 5.95,
+          "end": 6.13
+        },
+        {
+          "raw": "reality",
+          "start": 6.13,
+          "end": 6.59
+        },
+        {
+          "raw": "eager",
+          "start": 6.59,
+          "end": 6.91
+        },
+        {
+          "raw": "to",
+          "start": 6.91,
+          "end": 7.21
+        },
+        {
+          "raw": "speak,",
+          "start": 7.21,
+          "end": 7.53
+        },
+        {
+          "raw": "for",
+          "start": 7.99,
+          "end": 8.19
+        },
+        {
+          "raw": "he",
+          "start": 8.19,
+          "end": 8.29
+        },
+        {
+          "raw": "thought",
+          "start": 8.29,
+          "end": 8.45
+        },
+        {
+          "raw": "that",
+          "start": 8.45,
+          "end": 8.59
+        },
+        {
+          "raw": "he",
+          "start": 8.59,
+          "end": 8.75
+        },
+        {
+          "raw": "had",
+          "start": 8.75,
+          "end": 8.89
+        },
+        {
+          "raw": "an",
+          "start": 8.89,
+          "end": 9.03
+        },
+        {
+          "raw": "excellent",
+          "start": 9.03,
+          "end": 9.45
+        },
+        {
+          "raw": "answer,",
+          "start": 9.45,
+          "end": 9.91
+        },
+        {
+          "raw": "and",
+          "start": 10.15,
+          "end": 10.27
+        },
+        {
+          "raw": "would",
+          "start": 10.27,
+          "end": 10.37
+        },
+        {
+          "raw": "distinguish",
+          "start": 10.37,
+          "end": 10.73
+        },
+        {
+          "raw": "himself.",
+          "start": 10.73,
+          "end": 11.31
+        },
+        {
+          "raw": "But",
+          "start": 11.99,
+          "end": 12.21
+        },
+        {
+          "raw": "at",
+          "start": 12.21,
+          "end": 12.33
+        },
+        {
+          "raw": "first",
+          "start": 12.33,
+          "end": 12.59
+        },
+        {
+          "raw": "he",
+          "start": 12.59,
+          "end": 12.83
+        },
+        {
+          "raw": "affected",
+          "start": 12.83,
+          "end": 13.19
+        },
+        {
+          "raw": "to",
+          "start": 13.19,
+          "end": 13.43
+        },
+        {
+          "raw": "insist",
+          "start": 13.43,
+          "end": 13.77
+        },
+        {
+          "raw": "on",
+          "start": 13.77,
+          "end": 13.99
+        },
+        {
+          "raw": "my",
+          "start": 13.99,
+          "end": 14.15
+        },
+        {
+          "raw": "answering,",
+          "start": 14.15,
+          "end": 14.61
+        },
+        {
+          "raw": "at",
+          "start": 15.07,
+          "end": 15.25
+        },
+        {
+          "raw": "length",
+          "start": 15.25,
+          "end": 15.47
+        },
+        {
+          "raw": "he",
+          "start": 15.47,
+          "end": 15.69
+        },
+        {
+          "raw": "consented",
+          "start": 15.69,
+          "end": 16.13
+        },
+        {
+          "raw": "to",
+          "start": 16.13,
+          "end": 16.33
+        },
+        {
+          "raw": "begin.",
+          "start": 16.33,
+          "end": 16.65
+        },
+        {
+          "raw": "Behold,",
+          "start": 17.31,
+          "end": 17.85
+        },
+        {
+          "raw": "he",
+          "start": 18.03,
+          "end": 18.11
+        },
+        {
+          "raw": "said,",
+          "start": 18.11,
+          "end": 18.37
+        },
+        {
+          "raw": "the",
+          "start": 18.65,
+          "end": 18.79
+        },
+        {
+          "raw": "wisdom",
+          "start": 18.79,
+          "end": 19.07
+        },
+        {
+          "raw": "of",
+          "start": 19.07,
+          "end": 19.29
+        },
+        {
+          "raw": "Socrates,",
+          "start": 19.29,
+          "end": 19.75
+        },
+        {
+          "raw": "he",
+          "start": 20.35,
+          "end": 20.49
+        },
+        {
+          "raw": "refuses",
+          "start": 20.49,
+          "end": 20.87
+        },
+        {
+          "raw": "to",
+          "start": 20.87,
+          "end": 21.19
+        },
+        {
+          "raw": "teach",
+          "start": 21.19,
+          "end": 21.39
+        },
+        {
+          "raw": "himself,",
+          "start": 21.39,
+          "end": 21.81
+        },
+        {
+          "raw": "and",
+          "start": 22.13,
+          "end": 22.23
+        },
+        {
+          "raw": "goes",
+          "start": 22.23,
+          "end": 22.43
+        },
+        {
+          "raw": "about",
+          "start": 22.43,
+          "end": 22.73
+        },
+        {
+          "raw": "learning",
+          "start": 22.73,
+          "end": 23.03
+        },
+        {
+          "raw": "of",
+          "start": 23.03,
+          "end": 23.21
+        },
+        {
+          "raw": "others,",
+          "start": 23.21,
+          "end": 23.47
+        },
+        {
+          "raw": "to",
+          "start": 23.83,
+          "end": 23.89
+        },
+        {
+          "raw": "whom",
+          "start": 23.89,
+          "end": 24.09
+        },
+        {
+          "raw": "he",
+          "start": 24.09,
+          "end": 24.25
+        },
+        {
+          "raw": "never",
+          "start": 24.25,
+          "end": 24.45
+        },
+        {
+          "raw": "even",
+          "start": 24.45,
+          "end": 24.67
+        },
+        {
+          "raw": "says",
+          "start": 24.67,
+          "end": 25.03
+        },
+        {
+          "raw": "Thank",
+          "start": 25.03,
+          "end": 25.37
+        },
+        {
+          "raw": "you.",
+          "start": 25.37,
+          "end": 25.65
+        }
+      ],
+      "expected_tokens": [
+        "Glaucon",
+        "and",
+        "the",
+        "rest",
+        "of",
+        "the",
+        "company",
+        "joined",
+        "in",
+        "my",
+        "request,",
+        "and",
+        "Thrasymachus,",
+        "as",
+        "any",
+        "one",
+        "might",
+        "see,",
+        "was",
+        "in",
+        "reality",
+        "eager",
+        "to",
+        "speak;",
+        "for",
+        "he",
+        "thought",
+        "that",
+        "he",
+        "had",
+        "an",
+        "excellent",
+        "answer,",
+        "and",
+        "would",
+        "distinguish",
+        "himself.",
+        "But",
+        "at",
+        "first",
+        "he",
+        "affected",
+        "to",
+        "insist",
+        "on",
+        "my",
+        "answering;",
+        "at",
+        "length",
+        "he",
+        "consented",
+        "to",
+        "begin.",
+        "Behold,",
+        "he",
+        "said,",
+        "the",
+        "wisdom",
+        "of",
+        "Socrates;",
+        "he",
+        "refuses",
+        "to",
+        "teach",
+        "himself,",
+        "and",
+        "goes",
+        "about",
+        "learning",
+        "of",
+        "others,",
+        "to",
+        "whom",
+        "he",
+        "never",
+        "even",
+        "says",
+        "Thank",
+        "you."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          79,
+          1,
+          80
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 79
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Thank",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "thank",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Glaucon",
+          "start": 0.55,
+          "end": 0.81,
+          "key": "glaucon",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.81,
+          "end": 0.97,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.97,
+          "end": 1.09,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "rest",
+          "start": 1.09,
+          "end": 1.25,
+          "key": "rest",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.25,
+          "end": 1.43,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.43,
+          "end": 1.53,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "company",
+          "start": 1.53,
+          "end": 1.87,
+          "key": "company",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "joined",
+          "start": 1.87,
+          "end": 2.25,
+          "key": "joined",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.25,
+          "end": 2.45,
+          "key": "in",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.45,
+          "end": 2.59,
+          "key": "my",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "request,",
+          "start": 2.59,
+          "end": 3.09,
+          "key": "request",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.57,
+          "end": 3.67,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Thrasymachus,",
+          "start": 3.67,
+          "end": 4.39,
+          "key": "thrasymachus",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 4.61,
+          "end": 4.77,
+          "key": "as",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 4.77,
+          "end": 4.93,
+          "key": "any",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 4.93,
+          "end": 5.09,
+          "key": "one",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "might",
+          "start": 5.09,
+          "end": 5.25,
+          "key": "might",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "see,",
+          "start": 5.25,
+          "end": 5.59,
+          "key": "see",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 5.85,
+          "end": 5.95,
+          "key": "was",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.95,
+          "end": 6.13,
+          "key": "in",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "reality",
+          "start": 6.13,
+          "end": 6.59,
+          "key": "reality",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "eager",
+          "start": 6.59,
+          "end": 6.91,
+          "key": "eager",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 6.91,
+          "end": 7.21,
+          "key": "to",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "speak,",
+          "start": 7.21,
+          "end": 7.53,
+          "key": "speak",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 7.99,
+          "end": 8.19,
+          "key": "for",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 8.19,
+          "end": 8.29,
+          "key": "he",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "thought",
+          "start": 8.29,
+          "end": 8.45,
+          "key": "thought",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 8.45,
+          "end": 8.59,
+          "key": "that",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 8.59,
+          "end": 8.75,
+          "key": "he",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 8.75,
+          "end": 8.89,
+          "key": "had",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 8.89,
+          "end": 9.03,
+          "key": "an",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "excellent",
+          "start": 9.03,
+          "end": 9.45,
+          "key": "excellent",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "answer,",
+          "start": 9.45,
+          "end": 9.91,
+          "key": "answer",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 10.15,
+          "end": 10.27,
+          "key": "and",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 10.27,
+          "end": 10.37,
+          "key": "would",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "distinguish",
+          "start": 10.37,
+          "end": 10.73,
+          "key": "distinguish",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "himself.",
+          "start": 10.73,
+          "end": 11.31,
+          "key": "himself",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 11.99,
+          "end": 12.21,
+          "key": "but",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 12.21,
+          "end": 12.33,
+          "key": "at",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 12.33,
+          "end": 12.59,
+          "key": "first",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 12.59,
+          "end": 12.83,
+          "key": "he",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "affected",
+          "start": 12.83,
+          "end": 13.19,
+          "key": "affected",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 13.19,
+          "end": 13.43,
+          "key": "to",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "insist",
+          "start": 13.43,
+          "end": 13.77,
+          "key": "insist",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 13.77,
+          "end": 13.99,
+          "key": "on",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 13.99,
+          "end": 14.15,
+          "key": "my",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "answering,",
+          "start": 14.15,
+          "end": 14.61,
+          "key": "answering",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 15.07,
+          "end": 15.25,
+          "key": "at",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "length",
+          "start": 15.25,
+          "end": 15.47,
+          "key": "length",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 15.47,
+          "end": 15.69,
+          "key": "he",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "consented",
+          "start": 15.69,
+          "end": 16.13,
+          "key": "consented",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 16.13,
+          "end": 16.33,
+          "key": "to",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "begin.",
+          "start": 16.33,
+          "end": 16.65,
+          "key": "begin",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "Behold,",
+          "start": 17.31,
+          "end": 17.85,
+          "key": "behold",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 18.03,
+          "end": 18.11,
+          "key": "he",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 18.11,
+          "end": 18.37,
+          "key": "said",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 18.65,
+          "end": 18.79,
+          "key": "the",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "wisdom",
+          "start": 18.79,
+          "end": 19.07,
+          "key": "wisdom",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 19.07,
+          "end": 19.29,
+          "key": "of",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "Socrates,",
+          "start": 19.29,
+          "end": 19.75,
+          "key": "socrates",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 20.35,
+          "end": 20.49,
+          "key": "he",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "refuses",
+          "start": 20.49,
+          "end": 20.87,
+          "key": "refuses",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 20.87,
+          "end": 21.19,
+          "key": "to",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "teach",
+          "start": 21.19,
+          "end": 21.39,
+          "key": "teach",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "himself,",
+          "start": 21.39,
+          "end": 21.81,
+          "key": "himself",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 22.13,
+          "end": 22.23,
+          "key": "and",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "goes",
+          "start": 22.23,
+          "end": 22.43,
+          "key": "goes",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 22.43,
+          "end": 22.73,
+          "key": "about",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "learning",
+          "start": 22.73,
+          "end": 23.03,
+          "key": "learning",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 23.03,
+          "end": 23.21,
+          "key": "of",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "others,",
+          "start": 23.21,
+          "end": 23.47,
+          "key": "others",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 23.83,
+          "end": 23.89,
+          "key": "to",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "whom",
+          "start": 23.89,
+          "end": 24.09,
+          "key": "whom",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 24.09,
+          "end": 24.25,
+          "key": "he",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 24.25,
+          "end": 24.45,
+          "key": "never",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "even",
+          "start": 24.45,
+          "end": 24.67,
+          "key": "even",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "says",
+          "start": 24.67,
+          "end": 25.03,
+          "key": "says",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "Thank",
+          "start": 25.03,
+          "end": 25.37,
+          "key": "thank",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 25.37,
+          "end": 25.65,
+          "key": "you",
+          "pieces": [
+            79
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Glaucon",
+          "start": 0.55,
+          "end": 0.81
+        },
+        {
+          "text": "and",
+          "start": 0.81,
+          "end": 0.97
+        },
+        {
+          "text": "the",
+          "start": 0.97,
+          "end": 1.09
+        },
+        {
+          "text": "rest",
+          "start": 1.09,
+          "end": 1.25
+        },
+        {
+          "text": "of",
+          "start": 1.25,
+          "end": 1.43
+        },
+        {
+          "text": "the",
+          "start": 1.43,
+          "end": 1.53
+        },
+        {
+          "text": "company",
+          "start": 1.53,
+          "end": 1.87
+        },
+        {
+          "text": "joined",
+          "start": 1.87,
+          "end": 2.25
+        },
+        {
+          "text": "in",
+          "start": 2.25,
+          "end": 2.45
+        },
+        {
+          "text": "my",
+          "start": 2.45,
+          "end": 2.59
+        },
+        {
+          "text": "request,",
+          "start": 2.59,
+          "end": 3.09
+        },
+        {
+          "text": "and",
+          "start": 3.57,
+          "end": 3.67
+        },
+        {
+          "text": "Thrasymachus,",
+          "start": 3.67,
+          "end": 4.39
+        },
+        {
+          "text": "as",
+          "start": 4.61,
+          "end": 4.77
+        },
+        {
+          "text": "any",
+          "start": 4.77,
+          "end": 4.93
+        },
+        {
+          "text": "one",
+          "start": 4.93,
+          "end": 5.09
+        },
+        {
+          "text": "might",
+          "start": 5.09,
+          "end": 5.25
+        },
+        {
+          "text": "see,",
+          "start": 5.25,
+          "end": 5.59
+        },
+        {
+          "text": "was",
+          "start": 5.85,
+          "end": 5.95
+        },
+        {
+          "text": "in",
+          "start": 5.95,
+          "end": 6.13
+        },
+        {
+          "text": "reality",
+          "start": 6.13,
+          "end": 6.59
+        },
+        {
+          "text": "eager",
+          "start": 6.59,
+          "end": 6.91
+        },
+        {
+          "text": "to",
+          "start": 6.91,
+          "end": 7.21
+        },
+        {
+          "text": "speak;",
+          "start": 7.21,
+          "end": 7.53
+        },
+        {
+          "text": "for",
+          "start": 7.99,
+          "end": 8.19
+        },
+        {
+          "text": "he",
+          "start": 8.19,
+          "end": 8.29
+        },
+        {
+          "text": "thought",
+          "start": 8.29,
+          "end": 8.45
+        },
+        {
+          "text": "that",
+          "start": 8.45,
+          "end": 8.59
+        },
+        {
+          "text": "he",
+          "start": 8.59,
+          "end": 8.75
+        },
+        {
+          "text": "had",
+          "start": 8.75,
+          "end": 8.89
+        },
+        {
+          "text": "an",
+          "start": 8.89,
+          "end": 9.03
+        },
+        {
+          "text": "excellent",
+          "start": 9.03,
+          "end": 9.45
+        },
+        {
+          "text": "answer,",
+          "start": 9.45,
+          "end": 9.91
+        },
+        {
+          "text": "and",
+          "start": 10.15,
+          "end": 10.27
+        },
+        {
+          "text": "would",
+          "start": 10.27,
+          "end": 10.37
+        },
+        {
+          "text": "distinguish",
+          "start": 10.37,
+          "end": 10.73
+        },
+        {
+          "text": "himself.",
+          "start": 10.73,
+          "end": 11.31
+        },
+        {
+          "text": "But",
+          "start": 11.99,
+          "end": 12.21
+        },
+        {
+          "text": "at",
+          "start": 12.21,
+          "end": 12.33
+        },
+        {
+          "text": "first",
+          "start": 12.33,
+          "end": 12.59
+        },
+        {
+          "text": "he",
+          "start": 12.59,
+          "end": 12.83
+        },
+        {
+          "text": "affected",
+          "start": 12.83,
+          "end": 13.19
+        },
+        {
+          "text": "to",
+          "start": 13.19,
+          "end": 13.43
+        },
+        {
+          "text": "insist",
+          "start": 13.43,
+          "end": 13.77
+        },
+        {
+          "text": "on",
+          "start": 13.77,
+          "end": 13.99
+        },
+        {
+          "text": "my",
+          "start": 13.99,
+          "end": 14.15
+        },
+        {
+          "text": "answering;",
+          "start": 14.15,
+          "end": 14.61
+        },
+        {
+          "text": "at",
+          "start": 15.07,
+          "end": 15.25
+        },
+        {
+          "text": "length",
+          "start": 15.25,
+          "end": 15.47
+        },
+        {
+          "text": "he",
+          "start": 15.47,
+          "end": 15.69
+        },
+        {
+          "text": "consented",
+          "start": 15.69,
+          "end": 16.13
+        },
+        {
+          "text": "to",
+          "start": 16.13,
+          "end": 16.33
+        },
+        {
+          "text": "begin.",
+          "start": 16.33,
+          "end": 16.65
+        },
+        {
+          "text": "Behold,",
+          "start": 17.31,
+          "end": 17.85
+        },
+        {
+          "text": "he",
+          "start": 18.03,
+          "end": 18.11
+        },
+        {
+          "text": "said,",
+          "start": 18.11,
+          "end": 18.37
+        },
+        {
+          "text": "the",
+          "start": 18.65,
+          "end": 18.79
+        },
+        {
+          "text": "wisdom",
+          "start": 18.79,
+          "end": 19.07
+        },
+        {
+          "text": "of",
+          "start": 19.07,
+          "end": 19.29
+        },
+        {
+          "text": "Socrates;",
+          "start": 19.29,
+          "end": 19.75
+        },
+        {
+          "text": "he",
+          "start": 20.35,
+          "end": 20.49
+        },
+        {
+          "text": "refuses",
+          "start": 20.49,
+          "end": 20.87
+        },
+        {
+          "text": "to",
+          "start": 20.87,
+          "end": 21.19
+        },
+        {
+          "text": "teach",
+          "start": 21.19,
+          "end": 21.39
+        },
+        {
+          "text": "himself,",
+          "start": 21.39,
+          "end": 21.81
+        },
+        {
+          "text": "and",
+          "start": 22.13,
+          "end": 22.23
+        },
+        {
+          "text": "goes",
+          "start": 22.23,
+          "end": 22.43
+        },
+        {
+          "text": "about",
+          "start": 22.43,
+          "end": 22.73
+        },
+        {
+          "text": "learning",
+          "start": 22.73,
+          "end": 23.03
+        },
+        {
+          "text": "of",
+          "start": 23.03,
+          "end": 23.21
+        },
+        {
+          "text": "others,",
+          "start": 23.21,
+          "end": 23.47
+        },
+        {
+          "text": "to",
+          "start": 23.83,
+          "end": 23.89
+        },
+        {
+          "text": "whom",
+          "start": 23.89,
+          "end": 24.09
+        },
+        {
+          "text": "he",
+          "start": 24.09,
+          "end": 24.25
+        },
+        {
+          "text": "never",
+          "start": 24.25,
+          "end": 24.45
+        },
+        {
+          "text": "even",
+          "start": 24.45,
+          "end": 24.67
+        },
+        {
+          "text": "says",
+          "start": 24.67,
+          "end": 25.03
+        },
+        {
+          "text": "Thank",
+          "start": 25.03,
+          "end": 25.37
+        },
+        {
+          "text": "you.",
+          "start": 25.37,
+          "end": 25.65
+        }
+      ],
+      "stats": {
+        "expected_words": 79,
+        "heard_words": 80,
+        "matched_words": 79
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.6748124621808529
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3f02c6cd88516cd18ce81c049446daa3206d50104f7537dbc75cff086d3050b2",
+  "selected_reasons": []
+}

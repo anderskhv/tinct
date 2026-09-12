@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "7a101adabb34d49ce4d7ca3394520767d16c3e5d804ee544f6d10117d4e00dc1",
+  "attempts": [
+    {
+      "asr_seconds": 0.1361326426267624,
+      "alignment_seconds": 0.00037617236375808716,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And the just is the good.",
+          "start": 0.02,
+          "end": 1.42,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.6630859375
+            },
+            {
+              "text": " the",
+              "start": 0.52,
+              "end": 0.62,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " just",
+              "start": 0.62,
+              "end": 0.82,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " is",
+              "start": 0.82,
+              "end": 1.04,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 1.04,
+              "end": 1.2,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " good.",
+              "start": 1.2,
+              "end": 1.42,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "the",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "raw": "just",
+          "start": 0.62,
+          "end": 0.82
+        },
+        {
+          "raw": "is",
+          "start": 0.82,
+          "end": 1.04
+        },
+        {
+          "raw": "the",
+          "start": 1.04,
+          "end": 1.2
+        },
+        {
+          "raw": "good.",
+          "start": 1.2,
+          "end": 1.42
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "the",
+        "just",
+        "is",
+        "the",
+        "good?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.52,
+          "end": 0.62,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 0.62,
+          "end": 0.82,
+          "key": "just",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.82,
+          "end": 1.04,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.04,
+          "end": 1.2,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "good.",
+          "start": 1.2,
+          "end": 1.42,
+          "key": "good",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "the",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "text": "just",
+          "start": 0.62,
+          "end": 0.82
+        },
+        {
+          "text": "is",
+          "start": 0.82,
+          "end": 1.04
+        },
+        {
+          "text": "the",
+          "start": 1.04,
+          "end": 1.2
+        },
+        {
+          "text": "good?",
+          "start": 1.2,
+          "end": 1.42
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1366809569299221
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9c49d1fe63fbe03d9840eb5c1a4e8e0f51d77740a246d8f05213ae9a2a264fae",
+  "selected_reasons": []
+}
