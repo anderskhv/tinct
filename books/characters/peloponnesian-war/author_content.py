@@ -7,8 +7,8 @@ edition modernises the sentence rhythm; the transliterations are almost entirely
 the same, which is unusual in this library and means most of the work here is
 namesakes rather than spelling variants.
 
-AUTHORING IS IN PROGRESS. Book 1 (chapters 1-5) is authored. Chapters 6-26 are
-not yet done and the package must not be integrated until they are.
+AUTHORING IS IN PROGRESS. Books 1-2 (chapters 1-8) are authored. Chapters 9-26
+are not yet done and the package must not be integrated until they are.
 
 Scope: named people and named peoples. Cities, rivers, mountains, seas and
 countries are not cast, even where Thucydides treats them as actors.
@@ -17,7 +17,8 @@ import json
 from pathlib import Path
 entities=[]
 def add(id,name,body,aliases='',category='supporting',kind='person',updates=None):
- entities.append(dict(id=id,name=name,body=body,aliases=aliases.split('|') if aliases else [],category=category,kind=kind,subtitle='',snapshots=updates or []))
+ entities.append(dict(id=id,name=name,body=body,aliases=aliases.split('|') if aliases else [],category=category,kind=kind,subtitle='',
+                      snapshots=sorted(updates or [],key=lambda u:tuple(u['after']))))
 
 # ============================================ BOOK 1, CHAPTER 1 — the archaeology
 for row in [
@@ -82,25 +83,25 @@ for row in [
 ('leagrus','Leagrus','Glaucon’s father.','Leagrus','reference'),
 ('andocides','Andocides','Leogoras’s son, the other commander of the twenty ships.','Andocides','reference'),
 ('leogoras','Leogoras','Andocides’s father.','Leogoras','reference'),
-('perdiccas','Perdiccas','Alexander’s son and king of the Macedonians, turned from an old Athenian friend and ally into an enemy because Athens allied with his brother Philip and with Derdas. He worked on Lacedaemon and on Corinth to get Potidaea into revolt, persuaded the Chalcidians to demolish their seaboard towns and settle inland at Olynthus on land he gave them round Lake Bolbe, and changed sides twice in one campaign — deputing Iolaus to command the cavalry he had just brought back to the Potidaean side.','Perdiccas','major'),
+('perdiccas','Perdiccas','Alexander’s son and king of the Macedonians, turned from an old Athenian friend and ally into an enemy because Athens allied with his brother Philip and with Derdas. He worked on Lacedaemon and on Corinth to get Potidaea into revolt, persuaded the Chalcidians to demolish their seaboard towns and settle inland at Olynthus on land he gave them round Lake Bolbe, and changed sides twice in one campaign — deputing Iolaus to command the cavalry he had just brought back to the Potidaean side.','Perdiccas','major','person',[{'after':[8,31],'body':'King of the Macedonians and nobody’s reliable ally. Reconciled to Athens and given Therme back, he at once joined Phormio against the Chalcidians; he had promised Sitalces something for the reconciliation and never paid it, and Sitalces came down with a hundred and fifty thousand men and the pretender Amyntas in his baggage. Perdiccas bought the retreat by promising his sister to Sitalces’s nephew — and gave Stratonice to Seuthes as promised. He also sent a thousand Macedonians to Cnemus in Acarnania without the Athenians knowing, and they arrived too late.'}]),
 ('alexander-macedon','Alexander','Perdiccas’s father, king of the Macedonians. Pydna was in his dominions.','','supporting'),
 ('philip-macedon','Philip','Perdiccas’s brother, leagued with Derdas against him and allied with Athens; the six hundred Macedonian horse that rode with the Athenians to Potidaea were his followers and Pausanias’s.','','supporting'),
 ('derdas','Derdas','Leagued with Philip against Perdiccas; his brothers invaded Macedonia from the interior alongside the Athenians.','Derdas','supporting'),
 ('pausanias-macedon','Pausanias','The Macedonian whose horsemen rode with Philip’s on the Athenian side to Potidaea. Thucydides says nothing else about him, and he is not the Spartan regent.','','reference'),
 ('archestratus','Archestratus','Lycomedes’s son, in command of the thirty ships and thousand infantry first sent to Macedonia, with orders to take hostages from the Potidaeans, raze the wall, and watch the neighbouring cities.','','supporting'),
 ('lycomedes','Lycomedes','Archestratus’s father.','','reference'),
-('aristeus-adimantus','Aristeus','Adimantus’s son, always a steady friend of the Potidaeans — most of the Corinthian volunteers went out of love for him. Made general of all the infantry, he won with his own wing and lost with the rest, and got most of his men into Potidaea at a run along the breakwater through the sea. When the investment closed he advised all but five hundred to sail out so the provisions would last, offered to stay himself, could not persuade them, and slipped past the guardships alone to carry on the war from Chalcidice. Not the admiral beaten at Epidamnus.','','major'),
+('aristeus-adimantus','Aristeus','Adimantus’s son, always a steady friend of the Potidaeans — most of the Corinthian volunteers went out of love for him. Made general of all the infantry, he won with his own wing and lost with the rest, and got most of his men into Potidaea at a run along the breakwater through the sea. When the investment closed he advised all but five hundred to sail out so the provisions would last, offered to stay himself, could not persuade them, and slipped past the guardships alone to carry on the war from Chalcidice. Not the admiral beaten at Epidamnus.','','major','person',[{'after':[7,22],'body':'Adimantus’s son, the prime mover at Potidaea and in the Thracian towns, who went with the Lacedaemonian envoys to the King to ask for money. Sadocus seized them in Thrace and handed them over, and the Athenians killed them all the same day without a trial and threw the bodies into a pit — afraid that if Aristeus got away he would do them still more harm.'}]),
 ('adimantus','Adimantus','Aristeus of Potidaea’s father.','Adimantus','reference'),
 ('callias-calliades','Callias','Calliades’s son, the Athenian general of the two thousand infantry and forty ships sent against the revolted towns, and one of the hundred and fifty Athenian dead in the victory at Potidaea. Not the Corinthian admiral’s father.','','supporting'),
 ('calliades','Calliades','Callias the Athenian general’s father.','Calliades','reference'),
 ('iolaus','Iolaus','Perdiccas’s deputy in command of the cavalry at Potidaea.','Iolaus','reference'),
-('phormio','Phormio','Asopius’s son, who brought sixteen hundred Athenian infantry round to the Pallene side of Potidaea, fixed his headquarters at Aphytis, and raised the works nobody had dared to raise — closing the investment on both sides. He then used the same force to ravage Chalcidice and Bottica and take some of the towns.','Phormio','major'),
+('phormio','Phormio','Asopius’s son, who brought sixteen hundred Athenian infantry round to the Pallene side of Potidaea, fixed his headquarters at Aphytis, and raised the works nobody had dared to raise — closing the investment on both sides. He then used the same force to ravage Chalcidice and Bottica and take some of the towns.','Phormio','major','person',[{'after':[8,21],'body':'Asopius’s son, with twenty ships at Naupactus against forty-seven. He sailed round the Peloponnesian circle until the morning wind came down the gulf and their oars fouled, then gave the signal and took twelve ships. Six days later, with seventy-seven against his twenty, he was forced along the shore and lost nine of them — until one Athenian ship rounded a moored merchantman, rammed the Leucadian chasing her, and turned the day. He told his men beforehand that the Peloponnesians feared their irrational audacity more than they would have feared a proportionate force.'}]),
 ('asopius','Asopius','Phormio’s father.','','reference'),
 ]:add(*row)
 
 # ================================= BOOK 1, CHAPTER 3 — the congress at Lacedaemon
 for row in [
-('archidamus','Archidamus','The Lacedaemonian king with the reputation of being wise and moderate, who told the assembly what a war against a distant people with money, ships, horses and tributary allies would cost: they were inferior at sea, far worse off for money, and could not end it by burning fields. He asked for embassies and two or three years of preparation, said he feared they would leave the war as a legacy to their children, and was voted down.','Archidamus','major'),
+('archidamus','Archidamus','The Lacedaemonian king with the reputation of being wise and moderate, who told the assembly what a war against a distant people with money, ships, horses and tributary allies would cost: they were inferior at sea, far worse off for money, and could not end it by burning fields. He asked for embassies and two or three years of preparation, said he feared they would leave the war as a legacy to their children, and was voted down.','Archidamus','major','person',[{'after':[8,3],'body':'Zeuxidamus’s son, king of Lacedaemon and leader of the invasions. He told the assembled generals that confidence in an army of invasion must be matched by caution, wasted the first campaign in front of Oenoe hoping Athens would submit while her land was untouched — for which the army blamed him — and then sat at Acharnae to see whether three thousand Acharnian hoplites would force a battle on the rest of the city. At Plataea he heard the envoys out, offered them neutrality or a receipt for their land, and when they refused called the gods and heroes of their own country to witness that he had made many fair proposals and had not succeeded.'}]),
 ('sthenelaidas','Sthenelaidas','The ephor who answered Archidamus — the Athenians had said a great deal in praise of themselves and nowhere denied the wrong, so they deserved double punishment, for having ceased to be good and for having become bad. He then refused to judge the shouting and made the assembly divide by walking to two sides of the room, so that they would have to declare themselves and their ardour for war would rise.','','supporting'),
 ]:add(*row)
 
@@ -126,7 +127,7 @@ for row in [
 ('stroebus','Stroebus','Leocrates’s father.','Stroebus','reference'),
 ('myronides','Myronides','Who marched into the Megarid with the old men and the boys left in the city, fought the Corinthians to a draw, and when they came back twelve days later to set up their own trophy cut off the party setting it up and stoned a whole detachment to death in a walled field. Sixty-two days after Tanagra he beat the Boeotians at Oenophyta.','Myronides','supporting'),
 ('nicomedes','Nicomedes','Cleombrotus’s son, acting for the boy king Pleistoanax, who brought fifteen hundred Lacedaemonians and ten thousand allies to the help of Doris and then had to sit in Boeotia deciding which way home — encouraged by a party in Athens that wanted the democracy and the Long Walls stopped.','Nicomedes','supporting'),
-('pleistoanax','Pleistoanax','Pausanias’s son, king of the Lacedaemonians: a minor when Nicomedes acted for him, and in command himself of the invasion that reached Eleusis and Thrius and went no further.','Pleistoanax','supporting'),
+('pleistoanax','Pleistoanax','Pausanias’s son, king of the Lacedaemonians: a minor when Nicomedes acted for him, and in command himself of the invasion that reached Eleusis and Thrius and went no further.','Pleistoanax','supporting','person',[{'after':[6,23],'body':'Pausanias’s son and king of Lacedaemon, whose invasion fourteen years earlier had turned back at Eleusis and Thria — which cost him his exile, since it was thought he had been bribed to retreat. While Archidamus’s army was on the same ground, the Athenians remembered it and still hoped he would go no further.'}]),
 ('tolmides','Tolmides','Tolmaeus’s son, who sailed round the Peloponnese, burnt the Lacedaemonian dockyard, took Chalcis and beat the Sicyonians — and who was caught at Coronea on the way home from Chaeronea by the Boeotian exiles, and lost Boeotia with the battle.','','supporting'),
 ('tolmaeus','Tolmaeus','Tolmides’s father.','','reference'),
 ('megabazus','Megabazus','The Persian sent to Lacedaemon with money to buy an invasion of Attica and draw the Athenians out of Egypt, and recalled with what was left of it when the money was simply being wasted. Not Megabuzus.','Megabazus','reference'),
@@ -135,12 +136,12 @@ for row in [
 ('orestes','Orestes','Echecratidas’s son, the Thessalian king in exile who persuaded Athens to restore him — and went home with them again, the expedition having accomplished nothing because of the Thessalian cavalry.','Orestes','reference'),
 ('echecratidas','Echecratidas','Orestes’s father.','Echecratidas','reference'),
 ('pericles','Pericles','Xanthippus’s son, who took a thousand men from Pegae to Sicyon and Acarnania, brought the army back from Euboea when Megara revolted and then subdued Euboea outright, and commanded the forty-four ships that beat the Samians off Tragia.','Pericles','central','person',
- [{'after':[5,29],'body':'Xanthippus’s son, the most powerful man of his time and the foremost Athenian statesman, ablest alike in counsel and in action. He was connected with the Cylonian curse on his mother’s side, which is why Sparta’s first embassy demanded the accursed be driven out — not expecting to succeed, but to make his countrymen think the war his bad luck. He answered the ultimatum with no concession: the trifle of the Megara decree, he said, contains the whole trial of their resolve; Athens should think of herself as an island, guard the sea and the city, and mourn the loss of men rather than of houses and land, because men gain houses and land and not the reverse. What he feared, he said, was Athenian blunders rather than the enemy’s designs.'}]),
+ [{'after':[7,20],'body':'The first citizen of Athens, whose funeral speech for the first of the war’s dead calls the city the school of Hellas and says that heroes have the whole earth for their tomb. He would not let the army out while Archidamus burned Acharnae, would not call an assembly while anger was in the ascendant, and handed over his own estate to the state in case Archidamus spared it out of friendship. They fined him, and then elected him general again. He outlived the outbreak by two years and six months, and told them to wait quietly, attend to the navy, attempt no new conquests and risk nothing — advice they did the opposite of. What was nominally a democracy became in his hands government by the first citizen.'},{'after':[5,29],'body':'Xanthippus’s son, the most powerful man of his time and the foremost Athenian statesman, ablest alike in counsel and in action. He was connected with the Cylonian curse on his mother’s side, which is why Sparta’s first embassy demanded the accursed be driven out — not expecting to succeed, but to make his countrymen think the war his bad luck. He answered the ultimatum with no concession: the trifle of the Megara decree, he said, contains the whole trial of their resolve; Athens should think of herself as an island, guard the sea and the city, and mourn the loss of men rather than of houses and land, because men gain houses and land and not the reverse. What he feared, he said, was Athenian blunders rather than the enemy’s designs.'}]),
 ('xanthippus','Xanthippus','Pericles’s father.','Xanthippus','reference'),
 ('pissuthnes','Pissuthnes','Hystaspes’s son, satrap of Sardis, who took the Athenian garrison and its commanders off the Samian rebels.','Pissuthnes','supporting'),
 ('hystaspes','Hystaspes','Pissuthnes’s father.','Hystaspes','reference'),
 ('stesagoras','Stesagoras','Who left Samos with five ships to bring up the Phoenician fleet — which is why Pericles was off Caria when the Samians broke out and held their own waters for fourteen days.','Stesagoras','reference'),
-('hagnon','Hagnon','One of the three commanders of the forty ships that reinforced the siege of Samos.','','supporting'),
+('hagnon','Hagnon','One of the three commanders of the forty ships that reinforced the siege of Samos.','','supporting','person',[{'after':[7,13],'body':'Nicias’s son, who took Pericles’s own force to the Chalcidians and Potidaea and brought the plague with him: he lost one thousand and fifty out of four thousand heavy infantry in about forty days, achieved nothing worthy of his preparations, and took his ships home. He went out again with Sitalces’s expedition as the Athenian general — for a fleet that never came.'}]),
 ('tlepolemus','Tlepolemus','Who brought twenty more ships to Samos with Anticles.','Tlepolemus','reference'),
 ('anticles','Anticles','Tlepolemus’s colleague.','Anticles','reference'),
 ]:add(*row)
@@ -172,7 +173,7 @@ for row in [
 
 # ---------------------------------------------------------------------- peoples
 for row in [
-('athenians','The Athenians','Whose growth in power, and the alarm it inspired in Lacedaemon, Thucydides gives as the real cause of the war — the cause most kept out of sight in formal speech. Never displaced from Attica because the soil was poor, they laid aside their arms first, took to the sea after the Mede, and turned the confederacy into an empire.','Athenians|Athenian','central','group'),
+('athenians','The Athenians','Whose growth in power, and the alarm it inspired in Lacedaemon, Thucydides gives as the real cause of the war — the cause most kept out of sight in formal speech. Never displaced from Attica because the soil was poor, they laid aside their arms first, took to the sea after the Mede, and turned the confederacy into an empire.','Athenians|Athenian','central','group',[{'after':[7,9],'body':'Whose country population came into the city and camped in the temples and the towers, and among whom the plague then broke out — fever, thirst, and a despair that took away the power of resistance the moment a man felt himself sickening. The doctors died thickest, because they visited the sick most. Men who had nothing succeeded to the property of men who had everything, and spent it quickly; burial rites collapsed; and nobody expected to live to be tried for anything. An old verse said a Dorian war would come and a plague with it, and they argued about whether the word had been plague or dearth.'}]),
 ('lacedaemonians','The Lacedaemonians','Slow to go to war except under necessity, with the same form of government for more than four hundred years and no tyrants; they put down the tyrannies of the rest of Hellas, led the alliance against the Mede, and exacted no tribute from their allies, only oligarchies. The Corinthians tell them to their faces that they are the only Hellenes who are inactive, and who defend themselves not by doing anything but by looking as though they might.','Lacedaemonians|Lacedaemonian|Spartans|Spartan','central','group'),
 ('peloponnesians','The Peloponnesians','Farmers without funds private or public, without experience of long wars overseas, and without the single council-chamber that prompt action needs — a diet of many peoples in which each state has an equal vote and pushes its own ends, so that nothing is done. That is Pericles’s account of them; their own is that they have numbers, experience, obedience, and the temple funds at Olympia and Delphi to hire away Athenian sailors with.','Peloponnesians','major','group'),
 ('corinthians','The Corinthians','Set on an isthmus and a commercial hub from time immemorial, the first to build galleys in Hellas and the first Hellenes to fight a sea-battle. They took over Epidamnus from a colony that despised them, lost at Leukimme, claimed the victory at Sybota, and canvassed the Peloponnese city by city for the war — speaking last at both congresses, after letting the other speakers inflame the room.','Corinthians|Corinthian','major','group'),
@@ -185,10 +186,10 @@ for row in [
 ('ambraciots','The Ambraciots','Who sent volunteer settlers and troops to Epidamnus, eight ships for the convoy and twenty-seven for the fleet, and held the right wing with the Megarians at Sybota.','Ambraciots|Ambraciot','supporting','group'),
 ('leucadians','The Leucadians','Whose city was a Corinthian colony: they sent settlers to Epidamnus and ten ships twice, and had their territory ravaged by the Corcyraeans for it.','Leucadians','supporting','group'),
 ('megarians','The Megarians','Who left the Lacedaemonian alliance over a boundary war Corinth forced on them, were given long walls and an Athenian garrison, revolted and cut the garrison off — and who came to the congress with a long list of grievances, chief of them exclusion from the ports of the empire and the market of Athens. The decree excluding them was the one thing that could still have averted the war.','Megarians|Megarian','major','group'),
-('aeginetans','The Aeginetans','Who sent no formal representatives to the congress for fear of Athens and were in private among the most insistent advocates for war, claiming Athens had denied them the independence the treaty guaranteed.','Aeginetans|Aeginetan|Eginetans|Eginetan','supporting','group'),
+('aeginetans','The Aeginetans','Who sent no formal representatives to the congress for fear of Athens and were in private among the most insistent advocates for war, claiming Athens had denied them the independence the treaty guaranteed.','Aeginetans|Aeginetan|Eginetans|Eginetan','supporting','group',[{'after':[6,29],'body':'Expelled from Aegina with their wives and children in the first summer of the war, as the chief agents in bringing it on — and because the island lay too close to the Peloponnese to be left in their hands. Lacedaemon gave them Thyrea, partly out of the obligation they had put her under at the time of the earthquake and the Helot revolt; the rest scattered over Hellas.'}]),
 ('samians','The Samians','For whom Ameinocles built the first four ships, and who went to war with Miletus over Priene, were given a democracy, stole back their hostages from Lemnos, revolted, and held their own waters for fourteen days before a nine-month siege ended it.','Samians|Samian','major','group'),
 ('milesians','The Milesians','Beaten by Samos over Priene, and the complainants who brought Athens into the Samian war.','Milesians|Milesian','supporting','group'),
-('thebans','The Thebans','Asked for money toward the Epidamnus convoy; and the people whose city had given the Mede his base of operations, which is the argument Sparta used against walls.','Thebans','supporting','group'),
+('thebans','The Thebans','Asked for money toward the Epidamnus convoy; and the people whose city had given the Mede his base of operations, which is the argument Sparta used against walls.','Thebans','major','group',[{'after':[6,4],'body':'Whose Boeotarchs took three hundred men into Plataea in peacetime, because they foresaw the war and wanted to surprise an old enemy before it began. They would not kill the opposite faction as the traitors wanted, made a conciliatory proclamation instead, and lost the whole party. The relieving force was held up by a river swollen with the night’s rain and arrived to find them dead.'}]),
 ('phliasians','The Phliasians','Asked for money toward the convoy.','Phliasians','reference','group'),
 ('eleans','The Eleans','Asked for hulls as well as money; the Corcyraeans burnt Cyllene, their harbour, for it.','Eleans|Elean','supporting','group'),
 ('sicyonians','The Sicyonians','Whose envoys went with the Corcyraeans to Corinth, who were beaten by Pericles at Sicyon and by Tolmides before him, and who were let into Megara before the revolt.','Sicyonians','supporting','group'),
@@ -211,14 +212,14 @@ for row in [
 ('phocians','The Phocians','Who made an expedition against Doris, the original homeland of the Lacedaemonians, and were made to give the town back; Athens put the temple at Delphi into their hands.','Phocians','supporting','group'),
 ('locrians','The Locrians','The Ozolian Locrians, who still carry weapons in the old piratical way and from whom Athens took Naupactus; and the Opuntian Locrians, a hundred of whose richest men were taken as hostages after Oenophyta.','Locrians','supporting','group'),
 ('aetolians','The Aetolians','Who still live in the old way, with the custom of carrying arms kept up.','Aetolians','reference','group'),
-('acarnanians','The Acarnanians','Who still live in the old way, like the Aetolians and the Ozolian Locrians.','Acarnanians','reference','group'),
+('acarnanians','The Acarnanians','Who still live in the old way, like the Aetolians and the Ozolian Locrians.','Acarnanians','supporting','group',[{'after':[8,11],'body':'Invaded by land and threatened by sea, they made no combined resistance but stayed to defend their own homes — and the Stratians alone broke the Chaonians with ambushes and then slung at the Hellenic divisions from a distance, which is the kind of warfare Thucydides says they excel at.'}]),
 ('carthaginians','The Carthaginians','Beaten in a sea-fight by the Phocaeans while they were founding Marseilles.','Carthaginians','reference','group'),
 ('phocaeans','The Phocaeans','Who beat the Carthaginians at sea while founding Marseilles.','Phocaeans','reference','group'),
 ('egyptians','The Egyptians','Most of whom revolted from Artaxerxes under Inaros and were beaten back into subjection — except the marshmen, who are the most warlike of them and whose king in the marshes could not be taken.','Egyptians','supporting','group'),
 ('libyans','The Libyans','Inaros’s people, on the Egyptian border.','Libyans','reference','group'),
 ('helots','The Helots','Most of them descendants of the old Messenians enslaved in the famous war, which is why they all came to be called Messenians. They seceded to Ithome after the earthquake; Pausanias promised them freedom and citizenship to join him; and the suppliants raised from the temple of Poseidon at Taenarus and killed were Helots.','Helots|Helot','major','group'),
 ('perioeci','The Perioeci','The Thuriats and Aethaeans among them seceded to Ithome with the Helots.','Perioeci','reference','group'),
-('messenians','The Messenians','The name all the Helots came to carry, because most of them descended from the Messenians enslaved in the famous war; the rebels at Ithome held out ten years and were let out of the Peloponnese on condition of never setting foot in it again.','Messenians','supporting','group'),
+('messenians','The Messenians','The name all the Helots came to carry, because most of them descended from the Messenians enslaved in the famous war; the rebels at Ithome held out ten years and were let out of the Peloponnese on condition of never setting foot in it again.','Messenians','supporting','group',[{'after':[8,19],'body':'Settled by Athens at Naupactus after Ithome, and now the garrison that marched along the shore beside Phormio’s ships — and that waded into the sea in armour to board the disabled Athenian hulls the Peloponnesians were towing away, and took them back.'}]),
 ('thuriats','The Thuriats','Of the Perioeci, who seceded to Ithome.','Thuriats','reference','group'),
 ('aethaeans','The Aethaeans','Of the Perioeci, who seceded to Ithome with the Thuriats.','Æthæans|Aethaeans|Æthaeans','reference','group'),
 ('edonians','The Edonians','From whom Athens took Nine Ways, and at whose town of Drabescus the settlers were cut off.','Edonians','reference','group'),
@@ -247,8 +248,153 @@ for row in [
 ('argilians','The Argilians','One of them was Pausanias’s favourite and most trusted servant, and the courier who counterfeited the seal, found the postscript ordering his own death, and turned informer.','Argilian|Argilians','reference','group'),
 ]:add(*row)
 
-print(len(entities),'entities after Book 1')
+
+# ======================================== BOOK 2, CHAPTER 6 — the war really begins
+for row in [
+('chrysis-argos','Chrysis','The priestess of Hera at Argos, in the forty-eighth year of whose office the war began. Thucydides dates the outbreak by her, by the ephor at Sparta and by the archon at Athens, because there was no common calendar. Not Eumachus’s father.','','supporting'),
+('aenesias','Aenesias','The ephor at Sparta in whose year the war began.','Aenesias','reference'),
+('pythodorus','Pythodorus','The archon at Athens in the last month but two of whose year the war began.','','reference'),
+('pythangelus','Pythangelus','Phyleides’s son, one of the two Boeotarchs who led the three hundred Thebans into Plataea in the first watch of the night.','Pythangelus','supporting'),
+('phyleides','Phyleides','Pythangelus’s father.','Phyleides','reference'),
+('diemporus','Diemporus','Onetorides’s son, the other Boeotarch of the night attack.','Diemporus','supporting'),
+('onetorides','Onetorides','Diemporus’s father.','Onetorides','reference'),
+('naucleides','Naucleides','The Plataean who opened the gates to the Thebans, meaning to kill the opposite faction, hand the city to Thebes and hold power in it.','Naucleides','supporting'),
+('eurymachus','Eurymachus','Leontiades’s son, a man of great influence at Thebes, through whom the traitors in Plataea had made their arrangements — and one of the hundred and eighty prisoners the Plataeans put to death.','Eurymachus','supporting'),
+('leontiades','Leontiades','Eurymachus’s father.','Leontiades','reference'),
+('diacritus','Diacritus','Melesippus’s father.','Diacritus','reference'),
+('zeuxidamus','Zeuxidamus','Archidamus’s father. The text calls him Zeuxis once and Zeuxidamus twice.','Zeuxidamus|Zeuxis','reference'),
+('cecrops','Cecrops','Under whom, and the first kings after him, Attica was a country of independent townships.','Cecrops','reference','mythological-figure'),
+('theseus','Theseus','The king of equal intelligence and power who abolished the council-chambers and magistrates of the smaller Attic cities and merged them into one council-chamber and town hall at Athens, leaving a great state behind him. The Synoecia, the Feast of Union, is still kept at public expense for it.','Theseus','major','mythological-figure'),
+('eumolpus','Eumolpus','Who led the Eleusinians against Erechtheus — one of the wars the Attic townships fought against their own king.','Eumolpus','reference','mythological-figure'),
+('erechtheus','Erechtheus','The king of Athens the Eleusinians went to war with under Eumolpus.','Erechtheus','reference','mythological-figure'),
+('polymedes','Polymedes','One of the two party leaders in Larisa who commanded the Larisaean horse that came to Athens under the old alliance.','Polymedes','reference'),
+('aristonus','Aristonus','The other Larisaean party leader and commander.','Aristonus','reference'),
+('menon','Menon','The Pharsalian general of the Thessalian contingent.','Menon','reference'),
+('carcinus','Carcinus','Xenotimus’s son, one of the three commanders of the hundred ships sent round the Peloponnese in the first summer of the war.','Carcinus','supporting'),
+('xenotimus','Xenotimus','Carcinus’s father.','Xenotimus','reference'),
+('socrates-antigenes','Socrates','Antigenes’s son, the third commander of the hundred ships.','Socrates','reference'),
+('antigenes','Antigenes','Socrates’s father.','Antigenes','reference'),
+('brasidas','Brasidas','Tellis’s son. In command of a guard in Laconia when the Athenians assaulted Methone, he ran a hundred heavy infantry straight through an army scattered over the country, lost a few men getting in, and saved the place — the first officer in the war to be publicly commended at Sparta. He was sent out afterwards as one of the three commissioners to stiffen Cnemus’s fleet, and was in the party that talked itself out of the raid on Piraeus. The older translation misprints him Bradidas once.','Brasidas|Bradidas','major'),
+('tellis','Tellis','Brasidas’s father.','','reference'),
+('cleopompus','Cleopompus','Clinias’s son, who took thirty ships round Locris and Euboea, sacked places on the coast, took hostages from Thronium and beat the Locrians at Alope — and afterwards went with Hagnon to Potidaea and the Chalcidians.','Cleopompus','supporting'),
+('clinias','Clinias','Cleopompus’s father.','','reference'),
+('nymphodorus','Nymphodorus','Pythes’s son, an Abderite whose sister was married to Sitalces. Athens had counted him an enemy and now made him her proxenus and sent for him: he brought in the Thracian alliance, got Sitalces’s son Sadocus made an Athenian citizen, and reconciled Athens with Perdiccas.','Nymphodorus','supporting'),
+('pythes','Pythes','Nymphodorus’s father.','Pythes','reference'),
+('sitalces','Sitalces','Teres’s son and king of the Thracians, whose alliance Athens bought with a citizenship for his son and the return of Therme to Perdiccas. He came down into Macedonia with a hundred and fifty thousand men, a third of them horse, and frightened every people between Thermopylae and the Danube — and then, with no provisions and bad weather, took his nephew’s advice and went home after thirty days, having achieved none of it.','Sitalces','major'),
+('teres','Teres','Sitalces’s father, the first to build the great Odrysian kingdom out of a Thrace that was mostly independent. Thucydides is at pains to say he is in no way related to the Tereus of the nightingale story: different part of Thrace, different name.','Teres','supporting'),
+('tereus','Tereus','Who married Pandion’s daughter Procne and lived at Daulis in what is now Phocis. It was there that the women did the deed on Itys, which is why the poets call the nightingale the Daulian bird. Not Teres.','Tereus','supporting','mythological-figure'),
+('pandion','Pandion','Procne’s father, who would have weighed the advantages of mutual help in marrying her — an argument Thucydides uses to keep Tereus out of Odrysian Thrace.','Pandion','reference','mythological-figure'),
+('procne','Procne','Pandion’s daughter, whom Tereus married out of Athens.','Procne','reference','mythological-figure'),
+('itys','Itys','On whom the women of Daulis perpetrated the outrage.','Itys','reference','mythological-figure'),
+('sadocus','Sadocus','Sitalces’s son, made an Athenian citizen — and who repaid it by seizing the Lacedaemonian envoys on their way to the King and handing them to the Athenians, who killed them the same day.','Sadocus','supporting'),
+('evarchus','Evarchus','Tyrant of Astacus, expelled by the hundred ships and put back by forty Corinthian ones the following winter, partly with mercenaries he hired himself.','','supporting'),
+('euphamidas','Euphamidas','Aristonymus’s son, first-named of the three commanders of the forty Corinthian ships that restored Evarchus.','','supporting'),
+('aristonymus','Aristonymus','Euphamidas’s father.','','reference'),
+('timoxenus','Timoxenus','Timocrates’s son, the second commander of the forty ships.','Timoxenus','reference'),
+('timocrates-corinth','Timocrates','Timoxenus’s father. Not the Lacedaemonian commissioner who killed himself off Naupactus.','','reference'),
+('eumachus','Eumachus','Chrysis’s son, the third commander of the forty ships.','Eumachus','reference'),
+('chrysis-father-of-eumachus','Chrysis','Eumachus the Corinthian’s father. Not the priestess of Hera at Argos.','','reference'),
+('acharnians','The Acharnians','Of the largest of the Athenian demes, three thousand heavy infantry of them — which is why Archidamus camped on their land and waited, reckoning they would force a battle on the rest of the city; and they were the loudest in pressing for the sortie.','Acharnians','supporting','group'),
+('oropians','The Oropians','Who hold Graea from Athens, and whose territory the Peloponnesians ravaged on the way home.','Oropians','reference','group'),
+('cranians','The Cranians','Of Crane in Cephallenia, who agreed to terms with the Corinthians and then fell on them suddenly.','Cranians','reference','group'),
+('pellenians','The Pellenians','Of the one Achaean city that joined the war from the start, the rest following her lead later.','Pellenians','reference','group'),
+]:add(*row)
+
+# ================================== BOOK 2, CHAPTER 7 — the plague, and Potidaea falls
+for row in [
+('nicias-father-of-hagnon','Nicias','Hagnon’s father. Neither the Cretan of Gortys nor the Athenian general of the later books.','','reference'),
+('aneristus','Aneristus','One of the envoys Lacedaemon sent to the King for money, seized in Thrace by Sadocus and killed at Athens the same day without a trial.','Aneristus','reference'),
+('nicolaus','Nicolaus','A second of the Lacedaemonian envoys to the King, killed with the rest.','Nicolaus','reference'),
+('stratodemus','Stratodemus','A third of the Lacedaemonian envoys, killed with the rest.','Stratodemus','reference'),
+('timagoras-tegea','Timagoras','A Tegean travelling with the Lacedaemonian envoys to the King, and killed with them.','','reference'),
+('pollis','Pollis','A private individual from Argos travelling with the envoys, and killed with them.','Pollis','reference'),
+('pharnabazus','Pharnabazus','The Persian to whom the envoys were to be conveyed across the Hellespont, and who would have sent them up country to the King.','','reference'),
+('learchus','Learchus','Callimachus’s son, one of the two Athenian ambassadors at Sitalces’s court who talked his son into handing over the Lacedaemonian envoys, and who escorted them to Athens.','Learchus','supporting'),
+('callimachus-father-of-learchus','Callimachus','Learchus’s father. Not Phanomachus’s father.','','reference'),
+('ameiniades','Ameiniades','Philemon’s son, the other Athenian ambassador at Sitalces’s court.','Ameiniades','supporting'),
+('philemon','Philemon','Ameiniades’s father.','Philemon','reference'),
+('amphilochus','Amphilochus','Amphiaraus’s son, who came home from Troy dissatisfied with the state of affairs, built a city in the Ambracian gulf and named it Argos after his own country.','Amphilochus','supporting','mythological-figure'),
+('amphiaraus','Amphiaraus','Amphilochus’s father, and Alcmaeon’s. The older translation misprints him Amphiraus once.','Amphiaraus|Amphiraus','reference','mythological-figure'),
+('melesander','Melesander','Who took six ships to Caria and Lycia to collect tribute and keep the Peloponnesian privateers from setting up there — and was defeated and killed going up country into Lycia.','Melesander','supporting'),
+('xenophon-euripides','Xenophon','Euripides’s son, first-named of the three Athenian generals who took Potidaea’s capitulation, and afterwards the commander beaten and killed at Spartolus.','Xenophon','supporting'),
+('euripides-father-of-xenophon','Euripides','Xenophon the general’s father.','Euripides','reference'),
+('hestiodorus','Hestiodorus','Aristocleides’s son, the second of the three generals at Potidaea.','Hestiodorus','reference'),
+('aristocleides','Aristocleides','Hestiodorus’s father.','Aristocleides','reference'),
+('phanomachus','Phanomachus','Callimachus’s son, the third of the three generals at Potidaea — blamed at home, with his colleagues, for granting terms without instructions.','Phanomachus','reference'),
+('callimachus-father-of-phanomachus','Callimachus','Phanomachus’s father. Not Learchus’s father.','','reference'),
+('cnemus','Cnemus','The Spartan high admiral: he ravaged Zacynthus and got nowhere, slipped past Phormio into the gulf with a thousand heavy infantry and a barbarian army, lost the Chaonians to an ambush at Stratus, and had three commissioners sent out in anger to stiffen him after his fleet was beaten in the Crissaean gulf.','Cnemus','major'),
+]:add(*row)
+
+# ============== BOOK 2, CHAPTER 8 — Plataea invested, Phormio in the Gulf, Sitalces
+for row in [
+('photys','Photys','One of the two members of the Chaonian royal family entrusted with the chieftainship for the year; the Chaonians have no king.','Photys','reference'),
+('nicanor','Nicanor','The other Chaonian chieftain of the year.','Nicanor','reference'),
+('sabylinthus','Sabylinthus','Guardian of the boy king Tharyps, who led the Molossians and Atintanians into Acarnania.','Sabylinthus','reference'),
+('tharyps','Tharyps','The Molossian king, still a minor, for whom Sabylinthus acted.','Tharyps','reference'),
+('oroedus','Oroedus','King of the Paravaei, who brought them into Acarnania and was given the thousand Orestians to command as well.','Oroedus','reference'),
+('antiochus-orestians','Antiochus','King of the Orestians, who sent a thousand of them under Oroedus rather than lead them himself. The older translation misprints him Antichus.','Antiochus|Antichus','reference'),
+('machaon','Machaon','One of the three Corinthian commanders of the forty-seven ships Phormio broke in the mouth of the Crissaean gulf.','Machaon','reference'),
+('isocrates','Isocrates','The second Corinthian commander.','Isocrates','reference'),
+('agatharchidas','Agatharchidas','The third Corinthian commander.','Agatharchidas','reference'),
+('timocrates-sparta','Timocrates','One of the three Lacedaemonian commissioners sent out in anger after the first defeat. He was aboard the Leucadian that an Athenian ship sank off a merchantman at Naupactus, killed himself when she went down, and was washed up in the harbour. Not Timoxenus’s father.','','supporting'),
+('lycophron','Lycophron','The third of the three Lacedaemonian commissioners, with Timocrates and Brasidas.','','reference'),
+('nicias-gortys','Nicias','A Cretan of Gortys and the Athenians’ proxenus, who talked twenty ships out of joining Phormio and into attacking Cydonia — really to oblige the Polichnitans next door. Bad weather kept them in Crete through the battle.','','supporting'),
+('amyntas','Amyntas','Philip’s son, whom Sitalces brought with him and intended for the throne of Macedonia; Idomene, Gortynia and Atalanta came over out of attachment to him.','Amyntas','supporting'),
+('seuthes','Seuthes','Spardacus’s son, Sitalces’s nephew and highest officer, and afterwards his successor, who raised the Odrysian tribute to four hundred talents. Perdiccas secretly bought him with the promise of his sister, and he advised the retreat; Perdiccas gave him Stratonice as promised.','Seuthes','supporting'),
+('spardacus','Spardacus','Seuthes’s father.','Spardacus','reference'),
+('stratonice','Stratonice','Perdiccas’s sister, promised to Seuthes with a rich dowry for the advice that ended Sitalces’s invasion, and given to him afterwards.','Stratonice','supporting'),
+('archelaus','Archelaus','Perdiccas’s son, who on his accession built most of the strongholds the country has, cut straight roads, and did more for the kingdom’s horses and heavy infantry than the eight kings before him together.','Archelaus','supporting'),
+('cynes','Cynes','Theolytus’s son, whom Phormio restored to Coronta.','Cynes','reference'),
+('theolytus','Theolytus','Cynes’s father.','Theolytus','reference'),
+('alcmaeon','Alcmaeon','Amphiaraus’s son, told by Apollo in his wanderings after killing his mother that he would have no release until he found land that had not been seen by the sun at the time of the murder. He settled on the Achelous’s new deposits by Oeniadae and named the country after his son Acarnan.','Alcmaeon','supporting','mythological-figure'),
+('acarnan','Acarnan','Alcmaeon’s son, from whom Acarnania is named.','Acarnan','reference','mythological-figure'),
+# ------------------------------------------------------- the peoples of the north
+('odrysians','The Odrysians','Teres’s kingdom and Sitalces’s, whose empire ran from Abdera to the Danube and inland thirteen days’ journey, and whose custom was the opposite of the Persian one: more disgrace in refusing a present than in asking for one and being refused. Nothing could be done among them without a present.','Odrysians|Odrysian','major','group'),
+('chaonians','The Chaonians','A nation with no king, led by two of the royal family for a year at a time, and with the highest reputation for courage on that part of the mainland. They would not wait to make camp at Stratus, rushed the town for the sole glory of it, and were cut to pieces from the city and the ambushes.','Chaonians','major','group'),
+('thesprotians','The Thesprotians','Who came with the Chaonians into Acarnania and, like them, have no king.','Thesprotians','reference','group'),
+('atintanians','The Atintanians','Whom Sabylinthus led into Acarnania with the Molossians.','Atintanians','reference','group'),
+('paravaeans','The Paravaeans','Who came under their own king Oroedus.','Paravaeans','reference','group'),
+('orestians','The Orestians','A thousand of them, subjects of King Antiochus, who put them under Oroedus’s command.','Orestians','reference','group'),
+('amphilochians','The Amphilochians','Whose Argos was founded by Amphilochus and who learned their Hellenic speech from the Ambraciots they invited in — and were then expelled by them, upon which they joined the Acarnanians, called in Athens, and got the town back.','Amphilochians|Amphilochian','supporting','group'),
+('agraeans','The Agraeans','Through whose country the Achelous runs on its way to the Acarnanian plain.','Agraeans','reference','group'),
+('stratians','The Stratians','Of the Acarnanian capital, who saw how the invading divisions had strung out, set ambushes round the town, broke the Chaonians between the city and the ambushes, and then slung at the Hellenes from a distance — which, Thucydides says, is the kind of warfare the Acarnanians excel at.','Stratians','supporting','group'),
+('getae','The Getae','Beyond Haemus, who border on the Scythians and are armed like them, all mounted archers; they supplied more of Sitalces’s cavalry than anyone but the Odrysians.','Getae','supporting','group'),
+('dii','The Dii','The independent hill Thracian swordsmen of Mount Rhodope, the most warlike of Sitalces’s infantry, some of whom came as mercenaries and some as volunteers.','Dii','supporting','group'),
+('agrianes','The Agrianes','One of the Paeonian tribes in Sitalces’s empire, on its edge, with the Strymon running through their country.','Agrianes','reference','group'),
+('laeaeans','The Laeaeans','The Paeonian tribe at the inland limit of the Odrysian empire, where it ends and the independent Paeonians begin.','Laeaeans|Laeaean','reference','group'),
+('paeonians','The Paeonians','Some of them in the Odrysian empire and some independent; Sitalces cut his road to Macedonia through their timber on an earlier campaign against them.','Paeonians|Paeonian','supporting','group'),
+('triballi','The Triballi','Independent, and the neighbours of the Treres and Tilataeans.','Triballi','reference','group'),
+('treres','The Treres','Who live north of Mount Scombrus and extend west as far as the Oskius.','Treres','reference','group'),
+('tilataeans','The Tilataeans','Who live with the Treres north of Mount Scombrus.','Tilataeans','reference','group'),
+('sintians','The Sintians','Divided from the Paeonians by the desolate range of Cercine, which Sitalces crossed by a road he had cut himself.','Sintians','reference','group'),
+('maedians','The Maedians','On Sitalces’s left as he crossed the mountains into Paeonia.','Maedians','reference','group'),
+('lyncestae','The Lyncestae','Macedonians by blood and allies and dependants of their kindred, but with their own separate government.','Lyncestae','reference','group'),
+('elimiots','The Elimiots','Like the Lyncestae, Macedonians by blood with a government of their own.','Elimiots','reference','group'),
+('pierians','The Pierians','Expelled from Pieria by Alexander’s ancestors and settled at Phagres beyond the Strymon; the coast they left is still called the Pierian gulf.','Pierians','reference','group'),
+('eordians','The Eordians','Driven out of Eordia, most of them killed, a few still living around Physca.','Eordians','reference','group'),
+('almopians','The Almopians','Driven out of Almopia by the same kings.','Almopians','reference','group'),
+('temenids','The Temenids','From Argos, the stock the kings of Macedonia came from.','Temenids','reference','group'),
+('magnetes','The Magnetes','Subject to the Thessalians, and among the peoples who made their preparations when they heard how large Sitalces’s army was.','Magnetes','reference','group'),
+('panaeans','The Panaeans','One of the independent Thracian peoples of the plains beyond the Strymon who feared Sitalces might be invited against them.','Panaeans','reference','group'),
+('odomanti','The Odomanti','Independent Thracians of the plains beyond the Strymon.','Odomanti','reference','group'),
+('droi','The Droi','Independent Thracians of the plains beyond the Strymon.','Droi','reference','group'),
+('dersaeans','The Dersaeans','Independent Thracians of the plains beyond the Strymon.','Dersaeans','reference','group'),
+('scythians','The Scythians','With whom, Thucydides says, no people in Europe can be compared, and no single nation in Asia is a match for them united — though they are not on a level with other races in general intelligence and the arts of civilized life.','Scythians','supporting','group'),
+('polichnitans','The Polichnitans','Neighbours of the Cydonians, to oblige whom Nicias of Gortys got twenty Athenian ships diverted to Crete.','Polichnitans','reference','group'),
+('cydonians','The Cydonians','Whose land the twenty ships and the Polichnitans laid waste instead of joining Phormio.','Cydonians','reference','group'),
+('anactorians','The Anactorians','Whose one ship joined the hundred and fifty at Sybota, and who marched into Acarnania with Cnemus and held the right with the Leucadians.','Anactorians','reference','group'),
+('tegeans','The Tegeans','Of Tegea in Arcadia. Timagoras, who travelled with the Lacedaemonian envoys to the King and was killed with them at Athens, was one of them.','Tegeans|Tegean','supporting','group'),
+('sicilians','The Sicilians','Whose tyrants had galleys before the Persian war; whose cities Lacedaemon ordered to build five hundred ships between them and to stay neutral meanwhile; and who in the end joined the enemies of Athens against her.','Sicilians|Sicilian','supporting','group'),
+('abderites','The Abderites','Nymphodorus, whose sister married Sitalces and who brought Athens the Thracian alliance, was one of them.','Abderite|Abderites','reference','group'),
+('plataeans','The Plataeans','Thebes’s old enemy and Athens’s oldest ally. Three hundred Thebans came into their town in the first watch of a rainy night; they dug through their own party walls to join up unseen, barricaded the streets with wagons, drove the Thebans into the mud and the dark, and killed a hundred and eighty of them. Besieged two years later, they answered the mound with a wooden wall, tunnelled out its footings, built a crescent behind it, snapped the battering rams with beams hung on chains, and came within a wind of being burnt alive. The siege closed on four hundred of their own citizens, eighty Athenians, and a hundred and ten women to bake the bread.','Plataeans|Plataians','major','group'),
+# ------------------------------------------------------------------------ gods
+('athene','Athene','On whose statue there were forty talents of pure gold, all of it removable — which Pericles counted among the city’s resources for a last extremity, to be used and paid back. The other deities’ temples are in the citadel with hers.','Athene','supporting','deity'),
+('demeter','Demeter','Whose Eleusinian temple was one of the few places kept closed when the country population camped in the city.','Demeter','supporting','deity'),
+('dionysus','Dionysus','Of the Marshes, in whose honour the older Dionysia are still held in Anthesterion — by the Athenians and by their Ionian descendants.','Dionysus','supporting','deity'),
+]:add(*row)
+
+print(len(entities),'entities after Book 2')
 Path(__file__).parent.joinpath('editorial.json').write_text(json.dumps(dict(
- contentVersion='2026-09-12.1',
- coverage='Both full English editions. BOOK 1 (chapters 1-5) is authored; chapters 6-26 are in progress. Named people and named peoples. Cities, rivers, mountains, seas and countries are not cast.',
+ contentVersion='2026-09-12.2',
+ coverage='Both full English editions. BOOKS 1-2 (chapters 1-8) are authored; chapters 9-26 are in progress. Named people and named peoples. Cities, rivers, mountains, seas and countries are not cast.',
  entities=[e for e in entities if e['name']!='unused']),ensure_ascii=False,indent=2)+'\n')

@@ -1,14 +1,14 @@
 # The Peloponnesian War character package — IN PROGRESS
 
-**Book 1 (chapters 1–5, paragraphs 1–132) is authored. Chapters 6–26 are not.**
-Status stays `in-progress` and the package must not be integrated until all
-eight of Thucydides's books are covered.
+**Books 1–2 (chapters 1–8, paragraphs 1–240) are authored. Chapters 9–26 are
+not.** Status stays `in-progress` and the package must not be integrated until
+all eight of Thucydides's books are covered.
 
-Current state: 197 entities authored, all 197 bound in both editions, 4,435 and
-4,489 exact mentions. Of those, 946 and 975 fall inside Book 1's own chapters;
-the rest are the nation cards, which are bound through all twenty-six chapters
-because a people is the same people in every book. Content revision
-2026-09-12.1.
+Current state: 327 entities authored, all 327 bound in both editions, 4,931 and
+4,991 exact mentions. Of those, 946 and 975 fall inside Book 1's chapters and
+731 and 740 inside Book 2's; the rest are the nation cards, which are bound
+through all twenty-six chapters because a people is the same people in every
+book. Content revision 2026-09-12.2.
 
 ## What is hard about this book, and what is not
 
@@ -33,11 +33,28 @@ campaign. Book 1 alone has:
 | `hippias` | 1:19 | Hippias the Arcadian commander of Book 3 |
 | `pisistratus` | 1:19 | Pisistratus son of Hippias, the tyrant's grandson and archon, of Book 6 |
 
+## Book 2's namesakes
+
+| Entity | Where | Against |
+|---|---|---|
+| `chrysis-argos` / `chrysis-father-of-eumachus` | 6:1 / 6:33 | the priestess of Hera at Argos by whose year of office Thucydides dates the war, and a Corinthian commander's father |
+| `timocrates-corinth` / `timocrates-sparta` | 6:33 / 8:14, 8:21 | Timoxenus's father, and the commissioner who killed himself when his ship went down off Naupactus |
+| `callimachus-father-of-learchus` / `callimachus-father-of-phanomachus` | 7:22 / 7:25 | two fathers three paragraphs apart |
+| `nicias-father-of-hagnon` / `nicias-gortys` | 7:13 / 8:14 | Hagnon's father, and the Cretan of Gortys who diverted twenty ships to Crete — neither of them the Nicias son of Niceratus who fills the later books and is not yet authored |
+| `teres` / `tereus` | 6:31 | Sitalces's father and the king of the nightingale story, whom Thucydides is at pains to separate: different part of Thrace, different name |
+| `pythodorus`, `tellis`, `clinias`, `evarchus`, `euphamidas`, `aristonymus`, `timagoras-tegea`, `pharnabazus`, `lycophron` | Book 2 only | later men of the same name, in books not yet read |
+
+Seven cards cross from Book 1 into Book 2 and are enriched rather than
+duplicated — Pericles, Archidamus, Perdiccas, Phormio, Pleistoanax, Hagnon and
+Aristeus of Potidaea — each with a gated update, and a test asserts that each
+appears in both halves on one card. The Plataeans, who are not named in Book 1
+at all, are cast here.
+
 ## How the unauthored books are handled
 
 Where a name in chapters 6–26 belongs to somebody this pass has not authored, it
 is **left unbound rather than defaulted to the Book 1 man of the same name.**
-That is why every person table in the builder has `None` for its default: 35
+That is why every person table in the builder has `None` for its default: 46
 tables, and the four in the list above are cases where the later man is
 positively known to be a different person. The others — Ramphias, Melesippus,
 Agesander, Theagenes, Gongylus, Artabazus, Aristides, Hagnon, Tolmides,
@@ -88,8 +105,9 @@ treats him as a witness to be cross-examined.
 **goddess of the Brazen House**, whom Thucydides never names; and every name in
 chapters 6–26 belonging to a person this pass has not authored.
 
-**5. Spot-read and sweep.** Twenty mentions drawn at random, ten per edition,
-read back against their paragraphs: all correct. The adjacency sweep over every
+**5. Spot-read and sweep.** Thirty-eight mentions drawn at random — ten per
+edition for Book 1 and nine per edition for Book 2 — read back against their
+paragraphs: all correct. The adjacency sweep over every
 Book 1 mention whose matched text abuts a capitalised word produced a hundred
 and eighty-seven hits and no mis-binding — sentence-initial *The Athenians*,
 cult titles like *the Delian Apollo* and *Zeus Meilichios*, *King Xerxes*, *the
@@ -105,6 +123,7 @@ because the modern edition resolves pronouns the older one leaves standing.
 
 | Defect | Effect |
 |---|---|
+| The older translation misprints three names: **Bradidas** for Brasidas at 8:14, **Amphiraus** for Amphiaraus at 8:32, and **Antichus** for Antiochus at 8:9. All three are spelled correctly in the modern edition and elsewhere in the older one. | Carried as aliases so the mentions still bind, and pinned by a test so that nobody later "fixes" the aliases away. Not repaired: editing them would move every offset after them. |
 | Both editions print the æ ligature inconsistently: **Potidæa** and **Mycenæ** always, but **Aegina** and **Aeginetans** never, and **Æthæans** in one edition against **Aethaeans** in the other. | Carried as aliases. Not repaired: editing a ligature moves every UTF-16 offset after it and invalidates this package's hashes. |
 | The older translation writes **Hellenic sea** at 1:3 where the modern writes **Hellenic Sea**. | Handled in the binder's lookahead, which allows both cases. |
 | The older translation names the **Tanagraeans** at 4:13 where the modern writes "the walls of Tanagra". | One mention in one edition. The people are bound in both editions from their later chapters, so nothing is omitted. |
@@ -114,11 +133,12 @@ No edition byte was touched.
 
 ## Remaining work
 
-- **Chapters 6–8** (Thucydides's Book 2): the first invasion, the Funeral
-  Oration, the plague, Phormio in the Gulf. Pericles, Archidamus, Perdiccas,
-  Phormio, Pleistoanax, Xanthippus, Melesippus and the nations are already bound
-  forward out of Book 1 and their cards must be enriched rather than duplicated.
-- **Chapters 9–26** after that, one of Thucydides's books per pass.
+- **Chapters 9–11** (Thucydides's Book 3): Mytilene, the Mytilenian debate, the
+  fall of Plataea, the Corcyraean revolution, Demosthenes in the west. Brasidas,
+  Cnemus, Archidamus, Cleopompus, Sitalces, Phormio, Asopius, Pythodorus,
+  Lycophron, Tellis, Clinias, Euphamidas, Aristonymus and the nations all have
+  recurrences there that are currently unbound and must be keyed in.
+- **Chapters 12–26** after that, one of Thucydides's books per pass.
 - The person tables extended as each book is authored, and the `None` defaults
   replaced only where the later man is actually carded.
 - The six editorial checks re-run over the whole work, and a fresh spot-read.
@@ -126,7 +146,7 @@ No edition byte was touched.
 ## Validation
 
 `python3 books/characters/build_peloponnesian_war.py --check`, then
-`python3 -m unittest discover -s books/characters -p 'test_*.py'`. Fourteen
+`python3 -m unittest discover -s books/characters -p 'test_*.py'`. Twenty-three
 focused tests so far. No edition changes, no network generation, no API spend:
 every card here was written in the authoring conversation and committed as a
 file.

@@ -1,5 +1,5 @@
 """Focused checks for the History of the Peloponnesian War. AUTHORING IN
-PROGRESS: Book 1 (chapters 1-5) is authored; chapters 6-26 are not."""
+PROGRESS: Books 1-2 (chapters 1-8) are authored; chapters 9-26 are not."""
 import unittest
 from build_peloponnesian_war import compile_package
 
@@ -16,7 +16,7 @@ def snapshots(cid,ed='modern-en'):
 class PeloponnesianWar(unittest.TestCase):
     def test_the_author_names_himself_in_the_first_sentence(self):
         for ed in ['original-en','modern-en']:
-            self.assertEqual(where(ed,'thucydides'),[(1,0)],ed)
+            self.assertEqual(where(ed,'thucydides'),[(1,0),(7,25),(8,33)],ed)
 
     def test_the_thucydides_at_samos_is_a_separate_card(self):
         # Thucydides names a commander at the siege of Samos without a
@@ -31,7 +31,7 @@ class PeloponnesianWar(unittest.TestCase):
         # chapter.
         for ed in ['original-en','modern-en']:
             self.assertEqual(where(ed,'aristeus-pellichas'),[(2,4)],ed)
-            self.assertEqual(sorted({p for _,p in where(ed,'aristeus-adimantus')}),
+            self.assertEqual(sorted({p for c,p in where(ed,'aristeus-adimantus') if c==2}),
                              [30,31,32,33],ed)
 
     def test_the_two_men_called_callias(self):
@@ -46,7 +46,7 @@ class PeloponnesianWar(unittest.TestCase):
     def test_the_macedonian_pausanias_is_not_the_spartan_regent(self):
         for ed in ['original-en','modern-en']:
             self.assertEqual(where(ed,'pausanias-macedon'),[(2,31)],ed)
-            self.assertTrue(all(c in (4,5) for c,_ in where(ed,'pausanias-sparta')),ed)
+            self.assertTrue(all(c in (4,5,6,8) for c,_ in where(ed,'pausanias-sparta')),ed)
             self.assertNotIn('pausanias-sparta',ids(ed,2,31),ed)
             self.assertNotIn('pausanias-macedon',ids(ed,4,4),ed)
 
@@ -97,7 +97,79 @@ class PeloponnesianWar(unittest.TestCase):
     def test_book_one_outcomes_are_gated(self):
         for ed in ['original-en','modern-en']:
             for cid,gates in [('themistocles',[1,5]),('pausanias-sparta',[4,5]),
-                              ('pericles',[4,5])]:
+                              ('pericles',[4,5,7])]:
+                got=[s['availableAt']['chapterNumber'] for s in snapshots(cid,ed)]
+                self.assertEqual(got,gates,(ed,cid))
+
+    # ------------------------------------------------- Book 2 (chapters 6-8)
+    def test_the_war_is_dated_by_three_officials_and_one_of_them_is_a_woman(self):
+        # No common calendar: the priestess of Hera at Argos, the ephor at
+        # Sparta and the archon at Athens.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(where(ed,'chrysis-argos'),[(6,1)],ed)
+            self.assertEqual(where(ed,'aenesias'),[(6,1)],ed)
+            self.assertEqual(where(ed,'pythodorus'),[(6,1)],ed)
+
+    def test_the_two_people_called_chrysis(self):
+        # The priestess at 6:1 and a Corinthian commander's father at 6:33.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(where(ed,'chrysis-father-of-eumachus'),[(6,33)],ed)
+            self.assertNotIn('chrysis-argos',ids(ed,6,33),ed)
+
+    def test_the_two_men_called_timocrates(self):
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(where(ed,'timocrates-corinth'),[(6,33)],ed)
+            self.assertEqual(sorted({p for _,p in where(ed,'timocrates-sparta')}),[14,21],ed)
+
+    def test_the_two_men_called_callimachus(self):
+        # Learchus's father and Phanomachus's father, three paragraphs apart.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(where(ed,'callimachus-father-of-learchus'),[(7,22)],ed)
+            self.assertEqual(where(ed,'callimachus-father-of-phanomachus'),[(7,25)],ed)
+
+    def test_the_two_men_called_nicias_and_the_third_who_is_unbound(self):
+        # Hagnon's father and the Cretan of Gortys. The Nicias of the later
+        # books is not yet authored and carries no card.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(where(ed,'nicias-father-of-hagnon'),[(7,13)],ed)
+            self.assertEqual(where(ed,'nicias-gortys'),[(8,14)],ed)
+            self.assertTrue(all(c<=8 for c,_ in where(ed,'nicias-gortys')),ed)
+            self.assertNotIn('nicias-gortys',ids(ed,12,0),ed)
+
+    def test_teres_is_not_tereus(self):
+        # Thucydides says so himself: different part of Thrace, different name.
+        for ed in ['original-en','modern-en']:
+            self.assertTrue(all(c in (6,7,8) for c,_ in where(ed,'teres')),ed)
+            self.assertEqual(sorted({p for _,p in where(ed,'tereus')}),[31],ed)
+            self.assertIn('teres',ids(ed,6,31),ed)
+            self.assertIn('tereus',ids(ed,6,31),ed)
+
+    def test_the_misprints_of_the_older_translation_are_bound_not_repaired(self):
+        # Bradidas for Brasidas, Amphiraus for Amphiaraus, Antichus for
+        # Antiochus — all three in the older translation only.
+        o=[m['text'] for m in mentions('original-en')]
+        m=[x['text'] for x in mentions('modern-en')]
+        for wrong in ['Bradidas','Amphiraus','Antichus']:
+            self.assertIn(wrong,o,wrong)
+            self.assertNotIn(wrong,m,wrong)
+
+    def test_the_carried_forward_cards_are_not_duplicated(self):
+        # Pericles, Archidamus, Perdiccas, Phormio, Pleistoanax, Hagnon and
+        # Aristeus all cross from Book 1 into Book 2 on one card each.
+        for ed in ['original-en','modern-en']:
+            for cid in ['pericles','archidamus','perdiccas','phormio','pleistoanax']:
+                chs={c for c,_ in where(ed,cid)}
+                self.assertTrue(chs & {1,2,3,4,5} and chs & {6,7,8},(ed,cid))
+            self.assertIn((7,22),where(ed,'aristeus-adimantus'),ed)
+            self.assertIn((7,13),where(ed,'hagnon'),ed)
+
+    def test_book_two_outcomes_are_gated(self):
+        for ed in ['original-en','modern-en']:
+            for cid,gates in [('pericles',[4,5,7]),('archidamus',[3,8]),
+                              ('perdiccas',[2,8]),('phormio',[2,8]),
+                              ('pleistoanax',[4,6]),('hagnon',[4,7]),
+                              ('aristeus-adimantus',[2,7]),
+                              ('plataeans',[6]),('athenians',[1,7])]:
                 got=[s['availableAt']['chapterNumber'] for s in snapshots(cid,ed)]
                 self.assertEqual(got,gates,(ed,cid))
 

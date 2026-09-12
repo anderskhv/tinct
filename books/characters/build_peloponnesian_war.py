@@ -1,7 +1,7 @@
 """Reviewed bindings for the History of the Peloponnesian War.
 
 Crawley in both editions, 26 chapters covering Thucydides's eight books, 998
-paragraphs per edition. AUTHORING IS IN PROGRESS: Book 1 (chapters 1-5) is
+paragraphs per edition. AUTHORING IS IN PROGRESS: Books 1-2 (chapters 1-8) are
 authored.
 
 The two editions share almost all their transliterations, so unlike most of this
@@ -27,7 +27,8 @@ BASE=Path(__file__).resolve().parent/'peloponnesian-war'
 SPLIT={
  # The author names himself in the first sentence; the Thucydides at Samos is
  # given no patronymic and is never said to be him.
- 'Thucydides':({(1,0):'thucydides',(4,20):'thucydides-samos'},None),
+ 'Thucydides':({(1,0):'thucydides',(7,25):'thucydides',(8,33):'thucydides',
+               (4,20):'thucydides-samos'},None),
  # The King who dethroned Croesus, and the King's son who paid for the
  # Peloponnesian navy — the second belongs to Book 2 and is not yet authored.
  'Cyrus':({(1,13):'cyrus',(1,15):'cyrus'},None),
@@ -40,7 +41,8 @@ SPLIT={
  # Pellichas's son commands the fleet beaten at Epidamnus; Adimantus's son
  # commands at Potidaea. Twenty-six paragraphs apart, same chapter.
  'Aristeus':({(2,4):'aristeus-pellichas',
-              **{(2,i):'aristeus-adimantus' for i in [30,31,32,33]}},None),
+              **{(2,i):'aristeus-adimantus' for i in [30,31,32,33]},
+              (7,22):'aristeus-adimantus'},None),
  # Callicrates's father is a Corinthian; Calliades's son is the Athenian general
  # killed at Potidaea.
  'Callias':({(2,4):'callias-father-of-callicrates',
@@ -49,13 +51,16 @@ SPLIT={
  # regent of chapters 4 and 5.
  'Pausanias':({(2,31):'pausanias-macedon',
                **{(4,i):'pausanias-sparta' for i in [4,5,12,18]},
-               **{(5,i):'pausanias-sparta' for i in [9,10,11,14,15,16,17,18,21]}},None),
- 'Alexander':({(2,28):'alexander-macedon',(5,19):'alexander-macedon'},None),
- 'Philip':({(2,28):'philip-macedon',(2,29):'philip-macedon',(2,31):'philip-macedon'},None),
+               **{(5,i):'pausanias-sparta' for i in [9,10,11,14,15,16,17,18,21]},
+               (6,23):'pausanias-sparta',(8,0):'pausanias-sparta',(8,1):'pausanias-sparta'},None),
+ 'Alexander':({(2,28):'alexander-macedon',(5,19):'alexander-macedon',
+               (6,31):'alexander-macedon',(8,24):'alexander-macedon',(8,28):'alexander-macedon'},None),
+ 'Philip':({(2,28):'philip-macedon',(2,29):'philip-macedon',(2,31):'philip-macedon',
+            (8,24):'philip-macedon',(8,29):'philip-macedon'},None),
  'Euthycles':({(2,21):'euthycles'},None),
  'Diotimus':({(2,20):'diotimus'},None),
- 'Proteas':({(2,20):'proteas'},None),
- 'Epicles':({(2,20):'epicles'},None),
+ 'Proteas':({(2,20):'proteas',(6,25):'proteas'},None),
+ 'Epicles':({(2,20):'epicles',(6,25):'epicles'},None),
  'Asopius':({(2,33):'asopius'},None),
  'Archestratus':({(2,28):'archestratus'},None),
  'Lycomedes':({(2,28):'lycomedes'},None),
@@ -65,16 +70,44 @@ SPLIT={
  'Aristides':({(4,1):'aristides'},None),
  'Tolmides':({(4,13):'tolmides',(4,17):'tolmides'},None),
  'Tolmaeus':({(4,13):'tolmaeus',(4,17):'tolmaeus'},None),
- 'Hagnon':({(4,20):'hagnon'},None),
- 'Cleombrotus':({(4,4):'cleombrotus',(4,12):'cleombrotus'},None),
+ 'Hagnon':({(4,20):'hagnon',(7,13):'hagnon',(8,24):'hagnon'},None),
+ 'Cleombrotus':({(4,4):'cleombrotus',(4,12):'cleombrotus',(8,0):'cleombrotus'},None),
  'Theagenes':({(5,7):'theagenes'},None),
  'Cleomenes':({(5,7):'cleomenes'},None),
  'Gongylus':({(5,9):'gongylus'},None),
  'Artabazus':({(5,10):'artabazus',(5,15):'artabazus'},None),
  'Pharnaces':({(5,10):'pharnaces'},None),
  'Ramphias':({(5,22):'ramphias'},None),
- 'Melesippus':({(5,22):'melesippus'},None),
+ 'Melesippus':({(5,22):'melesippus',(6,11):'melesippus',(6,12):'melesippus'},None),
  'Agesander':({(5,22):'agesander'},None),
+ # ------------------------------------------------- Book 2 (chapters 6-8)
+ # The priestess of Hera at Argos by whose year of office the war is dated, and
+ # a Corinthian commander's father.
+ 'Chrysis':({(6,1):'chrysis-argos',(6,33):'chrysis-father-of-eumachus'},None),
+ # The archon of the year the war began; a different Pythodorus commands in
+ # Book 3.
+ 'Pythodorus':({(6,1):'pythodorus'},None),
+ 'Tellis':({(6,27):'tellis'},None),
+ # Cleopompus's father, not Alcibiades's.
+ 'Clinias':({(6,28):'clinias',(7,13):'clinias'},None),
+ # The tyrant of Astacus, not the Catanaean of Book 6.
+ 'Evarchus':({(6,32):'evarchus',(6,33):'evarchus'},None),
+ 'Euphamidas':({(6,33):'euphamidas'},None),
+ 'Aristonymus':({(6,33):'aristonymus'},None),
+ # Timoxenus's father is a Corinthian; the commissioner who killed himself off
+ # Naupactus is a Lacedaemonian.
+ 'Timocrates':({(6,33):'timocrates-corinth',
+                (8,14):'timocrates-sparta',(8,21):'timocrates-sparta'},None),
+ # Hagnon's father, and the Cretan of Gortys. Neither is the Nicias son of
+ # Niceratus who fills the later books, and who is not yet authored.
+ 'Nicias':({(7,13):'nicias-father-of-hagnon',(8,14):'nicias-gortys'},None),
+ 'Timagoras':({(7,22):'timagoras-tegea'},None),
+ 'Pharnabazus':({(7,22):'pharnabazus'},None),
+ # Learchus's father and Phanomachus's father, three paragraphs apart.
+ 'Callimachus':({(7,22):'callimachus-father-of-learchus',
+                 (7,25):'callimachus-father-of-phanomachus'},None),
+ 'Lycophron':({(8,14):'lycophron'},None),
+
  # Adjectival forms of two peoples, bound by default rather than by alias. The
  # Hellenic sea is water and is excluded by lookahead (the older translation
  # lowercases the noun, the modern one capitalises it); the Peloponnesian War is
