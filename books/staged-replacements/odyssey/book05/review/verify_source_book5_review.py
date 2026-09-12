@@ -112,12 +112,19 @@ def report(pg_tokens, ed_tokens, owner, blocks, label, verbose=True):
 
     frac = matched / n
     span = (min(x for x, _ in pg_hits), max(y for _, y in pg_hits)) if pg_hits else (0, 0)
+    # TWO statistics, not one.  `frac` is edition-side: the fraction of the
+    # chapter's own tokens that aligned.  It is BLIND TO DELETION — drop a run
+    # of Butler's words and every surviving token still aligns, frac stays
+    # 1.00000.  The audit below caught exactly that, so the rule carries a
+    # second, PG-side statistic: how many of PG's tokens inside the span were
+    # left unclaimed.  A deletion opens a hole there; nothing else does.
+    gap = (span[1] - span[0]) - matched
     if verbose:
         print(f"  [{label}] chapter {TARGET}: {n} tokens, "
               f"{matched} aligned ({frac:.5f}), "
-              f"PG token span [{span[0]}, {span[1]}), "
-              f"span length {span[1]-span[0]}")
-    return frac, span, per_par_total, per_par_ok
+              f"PG span [{span[0]}, {span[1]}), length {span[1]-span[0]}, "
+              f"unclaimed PG tokens inside the span: {gap}")
+    return (frac, gap), span, per_par_total, per_par_ok
 
 
 def neighbours_pin(owner, blocks):
@@ -205,7 +212,7 @@ def main():
     print()
 
     blocks = align(pg_tokens, ed_tokens)
-    frac, span, tot, ok = report(pg_tokens, ed_tokens, owner, blocks, "as served")
+    (frac, gap), span, tot, ok = report(pg_tokens, ed_tokens, owner, blocks, "as served")
 
     spans = neighbours_pin(owner, blocks)
     print()
@@ -256,19 +263,23 @@ def main():
         alt[TARGET - 1] = dict(alt[TARGET - 1]); alt[TARGET - 1]["paragraphs"] = mutated
         et, ow = build_streams(alt)
         bl = align(pg_tokens, et)
-        fr, sp2, t2, o2 = report(pg_tokens, et, ow, bl, name)
-        if fr >= frac:
+        (fr, gp), sp2, t2, o2 = report(pg_tokens, et, ow, bl, name)
+        if fr >= frac and gp <= gap:
             failures.append(name)
             print(f"    !! CONTROL DID NOT FAIL: {name}")
         else:
-            print(f"    control detected (alignment {fr:.5f} < clean {frac:.5f})")
+            why = []
+            if fr < frac: why.append(f"alignment {fr:.5f} < clean {frac:.5f}")
+            if gp > gap:  why.append(f"{gp} PG tokens left unclaimed (clean {gap})")
+            print("    control detected (" + "; ".join(why) + ")")
 
     print()
     if failures:
         print("VERDICT: RULE IS NOT TRUSTWORTHY — controls that did not fire:", failures)
         return 1
-    if frac < 1.0:
-        print(f"VERDICT: chapter 5 does NOT align token for token ({frac:.5f}).")
+    if frac < 1.0 or gap != 0:
+        print(f"VERDICT: chapter 5 does NOT align token for token "
+              f"(edition side {frac:.5f}, {gap} PG tokens unclaimed).")
         return 1
     print("VERDICT: served chapter 5 is Butler's PG #1727 text, token for token,")
     print("         located by an alignment that was never told it existed.")
