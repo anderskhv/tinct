@@ -4206,12 +4206,23 @@
   background: #4c4438;
 }
 
+/* The speed popover floats over the column, so it needs a surface of its own:
+   without one it was a transparent box and the paragraph behind it read
+   straight through the slider and the scale. Opaque paper in every theme;
+   Chrome V2 paints its own panel over this below. */
 .lab.is-desktop .lab-audio-speed-popover {
   position: fixed;
   left: 42px;
   bottom: 104px;
   width: 280px;
   z-index: 180;
+  box-sizing: border-box;
+  padding: 0.78rem 0.92rem 0.68rem;
+  border: 1px solid var(--lab-border);
+  border-radius: 1.12rem;
+  background: var(--lab-paper);
+  color: var(--lab-ink);
+  box-shadow: 0 14px 36px rgba(43, 36, 26, 0.2), 0 3px 9px rgba(43, 36, 26, 0.1);
 }
 
 .lab-ss-overlay.is-desktop-popover {
