@@ -3804,7 +3804,7 @@ Son of Ithamitres, commander of the Pactyes.
 
 The Arians 64 were equipped with Median bows, and in other respects like the Bactrians: and of the Arians Sisamnes the son of Hydarnes was in command. The Parthians and Chorasmians and Sogdians and Gandarians and Dadicans served with the same equipment as the Bactrians. Of these the commanders were, Artabazos the son of Pharnakes of the Parthians and Chorasmians, Azanes the son of Artaios of the Sogdians, and Artyphios the son of Artabanos of the Gandarians and Dadicans. The Caspians served wearing coats of skin 65 and having native bows of reed and short swords: 66 thus were these equipped; and they acknowledged as their leader Ariomardos the brother of Artyphios. The Sarangians were conspicuous among the rest by wearing dyed garments; and they had boots reaching up to the knee, and Median bows and spears: of these the commander was Pherendates the son of Megabazos. The Pactyans were wearers of skin coats 67 and had native bows and daggers: these acknowledged as their commander Artaÿntes the son of Ithamitres.
 
-Artayntes’s father, and a commander in the fleet of the last two books.
+Artayntes’s father, named once in the catalogue.
 
 ## original-en · arsamenes · 1091:0
 
@@ -5011,6 +5011,642 @@ Father of the Tritantaechmes who held Babylon. Not the general of this war.
 and as to the resources of the Babylonians how great they are, I shall show by many other proofs and among them also by this:—For the support of the great king and his army, apart from the regular tribute the whole land of which he is ruler has been distributed into portions. Now whereas twelve months go to make up the year, for four of these he has his support from the territory of Babylon, and for the remaining eight months from the whole of the rest of Asia; thus the Assyrian land is in regard to resources the third part of all Asia: and the government, or satrapy as it is called by the Persians, of this territory is of all the governments by far the best; seeing that when Tritantaichmes son of Artabazos had this province from the king, there came in to him every day an artab full of silver coin (now the artab is a Persian measure and holds more than the medimnos of Attica 197 by three Attic choinikes); and of horses he had in this province as his private property, apart from the horses for use in war, eight hundred stallions and sixteen thousand mares, for each of these stallions served twenty mares: of Indian hounds moreover such a vast number were kept that four large villages in the plain, being free from other contributions, had been appointed to provide food for the hounds.
 
 Satrap of Babylon, whose province was the best of all the governments: an artaba of silver a day, and eight hundred stallions besides the mares. Not Artabanus’s son.
+
+## original-en · eurybiades · 1262:0
+
+These were those who joined in the expedition to Artemision, and I have mentioned them according to the number 3 of the ships which they severally supplied: so the number of the ships which were assembled at Artemision was (apart from the fifty-oared galleys) two hundred and seventy-one: and the commander who had the supreme power was furnished by the Spartans, namely Eurybiades son of Eurycleides, since the allies said that they would not follow the lead of the Athenians, but unless a Lacedemonian were leader they would break up the expedition which was to be made:
+
+Eurycleides’s son, the Spartan given supreme command because the allies would not follow Athenian leadership. Bribed by Themistocles to stay at Artemisium and talked by him into staying at Salamis, he was given the prize of valour at Sparta — and he would not break the bridges, on the argument that a Persian shut into Europe would be far more dangerous than a Persian running home.
+
+## original-en · eurycleides · 1262:0
+
+These were those who joined in the expedition to Artemision, and I have mentioned them according to the number 3 of the ships which they severally supplied: so the number of the ships which were assembled at Artemision was (apart from the fifty-oared galleys) two hundred and seventy-one: and the commander who had the supreme power was furnished by the Spartans, namely Eurybiades son of Eurycleides, since the allies said that they would not follow the lead of the Athenians, but unless a Lacedemonian were leader they would break up the expedition which was to be made:
+
+Eurybiades’s father.
+
+## original-en · adeimantus-corinth · 1265:0
+
+Themistocles then caused the Hellenes to stay in the following manner:—to Eurybiades he imparted five talents of the sum with the pretence that he was giving it from himself; and when Eurybiades had been persuaded by him to change his resolution, Adeimantos son of Okytos, the Corinthian commander, was the only one of all the others who still made a struggle, saying that he would sail away from Artemision and would not stay with the others: to him therefore Themistocles said with an oath: "Thou at least shalt not leave us, for I will give thee greater gifts than the king of the Medes would send to thee, if thou shouldest desert thy allies." Thus he spoke, and at the same time he sent to the ship of Adeimantos three talents of silver. So these all 5 had been persuaded by gifts to change their resolution, and at the same time the request of the Euboeans had been gratified and Themistocles himself gained money; and it was not known that he had the rest of the money, but those who received a share of this money were fully persuaded that it had come from the Athenian State for this purpose.
+
+Son of Ocytus and commander of the Corinthians, the last man to be bought at Artemisium and Themistocles’s loudest enemy at Salamis — he told him that men who start before the signal get beaten with rods, and that a man without a city had no vote. The Athenians said he fled the battle; the Corinthians denied it, and the rest of Greece took their side.
+
+## original-en · okytos · 1265:0
+
+Themistocles then caused the Hellenes to stay in the following manner:—to Eurybiades he imparted five talents of the sum with the pretence that he was giving it from himself; and when Eurybiades had been persuaded by him to change his resolution, Adeimantos son of Okytos, the Corinthian commander, was the only one of all the others who still made a struggle, saying that he would sail away from Artemision and would not stay with the others: to him therefore Themistocles said with an oath: "Thou at least shalt not leave us, for I will give thee greater gifts than the king of the Medes would send to thee, if thou shouldest desert thy allies." Thus he spoke, and at the same time he sent to the ship of Adeimantos three talents of silver. So these all 5 had been persuaded by gifts to change their resolution, and at the same time the request of the Euboeans had been gratified and Themistocles himself gained money; and it was not known that he had the rest of the money, but those who received a share of this money were fully persuaded that it had come from the Athenian State for this purpose.
+
+Adeimantus of Corinth’s father.
+
+## original-en · mnesiphilos · 1317:0
+
+and when Themistocles had come to his ship, Mnesiphilos an Athenian asked him what they had resolved; and being informed by him that it had been determined to take out the ships to the Isthmus and fight a battle by sea in defence of the Peloponnese, he said: "Then, if they set sail with the ships from Salamis, thou wilt not fight any more sea-battles at all for the fatherland, for they will all take their way to their several cities and neither Eurybiades nor any other man will be able to detain them or to prevent the fleet from being dispersed: and Hellas will perish by reason of evil counsels. But if there by any means, go thou and try to unsettle that which has been resolved, if perchance thou mayest persuade Eurybiades to change his plans, so as to stay here."
+
+The Athenian who, hearing that the fleet meant to leave Salamis, told Themistocles to go and get the decision reversed. Themistocles put the argument to Eurybiades as his own.
+
+## original-en · aristides · 1339:0
+
+Then while the commanders were engaged in strife, there came over from Egina Aristeides the son of Lysimachos, an Athenian who had been ostracised by the people, a man whom I hold (according to that which I hear of his character) to have been the best and most upright of all Athenians. This man came into the council and called forth Themistocles, who was to him not a friend, but an enemy to the last degree; but because of the greatness of the present troubles he let those matters be forgotten and called him forth, desiring to communicate with him. Now he had heard beforehand that the Peloponnesians were pressing to take the ships away to the Isthmus. So when Themistocles came forth to him, Aristeides spoke these words: "Both at other times when occasion arises, and also especially at this time we ought to carry on rivalry as to which of us shall do more service to our country. And I tell thee now that it is indifferent whether the Peloponnesians say many words or few about sailing away from hence; for having been myself an eye-witness I tell thee that now not even if the Corinthians and Eurybiades himself desire to sail out, will they be able; for we are encompassed round by the enemy. Go thou in then, and signify this to them."
+
+Lysimachus’s son, ostracised by his own people and, in Herodotus’s judgement, the best and most upright man in Athens. He crossed from Aegina through the blockade to tell his enemy Themistocles that the Greeks were surrounded, and cleared Psyttaleia of Persians with his hoplites.
+
+## original-en · lysimachos · 1339:0
+
+Then while the commanders were engaged in strife, there came over from Egina Aristeides the son of Lysimachos, an Athenian who had been ostracised by the people, a man whom I hold (according to that which I hear of his character) to have been the best and most upright of all Athenians. This man came into the council and called forth Themistocles, who was to him not a friend, but an enemy to the last degree; but because of the greatness of the present troubles he let those matters be forgotten and called him forth, desiring to communicate with him. Now he had heard beforehand that the Peloponnesians were pressing to take the ships away to the Isthmus. So when Themistocles came forth to him, Aristeides spoke these words: "Both at other times when occasion arises, and also especially at this time we ought to carry on rivalry as to which of us shall do more service to our country. And I tell thee now that it is indifferent whether the Peloponnesians say many words or few about sailing away from hence; for having been myself an eye-witness I tell thee that now not even if the Corinthians and Eurybiades himself desire to sail out, will they be able; for we are encompassed round by the enemy. Go thou in then, and signify this to them."
+
+Aristides’s father.
+
+## original-en · sikinnos · 1335:0
+
+Then Themistocles, when his opinion was like to be defeated by the Peloponnesians, secretly went forth from the assembly, and having gone out he sent a man to the encampment of the Medes in a boat, charging him with that which he must say: this man's name was Sikinnos, and he was a servant of Themistocles and tutor to his children; and after these events Themistocles entered him as a Thespian citizen, when the Thespians were admitting new citizens, and made him a wealthy man. He at this time came with a boat and said to the commanders of the Barbarians these words: "The commander of the Athenians sent me privately without the knowledge of the other Hellenes (for, as it chances, he is disposed to the cause of the king, and desires rather that your side should gain the victory than that of the Hellenes), to inform you that the Hellenes are planning to take flight, having been struck with dismay; and now it is possible for you to execute a most noble work, if ye do not permit them to flee away: for they are not of one mind with one another and they will not stand against you in fight, but ye shall see them fighting a battle by sea with one another, those who are disposed to your side against those who are not."
+
+Themistocles’s servant and his children’s tutor, sent twice across to the Persians with a lie: first that the Greeks meant to run, which brought on the battle, and then that Themistocles had held the Greeks back from the bridges. He was made a Thespian citizen and a rich man for it.
+
+## original-en · timodemos · 1384:0
+
+When however he had come to Athens from Lacedemon, Timodemos of Aphidnai, one of the opponents of Themistocles, but in other respects not among the men of distinction, maddened by envy attacked him, bringing forward against him his going to Lacedemon, and saying that it was on account of Athens that he had those marks of honour which he had from the Lacedemonians, and not on his own account. Then, as Timodemos continued ceaselessly to repeat this, Themistocles said: "I tell thee thus it is:—if I had been a native of Belbina 91 I should never have been thus honoured by the Spartans; but neither wouldest thou, my friend, for all that thou art an Athenian." So far then went these matters.
+
+Of Aphidnae, who told Themistocles that his honours at Sparta were Athens’s doing and not his own — and was told that if Themistocles had been a man of Belbina he would have had none, and neither would Timodemus, Athenian though he was.
+
+## original-en · skyllias · 1268:0
+
+During this time, while these were numbering their ships, it happened thus:—there was in that camp a man of Skione named Skyllias, as a diver the best of all the men of that time, who also in the shipwreck which took place by Pelion had saved for the Persians many of their goods and many of them also he had acquired for himself: this Skyllias it appears had had an intention even before this of deserting to the side of the Hellenes, but it had not been possible for him to do so then. In what manner after this attempt he did actually come to the Hellenes, I am not able to say with certainty, but I marvel if the tale is true which is reported; for it is said that he dived into the sea at Aphetai and did not come up till he reached Artemision, having traversed here somewhere about eighty furlongs through the sea. Now there are told about this man several other tales which seem likely to be false, but some also which are true: about this matter however let it be stated as my opinion that he came to Artemision in a boat. Then when he had come, he forthwith informed the commanders about the shipwreck, how it had come to pass, and of the ships which had been sent away to go round Euboea.
+
+The best diver of his day, of Scione, who deserted from the Persians at Aphetae and brought the Greeks word of the shipwreck and of the two hundred ships sent round Euboea. The story that he swam the eighty furlongs under water Herodotus does not believe.
+
+## original-en · philaon · 1271:0
+
+The Hellenes meanwhile, when the signal was given, first set themselves with prows facing the Barbarians and drew the sterns of their ships together in the middle; and when the signal was given a second time, although shut off in a small space and prow against prow, 9 they set to work vigorously; and they captured thirty ships of the Barbarians and also Philaon the son of Chersis, the brother of Gorgos kind of the Salaminians, who was a man of great repute in the army. Now the first of the Hellenes who captured a ship of the enemy was an Athenian, Lycomedes the son of Aischraios, and he received the prize for valour. So these, as they were contending in this sea-fight with doubtful result, were parted from one another by the coming on of night. The Hellenes accordingly sailed away to Artemision and the Barbarians to Aphetai, the contest having been widely different from their expectation. In this sea-fight Antidoros of Lemnos alone of the Hellenes who were with the king deserted to the side of the Hellenes, and the Athenians on account of this deed gave him a piece of land in Salamis.
+
+Chersis’s son and brother of Gorgus king of Salamis, a man of standing in the Persian fleet, taken with the thirty ships captured at Artemisium.
+
+## original-en · lycomedes · 1271:0
+
+The Hellenes meanwhile, when the signal was given, first set themselves with prows facing the Barbarians and drew the sterns of their ships together in the middle; and when the signal was given a second time, although shut off in a small space and prow against prow, 9 they set to work vigorously; and they captured thirty ships of the Barbarians and also Philaon the son of Chersis, the brother of Gorgos kind of the Salaminians, who was a man of great repute in the army. Now the first of the Hellenes who captured a ship of the enemy was an Athenian, Lycomedes the son of Aischraios, and he received the prize for valour. So these, as they were contending in this sea-fight with doubtful result, were parted from one another by the coming on of night. The Hellenes accordingly sailed away to Artemision and the Barbarians to Aphetai, the contest having been widely different from their expectation. In this sea-fight Antidoros of Lemnos alone of the Hellenes who were with the king deserted to the side of the Hellenes, and the Athenians on account of this deed gave him a piece of land in Salamis.
+
+Son of Aischraios, the first Greek to take an enemy ship at Artemisium, and given the prize of valour for it.
+
+## original-en · aischraios · 1271:0
+
+The Hellenes meanwhile, when the signal was given, first set themselves with prows facing the Barbarians and drew the sterns of their ships together in the middle; and when the signal was given a second time, although shut off in a small space and prow against prow, 9 they set to work vigorously; and they captured thirty ships of the Barbarians and also Philaon the son of Chersis, the brother of Gorgos kind of the Salaminians, who was a man of great repute in the army. Now the first of the Hellenes who captured a ship of the enemy was an Athenian, Lycomedes the son of Aischraios, and he received the prize for valour. So these, as they were contending in this sea-fight with doubtful result, were parted from one another by the coming on of night. The Hellenes accordingly sailed away to Artemision and the Barbarians to Aphetai, the contest having been widely different from their expectation. In this sea-fight Antidoros of Lemnos alone of the Hellenes who were with the king deserted to the side of the Hellenes, and the Athenians on account of this deed gave him a piece of land in Salamis.
+
+Lycomedes’s father.
+
+## original-en · antidorus · 1271:0
+
+The Hellenes meanwhile, when the signal was given, first set themselves with prows facing the Barbarians and drew the sterns of their ships together in the middle; and when the signal was given a second time, although shut off in a small space and prow against prow, 9 they set to work vigorously; and they captured thirty ships of the Barbarians and also Philaon the son of Chersis, the brother of Gorgos kind of the Salaminians, who was a man of great repute in the army. Now the first of the Hellenes who captured a ship of the enemy was an Athenian, Lycomedes the son of Aischraios, and he received the prize for valour. So these, as they were contending in this sea-fight with doubtful result, were parted from one another by the coming on of night. The Hellenes accordingly sailed away to Artemision and the Barbarians to Aphetai, the contest having been widely different from their expectation. In this sea-fight Antidoros of Lemnos alone of the Hellenes who were with the king deserted to the side of the Hellenes, and the Athenians on account of this deed gave him a piece of land in Salamis.
+
+Of Lemnos, the only Greek in the king’s fleet to desert at Artemisium; the Athenians gave him land on Salamis for it.
+
+## original-en · cleinias · 1277:0
+
+In this sea-fight the Egyptians did best of the men who fought for Xerxes; and these, besides other great deeds which they displayed, captured five ships of the Hellenes together with their crews: while of the Hellenes those who did best on this day were the Athenians, and of the Athenians Cleinias the son of Alkibiades, who was serving with two hundred man and a ship of his own, furnishing the expense at his own proper cost.
+
+Son of Alcibiades, who did best of the Athenians in the third day’s fighting, serving with two hundred men and a ship of his own at his own expense.
+
+## original-en · alkibiades · 1277:0
+
+In this sea-fight the Egyptians did best of the men who fought for Xerxes; and these, besides other great deeds which they displayed, captured five ships of the Hellenes together with their crews: while of the Hellenes those who did best on this day were the Athenians, and of the Athenians Cleinias the son of Alkibiades, who was serving with two hundred man and a ship of his own, furnishing the expense at his own proper cost.
+
+Cleinias’s father.
+
+## original-en · bakis · 1280:0
+
+For in fact the Euboeans, neglecting the oracle of Bakis as if it had no meaning at all, had neither carried away anything from their land nor laid in any store of provisions with a view to war coming upon them, and by their conduct moreover they had brought trouble upon themselves. 15 For the oracle uttered by Bakis about these matters runs as follows:
+
+The oracle-monger whose verses the Euboeans ignored — remove the loud-bleating goats when a barbarian yokes the sea with papyrus — and whose lines on Salamis Herodotus will not argue with.
+
+## original-en · polyas · 1281:0
+
+While these were thus engaged, there came to them the scout from Trachis: for there was at Artemision a scout named Polyas, by birth of Antikyra, to whom it had been appointed, if the fleet should be disabled, 16 to signify this to those at Thermopylai, and he had a vessel equipped and ready for this purpose; and similarly there was with Leonidas Abronichos son of Lysicles, an Athenian, ready to carry news to those at Artemision with a thirty-oared galley, if any disaster should happen to the land-army. This Abronichos then had arrived, and he proceeded to signify to them that which had come to pass about Leonidas and his army; and then when they were informed of it no longer put off their retreat, but set forth in the order in which they were severally posted, the Corinthians first and the Athenians last.
+
+Of Anticyra, the scout at Artemisium whose task was to carry word to Thermopylae if the fleet was beaten.
+
+## original-en · abronichos · 1281:0
+
+While these were thus engaged, there came to them the scout from Trachis: for there was at Artemision a scout named Polyas, by birth of Antikyra, to whom it had been appointed, if the fleet should be disabled, 16 to signify this to those at Thermopylai, and he had a vessel equipped and ready for this purpose; and similarly there was with Leonidas Abronichos son of Lysicles, an Athenian, ready to carry news to those at Artemision with a thirty-oared galley, if any disaster should happen to the land-army. This Abronichos then had arrived, and he proceeded to signify to them that which had come to pass about Leonidas and his army; and then when they were informed of it no longer put off their retreat, but set forth in the order in which they were severally posted, the Corinthians first and the Athenians last.
+
+Son of Lysicles, the Athenian who waited at Thermopylae with a thirty-oared galley to carry word to Artemisium, and did.
+
+## original-en · lysicles · 1281:0
+
+While these were thus engaged, there came to them the scout from Trachis: for there was at Artemision a scout named Polyas, by birth of Antikyra, to whom it had been appointed, if the fleet should be disabled, 16 to signify this to those at Thermopylai, and he had a vessel equipped and ready for this purpose; and similarly there was with Leonidas Abronichos son of Lysicles, an Athenian, ready to carry news to those at Artemision with a thirty-oared galley, if any disaster should happen to the land-army. This Abronichos then had arrived, and he proceeded to signify to them that which had come to pass about Leonidas and his army; and then when they were informed of it no longer put off their retreat, but set forth in the order in which they were severally posted, the Corinthians first and the Athenians last.
+
+Abronichus’s father.
+
+## original-en · ameinias · 1344:0
+
+Then the Hellenes put out all their ships, and while they were putting out from shore, the Barbarians attacked them forthwith. Now the other Hellenes began backing their ships and were about to run them aground, but Ameinias of Pallene, an Athenian, put forth with his ship and charged one of the enemy; and his ship being entangled in combat and the men not being able to get away, the others joined in the fight to assist Ameinias. The Athenians say that the beginning of the battle was made thus, but the Eginetans say that the ship which went away to Egina to bring the sons of Aiacos was that which began the fight. It is also reported that an apparition of a woman was seen by them, and that having appeared she encouraged them to the fight so that the whole of the army of the Hellenes heard it, first having reproached them in these words: "Madmen, 52 how far will ye yet back your ships?"
+
+Of Pallene, the Athenian who drove his ship out first and rammed the enemy — the Athenians say the battle began with him — and who chased Artemisia without knowing who was aboard. Ten thousand drachmas had been offered for her alive.
+
+## original-en · eumenes · 1352:0
+
+In this sea-fight the Eginetans were of all the Hellenes the best reported of, and next to them the Athenians; and of the individual men the Eginetan Polycritos and the Athenians Eumenes of Anagyrus and Ameinias of Pallene, the man who had pursued after Artemisia. Now if he had known that Artemisia was sailing in this ship, he would not have ceased until either he had taken her or had been taken himself; for orders had been given to the Athenian captains, and moreover a prize was offered of ten thousand drachmas for the man who should take her alive; since they thought it intolerable that a woman should make an expedition against Athens. She then, as has been said before, had made her escape; and the others also, whose ships had escaped destruction, were at Phaleron.
+
+Of Anagyrus, one of the two Athenians most distinguished at Salamis.
+
+## original-en · polycritos-aegina · 1351:0
+
+Then there met one another the ship of Themistocles, which was pursuing a ship of the enemy, and that of Polycritos the son of Crios the Eginetan. This last had charged against a ship of Sidon, the same that had taken the Eginetan vessel which was keeping watch in advance at Skiathos, 56 and in which sailed Pytheas the son of Ischenoös, whom the Persians kept in their ship, all cut to pieces as he was, making a marvel of his valour. The Sidonian ship then was captured bearing with it this man as well as the Persians of whom I spoke, so that Pytheas thus came safe to Egina. Now when Polycritos looked at the Athenian vessel he recognised when he saw it the sign of the admiral's ship, and shouting out he addressed Themistocles with mockery about the accusation brought against the Eginetans of taking the side of the Medes, 57 and reproached him. This taunt Polycritos threw out against Themistocles after he had charged against the ship of Sidon. And meanwhile those Barbarians whose ships had escaped destruction fled and came to Phaleron to be under cover of the land-army.
+
+Crius’s son, the most distinguished of the Aeginetans at Salamis, who rammed the Sidonian ship that had taken Pytheas — and shouted across at Themistocles, as he did it, about the charge that Aegina favoured the Medes.
+
+## original-en · panaitios · 1342:0
+
+and while these were doubting, there came a trireme manned by Tenians, deserting from the enemy, of which the commander was Panaitios the son of Sosimenes, which brought them the whole truth. For this deed the Tenians were inscribed at Delphi on the tripod among those who had conquered the Barbarians. With the ship which deserted at Salamis and the Lemnian ship which deserted before and came to Artemision, the naval force of the Hellenes was completed to the number of three hundred and eighty ships, for before this two ships were yet wanting to make up this number.
+
+Son of Sosimenes, commander of the Tenian trireme that deserted at Salamis and brought the Greeks the whole truth. Tenos was written on the tripod at Delphi for it.
+
+## original-en · sosimenes · 1342:0
+
+and while these were doubting, there came a trireme manned by Tenians, deserting from the enemy, of which the commander was Panaitios the son of Sosimenes, which brought them the whole truth. For this deed the Tenians were inscribed at Delphi on the tripod among those who had conquered the Barbarians. With the ship which deserted at Salamis and the Lemnian ship which deserted before and came to Artemision, the naval force of the Hellenes was completed to the number of three hundred and eighty ships, for before this two ships were yet wanting to make up this number.
+
+Panaetius’s father.
+
+## original-en · theomestor · 1345:0
+
+Opposite the Athenians had been ranged the Phenicians, for these occupied the wing towards Eleusis and the West, and opposite the Lacedemonians were the Ionians, who occupied the wing which extended to the East and to Piræus. Of them however a few were purposely slack in the fight according to the injunctions of Themistocles, 53 but the greater number were not so. I might mention now the names of many captains of ships who destroyed ships of the Hellenes, but I will make no use of their names except in the case of Theomestor, the son of Androdamas and Phylacos the son of Histiaios, of Samos both: and for this reason I make mention of these and not of the rest, because Theomestor on account of this deed became despot of Samos, appointed by the Persians, and Phylacos was recorded as a benefactor of the king and received much land as a reward. Now the benefactors of the king are called in the Persian tongue orosangai.
+
+Son of Androdamas, a Samian who destroyed Greek ships at Salamis and was made tyrant of Samos for it.
+
+## original-en · androdamas · 1345:0
+
+Opposite the Athenians had been ranged the Phenicians, for these occupied the wing towards Eleusis and the West, and opposite the Lacedemonians were the Ionians, who occupied the wing which extended to the East and to Piræus. Of them however a few were purposely slack in the fight according to the injunctions of Themistocles, 53 but the greater number were not so. I might mention now the names of many captains of ships who destroyed ships of the Hellenes, but I will make no use of their names except in the case of Theomestor, the son of Androdamas and Phylacos the son of Histiaios, of Samos both: and for this reason I make mention of these and not of the rest, because Theomestor on account of this deed became despot of Samos, appointed by the Persians, and Phylacos was recorded as a benefactor of the king and received much land as a reward. Now the benefactors of the king are called in the Persian tongue orosangai.
+
+Theomestor’s father.
+
+## original-en · phylacos-samos · 1345:0
+
+Opposite the Athenians had been ranged the Phenicians, for these occupied the wing towards Eleusis and the West, and opposite the Lacedemonians were the Ionians, who occupied the wing which extended to the East and to Piræus. Of them however a few were purposely slack in the fight according to the injunctions of Themistocles, 53 but the greater number were not so. I might mention now the names of many captains of ships who destroyed ships of the Hellenes, but I will make no use of their names except in the case of Theomestor, the son of Androdamas and Phylacos the son of Histiaios, of Samos both: and for this reason I make mention of these and not of the rest, because Theomestor on account of this deed became despot of Samos, appointed by the Persians, and Phylacos was recorded as a benefactor of the king and received much land as a reward. Now the benefactors of the king are called in the Persian tongue orosangai.
+
+Son of Histiaeus, the other Samian Herodotus names for destroying Greek ships; he was entered as a benefactor of the king and given much land. The Persians call such men orosangai.
+
+## original-en · histiaeus-samos · 1345:0
+
+Opposite the Athenians had been ranged the Phenicians, for these occupied the wing towards Eleusis and the West, and opposite the Lacedemonians were the Ionians, who occupied the wing which extended to the East and to Piræus. Of them however a few were purposely slack in the fight according to the injunctions of Themistocles, 53 but the greater number were not so. I might mention now the names of many captains of ships who destroyed ships of the Hellenes, but I will make no use of their names except in the case of Theomestor, the son of Androdamas and Phylacos the son of Histiaios, of Samos both: and for this reason I make mention of these and not of the rest, because Theomestor on account of this deed became despot of Samos, appointed by the Persians, and Phylacos was recorded as a benefactor of the king and received much land as a reward. Now the benefactors of the king are called in the Persian tongue orosangai.
+
+Phylacos of Samos’s father.
+
+## original-en · ariaramnes-salamis · 1349:0
+
+It happened also in the course of this confusion that some of the Phenicians, whose ships had been destroyed, came to the king and accused the Ionians, saying that by means of them their ships had been lost, and that they had been traitors to the cause. Now it so came about that not only the commanders of the Ionians did not lose their lives, but the Phenicians who accused them received a reward such as I shall tell. While these men were yet speaking thus, a Samothrakian ship charged against an Athenian ship: and as the Athenian ship was being sunk by it, an Eginetan ship came up against the Samothrakian vessel and ran it down. Then the Samothrakians, being skilful javelin-throwers, by hurling cleared off the fighting-men from the ship which had wrecked theirs and then embarked upon it and took possession of it. This event saved the Ionians from punishment; for when Xerxes saw that they had performed a great exploit, he turned to the Phenicians (for he was exceedingly vexed and disposed to find fault with all) and bade cut off their heads, in order that they might not, after having been cowards themselves, accuse others who were better men than they. For whensoever Xerxes (sitting just under the mountain opposite Salamis, which is called Aigaleos) saw any one of his own side display a deed of valour in the sea-fight, he inquired about him who had done it, and the scribes recorded the name of the ship's captain with that of his father and the city from whence he came. Moreover also Ariaramnes, a Persian who was present, shared 54 the fate of the Phenicians, being their friend. They 55 then proceeded to deal with the Phenicians.
+
+A Persian present when the Phoenicians accused the Ionians, who was beheaded with them for being their friend. Not the ancestor in Xerxes’s genealogy.
+
+## original-en · lysistratos · 1355:0
+
+When the sea-fight had been broken off, the Hellenes towed in to Salamis so many of the wrecks as chanced to be still about there, and held themselves ready for another sea-fight, expecting that the king would yet make use of the ships which remained unhurt; but many of the wrecks were taken by the West Wind and borne to that strand in Attica which is called Colias; so as to fulfil 60 not only all that other oracle which was spoken about this sea-fight by Bakis and Musaios, but also especially, with reference to the wrecks cast up here, that which had been spoken in an oracle many years before these events by Lysistratos, an Athenian who uttered oracles, and which had not been observed by any of the Hellenes:
+
+The Athenian oracle-monger, dead years before, whose one line — the Colian women shall roast their barley with oars — the wreckage on the Attic shore fulfilled.
+
+## original-en · dicaios · 1325:0
+
+Moreover Dicaios the son of Theokydes, an Athenian, who was an exile and had become of great repute among the Medes at this time, declared that when the Attic land was being ravaged by the land-army of Xerxes, having been deserted by the Athenians, he happened then to be in company with Demaratos the Lacedemonian in the Thriasian plain; and he saw a cloud of dust going up from Eleusis, as if made by a company of about thirty thousand men, and they wondered at the cloud of dust, by what men it was caused. Then forthwith they heard a sound of voices, and Dicaios perceived that the sound was the mystic cry Iacchos; but Demaratos, having no knowledge of the sacred rites which are done at Eleusis, asked him what this was that uttered the sound, and he said: "Demaratos, it cannot be but that some great destruction is about to come to the army of the king: for as to this, it is very manifest, seeing that Attica is deserted, that this which utters the sound is of the gods, and that it is going from Eleusis to help the Athenians and their allies: if then it shall come down in the Peloponnese, there is danger for the king himself and for the army which is upon the mainland, but if it shall direct its course towards the ships which are at Salamis, the king will be in danger of losing his fleet. This feast the Athenians celebrate every year to the Mother and the Daughter; 39 and he that desires it, both of them and of the other Hellenes, is initiated in the mysteries; and the sound of voices which thou hearest is the cry Iacchos which they utter at this feast." To this Demaratos said: "Keep silence and tell not this tale to any other man; for if these words of thine be reported to the king, thou wilt surely lose thy head, and neither I nor any other man upon earth will be able to save thee: but keep thou quiet, and about this expedition the gods will provide." He then thus advised, and after the cloud of dust and the sound of voices there came a mist which was borne aloft and carried towards Salamis to the camp of the Hellenes: and thus they learnt (said he) that the fleet of Xerxes was destined to be destroyed. Such was the report made by Dicaios the son of Theodykes, appealing to Demaratos and others also as witnesses.
+
+Son of Theocydes, an Athenian exile of standing among the Medes, who says he stood with Demaratus in the Thriasian plain and saw the dust of thirty thousand men rise from deserted Eleusis and heard the cry of Iacchus — and was told by Demaratus to keep his mouth shut.
+
+## original-en · theokydes · 1325:0
+
+Moreover Dicaios the son of Theokydes, an Athenian, who was an exile and had become of great repute among the Medes at this time, declared that when the Attic land was being ravaged by the land-army of Xerxes, having been deserted by the Athenians, he happened then to be in company with Demaratos the Lacedemonian in the Thriasian plain; and he saw a cloud of dust going up from Eleusis, as if made by a company of about thirty thousand men, and they wondered at the cloud of dust, by what men it was caused. Then forthwith they heard a sound of voices, and Dicaios perceived that the sound was the mystic cry Iacchos; but Demaratos, having no knowledge of the sacred rites which are done at Eleusis, asked him what this was that uttered the sound, and he said: "Demaratos, it cannot be but that some great destruction is about to come to the army of the king: for as to this, it is very manifest, seeing that Attica is deserted, that this which utters the sound is of the gods, and that it is going from Eleusis to help the Athenians and their allies: if then it shall come down in the Peloponnese, there is danger for the king himself and for the army which is upon the mainland, but if it shall direct its course towards the ships which are at Salamis, the king will be in danger of losing his fleet. This feast the Athenians celebrate every year to the Mother and the Daughter; 39 and he that desires it, both of them and of the other Hellenes, is initiated in the mysteries; and the sound of voices which thou hearest is the cry Iacchos which they utter at this feast." To this Demaratos said: "Keep silence and tell not this tale to any other man; for if these words of thine be reported to the king, thou wilt surely lose thy head, and neither I nor any other man upon earth will be able to save thee: but keep thou quiet, and about this expedition the gods will provide." He then thus advised, and after the cloud of dust and the sound of voices there came a mist which was borne aloft and carried towards Salamis to the camp of the Hellenes: and thus they learnt (said he) that the fleet of Xerxes was destined to be destroyed. Such was the report made by Dicaios the son of Theodykes, appealing to Demaratos and others also as witnesses.
+
+Dicaeus’s father.
+
+## original-en · iacchus · 1325:0
+
+Moreover Dicaios the son of Theokydes, an Athenian, who was an exile and had become of great repute among the Medes at this time, declared that when the Attic land was being ravaged by the land-army of Xerxes, having been deserted by the Athenians, he happened then to be in company with Demaratos the Lacedemonian in the Thriasian plain; and he saw a cloud of dust going up from Eleusis, as if made by a company of about thirty thousand men, and they wondered at the cloud of dust, by what men it was caused. Then forthwith they heard a sound of voices, and Dicaios perceived that the sound was the mystic cry Iacchos; but Demaratos, having no knowledge of the sacred rites which are done at Eleusis, asked him what this was that uttered the sound, and he said: "Demaratos, it cannot be but that some great destruction is about to come to the army of the king: for as to this, it is very manifest, seeing that Attica is deserted, that this which utters the sound is of the gods, and that it is going from Eleusis to help the Athenians and their allies: if then it shall come down in the Peloponnese, there is danger for the king himself and for the army which is upon the mainland, but if it shall direct its course towards the ships which are at Salamis, the king will be in danger of losing his fleet. This feast the Athenians celebrate every year to the Mother and the Daughter; 39 and he that desires it, both of them and of the other Hellenes, is initiated in the mysteries; and the sound of voices which thou hearest is the cry Iacchos which they utter at this feast." To this Demaratos said: "Keep silence and tell not this tale to any other man; for if these words of thine be reported to the king, thou wilt surely lose thy head, and neither I nor any other man upon earth will be able to save thee: but keep thou quiet, and about this expedition the gods will provide." He then thus advised, and after the cloud of dust and the sound of voices there came a mist which was borne aloft and carried towards Salamis to the camp of the Hellenes: and thus they learnt (said he) that the fleet of Xerxes was destined to be destroyed. Such was the report made by Dicaios the son of Theodykes, appealing to Demaratos and others also as witnesses.
+
+The cry raised at the Eleusinian feast, which Dicaeus heard coming out of an empty country and knew for a god.
+
+## original-en · tellias · 1287:0
+
+In the meantime, so soon as the disaster at Thermopylai had come about, the Thessalians sent a herald forthwith to the Phokians, against whom they had a grudge always, but especially because of the latest disaster which they had suffered: for when both the Thessalians themselves and their allies had invaded the Phokian land not many years before this expedition of the king, they had been defeated by the Phokians and handled by them roughly. For the Phokians had been shut up in Mount Parnassos having with them a soothsayer, Tellias the Eleian; and this Tellias contrived for them a device of the following kind:—he took six hundred men, the best of the Phokians, and whitened them over with chalk, both themselves and their armour, and then he attacked the Thessalians by night, telling the Phokians beforehand to slay every man whom they should see not coloured over with white. So not only the sentinels of the Thessalians, who saw these first, were terrified by them, supposing it to be something portentous and other than it was, but also after the sentinels the main body of their army; so that the Phokians remained in possession of four thousand bodies of slain men and shields; of which last they dedicated half at Abai and half at Delphi; and from the tithe of booty got by this battle were made the large statues which are contending for the tripod in front of the temple 19 at Delphi, and others similar to these are dedicated as an offering at Abai.
+
+The Elean soothsayer who whitened six hundred Phocians with chalk, armour and all, and sent them at the Thessalians by night with orders to kill every man not coated white.
+
+## original-en · akeratos · 1297:0
+
+When the Barbarians had come near and could see the temple, then the prophet, whose name was Akeratos, saw before the cell 23 arms lying laid out, having been brought forth out of the sanctuary, 24 which were sacred and on which it was not permitted to any man to lay hands. He then was going to announce the portent to those of the Delphians who were still there, but when the Barbarians pressing onwards came opposite the temple of Athene Pronaia, there happened to them in addition portents yet greater than that which had come to pass before: for though that too was a marvel, that arms of war should appear of themselves laid forth outside the cell, yet this, which happened straightway after that, is worthy of marvel even beyond all other prodigies. When the Barbarians in their approach were opposite the temple of Athene Pronaia, at this point of time from the heaven there fell thunderbolts upon them, and from Parnassos two crags were broken away and rushed down upon them with a great crashing noise falling upon many of them, while from the temple of Pronaia there was heard a shout, and a battle-cry was raised.
+
+The prophet at Delphi who saw the sacred arms carried out of the sanctuary by themselves and laid before it.
+
+## original-en · phylacos-delphi · 1299:0
+
+These two the Delphians say were the native heroes Phylacos and Autonoös, whose sacred enclosures are about the temple, that of Phylacos being close by the side of the road above the temple of Pronaia and that of Autonoös near Castalia under the peak called Hyampeia. Moreover the rocks which fell from Parnassos were still preserved even to my time, lying in the sacred enclosure of Athene Pronaia, into which they fell when they rushed through the ranks of the Barbarians. Such departure had these men from the temple.
+
+One of the two local heroes of Delphi whose precincts stand by the temple, and who the Delphians say pursued the barbarians in armour and more than human size.
+
+## original-en · autonoos · 1299:0
+
+These two the Delphians say were the native heroes Phylacos and Autonoös, whose sacred enclosures are about the temple, that of Phylacos being close by the side of the road above the temple of Pronaia and that of Autonoös near Castalia under the peak called Hyampeia. Moreover the rocks which fell from Parnassos were still preserved even to my time, lying in the sacred enclosure of Athene Pronaia, into which they fell when they rushed through the ranks of the Barbarians. Such departure had these men from the temple.
+
+The other Delphian hero, whose precinct is near Castalia under Hyampeia.
+
+## original-en · kecrops · 1163:1
+
+"Pallas cannot prevail to appease great Zeus in Olympos, Though she with words very many and wiles close-woven entreat him. But I will tell thee this more, and will clench it with steel adamantine: Then when all else shall be taken, whatever the boundary 128 of Kecrops Holdeth within, and the dark ravines of divinest Kithairon, A bulwark of wood at the last Zeus grants to the Trito-born goddess Sole to remain unwasted, which thee and thy children shall profit. Stay thou not there for the horsemen to come and the footmen unnumbered; Stay thou not still for the host from the mainland to come, but retire thee, Turning thy back to the foe, for yet thou shalt face him hereafter. Salamis, thou the divine, thou shalt cause sons of women to perish, Or when the grain 129 is scattered or when it is gathered together."
+
+The Athenian king from whom the Athenians were called Kecropidai, and whose boundary the oracle names; Aglauros was his daughter.
+
+## original-en · aglauros · 1313:0
+
+In time however there appeared for the Barbarians a way of approach after their difficulties, since by the oracle it was destined that all of Attica which is on the mainland should come to be under the Persians. Thus then it happened that on the front side 33 of the Acropolis behind the gates and the way up to the entrance, in a place where no one was keeping guard, nor would one have supposed that any man could ascend by this way, here men ascended by the temple of Aglauros the daughter of Kecrops, although indeed the place is precipitous: and when the Athenians saw that they had ascended up to the Acropolis, some of them threw themselves down from the wall and perished, while others took refuge in the sanctuary 34 of the temple. Then those of the Persians who had ascended went first to the gates, and after opening these they proceeded to kill the suppliants; and when all had been slain by them, they plundered the temple and set fire to the whole of the Acropolis.
+
+Kecrops’s daughter, by whose temple the Persians found the way up the sheer face of the Acropolis.
+
+## original-en · calliades · 1311:0
+
+So in three months from the crossing of the Hellespont, whence the Barbarians began their march, after having stayed there one month while they crossed over into Europe, they had reached Attica, in the year when Calliades was archon of the Athenians. And they took the lower city, which was deserted, and then they found that there were still a few Athenians left in the temple, either stewards of the temple or needy persons, who had barred the entrance to the Acropolis with doors and with a palisade of timber and endeavoured to defend themselves against the attacks of the enemy, being men who had not gone out to Salamis partly because of their poverty, and also because they thought that they alone had discovered the meaning of the oracle which the Pythian prophetess had uttered to them, namely that the "bulwark of wood" should be impregnable, and supposed that this was in fact the safe refuge according to the oracle, and not the ships.
+
+Archon of Athens in the year the city was taken.
+
+## original-en · telamon · 1324:0
+
+Thus those at Salamis, after having skirmished with one another in speech, were making preparations for a sea-fight there, since Eurybiades had so determined: and as day was coming on, at the same time when the sun rose there was an earthquake felt both on the land and on the sea: and they determined to pray to the gods and to call upon the sons of Aiacos to be their helpers. And as they had determined, so also they did; for when they had prayed to all the gods, they called Ajax and Telamon to their help from Salamis, where the fleet was, 38 and sent a ship to Egina to bring Aiacos himself and the rest of the sons of Aiacos.
+
+Called on with Ajax from Salamis when the Greeks prayed to the sons of Aeacus before the battle.
+
+## original-en · democritos · 1306:0
+
+Of the islanders the Eginetans furnished thirty; these had also other ships manned, but with them they were guarding their own land, while with the thirty which sailed best they joined in the sea-fight at Salamis. Now the Eginetans are Dorians from Epidauros, and their island had formerly the name of Oinone. After the Eginetans came the Chalkidians with the twenty ships which were at Artemision, and the Eretrians with their seven: these are Ionians. Next the Keïans, furnishing the same as before and being by race Ionians from Athens. The Naxians furnished four ships, they having been sent out by the citizens of their State to join the Persians, like the other islanders; but neglecting these commands they had come to the Hellenes, urged thereto by Democritos, a man of repute among the citizens and at that time commander of a trireme. Now the Naxians are Ionians coming originally from Athens. The Styrians furnished the same ships as at Artemision, and the men of Kythnos one ship and one fifty-oared galley, these both being Dryopians. Also the Seriphians, the Siphnians and the Melians served with the rest; for they alone of the islanders had not given earth and water to the Barbarian.
+
+A man of repute at Naxos and commander of a trireme, who talked the four Naxian ships out of joining the Persians and brought them over to the Greeks.
+
+## original-en · phaylos · 1307:0
+
+These all who have been named dwelt inside the land of the Thesprotians and the river Acheron; for the Thesprotians border upon the land of the Amprakiots and Leucadians, and these were they who came from the greatest distance to serve: but of those who dwell outside these limits the men of Croton were the only people who came to the assistance of Hellas in her danger; and these sent one ship, of whom the commander was Phaÿlos, a man who had three times won victories at the Pythian games. Now the men of Croton are by descent Achaians.
+
+Of Croton, three times a victor at the Pythian games, who brought the one ship that came to help Greece from beyond the Thesprotians and the Acheron.
+
+## original-en · justice · 1337:1
+
+"But when with ships they shall join the sacred strand of the goddess, Artemis golden-sword-girded, and thee, wave-washed Kynosura, Urged by a maddening hope, 44 having given rich Athens to plunder, Then shall Justice divine quell Riot, of Insolence first-born, 45 Longing to overthrow all things 46 and terribly panting for bloodhshed: Brass shall encounter with brass, and Ares the sea shall empurple, Tinging its waves with the blood: then a day of freedom for Hellas Cometh from wide-seeing Zeus 47 and from Victory, lady and mother." 48
+
+The power the oracle sets over Riot: when the Persians come to Artemis’s strand she subdues him, and Greece has a day of freedom from Zeus and from Victory.
+
+## original-en · insolence · 1337:1
+
+"But when with ships they shall join the sacred strand of the goddess, Artemis golden-sword-girded, and thee, wave-washed Kynosura, Urged by a maddening hope, 44 having given rich Athens to plunder, Then shall Justice divine quell Riot, of Insolence first-born, 45 Longing to overthrow all things 46 and terribly panting for bloodhshed: Brass shall encounter with brass, and Ares the sea shall empurple, Tinging its waves with the blood: then a day of freedom for Hellas Cometh from wide-seeing Zeus 47 and from Victory, lady and mother." 48
+
+Whose first-born son is Riot.
+
+## original-en · riot · 1337:1
+
+"But when with ships they shall join the sacred strand of the goddess, Artemis golden-sword-girded, and thee, wave-washed Kynosura, Urged by a maddening hope, 44 having given rich Athens to plunder, Then shall Justice divine quell Riot, of Insolence first-born, 45 Longing to overthrow all things 46 and terribly panting for bloodhshed: Brass shall encounter with brass, and Ares the sea shall empurple, Tinging its waves with the blood: then a day of freedom for Hellas Cometh from wide-seeing Zeus 47 and from Victory, lady and mother." 48
+
+Insolence’s first-born son, who longs to overturn everything and pants terribly for blood.
+
+## original-en · victory · 1337:1
+
+"But when with ships they shall join the sacred strand of the goddess, Artemis golden-sword-girded, and thee, wave-washed Kynosura, Urged by a maddening hope, 44 having given rich Athens to plunder, Then shall Justice divine quell Riot, of Insolence first-born, 45 Longing to overthrow all things 46 and terribly panting for bloodhshed: Brass shall encounter with brass, and Ares the sea shall empurple, Tinging its waves with the blood: then a day of freedom for Hellas Cometh from wide-seeing Zeus 47 and from Victory, lady and mother." 48
+
+Lady and mother, from whom with far-seeing Zeus comes the day of freedom for Greece.
+
+## original-en · persuasion · 1370:0
+
+The Hellenes meanwhile, having resolved not to pursue after the ships of the Barbarians further, nor to sail to the Hellespont to break up the passage, were investing Andros intending to take it: for the Andrians were the first of the islanders who, being asked by Themistocles for money, refused to give it: and when Themistocles made proposals to them and said that the Athenians had come having on their side two great deities, Persuasion and Compulsion, and therefore they must by all means give them money, they replied to this that not without reason, as it now appeared, was Athens great and prosperous, since the Athenians were well supplied with serviceable deities; but as for the Andrians, they were poor, 79 having in this respect attained to the greatest eminence, and there were two unprofitable deities which never left their island but always remained attached to the place, Poverty, namely, and Helplessness: and the Andrians being possessed of these deities would not give money; for never could the power of the Athenians get the better of their inability. 80
+
+One of the two great deities Themistocles said the Athenians had brought with them to Andros, and which the Andrians said was why Athens was rich.
+
+## original-en · compulsion · 1370:0
+
+The Hellenes meanwhile, having resolved not to pursue after the ships of the Barbarians further, nor to sail to the Hellespont to break up the passage, were investing Andros intending to take it: for the Andrians were the first of the islanders who, being asked by Themistocles for money, refused to give it: and when Themistocles made proposals to them and said that the Athenians had come having on their side two great deities, Persuasion and Compulsion, and therefore they must by all means give them money, they replied to this that not without reason, as it now appeared, was Athens great and prosperous, since the Athenians were well supplied with serviceable deities; but as for the Andrians, they were poor, 79 having in this respect attained to the greatest eminence, and there were two unprofitable deities which never left their island but always remained attached to the place, Poverty, namely, and Helplessness: and the Andrians being possessed of these deities would not give money; for never could the power of the Athenians get the better of their inability. 80
+
+The other, brought to Andros in the same ship.
+
+## original-en · poverty · 1370:0
+
+The Hellenes meanwhile, having resolved not to pursue after the ships of the Barbarians further, nor to sail to the Hellespont to break up the passage, were investing Andros intending to take it: for the Andrians were the first of the islanders who, being asked by Themistocles for money, refused to give it: and when Themistocles made proposals to them and said that the Athenians had come having on their side two great deities, Persuasion and Compulsion, and therefore they must by all means give them money, they replied to this that not without reason, as it now appeared, was Athens great and prosperous, since the Athenians were well supplied with serviceable deities; but as for the Andrians, they were poor, 79 having in this respect attained to the greatest eminence, and there were two unprofitable deities which never left their island but always remained attached to the place, Poverty, namely, and Helplessness: and the Andrians being possessed of these deities would not give money; for never could the power of the Athenians get the better of their inability. 80
+
+One of the two unprofitable gods the Andrians said never leave their island — which is why they would give Themistocles no money.
+
+## original-en · helplessness · 1370:0
+
+The Hellenes meanwhile, having resolved not to pursue after the ships of the Barbarians further, nor to sail to the Hellespont to break up the passage, were investing Andros intending to take it: for the Andrians were the first of the islanders who, being asked by Themistocles for money, refused to give it: and when Themistocles made proposals to them and said that the Athenians had come having on their side two great deities, Persuasion and Compulsion, and therefore they must by all means give them money, they replied to this that not without reason, as it now appeared, was Athens great and prosperous, since the Athenians were well supplied with serviceable deities; but as for the Andrians, they were poor, 79 having in this respect attained to the greatest eminence, and there were two unprofitable deities which never left their island but always remained attached to the place, Poverty, namely, and Helplessness: and the Andrians being possessed of these deities would not give money; for never could the power of the Athenians get the better of their inability. 80
+
+The other Andrian god.
+
+## original-en · hermotimos · 1363:0
+
+With these sons he sent Hermotimos to have charge of them, who was by race of Pedasa and was in the estimation of the king second to none of the eunuchs. [Now the Pedasians dwell above Halicarnassos, and at this Pedasa a thing happens as follows:—whenever to the whole number of those who dwell about this city some trouble is about to come within a certain time, then the priestess of Athene in that place gets a long beard; and this has happened to them twice before now.
+
+The eunuch of Pedasa, first of Xerxes’s eunuchs, who was sent to escort the king’s sons to Ephesus — and who took the greatest revenge for a wrong that Herodotus knows of: he found the man who had castrated him, coaxed his whole household into his hands, and made him castrate his four sons and then be castrated by them.
+
+## original-en · panionios · 1364:0
+
+Of these Pedasians was Hermotimos.] 70 And this man of all persons whom we know up to this time obtained the greatest revenge for a wrong done to him. For he had been captured by enemies and was being sold, and Panionios a man of Chios bought him, one who had set himself to gain his livelihood by the most impious practices; for whenever he obtained boys who possessed some beauty, he would make eunuchs of them, and then taking them to Sardis or Ephesos sold them for large sums of money, since with the Barbarians eunuchs are held to be of more value for all matters of trust than those who are not eunuchs. Panionios then, I say, made eunuchs of many others, since by this he got his livelihood, and also of this man about whom I speak: and Hermotimos, being not in everything unfortunate, was sent from Sardis to the king with other gifts, and as time went on he came to be honoured more than all the other eunuchs in the sight of Xerxes.
+
+Of Chios, who made his living buying beautiful boys, castrating them, and selling them at Sardis and Ephesus for large sums. Hermotimus was one of them.
+
+## original-en · critobulos · 1386:0
+
+So upon this Artabazos began to besiege Potidaia, and suspecting that the men of Olynthos also were intending revolt from the king, he began to besiege this city too, which was occupied by Bottiaians who had been driven away from the Thermaian gulf by the Macedonians. So when he had taken these men by siege, he brought them forth to a lake and slew them 93 there; and the city he delivered to Critobulos of Torone to have in charge, and to the natives of Chalkidike; and thus it was that the Chalkidians got possession of Olynthos.
+
+Of Torone, to whom Artabazus handed Olynthus after slaughtering its Bottiaeans at a lake.
+
+## original-en · timoxeinos · 1387:0
+
+Having taken this city Artabazos set himself to attack Potidaia with vigour, and as he was setting himself earnestly to this work, Timoxeinos the commander of the troops from Skione concerted with him to give up the town by treachery. Now in what manner he did this at the first, I for my part am not able to say, for this is not reported; at last however it happened as follows. Whenever either Timoxeinos wrote a paper wishing to send it to Artabazos, or Artabazos wishing to send one to Timoxeinos, they wound it round by the finger-notches 94 of an arrow, and then, putting feathers over the paper, they shot it to a place agreed upon between them. It came however to be found out that Timoxeinos was attempting by treachery to give up Potidaia; for Artabazos, shooting an arrow at the place agreed upon, missed this spot and struck a man of Potidaia in the shoulder; and when he was struck, a crowd came about him, as is apt to happen when there is fighting, and they forthwith took the arrow and having discovered the paper carried it to the commanders. Now there was present an allied force of the other men of Pallene also. Then when the commanders had read the paper and discovered who was guilty of the treachery, they resolved not openly to convict 95 Timoxeinos of treachery, for the sake of the city of Skione, lest the men of Skione should be esteemed traitors for all time to come.
+
+Commander of the men of Scione, who arranged to betray Potidaea to Artabazus by notes wound round the notches of an arrow — until Artabazus missed his mark and hit a man of Potidaea in the shoulder. The commanders would not convict him openly, for the sake of Scione’s name.
+
+## original-en · artayntes-samos · 1389:0
+
+The fleet of Xerxes, so much of it as remained, when it had touched Asia in its flight from Salamis, and had conveyed the king and his army over from the Chersonese to Abydos, passed the winter at Kyme: and when spring dawned upon it, it assembled early at Samos, where some of the ships had even passed the winter; and most of the Persians and Medes still served as fighting-men on board of them. 97 To be commanders of them there came Mardontes the son of Bagaios, and Artaÿntes the son of Artachaies, and with them also Ithamitres was in joint command, who was brother's son to Artaÿntes and had been added by the choice of Artaÿntes himself. They then, since they had suffered a heavy blow, did not advance further up towards the West, nor did any one compel them to do so; but they remained still in Samos and kept watch over Ionia, lest it should revolt, having three hundred ships including those of the Ionians; and they did not expect that the Hellenes on their part would come to Ionia, but thought that it would satisfy them to guard their own land, judging from the fact that they had not pursued after them in their flight from Salamis but were well contented then to depart homewards. As regards the sea then their spirit was broken, but on land they thought that Mardonios would get much the advantage. So they being at Samos were taking counsel to do some damage if they could to their enemies, and at the same time they were listening for news how the affairs of Mardonios would fall out.
+
+Son of Artachaees, one of the new commanders sent down to the fleet at Samos in the spring, who took his brother’s son Ithamitres into joint command with him. Not the commander of the Pactyes, who was Ithamitres’s son.
+
+## original-en · ithamitres-samos · 1389:0
+
+The fleet of Xerxes, so much of it as remained, when it had touched Asia in its flight from Salamis, and had conveyed the king and his army over from the Chersonese to Abydos, passed the winter at Kyme: and when spring dawned upon it, it assembled early at Samos, where some of the ships had even passed the winter; and most of the Persians and Medes still served as fighting-men on board of them. 97 To be commanders of them there came Mardontes the son of Bagaios, and Artaÿntes the son of Artachaies, and with them also Ithamitres was in joint command, who was brother's son to Artaÿntes and had been added by the choice of Artaÿntes himself. They then, since they had suffered a heavy blow, did not advance further up towards the West, nor did any one compel them to do so; but they remained still in Samos and kept watch over Ionia, lest it should revolt, having three hundred ships including those of the Ionians; and they did not expect that the Hellenes on their part would come to Ionia, but thought that it would satisfy them to guard their own land, judging from the fact that they had not pursued after them in their flight from Salamis but were well contented then to depart homewards. As regards the sea then their spirit was broken, but on land they thought that Mardonios would get much the advantage. So they being at Samos were taking counsel to do some damage if they could to their enemies, and at the same time they were listening for news how the affairs of Mardonios would fall out.
+
+Artayntes of Samos’s brother’s son, added to the joint command by Artayntes himself. Not the Ithamitres whose son commanded the Pactyes.
+
+## original-en · artachaees-father-of-artayntes · 1389:0
+
+The fleet of Xerxes, so much of it as remained, when it had touched Asia in its flight from Salamis, and had conveyed the king and his army over from the Chersonese to Abydos, passed the winter at Kyme: and when spring dawned upon it, it assembled early at Samos, where some of the ships had even passed the winter; and most of the Persians and Medes still served as fighting-men on board of them. 97 To be commanders of them there came Mardontes the son of Bagaios, and Artaÿntes the son of Artachaies, and with them also Ithamitres was in joint command, who was brother's son to Artaÿntes and had been added by the choice of Artaÿntes himself. They then, since they had suffered a heavy blow, did not advance further up towards the West, nor did any one compel them to do so; but they remained still in Samos and kept watch over Ionia, lest it should revolt, having three hundred ships including those of the Ionians; and they did not expect that the Hellenes on their part would come to Ionia, but thought that it would satisfy them to guard their own land, judging from the fact that they had not pursued after them in their flight from Salamis but were well contented then to depart homewards. As regards the sea then their spirit was broken, but on land they thought that Mardonios would get much the advantage. So they being at Samos were taking counsel to do some damage if they could to their enemies, and at the same time they were listening for news how the affairs of Mardonios would fall out.
+
+Artayntes’s father, named once in the new commands at Samos. Herodotus does not say whether he is the Achaemenid who dug the channel through Athos.
+
+## original-en · herodotus-of-chios · 1391:0
+
+When all the ships had arrived at Egina, there came Ionian envoys to the camp of the Hellenes, who also came a short time before this to Sparta and asked the Lacedemonians to set Ionia free; and of them one was Herodotus the son of Basileides. These had banded themselves together and had plotted to put to death Strattis the despot of Chios, being originally seven in number; but when one of those who took part with them gave information of it and they were discovered to be plotting against him, then the remaining six escaped from Chios and came both to Sparta and also at this time to Egina, asking the Hellenes to sail over to Ionia: but they with difficulty brought them forward as far as Delos; for the parts beyond this were all fearful to the Hellenes, since they were without experience of those regions and everything seemed to them to be filled with armed force, while their persuasion was that it was as long a voyage to Samos as to the Pillars of Heracles. Thus at the same time it so chanced that the Barbarians dared sail no further up towards the West than Samos, being smitten with fear, and the Hellenes no further down towards the East than Delos, when the Chians made request of them. So fear was guard of the space which lay between them.
+
+Son of Basileides, one of the seven Chians who plotted to kill Strattis and one of the six who got away — an envoy to Sparta and to Aegina asking the Greeks to set Ionia free. The two editions spell him Herodotus and Herodotos, as they spell the historian.
+
+## original-en · basileides · 1391:0
+
+When all the ships had arrived at Egina, there came Ionian envoys to the camp of the Hellenes, who also came a short time before this to Sparta and asked the Lacedemonians to set Ionia free; and of them one was Herodotus the son of Basileides. These had banded themselves together and had plotted to put to death Strattis the despot of Chios, being originally seven in number; but when one of those who took part with them gave information of it and they were discovered to be plotting against him, then the remaining six escaped from Chios and came both to Sparta and also at this time to Egina, asking the Hellenes to sail over to Ionia: but they with difficulty brought them forward as far as Delos; for the parts beyond this were all fearful to the Hellenes, since they were without experience of those regions and everything seemed to them to be filled with armed force, while their persuasion was that it was as long a voyage to Samos as to the Pillars of Heracles. Thus at the same time it so chanced that the Barbarians dared sail no further up towards the West than Samos, being smitten with fear, and the Hellenes no further down towards the East than Delos, when the Chians made request of them. So fear was guard of the space which lay between them.
+
+Herodotus of Chios’s father.
+
+## original-en · mys · 1392:0
+
+The Hellenes, I say, sailed to Delos; and Mardonios meanwhile had been wintering in Thessaly. From thence he sent round a man, a native of Europos, whose name was Mys, to the various Oracles, charging him to go everywhere to consult, 102 wherever they 103 were permitted to make trial of the Oracles. What he desired to find out from the Oracles when he gave this charge, I am not able to say, for that is not reported; but I conceive for my part that he sent to consult about his present affairs and not about other things.
+
+The man of Europus whom Mardonius sent round every oracle in Greece. At the Ptoan shrine the prophet answered in a barbarian tongue; the Thebans stood there baffled, and Mys snatched their tablet and wrote it down himself, saying it was Carian.
+
+## original-en · trophonios · 45:1
+
+So having formed this design he began forthwith to make trial of the Oracles, both those of the Hellenes and that in Libya, sending messengers some to one place and some to another, some to go to Delphi, others to Abai of the Phokians, and others to Dodona; and some were sent to the shrine of Amphiaraos and to that of Trophonios, others to Branchidai in the land of Miletos: these are the Oracles of the Hellenes to which Croesus sent messengers to seek divination; and others he sent to the shrine of Ammon in Libya to inquire there. Now he was sending the messengers abroad to the end that he might try the Oracles and find out what knowledge they had, so that if they should be found to have knowledge of the truth, he might send and ask them secondly whether he should attempt to march against the Persians.
+
+Whose oracle at Lebadeia Mys had a local man go down to.
+
+## original-en · perdiccas · 783:0
+
+Thus the death of these Persians was kept concealed. And that these descendants of Perdiccas are Hellenes, as they themselves say, I happen to know myself, and not only so, but I will prove in the succeeding history that they are Hellenes. 10 Moreover the Hellanodicai, who manage the games at Olympia, decided that they were so: for when Alexander wished to contend in the games and had descended for this purpose into the arena, the Hellenes who were to run against him tried to exclude him, saying that the contest was not for Barbarians to contend in but for Hellenes: since however Alexander proved that he was of Argos, he was judged to be a Hellene, and when he entered the contest of the foot-race his lot came out with that of the first. 11
+
+The youngest of the three Temenid brothers, who took the king of Lebaia’s wages by drawing his knife round the sunlight on the floor and gathering it three times into his bosom — and became the first tyrant of the Macedonians.
+
+## original-en · temenus · 1396:0
+
+Now of this Alexander the seventh ancestor 108 was that Perdiccas who first became despot of the Macedonians, and that in the manner which here follows:—From Argos there fled to the Illyrians three brothers of the descendents of Temenos, Gauanes, Aëropos, and Perdiccas; and passing over from the Illyrians into the upper parts of Macedonia they came to the city of Lebaia. There they became farm-servants for pay in the household of the king, one pasturing horses, the second oxen, and the youngest of them, namely Perdiccas, the smaller kinds of cattle; for 109 in ancient times even those who were rulers over men 110 were poor in money, and not the common people only; and the wife of the king cooked for them their food herself. And whenever she baked, the loaf of the boy their servant, namely Perdiccas, became double as large as by nature it should be. When this happened constantly in the same manner, she told it to her husband, and he when he heard it conceived forthwith that this was a portent and tended to something great. He summoned the farm-servants therefore, and gave notice to them to depart out of his land; and they said that it was right that before they went forth they should receive the wages which were due. Now it chanced that the sun was shining into the house down through the opening which received the smoke, and the king when he heard about the wages said, being infatuated by a divine power: "I pay you then this for wages, and it is such as ye deserve," pointing to the sunlight. So then Gauanes and Aëropos the elder brothers stood struck with amazement when they heard this, but the boy, who happened to have in his hand a knife, said these words: "We accept, O king, that which thou dost give;" and he traced a line with his knife round the sunlight on the floor of the house, and having traced the line round he thrice drew of the sunlight into his bosom, and after that he departed both himself and his fellows.
+
+The Argive from whom the Macedonian kings descend.
+
+## original-en · gauanes · 1396:0
+
+Now of this Alexander the seventh ancestor 108 was that Perdiccas who first became despot of the Macedonians, and that in the manner which here follows:—From Argos there fled to the Illyrians three brothers of the descendents of Temenos, Gauanes, Aëropos, and Perdiccas; and passing over from the Illyrians into the upper parts of Macedonia they came to the city of Lebaia. There they became farm-servants for pay in the household of the king, one pasturing horses, the second oxen, and the youngest of them, namely Perdiccas, the smaller kinds of cattle; for 109 in ancient times even those who were rulers over men 110 were poor in money, and not the common people only; and the wife of the king cooked for them their food herself. And whenever she baked, the loaf of the boy their servant, namely Perdiccas, became double as large as by nature it should be. When this happened constantly in the same manner, she told it to her husband, and he when he heard it conceived forthwith that this was a portent and tended to something great. He summoned the farm-servants therefore, and gave notice to them to depart out of his land; and they said that it was right that before they went forth they should receive the wages which were due. Now it chanced that the sun was shining into the house down through the opening which received the smoke, and the king when he heard about the wages said, being infatuated by a divine power: "I pay you then this for wages, and it is such as ye deserve," pointing to the sunlight. So then Gauanes and Aëropos the elder brothers stood struck with amazement when they heard this, but the boy, who happened to have in his hand a knife, said these words: "We accept, O king, that which thou dost give;" and he traced a line with his knife round the sunlight on the floor of the house, and having traced the line round he thrice drew of the sunlight into his bosom, and after that he departed both himself and his fellows.
+
+One of Perdiccas’s two elder brothers, who stood stunned when the king offered them the sunlight.
+
+## original-en · aeropos-brother · 1396:0
+
+Now of this Alexander the seventh ancestor 108 was that Perdiccas who first became despot of the Macedonians, and that in the manner which here follows:—From Argos there fled to the Illyrians three brothers of the descendents of Temenos, Gauanes, Aëropos, and Perdiccas; and passing over from the Illyrians into the upper parts of Macedonia they came to the city of Lebaia. There they became farm-servants for pay in the household of the king, one pasturing horses, the second oxen, and the youngest of them, namely Perdiccas, the smaller kinds of cattle; for 109 in ancient times even those who were rulers over men 110 were poor in money, and not the common people only; and the wife of the king cooked for them their food herself. And whenever she baked, the loaf of the boy their servant, namely Perdiccas, became double as large as by nature it should be. When this happened constantly in the same manner, she told it to her husband, and he when he heard it conceived forthwith that this was a portent and tended to something great. He summoned the farm-servants therefore, and gave notice to them to depart out of his land; and they said that it was right that before they went forth they should receive the wages which were due. Now it chanced that the sun was shining into the house down through the opening which received the smoke, and the king when he heard about the wages said, being infatuated by a divine power: "I pay you then this for wages, and it is such as ye deserve," pointing to the sunlight. So then Gauanes and Aëropos the elder brothers stood struck with amazement when they heard this, but the boy, who happened to have in his hand a knife, said these words: "We accept, O king, that which thou dost give;" and he traced a line with his knife round the sunlight on the floor of the house, and having traced the line round he thrice drew of the sunlight into his bosom, and after that he departed both himself and his fellows.
+
+The other brother.
+
+## original-en · aeropos-father-of-alketes · 1398:0
+
+From this Perdiccas the descent of Alexander was as follows:—Alexander was the son of Amyntas, Amyntas was the son of Alketes, the father of Alketes was Aëropos, of him Philip, of Philip Argaios, and of this last the father was Perdiccas, who first obtained the kingdom.
+
+Alcetes’s father in the descent from Perdiccas — a later man of the same name.
+
+## original-en · alketes · 1398:0
+
+From this Perdiccas the descent of Alexander was as follows:—Alexander was the son of Amyntas, Amyntas was the son of Alketes, the father of Alketes was Aëropos, of him Philip, of Philip Argaios, and of this last the father was Perdiccas, who first obtained the kingdom.
+
+Amyntas’s father.
+
+## original-en · philip-macedon · 1398:0
+
+From this Perdiccas the descent of Alexander was as follows:—Alexander was the son of Amyntas, Amyntas was the son of Alketes, the father of Alketes was Aëropos, of him Philip, of Philip Argaios, and of this last the father was Perdiccas, who first obtained the kingdom.
+
+Aëropos’s father in the Macedonian descent.
+
+## original-en · argaios · 1398:0
+
+From this Perdiccas the descent of Alexander was as follows:—Alexander was the son of Amyntas, Amyntas was the son of Alketes, the father of Alketes was Aëropos, of him Philip, of Philip Argaios, and of this last the father was Perdiccas, who first obtained the kingdom.
+
+Philip’s father, and Perdiccas’s son.
+
+## original-en · amyntas-asia · 1395:0
+
+Mardonios having read that which the Oracles uttered, whatever that was, after this sent as an envoy to Athens Alexander the son of Amyntas, the Macedonian, both because the Persians were connected with him by marriage, (for Gygaia the sister of Alexander and daughter of Amyntas had been married to a Persian Bubares, 106 and from her had been born to him that Amyntas who lived in Asia, having the name of his mother's father, to whom the king gave Alabanda, 107 a great city of Phrygia, to possess), and also Mardonios was sending him because he was informed that Alexander was a public guest-friend and benefactor of the Athenians; for by this means he thought that he would be most likely to gain over the Athenians to his side, about whom he heard that they were a numerous people and brave in war, and of whom he knew moreover that these were they who more than any others had brought about the disasters which had befallen the Persians by sea. Therefore if these should be added to him, he thought that he should easily have command of the sea (and this in fact would have been the case), while on land he supposed himself to be already much superior in force. Thus he reckoned that his power would be much greater than that of the Hellenes. Perhaps also the Oracles told him this beforehand, counselling him to make the Athenian his ally, and so he was sending in obedience to their advice.
+
+Gygaea and Bubares’s son, named after his mother’s father, to whom the king gave Alabanda in Phrygia.
+
+## original-en · silenus · 1397:0
+
+They then were going away, and to the king one of those who sat by him at table told what manner of thing the boy had done, and how the youngest of them had taken that which was given with some design: and he hearing this and being moved with anger, sent after them horsemen to slay them. Now there is a river in this land to which the descendents of these men from Argos sacrifice as a saviour. This river, so soon as the sons of Temenos had passed over it, began to flow with such great volume of water that the horsemen became unable to pass over. So the brothers, having come to another region of Macedonia, took up their dwelling near the so-called gardens of Midas the son of Gordias, where roses grow wild which have each one sixty petals and excel all others in perfume. In these gardens too Silenos was captured, as is reported by the Macedonians: and above the gardens is situated a mountain called Bermion, which is inaccessible by reason of the cold. Having taken possession of that region, they made this their starting-point, and proceeded to subdue also the rest of Macedonia.
+
+Caught, the Macedonians say, in the gardens of Midas where the wild roses have sixty petals each.
+
+## original-en · hegesilaus-eurypontid · 1390:0
+
+The Hellenes on their part were roused both by the coming on of spring and by the presence of Mardonios in Thessaly. Their land-army had not yet begun to assemble, when the fleet arrived at Egina, in number one hundred and ten ships, and the commander and admiral was Leotychides, who was the son of Menares, the son of Hegesilaos, the son of Hippocratides, the son of Leotychides, the son of Anaxilaos, the son of Archidemos, the son of Anaxandriddes, the son of Theopompos, the son of Nicander, the son of Charilaos, 98 the son of Eunomos, the son of Polydectes, the son of Prytanis, the son of Euryphon, 99 the son of Procles, the son of Aristodemos, the son of Aristomachos, the son of Cleodaios, the son of Hyllos, the son of Heracles, being of the other royal house. 100 These all, except the two 101 enumerated first after Leotychides, had been kings of Sparta. And of the Athenians the commander was Xanthippos the son of Ariphon.
+
+Menares’s father in the descent of Leotychides — the other royal house.
+
+## original-en · hippocratides · 1390:0
+
+The Hellenes on their part were roused both by the coming on of spring and by the presence of Mardonios in Thessaly. Their land-army had not yet begun to assemble, when the fleet arrived at Egina, in number one hundred and ten ships, and the commander and admiral was Leotychides, who was the son of Menares, the son of Hegesilaos, the son of Hippocratides, the son of Leotychides, the son of Anaxilaos, the son of Archidemos, the son of Anaxandriddes, the son of Theopompos, the son of Nicander, the son of Charilaos, 98 the son of Eunomos, the son of Polydectes, the son of Prytanis, the son of Euryphon, 99 the son of Procles, the son of Aristodemos, the son of Aristomachos, the son of Cleodaios, the son of Hyllos, the son of Heracles, being of the other royal house. 100 These all, except the two 101 enumerated first after Leotychides, had been kings of Sparta. And of the Athenians the commander was Xanthippos the son of Ariphon.
+
+Hegesilaus’s father.
+
+## original-en · leotychides-elder · 1390:0
+
+The Hellenes on their part were roused both by the coming on of spring and by the presence of Mardonios in Thessaly. Their land-army had not yet begun to assemble, when the fleet arrived at Egina, in number one hundred and ten ships, and the commander and admiral was Leotychides, who was the son of Menares, the son of Hegesilaos, the son of Hippocratides, the son of Leotychides, the son of Anaxilaos, the son of Archidemos, the son of Anaxandriddes, the son of Theopompos, the son of Nicander, the son of Charilaos, 98 the son of Eunomos, the son of Polydectes, the son of Prytanis, the son of Euryphon, 99 the son of Procles, the son of Aristodemos, the son of Aristomachos, the son of Cleodaios, the son of Hyllos, the son of Heracles, being of the other royal house. 100 These all, except the two 101 enumerated first after Leotychides, had been kings of Sparta. And of the Athenians the commander was Xanthippos the son of Ariphon.
+
+Hippocratides’s father, and the king his descendant was named for.
+
+## original-en · anaxilaus-sparta · 1390:0
+
+The Hellenes on their part were roused both by the coming on of spring and by the presence of Mardonios in Thessaly. Their land-army had not yet begun to assemble, when the fleet arrived at Egina, in number one hundred and ten ships, and the commander and admiral was Leotychides, who was the son of Menares, the son of Hegesilaos, the son of Hippocratides, the son of Leotychides, the son of Anaxilaos, the son of Archidemos, the son of Anaxandriddes, the son of Theopompos, the son of Nicander, the son of Charilaos, 98 the son of Eunomos, the son of Polydectes, the son of Prytanis, the son of Euryphon, 99 the son of Procles, the son of Aristodemos, the son of Aristomachos, the son of Cleodaios, the son of Hyllos, the son of Heracles, being of the other royal house. 100 These all, except the two 101 enumerated first after Leotychides, had been kings of Sparta. And of the Athenians the commander was Xanthippos the son of Ariphon.
+
+Leotychides the elder’s father.
+
+## original-en · archidamus-sparta · 1390:0
+
+The Hellenes on their part were roused both by the coming on of spring and by the presence of Mardonios in Thessaly. Their land-army had not yet begun to assemble, when the fleet arrived at Egina, in number one hundred and ten ships, and the commander and admiral was Leotychides, who was the son of Menares, the son of Hegesilaos, the son of Hippocratides, the son of Leotychides, the son of Anaxilaos, the son of Archidemos, the son of Anaxandriddes, the son of Theopompos, the son of Nicander, the son of Charilaos, 98 the son of Eunomos, the son of Polydectes, the son of Prytanis, the son of Euryphon, 99 the son of Procles, the son of Aristodemos, the son of Aristomachos, the son of Cleodaios, the son of Hyllos, the son of Heracles, being of the other royal house. 100 These all, except the two 101 enumerated first after Leotychides, had been kings of Sparta. And of the Athenians the commander was Xanthippos the son of Ariphon.
+
+Anaxilaus’s father.
+
+## original-en · anaxandridas-eurypontid · 1390:0
+
+The Hellenes on their part were roused both by the coming on of spring and by the presence of Mardonios in Thessaly. Their land-army had not yet begun to assemble, when the fleet arrived at Egina, in number one hundred and ten ships, and the commander and admiral was Leotychides, who was the son of Menares, the son of Hegesilaos, the son of Hippocratides, the son of Leotychides, the son of Anaxilaos, the son of Archidemos, the son of Anaxandriddes, the son of Theopompos, the son of Nicander, the son of Charilaos, 98 the son of Eunomos, the son of Polydectes, the son of Prytanis, the son of Euryphon, 99 the son of Procles, the son of Aristodemos, the son of Aristomachos, the son of Cleodaios, the son of Hyllos, the son of Heracles, being of the other royal house. 100 These all, except the two 101 enumerated first after Leotychides, had been kings of Sparta. And of the Athenians the commander was Xanthippos the son of Ariphon.
+
+Archidamus’s father in the Eurypontid line. Not Cleomenes’s and Leonidas’s father.
+
+## original-en · theopompos · 1390:0
+
+The Hellenes on their part were roused both by the coming on of spring and by the presence of Mardonios in Thessaly. Their land-army had not yet begun to assemble, when the fleet arrived at Egina, in number one hundred and ten ships, and the commander and admiral was Leotychides, who was the son of Menares, the son of Hegesilaos, the son of Hippocratides, the son of Leotychides, the son of Anaxilaos, the son of Archidemos, the son of Anaxandriddes, the son of Theopompos, the son of Nicander, the son of Charilaos, 98 the son of Eunomos, the son of Polydectes, the son of Prytanis, the son of Euryphon, 99 the son of Procles, the son of Aristodemos, the son of Aristomachos, the son of Cleodaios, the son of Hyllos, the son of Heracles, being of the other royal house. 100 These all, except the two 101 enumerated first after Leotychides, had been kings of Sparta. And of the Athenians the commander was Xanthippos the son of Ariphon.
+
+Anaxandridas’s father.
+
+## original-en · nicander · 1390:0
+
+The Hellenes on their part were roused both by the coming on of spring and by the presence of Mardonios in Thessaly. Their land-army had not yet begun to assemble, when the fleet arrived at Egina, in number one hundred and ten ships, and the commander and admiral was Leotychides, who was the son of Menares, the son of Hegesilaos, the son of Hippocratides, the son of Leotychides, the son of Anaxilaos, the son of Archidemos, the son of Anaxandriddes, the son of Theopompos, the son of Nicander, the son of Charilaos, 98 the son of Eunomos, the son of Polydectes, the son of Prytanis, the son of Euryphon, 99 the son of Procles, the son of Aristodemos, the son of Aristomachos, the son of Cleodaios, the son of Hyllos, the son of Heracles, being of the other royal house. 100 These all, except the two 101 enumerated first after Leotychides, had been kings of Sparta. And of the Athenians the commander was Xanthippos the son of Ariphon.
+
+Theopompus’s father.
+
+## original-en · charilaos-sparta · 1390:0
+
+The Hellenes on their part were roused both by the coming on of spring and by the presence of Mardonios in Thessaly. Their land-army had not yet begun to assemble, when the fleet arrived at Egina, in number one hundred and ten ships, and the commander and admiral was Leotychides, who was the son of Menares, the son of Hegesilaos, the son of Hippocratides, the son of Leotychides, the son of Anaxilaos, the son of Archidemos, the son of Anaxandriddes, the son of Theopompos, the son of Nicander, the son of Charilaos, 98 the son of Eunomos, the son of Polydectes, the son of Prytanis, the son of Euryphon, 99 the son of Procles, the son of Aristodemos, the son of Aristomachos, the son of Cleodaios, the son of Hyllos, the son of Heracles, being of the other royal house. 100 These all, except the two 101 enumerated first after Leotychides, had been kings of Sparta. And of the Athenians the commander was Xanthippos the son of Ariphon.
+
+Nicander’s father. Not Maeandrius’s brother.
+
+## original-en · eunomos · 1390:0
+
+The Hellenes on their part were roused both by the coming on of spring and by the presence of Mardonios in Thessaly. Their land-army had not yet begun to assemble, when the fleet arrived at Egina, in number one hundred and ten ships, and the commander and admiral was Leotychides, who was the son of Menares, the son of Hegesilaos, the son of Hippocratides, the son of Leotychides, the son of Anaxilaos, the son of Archidemos, the son of Anaxandriddes, the son of Theopompos, the son of Nicander, the son of Charilaos, 98 the son of Eunomos, the son of Polydectes, the son of Prytanis, the son of Euryphon, 99 the son of Procles, the son of Aristodemos, the son of Aristomachos, the son of Cleodaios, the son of Hyllos, the son of Heracles, being of the other royal house. 100 These all, except the two 101 enumerated first after Leotychides, had been kings of Sparta. And of the Athenians the commander was Xanthippos the son of Ariphon.
+
+Charilaus’s father.
+
+## original-en · polydectes · 1390:0
+
+The Hellenes on their part were roused both by the coming on of spring and by the presence of Mardonios in Thessaly. Their land-army had not yet begun to assemble, when the fleet arrived at Egina, in number one hundred and ten ships, and the commander and admiral was Leotychides, who was the son of Menares, the son of Hegesilaos, the son of Hippocratides, the son of Leotychides, the son of Anaxilaos, the son of Archidemos, the son of Anaxandriddes, the son of Theopompos, the son of Nicander, the son of Charilaos, 98 the son of Eunomos, the son of Polydectes, the son of Prytanis, the son of Euryphon, 99 the son of Procles, the son of Aristodemos, the son of Aristomachos, the son of Cleodaios, the son of Hyllos, the son of Heracles, being of the other royal house. 100 These all, except the two 101 enumerated first after Leotychides, had been kings of Sparta. And of the Athenians the commander was Xanthippos the son of Ariphon.
+
+Eunomus’s father.
+
+## original-en · prytanis · 1390:0
+
+The Hellenes on their part were roused both by the coming on of spring and by the presence of Mardonios in Thessaly. Their land-army had not yet begun to assemble, when the fleet arrived at Egina, in number one hundred and ten ships, and the commander and admiral was Leotychides, who was the son of Menares, the son of Hegesilaos, the son of Hippocratides, the son of Leotychides, the son of Anaxilaos, the son of Archidemos, the son of Anaxandriddes, the son of Theopompos, the son of Nicander, the son of Charilaos, 98 the son of Eunomos, the son of Polydectes, the son of Prytanis, the son of Euryphon, 99 the son of Procles, the son of Aristodemos, the son of Aristomachos, the son of Cleodaios, the son of Hyllos, the son of Heracles, being of the other royal house. 100 These all, except the two 101 enumerated first after Leotychides, had been kings of Sparta. And of the Athenians the commander was Xanthippos the son of Ariphon.
+
+Polydectes’s father.
+
+## original-en · euryphon · 1390:0
+
+The Hellenes on their part were roused both by the coming on of spring and by the presence of Mardonios in Thessaly. Their land-army had not yet begun to assemble, when the fleet arrived at Egina, in number one hundred and ten ships, and the commander and admiral was Leotychides, who was the son of Menares, the son of Hegesilaos, the son of Hippocratides, the son of Leotychides, the son of Anaxilaos, the son of Archidemos, the son of Anaxandriddes, the son of Theopompos, the son of Nicander, the son of Charilaos, 98 the son of Eunomos, the son of Polydectes, the son of Prytanis, the son of Euryphon, 99 the son of Procles, the son of Aristodemos, the son of Aristomachos, the son of Cleodaios, the son of Hyllos, the son of Heracles, being of the other royal house. 100 These all, except the two 101 enumerated first after Leotychides, had been kings of Sparta. And of the Athenians the commander was Xanthippos the son of Ariphon.
+
+Prytanis’s father, Procles’s son.
+
+## original-en · andrians · 1370:0
+
+The Hellenes meanwhile, having resolved not to pursue after the ships of the Barbarians further, nor to sail to the Hellespont to break up the passage, were investing Andros intending to take it: for the Andrians were the first of the islanders who, being asked by Themistocles for money, refused to give it: and when Themistocles made proposals to them and said that the Athenians had come having on their side two great deities, Persuasion and Compulsion, and therefore they must by all means give them money, they replied to this that not without reason, as it now appeared, was Athens great and prosperous, since the Athenians were well supplied with serviceable deities; but as for the Andrians, they were poor, 79 having in this respect attained to the greatest eminence, and there were two unprofitable deities which never left their island but always remained attached to the place, Poverty, namely, and Helplessness: and the Andrians being possessed of these deities would not give money; for never could the power of the Athenians get the better of their inability. 80
+
+Who told Themistocles that Athens was rich because it was well supplied with useful gods, while Andros had only Poverty and Helplessness — and were besieged for it.
+
+## original-en · tenians · 589:0
+
+But much more about them is reported by the people of Delos than by any others. For these say that sacred offerings bound up in wheat straw are carried from the land of the Hyperboreans and come to the Scythians, and then from the Scythians the neighbouring nations in succession receive them and convey them Westwards, finally as far as the Adriatic: thence they are sent forward towards the South, and the people of Dodona receive them first of all the Hellenes, and from these they come down to the Malian gulf and are passed over to Euboea, where city sends them on to city till they come to Carystos. After this Andros is left out, for the Carystians are those who bring them to Tenos, and the Tenians to Delos. Thus they say that these sacred offerings come to Delos; but at first, they say, the Hyperboreans sent two maidens bearing the sacred offerings, whose names, say the Delians, were Hyperoche and Laodike, and with them for their protection the Hyperboreans sent five men of their nation to attend them, those namely who are now called Perphereës and have great honours paid to them in Delos. Since however the Hyperboreans found that those who were sent away did not return back, they were troubled to think that it would always befall them to send out and not to receive back; and so they bore the offerings to the borders of their land bound up in wheat straw, and laid a charge upon their neighbours, bidding them send these forward from themselves to another nation. These things then, they say, come to Delos being thus sent forward; and I know of my own knowledge that a thing is done which has resemblance to these offerings, namely that the women of Thrace and Paionia, when they sacrifice to Artemis "the Queen," do not make their offerings without wheat straw.
+
+Whose deserting trireme convinced the Greeks they were surrounded, and whose name went on the tripod at Delphi.
+
+## original-en · calyndians · 171:0
+
+It seems to me however that the Caunians are dwellers there from the beginning, though they say themselves that they came from Crete: but they have been assimilated to the Carian race in language, or else the Carians to the Caunian race, I cannot with certainty determine which. They have customs however in which they differ very much from all other men as well as from the Carians; for example the fairest thing in their estimation is to meet together in numbers for drinking, according to equality of age or friendship, both men, women, and children; and again when they had founded temples for foreign deities, afterwards they changed their purpose and resolved to worship only their own native gods, and the whole body of Caunian young men put on their armour and made pursuit as far as the borders of the Calyndians, beating the air with their spears; and they said that they were casting the foreign gods out of the land. Such are the customs which these have.
+
+Whose ship, with their king aboard, Artemisia rammed and sank to get an Athenian off her tail. Not one of the crew survived to accuse her.
+
+## original-en · potidaians · 1385:0
+
+Artabazos meanwhile the son of Pharnakes, a man who was held in esteem among the Persians even before this and came to be so yet more after the events about Plataia, was escorting the king as far as the passage with six myriads 92 of that army which Mardonios had selected for himself; and when the king was in Asia and Artabazos on his march back came near to Pallene, finding that Mardonios was wintering in Thessaly and Macedonia and was not at present urgent with him to come and join the rest of the army, he thought it not good to pass by without reducing the Potidaians to slavery, whom he had found in revolt: for the men of Potidaia, when the king had marched by them and when the fleet of the Persians had departed in flight from Salamis, had openly made revolt from the Barbarians; and so also had the others done who occupy Pallene.
+
+Who revolted as soon as the king had gone past, stood a three-month siege from Artabazus, and killed the Persians the flood-tide caught in the shallows.
+
+## original-en · bottiaians · 1207:0
+
+There is still to be reckoned, in addition to all this which has been summed up, the force which was being led from Europe; and of this we must give a probable estimate. 182 The Hellenes of Thrace and of the islands which lie off the coast of Thrace supplied a hundred and twenty ships; from which ships there results a sum of twenty-four thousand men: and as regards the land-force which was supplied by the Thracians, Paionians, Eordians, Bottiaians, the race which inhabits Chalkidike, the Brygians, Pierians, Macedonians, Perraibians, Enianians, 183 Dolopians, Magnesians, Achaians, and all those who dwell in the coast-region of Thrace, of these various nations I estimate that there were thirty myriads. 184 These myriads then added to those from Asia make a total sum of two hundred and sixty-four myriads of fighting men and in addition to these sixteen hundred and ten. 185
+
+Driven from the Thermaic gulf by the Macedonians, holders of Olynthus, and slaughtered at a lake by Artabazus.
+
+## original-en · melians · 1306:0
+
+Of the islanders the Eginetans furnished thirty; these had also other ships manned, but with them they were guarding their own land, while with the thirty which sailed best they joined in the sea-fight at Salamis. Now the Eginetans are Dorians from Epidauros, and their island had formerly the name of Oinone. After the Eginetans came the Chalkidians with the twenty ships which were at Artemision, and the Eretrians with their seven: these are Ionians. Next the Keïans, furnishing the same as before and being by race Ionians from Athens. The Naxians furnished four ships, they having been sent out by the citizens of their State to join the Persians, like the other islanders; but neglecting these commands they had come to the Hellenes, urged thereto by Democritos, a man of repute among the citizens and at that time commander of a trireme. Now the Naxians are Ionians coming originally from Athens. The Styrians furnished the same ships as at Artemision, and the men of Kythnos one ship and one fifty-oared galley, these both being Dryopians. Also the Seriphians, the Siphnians and the Melians served with the rest; for they alone of the islanders had not given earth and water to the Barbarian.
+
+Of Lacedaemonian descent, who with the Siphnians and Seriphians alone of the islanders had given the barbarian neither earth nor water.
+
+## original-en · seriphians · 1306:0
+
+Of the islanders the Eginetans furnished thirty; these had also other ships manned, but with them they were guarding their own land, while with the thirty which sailed best they joined in the sea-fight at Salamis. Now the Eginetans are Dorians from Epidauros, and their island had formerly the name of Oinone. After the Eginetans came the Chalkidians with the twenty ships which were at Artemision, and the Eretrians with their seven: these are Ionians. Next the Keïans, furnishing the same as before and being by race Ionians from Athens. The Naxians furnished four ships, they having been sent out by the citizens of their State to join the Persians, like the other islanders; but neglecting these commands they had come to the Hellenes, urged thereto by Democritos, a man of repute among the citizens and at that time commander of a trireme. Now the Naxians are Ionians coming originally from Athens. The Styrians furnished the same ships as at Artemision, and the men of Kythnos one ship and one fifty-oared galley, these both being Dryopians. Also the Seriphians, the Siphnians and the Melians served with the rest; for they alone of the islanders had not given earth and water to the Barbarian.
+
+Ionians from Athens, who sent one fifty-oared galley and had given no earth and water.
+
+## original-en · hermionians · 1303:0
+
+The following were those who joined the muster:—From Peloponnese the Lacedemonians furnishing sixteen ships, the Corinthians furnishing the same complement as at Artemision, the Sikyonians furnishing fifteen ships, the Epidaurians ten, the Troizenians five, the men of Hermion 2601 three, these all, except the Hermionians, being of Doric and Makednian 27 race and having made their last migration from Erineos and Pindos and the land of Dryopis; 28 but the people of Hermion are Dryopians, driven out by Heracles and the Malians from the land which is now called Doris.
+
+Dryopians driven out by Heracles and the Malians, who sent three ships to Salamis and came to the Isthmus.
+
+## original-en · amprakiots · 1305:0
+
+The Megarians furnished the same complement as at Artermision; the Amprakiots came to the assistance of the rest with seven ships, and the Leucadians with three, these being by race Dorians from Corinth.
+
+Who came seven ships’ worth from beyond the Thesprotians.
+
+## original-en · leucadians · 1305:0
+
+The Megarians furnished the same complement as at Artermision; the Amprakiots came to the assistance of the rest with seven ships, and the Leucadians with three, these being by race Dorians from Corinth.
+
+Dorians from Corinth, who came with three ships from the same distance.
+
+## original-en · keians · 1261:0
+
+Those of the Hellenes who had been appointed to serve in the fleet were these:—the Athenians furnished a hundred and twenty-seven ships, and the Plataians moved by valour and zeal for the service, although they had had no practice in seamanship, yet joined with the Athenians in manning their ships. The Corinthians furnished forty ships, the Megarians twenty; the Chalkidians manned twenty ships with which the Athenians furnished them; 1 the Eginetans furnished eighteen ships, the Sikyonians twelve, the Lacedemonians ten, the Epidaurians eight, the Eretrians seven, the Troizenians five, the Styrians two, the Keïans two ships 2 and two fifty-oared galleys, while the Locrians of Opus came also to the assistance of the rest with seven fifty-oared galleys.
+
+Two ships and two fifty-oared galleys at Artemisium and the same at Salamis; Ionians from Athens. The older translation prints Keïans.
+
+## original-en · styrians · 993:0
+
+These men were waiting for the full moon: and meanwhile Hippias the son of Peisistratos was guiding the Barbarians in to Marathon, after having seen on the night that was just past a vision in his sleep of this kind,--it seemed to Hippias that he lay with his own mother. He conjectured then from the dream that he should return to Athens and recover his rule, and then bring his life to an end in old age in his own land. From the dream, I say, he conjectured this; and after this, as he guided them in, first he disembarked the slaves from Eretria on the island belonging to the Styrians, called Aigleia; 96 and then, as the ships came in to shore at Marathon, he moored them there, and after the Barbarians had come from their ships to land, he was engaged in disposing them in their places. While he was ordering these things, it came upon him to sneeze and cough more violently than was his wont. Then since he was advanced in years, most of his teeth were shaken thereby, and one of these teeth he cast forth by the violence of the cough: 97 and the tooth having fallen from him upon the sand, he was very desirous to find it; since however the tooth was not to be found when he searched, he groaned aloud and said to those who were by him: "This land is not ours, nor shall we be able to make it subject to us; but so much part in it as belonged to me the tooth possesses."
+
+Two ships at Artemisium and the same at Salamis.
+
+## original-en · dryopians · 145:0
+
+For this reason then the Ionians also made for themselves twelve cities; for at any rate to say that these are any more Ionians than the other Ionians, or have at all a nobler descent, is mere folly, considering that a large part of them are Abantians from Euboea, who have no share even in the name of Ionia, and Minyai of Orchomenos have been mingled with them, and Cadmeians and Dryopians and Phokians who seceded from their native State and Molossians and Pelasgians of Arcadia and Dorians of Epidauros and many other races have been mingled with them; and those of them who set forth to their settlements from the City Hall of Athens and who esteem themselves the most noble by descent of the Ionians, these, I say, brought no women with them to their settlement, but took Carian women, whose parents they slew: and on account of this slaughter these women laid down for themselves a rule, imposing oaths on one another, and handed it on to their daughters, that they should never eat with their husbands, nor should a wife call her own husband by name, for this reason, because the Ionians had slain their fathers and husbands and children and then having done this had them to wife. This happened at Miletos.
+
+One of the four races that came into the Peloponnese from outside; Hermion and Asine are theirs, and so are the men of Kythnos.
+
+## original-en · kynurians · 1333:0
+
+Now Peloponnesus is inhabited by seven races; and of these, two are natives of the soil and are settled now in the place where they dwelt of old, namely the Arcadians and the Kynurians; and one race, that of the Achaians, though it did not remove from the Peloponnese, yet removed in former time from its own land and dwells now in that which was not its own. The remaining races, four in number, have come in from without, namely the Dorians, Aitolians, Dryopians and Lemnians. Of the Dorians there are many cities and of great renown; of the Aitolians, Elis alone; of the Dryopians, Hermion 42 and Asine, which latter is opposite Cardamyle in the Laconian land; and of the Lemnians, all the Paroreatai. The Kynurians, who are natives of the soil, seem alone to be Ionians, but they have become Dorians completely because they are subject to the Argives and by lapse of time, being originally citizens of Orneai or the dwellers in the country round Orneai. 43 Of these seven nations the remaining cities, except those which I enumerated just now, stood aside and did nothing; and if one may be allowed to speak freely, in thus standing aside they were in fact taking the side of the Medes.
+
+Native to the Peloponnese and alone of it Ionian, though long since made thoroughly Dorian by living under Argos.
+
+## original-en · aitolians · 1333:0
+
+Now Peloponnesus is inhabited by seven races; and of these, two are natives of the soil and are settled now in the place where they dwelt of old, namely the Arcadians and the Kynurians; and one race, that of the Achaians, though it did not remove from the Peloponnese, yet removed in former time from its own land and dwells now in that which was not its own. The remaining races, four in number, have come in from without, namely the Dorians, Aitolians, Dryopians and Lemnians. Of the Dorians there are many cities and of great renown; of the Aitolians, Elis alone; of the Dryopians, Hermion 42 and Asine, which latter is opposite Cardamyle in the Laconian land; and of the Lemnians, all the Paroreatai. The Kynurians, who are natives of the soil, seem alone to be Ionians, but they have become Dorians completely because they are subject to the Argives and by lapse of time, being originally citizens of Orneai or the dwellers in the country round Orneai. 43 Of these seven nations the remaining cities, except those which I enumerated just now, stood aside and did nothing; and if one may be allowed to speak freely, in thus standing aside they were in fact taking the side of the Medes.
+
+One of the four incoming races of the Peloponnese; Elis alone is theirs.
+
+## original-en · lemnians · 1333:0
+
+Now Peloponnesus is inhabited by seven races; and of these, two are natives of the soil and are settled now in the place where they dwelt of old, namely the Arcadians and the Kynurians; and one race, that of the Achaians, though it did not remove from the Peloponnese, yet removed in former time from its own land and dwells now in that which was not its own. The remaining races, four in number, have come in from without, namely the Dorians, Aitolians, Dryopians and Lemnians. Of the Dorians there are many cities and of great renown; of the Aitolians, Elis alone; of the Dryopians, Hermion 42 and Asine, which latter is opposite Cardamyle in the Laconian land; and of the Lemnians, all the Paroreatai. The Kynurians, who are natives of the soil, seem alone to be Ionians, but they have become Dorians completely because they are subject to the Argives and by lapse of time, being originally citizens of Orneai or the dwellers in the country round Orneai. 43 Of these seven nations the remaining cities, except those which I enumerated just now, stood aside and did nothing; and if one may be allowed to speak freely, in thus standing aside they were in fact taking the side of the Medes.
+
+The fourth incoming race of the Peloponnese, to whom all the Paroreatai belong.
+
+## original-en · paroreatai · 704:0
+
+To these then, I say, Theras was preparing to set forth, taking with him people from the tribes, and intending to settle together with those who have been mentioned, not with any design to drive them out, but on the contrary claiming them very strongly as kinfolk. And when the Minyai after having escaped from the prison went and sat down on Taÿgetos, Theras entreated of the Lacedemonians, as they were proposing to put them to death, that no slaughter might take place, and at the same time he engaged himself to take them forth out of the land. The Lacedemonians having agreed to this proposal, he sailed away with three thirty-oared galleys to the descendants of Membliaros, not taking with him by any means all the Minyai, but a few only; for the greater number of them turned towards the land of the Paroreatai and Caucones, and having driven these out of their country, they parted themselves into six divisions and founded in their territory the following towns,—Lepreon, Makistos, Phrixai, Pyrgos, Epion, Nudion; of these the Eleians sacked the greater number within my own lifetime. The island meanwhile got its name of Thera after Theras 130 who led the settlement.
+
+The Lemnians of the Peloponnese.
+
+## original-en · thesprotians · 271:0
+
+I however have an opinion about the matter as follows:—If the Phenicians did in truth carry away the consecrated women and sold one of them into Libya and the other into Hellas, I suppose that in the country now called Hellas, which was formerly called Pelasgia, this woman was sold into the land of the Thesprotians; and then being a slave there she set up a sanctuary of Zeus under a real oak-tree; 54 as indeed it was natural that being an attendant of the sanctuary of Zeus at Thebes, she should there, in the place to which she had come, have a memory of him; and after this, when she got understanding of the Hellenic tongue, she established an Oracle, and she reported, I suppose, that her sister had been sold in Libya by the same Phenicians by whom she herself had been sold.
+
+Beyond whose land and the river Acheron only Croton sent help.
+
+## original-en · bisaltians · 1375:0
+
+Here also a Thracian, the king of the Bisaltians and of the Crestonian land, did a deed of surpassing horror; for he had said that he would not himself be subject to Xerxes with his own will and had gone away up to Mount Rhodope, and also he had forbidden his sons to go on the march against Hellas. They however, either because they cared not for his command, or else because a desire came upon them to see the war, went on the march with the Persian: and when they returned all unhurt, being six in number, their father plucked out their eyes for this cause.
+
+Whose king withdrew to Mount Rhodope rather than serve Xerxes, and put out his six sons’ eyes for going to the war.
+
+## original-en · illyrians · 605:0
+
+These are the native Scythian rivers which join to swell its stream, while from the Agathyrsians flows the Maris and joins the Ister, and from the summits of Haimos flow three other great rivers towards the North Wind and fall into it, namely Atlas and Auras and Tibisis. Through Thrace and the Thracian Crobyzians flow the rivers Athrys and Noes and Artanes, running into the Ister; and from the Paionians and Mount Rhodope the river Kios, 48 cutting through Haimos in the midst, runs into it also. From the Illyrians the river Angros flows Northwards and runs out into the Triballian plain and into the river Brongos, and the Brongos flows into the Ister; thus the Ister receives both these, being great rivers. From the region which is above the Ombricans, the river Carpis and another river, the Alpis, flow also towards the North Wind and run into it; for the Ister flows in fact through the whole of Europe, beginning in the land of the Keltoi, who after the Kynesians dwell furthest towards the sun-setting of all the peoples of Europe; and thus flowing through all Europe it falls into the sea by the side of Scythia.
+
+To whom the three Temenid brothers fled out of Argos.
 
 ## modern-en · croesus · 6:0
 
@@ -8832,7 +9468,7 @@ Son of Ithamitres, commander of the Pactyes.
 
 The Arians were equipped with Median bows, and in other respects like the Bactrians; their commander was Sisamnes son of Hydarnes. The Parthians, Chorasmians, Sogdians, Gandarians, and Dadicae served with the same equipment as the Bactrians. Their commanders were Artabazus son of Pharnaces over the Parthians and Chorasmians; Azanes son of Artaeus over the Sogdians; and Artyphius son of Artabanus over the Gandarians and Dadicae. The Caspians served wearing skin coats and carrying native reed bows and short swords; such was their equipment, and they acknowledged as their leader Ariomardus, the brother of Artyphius. The Sarangae were conspicuous among the rest for their brightly dyed garments; they wore boots reaching to the knee and carried Median bows and spears. Their commander was Pherendates son of Megabazus. The Pactyes wore skin coats and carried native bows and daggers; they acknowledged as their commander Artayntes son of Ithamitres.
 
-Artayntes’s father, and a commander in the fleet of the last two books.
+Artayntes’s father, named once in the catalogue.
 
 ## modern-en · arsamenes · 1091:0
 
@@ -10039,3 +10675,639 @@ Father of the Tritantaechmes who held Babylon. Not the general of this war.
 As to the resources of the Babylonians — how great they are — I shall show by many other proofs, and among them by this: For the support of the great king and his army, apart from the regular tribute, the whole land of which he is ruler has been distributed into portions. Now whereas twelve months make up the year, for four of these he has his support from the territory of Babylon, and for the remaining eight months from the whole of the rest of Asia. Thus the Assyrian land is, in regard to resources, the third part of all Asia; and the government, or satrapy (as it is called by the Persians), of this territory is by far the best of all the governments. Indeed, when Tritantaichmes son of Artabazos had this province from the king, there came in to him every day an artab full of silver coin (now the artab is a Persian measure and holds more than the medimnos of Attica by three Attic choinikes). And of horses he had in this province as his private property, apart from the horses for use in war, eight hundred stallions and sixteen thousand mares, for each of these stallions served twenty mares. Of Indian hounds, moreover, such a vast number were kept that four large villages in the plain, being free from other contributions, had been appointed to provide food for the hounds.
 
 Satrap of Babylon, whose province was the best of all the governments: an artaba of silver a day, and eight hundred stallions besides the mares. Not Artabanus’s son.
+
+## modern-en · eurybiades · 1262:0
+
+These were those who joined the expedition to Artemisium, and I have listed them by the number of ships they each supplied. So the number of ships assembled at Artemisium (apart from the fifty-oared galleys) was 271; and the commander holding supreme authority was provided by the Spartans — namely Eurybiades son of Eurycleides — since the allies said they would not follow Athenian leadership, and unless a Lacedaemonian were leader they would break up the expedition that was to be undertaken.
+
+Eurycleides’s son, the Spartan given supreme command because the allies would not follow Athenian leadership. Bribed by Themistocles to stay at Artemisium and talked by him into staying at Salamis, he was given the prize of valour at Sparta — and he would not break the bridges, on the argument that a Persian shut into Europe would be far more dangerous than a Persian running home.
+
+## modern-en · eurycleides · 1262:0
+
+These were those who joined the expedition to Artemisium, and I have listed them by the number of ships they each supplied. So the number of ships assembled at Artemisium (apart from the fifty-oared galleys) was 271; and the commander holding supreme authority was provided by the Spartans — namely Eurybiades son of Eurycleides — since the allies said they would not follow Athenian leadership, and unless a Lacedaemonian were leader they would break up the expedition that was to be undertaken.
+
+Eurybiades’s father.
+
+## modern-en · adeimantus-corinth · 1265:0
+
+Themistocles induced the Greeks to stay in this way: to Eurybiades he passed five talents of the sum, pretending that the money came from himself. When Eurybiades had been persuaded by him to change his mind, Adeimantos son of Okytos, the Corinthian commander, was the only one of all the others who still held out, saying that he would sail away from Artemisium and not stay with the rest. To him, then, Themistocles said with an oath: “You at least shall not leave us, for I will give you greater gifts than the king of the Medes would send you if you deserted your allies.” So saying, he at the same time sent three talents of silver to Adeimantos's ship. So all these had been persuaded by gifts to change their minds, the Euboeans' request had been met, and Themistocles himself made money on the side. It was not known that he had kept the rest of the money; those who received a share of it were fully convinced it had come from the Athenian state for this purpose.
+
+Son of Ocytus and commander of the Corinthians, the last man to be bought at Artemisium and Themistocles’s loudest enemy at Salamis — he told him that men who start before the signal get beaten with rods, and that a man without a city had no vote. The Athenians said he fled the battle; the Corinthians denied it, and the rest of Greece took their side.
+
+## modern-en · okytos · 1265:0
+
+Themistocles induced the Greeks to stay in this way: to Eurybiades he passed five talents of the sum, pretending that the money came from himself. When Eurybiades had been persuaded by him to change his mind, Adeimantos son of Okytos, the Corinthian commander, was the only one of all the others who still held out, saying that he would sail away from Artemisium and not stay with the rest. To him, then, Themistocles said with an oath: “You at least shall not leave us, for I will give you greater gifts than the king of the Medes would send you if you deserted your allies.” So saying, he at the same time sent three talents of silver to Adeimantos's ship. So all these had been persuaded by gifts to change their minds, the Euboeans' request had been met, and Themistocles himself made money on the side. It was not known that he had kept the rest of the money; those who received a share of it were fully convinced it had come from the Athenian state for this purpose.
+
+Adeimantus of Corinth’s father.
+
+## modern-en · mnesiphilos · 1317:0
+
+When Themistocles had come to his ship, Mnesiphilos, an Athenian, asked him what they had decided. On being told that they had resolved to take the ships out to the Isthmus and fight a sea-battle in defense of the Peloponnese, he said: “Then if they set sail with the ships from Salamis, you will fight no more sea-battles at all for your fatherland — for they will each make off to their own cities, and neither Eurybiades nor anyone else will be able to hold them or prevent the fleet from being scattered; and Greece will perish through bad counsel. But if there is any means by which you can do it, go and try to upset what has been decided, in the hope of persuading Eurybiades to change his plans and stay here.”
+
+The Athenian who, hearing that the fleet meant to leave Salamis, told Themistocles to go and get the decision reversed. Themistocles put the argument to Eurybiades as his own.
+
+## modern-en · aristides · 1339:0
+
+While the commanders were quarreling, Aristides son of Lysimachos came across from Aegina — an Athenian who had been ostracized by the people, a man whom I hold (based on what I hear of his character) to have been the best and most upright of all Athenians. He came into the council and called out Themistocles, who was no friend but an enemy of the deepest kind; yet because of the magnitude of the present troubles he let those matters be forgotten and summoned him, wishing to speak with him. He had heard beforehand that the Peloponnesians were pressing to take the ships off to the Isthmus. So when Themistocles came out to him, Aristides said: “Both at other times when occasion arises, and especially now, we ought to compete as to which of us will do more service to our country. Now, I tell you that it is indifferent whether the Peloponnesians say many words or few about sailing away from here; for I have been an eye-witness, and I tell you that now, even if the Corinthians and Eurybiades himself wish to sail out, they will not be able to — for we are surrounded by the enemy. Go inside, then, and inform them of this.”
+
+Lysimachus’s son, ostracised by his own people and, in Herodotus’s judgement, the best and most upright man in Athens. He crossed from Aegina through the blockade to tell his enemy Themistocles that the Greeks were surrounded, and cleared Psyttaleia of Persians with his hoplites.
+
+## modern-en · lysimachos · 1339:0
+
+While the commanders were quarreling, Aristides son of Lysimachos came across from Aegina — an Athenian who had been ostracized by the people, a man whom I hold (based on what I hear of his character) to have been the best and most upright of all Athenians. He came into the council and called out Themistocles, who was no friend but an enemy of the deepest kind; yet because of the magnitude of the present troubles he let those matters be forgotten and summoned him, wishing to speak with him. He had heard beforehand that the Peloponnesians were pressing to take the ships off to the Isthmus. So when Themistocles came out to him, Aristides said: “Both at other times when occasion arises, and especially now, we ought to compete as to which of us will do more service to our country. Now, I tell you that it is indifferent whether the Peloponnesians say many words or few about sailing away from here; for I have been an eye-witness, and I tell you that now, even if the Corinthians and Eurybiades himself wish to sail out, they will not be able to — for we are surrounded by the enemy. Go inside, then, and inform them of this.”
+
+Aristides’s father.
+
+## modern-en · sikinnos · 1335:0
+
+Then Themistocles, when his opinion was about to be defeated by the Peloponnesians, slipped secretly out of the assembly, and once outside sent a man in a boat to the Median camp, charging him with what to say. This man's name was Sikinnos; he was a servant of Themistocles and tutor to his children. After these events Themistocles enrolled him as a Thespian citizen, when the Thespians were admitting new citizens, and made him a wealthy man. At this time he came in a boat and said to the barbarian commanders these words: “The commander of the Athenians has sent me privately, without the knowledge of the other Greeks (for, as it happens, he is disposed to the king's cause and prefers that your side should win rather than the Greeks'), to inform you that the Greeks are planning to take flight, struck with dismay. Now you can accomplish a most noble deed, if you do not let them escape — for they are not of one mind with one another and will not stand against you in battle, but you will see them fighting a sea-battle among themselves, those who favor your side against those who do not.”
+
+Themistocles’s servant and his children’s tutor, sent twice across to the Persians with a lie: first that the Greeks meant to run, which brought on the battle, and then that Themistocles had held the Greeks back from the bridges. He was made a Thespian citizen and a rich man for it.
+
+## modern-en · timodemos · 1384:0
+
+However, when he had come to Athens from Lacedaemon, Timodemos of Aphidnai, one of Themistocles's opponents but otherwise not among the men of distinction, maddened with envy, attacked him, bringing up his trip to Lacedaemon and saying that it was because of Athens that he had received those marks of honor from the Lacedaemonians, not on his own account. As Timodemos kept on repeating this, Themistocles said: “I tell you how it is: if I had been a native of Belbina, I would never have been honored this way by the Spartans; but neither would you have been, my friend — for all that you are an Athenian.” So far, then, went these matters.
+
+Of Aphidnae, who told Themistocles that his honours at Sparta were Athens’s doing and not his own — and was told that if Themistocles had been a man of Belbina he would have had none, and neither would Timodemus, Athenian though he was.
+
+## modern-en · skyllias · 1268:0
+
+During this time, while they were counting their ships, the following happened. In that camp there was a man of Skione named Skyllias, the best diver of all men in his day, who had also saved many goods for the Persians in the shipwreck at Pelion and had acquired many for himself as well. This Skyllias, it appears, had had the intention even before this of deserting to the Greek side, but up to that point had not found it possible. In what manner he actually came over to the Greeks after this attempt, I cannot say for certain, but I am astonished if the story is true that is reported: it is said that he dove into the sea at Aphetai and did not come up until he reached Artemisium, having traversed somewhere about eighty furlongs through the sea. There are several other tales told about this man that seem likely to be false, but some also true. Regarding this matter, let it be stated as my opinion that he came to Artemisium in a boat. When he arrived, he at once informed the commanders about the shipwreck — how it had happened — and about the ships that had been sent off to sail around Euboea.
+
+The best diver of his day, of Scione, who deserted from the Persians at Aphetae and brought the Greeks word of the shipwreck and of the two hundred ships sent round Euboea. The story that he swam the eighty furlongs under water Herodotus does not believe.
+
+## modern-en · philaon · 1271:0
+
+Meanwhile the Greeks, when the signal was given, first placed themselves with prows facing the barbarians and drew the sterns of their ships together in the middle; and when the signal was given a second time, although shut into a small space and facing prow to prow, they set to work vigorously; and they captured thirty barbarian ships, along with Philaon son of Chersis, the brother of Gorgos king of Salamis, a man of great standing in the army. The first of the Greeks to capture an enemy ship was an Athenian, Lycomedes son of Aischraios, who received the prize for valor. So these, contending in this sea-battle with uncertain result, were parted from each other by the coming on of night. The Greeks sailed back to Artemisium and the barbarians to Aphetai, the contest having turned out very different from their expectations. In this sea-fight Antidoros of Lemnos alone of the Greeks serving with the king deserted to the Greek side, and the Athenians for this deed gave him a piece of land on Salamis.
+
+Chersis’s son and brother of Gorgus king of Salamis, a man of standing in the Persian fleet, taken with the thirty ships captured at Artemisium.
+
+## modern-en · lycomedes · 1271:0
+
+Meanwhile the Greeks, when the signal was given, first placed themselves with prows facing the barbarians and drew the sterns of their ships together in the middle; and when the signal was given a second time, although shut into a small space and facing prow to prow, they set to work vigorously; and they captured thirty barbarian ships, along with Philaon son of Chersis, the brother of Gorgos king of Salamis, a man of great standing in the army. The first of the Greeks to capture an enemy ship was an Athenian, Lycomedes son of Aischraios, who received the prize for valor. So these, contending in this sea-battle with uncertain result, were parted from each other by the coming on of night. The Greeks sailed back to Artemisium and the barbarians to Aphetai, the contest having turned out very different from their expectations. In this sea-fight Antidoros of Lemnos alone of the Greeks serving with the king deserted to the Greek side, and the Athenians for this deed gave him a piece of land on Salamis.
+
+Son of Aischraios, the first Greek to take an enemy ship at Artemisium, and given the prize of valour for it.
+
+## modern-en · aischraios · 1271:0
+
+Meanwhile the Greeks, when the signal was given, first placed themselves with prows facing the barbarians and drew the sterns of their ships together in the middle; and when the signal was given a second time, although shut into a small space and facing prow to prow, they set to work vigorously; and they captured thirty barbarian ships, along with Philaon son of Chersis, the brother of Gorgos king of Salamis, a man of great standing in the army. The first of the Greeks to capture an enemy ship was an Athenian, Lycomedes son of Aischraios, who received the prize for valor. So these, contending in this sea-battle with uncertain result, were parted from each other by the coming on of night. The Greeks sailed back to Artemisium and the barbarians to Aphetai, the contest having turned out very different from their expectations. In this sea-fight Antidoros of Lemnos alone of the Greeks serving with the king deserted to the Greek side, and the Athenians for this deed gave him a piece of land on Salamis.
+
+Lycomedes’s father.
+
+## modern-en · antidorus · 1271:0
+
+Meanwhile the Greeks, when the signal was given, first placed themselves with prows facing the barbarians and drew the sterns of their ships together in the middle; and when the signal was given a second time, although shut into a small space and facing prow to prow, they set to work vigorously; and they captured thirty barbarian ships, along with Philaon son of Chersis, the brother of Gorgos king of Salamis, a man of great standing in the army. The first of the Greeks to capture an enemy ship was an Athenian, Lycomedes son of Aischraios, who received the prize for valor. So these, contending in this sea-battle with uncertain result, were parted from each other by the coming on of night. The Greeks sailed back to Artemisium and the barbarians to Aphetai, the contest having turned out very different from their expectations. In this sea-fight Antidoros of Lemnos alone of the Greeks serving with the king deserted to the Greek side, and the Athenians for this deed gave him a piece of land on Salamis.
+
+Of Lemnos, the only Greek in the king’s fleet to desert at Artemisium; the Athenians gave him land on Salamis for it.
+
+## modern-en · cleinias · 1277:0
+
+In this sea-fight the Egyptians fought best among those serving Xerxes; among their other great deeds, they captured five Greek ships together with their crews. Among the Greeks, those who did best that day were the Athenians, and of the Athenians, Cleinias son of Alkibiades, who was serving with two hundred men and a ship of his own, supplying the expense out of his own pocket.
+
+Son of Alcibiades, who did best of the Athenians in the third day’s fighting, serving with two hundred men and a ship of his own at his own expense.
+
+## modern-en · alkibiades · 1277:0
+
+In this sea-fight the Egyptians fought best among those serving Xerxes; among their other great deeds, they captured five Greek ships together with their crews. Among the Greeks, those who did best that day were the Athenians, and of the Athenians, Cleinias son of Alkibiades, who was serving with two hundred men and a ship of his own, supplying the expense out of his own pocket.
+
+Cleinias’s father.
+
+## modern-en · bakis · 1280:0
+
+For in fact the Euboeans, disregarding the oracle of Bakis as if it had no meaning, had neither carried anything out of their land nor laid in any provisions with a view to a war coming upon them, and by their behavior they had brought trouble on themselves. For the oracle of Bakis concerning these matters runs as follows:
+
+The oracle-monger whose verses the Euboeans ignored — remove the loud-bleating goats when a barbarian yokes the sea with papyrus — and whose lines on Salamis Herodotus will not argue with.
+
+## modern-en · polyas · 1281:0
+
+While they were thus occupied, the scout from Trachis arrived. For at Artemisium there was a scout named Polyas, a native of Antikyra, whose task — if the fleet were disabled — was to signal this to those at Thermopylae, and he had a vessel equipped and ready for this purpose. Similarly, with Leonidas there was Abronichos son of Lysicles, an Athenian, ready to carry news to those at Artemisium in a thirty-oared galley if any disaster should befall the land-army. This Abronichos had now arrived, and he proceeded to report what had happened to Leonidas and his army. Once informed, they no longer put off their retreat, but set out in the order in which they were posted — the Corinthians first, the Athenians last.
+
+Of Anticyra, the scout at Artemisium whose task was to carry word to Thermopylae if the fleet was beaten.
+
+## modern-en · abronichos · 1281:0
+
+While they were thus occupied, the scout from Trachis arrived. For at Artemisium there was a scout named Polyas, a native of Antikyra, whose task — if the fleet were disabled — was to signal this to those at Thermopylae, and he had a vessel equipped and ready for this purpose. Similarly, with Leonidas there was Abronichos son of Lysicles, an Athenian, ready to carry news to those at Artemisium in a thirty-oared galley if any disaster should befall the land-army. This Abronichos had now arrived, and he proceeded to report what had happened to Leonidas and his army. Once informed, they no longer put off their retreat, but set out in the order in which they were posted — the Corinthians first, the Athenians last.
+
+Son of Lysicles, the Athenian who waited at Thermopylae with a thirty-oared galley to carry word to Artemisium, and did.
+
+## modern-en · lysicles · 1281:0
+
+While they were thus occupied, the scout from Trachis arrived. For at Artemisium there was a scout named Polyas, a native of Antikyra, whose task — if the fleet were disabled — was to signal this to those at Thermopylae, and he had a vessel equipped and ready for this purpose. Similarly, with Leonidas there was Abronichos son of Lysicles, an Athenian, ready to carry news to those at Artemisium in a thirty-oared galley if any disaster should befall the land-army. This Abronichos had now arrived, and he proceeded to report what had happened to Leonidas and his army. Once informed, they no longer put off their retreat, but set out in the order in which they were posted — the Corinthians first, the Athenians last.
+
+Abronichus’s father.
+
+## modern-en · ameinias · 1344:0
+
+Then the Greeks launched all their ships, and while they were still putting out from shore, the barbarians attacked them at once. The rest of the Greeks began to back water and were on the point of running their ships aground, but Ameinias of Pallene, an Athenian, drove his ship forward and rammed one of the enemy; and when his ship became entangled in combat and the crew could not get free, the others joined in the fight to assist him. The Athenians say this was how the battle began; but the Aeginetans say it was the ship that had gone to Aegina to bring back the sons of Aiacos that started the fight. It is also reported that an apparition of a woman appeared to them, and having appeared she urged them on to the fight so loudly that the entire Greek army heard her, first reproaching them with these words: “Madmen! How much further will you keep backing your ships?”
+
+Of Pallene, the Athenian who drove his ship out first and rammed the enemy — the Athenians say the battle began with him — and who chased Artemisia without knowing who was aboard. Ten thousand drachmas had been offered for her alive.
+
+## modern-en · eumenes · 1352:0
+
+In this sea-battle, the Aeginetans were reported as the best of the Greeks, and next to them the Athenians. Of individuals, the most distinguished were Polycritos the Aeginetan, and the Athenians Eumenes of Anagyrus and Ameinias of Pallene — the one who had pursued Artemisia. Had he known she was aboard that ship, he would not have given up until he had either captured her or been captured himself; for orders had been issued to the Athenian captains, and a prize of ten thousand drachmas had been offered for whoever should take her alive, since they thought it intolerable that a woman should march an expedition against Athens. She, however, as I have said, escaped; and the others whose ships had survived were at Phaleron.
+
+Of Anagyrus, one of the two Athenians most distinguished at Salamis.
+
+## modern-en · polycritos-aegina · 1351:0
+
+Then the ship of Themistocles, in pursuit of an enemy, met that of Polycritos son of Crios the Aeginetan. Polycritos had rammed a Sidonian vessel, the same one that had taken the Aeginetan ship on advance watch at Skiathos, on which had been Pytheas son of Ischenoös — whom the Persians kept aboard, hacked to pieces as he was, in admiration of his valor. The Sidonian ship, then, was captured carrying this man along with the Persians I mentioned, so Pytheas came safely to Aegina. When Polycritos looked at the Athenian ship and saw the sign of the admiral's vessel, he shouted out, addressing Themistocles mockingly about the charge that had been brought against the Aeginetans of siding with the Medes, and so reproached him. This taunt Polycritos threw at Themistocles after ramming the Sidonian ship. Meanwhile, those barbarians whose ships had escaped destruction fled and came to Phaleron for shelter under the land-army.
+
+Crius’s son, the most distinguished of the Aeginetans at Salamis, who rammed the Sidonian ship that had taken Pytheas — and shouted across at Themistocles, as he did it, about the charge that Aegina favoured the Medes.
+
+## modern-en · panaitios · 1342:0
+
+While they were still in doubt, a trireme manned by Tenians arrived, deserting from the enemy, commanded by Panaitios son of Sosimenes, which brought them the whole truth. For this deed the Tenians were inscribed at Delphi on the tripod among those who had conquered the barbarians. With this ship deserting at Salamis, and the Lemnian ship that had deserted earlier and come to Artemisium, the Greek naval force reached the complete number of 380 ships — for before this two were still lacking to fill that total.
+
+Son of Sosimenes, commander of the Tenian trireme that deserted at Salamis and brought the Greeks the whole truth. Tenos was written on the tripod at Delphi for it.
+
+## modern-en · sosimenes · 1342:0
+
+While they were still in doubt, a trireme manned by Tenians arrived, deserting from the enemy, commanded by Panaitios son of Sosimenes, which brought them the whole truth. For this deed the Tenians were inscribed at Delphi on the tripod among those who had conquered the barbarians. With this ship deserting at Salamis, and the Lemnian ship that had deserted earlier and come to Artemisium, the Greek naval force reached the complete number of 380 ships — for before this two were still lacking to fill that total.
+
+Panaetius’s father.
+
+## modern-en · theomestor · 1345:0
+
+Opposite the Athenians had been stationed the Phoenicians, for these held the wing toward Eleusis and the west; and opposite the Lacedaemonians were the Ionians, who held the wing extending eastward toward the Piraeus. A few of the latter were deliberately slack in the fight, as Themistocles had urged, but most were not. I could mention the names of many captains who destroyed Greek ships, but I will use no names except those of Theomestor son of Androdamas and Phylacos son of Histiaios, both of Samos — and I mention these and not the rest for this reason: Theomestor was for this deed made tyrant of Samos by the Persians, and Phylacos was recorded as a benefactor of the king and received much land as a reward. The benefactors of the king are called, in the Persian tongue, orosangai.
+
+Son of Androdamas, a Samian who destroyed Greek ships at Salamis and was made tyrant of Samos for it.
+
+## modern-en · androdamas · 1345:0
+
+Opposite the Athenians had been stationed the Phoenicians, for these held the wing toward Eleusis and the west; and opposite the Lacedaemonians were the Ionians, who held the wing extending eastward toward the Piraeus. A few of the latter were deliberately slack in the fight, as Themistocles had urged, but most were not. I could mention the names of many captains who destroyed Greek ships, but I will use no names except those of Theomestor son of Androdamas and Phylacos son of Histiaios, both of Samos — and I mention these and not the rest for this reason: Theomestor was for this deed made tyrant of Samos by the Persians, and Phylacos was recorded as a benefactor of the king and received much land as a reward. The benefactors of the king are called, in the Persian tongue, orosangai.
+
+Theomestor’s father.
+
+## modern-en · phylacos-samos · 1345:0
+
+Opposite the Athenians had been stationed the Phoenicians, for these held the wing toward Eleusis and the west; and opposite the Lacedaemonians were the Ionians, who held the wing extending eastward toward the Piraeus. A few of the latter were deliberately slack in the fight, as Themistocles had urged, but most were not. I could mention the names of many captains who destroyed Greek ships, but I will use no names except those of Theomestor son of Androdamas and Phylacos son of Histiaios, both of Samos — and I mention these and not the rest for this reason: Theomestor was for this deed made tyrant of Samos by the Persians, and Phylacos was recorded as a benefactor of the king and received much land as a reward. The benefactors of the king are called, in the Persian tongue, orosangai.
+
+Son of Histiaeus, the other Samian Herodotus names for destroying Greek ships; he was entered as a benefactor of the king and given much land. The Persians call such men orosangai.
+
+## modern-en · histiaeus-samos · 1345:0
+
+Opposite the Athenians had been stationed the Phoenicians, for these held the wing toward Eleusis and the west; and opposite the Lacedaemonians were the Ionians, who held the wing extending eastward toward the Piraeus. A few of the latter were deliberately slack in the fight, as Themistocles had urged, but most were not. I could mention the names of many captains who destroyed Greek ships, but I will use no names except those of Theomestor son of Androdamas and Phylacos son of Histiaios, both of Samos — and I mention these and not the rest for this reason: Theomestor was for this deed made tyrant of Samos by the Persians, and Phylacos was recorded as a benefactor of the king and received much land as a reward. The benefactors of the king are called, in the Persian tongue, orosangai.
+
+Phylacos of Samos’s father.
+
+## modern-en · ariaramnes-salamis · 1349:0
+
+In the confusion it also happened that some of the Phoenicians whose ships had been destroyed came to the king and accused the Ionians, saying that their ships had been lost through the Ionians' fault, and that the Ionians had been traitors to the cause. Now it turned out that not only did the Ionian commanders not lose their lives, but the Phoenicians who accused them received the reward I shall describe. While the Phoenicians were still speaking, a Samothracian ship rammed an Athenian ship. As the Athenian was being sunk, an Aeginetan vessel came up against the Samothracian and ran it down. Then the Samothracians, skilled javelin-throwers, with their javelins cleared the marines off the ship that had wrecked theirs and then boarded it and took possession. This event saved the Ionians from punishment; for when Xerxes saw they had performed a great exploit, he turned on the Phoenicians (he was exceedingly vexed and disposed to find fault with everyone) and ordered their heads cut off, so that they, having been cowards themselves, should not accuse others who were better men than they. For whenever Xerxes (seated just below the mountain opposite Salamis, called Aigaleos) saw anyone on his side perform a deed of valor in the sea-fight, he would inquire who had done it, and his scribes recorded the ship captain's name with his father's name and his city. Moreover, Ariaramnes, a Persian who was present, shared the fate of the Phoenicians, being their friend. So they proceeded to deal with the Phoenicians.
+
+A Persian present when the Phoenicians accused the Ionians, who was beheaded with them for being their friend. Not the ancestor in Xerxes’s genealogy.
+
+## modern-en · lysistratos · 1355:0
+
+When the sea-fight had broken off, the Greeks towed to Salamis as many of the wrecks as happened still to be about there, and held themselves ready for another sea-battle, expecting the king would still use the ships left intact. But many of the wrecks were caught by the west wind and carried to that part of the Attic coast called Colias — so as to fulfil, besides that other oracle spoken about this sea-battle by Bakis and Musaios, especially, with regard to the wreckage cast up here, what had been uttered in an oracle many years before these events by Lysistratos, an Athenian oracle-monger, which none of the Greeks had noticed:
+
+The Athenian oracle-monger, dead years before, whose one line — the Colian women shall roast their barley with oars — the wreckage on the Attic shore fulfilled.
+
+## modern-en · dicaios · 1325:0
+
+Dicaios son of Theokydes, an Athenian who was in exile and had become of great repute among the Medes at this time, declared that while Xerxes's land-army was ravaging Attica — deserted by the Athenians — he happened to be with Demaratos the Lacedaemonian in the Thriasian plain, and he saw a cloud of dust going up from Eleusis as though raised by a company of about thirty thousand men, and they wondered what men had caused the cloud. Then at once they heard a sound of voices, and Dicaios recognized the sound as the mystic cry “Iacchos!”; but Demaratos, having no knowledge of the sacred rites performed at Eleusis, asked him what was making the sound. He said: “Demaratos, it cannot be otherwise than that some great destruction is about to come upon the king's army. For it is plainly evident, since Attica is deserted, that what utters this sound is of the gods, and is going from Eleusis to help the Athenians and their allies. If it comes down into the Peloponnese, there is danger for the king himself and for the army on the mainland; but if it makes its way toward the ships at Salamis, the king will be in danger of losing his fleet. This feast the Athenians celebrate every year to the Mother and the Daughter; and anyone who wishes, both of them and of the other Greeks, is initiated into the mysteries. The sound of voices you hear is the cry ‘Iacchos!' which they utter at this feast.” To this Demaratos replied: “Keep silent and tell no one else this tale; for if these words of yours are reported to the king, you will surely lose your head, and neither I nor anyone else on earth will be able to save you. Stay quiet; the gods will provide concerning this expedition.” So he advised. After the cloud of dust and the sound of voices, there came a mist which rose aloft and was carried toward Salamis to the camp of the Greeks; and thus (said he) they learned that Xerxes's fleet was destined to be destroyed. Such was the report given by Dicaios son of Theokydes, appealing to Demaratos and others as witnesses.
+
+Son of Theocydes, an Athenian exile of standing among the Medes, who says he stood with Demaratus in the Thriasian plain and saw the dust of thirty thousand men rise from deserted Eleusis and heard the cry of Iacchus — and was told by Demaratus to keep his mouth shut.
+
+## modern-en · theokydes · 1325:0
+
+Dicaios son of Theokydes, an Athenian who was in exile and had become of great repute among the Medes at this time, declared that while Xerxes's land-army was ravaging Attica — deserted by the Athenians — he happened to be with Demaratos the Lacedaemonian in the Thriasian plain, and he saw a cloud of dust going up from Eleusis as though raised by a company of about thirty thousand men, and they wondered what men had caused the cloud. Then at once they heard a sound of voices, and Dicaios recognized the sound as the mystic cry “Iacchos!”; but Demaratos, having no knowledge of the sacred rites performed at Eleusis, asked him what was making the sound. He said: “Demaratos, it cannot be otherwise than that some great destruction is about to come upon the king's army. For it is plainly evident, since Attica is deserted, that what utters this sound is of the gods, and is going from Eleusis to help the Athenians and their allies. If it comes down into the Peloponnese, there is danger for the king himself and for the army on the mainland; but if it makes its way toward the ships at Salamis, the king will be in danger of losing his fleet. This feast the Athenians celebrate every year to the Mother and the Daughter; and anyone who wishes, both of them and of the other Greeks, is initiated into the mysteries. The sound of voices you hear is the cry ‘Iacchos!' which they utter at this feast.” To this Demaratos replied: “Keep silent and tell no one else this tale; for if these words of yours are reported to the king, you will surely lose your head, and neither I nor anyone else on earth will be able to save you. Stay quiet; the gods will provide concerning this expedition.” So he advised. After the cloud of dust and the sound of voices, there came a mist which rose aloft and was carried toward Salamis to the camp of the Greeks; and thus (said he) they learned that Xerxes's fleet was destined to be destroyed. Such was the report given by Dicaios son of Theokydes, appealing to Demaratos and others as witnesses.
+
+Dicaeus’s father.
+
+## modern-en · iacchus · 1325:0
+
+Dicaios son of Theokydes, an Athenian who was in exile and had become of great repute among the Medes at this time, declared that while Xerxes's land-army was ravaging Attica — deserted by the Athenians — he happened to be with Demaratos the Lacedaemonian in the Thriasian plain, and he saw a cloud of dust going up from Eleusis as though raised by a company of about thirty thousand men, and they wondered what men had caused the cloud. Then at once they heard a sound of voices, and Dicaios recognized the sound as the mystic cry “Iacchos!”; but Demaratos, having no knowledge of the sacred rites performed at Eleusis, asked him what was making the sound. He said: “Demaratos, it cannot be otherwise than that some great destruction is about to come upon the king's army. For it is plainly evident, since Attica is deserted, that what utters this sound is of the gods, and is going from Eleusis to help the Athenians and their allies. If it comes down into the Peloponnese, there is danger for the king himself and for the army on the mainland; but if it makes its way toward the ships at Salamis, the king will be in danger of losing his fleet. This feast the Athenians celebrate every year to the Mother and the Daughter; and anyone who wishes, both of them and of the other Greeks, is initiated into the mysteries. The sound of voices you hear is the cry ‘Iacchos!' which they utter at this feast.” To this Demaratos replied: “Keep silent and tell no one else this tale; for if these words of yours are reported to the king, you will surely lose your head, and neither I nor anyone else on earth will be able to save you. Stay quiet; the gods will provide concerning this expedition.” So he advised. After the cloud of dust and the sound of voices, there came a mist which rose aloft and was carried toward Salamis to the camp of the Greeks; and thus (said he) they learned that Xerxes's fleet was destined to be destroyed. Such was the report given by Dicaios son of Theokydes, appealing to Demaratos and others as witnesses.
+
+The cry raised at the Eleusinian feast, which Dicaeus heard coming out of an empty country and knew for a god.
+
+## modern-en · tellias · 1287:0
+
+Meanwhile, as soon as the disaster at Thermopylae had happened, the Thessalians at once sent a herald to the Phokians, against whom they had always held a grudge — but especially on account of a recent defeat. For not many years before the king's expedition, when the Thessalians and their allies had invaded Phokis, they had been defeated by the Phokians and handled roughly. The Phokians had been shut up on Mount Parnassos, having with them a soothsayer, Tellias the Elean. This Tellias contrived for them the following stratagem: he took six hundred of the best Phokians and whitened them all over with chalk, both their persons and their armor, and attacked the Thessalians by night, telling the Phokians beforehand to kill every man who was not coated white. The Thessalian sentinels, who saw them first, were terrified, thinking them some strange portent; and after the sentinels, so too was the main body of the army. As a result, the Phokians remained in possession of four thousand slain and their shields — of the shields they dedicated half at Abai and half at Delphi. From the tithe of the spoils taken in this battle were made the large statues contending for the tripod in front of the temple at Delphi, and others like them are dedicated as an offering at Abai.
+
+The Elean soothsayer who whitened six hundred Phocians with chalk, armour and all, and sent them at the Thessalians by night with orders to kill every man not coated white.
+
+## modern-en · akeratos · 1297:0
+
+When the barbarians had come near and could see the temple, the prophet, whose name was Akeratos, saw laid out in front of the sanctuary arms that had been brought forth from within — sacred arms which no man was permitted to touch. He was going to announce this portent to the Delphians who were still there; but when the barbarians, pressing onward, had come opposite the temple of Athena Pronaia, portents happened to them greater still than the one before. For though that too was a marvel, that arms of war should appear of themselves laid out outside the sanctuary, what followed immediately afterwards is worthy of marvel even beyond all other prodigies. When the barbarians in their approach were opposite the temple of Athena Pronaia, at that very moment thunderbolts fell on them from heaven; and from Parnassos two crags broke away and rushed down upon them with a great crashing noise, falling on many of them, while from the temple of Pronaia a shout was heard, and a battle-cry was raised.
+
+The prophet at Delphi who saw the sacred arms carried out of the sanctuary by themselves and laid before it.
+
+## modern-en · phylacos-delphi · 1299:0
+
+These two, the Delphians say, were the local heroes Phylacos and Autonoös, whose sacred precincts stand around the temple — Phylacos's just beside the road above the temple of Pronaia, Autonoös's near Castalia under the peak called Hyampeia. Moreover, the rocks that had fallen from Parnassos were still preserved even in my time, lying in the sacred precinct of Athena Pronaia, into which they fell when they hurtled through the ranks of the barbarians. Such, then, was the departure of these men from the temple.
+
+One of the two local heroes of Delphi whose precincts stand by the temple, and who the Delphians say pursued the barbarians in armour and more than human size.
+
+## modern-en · autonoos · 1299:0
+
+These two, the Delphians say, were the local heroes Phylacos and Autonoös, whose sacred precincts stand around the temple — Phylacos's just beside the road above the temple of Pronaia, Autonoös's near Castalia under the peak called Hyampeia. Moreover, the rocks that had fallen from Parnassos were still preserved even in my time, lying in the sacred precinct of Athena Pronaia, into which they fell when they hurtled through the ranks of the barbarians. Such, then, was the departure of these men from the temple.
+
+The other Delphian hero, whose precinct is near Castalia under Hyampeia.
+
+## modern-en · kecrops · 1163:1
+
+“Pallas cannot prevail to appease great Zeus on Olympus, though with many words and close-woven wiles she beseech him. But I will tell you this more, and clench it with adamantine steel: when all else is taken — whatever the boundary of Cecrops encloses within, and the dark ravines of divinest Cithaeron — a wall of wood at last Zeus grants to the Trito-born goddess, alone to remain unbroken, which shall profit you and your children. Stay not there for the horsemen to come, nor for the countless foot-soldiers; stay not for the host from the mainland, but turn your back to the foe and withdraw; for yet in time you shall face him again. Salamis, thou divine, thou shalt bring sons of women to perish, either when grain is sown or when it is gathered in.”
+
+The Athenian king from whom the Athenians were called Kecropidai, and whose boundary the oracle names; Aglauros was his daughter.
+
+## modern-en · aglauros · 1313:0
+
+In time, however, a way of approach opened up for the barbarians after their difficulties, since by the oracle it was fated that all of Attica on the mainland should fall under the Persians. So it happened that on the front side of the Acropolis, behind the gates and the way up to the entrance, in a place where no one was keeping guard — nor would anyone have supposed a man could climb up that way — men ascended by the temple of Aglauros daughter of Kecrops, though the place is precipitous. When the Athenians saw them climbing up to the Acropolis, some threw themselves down from the wall and perished, while others took refuge in the inner sanctuary of the temple. The Persians who had climbed up first went to the gates, and after opening them proceeded to kill the suppliants. When all had been slain, they plundered the temple and set the whole Acropolis on fire.
+
+Kecrops’s daughter, by whose temple the Persians found the way up the sheer face of the Acropolis.
+
+## modern-en · calliades · 1311:0
+
+So, three months from the crossing of the Hellespont (whence the barbarians began their march, after lingering there one month while they crossed into Europe), they had reached Attica, in the year when Calliades was archon of the Athenians. They took the lower city, which was deserted, and then they found that a few Athenians were still left in the temple — either stewards of the temple or needy persons — who had barred the entrance to the Acropolis with doors and a wooden palisade and were trying to defend themselves against the enemy's attacks. These men had not gone out to Salamis partly because of their poverty, and also because they thought they alone had grasped the meaning of the oracle the Pythian priestess had given — namely that the “wooden bulwark” should be impregnable — and supposed that this palisade, not the ships, was the safe refuge meant by the oracle.
+
+Archon of Athens in the year the city was taken.
+
+## modern-en · telamon · 1324:0
+
+So those at Salamis, after their skirmishing with one another in speech, were now preparing for a sea-battle there, since Eurybiades had so decided. As day was dawning, just when the sun rose, an earthquake was felt both on land and on sea; and they decided to pray to the gods and call on the sons of Aiacos to be their helpers. As they decided, so they did: having prayed to all the gods, they called on Ajax and Telamon to come to their aid from Salamis, where the fleet was, and sent a ship to Aegina to bring back Aiacos himself and the rest of his sons.
+
+Called on with Ajax from Salamis when the Greeks prayed to the sons of Aeacus before the battle.
+
+## modern-en · democritos · 1306:0
+
+Of the islanders, the Aeginetans furnished thirty; they had other ships manned as well, but with those they were guarding their own land, while with the thirty best-sailing ships they joined the sea-fight at Salamis. The Aeginetans are Dorians from Epidauros, and their island was formerly called Oinone. After the Aeginetans came the Chalkidians with the twenty ships they had at Artemisium, and the Eretrians with their seven — both Ionians. Next the Keians, furnishing the same as before, and being Ionians by race from Athens. The Naxians furnished four ships: they had been sent out by their citizens to join the Persians, like the other islanders, but neglecting these orders they had come over to the Greeks, urged on by Democritos, a man of repute among the citizens and at that time commander of a trireme. The Naxians are Ionians originally from Athens. The Styrians furnished the same ships as at Artemisium, and the men of Kythnos one ship and one fifty-oared galley (both being Dryopians). Also the Seriphians, Siphnians, and Melians served with the rest — for they alone of the islanders had not given earth and water to the barbarian.
+
+A man of repute at Naxos and commander of a trireme, who talked the four Naxian ships out of joining the Persians and brought them over to the Greeks.
+
+## modern-en · phaylos · 1307:0
+
+All those who have been named dwelt inside the land of the Thesprotians and the river Acheron — for the Thesprotians border on the land of the Amprakiots and Leucadians, and these came from the greatest distance to serve. But of those who dwell beyond these limits, the men of Croton were the only ones who came to help Greece in her danger, and they sent one ship, whose commander was Phaÿlos, a man who had three times won victories at the Pythian games. The men of Croton are, by descent, Achaians.
+
+Of Croton, three times a victor at the Pythian games, who brought the one ship that came to help Greece from beyond the Thesprotians and the Acheron.
+
+## modern-en · justice · 1337:1
+
+“But when with ships they shall reach the sacred strand of the goddess — Artemis of the golden sword, and you, wave-washed Kynosura — driven by a maddening hope, having given rich Athens to plunder, then shall divine Justice subdue Riot, first-born son of Insolence, who longs to overturn everything and pants terribly for blood. Bronze shall meet bronze, and Ares shall dye the sea, tinting its waves with blood. Then shall come a day of freedom for Greece from far-seeing Zeus and from Victory, lady and mother.”
+
+The power the oracle sets over Riot: when the Persians come to Artemis’s strand she subdues him, and Greece has a day of freedom from Zeus and from Victory.
+
+## modern-en · insolence · 1337:1
+
+“But when with ships they shall reach the sacred strand of the goddess — Artemis of the golden sword, and you, wave-washed Kynosura — driven by a maddening hope, having given rich Athens to plunder, then shall divine Justice subdue Riot, first-born son of Insolence, who longs to overturn everything and pants terribly for blood. Bronze shall meet bronze, and Ares shall dye the sea, tinting its waves with blood. Then shall come a day of freedom for Greece from far-seeing Zeus and from Victory, lady and mother.”
+
+Whose first-born son is Riot.
+
+## modern-en · riot · 1337:1
+
+“But when with ships they shall reach the sacred strand of the goddess — Artemis of the golden sword, and you, wave-washed Kynosura — driven by a maddening hope, having given rich Athens to plunder, then shall divine Justice subdue Riot, first-born son of Insolence, who longs to overturn everything and pants terribly for blood. Bronze shall meet bronze, and Ares shall dye the sea, tinting its waves with blood. Then shall come a day of freedom for Greece from far-seeing Zeus and from Victory, lady and mother.”
+
+Insolence’s first-born son, who longs to overturn everything and pants terribly for blood.
+
+## modern-en · victory · 1337:1
+
+“But when with ships they shall reach the sacred strand of the goddess — Artemis of the golden sword, and you, wave-washed Kynosura — driven by a maddening hope, having given rich Athens to plunder, then shall divine Justice subdue Riot, first-born son of Insolence, who longs to overturn everything and pants terribly for blood. Bronze shall meet bronze, and Ares shall dye the sea, tinting its waves with blood. Then shall come a day of freedom for Greece from far-seeing Zeus and from Victory, lady and mother.”
+
+Lady and mother, from whom with far-seeing Zeus comes the day of freedom for Greece.
+
+## modern-en · persuasion · 1370:0
+
+The Greeks, meanwhile, having resolved not to pursue the barbarians' ships further, nor to sail to the Hellespont to break up the crossing, were besieging Andros, intending to take it. For the Andrians were the first of the islanders who, when asked by Themistocles for money, refused to give it. When Themistocles made his demand and said that the Athenians had come bringing with them two great deities, Persuasion and Compulsion, and that they must therefore by all means give money, they replied that, not without reason, as it now appeared, was Athens great and prosperous, since the Athenians were well supplied with serviceable gods; but as for the Andrians, they were poor, having attained the greatest heights in that regard, and there were two unprofitable gods who never left their island but always remained attached to the place — namely Poverty and Helplessness — and the Andrians, possessed of these deities, would not give money, for the power of the Athenians could never overcome their inability.
+
+One of the two great deities Themistocles said the Athenians had brought with them to Andros, and which the Andrians said was why Athens was rich.
+
+## modern-en · compulsion · 1370:0
+
+The Greeks, meanwhile, having resolved not to pursue the barbarians' ships further, nor to sail to the Hellespont to break up the crossing, were besieging Andros, intending to take it. For the Andrians were the first of the islanders who, when asked by Themistocles for money, refused to give it. When Themistocles made his demand and said that the Athenians had come bringing with them two great deities, Persuasion and Compulsion, and that they must therefore by all means give money, they replied that, not without reason, as it now appeared, was Athens great and prosperous, since the Athenians were well supplied with serviceable gods; but as for the Andrians, they were poor, having attained the greatest heights in that regard, and there were two unprofitable gods who never left their island but always remained attached to the place — namely Poverty and Helplessness — and the Andrians, possessed of these deities, would not give money, for the power of the Athenians could never overcome their inability.
+
+The other, brought to Andros in the same ship.
+
+## modern-en · poverty · 1370:0
+
+The Greeks, meanwhile, having resolved not to pursue the barbarians' ships further, nor to sail to the Hellespont to break up the crossing, were besieging Andros, intending to take it. For the Andrians were the first of the islanders who, when asked by Themistocles for money, refused to give it. When Themistocles made his demand and said that the Athenians had come bringing with them two great deities, Persuasion and Compulsion, and that they must therefore by all means give money, they replied that, not without reason, as it now appeared, was Athens great and prosperous, since the Athenians were well supplied with serviceable gods; but as for the Andrians, they were poor, having attained the greatest heights in that regard, and there were two unprofitable gods who never left their island but always remained attached to the place — namely Poverty and Helplessness — and the Andrians, possessed of these deities, would not give money, for the power of the Athenians could never overcome their inability.
+
+One of the two unprofitable gods the Andrians said never leave their island — which is why they would give Themistocles no money.
+
+## modern-en · helplessness · 1370:0
+
+The Greeks, meanwhile, having resolved not to pursue the barbarians' ships further, nor to sail to the Hellespont to break up the crossing, were besieging Andros, intending to take it. For the Andrians were the first of the islanders who, when asked by Themistocles for money, refused to give it. When Themistocles made his demand and said that the Athenians had come bringing with them two great deities, Persuasion and Compulsion, and that they must therefore by all means give money, they replied that, not without reason, as it now appeared, was Athens great and prosperous, since the Athenians were well supplied with serviceable gods; but as for the Andrians, they were poor, having attained the greatest heights in that regard, and there were two unprofitable gods who never left their island but always remained attached to the place — namely Poverty and Helplessness — and the Andrians, possessed of these deities, would not give money, for the power of the Athenians could never overcome their inability.
+
+The other Andrian god.
+
+## modern-en · hermotimos · 1363:0
+
+With these sons he sent Hermotimos to take charge of them, a man of the Pedasan race who, in the king's estimation, was second to none of the eunuchs. (The Pedasians dwell above Halicarnassus, and at this Pedasa a thing happens as follows: whenever some trouble is about to come upon the whole number of those who dwell around the city within a certain time, then the priestess of Athena there grows a long beard. This has happened to them twice before now.
+
+The eunuch of Pedasa, first of Xerxes’s eunuchs, who was sent to escort the king’s sons to Ephesus — and who took the greatest revenge for a wrong that Herodotus knows of: he found the man who had castrated him, coaxed his whole household into his hands, and made him castrate his four sons and then be castrated by them.
+
+## modern-en · panionios · 1364:0
+
+Of these Pedasians was Hermotimos.) This man, of all persons whom we know up to this time, obtained the greatest revenge for a wrong done to him. He had been captured by enemies and was being sold, and Panionios, a man of Chios, bought him — a man who had made a livelihood by the most impious practices: whenever he obtained boys who possessed some beauty, he would castrate them and then, taking them to Sardis or Ephesus, sell them for large sums of money, since among the barbarians eunuchs are held to be of more value for all matters of trust than men who are not eunuchs. Panionios, then, castrated many others, since that was how he made his living, and also this man of whom I speak. Yet Hermotimos, not in every respect unfortunate, was sent from Sardis to the king among other gifts, and as time went on, he came to be more honored than all the other eunuchs in the sight of Xerxes.
+
+Of Chios, who made his living buying beautiful boys, castrating them, and selling them at Sardis and Ephesus for large sums. Hermotimus was one of them.
+
+## modern-en · critobulos · 1386:0
+
+So Artabazos began to besiege Potidaia, and suspecting that the men of Olynthos were also intending to revolt from the king, he began to besiege this city too, which was held by Bottiaians who had been driven from the Thermaian gulf by the Macedonians. When he had taken these men by siege, he led them out to a lake and slaughtered them there; he then handed the city over to the charge of Critobulos of Torone and to the native Chalcidians. Thus it was that the Chalcidians came into possession of Olynthos.
+
+Of Torone, to whom Artabazus handed Olynthus after slaughtering its Bottiaeans at a lake.
+
+## modern-en · timoxeinos · 1387:0
+
+Having taken this city, Artabazos set about attacking Potidaia with vigor; and as he was pressing the work hard, Timoxeinos the commander of the troops from Skione arranged with him to hand the town over by treachery. By what means he did this at first, I cannot say, as it is not reported; but at last it came about as follows. Whenever either Timoxeinos wrote a note to send to Artabazos, or Artabazos wished to send one to Timoxeinos, they would wind it around the finger-notches of an arrow, cover the note with feathers, and shoot it to a spot agreed between them. It came to be discovered, however, that Timoxeinos was trying to betray Potidaia: for Artabazos, shooting an arrow at the agreed spot, missed and struck a man of Potidaia in the shoulder; when he was struck, a crowd gathered around him, as tends to happen in fighting, and they at once seized the arrow, discovered the note, and carried it to the commanders. Now an allied force of other men of Pallene was also present. When the commanders had read the note and discovered who was guilty of the treachery, they resolved not to convict Timoxeinos openly of treachery, for the sake of the city of Skione — lest the men of Skione should be regarded as traitors for all time to come.
+
+Commander of the men of Scione, who arranged to betray Potidaea to Artabazus by notes wound round the notches of an arrow — until Artabazus missed his mark and hit a man of Potidaea in the shoulder. The commanders would not convict him openly, for the sake of Scione’s name.
+
+## modern-en · artayntes-samos · 1389:0
+
+What remained of Xerxes's fleet, once it had reached Asia in its flight from Salamis and had ferried the king and his army from the Chersonese to Abydos, passed the winter at Kyme. At the dawn of spring it assembled early at Samos, where some of the ships had in fact spent the winter. Most of the Persians and Medes still served as fighting men on board. New commanders arrived: Mardontes son of Bagaios and Artaÿntes son of Artachaies, with whom Ithamitres was also in joint command, being a brother's son to Artaÿntes and added by Artaÿntes's own choice. Having taken a heavy blow, they did not advance further to the west, nor did anyone compel them to; but they stayed where they were at Samos, keeping watch over Ionia lest it revolt, with three hundred ships (Ionian ships included). They did not expect that the Greeks would come to Ionia, thinking it would satisfy them to guard their own land — judging from the fact that the Greeks had not pursued them in their flight from Salamis, but were well content to depart for home. At sea, then, their spirit was broken; but on land they thought Mardonius would have much the advantage. So, being at Samos, they were taking counsel to do what damage they could to their enemies, while also listening for news of how Mardonius's affairs would turn out.
+
+Son of Artachaees, one of the new commanders sent down to the fleet at Samos in the spring, who took his brother’s son Ithamitres into joint command with him. Not the commander of the Pactyes, who was Ithamitres’s son.
+
+## modern-en · ithamitres-samos · 1389:0
+
+What remained of Xerxes's fleet, once it had reached Asia in its flight from Salamis and had ferried the king and his army from the Chersonese to Abydos, passed the winter at Kyme. At the dawn of spring it assembled early at Samos, where some of the ships had in fact spent the winter. Most of the Persians and Medes still served as fighting men on board. New commanders arrived: Mardontes son of Bagaios and Artaÿntes son of Artachaies, with whom Ithamitres was also in joint command, being a brother's son to Artaÿntes and added by Artaÿntes's own choice. Having taken a heavy blow, they did not advance further to the west, nor did anyone compel them to; but they stayed where they were at Samos, keeping watch over Ionia lest it revolt, with three hundred ships (Ionian ships included). They did not expect that the Greeks would come to Ionia, thinking it would satisfy them to guard their own land — judging from the fact that the Greeks had not pursued them in their flight from Salamis, but were well content to depart for home. At sea, then, their spirit was broken; but on land they thought Mardonius would have much the advantage. So, being at Samos, they were taking counsel to do what damage they could to their enemies, while also listening for news of how Mardonius's affairs would turn out.
+
+Artayntes of Samos’s brother’s son, added to the joint command by Artayntes himself. Not the Ithamitres whose son commanded the Pactyes.
+
+## modern-en · artachaees-father-of-artayntes · 1389:0
+
+What remained of Xerxes's fleet, once it had reached Asia in its flight from Salamis and had ferried the king and his army from the Chersonese to Abydos, passed the winter at Kyme. At the dawn of spring it assembled early at Samos, where some of the ships had in fact spent the winter. Most of the Persians and Medes still served as fighting men on board. New commanders arrived: Mardontes son of Bagaios and Artaÿntes son of Artachaies, with whom Ithamitres was also in joint command, being a brother's son to Artaÿntes and added by Artaÿntes's own choice. Having taken a heavy blow, they did not advance further to the west, nor did anyone compel them to; but they stayed where they were at Samos, keeping watch over Ionia lest it revolt, with three hundred ships (Ionian ships included). They did not expect that the Greeks would come to Ionia, thinking it would satisfy them to guard their own land — judging from the fact that the Greeks had not pursued them in their flight from Salamis, but were well content to depart for home. At sea, then, their spirit was broken; but on land they thought Mardonius would have much the advantage. So, being at Samos, they were taking counsel to do what damage they could to their enemies, while also listening for news of how Mardonius's affairs would turn out.
+
+Artayntes’s father, named once in the new commands at Samos. Herodotus does not say whether he is the Achaemenid who dug the channel through Athos.
+
+## modern-en · herodotus-of-chios · 1391:0
+
+When all the ships had reached Aegina, Ionian envoys came to the Greek camp who had also come a short time before this to Sparta, asking the Lacedaemonians to set Ionia free; one of them was Herodotos son of Basileides. These men had banded together and plotted to put to death Strattis, tyrant of Chios — they were originally seven in number; but when one of their accomplices informed on them and they were discovered plotting against him, the remaining six escaped from Chios and came both to Sparta and now to Aegina, asking the Greeks to sail over to Ionia. But the Greeks brought them forward only with difficulty as far as Delos, since what lay beyond was all fearful to them, lacking experience of those regions — everything seemed to them to be filled with armed force, and they were convinced that Samos was as long a voyage away as the Pillars of Heracles. So it happened that at the same time, the barbarians dared sail no further west than Samos, being struck with fear, and the Greeks dared sail no further east than Delos, though the Chians pleaded with them. Thus fear guarded the space between them.
+
+Son of Basileides, one of the seven Chians who plotted to kill Strattis and one of the six who got away — an envoy to Sparta and to Aegina asking the Greeks to set Ionia free. The two editions spell him Herodotus and Herodotos, as they spell the historian.
+
+## modern-en · basileides · 1391:0
+
+When all the ships had reached Aegina, Ionian envoys came to the Greek camp who had also come a short time before this to Sparta, asking the Lacedaemonians to set Ionia free; one of them was Herodotos son of Basileides. These men had banded together and plotted to put to death Strattis, tyrant of Chios — they were originally seven in number; but when one of their accomplices informed on them and they were discovered plotting against him, the remaining six escaped from Chios and came both to Sparta and now to Aegina, asking the Greeks to sail over to Ionia. But the Greeks brought them forward only with difficulty as far as Delos, since what lay beyond was all fearful to them, lacking experience of those regions — everything seemed to them to be filled with armed force, and they were convinced that Samos was as long a voyage away as the Pillars of Heracles. So it happened that at the same time, the barbarians dared sail no further west than Samos, being struck with fear, and the Greeks dared sail no further east than Delos, though the Chians pleaded with them. Thus fear guarded the space between them.
+
+Herodotus of Chios’s father.
+
+## modern-en · mys · 1392:0
+
+The Greeks, then, sailed to Delos; and meanwhile Mardonius had been wintering in Thessaly. From there he sent round a man, a native of Europos named Mys, to the various oracles, charging him to go everywhere to consult them, wherever it was permitted to put the oracles to the test. What he wished to learn from the oracles when he gave this commission, I cannot say, for it is not reported; but I for my part suppose he sent to consult about his present affairs, not about other matters.
+
+The man of Europus whom Mardonius sent round every oracle in Greece. At the Ptoan shrine the prophet answered in a barbarian tongue; the Thebans stood there baffled, and Mys snatched their tablet and wrote it down himself, saying it was Carian.
+
+## modern-en · trophonios · 45:1
+
+Having formed this design, he began at once to test the Oracles—both those of the Greeks and the one in Libya—sending messengers, some to one place and some to another: some to go to Delphi, others to Abae of the Phocians, and others to Dodona; and some were sent to the shrine of Amphiaraus and to that of Trophonius, while others went to Branchidae in the land of Miletus. These are the Oracles of the Greeks to which Croesus sent messengers to seek divination. And others he sent to the shrine of Ammon in Libya to inquire there. Now he was sending these messengers abroad in order to test the Oracles and find out what knowledge they had, so that if they should be found to possess knowledge of the truth, he might send a second time and ask them whether he should attempt to march against the Persians.
+
+Whose oracle at Lebadeia Mys had a local man go down to.
+
+## modern-en · perdiccas · 783:0
+
+Thus the death of these Persians was kept hidden. And that these descendants of Perdiccas are Hellenes, as they themselves say, I happen to know for myself; and not only that, I will prove in the subsequent narrative that they are Hellenes. Moreover, the Hellanodicae, who manage the Olympic games, decided that they were so. For when Alexander wished to compete in the games and had gone down into the arena for this purpose, the Hellenes who were to run against him tried to exclude him, saying that the contest was not for barbarians to enter but for Hellenes. Since, however, Alexander proved that he was of Argos, he was judged a Hellene, and when he entered the foot-race his lot came out in a dead heat with the first.
+
+The youngest of the three Temenid brothers, who took the king of Lebaia’s wages by drawing his knife round the sunlight on the floor and gathering it three times into his bosom — and became the first tyrant of the Macedonians.
+
+## modern-en · temenus · 1396:0
+
+Now the seventh ancestor of this Alexander was that Perdiccas who first became tyrant of the Macedonians, in the following manner. From Argos three brothers descended from Temenos fled to the Illyrians — Gauanes, Aëropos, and Perdiccas. Passing from the Illyrians into upper Macedonia, they came to the city of Lebaia, where they became hired farm servants in the king's household — one pasturing horses, the second oxen, and the youngest, Perdiccas, the smaller cattle. For in ancient times even those who ruled over men were poor in money, not only the common people, and the king's wife herself cooked their food. Whenever she baked, the loaf of the boy servant, Perdiccas, would grow to double its natural size. This kept happening in the same way, and she told her husband; when he heard it, he at once conceived it to be a portent pointing to something great. He summoned the farm servants and told them to depart from his land; they replied that it was only right that before leaving they should receive the wages due to them. As it happened, the sun was shining down into the house through the smoke hole, and the king, hearing about the wages, said, struck with divine folly: “I pay you, then, this as your wages — just what you deserve,” pointing to the sunlight. Gauanes and Aëropos, the elder brothers, stood stunned at hearing this, but the boy, who happened to have a knife in his hand, said: “We accept, O king, what you give us.” He traced a line with his knife around the sunlight on the floor of the house, and having drawn the line around, he three times drew the sunlight into his bosom, and then he and his fellows departed.
+
+The Argive from whom the Macedonian kings descend.
+
+## modern-en · gauanes · 1396:0
+
+Now the seventh ancestor of this Alexander was that Perdiccas who first became tyrant of the Macedonians, in the following manner. From Argos three brothers descended from Temenos fled to the Illyrians — Gauanes, Aëropos, and Perdiccas. Passing from the Illyrians into upper Macedonia, they came to the city of Lebaia, where they became hired farm servants in the king's household — one pasturing horses, the second oxen, and the youngest, Perdiccas, the smaller cattle. For in ancient times even those who ruled over men were poor in money, not only the common people, and the king's wife herself cooked their food. Whenever she baked, the loaf of the boy servant, Perdiccas, would grow to double its natural size. This kept happening in the same way, and she told her husband; when he heard it, he at once conceived it to be a portent pointing to something great. He summoned the farm servants and told them to depart from his land; they replied that it was only right that before leaving they should receive the wages due to them. As it happened, the sun was shining down into the house through the smoke hole, and the king, hearing about the wages, said, struck with divine folly: “I pay you, then, this as your wages — just what you deserve,” pointing to the sunlight. Gauanes and Aëropos, the elder brothers, stood stunned at hearing this, but the boy, who happened to have a knife in his hand, said: “We accept, O king, what you give us.” He traced a line with his knife around the sunlight on the floor of the house, and having drawn the line around, he three times drew the sunlight into his bosom, and then he and his fellows departed.
+
+One of Perdiccas’s two elder brothers, who stood stunned when the king offered them the sunlight.
+
+## modern-en · aeropos-brother · 1396:0
+
+Now the seventh ancestor of this Alexander was that Perdiccas who first became tyrant of the Macedonians, in the following manner. From Argos three brothers descended from Temenos fled to the Illyrians — Gauanes, Aëropos, and Perdiccas. Passing from the Illyrians into upper Macedonia, they came to the city of Lebaia, where they became hired farm servants in the king's household — one pasturing horses, the second oxen, and the youngest, Perdiccas, the smaller cattle. For in ancient times even those who ruled over men were poor in money, not only the common people, and the king's wife herself cooked their food. Whenever she baked, the loaf of the boy servant, Perdiccas, would grow to double its natural size. This kept happening in the same way, and she told her husband; when he heard it, he at once conceived it to be a portent pointing to something great. He summoned the farm servants and told them to depart from his land; they replied that it was only right that before leaving they should receive the wages due to them. As it happened, the sun was shining down into the house through the smoke hole, and the king, hearing about the wages, said, struck with divine folly: “I pay you, then, this as your wages — just what you deserve,” pointing to the sunlight. Gauanes and Aëropos, the elder brothers, stood stunned at hearing this, but the boy, who happened to have a knife in his hand, said: “We accept, O king, what you give us.” He traced a line with his knife around the sunlight on the floor of the house, and having drawn the line around, he three times drew the sunlight into his bosom, and then he and his fellows departed.
+
+The other brother.
+
+## modern-en · aeropos-father-of-alketes · 1398:0
+
+From this Perdiccas, Alexander's descent was as follows: Alexander was the son of Amyntas; Amyntas son of Alketes; the father of Alketes was Aëropos; of him Philip; of Philip Argaios; and his father was Perdiccas, who first obtained the kingdom.
+
+Alcetes’s father in the descent from Perdiccas — a later man of the same name.
+
+## modern-en · alketes · 1398:0
+
+From this Perdiccas, Alexander's descent was as follows: Alexander was the son of Amyntas; Amyntas son of Alketes; the father of Alketes was Aëropos; of him Philip; of Philip Argaios; and his father was Perdiccas, who first obtained the kingdom.
+
+Amyntas’s father.
+
+## modern-en · philip-macedon · 1398:0
+
+From this Perdiccas, Alexander's descent was as follows: Alexander was the son of Amyntas; Amyntas son of Alketes; the father of Alketes was Aëropos; of him Philip; of Philip Argaios; and his father was Perdiccas, who first obtained the kingdom.
+
+Aëropos’s father in the Macedonian descent.
+
+## modern-en · argaios · 1398:0
+
+From this Perdiccas, Alexander's descent was as follows: Alexander was the son of Amyntas; Amyntas son of Alketes; the father of Alketes was Aëropos; of him Philip; of Philip Argaios; and his father was Perdiccas, who first obtained the kingdom.
+
+Philip’s father, and Perdiccas’s son.
+
+## modern-en · amyntas-asia · 1395:0
+
+Mardonius, having read whatever the oracles uttered, then sent Alexander son of Amyntas, the Macedonian, as an envoy to Athens — both because the Persians were connected with him by marriage (for Gygaia, Alexander's sister and daughter of Amyntas, had been married to a Persian, Bubares, and from her had been born to him that Amyntas who lived in Asia, bearing the name of his mother's father, to whom the king had given Alabanda, a great city of Phrygia, as his possession) — and also because Mardonius had been informed that Alexander was a public guest-friend and benefactor of the Athenians. By this means he thought he would be most likely to gain the Athenians over to his side — a people he heard was numerous and brave in war, and whom he also knew had done more than any others to bring about the disasters the Persians had suffered at sea. Therefore, if these were added to him, he thought he would easily gain command of the sea (which would indeed have been the case), while on land he supposed himself already much superior in force. So he reckoned that his power would be far greater than that of the Greeks. Perhaps, too, the oracles had told him this beforehand, counseling him to make the Athenian his ally; and so he was sending in obedience to their advice.
+
+Gygaea and Bubares’s son, named after his mother’s father, to whom the king gave Alabanda in Phrygia.
+
+## modern-en · silenus · 1397:0
+
+They then were going away, and one of the king's table-companions told him what the boy had done, and how the youngest of them had received what was given with some purpose. When the king heard this, he was moved with anger and sent horsemen after them to kill them. Now there is a river in that land to which these Argive descendants sacrifice as a savior; for as soon as the sons of Temenos had crossed it, this river began to flow with such great volume of water that the horsemen could not cross. So the brothers, reaching another part of Macedonia, settled near what are called the gardens of Midas son of Gordias, where roses grow wild, each with sixty petals, surpassing all others in fragrance. In these gardens, as the Macedonians tell, Silenos was captured. Above the gardens stands a mountain called Bermion, impassable because of the cold. Having gained that region, they used it as their starting-point and went on to subdue the rest of Macedonia.
+
+Caught, the Macedonians say, in the gardens of Midas where the wild roses have sixty petals each.
+
+## modern-en · hegesilaus-eurypontid · 1390:0
+
+The Greeks, for their part, were stirred up both by the coming of spring and by the presence of Mardonius in Thessaly. Their land-army had not yet begun to assemble when the fleet arrived at Aegina, 110 ships strong, and the commander and admiral was Leotychides son of Menares, son of Hegesilaos, son of Hippocratides, son of Leotychides, son of Anaxilaos, son of Archidemos, son of Anaxandridas, son of Theopompos, son of Nicander, son of Charilaos, son of Eunomos, son of Polydectes, son of Prytanis, son of Euryphon, son of Procles, son of Aristodemos, son of Aristomachos, son of Cleodaios, son of Hyllos, son of Heracles — being of the other royal house. All of these, except the two listed first after Leotychides, had been kings of Sparta. And of the Athenians the commander was Xanthippos son of Ariphon.
+
+Menares’s father in the descent of Leotychides — the other royal house.
+
+## modern-en · hippocratides · 1390:0
+
+The Greeks, for their part, were stirred up both by the coming of spring and by the presence of Mardonius in Thessaly. Their land-army had not yet begun to assemble when the fleet arrived at Aegina, 110 ships strong, and the commander and admiral was Leotychides son of Menares, son of Hegesilaos, son of Hippocratides, son of Leotychides, son of Anaxilaos, son of Archidemos, son of Anaxandridas, son of Theopompos, son of Nicander, son of Charilaos, son of Eunomos, son of Polydectes, son of Prytanis, son of Euryphon, son of Procles, son of Aristodemos, son of Aristomachos, son of Cleodaios, son of Hyllos, son of Heracles — being of the other royal house. All of these, except the two listed first after Leotychides, had been kings of Sparta. And of the Athenians the commander was Xanthippos son of Ariphon.
+
+Hegesilaus’s father.
+
+## modern-en · leotychides-elder · 1390:0
+
+The Greeks, for their part, were stirred up both by the coming of spring and by the presence of Mardonius in Thessaly. Their land-army had not yet begun to assemble when the fleet arrived at Aegina, 110 ships strong, and the commander and admiral was Leotychides son of Menares, son of Hegesilaos, son of Hippocratides, son of Leotychides, son of Anaxilaos, son of Archidemos, son of Anaxandridas, son of Theopompos, son of Nicander, son of Charilaos, son of Eunomos, son of Polydectes, son of Prytanis, son of Euryphon, son of Procles, son of Aristodemos, son of Aristomachos, son of Cleodaios, son of Hyllos, son of Heracles — being of the other royal house. All of these, except the two listed first after Leotychides, had been kings of Sparta. And of the Athenians the commander was Xanthippos son of Ariphon.
+
+Hippocratides’s father, and the king his descendant was named for.
+
+## modern-en · anaxilaus-sparta · 1390:0
+
+The Greeks, for their part, were stirred up both by the coming of spring and by the presence of Mardonius in Thessaly. Their land-army had not yet begun to assemble when the fleet arrived at Aegina, 110 ships strong, and the commander and admiral was Leotychides son of Menares, son of Hegesilaos, son of Hippocratides, son of Leotychides, son of Anaxilaos, son of Archidemos, son of Anaxandridas, son of Theopompos, son of Nicander, son of Charilaos, son of Eunomos, son of Polydectes, son of Prytanis, son of Euryphon, son of Procles, son of Aristodemos, son of Aristomachos, son of Cleodaios, son of Hyllos, son of Heracles — being of the other royal house. All of these, except the two listed first after Leotychides, had been kings of Sparta. And of the Athenians the commander was Xanthippos son of Ariphon.
+
+Leotychides the elder’s father.
+
+## modern-en · archidamus-sparta · 1390:0
+
+The Greeks, for their part, were stirred up both by the coming of spring and by the presence of Mardonius in Thessaly. Their land-army had not yet begun to assemble when the fleet arrived at Aegina, 110 ships strong, and the commander and admiral was Leotychides son of Menares, son of Hegesilaos, son of Hippocratides, son of Leotychides, son of Anaxilaos, son of Archidemos, son of Anaxandridas, son of Theopompos, son of Nicander, son of Charilaos, son of Eunomos, son of Polydectes, son of Prytanis, son of Euryphon, son of Procles, son of Aristodemos, son of Aristomachos, son of Cleodaios, son of Hyllos, son of Heracles — being of the other royal house. All of these, except the two listed first after Leotychides, had been kings of Sparta. And of the Athenians the commander was Xanthippos son of Ariphon.
+
+Anaxilaus’s father.
+
+## modern-en · anaxandridas-eurypontid · 1390:0
+
+The Greeks, for their part, were stirred up both by the coming of spring and by the presence of Mardonius in Thessaly. Their land-army had not yet begun to assemble when the fleet arrived at Aegina, 110 ships strong, and the commander and admiral was Leotychides son of Menares, son of Hegesilaos, son of Hippocratides, son of Leotychides, son of Anaxilaos, son of Archidemos, son of Anaxandridas, son of Theopompos, son of Nicander, son of Charilaos, son of Eunomos, son of Polydectes, son of Prytanis, son of Euryphon, son of Procles, son of Aristodemos, son of Aristomachos, son of Cleodaios, son of Hyllos, son of Heracles — being of the other royal house. All of these, except the two listed first after Leotychides, had been kings of Sparta. And of the Athenians the commander was Xanthippos son of Ariphon.
+
+Archidamus’s father in the Eurypontid line. Not Cleomenes’s and Leonidas’s father.
+
+## modern-en · theopompos · 1390:0
+
+The Greeks, for their part, were stirred up both by the coming of spring and by the presence of Mardonius in Thessaly. Their land-army had not yet begun to assemble when the fleet arrived at Aegina, 110 ships strong, and the commander and admiral was Leotychides son of Menares, son of Hegesilaos, son of Hippocratides, son of Leotychides, son of Anaxilaos, son of Archidemos, son of Anaxandridas, son of Theopompos, son of Nicander, son of Charilaos, son of Eunomos, son of Polydectes, son of Prytanis, son of Euryphon, son of Procles, son of Aristodemos, son of Aristomachos, son of Cleodaios, son of Hyllos, son of Heracles — being of the other royal house. All of these, except the two listed first after Leotychides, had been kings of Sparta. And of the Athenians the commander was Xanthippos son of Ariphon.
+
+Anaxandridas’s father.
+
+## modern-en · nicander · 1390:0
+
+The Greeks, for their part, were stirred up both by the coming of spring and by the presence of Mardonius in Thessaly. Their land-army had not yet begun to assemble when the fleet arrived at Aegina, 110 ships strong, and the commander and admiral was Leotychides son of Menares, son of Hegesilaos, son of Hippocratides, son of Leotychides, son of Anaxilaos, son of Archidemos, son of Anaxandridas, son of Theopompos, son of Nicander, son of Charilaos, son of Eunomos, son of Polydectes, son of Prytanis, son of Euryphon, son of Procles, son of Aristodemos, son of Aristomachos, son of Cleodaios, son of Hyllos, son of Heracles — being of the other royal house. All of these, except the two listed first after Leotychides, had been kings of Sparta. And of the Athenians the commander was Xanthippos son of Ariphon.
+
+Theopompus’s father.
+
+## modern-en · charilaos-sparta · 1390:0
+
+The Greeks, for their part, were stirred up both by the coming of spring and by the presence of Mardonius in Thessaly. Their land-army had not yet begun to assemble when the fleet arrived at Aegina, 110 ships strong, and the commander and admiral was Leotychides son of Menares, son of Hegesilaos, son of Hippocratides, son of Leotychides, son of Anaxilaos, son of Archidemos, son of Anaxandridas, son of Theopompos, son of Nicander, son of Charilaos, son of Eunomos, son of Polydectes, son of Prytanis, son of Euryphon, son of Procles, son of Aristodemos, son of Aristomachos, son of Cleodaios, son of Hyllos, son of Heracles — being of the other royal house. All of these, except the two listed first after Leotychides, had been kings of Sparta. And of the Athenians the commander was Xanthippos son of Ariphon.
+
+Nicander’s father. Not Maeandrius’s brother.
+
+## modern-en · eunomos · 1390:0
+
+The Greeks, for their part, were stirred up both by the coming of spring and by the presence of Mardonius in Thessaly. Their land-army had not yet begun to assemble when the fleet arrived at Aegina, 110 ships strong, and the commander and admiral was Leotychides son of Menares, son of Hegesilaos, son of Hippocratides, son of Leotychides, son of Anaxilaos, son of Archidemos, son of Anaxandridas, son of Theopompos, son of Nicander, son of Charilaos, son of Eunomos, son of Polydectes, son of Prytanis, son of Euryphon, son of Procles, son of Aristodemos, son of Aristomachos, son of Cleodaios, son of Hyllos, son of Heracles — being of the other royal house. All of these, except the two listed first after Leotychides, had been kings of Sparta. And of the Athenians the commander was Xanthippos son of Ariphon.
+
+Charilaus’s father.
+
+## modern-en · polydectes · 1390:0
+
+The Greeks, for their part, were stirred up both by the coming of spring and by the presence of Mardonius in Thessaly. Their land-army had not yet begun to assemble when the fleet arrived at Aegina, 110 ships strong, and the commander and admiral was Leotychides son of Menares, son of Hegesilaos, son of Hippocratides, son of Leotychides, son of Anaxilaos, son of Archidemos, son of Anaxandridas, son of Theopompos, son of Nicander, son of Charilaos, son of Eunomos, son of Polydectes, son of Prytanis, son of Euryphon, son of Procles, son of Aristodemos, son of Aristomachos, son of Cleodaios, son of Hyllos, son of Heracles — being of the other royal house. All of these, except the two listed first after Leotychides, had been kings of Sparta. And of the Athenians the commander was Xanthippos son of Ariphon.
+
+Eunomus’s father.
+
+## modern-en · prytanis · 1390:0
+
+The Greeks, for their part, were stirred up both by the coming of spring and by the presence of Mardonius in Thessaly. Their land-army had not yet begun to assemble when the fleet arrived at Aegina, 110 ships strong, and the commander and admiral was Leotychides son of Menares, son of Hegesilaos, son of Hippocratides, son of Leotychides, son of Anaxilaos, son of Archidemos, son of Anaxandridas, son of Theopompos, son of Nicander, son of Charilaos, son of Eunomos, son of Polydectes, son of Prytanis, son of Euryphon, son of Procles, son of Aristodemos, son of Aristomachos, son of Cleodaios, son of Hyllos, son of Heracles — being of the other royal house. All of these, except the two listed first after Leotychides, had been kings of Sparta. And of the Athenians the commander was Xanthippos son of Ariphon.
+
+Polydectes’s father.
+
+## modern-en · euryphon · 1390:0
+
+The Greeks, for their part, were stirred up both by the coming of spring and by the presence of Mardonius in Thessaly. Their land-army had not yet begun to assemble when the fleet arrived at Aegina, 110 ships strong, and the commander and admiral was Leotychides son of Menares, son of Hegesilaos, son of Hippocratides, son of Leotychides, son of Anaxilaos, son of Archidemos, son of Anaxandridas, son of Theopompos, son of Nicander, son of Charilaos, son of Eunomos, son of Polydectes, son of Prytanis, son of Euryphon, son of Procles, son of Aristodemos, son of Aristomachos, son of Cleodaios, son of Hyllos, son of Heracles — being of the other royal house. All of these, except the two listed first after Leotychides, had been kings of Sparta. And of the Athenians the commander was Xanthippos son of Ariphon.
+
+Prytanis’s father, Procles’s son.
+
+## modern-en · andrians · 1370:0
+
+The Greeks, meanwhile, having resolved not to pursue the barbarians' ships further, nor to sail to the Hellespont to break up the crossing, were besieging Andros, intending to take it. For the Andrians were the first of the islanders who, when asked by Themistocles for money, refused to give it. When Themistocles made his demand and said that the Athenians had come bringing with them two great deities, Persuasion and Compulsion, and that they must therefore by all means give money, they replied that, not without reason, as it now appeared, was Athens great and prosperous, since the Athenians were well supplied with serviceable gods; but as for the Andrians, they were poor, having attained the greatest heights in that regard, and there were two unprofitable gods who never left their island but always remained attached to the place — namely Poverty and Helplessness — and the Andrians, possessed of these deities, would not give money, for the power of the Athenians could never overcome their inability.
+
+Who told Themistocles that Athens was rich because it was well supplied with useful gods, while Andros had only Poverty and Helplessness — and were besieged for it.
+
+## modern-en · tenians · 589:0
+
+But much more about them is reported by the people of Delos than by any others. They say that sacred offerings bound up in wheat straw are carried from the land of the Hyperboreans and come to the Scythians, and from the Scythians the neighbouring nations in succession receive them and convey them westwards, finally as far as the Adriatic. From there they are sent on towards the south; the people of Dodona receive them first of all the Hellenes, and from these they come down to the Malian gulf and are passed over to Euboea, where city sends them on to city till they reach Carystos. After this Andros is skipped, for the Carystians are the ones who bring them to Tenos, and the Tenians to Delos. Thus, they say, these sacred offerings come to Delos. But at first, they say, the Hyperboreans sent two maidens bearing the sacred offerings, whose names, the Delians say, were Hyperoche and Laodike. With them, for their protection, the Hyperboreans sent five men of their nation to attend them—those who are now called Perphereës and receive great honour on Delos. But since the Hyperboreans found that those sent away did not come back, they were troubled at the thought of always having to send out and never receive back; so they carried the offerings, bound up in wheat straw, to the borders of their land, and laid a charge upon their neighbours, bidding them pass them on to another nation. These, they say, come to Delos by being passed on in this way. And I know of my own knowledge that a thing is done which resembles these offerings: the women of Thrace and Paionia, when they sacrifice to Artemis “the Queen,” never make their offerings without wheat straw.
+
+Whose deserting trireme convinced the Greeks they were surrounded, and whose name went on the tripod at Delphi.
+
+## modern-en · calyndians · 171:0
+
+It seems to me, however, that the Caunians are dwellers there from the beginning, although they say themselves that they came from Crete. But they have been assimilated to the Carian race in language, or else the Carians have been assimilated to the Caunian race in language — which of the two, I cannot with certainty determine. They have customs, however, in which they differ very much from all other men, as well as from the Carians. For example, the fairest thing in their estimation is to meet together in numbers for drinking, according to equality of age or friendship, both men, women, and children. And again, when they had founded temples for foreign deities, they afterwards changed their purpose and resolved to worship only their own native gods, and the whole body of Caunian young men put on their armor and made pursuit as far as the borders of the Calyndians, beating the air with their spears, saying that they were casting the foreign gods out of the land. Such are the customs which these people have.
+
+Whose ship, with their king aboard, Artemisia rammed and sank to get an Athenian off her tail. Not one of the crew survived to accuse her.
+
+## modern-en · potidaians · 1385:0
+
+Artabazos son of Pharnakes, meanwhile — a man already held in esteem among the Persians before this, and still more after the events at Plataea — was escorting the king as far as the crossing with sixty thousand of the army Mardonius had selected for himself. When the king was in Asia and Artabazos on his march back came near Pallene, finding that Mardonius was wintering in Thessaly and Macedonia and was not at present urging him to come and rejoin the rest of the army, he thought it not good to pass by without reducing the Potidaians to slavery, having found them in revolt. For the Potidaians, once the king had marched past and the Persian fleet had fled from Salamis, had openly revolted from the barbarians; and so had the others who occupy Pallene.
+
+Who revolted as soon as the king had gone past, stood a three-month siege from Artabazus, and killed the Persians the flood-tide caught in the shallows.
+
+## modern-en · bottiaians · 1207:0
+
+There is still to be counted, in addition to all this, the force being led from Europe; of this I must give a probable estimate. The Greeks of Thrace and of the islands off the Thracian coast supplied 120 ships, which yields a total of 24,000 men. As for the land-force supplied by the Thracians, Paionians, Eordians, Bottiaians, the race inhabiting Chalkidike, the Brygians, Pierians, Macedonians, Perraibians, Enianians, Dolopians, Magnesians, Achaians, and all those who dwell along the Thracian coast — of these various nations I estimate there were 300,000. These added to those from Asia make a grand total of 2,640,000 fighting men, plus another 1,610.
+
+Driven from the Thermaic gulf by the Macedonians, holders of Olynthus, and slaughtered at a lake by Artabazus.
+
+## modern-en · melians · 1306:0
+
+Of the islanders, the Aeginetans furnished thirty; they had other ships manned as well, but with those they were guarding their own land, while with the thirty best-sailing ships they joined the sea-fight at Salamis. The Aeginetans are Dorians from Epidauros, and their island was formerly called Oinone. After the Aeginetans came the Chalkidians with the twenty ships they had at Artemisium, and the Eretrians with their seven — both Ionians. Next the Keians, furnishing the same as before, and being Ionians by race from Athens. The Naxians furnished four ships: they had been sent out by their citizens to join the Persians, like the other islanders, but neglecting these orders they had come over to the Greeks, urged on by Democritos, a man of repute among the citizens and at that time commander of a trireme. The Naxians are Ionians originally from Athens. The Styrians furnished the same ships as at Artemisium, and the men of Kythnos one ship and one fifty-oared galley (both being Dryopians). Also the Seriphians, Siphnians, and Melians served with the rest — for they alone of the islanders had not given earth and water to the barbarian.
+
+Of Lacedaemonian descent, who with the Siphnians and Seriphians alone of the islanders had given the barbarian neither earth nor water.
+
+## modern-en · seriphians · 1306:0
+
+Of the islanders, the Aeginetans furnished thirty; they had other ships manned as well, but with those they were guarding their own land, while with the thirty best-sailing ships they joined the sea-fight at Salamis. The Aeginetans are Dorians from Epidauros, and their island was formerly called Oinone. After the Aeginetans came the Chalkidians with the twenty ships they had at Artemisium, and the Eretrians with their seven — both Ionians. Next the Keians, furnishing the same as before, and being Ionians by race from Athens. The Naxians furnished four ships: they had been sent out by their citizens to join the Persians, like the other islanders, but neglecting these orders they had come over to the Greeks, urged on by Democritos, a man of repute among the citizens and at that time commander of a trireme. The Naxians are Ionians originally from Athens. The Styrians furnished the same ships as at Artemisium, and the men of Kythnos one ship and one fifty-oared galley (both being Dryopians). Also the Seriphians, Siphnians, and Melians served with the rest — for they alone of the islanders had not given earth and water to the barbarian.
+
+Ionians from Athens, who sent one fifty-oared galley and had given no earth and water.
+
+## modern-en · hermionians · 1303:0
+
+The following were those who joined the muster. From the Peloponnese: the Lacedaemonians furnishing sixteen ships; the Corinthians the same complement as at Artemisium; the Sikyonians fifteen; the Epidaurians ten; the Troizenians five; the Hermionians three. All of these, except the Hermionians, are of Doric and Makednian race, having made their most recent migration from Erineos, Pindos, and the land of Dryopis. The Hermionians, however, are Dryopians, driven out by Heracles and the Malians from the land now called Doris.
+
+Dryopians driven out by Heracles and the Malians, who sent three ships to Salamis and came to the Isthmus.
+
+## modern-en · amprakiots · 1305:0
+
+The Megarians furnished the same complement as at Artemisium; the Amprakiots came to help the rest with seven ships, and the Leucadians with three — these being Dorians by race, from Corinth.
+
+Who came seven ships’ worth from beyond the Thesprotians.
+
+## modern-en · leucadians · 1305:0
+
+The Megarians furnished the same complement as at Artemisium; the Amprakiots came to help the rest with seven ships, and the Leucadians with three — these being Dorians by race, from Corinth.
+
+Dorians from Corinth, who came with three ships from the same distance.
+
+## modern-en · keians · 591:0
+
+The maidens, I say, receive this honour from the dwellers in Delos. The same people say that Arge and Opis also, being maidens, came to Delos, passing from the Hyperboreans by the same nations mentioned, even before Hyperoche and Laodike. The latter, they say, came bearing for Eileithuia the tribute they had laid upon themselves for a speedy delivery in childbirth; but Arge and Opis came with the divinities themselves, and other honours have been assigned to them by the people of Delos. The women, they say, collect offerings for them, naming them by their names in the hymn which Olen, a man of Lycia, composed in their honour; and both the natives of the other islands and the Ionians have learnt from them to sing hymns naming Opis and Arge and taking up collections. This Olen came from Lycia and composed also the other ancient hymns sung on Delos. Moreover, they say that when the thighs of the victim are consumed on the altar, the ashes are thrown upon the tomb of Opis and Arge. Their tomb is behind the temple of Artemis, turned towards the east, close to the banqueting hall of the Keians.
+
+Two ships and two fifty-oared galleys at Artemisium and the same at Salamis; Ionians from Athens. The older translation prints Keïans.
+
+## modern-en · styrians · 1261:0
+
+Those Greeks appointed to serve in the fleet were these: the Athenians furnished 127 ships, and the Plataeans, moved by valor and zeal for the service though having no practice in seamanship, joined the Athenians in manning their ships. The Corinthians furnished forty ships, the Megarians twenty; the Chalcidians manned twenty ships that the Athenians supplied them with; the Aeginetans furnished eighteen ships, the Sikyonians twelve, the Lacedaemonians ten, the Epidaurians eight, the Eretrians seven, the Troizenians five, the Styrians two, the Keians two ships and two fifty-oared galleys, while the Opuntian Locrians also came to help the rest with seven fifty-oared galleys.
+
+Two ships at Artemisium and the same at Salamis.
+
+## modern-en · dryopians · 145:0
+
+For this reason, then, the Ionians also made twelve cities for themselves; for to say that these are in any way more Ionian than the other Ionians, or have a nobler descent, is mere folly. A large part of them are Abantians from Euboea, who have no share even in the name of Ionia; Minyai of Orchomenos have been mingled with them; also Cadmeians, Dryopians, Phokians who seceded from their native state, Molossians, Pelasgians of Arcadia, Dorians of Epidauros, and many other races have been mingled with them. And those of them who set forth to their settlements from the City Hall of Athens, and who consider themselves the most nobly born of the Ionians — these, I say, brought no women with them to their settlement, but took Carian women, whose parents they slew. On account of this slaughter, these women laid down a rule for themselves, imposing oaths on one another and handing it down to their daughters, that they should never eat with their husbands, nor should a wife call her own husband by name. This was because the Ionians had slain their fathers and husbands and children, and then, having done this, had taken them as wives. This happened at Miletos.
+
+One of the four races that came into the Peloponnese from outside; Hermion and Asine are theirs, and so are the men of Kythnos.
+
+## modern-en · kynurians · 1333:0
+
+The Peloponnese is inhabited by seven races. Of these, two are native to the soil and are settled in the place they dwelt in of old — the Arcadians and the Kynurians. One race, that of the Achaians, though it did not move out of the Peloponnese, did shift in former times from its own land and now lives in a land that was not originally its own. The remaining four races have come in from outside: the Dorians, Aitolians, Dryopians, and Lemnians. Of the Dorians there are many cities of great renown; of the Aitolians, Elis alone; of the Dryopians, Hermion and Asine (the latter opposite Cardamyle in Laconian territory); and of the Lemnians, all the Paroreatai. The Kynurians, though native to the soil, seem alone to be Ionians, but they have become thoroughly Dorian because they are subject to the Argives and by lapse of time, being originally citizens of Orneai or dwellers in the country around it. Of these seven nations, the remaining cities, apart from those I have just listed, stood aside and did nothing; and if one may speak freely, by standing aside they were in fact taking the side of the Medes.
+
+Native to the Peloponnese and alone of it Ionian, though long since made thoroughly Dorian by living under Argos.
+
+## modern-en · aitolians · 1333:0
+
+The Peloponnese is inhabited by seven races. Of these, two are native to the soil and are settled in the place they dwelt in of old — the Arcadians and the Kynurians. One race, that of the Achaians, though it did not move out of the Peloponnese, did shift in former times from its own land and now lives in a land that was not originally its own. The remaining four races have come in from outside: the Dorians, Aitolians, Dryopians, and Lemnians. Of the Dorians there are many cities of great renown; of the Aitolians, Elis alone; of the Dryopians, Hermion and Asine (the latter opposite Cardamyle in Laconian territory); and of the Lemnians, all the Paroreatai. The Kynurians, though native to the soil, seem alone to be Ionians, but they have become thoroughly Dorian because they are subject to the Argives and by lapse of time, being originally citizens of Orneai or dwellers in the country around it. Of these seven nations, the remaining cities, apart from those I have just listed, stood aside and did nothing; and if one may speak freely, by standing aside they were in fact taking the side of the Medes.
+
+One of the four incoming races of the Peloponnese; Elis alone is theirs.
+
+## modern-en · lemnians · 1333:0
+
+The Peloponnese is inhabited by seven races. Of these, two are native to the soil and are settled in the place they dwelt in of old — the Arcadians and the Kynurians. One race, that of the Achaians, though it did not move out of the Peloponnese, did shift in former times from its own land and now lives in a land that was not originally its own. The remaining four races have come in from outside: the Dorians, Aitolians, Dryopians, and Lemnians. Of the Dorians there are many cities of great renown; of the Aitolians, Elis alone; of the Dryopians, Hermion and Asine (the latter opposite Cardamyle in Laconian territory); and of the Lemnians, all the Paroreatai. The Kynurians, though native to the soil, seem alone to be Ionians, but they have become thoroughly Dorian because they are subject to the Argives and by lapse of time, being originally citizens of Orneai or dwellers in the country around it. Of these seven nations, the remaining cities, apart from those I have just listed, stood aside and did nothing; and if one may speak freely, by standing aside they were in fact taking the side of the Medes.
+
+The fourth incoming race of the Peloponnese, to whom all the Paroreatai belong.
+
+## modern-en · paroreatai · 1333:0
+
+The Peloponnese is inhabited by seven races. Of these, two are native to the soil and are settled in the place they dwelt in of old — the Arcadians and the Kynurians. One race, that of the Achaians, though it did not move out of the Peloponnese, did shift in former times from its own land and now lives in a land that was not originally its own. The remaining four races have come in from outside: the Dorians, Aitolians, Dryopians, and Lemnians. Of the Dorians there are many cities of great renown; of the Aitolians, Elis alone; of the Dryopians, Hermion and Asine (the latter opposite Cardamyle in Laconian territory); and of the Lemnians, all the Paroreatai. The Kynurians, though native to the soil, seem alone to be Ionians, but they have become thoroughly Dorian because they are subject to the Argives and by lapse of time, being originally citizens of Orneai or dwellers in the country around it. Of these seven nations, the remaining cities, apart from those I have just listed, stood aside and did nothing; and if one may speak freely, by standing aside they were in fact taking the side of the Medes.
+
+The Lemnians of the Peloponnese.
+
+## modern-en · thesprotians · 271:0
+
+I, however, have an opinion about the matter as follows. If the Phoenicians did in truth carry away the consecrated women and sold one of them into Libya and the other into Hellas, I suppose that in the country now called Hellas (which was formerly called Pelasgia), this woman was sold into the land of the Thesprotians; and then being a slave there she set up a sanctuary of Zeus under a real oak-tree; for it was natural that, as an attendant of the sanctuary of Zeus at Thebes, she should in the place to which she had come keep his memory. After this, when she got a grasp of the Hellenic tongue, she established an Oracle; and she reported, I suppose, that her sister had been sold in Libya by the same Phoenicians who had sold her.
+
+Beyond whose land and the river Acheron only Croton sent help.
+
+## modern-en · bisaltians · 1375:0
+
+Here too a Thracian, king of the Bisaltians and of the Crestonian land, did a deed of surpassing horror. He had said that he would not be subject to Xerxes of his own will, and had withdrawn up to Mount Rhodope; he had also forbidden his sons to march against Greece. They, however — either because they did not care for his command, or because a desire came upon them to see the war — went on the march with the Persian; and when they returned all unhurt, being six in number, their father for this cause plucked out their eyes.
+
+Whose king withdrew to Mount Rhodope rather than serve Xerxes, and put out his six sons’ eyes for going to the war.
+
+## modern-en · illyrians · 605:0
+
+These are the native Scythian rivers that join to swell its stream, while from the Agathyrsians flows the Maris, which joins the Ister. From the summits of Haimos flow three other great rivers towards the north wind and fall into it: Atlas, Auras, and Tibisis. Through Thrace and the Thracian Crobyzians flow the rivers Athrys, Noes, and Artanes, running into the Ister; and from the Paionians and Mount Rhodope the river Kios, cutting through Haimos in the middle, also runs into it. From the Illyrians the river Angros flows northwards and runs out into the Triballian plain and into the river Brongos, and the Brongos flows into the Ister; thus the Ister receives both these great rivers. From the region above the Ombricans, the river Carpis and another river, the Alpis, also flow towards the north wind and run into it; for the Ister in fact flows through the whole of Europe, beginning in the land of the Celts, who after the Kynesians dwell furthest west of all the peoples of Europe. Flowing thus through all Europe, it falls into the sea alongside Scythia.
+
+To whom the three Temenid brothers fled out of Argos.

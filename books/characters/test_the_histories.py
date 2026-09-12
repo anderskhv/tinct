@@ -1,5 +1,5 @@
-"""Focused checks for the Histories. AUTHORING IN PROGRESS: Books 1-7
-(sections 1-1260) are authored; Books 8-9 are not."""
+"""Focused checks for the Histories. AUTHORING IN PROGRESS: Books 1-8
+(sections 1-1403) are authored; Book 9 is not."""
 import unittest
 from build_the_histories import compile_package
 
@@ -541,6 +541,88 @@ class TheHistories(unittest.TestCase):
             self.assertTrue(where(ed,'the-winds'),ed)
             self.assertTrue(all(c in (1200,1201) for c,_ in where(ed,'the-winds')),ed)
             self.assertNotIn('the-winds',ids(ed,1061),ed)
+
+    # --------------------------------------------------------- BOOK 8 (URANIA)
+    def test_the_greek_command_at_artemisium_and_salamis(self):
+        for ed in ['original-en','modern-en']:
+            self.assertIn((1262,0),where(ed,'eurybiades'),ed)
+            self.assertIn((1383,0),where(ed,'eurybiades'),ed)
+            self.assertEqual(sorted({c for c,_ in where(ed,'adeimantus-corinth')}),
+                             [1265,1319,1321,1353],ed)
+            self.assertEqual(where(ed,'adeimantus'),[(1159,0)],ed)
+            self.assertIn((1339,0),where(ed,'aristides'),ed)
+            self.assertEqual(sorted({c for c,_ in where(ed,'sikinnos')}),[1335,1369],ed)
+
+    def test_the_second_phylacos_polycritus_histiaeus_and_ariaramnes(self):
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(set(where(ed,'phylacos-delphi')),{(1299,0)},ed)
+            self.assertEqual(set(where(ed,'phylacos-samos')),{(1345,0)},ed)
+            self.assertEqual(sorted({c for c,_ in where(ed,'polycritos-aegina')}),[1351,1352],ed)
+            self.assertEqual(sorted(set(where(ed,'polycritus'))),[(936,0),(959,0)],ed)
+            self.assertEqual(where(ed,'histiaeus-samos'),[(1345,0)],ed)
+            self.assertTrue(all(c!=1345 for c,_ in where(ed,'histiaeus')),ed)
+            self.assertEqual(where(ed,'ariaramnes-salamis'),[(1349,0)],ed)
+            self.assertEqual(where(ed,'ariaramnes'),[(1037,0)],ed)
+
+    def test_the_two_men_called_artayntes_and_ithamitres(self):
+        # Book 7: Artayntes son of Ithamitres. Book 8: Artayntes son of
+        # Artachaees, whose brother's son Ithamitres shares the command.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(where(ed,'artayntes'),[(1090,0)],ed)
+            self.assertEqual(sorted({c for c,_ in where(ed,'artayntes-samos')}),[1389],ed)
+            self.assertEqual(where(ed,'ithamitres'),[(1090,0)],ed)
+            self.assertEqual(where(ed,'ithamitres-samos'),[(1389,0)],ed)
+
+    def test_the_eurypontid_king_list_is_not_the_agiad_one(self):
+        # Section 1390 recites the other royal house, and four of its names
+        # belong to men already cast from the Agiad list or from elsewhere.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([i for i in ids(ed,1390) if i.startswith('leotychides')],
+                             ['leotychides','leotychides-elder','leotychides'],ed)
+            for cid in ['hegesilaus-eurypontid','hippocratides','anaxilaus-sparta',
+                        'archidamus-sparta','anaxandridas-eurypontid','theopompos',
+                        'nicander','charilaos-sparta','eunomos','polydectes',
+                        'prytanis','euryphon']:
+                self.assertEqual(set(where(ed,cid)),{(1390,0)},(cid,ed))
+            self.assertEqual(where(ed,'hegesilaus'),[(1226,0)],ed)
+            self.assertNotIn((1390,0),where(ed,'anaxandrides'),ed)
+            self.assertNotIn((1390,0),where(ed,'charilaos'),ed)
+            self.assertEqual(sorted({c for c,_ in where(ed,'anaxilaus')}),
+                             [909,1187,1192],ed)
+
+    def test_the_macedonian_descent(self):
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(sorted({c for c,_ in where(ed,'perdiccas')}),
+                             [783,1396,1398],ed)
+            self.assertEqual(sorted({c for c,_ in where(ed,'temenus')}),[1396,1397],ed)
+            self.assertEqual(set(where(ed,'aeropos-brother')),{(1396,0)},ed)
+            self.assertEqual(set(where(ed,'aeropos-father-of-alketes')),{(1398,0)},ed)
+            self.assertEqual(set(where(ed,'philip-macedon')),{(1398,0)},ed)
+            # Three men called Amyntas in one sentence's worth of genealogy:
+            # the king twice, then his grandson in Asia.
+            self.assertEqual([i for i in ids(ed,1395) if i.startswith('amyntas')],
+                             ['amyntas','amyntas','amyntas-asia'],ed)
+            self.assertEqual(where(ed,'silenus'),[(1397,0)],ed)
+
+    def test_the_personified_powers_of_book_eight(self):
+        for ed in ['original-en','modern-en']:
+            # The oracle is its own paragraph.
+            for cid in ['justice','insolence','riot','victory']:
+                self.assertEqual(where(ed,cid),[(1337,1)],(cid,ed))
+            for cid in ['persuasion','compulsion','poverty','helplessness']:
+                self.assertEqual(where(ed,cid),[(1370,0)],(cid,ed))
+            self.assertEqual(set(where(ed,'iacchus')),{(1325,0)},ed)
+
+    def test_book_eight_outcomes_are_gated(self):
+        for ed in ['original-en','modern-en']:
+            self.assertEqual([s['availableAt']['chapterNumber'] for s in snapshots('xerxes',ed)],
+                             [182,1031,1356],ed)
+            self.assertEqual([s['availableAt']['chapterNumber'] for s in snapshots('artemisia',ed)][1:],
+                             [1347],ed)
+            self.assertEqual([s['availableAt']['chapterNumber'] for s in snapshots('mardonius',ed)][1:],
+                             [1359],ed)
+            self.assertEqual([s['availableAt']['chapterNumber'] for s in snapshots('themistocles',ed)][1:],
+                             [1371],ed)
 
     def test_no_entity_is_missing_from_both_editions(self):
         o=set(REPORT['editions']['original-en']['omittedEntities'])

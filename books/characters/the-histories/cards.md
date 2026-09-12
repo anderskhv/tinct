@@ -1906,6 +1906,8 @@ The Laconian whose mares also won three Olympic victories — the only ones besi
 
 Gobryas’s son and Darius’s son-in-law, sent down to the coast young. He put down the Ionian tyrants and set up popular governments — which Herodotus offers as a marvel to Hellenes who will not believe Otanes argued for popular rule — then lost three hundred ships off Athos, was wounded by the Brygi, and was relieved of his command.
 
+After source chapter 1359, paragraph 1: He talked Xerxes into the war and kept at his side through it, and after Salamis he asked to stay behind with three hundred thousand picked men rather than answer for it — wintering in Thessaly, sending Mys round the oracles and Alexander of Macedon to Athens.
+
 ## Artozostra · reference
 
 Darius’s daughter, whom Mardonius had lately married.
@@ -1929,6 +1931,8 @@ Ariston’s son and king of Sparta of the younger house, who accused Cleomenes o
 ## Leotychides · major
 
 Demaratus’s kinsman, who had lost his bride to him and swore the charge that unseated him. He took the throne, was sentenced to be handed over to the Aeginetans for the hostages, told the Athenians the story of Glaucus instead, and ended in exile at Tegea after being caught in camp sitting on a glove stuffed with money.
+
+After source chapter 1390, paragraph 1: In the spring after Salamis he commanded the Greek fleet at Aegina — a hundred and ten ships — and would take the Ionian envoys no further east than Delos.
 
 ## Crius · supporting
 
@@ -2129,6 +2133,10 @@ Darius’s nephew, the son of the governor of Sardis, joint commander with Datis
 ## Xerxes · major
 
 Darius’s son, named in the count of three generations under which more evils came upon Hellas than in the twenty before. His name, Herodotus says, means Warrior.
+
+After source chapter 1031, paragraph 1: Darius’s son and successor, talked into the invasion of Greece by Mardonius, the Aleuadae and a forged oracle, and then twice by a dream. He bridged the Hellespont, had it scourged when a storm broke the bridge, cut a channel through Athos, and led the largest army Herodotus knows of.
+
+After source chapter 1356, paragraph 1: After Salamis he lashed merchant ships together as a feint, sent word of the disaster to Susa, left Mardonius three hundred thousand men and went home in thirty-five days, his army eating bark and leaves on the way.
 
 ## Artaxerxes · reference
 
@@ -2564,7 +2572,7 @@ Son of Ithamitres, commander of the Pactyes.
 
 ## Ithamitres · reference
 
-Artayntes’s father, and a commander in the fleet of the last two books.
+Artayntes’s father, named once in the catalogue.
 
 ## Arsamenes · reference
 
@@ -2770,6 +2778,8 @@ Damasithymus’s father. Not the Lydian king who had his wife looked at.
 
 Lygdamis’s daughter and ruler of Halicarnassus, Cos, Nisyrus and Calydna, who went on the expedition after her husband’s death though she had a grown son and no compulsion. Her five ships were reckoned the best in the fleet after Sidon’s, and of all the king’s allies she gave him the best advice.
 
+After source chapter 1347, paragraph 1: At Salamis, chased by an Athenian and hemmed in by her own side, she rammed and sank a ship of her own fleet with the king of the Calyndians aboard. The Athenian turned away, and Xerxes — told she had sunk an enemy — said that his men had become women and his women men.
+
 ## Lygdamis · reference
 
 Artemisia’s father, Halicarnassian on his side and Cretan on his wife’s. Not the Naxian who helped Peisistratus.
@@ -2865,6 +2875,8 @@ Timon’s father.
 ## Themistocles · central
 
 Neocles’s son, lately come forward among the leading Athenians, who read the wooden wall as the ships and Salamis the divine as an oracle against the enemy — and who had already persuaded Athens to spend the silver of Laurium on two hundred ships instead of dividing it ten drachmas a man.
+
+After source chapter 1371, paragraph 1: He took thirty talents from the Euboeans to keep the fleet at Artemisium and paid five of them to Eurybiades as his own money; he argued the fleet into staying at Salamis and then sent his servant to the Persians to make sure it could not leave; and after the battle he squeezed money out of Andros, Carystos and Paros on his own account, and sent word to Xerxes that he had saved the bridges for him.
 
 ## Neocles · reference
 
@@ -3369,3 +3381,427 @@ Father of the Tritantaechmes who held Babylon. Not the general of this war.
 ## Tritantaechmes · reference
 
 Satrap of Babylon, whose province was the best of all the governments: an artaba of silver a day, and eight hundred stallions besides the mares. Not Artabanus’s son.
+
+## Eurybiades · central
+
+Eurycleides’s son, the Spartan given supreme command because the allies would not follow Athenian leadership. Bribed by Themistocles to stay at Artemisium and talked by him into staying at Salamis, he was given the prize of valour at Sparta — and he would not break the bridges, on the argument that a Persian shut into Europe would be far more dangerous than a Persian running home.
+
+## Eurycleides · reference
+
+Eurybiades’s father.
+
+## Adeimantus · major
+
+Son of Ocytus and commander of the Corinthians, the last man to be bought at Artemisium and Themistocles’s loudest enemy at Salamis — he told him that men who start before the signal get beaten with rods, and that a man without a city had no vote. The Athenians said he fled the battle; the Corinthians denied it, and the rest of Greece took their side.
+
+## Ocytus · reference
+
+Adeimantus of Corinth’s father.
+
+## Mnesiphilus · supporting
+
+The Athenian who, hearing that the fleet meant to leave Salamis, told Themistocles to go and get the decision reversed. Themistocles put the argument to Eurybiades as his own.
+
+## Aristides · major
+
+Lysimachus’s son, ostracised by his own people and, in Herodotus’s judgement, the best and most upright man in Athens. He crossed from Aegina through the blockade to tell his enemy Themistocles that the Greeks were surrounded, and cleared Psyttaleia of Persians with his hoplites.
+
+## Lysimachus · reference
+
+Aristides’s father.
+
+## Sikinnos · major
+
+Themistocles’s servant and his children’s tutor, sent twice across to the Persians with a lie: first that the Greeks meant to run, which brought on the battle, and then that Themistocles had held the Greeks back from the bridges. He was made a Thespian citizen and a rich man for it.
+
+## Timodemus · supporting
+
+Of Aphidnae, who told Themistocles that his honours at Sparta were Athens’s doing and not his own — and was told that if Themistocles had been a man of Belbina he would have had none, and neither would Timodemus, Athenian though he was.
+
+## Skyllias · supporting
+
+The best diver of his day, of Scione, who deserted from the Persians at Aphetae and brought the Greeks word of the shipwreck and of the two hundred ships sent round Euboea. The story that he swam the eighty furlongs under water Herodotus does not believe.
+
+## Philaon · supporting
+
+Chersis’s son and brother of Gorgus king of Salamis, a man of standing in the Persian fleet, taken with the thirty ships captured at Artemisium.
+
+## Lycomedes · supporting
+
+Son of Aischraios, the first Greek to take an enemy ship at Artemisium, and given the prize of valour for it.
+
+## Aischraios · reference
+
+Lycomedes’s father.
+
+## Antidorus · supporting
+
+Of Lemnos, the only Greek in the king’s fleet to desert at Artemisium; the Athenians gave him land on Salamis for it.
+
+## Cleinias · supporting
+
+Son of Alcibiades, who did best of the Athenians in the third day’s fighting, serving with two hundred men and a ship of his own at his own expense.
+
+## Alcibiades · reference
+
+Cleinias’s father.
+
+## Bakis · supporting
+
+The oracle-monger whose verses the Euboeans ignored — remove the loud-bleating goats when a barbarian yokes the sea with papyrus — and whose lines on Salamis Herodotus will not argue with.
+
+## Polyas · reference
+
+Of Anticyra, the scout at Artemisium whose task was to carry word to Thermopylae if the fleet was beaten.
+
+## Abronichus · supporting
+
+Son of Lysicles, the Athenian who waited at Thermopylae with a thirty-oared galley to carry word to Artemisium, and did.
+
+## Lysicles · reference
+
+Abronichus’s father.
+
+## Ameinias · major
+
+Of Pallene, the Athenian who drove his ship out first and rammed the enemy — the Athenians say the battle began with him — and who chased Artemisia without knowing who was aboard. Ten thousand drachmas had been offered for her alive.
+
+## Eumenes · supporting
+
+Of Anagyrus, one of the two Athenians most distinguished at Salamis.
+
+## Polycritus · major
+
+Crius’s son, the most distinguished of the Aeginetans at Salamis, who rammed the Sidonian ship that had taken Pytheas — and shouted across at Themistocles, as he did it, about the charge that Aegina favoured the Medes.
+
+## Panaetius · supporting
+
+Son of Sosimenes, commander of the Tenian trireme that deserted at Salamis and brought the Greeks the whole truth. Tenos was written on the tripod at Delphi for it.
+
+## Sosimenes · reference
+
+Panaetius’s father.
+
+## Theomestor · supporting
+
+Son of Androdamas, a Samian who destroyed Greek ships at Salamis and was made tyrant of Samos for it.
+
+## Androdamas · reference
+
+Theomestor’s father.
+
+## Phylacos · supporting
+
+Son of Histiaeus, the other Samian Herodotus names for destroying Greek ships; he was entered as a benefactor of the king and given much land. The Persians call such men orosangai.
+
+## Histiaeus · reference
+
+Phylacos of Samos’s father.
+
+## Ariaramnes · reference
+
+A Persian present when the Phoenicians accused the Ionians, who was beheaded with them for being their friend. Not the ancestor in Xerxes’s genealogy.
+
+## Lysistratus · supporting
+
+The Athenian oracle-monger, dead years before, whose one line — the Colian women shall roast their barley with oars — the wreckage on the Attic shore fulfilled.
+
+## Dicaeus · major
+
+Son of Theocydes, an Athenian exile of standing among the Medes, who says he stood with Demaratus in the Thriasian plain and saw the dust of thirty thousand men rise from deserted Eleusis and heard the cry of Iacchus — and was told by Demaratus to keep his mouth shut.
+
+## Theocydes · reference
+
+Dicaeus’s father.
+
+## Iacchus · supporting
+
+The cry raised at the Eleusinian feast, which Dicaeus heard coming out of an empty country and knew for a god.
+
+## Tellias · major
+
+The Elean soothsayer who whitened six hundred Phocians with chalk, armour and all, and sent them at the Thessalians by night with orders to kill every man not coated white.
+
+## Akeratos · supporting
+
+The prophet at Delphi who saw the sacred arms carried out of the sanctuary by themselves and laid before it.
+
+## Phylacos · supporting
+
+One of the two local heroes of Delphi whose precincts stand by the temple, and who the Delphians say pursued the barbarians in armour and more than human size.
+
+## Autonoös · supporting
+
+The other Delphian hero, whose precinct is near Castalia under Hyampeia.
+
+## Kecrops · supporting
+
+The Athenian king from whom the Athenians were called Kecropidai, and whose boundary the oracle names; Aglauros was his daughter.
+
+## Aglauros · reference
+
+Kecrops’s daughter, by whose temple the Persians found the way up the sheer face of the Acropolis.
+
+## Calliades · reference
+
+Archon of Athens in the year the city was taken.
+
+## Telamon · reference
+
+Called on with Ajax from Salamis when the Greeks prayed to the sons of Aeacus before the battle.
+
+## Democritus · supporting
+
+A man of repute at Naxos and commander of a trireme, who talked the four Naxian ships out of joining the Persians and brought them over to the Greeks.
+
+## Phaÿlos · supporting
+
+Of Croton, three times a victor at the Pythian games, who brought the one ship that came to help Greece from beyond the Thesprotians and the Acheron.
+
+## Justice · reference
+
+The power the oracle sets over Riot: when the Persians come to Artemis’s strand she subdues him, and Greece has a day of freedom from Zeus and from Victory.
+
+## Insolence · reference
+
+Whose first-born son is Riot.
+
+## Riot · reference
+
+Insolence’s first-born son, who longs to overturn everything and pants terribly for blood.
+
+## Victory · reference
+
+Lady and mother, from whom with far-seeing Zeus comes the day of freedom for Greece.
+
+## Persuasion · supporting
+
+One of the two great deities Themistocles said the Athenians had brought with them to Andros, and which the Andrians said was why Athens was rich.
+
+## Compulsion · supporting
+
+The other, brought to Andros in the same ship.
+
+## Poverty · supporting
+
+One of the two unprofitable gods the Andrians said never leave their island — which is why they would give Themistocles no money.
+
+## Helplessness · supporting
+
+The other Andrian god.
+
+## Hermotimus · major
+
+The eunuch of Pedasa, first of Xerxes’s eunuchs, who was sent to escort the king’s sons to Ephesus — and who took the greatest revenge for a wrong that Herodotus knows of: he found the man who had castrated him, coaxed his whole household into his hands, and made him castrate his four sons and then be castrated by them.
+
+## Panionius · major
+
+Of Chios, who made his living buying beautiful boys, castrating them, and selling them at Sardis and Ephesus for large sums. Hermotimus was one of them.
+
+## Critobulus · supporting
+
+Of Torone, to whom Artabazus handed Olynthus after slaughtering its Bottiaeans at a lake.
+
+## Timoxeinus · major
+
+Commander of the men of Scione, who arranged to betray Potidaea to Artabazus by notes wound round the notches of an arrow — until Artabazus missed his mark and hit a man of Potidaea in the shoulder. The commanders would not convict him openly, for the sake of Scione’s name.
+
+## Artayntes · supporting
+
+Son of Artachaees, one of the new commanders sent down to the fleet at Samos in the spring, who took his brother’s son Ithamitres into joint command with him. Not the commander of the Pactyes, who was Ithamitres’s son.
+
+## Ithamitres · reference
+
+Artayntes of Samos’s brother’s son, added to the joint command by Artayntes himself. Not the Ithamitres whose son commanded the Pactyes.
+
+## Artachaees · reference
+
+Artayntes’s father, named once in the new commands at Samos. Herodotus does not say whether he is the Achaemenid who dug the channel through Athos.
+
+## Herodotus · supporting
+
+Son of Basileides, one of the seven Chians who plotted to kill Strattis and one of the six who got away — an envoy to Sparta and to Aegina asking the Greeks to set Ionia free. The two editions spell him Herodotus and Herodotos, as they spell the historian.
+
+## Basileides · reference
+
+Herodotus of Chios’s father.
+
+## Mys · major
+
+The man of Europus whom Mardonius sent round every oracle in Greece. At the Ptoan shrine the prophet answered in a barbarian tongue; the Thebans stood there baffled, and Mys snatched their tablet and wrote it down himself, saying it was Carian.
+
+## Trophonius · reference
+
+Whose oracle at Lebadeia Mys had a local man go down to.
+
+## Perdiccas · major
+
+The youngest of the three Temenid brothers, who took the king of Lebaia’s wages by drawing his knife round the sunlight on the floor and gathering it three times into his bosom — and became the first tyrant of the Macedonians.
+
+## Temenus · reference
+
+The Argive from whom the Macedonian kings descend.
+
+## Gauanes · reference
+
+One of Perdiccas’s two elder brothers, who stood stunned when the king offered them the sunlight.
+
+## Aëropos · reference
+
+The other brother.
+
+## Aëropos · reference
+
+Alcetes’s father in the descent from Perdiccas — a later man of the same name.
+
+## Alcetes · reference
+
+Amyntas’s father.
+
+## Philip · reference
+
+Aëropos’s father in the Macedonian descent.
+
+## Argaeus · reference
+
+Philip’s father, and Perdiccas’s son.
+
+## Amyntas · reference
+
+Gygaea and Bubares’s son, named after his mother’s father, to whom the king gave Alabanda in Phrygia.
+
+## Silenus · reference
+
+Caught, the Macedonians say, in the gardens of Midas where the wild roses have sixty petals each.
+
+## Hegesilaus · reference
+
+Menares’s father in the descent of Leotychides — the other royal house.
+
+## Hippocratides · reference
+
+Hegesilaus’s father.
+
+## Leotychides · reference
+
+Hippocratides’s father, and the king his descendant was named for.
+
+## Anaxilaus · reference
+
+Leotychides the elder’s father.
+
+## Archidamus · reference
+
+Anaxilaus’s father.
+
+## Anaxandridas · reference
+
+Archidamus’s father in the Eurypontid line. Not Cleomenes’s and Leonidas’s father.
+
+## Theopompus · reference
+
+Anaxandridas’s father.
+
+## Nicander · reference
+
+Theopompus’s father.
+
+## Charilaus · reference
+
+Nicander’s father. Not Maeandrius’s brother.
+
+## Eunomus · reference
+
+Charilaus’s father.
+
+## Polydectes · reference
+
+Eunomus’s father.
+
+## Prytanis · reference
+
+Polydectes’s father.
+
+## Euryphon · reference
+
+Prytanis’s father, Procles’s son.
+
+## The Andrians · supporting
+
+Who told Themistocles that Athens was rich because it was well supplied with useful gods, while Andros had only Poverty and Helplessness — and were besieged for it.
+
+## The Tenians · supporting
+
+Whose deserting trireme convinced the Greeks they were surrounded, and whose name went on the tripod at Delphi.
+
+## The Calyndians · supporting
+
+Whose ship, with their king aboard, Artemisia rammed and sank to get an Athenian off her tail. Not one of the crew survived to accuse her.
+
+## The Potidaeans · supporting
+
+Who revolted as soon as the king had gone past, stood a three-month siege from Artabazus, and killed the Persians the flood-tide caught in the shallows.
+
+## The Bottiaeans · supporting
+
+Driven from the Thermaic gulf by the Macedonians, holders of Olynthus, and slaughtered at a lake by Artabazus.
+
+## The Melians · supporting
+
+Of Lacedaemonian descent, who with the Siphnians and Seriphians alone of the islanders had given the barbarian neither earth nor water.
+
+## The Seriphians · reference
+
+Ionians from Athens, who sent one fifty-oared galley and had given no earth and water.
+
+## The Hermionians · reference
+
+Dryopians driven out by Heracles and the Malians, who sent three ships to Salamis and came to the Isthmus.
+
+## The Amprakiots · reference
+
+Who came seven ships’ worth from beyond the Thesprotians.
+
+## The Leucadians · reference
+
+Dorians from Corinth, who came with three ships from the same distance.
+
+## The Keians · reference
+
+Two ships and two fifty-oared galleys at Artemisium and the same at Salamis; Ionians from Athens. The older translation prints Keïans.
+
+## The Styrians · reference
+
+Two ships at Artemisium and the same at Salamis.
+
+## The Dryopians · reference
+
+One of the four races that came into the Peloponnese from outside; Hermion and Asine are theirs, and so are the men of Kythnos.
+
+## The Kynurians · reference
+
+Native to the Peloponnese and alone of it Ionian, though long since made thoroughly Dorian by living under Argos.
+
+## The Aitolians · reference
+
+One of the four incoming races of the Peloponnese; Elis alone is theirs.
+
+## The Lemnians · reference
+
+The fourth incoming race of the Peloponnese, to whom all the Paroreatai belong.
+
+## The Paroreatai · reference
+
+The Lemnians of the Peloponnese.
+
+## The Thesprotians · reference
+
+Beyond whose land and the river Acheron only Croton sent help.
+
+## The Bisaltians · supporting
+
+Whose king withdrew to Mount Rhodope rather than serve Xerxes, and put out his six sons’ eyes for going to the war.
+
+## The Illyrians · reference
+
+To whom the three Temenid brothers fled out of Argos.

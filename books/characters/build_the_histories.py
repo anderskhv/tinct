@@ -1,7 +1,7 @@
 """Reviewed bindings for the Histories.
 
 Nine books, 1,525 sections, 1,626 paragraphs per edition, aligned paragraph for
-paragraph. AUTHORING IS IN PROGRESS: Books 1-7 (sections 1-1260) are authored.
+paragraph. AUTHORING IS IN PROGRESS: Books 1-8 (sections 1-1403) are authored.
 
 Herodotus reuses names across generations and empires, so most of the work here
 is position tables rather than aliases. In Book 1 alone there are two men called
@@ -60,7 +60,7 @@ SPLIT={
  'Heracl(?:e)?ides':({(798,0):'heracleides-cyme',(881,0):'heracleides-mylasa'},None),
  # Anaxandrides's youngest son, named once as Pausanias's father and once in
  # the list of brothers.
- 'Cleombrot(?:us|os)':({(793,0):'cleombrotus-sparta',(802,0):'cleombrotus-sparta',(1227,0):'cleombrotus-sparta'},None),
+ 'Cleombrot(?:us|os)':({(793,0):'cleombrotus-sparta',(802,0):'cleombrotus-sparta',(1227,0):'cleombrotus-sparta',(1331,0):'cleombrotus-sparta'},None),
  # BOOK 5. Two men called Aristagoras, two called Cleisthenes, a third Otanes,
  # a second Adrastus, and the Macedonian Alexander, who has been left unbound
  # since section 3 so that Paris could have the name to himself.
@@ -196,15 +196,15 @@ SPLIT={
            (968,0):[None,'argos-hero']},None),
  'Thas(?:os|us)':({(933,0):['thasus','thasus']},None),
  '(?:Anaxilaus|Anaxilaos)':({(909,0):'anaxilaus',(1187,0):'anaxilaus',
-                             (1192,0):'anaxilaus'},None),
- '(?:Archidamus|Archidemos)':({(957,0):'archidamus'},None),
+                             (1192,0):'anaxilaus',(1390,0):'anaxilaus-sparta'},None),
+ '(?:Archidamus|Archidemos)':({(957,0):'archidamus',(1390,0):'archidamus-sparta'},None),
  'Agis':({(951,0):'agis',(1226,0):'agis-agiad'},None),
  '(?:Demarmenos|Demarmenus)':({(951,0):'demarmenos'},None),
  'Leoprepes':({(971,0):'leoprepes',(1249,6):'leoprepes-ceos'},None),
  # The Glaucus story is four paragraphs, oracle included; the Glaucus of
  # Book 1 is the Chian who made the iron stand and is not cast.
  '(?:Glaucus|Glaucos)':({(972,1):'glaucus',(972,2):'glaucus',(972,3):'glaucus'},None),
- '(?:Polycritus|Polycritos)':({(936,0):'polycritus',(959,0):'polycritus'},None),
+ '(?:Polycritus|Polycritos)':({(936,0):'polycritus',(959,0):'polycritus',(1351,0):'polycritos-aegina',(1352,0):'polycritos-aegina'},None),
  'Thersander':({(703,0):'thersander',(938,0):'thersander'},None),
  'Aristodem(?:us|os)':({(703,0):'aristodemus',(938,0):'aristodemus',
                         (1226,0):'aristodemus',(1390,0):'aristodemus',
@@ -217,7 +217,7 @@ SPLIT={
              (1093,0):'arsames-son-of-darius'},'arsames'),
  'Artacha(?:ees|ies)':({(1048,0):'artachaees',(1139,0):'artachaees',
                         (1140,0):'artachaees',
-                        (1087,0):'artachaees-father-of-otaspes'},None),
+                        (1087,0):'artachaees-father-of-otaspes',(1389,0):'artachaees-father-of-artayntes'},None),
  'Hystaspes':({(1088,0):'hystaspes-son-of-darius'},'hystaspes'),
  'Sisamnes':({(1090,0):'sisamnes-son-of-hydarnes'},'sisamnes'),
  'Artabaz(?:us|os)':({(191,0):'artabazus-babylon'},'artabazus'),
@@ -236,32 +236,49 @@ SPLIT={
  # Scythian steward Tymnes. Sections 798 and 1120 are the Carian pair.
  'Tymnes':({(632,0):'tymnes',(798,0):'tymnes-termera',
             (1120,0):'tymnes-termera'},None),
- '(?:Histiaeus|Histiaios)':({(1120,0):'histiaeus-termera'},'histiaeus'),
+ '(?:Histiaeus|Histiaios)':({(1120,0):'histiaeus-termera',(1345,0):'histiaeus-samos'},'histiaeus'),
  'Pigres':({(773,0):'pigres',(1120,0):'pigres-caria'},None),
  'Candaules':({(1120,0):'candaules-caria'},'candaules'),
  'Lygdamis':({(1121,0):'lygdamis-halicarnassus'},'lygdamis'),
  'Siromu?(?:s|os)':({(1120,0):'siromus-tyre'},'siromus'),
  'Cadm(?:us|os)':({(1185,0):'cadmus-cos',(1186,0):'cadmus-cos'},'cadmus'),
  'Aristeas':({(1159,0):'aristeas-corinth'},'aristeas'),
- 'Adeimant(?:us|os)':({(1159,0):'adeimantus'},None),
+ 'Adeimant(?:us|os)':({(1159,0):'adeimantus',**{(n,0):'adeimantus-corinth' for n in [1265,1319,1321,1353]}},None),
  # Lycus son of Pandion; the rivers of the same name are not cast.
  'Lyc(?:us|os)':({(172,0):'lycos',(1114,0):'lycos'},None),
  # The Silenus, not the river of Book 5.
  'Marsyas':({(1052,0):'marsyas'},None),
- 'Arta(?:y|ÿ)ntes':({(1090,0):'artayntes'},None),
+ 'Arta(?:y|ÿ)ntes':({(1090,0):'artayntes',(1389,0):'artayntes-samos'},None),
  'O(?:eobazus|iobazos)':({(1091,0):'oeobazus'},None),
  'Badres':({(1099,0):'badres'},None),
  'Polydoros':({(1226,0):'polydorus-sparta'},None),
- 'Hegesilaos':({(1226,0):'hegesilaus'},None),
+ 'Hegesilaos':({(1226,0):'hegesilaus',(1390,0):'hegesilaus-eurypontid'},None),
  'Artanes':({(1245,0):'artanes'},None),
  'Cretines':({(1187,0):'cretines-rhegium',(1212,0):'cretines-magnesia'},None),
  # Perses in the older translation where the modern one writes Perseus.
  'Perses':({(1085,0):'perses',(1172,0):'perses',(1241,1):'perses'},None),
  # The ancestor in Xerxes's genealogy; the Ariaramnes of Book 8 is another man.
- 'Ariaramnes':({(1037,0):'ariaramnes'},None),
+ 'Ariaramnes':({(1037,0):'ariaramnes',(1349,0):'ariaramnes-salamis'},None),
  # Thyia's father, not the river of Phocis.
  'Kephisos|Cephisus':({(1200,0):'cephisus'},None),
  'Winds':({(1200,0):'the-winds',(1201,0):'the-winds'},None),
+ # BOOK 8. The Macedonian descent, the Eurypontid king-list, and a second
+ # Phylacos, Polycritus, Histiaeus, Ariaramnes, Charilaus and Anaxandridas.
+ 'Phylacos':({(1299,0):'phylacos-delphi',(1345,0):'phylacos-samos'},None),
+ 'Temenos':({(1396,0):'temenus',(1397,0):'temenus'},None),
+ 'A(?:e|ë)ropos':({(1396,0):'aeropos-brother',
+                   (1398,0):'aeropos-father-of-alketes'},None),
+ 'Philip':({(1398,0):'philip-macedon'},None),
+ 'Silen(?:os|us)':({(1397,0):'silenus'},None),
+ 'Critobulos':({(1386,0):'critobulos'},None),
+ 'Charilaos':({(1390,0):'charilaos-sparta'},'charilaos'),
+ 'Anaxandri(?:des|das|ddes)':({(1390,0):'anaxandridas-eurypontid'},'anaxandrides'),
+ # Section 1390 names the king and the ancestor he was called after.
+ 'Leotychides':({(1390,0):['leotychides','leotychides-elder','leotychides']},'leotychides'),
+ 'Amyntas':({(1395,0):['amyntas','amyntas','amyntas-asia']},'amyntas'),
+ 'Lemnians':({(1333,0):'lemnians'},None),
+ # Artayntes's father in Book 7, his brother's son in Book 8.
+ 'Ithamitres':({(1090,0):'ithamitres',(1389,0):'ithamitres-samos'},None),
 }
 
 # Section 476 mixes the two usurpers with the caste being massacred, and the two

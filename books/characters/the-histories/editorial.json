@@ -1,6 +1,6 @@
 {
-  "contentVersion": "2026-09-12.3",
-  "coverage": "Both full English editions. BOOKS 1-7 (Clio to Polymnia, sections 1-1260) are authored; Books 8-9 are in progress. Named people and named peoples. Cities, rivers, mountains, seas and countries are not cast.",
+  "contentVersion": "2026-09-12.4",
+  "coverage": "Both full English editions. BOOKS 1-8 (Clio to Urania, sections 1-1403) are authored; Book 9 is in progress. Named people and named peoples. Cities, rivers, mountains, seas and countries are not cast.",
   "entities": [
     {
       "id": "croesus",
@@ -647,10 +647,7 @@
       "id": "anaxandrides",
       "name": "Anaxandrides",
       "body": "King of Sparta at the time of Croesus’s embassy.",
-      "aliases": [
-        "Anaxandrides",
-        "Anaxandridas"
-      ],
+      "aliases": [],
       "category": "supporting",
       "kind": "person",
       "subtitle": "",
@@ -1214,7 +1211,9 @@
       "aliases": [
         "Athenians",
         "Athenian",
-        "Attic"
+        "Attic",
+        "Cranaoi",
+        "Kecropidai"
       ],
       "category": "major",
       "kind": "group",
@@ -2898,9 +2897,7 @@
       "id": "charilaos",
       "name": "Charilaos",
       "body": "Maiandrios’s half-mad brother, who was let out of the cells, saw the Persians sitting unarmed, took the mercenaries and killed them — and so brought the massacre of Samos on the island.",
-      "aliases": [
-        "Charilaos"
-      ],
+      "aliases": [],
       "category": "supporting",
       "kind": "person",
       "subtitle": "",
@@ -4475,9 +4472,7 @@
       "id": "amyntas",
       "name": "Amyntas",
       "body": "King of Macedonia, who gave Darius earth and water and let the envoys insult his women rather than risk the Persians.",
-      "aliases": [
-        "Amyntas"
-      ],
+      "aliases": [],
       "category": "major",
       "kind": "person",
       "subtitle": "",
@@ -5757,7 +5752,15 @@
       "category": "major",
       "kind": "person",
       "subtitle": "",
-      "snapshots": []
+      "snapshots": [
+        {
+          "after": [
+            1359,
+            0
+          ],
+          "body": "He talked Xerxes into the war and kept at his side through it, and after Salamis he asked to stay behind with three hundred thousand picked men rather than answer for it — wintering in Thessaly, sending Mys round the oracles and Alexander of Macedon to Athens."
+        }
+      ]
     },
     {
       "id": "artozostra",
@@ -5824,13 +5827,19 @@
       "id": "leotychides",
       "name": "Leotychides",
       "body": "Demaratus’s kinsman, who had lost his bride to him and swore the charge that unseated him. He took the throne, was sentenced to be handed over to the Aeginetans for the hostages, told the Athenians the story of Glaucus instead, and ended in exile at Tegea after being caught in camp sitting on a glove stuffed with money.",
-      "aliases": [
-        "Leotychides"
-      ],
+      "aliases": [],
       "category": "major",
       "kind": "person",
       "subtitle": "",
-      "snapshots": []
+      "snapshots": [
+        {
+          "after": [
+            1390,
+            0
+          ],
+          "body": "In the spring after Salamis he commanded the Greek fleet at Aegina — a hundred and ten ships — and would take the Ionian envoys no further east than Delos."
+        }
+      ]
     },
     {
       "id": "crius",
@@ -6422,7 +6431,22 @@
       "category": "major",
       "kind": "person",
       "subtitle": "",
-      "snapshots": []
+      "snapshots": [
+        {
+          "after": [
+            1031,
+            0
+          ],
+          "body": "Darius’s son and successor, talked into the invasion of Greece by Mardonius, the Aleuadae and a forged oracle, and then twice by a dream. He bridged the Hellespont, had it scourged when a storm broke the bridge, cut a channel through Athos, and led the largest army Herodotus knows of."
+        },
+        {
+          "after": [
+            1356,
+            0
+          ],
+          "body": "After Salamis he lashed merchant ships together as a feint, sent word of the disaster to Susa, left Mardonius three hundred thousand men and went home in thirty-five days, his army eating bark and leaves on the way."
+        }
+      ]
     },
     {
       "id": "artaxerxes",
@@ -7066,7 +7090,8 @@
       "name": "Ariphron",
       "body": "Xanthippus’s father.",
       "aliases": [
-        "Ariphron"
+        "Ariphron",
+        "Ariphon"
       ],
       "category": "reference",
       "kind": "person",
@@ -7727,10 +7752,8 @@
     {
       "id": "ithamitres",
       "name": "Ithamitres",
-      "body": "Artayntes’s father, and a commander in the fleet of the last two books.",
-      "aliases": [
-        "Ithamitres"
-      ],
+      "body": "Artayntes’s father, named once in the catalogue.",
+      "aliases": [],
       "category": "reference",
       "kind": "person",
       "subtitle": "",
@@ -8333,7 +8356,15 @@
       "category": "central",
       "kind": "person",
       "subtitle": "",
-      "snapshots": []
+      "snapshots": [
+        {
+          "after": [
+            1347,
+            0
+          ],
+          "body": "At Salamis, chased by an Athenian and hemmed in by her own side, she rammed and sank a ship of her own fleet with the king of the Calyndians aboard. The Athenian turned away, and Xerxes — told she had sunk an enemy — said that his men had become women and his women men."
+        }
+      ]
     },
     {
       "id": "lygdamis-halicarnassus",
@@ -8623,7 +8654,15 @@
       "category": "central",
       "kind": "person",
       "subtitle": "",
-      "snapshots": []
+      "snapshots": [
+        {
+          "after": [
+            1371,
+            0
+          ],
+          "body": "He took thirty talents from the Euboeans to keep the fleet at Artemisium and paid five of them to Eurybiades as his own money; he argued the fleet into staying at Salamis and then sent his servant to the Persians to make sure it could not leave; and after the battle he squeezed money out of Andros, Carystos and Paros on his own account, and sent word to Xerxes that he had saved the bridges for him."
+        }
+      ]
     },
     {
       "id": "neocles",
@@ -10132,6 +10171,1237 @@
       "aliases": [],
       "category": "reference",
       "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eurybiades",
+      "name": "Eurybiades",
+      "body": "Eurycleides’s son, the Spartan given supreme command because the allies would not follow Athenian leadership. Bribed by Themistocles to stay at Artemisium and talked by him into staying at Salamis, he was given the prize of valour at Sparta — and he would not break the bridges, on the argument that a Persian shut into Europe would be far more dangerous than a Persian running home.",
+      "aliases": [
+        "Eurybiades"
+      ],
+      "category": "central",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eurycleides",
+      "name": "Eurycleides",
+      "body": "Eurybiades’s father.",
+      "aliases": [
+        "Eurycleides"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "adeimantus-corinth",
+      "name": "Adeimantus",
+      "body": "Son of Ocytus and commander of the Corinthians, the last man to be bought at Artemisium and Themistocles’s loudest enemy at Salamis — he told him that men who start before the signal get beaten with rods, and that a man without a city had no vote. The Athenians said he fled the battle; the Corinthians denied it, and the rest of Greece took their side.",
+      "aliases": [],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "okytos",
+      "name": "Ocytus",
+      "body": "Adeimantus of Corinth’s father.",
+      "aliases": [
+        "Okytos"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "mnesiphilos",
+      "name": "Mnesiphilus",
+      "body": "The Athenian who, hearing that the fleet meant to leave Salamis, told Themistocles to go and get the decision reversed. Themistocles put the argument to Eurybiades as his own.",
+      "aliases": [
+        "Mnesiphilos"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aristides",
+      "name": "Aristides",
+      "body": "Lysimachus’s son, ostracised by his own people and, in Herodotus’s judgement, the best and most upright man in Athens. He crossed from Aegina through the blockade to tell his enemy Themistocles that the Greeks were surrounded, and cleared Psyttaleia of Persians with his hoplites.",
+      "aliases": [
+        "Aristides",
+        "Aristeides"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lysimachos",
+      "name": "Lysimachus",
+      "body": "Aristides’s father.",
+      "aliases": [
+        "Lysimachos"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sikinnos",
+      "name": "Sikinnos",
+      "body": "Themistocles’s servant and his children’s tutor, sent twice across to the Persians with a lie: first that the Greeks meant to run, which brought on the battle, and then that Themistocles had held the Greeks back from the bridges. He was made a Thespian citizen and a rich man for it.",
+      "aliases": [
+        "Sikinnos"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "timodemos",
+      "name": "Timodemus",
+      "body": "Of Aphidnae, who told Themistocles that his honours at Sparta were Athens’s doing and not his own — and was told that if Themistocles had been a man of Belbina he would have had none, and neither would Timodemus, Athenian though he was.",
+      "aliases": [
+        "Timodemos"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "skyllias",
+      "name": "Skyllias",
+      "body": "The best diver of his day, of Scione, who deserted from the Persians at Aphetae and brought the Greeks word of the shipwreck and of the two hundred ships sent round Euboea. The story that he swam the eighty furlongs under water Herodotus does not believe.",
+      "aliases": [
+        "Skyllias"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "philaon",
+      "name": "Philaon",
+      "body": "Chersis’s son and brother of Gorgus king of Salamis, a man of standing in the Persian fleet, taken with the thirty ships captured at Artemisium.",
+      "aliases": [
+        "Philaon"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lycomedes",
+      "name": "Lycomedes",
+      "body": "Son of Aischraios, the first Greek to take an enemy ship at Artemisium, and given the prize of valour for it.",
+      "aliases": [
+        "Lycomedes"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aischraios",
+      "name": "Aischraios",
+      "body": "Lycomedes’s father.",
+      "aliases": [
+        "Aischraios"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "antidorus",
+      "name": "Antidorus",
+      "body": "Of Lemnos, the only Greek in the king’s fleet to desert at Artemisium; the Athenians gave him land on Salamis for it.",
+      "aliases": [
+        "Antidoros"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cleinias",
+      "name": "Cleinias",
+      "body": "Son of Alcibiades, who did best of the Athenians in the third day’s fighting, serving with two hundred men and a ship of his own at his own expense.",
+      "aliases": [
+        "Cleinias"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "alkibiades",
+      "name": "Alcibiades",
+      "body": "Cleinias’s father.",
+      "aliases": [
+        "Alkibiades"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "bakis",
+      "name": "Bakis",
+      "body": "The oracle-monger whose verses the Euboeans ignored — remove the loud-bleating goats when a barbarian yokes the sea with papyrus — and whose lines on Salamis Herodotus will not argue with.",
+      "aliases": [
+        "Bakis"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "polyas",
+      "name": "Polyas",
+      "body": "Of Anticyra, the scout at Artemisium whose task was to carry word to Thermopylae if the fleet was beaten.",
+      "aliases": [
+        "Polyas"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "abronichos",
+      "name": "Abronichus",
+      "body": "Son of Lysicles, the Athenian who waited at Thermopylae with a thirty-oared galley to carry word to Artemisium, and did.",
+      "aliases": [
+        "Abronichos"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lysicles",
+      "name": "Lysicles",
+      "body": "Abronichus’s father.",
+      "aliases": [
+        "Lysicles"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ameinias",
+      "name": "Ameinias",
+      "body": "Of Pallene, the Athenian who drove his ship out first and rammed the enemy — the Athenians say the battle began with him — and who chased Artemisia without knowing who was aboard. Ten thousand drachmas had been offered for her alive.",
+      "aliases": [
+        "Ameinias"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eumenes",
+      "name": "Eumenes",
+      "body": "Of Anagyrus, one of the two Athenians most distinguished at Salamis.",
+      "aliases": [
+        "Eumenes"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "polycritos-aegina",
+      "name": "Polycritus",
+      "body": "Crius’s son, the most distinguished of the Aeginetans at Salamis, who rammed the Sidonian ship that had taken Pytheas — and shouted across at Themistocles, as he did it, about the charge that Aegina favoured the Medes.",
+      "aliases": [],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "panaitios",
+      "name": "Panaetius",
+      "body": "Son of Sosimenes, commander of the Tenian trireme that deserted at Salamis and brought the Greeks the whole truth. Tenos was written on the tripod at Delphi for it.",
+      "aliases": [
+        "Panaitios"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sosimenes",
+      "name": "Sosimenes",
+      "body": "Panaetius’s father.",
+      "aliases": [
+        "Sosimenes"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "theomestor",
+      "name": "Theomestor",
+      "body": "Son of Androdamas, a Samian who destroyed Greek ships at Salamis and was made tyrant of Samos for it.",
+      "aliases": [
+        "Theomestor"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "androdamas",
+      "name": "Androdamas",
+      "body": "Theomestor’s father.",
+      "aliases": [
+        "Androdamas"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "phylacos-samos",
+      "name": "Phylacos",
+      "body": "Son of Histiaeus, the other Samian Herodotus names for destroying Greek ships; he was entered as a benefactor of the king and given much land. The Persians call such men orosangai.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "histiaeus-samos",
+      "name": "Histiaeus",
+      "body": "Phylacos of Samos’s father.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ariaramnes-salamis",
+      "name": "Ariaramnes",
+      "body": "A Persian present when the Phoenicians accused the Ionians, who was beheaded with them for being their friend. Not the ancestor in Xerxes’s genealogy.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lysistratos",
+      "name": "Lysistratus",
+      "body": "The Athenian oracle-monger, dead years before, whose one line — the Colian women shall roast their barley with oars — the wreckage on the Attic shore fulfilled.",
+      "aliases": [
+        "Lysistratos"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "dicaios",
+      "name": "Dicaeus",
+      "body": "Son of Theocydes, an Athenian exile of standing among the Medes, who says he stood with Demaratus in the Thriasian plain and saw the dust of thirty thousand men rise from deserted Eleusis and heard the cry of Iacchus — and was told by Demaratus to keep his mouth shut.",
+      "aliases": [
+        "Dicaios"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "theokydes",
+      "name": "Theocydes",
+      "body": "Dicaeus’s father.",
+      "aliases": [
+        "Theokydes"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "iacchus",
+      "name": "Iacchus",
+      "body": "The cry raised at the Eleusinian feast, which Dicaeus heard coming out of an empty country and knew for a god.",
+      "aliases": [
+        "Iacchos"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tellias",
+      "name": "Tellias",
+      "body": "The Elean soothsayer who whitened six hundred Phocians with chalk, armour and all, and sent them at the Thessalians by night with orders to kill every man not coated white.",
+      "aliases": [
+        "Tellias"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "akeratos",
+      "name": "Akeratos",
+      "body": "The prophet at Delphi who saw the sacred arms carried out of the sanctuary by themselves and laid before it.",
+      "aliases": [
+        "Akeratos"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "phylacos-delphi",
+      "name": "Phylacos",
+      "body": "One of the two local heroes of Delphi whose precincts stand by the temple, and who the Delphians say pursued the barbarians in armour and more than human size.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "autonoos",
+      "name": "Autonoös",
+      "body": "The other Delphian hero, whose precinct is near Castalia under Hyampeia.",
+      "aliases": [
+        "Autonoös"
+      ],
+      "category": "supporting",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "kecrops",
+      "name": "Kecrops",
+      "body": "The Athenian king from whom the Athenians were called Kecropidai, and whose boundary the oracle names; Aglauros was his daughter.",
+      "aliases": [
+        "Kecrops",
+        "Cecrops"
+      ],
+      "category": "supporting",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aglauros",
+      "name": "Aglauros",
+      "body": "Kecrops’s daughter, by whose temple the Persians found the way up the sheer face of the Acropolis.",
+      "aliases": [
+        "Aglauros"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "calliades",
+      "name": "Calliades",
+      "body": "Archon of Athens in the year the city was taken.",
+      "aliases": [
+        "Calliades"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "telamon",
+      "name": "Telamon",
+      "body": "Called on with Ajax from Salamis when the Greeks prayed to the sons of Aeacus before the battle.",
+      "aliases": [
+        "Telamon"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "democritos",
+      "name": "Democritus",
+      "body": "A man of repute at Naxos and commander of a trireme, who talked the four Naxian ships out of joining the Persians and brought them over to the Greeks.",
+      "aliases": [
+        "Democritos"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "phaylos",
+      "name": "Phaÿlos",
+      "body": "Of Croton, three times a victor at the Pythian games, who brought the one ship that came to help Greece from beyond the Thesprotians and the Acheron.",
+      "aliases": [
+        "Phaÿlos"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "justice",
+      "name": "Justice",
+      "body": "The power the oracle sets over Riot: when the Persians come to Artemis’s strand she subdues him, and Greece has a day of freedom from Zeus and from Victory.",
+      "aliases": [
+        "Justice"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "insolence",
+      "name": "Insolence",
+      "body": "Whose first-born son is Riot.",
+      "aliases": [
+        "Insolence"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "riot",
+      "name": "Riot",
+      "body": "Insolence’s first-born son, who longs to overturn everything and pants terribly for blood.",
+      "aliases": [
+        "Riot"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "victory",
+      "name": "Victory",
+      "body": "Lady and mother, from whom with far-seeing Zeus comes the day of freedom for Greece.",
+      "aliases": [
+        "Victory"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "persuasion",
+      "name": "Persuasion",
+      "body": "One of the two great deities Themistocles said the Athenians had brought with them to Andros, and which the Andrians said was why Athens was rich.",
+      "aliases": [
+        "Persuasion"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "compulsion",
+      "name": "Compulsion",
+      "body": "The other, brought to Andros in the same ship.",
+      "aliases": [
+        "Compulsion"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "poverty",
+      "name": "Poverty",
+      "body": "One of the two unprofitable gods the Andrians said never leave their island — which is why they would give Themistocles no money.",
+      "aliases": [
+        "Poverty"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "helplessness",
+      "name": "Helplessness",
+      "body": "The other Andrian god.",
+      "aliases": [
+        "Helplessness"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hermotimos",
+      "name": "Hermotimus",
+      "body": "The eunuch of Pedasa, first of Xerxes’s eunuchs, who was sent to escort the king’s sons to Ephesus — and who took the greatest revenge for a wrong that Herodotus knows of: he found the man who had castrated him, coaxed his whole household into his hands, and made him castrate his four sons and then be castrated by them.",
+      "aliases": [
+        "Hermotimos"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "panionios",
+      "name": "Panionius",
+      "body": "Of Chios, who made his living buying beautiful boys, castrating them, and selling them at Sardis and Ephesus for large sums. Hermotimus was one of them.",
+      "aliases": [
+        "Panionios"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "critobulos",
+      "name": "Critobulus",
+      "body": "Of Torone, to whom Artabazus handed Olynthus after slaughtering its Bottiaeans at a lake.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "timoxeinos",
+      "name": "Timoxeinus",
+      "body": "Commander of the men of Scione, who arranged to betray Potidaea to Artabazus by notes wound round the notches of an arrow — until Artabazus missed his mark and hit a man of Potidaea in the shoulder. The commanders would not convict him openly, for the sake of Scione’s name.",
+      "aliases": [
+        "Timoxeinos"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "artayntes-samos",
+      "name": "Artayntes",
+      "body": "Son of Artachaees, one of the new commanders sent down to the fleet at Samos in the spring, who took his brother’s son Ithamitres into joint command with him. Not the commander of the Pactyes, who was Ithamitres’s son.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ithamitres-samos",
+      "name": "Ithamitres",
+      "body": "Artayntes of Samos’s brother’s son, added to the joint command by Artayntes himself. Not the Ithamitres whose son commanded the Pactyes.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "artachaees-father-of-artayntes",
+      "name": "Artachaees",
+      "body": "Artayntes’s father, named once in the new commands at Samos. Herodotus does not say whether he is the Achaemenid who dug the channel through Athos.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "herodotus-of-chios",
+      "name": "Herodotus",
+      "body": "Son of Basileides, one of the seven Chians who plotted to kill Strattis and one of the six who got away — an envoy to Sparta and to Aegina asking the Greeks to set Ionia free. The two editions spell him Herodotus and Herodotos, as they spell the historian.",
+      "aliases": [
+        "Herodotus",
+        "Herodotos"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "basileides",
+      "name": "Basileides",
+      "body": "Herodotus of Chios’s father.",
+      "aliases": [
+        "Basileides"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "mys",
+      "name": "Mys",
+      "body": "The man of Europus whom Mardonius sent round every oracle in Greece. At the Ptoan shrine the prophet answered in a barbarian tongue; the Thebans stood there baffled, and Mys snatched their tablet and wrote it down himself, saying it was Carian.",
+      "aliases": [
+        "Mys"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "trophonios",
+      "name": "Trophonius",
+      "body": "Whose oracle at Lebadeia Mys had a local man go down to.",
+      "aliases": [
+        "Trophonios",
+        "Trophonius"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "perdiccas",
+      "name": "Perdiccas",
+      "body": "The youngest of the three Temenid brothers, who took the king of Lebaia’s wages by drawing his knife round the sunlight on the floor and gathering it three times into his bosom — and became the first tyrant of the Macedonians.",
+      "aliases": [
+        "Perdiccas"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "temenus",
+      "name": "Temenus",
+      "body": "The Argive from whom the Macedonian kings descend.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "gauanes",
+      "name": "Gauanes",
+      "body": "One of Perdiccas’s two elder brothers, who stood stunned when the king offered them the sunlight.",
+      "aliases": [
+        "Gauanes"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aeropos-brother",
+      "name": "Aëropos",
+      "body": "The other brother.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aeropos-father-of-alketes",
+      "name": "Aëropos",
+      "body": "Alcetes’s father in the descent from Perdiccas — a later man of the same name.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "alketes",
+      "name": "Alcetes",
+      "body": "Amyntas’s father.",
+      "aliases": [
+        "Alketes"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "philip-macedon",
+      "name": "Philip",
+      "body": "Aëropos’s father in the Macedonian descent.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "argaios",
+      "name": "Argaeus",
+      "body": "Philip’s father, and Perdiccas’s son.",
+      "aliases": [
+        "Argaios"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "amyntas-asia",
+      "name": "Amyntas",
+      "body": "Gygaea and Bubares’s son, named after his mother’s father, to whom the king gave Alabanda in Phrygia.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "silenus",
+      "name": "Silenus",
+      "body": "Caught, the Macedonians say, in the gardens of Midas where the wild roses have sixty petals each.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hegesilaus-eurypontid",
+      "name": "Hegesilaus",
+      "body": "Menares’s father in the descent of Leotychides — the other royal house.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hippocratides",
+      "name": "Hippocratides",
+      "body": "Hegesilaus’s father.",
+      "aliases": [
+        "Hippocratides"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "leotychides-elder",
+      "name": "Leotychides",
+      "body": "Hippocratides’s father, and the king his descendant was named for.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "anaxilaus-sparta",
+      "name": "Anaxilaus",
+      "body": "Leotychides the elder’s father.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "archidamus-sparta",
+      "name": "Archidamus",
+      "body": "Anaxilaus’s father.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "anaxandridas-eurypontid",
+      "name": "Anaxandridas",
+      "body": "Archidamus’s father in the Eurypontid line. Not Cleomenes’s and Leonidas’s father.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "theopompos",
+      "name": "Theopompus",
+      "body": "Anaxandridas’s father.",
+      "aliases": [
+        "Theopompos"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "nicander",
+      "name": "Nicander",
+      "body": "Theopompus’s father.",
+      "aliases": [
+        "Nicander"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "charilaos-sparta",
+      "name": "Charilaus",
+      "body": "Nicander’s father. Not Maeandrius’s brother.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eunomos",
+      "name": "Eunomus",
+      "body": "Charilaus’s father.",
+      "aliases": [
+        "Eunomos"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "polydectes",
+      "name": "Polydectes",
+      "body": "Eunomus’s father.",
+      "aliases": [
+        "Polydectes"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "prytanis",
+      "name": "Prytanis",
+      "body": "Polydectes’s father.",
+      "aliases": [
+        "Prytanis"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "euryphon",
+      "name": "Euryphon",
+      "body": "Prytanis’s father, Procles’s son.",
+      "aliases": [
+        "Euryphon"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "andrians",
+      "name": "The Andrians",
+      "body": "Who told Themistocles that Athens was rich because it was well supplied with useful gods, while Andros had only Poverty and Helplessness — and were besieged for it.",
+      "aliases": [
+        "Andrians"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tenians",
+      "name": "The Tenians",
+      "body": "Whose deserting trireme convinced the Greeks they were surrounded, and whose name went on the tripod at Delphi.",
+      "aliases": [
+        "Tenians"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "calyndians",
+      "name": "The Calyndians",
+      "body": "Whose ship, with their king aboard, Artemisia rammed and sank to get an Athenian off her tail. Not one of the crew survived to accuse her.",
+      "aliases": [
+        "Calyndians"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "potidaians",
+      "name": "The Potidaeans",
+      "body": "Who revolted as soon as the king had gone past, stood a three-month siege from Artabazus, and killed the Persians the flood-tide caught in the shallows.",
+      "aliases": [
+        "Potidaians"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "bottiaians",
+      "name": "The Bottiaeans",
+      "body": "Driven from the Thermaic gulf by the Macedonians, holders of Olynthus, and slaughtered at a lake by Artabazus.",
+      "aliases": [
+        "Bottiaians"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "melians",
+      "name": "The Melians",
+      "body": "Of Lacedaemonian descent, who with the Siphnians and Seriphians alone of the islanders had given the barbarian neither earth nor water.",
+      "aliases": [
+        "Melians"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "seriphians",
+      "name": "The Seriphians",
+      "body": "Ionians from Athens, who sent one fifty-oared galley and had given no earth and water.",
+      "aliases": [
+        "Seriphians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hermionians",
+      "name": "The Hermionians",
+      "body": "Dryopians driven out by Heracles and the Malians, who sent three ships to Salamis and came to the Isthmus.",
+      "aliases": [
+        "Hermionians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "amprakiots",
+      "name": "The Amprakiots",
+      "body": "Who came seven ships’ worth from beyond the Thesprotians.",
+      "aliases": [
+        "Amprakiots"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "leucadians",
+      "name": "The Leucadians",
+      "body": "Dorians from Corinth, who came with three ships from the same distance.",
+      "aliases": [
+        "Leucadians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "keians",
+      "name": "The Keians",
+      "body": "Two ships and two fifty-oared galleys at Artemisium and the same at Salamis; Ionians from Athens. The older translation prints Keïans.",
+      "aliases": [
+        "Keians",
+        "Keïans"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "styrians",
+      "name": "The Styrians",
+      "body": "Two ships at Artemisium and the same at Salamis.",
+      "aliases": [
+        "Styrians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "dryopians",
+      "name": "The Dryopians",
+      "body": "One of the four races that came into the Peloponnese from outside; Hermion and Asine are theirs, and so are the men of Kythnos.",
+      "aliases": [
+        "Dryopians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "kynurians",
+      "name": "The Kynurians",
+      "body": "Native to the Peloponnese and alone of it Ionian, though long since made thoroughly Dorian by living under Argos.",
+      "aliases": [
+        "Kynurians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aitolians",
+      "name": "The Aitolians",
+      "body": "One of the four incoming races of the Peloponnese; Elis alone is theirs.",
+      "aliases": [
+        "Aitolians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lemnians",
+      "name": "The Lemnians",
+      "body": "The fourth incoming race of the Peloponnese, to whom all the Paroreatai belong.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "paroreatai",
+      "name": "The Paroreatai",
+      "body": "The Lemnians of the Peloponnese.",
+      "aliases": [
+        "Paroreatai"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "thesprotians",
+      "name": "The Thesprotians",
+      "body": "Beyond whose land and the river Acheron only Croton sent help.",
+      "aliases": [
+        "Thesprotians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "bisaltians",
+      "name": "The Bisaltians",
+      "body": "Whose king withdrew to Mount Rhodope rather than serve Xerxes, and put out his six sons’ eyes for going to the war.",
+      "aliases": [
+        "Bisaltians"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "illyrians",
+      "name": "The Illyrians",
+      "body": "To whom the three Temenid brothers fled out of Argos.",
+      "aliases": [
+        "Illyrians"
+      ],
+      "category": "reference",
+      "kind": "group",
       "subtitle": "",
       "snapshots": []
     }

@@ -11,9 +11,9 @@ the same names across generations and empires — there are two men called Atys 
 the first ten sections, and the Alexander who carries off Helen is not the
 Alexander who rules Macedon.
 
-AUTHORING IS IN PROGRESS. Books 1-7 (Clio to Polymnia, sections 1-1260) are
-authored. Books 8-9 are not yet done and the package must not be integrated
-until they are.
+AUTHORING IS IN PROGRESS. Books 1-8 (Clio to Urania, sections 1-1403) are
+authored. Book 9 is not yet done and the package must not be integrated until
+it is.
 
 Scope: named people and named peoples. Cities, rivers, mountains, seas and
 countries are not cast, even where Herodotus treats them as actors.
@@ -90,7 +90,7 @@ for row in [
 ('lycurgus-spartan','Lycurgus','The lawgiver who gave Sparta its whole constitution — brought from Crete, or given by the Pythia, depending on who is telling it — and turned the worst-governed Greeks into the best.','','major'),
 ('leon','Leon','A king of Sparta in the generation before Anaxandrides, under whom the Spartans beat everyone except Tegea.','','reference'),
 ('hegesicles','Hegesicles','Leon’s fellow-king at Sparta.','Hegesicles','reference'),
-('anaxandrides','Anaxandrides','King of Sparta at the time of Croesus’s embassy.','Anaxandrides|Anaxandridas','supporting'),
+('anaxandrides','Anaxandrides','King of Sparta at the time of Croesus’s embassy.','','supporting'),
 ('ariston-spartan','Ariston','Anaxandrides’s fellow-king at Sparta when Croesus sent for an alliance.','','supporting','person',[{'after':[949,0],'body':'Childless by two wives, he took a third by tricking his closest friend out of her with a sworn exchange of gifts. When the servant announced the birth he counted the months on his fingers and denied the child on oath — one sentence, thought nothing of at the time, that unseated Demaratus years later.'}]),
 ('lichas','Lichas','One of the Spartan "Well-doers", who found the bones of Orestes under a blacksmith’s forge at Tegea by taking the smith’s talk about a seven-foot coffin literally.','Lichas','supporting'),
 ('orestes','Orestes','Son of Agamemnon, whose bones the oracle told Sparta to fetch home from Tegea before they could beat the Tegeans.','Orestes','supporting','mythological-figure'),
@@ -143,7 +143,7 @@ for row in [
 ('aeolians','The Aeolians','The Greeks of the coast north of Ionia, subdued with them. The two editions spell them Aeolians and Aiolians.','Aeolians|Aeolian|Aiolians','supporting','group'),
 ('dorians','The Dorians','The third of the three Greek divisions, of whom the five cities of the Triopian temple are the Asian branch.','Dorians|Dorian','supporting','group'),
 ('hellenes','The Hellenes','Herodotus’s word for the Greeks as one people, set against the barbarians from the first sentence of the work.','Hellenes|Hellenic|Greeks|Greek|Hellas','central','group'),
-('athenians','The Athenians','Of Pelasgian stock and never moved from their land; under Peisistratus in Croesus’s day, and the people Croesus judged the first among the Ionians.','Athenians|Athenian|Attic','major','group'),
+('athenians','The Athenians','Of Pelasgian stock and never moved from their land; under Peisistratus in Croesus’s day, and the people Croesus judged the first among the Ionians.','Athenians|Athenian|Attic|Cranaoi|Kecropidai','major','group'),
 ('lacedaemonians','The Lacedaemonians','The Spartans, whom Croesus chose as allies because they were the first of the Dorians — worst-governed of the Greeks once, and best-governed since Lycurgus.','Lacedaemonians|Lacedemonians|Lacedaemonian|Spartans|Spartan','major','group'),
 ('scythians','The Scythians','The nomads who drove the Cimmerians out of their homes, followed them into Asia, and held the upper country for twenty-eight years before the Medes got them drunk and killed them.','Scythians|Scythian','major','group'),
 ('cimmerians','The Cimmerians','Driven from their own land by the Scythians, they took Sardis in the reign of Ardys — all of it but the citadel.','Cimmerians|Cimmerian|Kimmerians','supporting','group'),
@@ -317,7 +317,7 @@ for row in [
 ('syloson','Syloson','Polycrates’s brother, exiled — and the man who gave Darius a red cloak in Egypt for nothing, years before Darius was king, and afterwards asked for Samos and got it.','Syloson','major'),
 ('pantagnotos','Pantagnotos','Polycrates’s other brother, killed when Polycrates took sole power.','Pantagnotos','reference'),
 ('maiandrios','Maiandrios','Polycrates’s secretary, left in charge of Samos, who tried to hand the island over to a free constitution and was refused; he ended by opening the treasury to the Persians and escaping through a tunnel.','Maiandrios','major'),
-('charilaos','Charilaos','Maiandrios’s half-mad brother, who was let out of the cells, saw the Persians sitting unarmed, took the mercenaries and killed them — and so brought the massacre of Samos on the island.','Charilaos','supporting'),
+('charilaos','Charilaos','Maiandrios’s half-mad brother, who was let out of the cells, saw the Persians sitting unarmed, took the mercenaries and killed them — and so brought the massacre of Samos on the island.','','supporting'),
 ('archias-samos','Archias','One of the two Lacedaemonians who broke into Samos and died inside it; Herodotus met his grandson, also Archias, at Pitana.','','supporting'),
 ('archias-grandson','Archias','The grandson of the Archias who died at Samos, whom Herodotus met and who honoured the Samians above all strangers because they had buried his grandfather at public cost.','','supporting'),
 ('lycopas','Lycopas','The other Lacedaemonian who followed the routed Samians inside the walls and was cut off there with Archias.','Lycopas','supporting'),
@@ -477,7 +477,7 @@ print(len(entities),'entities after Book 4')
 # since section 3 so that Paris could have the name to himself.
 for row in [
 ('alexander-macedon','Alexander','Amyntas’s son, who had the seven Persian envoys killed at his father’s table by beardless men dressed as women, bought off the search with money and his own sister, and afterwards proved himself a Hellene at Olympia. A different man from the Alexander who carried off Helen.','','major'),
-('amyntas','Amyntas','King of Macedonia, who gave Darius earth and water and let the envoys insult his women rather than risk the Persians.','Amyntas','major'),
+('amyntas','Amyntas','King of Macedonia, who gave Darius earth and water and let the envoys insult his women rather than risk the Persians.','','major'),
 ('bubares','Bubares','The Persian to whom Alexander gave his sister Gygaea, and a great deal of money, to stop the inquiry into the missing envoys.','Bubares','supporting'),
 ('gygaea','Gygaea','Alexander’s sister, married to Bubares as part of the price of silence.','Gygaea|Gygaia','supporting'),
 ('pigres','Pigres','One of two Paeonian brothers who set out to make themselves despots of Paeonia and showed Darius a woman carrying water, spinning and leading a horse at once — which cost their whole nation its home.','','supporting'),
@@ -601,14 +601,14 @@ for row in [
 ('metiochus','Metiochus','Miltiades’s eldest son, by an earlier wife, captured in the one ship of five that did not escape. Darius did him no harm at all: a house, an estate and a Persian wife, and his children were counted as Persians.','Metiochus|Metiochos','supporting'),
 ('euagoras','Euagoras','The Laconian whose mares also won three Olympic victories — the only ones besides Cimon’s to do it.','Euagoras','reference'),
 # ------------------------------------------------- the Persians come back west
-('mardonius','Mardonius','Gobryas’s son and Darius’s son-in-law, sent down to the coast young. He put down the Ionian tyrants and set up popular governments — which Herodotus offers as a marvel to Hellenes who will not believe Otanes argued for popular rule — then lost three hundred ships off Athos, was wounded by the Brygi, and was relieved of his command.','Mardonius|Mardonios','major'),
+('mardonius','Mardonius','Gobryas’s son and Darius’s son-in-law, sent down to the coast young. He put down the Ionian tyrants and set up popular governments — which Herodotus offers as a marvel to Hellenes who will not believe Otanes argued for popular rule — then lost three hundred ships off Athos, was wounded by the Brygi, and was relieved of his command.','Mardonius|Mardonios','major','person',[{'after':[1359,0],'body':'He talked Xerxes into the war and kept at his side through it, and after Salamis he asked to stay behind with three hundred thousand picked men rather than answer for it — wintering in Thessaly, sending Mys round the oracles and Alexander of Macedon to Athens.'}]),
 ('artozostra','Artozostra','Darius’s daughter, whom Mardonius had lately married.','Artozostra','reference'),
 ('thasians','The Thasians','The islanders whose mines brought in two hundred talents a year and sometimes three hundred, spent on warships and a stronger wall — which Darius ordered pulled down, with the ships sent to Abdera.','Thasians','supporting','group'),
 ('brygians','The Brygi','The Thracians who attacked Mardonius’s camp by night, killed many of his men and wounded him, and were made subject all the same.','Brygi|Brygians|Brygian','supporting','group'),
 ('thasus','Thasus','The Phoenician who made the first settlement on the island, and left it his name.','','reference','mythological-figure'),
 # --------------------------------------------------------- Sparta: two kings
 ('demaratus','Demaratus','Ariston’s son and king of Sparta of the younger house, who accused Cleomenes over Aegina out of envy and was unseated for it: the charge was that Ariston, counting the months on his fingers, had denied him at birth. He made his mother tell him whose son he was, was mocked at a festival by the man who replaced him, and went to Darius.','Demaratus|Demaratos','major'),
-('leotychides','Leotychides','Demaratus’s kinsman, who had lost his bride to him and swore the charge that unseated him. He took the throne, was sentenced to be handed over to the Aeginetans for the hostages, told the Athenians the story of Glaucus instead, and ended in exile at Tegea after being caught in camp sitting on a glove stuffed with money.','Leotychides','major'),
+('leotychides','Leotychides','Demaratus’s kinsman, who had lost his bride to him and swore the charge that unseated him. He took the throne, was sentenced to be handed over to the Aeginetans for the hostages, told the Athenians the story of Glaucus instead, and ended in exile at Tegea after being caught in camp sitting on a glove stuffed with money.','','major','person',[{'after':[1390,0],'body':'In the spring after Salamis he commanded the Greek fleet at Aegina — a hundred and ten ships — and would take the Ionian envoys no further east than Delos.'}]),
 ('crius','Crius','The Aeginetan who told Cleomenes he had no authority from Sparta and would not be taking anyone away. Cleomenes asked his name, heard that it meant Ram, and told him to bind his horns with bronze.','Crius|Crios','supporting'),
 ('polycritus','Polycritus','Crius’s father.','','reference'),
 ('eurysthenes','Eurysthenes','The twin the Spartans took for the elder, because his mother washed and fed him first. The senior royal house descends from him, and is honoured more for it.','Eurysthenes','supporting'),
@@ -659,7 +659,7 @@ for row in [
 # ------------------------------------------------------------------ Marathon
 ('datis','Datis','The Mede who commanded against Eretria and Athens. He would not anchor off Delos, sent the Delians home with three hundred talents of frankincense burned on the altar, enslaved Eretria, and carried a stolen gilded Apollo back across the sea to be returned.','Datis','major'),
 ('artaphrenes-son','Artaphrenes','Darius’s nephew, the son of the governor of Sardis, joint commander with Datis at Marathon.','','major'),
-('xerxes','Xerxes','Darius’s son, named in the count of three generations under which more evils came upon Hellas than in the twenty before. His name, Herodotus says, means Warrior.','Xerxes','major'),
+('xerxes','Xerxes','Darius’s son, named in the count of three generations under which more evils came upon Hellas than in the twenty before. His name, Herodotus says, means Warrior.','Xerxes','major','person',[{'after':[1031,0],'body':'Darius’s son and successor, talked into the invasion of Greece by Mardonius, the Aleuadae and a forged oracle, and then twice by a dream. He bridged the Hellespont, had it scourged when a storm broke the bridge, cut a channel through Athos, and led the largest army Herodotus knows of.'},{'after':[1356,0],'body':'After Salamis he lashed merchant ships together as a feint, sent word of the disaster to Susa, left Mardonius three hundred thousand men and went home in thirty-five days, his army eating bark and leaves on the way.'}]),
 ('artaxerxes','Artaxerxes','Xerxes’s son, the third of the three generations; his name means Great Warrior.','Artaxerxes|Artoxerxes','reference'),
 ('carystians','The Carystians','The islanders who would give neither hostages nor troops against their own neighbours, and gave way only after their town was besieged and their land stripped.','Carystians','supporting','group'),
 ('aeschines','Aeschines','The leading Eretrian who told the four thousand Athenians how his city was actually divided, and begged them to go home rather than be destroyed with it. They took his advice.','Aeschines|Aischines','supporting'),
@@ -714,7 +714,7 @@ for row in [
 ('alcon','Alcon','The suitor from the Molossians.','Alcon','reference'),
 ('molossians','The Molossians','The people Alcon came from.','Molossians','reference','group'),
 ('xanthippus','Xanthippus','The Athenian who married the younger Agariste and, when Miltiades came back from Paros, brought him before the people and demanded the death penalty.','Xanthippus|Xanthippos','major'),
-('ariphron','Ariphron','Xanthippus’s father.','Ariphron','reference'),
+('ariphron','Ariphron','Xanthippus’s father.','Ariphron|Ariphon','reference'),
 ('pericles','Pericles','Xanthippus’s son by Agariste, born a few days after she dreamed she had given birth to a lion.','Pericles','reference'),
 ('lysagoras','Lysagoras','The Parian who denounced Miltiades to Hydarnes the Persian, and so gave him a private grudge against Paros to go with the public one.','','supporting'),
 ('tisias','Tisias','Lysagoras’s father.','Tisias','reference'),
@@ -788,7 +788,7 @@ for row in [
 ('ariomardus-son-of-darius','Ariomardus','Darius’s son by Parmys, Smerdis’s daughter, commander of the Moschi and Tibareni.','','reference'),
 ('pherendates','Pherendates','Son of Megabazus, commander of the Sarangae.','Pherendates','reference'),
 ('artayntes','Artayntes','Son of Ithamitres, commander of the Pactyes.','','reference'),
-('ithamitres','Ithamitres','Artayntes’s father, and a commander in the fleet of the last two books.','Ithamitres','reference'),
+('ithamitres','Ithamitres','Artayntes’s father, named once in the catalogue.','','reference'),
 ('arsamenes','Arsamenes','Darius’s son, commander of the Utii and Myci.','Arsamenes','reference'),
 ('siromitres','Siromitres','Son of Oeobazus, commander of the Paricanii; named again in the catalogue as Masistius’s father.','Siromitres','reference'),
 ('oeobazus','Oeobazus','Siromitres’s father.','','reference'),
@@ -842,7 +842,7 @@ for row in [
 ('hysseldomus','Hysseldomus','Pigres of Caria’s father.','Hysseldomus|Hysseldomos','reference'),
 ('damasithymus','Damasithymus','Son of Candaules, a Carian captain — and the king of the Calyndians whose ship Artemisia rammed and sank to save herself.','Damasithymus|Damasithymos','supporting'),
 ('candaules-caria','Candaules','Damasithymus’s father. Not the Lydian king who had his wife looked at.','','reference'),
-('artemisia','Artemisia','Lygdamis’s daughter and ruler of Halicarnassus, Cos, Nisyrus and Calydna, who went on the expedition after her husband’s death though she had a grown son and no compulsion. Her five ships were reckoned the best in the fleet after Sidon’s, and of all the king’s allies she gave him the best advice.','Artemisia','central'),
+('artemisia','Artemisia','Lygdamis’s daughter and ruler of Halicarnassus, Cos, Nisyrus and Calydna, who went on the expedition after her husband’s death though she had a grown son and no compulsion. Her five ships were reckoned the best in the fleet after Sidon’s, and of all the king’s allies she gave him the best advice.','Artemisia','central','person',[{'after':[1347,0],'body':'At Salamis, chased by an Athenian and hemmed in by her own side, she rammed and sank a ship of her own fleet with the king of the Calyndians aboard. The Athenian turned away, and Xerxes — told she had sunk an enemy — said that his men had become women and his women men.'}]),
 ('lygdamis-halicarnassus','Lygdamis','Artemisia’s father, Halicarnassian on his side and Cretan on his wife’s. Not the Naxian who helped Peisistratus.','','reference'),
 # ----------------------------------------------------- the march through Thrace
 ('mascames','Mascames','Son of Megadostes and governor at Doriscus, the one governor in Thrace or on the Hellespont the Greeks never took. Every Persian king since has sent gifts to his descendants.','Mascames','supporting'),
@@ -868,7 +868,7 @@ for row in [
 ('aristonice','Aristonice','The Pythian priestess who told the Athenians to flee to the ends of the earth, since neither head nor body nor anything between was left to them.','Aristonice|Aristonike','supporting'),
 ('timon','Timon','Son of Androboulus, a Delphian of the first rank, who told the Athenians to go back into the shrine as suppliants with boughs in their hands and ask again — which got them the wooden wall.','Timon','supporting'),
 ('androboulus','Androboulus','Timon’s father.','Androboulus|Androbulos','reference'),
-('themistocles','Themistocles','Neocles’s son, lately come forward among the leading Athenians, who read the wooden wall as the ships and Salamis the divine as an oracle against the enemy — and who had already persuaded Athens to spend the silver of Laurium on two hundred ships instead of dividing it ten drachmas a man.','Themistocles','central'),
+('themistocles','Themistocles','Neocles’s son, lately come forward among the leading Athenians, who read the wooden wall as the ships and Salamis the divine as an oracle against the enemy — and who had already persuaded Athens to spend the silver of Laurium on two hundred ships instead of dividing it ten drachmas a man.','Themistocles','central','person',[{'after':[1371,0],'body':'He took thirty talents from the Euboeans to keep the fleet at Artemisium and paid five of them to Eurybiades as his own money; he argued the fleet into staying at Salamis and then sent his servant to the Persians to make sure it could not leave; and after the battle he squeezed money out of Andros, Carystos and Paros on his own account, and sent word to Xerxes that he had saved the bridges for him.'}]),
 ('neocles','Neocles','Themistocles’s father.','Neocles','reference'),
 ('gorgo','Gorgo','Cleomenes’s daughter and Leonidas’s wife: at eight or nine she told her father to get up and go before Aristagoras corrupted him, and years later she was the one who worked out that the blank tablet from Susa had writing under the wax.','Gorgo','major'),
 ('euaenetus','Euaenetus','Son of Carenus, chosen from the polemarchs to command the Greek force sent to hold the pass at Tempe; not of the royal house.','Euaenetus|Euainetos','supporting'),
@@ -1005,8 +1005,130 @@ for row in [
 ('tritantaechmes-babylon','Tritantaechmes','Satrap of Babylon, whose province was the best of all the governments: an artaba of silver a day, and eight hundred stallions besides the mares. Not Artabanus’s son.','','reference'),
 ]:add(*row)
 
-print(len(entities),'entities after Book 7')
+# ============================================== BOOK 8 — URANIA (1261-1403)
+# Artemisium, the burning of the Acropolis, Salamis, and the embassies of the
+# following spring. Most of its principals are already cast from Book 7 and are
+# bound forward; what is new is the Greek command, the Aeginetan and Athenian
+# captains, the Delphian heroes, and the Macedonian royal descent.
+for row in [
+# ------------------------------------------------------------- the Greek command
+('eurybiades','Eurybiades','Eurycleides’s son, the Spartan given supreme command because the allies would not follow Athenian leadership. Bribed by Themistocles to stay at Artemisium and talked by him into staying at Salamis, he was given the prize of valour at Sparta — and he would not break the bridges, on the argument that a Persian shut into Europe would be far more dangerous than a Persian running home.','Eurybiades','central'),
+('eurycleides','Eurycleides','Eurybiades’s father.','Eurycleides','reference'),
+('adeimantus-corinth','Adeimantus','Son of Ocytus and commander of the Corinthians, the last man to be bought at Artemisium and Themistocles’s loudest enemy at Salamis — he told him that men who start before the signal get beaten with rods, and that a man without a city had no vote. The Athenians said he fled the battle; the Corinthians denied it, and the rest of Greece took their side.','','major'),
+('okytos','Ocytus','Adeimantus of Corinth’s father.','Okytos','reference'),
+('mnesiphilos','Mnesiphilus','The Athenian who, hearing that the fleet meant to leave Salamis, told Themistocles to go and get the decision reversed. Themistocles put the argument to Eurybiades as his own.','Mnesiphilos','supporting'),
+('aristides','Aristides','Lysimachus’s son, ostracised by his own people and, in Herodotus’s judgement, the best and most upright man in Athens. He crossed from Aegina through the blockade to tell his enemy Themistocles that the Greeks were surrounded, and cleared Psyttaleia of Persians with his hoplites.','Aristides|Aristeides','major'),
+('lysimachos','Lysimachus','Aristides’s father.','Lysimachos','reference'),
+('sikinnos','Sikinnos','Themistocles’s servant and his children’s tutor, sent twice across to the Persians with a lie: first that the Greeks meant to run, which brought on the battle, and then that Themistocles had held the Greeks back from the bridges. He was made a Thespian citizen and a rich man for it.','Sikinnos','major'),
+('timodemos','Timodemus','Of Aphidnae, who told Themistocles that his honours at Sparta were Athens’s doing and not his own — and was told that if Themistocles had been a man of Belbina he would have had none, and neither would Timodemus, Athenian though he was.','Timodemos','supporting'),
+# ------------------------------------------------------- Artemisium and Salamis
+('skyllias','Skyllias','The best diver of his day, of Scione, who deserted from the Persians at Aphetae and brought the Greeks word of the shipwreck and of the two hundred ships sent round Euboea. The story that he swam the eighty furlongs under water Herodotus does not believe.','Skyllias','supporting'),
+('philaon','Philaon','Chersis’s son and brother of Gorgus king of Salamis, a man of standing in the Persian fleet, taken with the thirty ships captured at Artemisium.','Philaon','supporting'),
+('lycomedes','Lycomedes','Son of Aischraios, the first Greek to take an enemy ship at Artemisium, and given the prize of valour for it.','Lycomedes','supporting'),
+('aischraios','Aischraios','Lycomedes’s father.','Aischraios','reference'),
+('antidorus','Antidorus','Of Lemnos, the only Greek in the king’s fleet to desert at Artemisium; the Athenians gave him land on Salamis for it.','Antidoros','supporting'),
+('cleinias','Cleinias','Son of Alcibiades, who did best of the Athenians in the third day’s fighting, serving with two hundred men and a ship of his own at his own expense.','Cleinias','supporting'),
+('alkibiades','Alcibiades','Cleinias’s father.','Alkibiades','reference'),
+('bakis','Bakis','The oracle-monger whose verses the Euboeans ignored — remove the loud-bleating goats when a barbarian yokes the sea with papyrus — and whose lines on Salamis Herodotus will not argue with.','Bakis','supporting'),
+('polyas','Polyas','Of Anticyra, the scout at Artemisium whose task was to carry word to Thermopylae if the fleet was beaten.','Polyas','reference'),
+('abronichos','Abronichus','Son of Lysicles, the Athenian who waited at Thermopylae with a thirty-oared galley to carry word to Artemisium, and did.','Abronichos','supporting'),
+('lysicles','Lysicles','Abronichus’s father.','Lysicles','reference'),
+('ameinias','Ameinias','Of Pallene, the Athenian who drove his ship out first and rammed the enemy — the Athenians say the battle began with him — and who chased Artemisia without knowing who was aboard. Ten thousand drachmas had been offered for her alive.','Ameinias','major'),
+('eumenes','Eumenes','Of Anagyrus, one of the two Athenians most distinguished at Salamis.','Eumenes','supporting'),
+('polycritos-aegina','Polycritus','Crius’s son, the most distinguished of the Aeginetans at Salamis, who rammed the Sidonian ship that had taken Pytheas — and shouted across at Themistocles, as he did it, about the charge that Aegina favoured the Medes.','','major'),
+('panaitios','Panaetius','Son of Sosimenes, commander of the Tenian trireme that deserted at Salamis and brought the Greeks the whole truth. Tenos was written on the tripod at Delphi for it.','Panaitios','supporting'),
+('sosimenes','Sosimenes','Panaetius’s father.','Sosimenes','reference'),
+('theomestor','Theomestor','Son of Androdamas, a Samian who destroyed Greek ships at Salamis and was made tyrant of Samos for it.','Theomestor','supporting'),
+('androdamas','Androdamas','Theomestor’s father.','Androdamas','reference'),
+('phylacos-samos','Phylacos','Son of Histiaeus, the other Samian Herodotus names for destroying Greek ships; he was entered as a benefactor of the king and given much land. The Persians call such men orosangai.','','supporting'),
+('histiaeus-samos','Histiaeus','Phylacos of Samos’s father.','','reference'),
+('ariaramnes-salamis','Ariaramnes','A Persian present when the Phoenicians accused the Ionians, who was beheaded with them for being their friend. Not the ancestor in Xerxes’s genealogy.','','reference'),
+('lysistratos','Lysistratus','The Athenian oracle-monger, dead years before, whose one line — the Colian women shall roast their barley with oars — the wreckage on the Attic shore fulfilled.','Lysistratos','supporting'),
+('dicaios','Dicaeus','Son of Theocydes, an Athenian exile of standing among the Medes, who says he stood with Demaratus in the Thriasian plain and saw the dust of thirty thousand men rise from deserted Eleusis and heard the cry of Iacchus — and was told by Demaratus to keep his mouth shut.','Dicaios','major'),
+('theokydes','Theocydes','Dicaeus’s father.','Theokydes','reference'),
+('iacchus','Iacchus','The cry raised at the Eleusinian feast, which Dicaeus heard coming out of an empty country and knew for a god.','Iacchos','supporting','deity'),
+# ---------------------------------------------------- Delphi, Athens, the heroes
+('tellias','Tellias','The Elean soothsayer who whitened six hundred Phocians with chalk, armour and all, and sent them at the Thessalians by night with orders to kill every man not coated white.','Tellias','major'),
+('akeratos','Akeratos','The prophet at Delphi who saw the sacred arms carried out of the sanctuary by themselves and laid before it.','Akeratos','supporting'),
+('phylacos-delphi','Phylacos','One of the two local heroes of Delphi whose precincts stand by the temple, and who the Delphians say pursued the barbarians in armour and more than human size.','','supporting','mythological-figure'),
+('autonoos','Autonoös','The other Delphian hero, whose precinct is near Castalia under Hyampeia.','Autonoös','supporting','mythological-figure'),
+('kecrops','Kecrops','The Athenian king from whom the Athenians were called Kecropidai, and whose boundary the oracle names; Aglauros was his daughter.','Kecrops|Cecrops','supporting','mythological-figure'),
+('aglauros','Aglauros','Kecrops’s daughter, by whose temple the Persians found the way up the sheer face of the Acropolis.','Aglauros','reference','mythological-figure'),
+('calliades','Calliades','Archon of Athens in the year the city was taken.','Calliades','reference'),
+('telamon','Telamon','Called on with Ajax from Salamis when the Greeks prayed to the sons of Aeacus before the battle.','Telamon','reference','mythological-figure'),
+('democritos','Democritus','A man of repute at Naxos and commander of a trireme, who talked the four Naxian ships out of joining the Persians and brought them over to the Greeks.','Democritos','supporting'),
+('phaylos','Phaÿlos','Of Croton, three times a victor at the Pythian games, who brought the one ship that came to help Greece from beyond the Thesprotians and the Acheron.','Phaÿlos','supporting'),
+# -------------------------------------------------- the powers of the oracles
+('justice','Justice','The power the oracle sets over Riot: when the Persians come to Artemis’s strand she subdues him, and Greece has a day of freedom from Zeus and from Victory.','Justice','reference','deity'),
+('insolence','Insolence','Whose first-born son is Riot.','Insolence','reference','deity'),
+('riot','Riot','Insolence’s first-born son, who longs to overturn everything and pants terribly for blood.','Riot','reference','deity'),
+('victory','Victory','Lady and mother, from whom with far-seeing Zeus comes the day of freedom for Greece.','Victory','reference','deity'),
+('persuasion','Persuasion','One of the two great deities Themistocles said the Athenians had brought with them to Andros, and which the Andrians said was why Athens was rich.','Persuasion','supporting','deity'),
+('compulsion','Compulsion','The other, brought to Andros in the same ship.','Compulsion','supporting','deity'),
+('poverty','Poverty','One of the two unprofitable gods the Andrians said never leave their island — which is why they would give Themistocles no money.','Poverty','supporting','deity'),
+('helplessness','Helplessness','The other Andrian god.','Helplessness','supporting','deity'),
+# -------------------------------------------------- the retreat, and Hermotimus
+('hermotimos','Hermotimus','The eunuch of Pedasa, first of Xerxes’s eunuchs, who was sent to escort the king’s sons to Ephesus — and who took the greatest revenge for a wrong that Herodotus knows of: he found the man who had castrated him, coaxed his whole household into his hands, and made him castrate his four sons and then be castrated by them.','Hermotimos','major'),
+('panionios','Panionius','Of Chios, who made his living buying beautiful boys, castrating them, and selling them at Sardis and Ephesus for large sums. Hermotimus was one of them.','Panionios','major'),
+('critobulos','Critobulus','Of Torone, to whom Artabazus handed Olynthus after slaughtering its Bottiaeans at a lake.','','supporting'),
+('timoxeinos','Timoxeinus','Commander of the men of Scione, who arranged to betray Potidaea to Artabazus by notes wound round the notches of an arrow — until Artabazus missed his mark and hit a man of Potidaea in the shoulder. The commanders would not convict him openly, for the sake of Scione’s name.','Timoxeinos','major'),
+('artayntes-samos','Artayntes','Son of Artachaees, one of the new commanders sent down to the fleet at Samos in the spring, who took his brother’s son Ithamitres into joint command with him. Not the commander of the Pactyes, who was Ithamitres’s son.','','supporting'),
+('ithamitres-samos','Ithamitres','Artayntes of Samos’s brother’s son, added to the joint command by Artayntes himself. Not the Ithamitres whose son commanded the Pactyes.','','reference'),
+('artachaees-father-of-artayntes','Artachaees','Artayntes’s father, named once in the new commands at Samos. Herodotus does not say whether he is the Achaemenid who dug the channel through Athos.','','reference'),
+('herodotus-of-chios','Herodotus','Son of Basileides, one of the seven Chians who plotted to kill Strattis and one of the six who got away — an envoy to Sparta and to Aegina asking the Greeks to set Ionia free. The two editions spell him Herodotus and Herodotos, as they spell the historian.','Herodotus|Herodotos','supporting'),
+('basileides','Basileides','Herodotus of Chios’s father.','Basileides','reference'),
+('mys','Mys','The man of Europus whom Mardonius sent round every oracle in Greece. At the Ptoan shrine the prophet answered in a barbarian tongue; the Thebans stood there baffled, and Mys snatched their tablet and wrote it down himself, saying it was Carian.','Mys','major'),
+('trophonios','Trophonius','Whose oracle at Lebadeia Mys had a local man go down to.','Trophonios|Trophonius','reference','mythological-figure'),
+# ------------------------------------------------------ the Macedonian descent
+('perdiccas','Perdiccas','The youngest of the three Temenid brothers, who took the king of Lebaia’s wages by drawing his knife round the sunlight on the floor and gathering it three times into his bosom — and became the first tyrant of the Macedonians.','Perdiccas','major'),
+('temenus','Temenus','The Argive from whom the Macedonian kings descend.','','reference','mythological-figure'),
+('gauanes','Gauanes','One of Perdiccas’s two elder brothers, who stood stunned when the king offered them the sunlight.','Gauanes','reference'),
+('aeropos-brother','Aëropos','The other brother.','','reference'),
+('aeropos-father-of-alketes','Aëropos','Alcetes’s father in the descent from Perdiccas — a later man of the same name.','','reference'),
+('alketes','Alcetes','Amyntas’s father.','Alketes','reference'),
+('philip-macedon','Philip','Aëropos’s father in the Macedonian descent.','','reference'),
+('argaios','Argaeus','Philip’s father, and Perdiccas’s son.','Argaios','reference'),
+('amyntas-asia','Amyntas','Gygaea and Bubares’s son, named after his mother’s father, to whom the king gave Alabanda in Phrygia.','','reference'),
+('silenus','Silenus','Caught, the Macedonians say, in the gardens of Midas where the wild roses have sixty petals each.','','reference','mythological-figure'),
+# ---------------------------------------------------- the Eurypontid king-list
+('hegesilaus-eurypontid','Hegesilaus','Menares’s father in the descent of Leotychides — the other royal house.','','reference'),
+('hippocratides','Hippocratides','Hegesilaus’s father.','Hippocratides','reference'),
+('leotychides-elder','Leotychides','Hippocratides’s father, and the king his descendant was named for.','','reference'),
+('anaxilaus-sparta','Anaxilaus','Leotychides the elder’s father.','','reference'),
+('archidamus-sparta','Archidamus','Anaxilaus’s father.','','reference'),
+('anaxandridas-eurypontid','Anaxandridas','Archidamus’s father in the Eurypontid line. Not Cleomenes’s and Leonidas’s father.','','reference'),
+('theopompos','Theopompus','Anaxandridas’s father.','Theopompos','reference'),
+('nicander','Nicander','Theopompus’s father.','Nicander','reference'),
+('charilaos-sparta','Charilaus','Nicander’s father. Not Maeandrius’s brother.','','reference'),
+('eunomos','Eunomus','Charilaus’s father.','Eunomos','reference'),
+('polydectes','Polydectes','Eunomus’s father.','Polydectes','reference'),
+('prytanis','Prytanis','Polydectes’s father.','Prytanis','reference'),
+('euryphon','Euryphon','Prytanis’s father, Procles’s son.','Euryphon','reference'),
+# ------------------------------------------------------------------- peoples
+('andrians','The Andrians','Who told Themistocles that Athens was rich because it was well supplied with useful gods, while Andros had only Poverty and Helplessness — and were besieged for it.','Andrians','supporting','group'),
+('tenians','The Tenians','Whose deserting trireme convinced the Greeks they were surrounded, and whose name went on the tripod at Delphi.','Tenians','supporting','group'),
+('calyndians','The Calyndians','Whose ship, with their king aboard, Artemisia rammed and sank to get an Athenian off her tail. Not one of the crew survived to accuse her.','Calyndians','supporting','group'),
+('potidaians','The Potidaeans','Who revolted as soon as the king had gone past, stood a three-month siege from Artabazus, and killed the Persians the flood-tide caught in the shallows.','Potidaians','supporting','group'),
+('bottiaians','The Bottiaeans','Driven from the Thermaic gulf by the Macedonians, holders of Olynthus, and slaughtered at a lake by Artabazus.','Bottiaians','supporting','group'),
+('melians','The Melians','Of Lacedaemonian descent, who with the Siphnians and Seriphians alone of the islanders had given the barbarian neither earth nor water.','Melians','supporting','group'),
+('seriphians','The Seriphians','Ionians from Athens, who sent one fifty-oared galley and had given no earth and water.','Seriphians','reference','group'),
+('hermionians','The Hermionians','Dryopians driven out by Heracles and the Malians, who sent three ships to Salamis and came to the Isthmus.','Hermionians','reference','group'),
+('amprakiots','The Amprakiots','Who came seven ships’ worth from beyond the Thesprotians.','Amprakiots','reference','group'),
+('leucadians','The Leucadians','Dorians from Corinth, who came with three ships from the same distance.','Leucadians','reference','group'),
+('keians','The Keians','Two ships and two fifty-oared galleys at Artemisium and the same at Salamis; Ionians from Athens. The older translation prints Keïans.','Keians|Keïans','reference','group'),
+('styrians','The Styrians','Two ships at Artemisium and the same at Salamis.','Styrians','reference','group'),
+('dryopians','The Dryopians','One of the four races that came into the Peloponnese from outside; Hermion and Asine are theirs, and so are the men of Kythnos.','Dryopians','reference','group'),
+('kynurians','The Kynurians','Native to the Peloponnese and alone of it Ionian, though long since made thoroughly Dorian by living under Argos.','Kynurians','reference','group'),
+('aitolians','The Aitolians','One of the four incoming races of the Peloponnese; Elis alone is theirs.','Aitolians','reference','group'),
+('lemnians','The Lemnians','The fourth incoming race of the Peloponnese, to whom all the Paroreatai belong.','','reference','group'),
+('paroreatai','The Paroreatai','The Lemnians of the Peloponnese.','Paroreatai','reference','group'),
+('thesprotians','The Thesprotians','Beyond whose land and the river Acheron only Croton sent help.','Thesprotians','reference','group'),
+('bisaltians','The Bisaltians','Whose king withdrew to Mount Rhodope rather than serve Xerxes, and put out his six sons’ eyes for going to the war.','Bisaltians','supporting','group'),
+('illyrians','The Illyrians','To whom the three Temenid brothers fled out of Argos.','Illyrians','reference','group'),
+]:add(*row)
+
+print(len(entities),'entities after Book 8')
 Path(__file__).parent.joinpath('editorial.json').write_text(json.dumps(dict(
- contentVersion='2026-09-12.3',
- coverage='Both full English editions. BOOKS 1-7 (Clio to Polymnia, sections 1-1260) are authored; Books 8-9 are in progress. Named people and named peoples. Cities, rivers, mountains, seas and countries are not cast.',
+ contentVersion='2026-09-12.4',
+ coverage='Both full English editions. BOOKS 1-8 (Clio to Urania, sections 1-1403) are authored; Book 9 is in progress. Named people and named peoples. Cities, rivers, mountains, seas and countries are not cast.',
  entities=[e for e in entities if e['name']!='unused']),ensure_ascii=False,indent=2)+'\n')

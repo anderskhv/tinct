@@ -1,15 +1,15 @@
 # The Histories character package — IN PROGRESS
 
-**Books 1–7 (sections 1–1260) are authored. Books 8–9 are not.** Status stays
+**Books 1–8 (sections 1–1403) are authored. Book 9 is not.** Status stays
 `in-progress` and the package must not be integrated until all nine books are
 covered.
 
-Current state: 838 entities authored, 835 bound in the older translation and all
-838 in the modern edition, 10,773 and 10,766 exact mentions. The mention counts are
+Current state: 944 entities authored, 941 bound in the older translation and all
+944 in the modern edition, 11,011 and 11,009 exact mentions. The mention counts are
 by a wide margin the highest in the library, because the nations Herodotus names —
 Persians, Hellenes, Athenians, Lacedaemonians — recur through all nine books and
 are bound wherever they appear, not only where they were first cast. Content
-revision 2026-09-12.3.
+revision 2026-09-12.4.
 
 ## Why this is the hardest book in the queue
 
@@ -119,14 +119,14 @@ No edition byte was touched.
 
 ## Remaining work
 
-- Books 8–9 (sections 1261–1525): Salamis, Plataea and Mycale. Most of their
-  principals are already bound forward out of Book 7 — Xerxes, Mardonius,
-  Artabazus, Artemisia, Themistocles, Leonidas's survivors, the Immortals — so
-  what remains is the Greek commanders of the two battles, the Persian
-  commanders who first appear there, and the long tail of Aeginetan, Corinthian
-  and Tegean names in the aristeia lists.
+- Book 9 (sections 1404–1525): Plataea and Mycale. Mardonius, Artabazus,
+  Masistius, Leotychides, Aristides, Themistocles, Artayntes and the Immortals
+  are already bound forward out of Books 7 and 8, so what remains is Pausanias
+  and the Spartan command, the Tegean and Athenian aristeia lists, the Theban
+  and Boeotian medisers, Masistes and Amestris at the end, and the last of the
+  men called Otanes and Artembares.
 
-  Books 1 to 7 are done. Books 8–9 remain.
+  Books 1 to 8 are done. Book 9 remains.
 
 - The namesake tables extended as each book is authored, and the `None` defaults
   replaced only where the later man is actually carded.
@@ -518,8 +518,101 @@ turned up the **"Royal Judges"** mis-binding described above, which had been
 sitting in Books 3 and 5 since those books were authored. That is the third time
 the sweep has found something no coverage test could.
 
+## Book 8: a smaller cast, and two king-lists that look alike
+
+Urania is Artemisium, the burning of the Acropolis, Salamis, and the embassies
+of the spring after. It adds **106 entities** and 2,043 mentions inside its own
+sections — a third of Book 7's intake, because most of its principals were cast
+there and are bound forward: Xerxes, Mardonius, Artabazus, Artemisia,
+Themistocles, Leotychides, Hydarnes the younger, Demaratus, Alexander of
+Macedon, the Immortals.
+
+What is new is the Greek command — **Eurybiades**, who held supreme authority
+because the allies would not follow Athens, and **Adeimantus of Corinth**, who
+was bought at Artemisium and told Themistocles at Salamis that a man without a
+city had no vote; **Aristides**, ostracised and rowing through the blockade to
+tell his worst enemy that the fleet was surrounded; **Mnesiphilus**, whose
+argument Themistocles repeated to Eurybiades as his own; and **Sikinnos**, the
+servant sent twice across the water with a lie, who was made a Thespian citizen
+and a rich man for it.
+
+### The namesakes are all pairs this time
+
+| Entity | Where | Against |
+|---|---|---|
+| `phylacos-delphi` / `phylacos-samos` | 1299 / 1345 | the Delphian hero, and the Samian who destroyed Greek ships |
+| `polycritos-aegina` | 1351, 1352 | Crius's *father* Polycritus of Book 6 — this is Crius's son |
+| `histiaeus-samos` | 1345 | Histiaeus of Miletus, and Histiaeus of Termera |
+| `ariaramnes-salamis` | 1349 | the ancestor in Xerxes's genealogy |
+| `adeimantus-corinth` | 1265–1353 | Aristeas of Corinth's father |
+| `charilaos-sparta` | 1390 | Maeandrius's brother |
+| `anaxandridas-eurypontid` | 1390 | Cleomenes's and Leonidas's father |
+| `artayntes-samos` / `ithamitres-samos` | 1389 | **each other's Book 7 counterparts** |
+
+The last of those is the neatest inversion in the work. Book 7 has *Artayntes
+son of Ithamitres* commanding the Pactyes; Book 8 has *Artayntes son of
+Artachaees* commanding at Samos, with *Ithamitres his brother's son* in joint
+command. Two men of each name, and the father-and-son relation runs the opposite
+way. All four are now separate cards and a test walks them.
+
+### Two king-lists that look alike
+
+Section 1226 recites the **Agiad** descent for Leonidas; section 1390 recites the
+**Eurypontid** descent for Leotychides. Eleven of the twelve new names in the
+second list are men who appear nowhere else, and four of them share a name with
+somebody already cast — Anaxandridas, Charilaus, Anaxilaus, Archidamus,
+Hegesilaus. Both lists are now bound name by name, and a test asserts that no
+name in one is bound to a man from the other. Section 1390 also names
+**Leotychides twice**: the admiral, and the ancestor he was called after.
+
+The Macedonian descent at 1396–1398 does the same thing on a smaller scale:
+**two men called Aëropos** — Perdiccas's brother and Alcetes's father — and
+**three called Amyntas in one sentence**, the king twice and then his grandson in
+Asia, who was given Alabanda in Phrygia.
+
+### The personified powers
+
+Book 8 is the richest book in the work for these, and they are cast:
+
+- **Justice, Insolence, Riot and Victory** in the oracle of Bakis on Salamis —
+  Justice subdues Riot, Insolence's first-born son, and the day of freedom comes
+  from Zeus and from Victory.
+- **Persuasion and Compulsion**, the two great deities Themistocles said the
+  Athenians had brought to Andros, against **Poverty and Helplessness**, the two
+  unprofitable gods the Andrians said never leave their island — which is why
+  they would not pay. It is the best joke in the Histories and it is unreadable
+  without four cards.
+- **Iacchus**, the cry Dicaeus heard coming out of deserted Eleusis.
+
+### Source oddities
+
+Macaulay prints **Anaxandriddes** with a doubled *d* at 1390, and **Keïans**,
+**Phaÿlos**, **Autonoös**, **Artaÿntes**, **Aëropos** and **Ischenoös** with
+diaereses; all are carried as aliases. The one place the two editions differ in
+what they name is the escort Sparta gave Themistocles: the modern edition
+capitalises the three hundred **"Horsemen"** as a body, Macaulay writes
+*horsemen* in lower case, and so they are not cast.
+
+### Gated outcomes
+
+Five cards written from earlier books gain snapshots here rather than rewrites:
+**Xerxes** at 1031 (he inherits and is talked into the war) and at 1356 (the
+mole, the messenger, the flight), **Mardonius** at 1359 (he asks to stay behind
+with three hundred thousand), **Artemisia** at 1347 (she rams her own side to get
+an Athenian off her tail, and Xerxes says his men have become women),
+**Themistocles** at 1371 (the money — the Euboeans', the islanders', and the
+five talents he passed to Eurybiades as his own), and **Leotychides** at 1390
+(the command of the fleet at Aegina).
+
+### Spot-read and sweep
+
+Sixteen mentions drawn at random, eight per edition: all correct. The adjacency
+sweep over Book 8's mentions turned up nothing — the first book where it found no
+mis-binding, which is what it should look like once the namesake tables are right
+before the sweep is run rather than after.
+
 ## Validation
 
 `python3 books/characters/build_the_histories.py --check`, then
-`python3 -m unittest discover -s books/characters -p 'test_*.py'`. Fifty-two
+`python3 -m unittest discover -s books/characters -p 'test_*.py'`. Fifty-nine
 focused tests so far. No edition changes, no network generation.
