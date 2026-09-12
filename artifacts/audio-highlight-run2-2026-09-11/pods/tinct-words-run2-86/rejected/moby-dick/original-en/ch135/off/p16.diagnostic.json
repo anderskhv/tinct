@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "64e009b78b7e031f8e9ed5c217f78fbd62bfc47e683affb2ebd956df8ae36398",
+  "attempts": [
+    {
+      "asr_seconds": 0.1563691794872284,
+      "alignment_seconds": 0.0003916621208190918,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Aye, sir, thou wilt have it so.",
+          "start": 0.11,
+          "end": 1.91,
+          "words": [
+            {
+              "text": " Aye,",
+              "start": 0.11,
+              "end": 0.61,
+              "probability": 0.580078125
+            },
+            {
+              "text": " sir,",
+              "start": 0.69,
+              "end": 0.77,
+              "probability": 0.81494140625
+            },
+            {
+              "text": " thou",
+              "start": 1.07,
+              "end": 1.15,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " wilt",
+              "start": 1.15,
+              "end": 1.37,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " have",
+              "start": 1.37,
+              "end": 1.53,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " it",
+              "start": 1.53,
+              "end": 1.67,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " so.",
+              "start": 1.67,
+              "end": 1.91,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aye,",
+          "start": 0.11,
+          "end": 0.61
+        },
+        {
+          "raw": "sir,",
+          "start": 0.69,
+          "end": 0.77
+        },
+        {
+          "raw": "thou",
+          "start": 1.07,
+          "end": 1.15
+        },
+        {
+          "raw": "wilt",
+          "start": 1.15,
+          "end": 1.37
+        },
+        {
+          "raw": "have",
+          "start": 1.37,
+          "end": 1.53
+        },
+        {
+          "raw": "it",
+          "start": 1.53,
+          "end": 1.67
+        },
+        {
+          "raw": "so.",
+          "start": 1.67,
+          "end": 1.91
+        }
+      ],
+      "expected_tokens": [
+        "\"Aye,",
+        "sir,",
+        "thou",
+        "wilt",
+        "have",
+        "it",
+        "so.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Aye,",
+          "start": 0.11,
+          "end": 0.61,
+          "key": "aye",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 0.69,
+          "end": 0.77,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.07,
+          "end": 1.15,
+          "key": "thou",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "wilt",
+          "start": 1.15,
+          "end": 1.37,
+          "key": "wilt",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.37,
+          "end": 1.53,
+          "key": "have",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.53,
+          "end": 1.67,
+          "key": "it",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "so.",
+          "start": 1.67,
+          "end": 1.91,
+          "key": "so",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Aye,",
+          "start": 0.11,
+          "end": 0.61
+        },
+        {
+          "text": "sir,",
+          "start": 0.69,
+          "end": 0.77
+        },
+        {
+          "text": "thou",
+          "start": 1.07,
+          "end": 1.15
+        },
+        {
+          "text": "wilt",
+          "start": 1.15,
+          "end": 1.37
+        },
+        {
+          "text": "have",
+          "start": 1.37,
+          "end": 1.53
+        },
+        {
+          "text": "it",
+          "start": 1.53,
+          "end": 1.67
+        },
+        {
+          "text": "so.\"",
+          "start": 1.67,
+          "end": 1.91
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15691009908914566
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "dbea5853d1f851879f8ac0475cafb723e882d9eeddf025fe894a4a0de14e358a",
+  "selected_reasons": []
+}

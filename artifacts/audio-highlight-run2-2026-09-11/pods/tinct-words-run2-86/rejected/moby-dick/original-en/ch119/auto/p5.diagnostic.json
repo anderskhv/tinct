@@ -1,0 +1,3223 @@
+{
+  "complete": true,
+  "signature": "442c89f23ebff7a00416bca3585f50e54a444c116df74f2157a55fc1e43fd411",
+  "attempts": [
+    {
+      "asr_seconds": 0.4537944160401821,
+      "alignment_seconds": 0.0009820722043514252,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The scud all a flyin', That's his flip only foamin'; When he stirs in the spicin',— Such a funny, sporty, gamy, jesty, joky, hoky-poky lad, is the Ocean, oh!",
+        "hotwords": "That's, When, Such, Ocean"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The scud all a flyin',—That's his flip only foamin';—When he stirs in the spicin',—Such a funny, sporty, gamy, jesty, joky, hoky-poky lad, is the Ocean, oh!",
+          "start": 0.02,
+          "end": 10.78,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.8046875
+            },
+            {
+              "text": " scud",
+              "start": 0.5,
+              "end": 0.78,
+              "probability": 0.3527069091796875
+            },
+            {
+              "text": " all",
+              "start": 0.78,
+              "end": 0.94,
+              "probability": 0.72119140625
+            },
+            {
+              "text": " a",
+              "start": 0.94,
+              "end": 1.06,
+              "probability": 0.9013671875
+            },
+            {
+              "text": " flyin',—That's",
+              "start": 1.06,
+              "end": 1.92,
+              "probability": 0.5039806962013245
+            },
+            {
+              "text": " his",
+              "start": 1.92,
+              "end": 2.02,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " flip",
+              "start": 2.02,
+              "end": 2.26,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " only",
+              "start": 2.26,
+              "end": 2.54,
+              "probability": 0.81982421875
+            },
+            {
+              "text": " foamin';—When",
+              "start": 2.54,
+              "end": 3.68,
+              "probability": 0.43982734680175783
+            },
+            {
+              "text": " he",
+              "start": 3.68,
+              "end": 3.82,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " stirs",
+              "start": 3.82,
+              "end": 4.2,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " in",
+              "start": 4.2,
+              "end": 4.28,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " the",
+              "start": 4.28,
+              "end": 4.38,
+              "probability": 0.98046875
+            },
+            {
+              "text": " spicin',—Such",
+              "start": 4.38,
+              "end": 5.64,
+              "probability": 0.6953125
+            },
+            {
+              "text": " a",
+              "start": 5.64,
+              "end": 5.86,
+              "probability": 0.994140625
+            },
+            {
+              "text": " funny,",
+              "start": 5.86,
+              "end": 6.12,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " sporty,",
+              "start": 6.4,
+              "end": 6.86,
+              "probability": 0.894775390625
+            },
+            {
+              "text": " gamy,",
+              "start": 7.08,
+              "end": 7.38,
+              "probability": 0.438995361328125
+            },
+            {
+              "text": " jesty,",
+              "start": 7.54,
+              "end": 7.9,
+              "probability": 0.819091796875
+            },
+            {
+              "text": " joky,",
+              "start": 8.26,
+              "end": 8.46,
+              "probability": 0.125152587890625
+            },
+            {
+              "text": " hoky",
+              "start": 8.78,
+              "end": 8.94,
+              "probability": 0.31470727920532227
+            },
+            {
+              "text": "-poky",
+              "start": 8.94,
+              "end": 9.22,
+              "probability": 0.684326171875
+            },
+            {
+              "text": " lad,",
+              "start": 9.22,
+              "end": 9.58,
+              "probability": 0.96875
+            },
+            {
+              "text": " is",
+              "start": 9.84,
+              "end": 9.96,
+              "probability": 0.537109375
+            },
+            {
+              "text": " the",
+              "start": 9.96,
+              "end": 10.1,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " Ocean,",
+              "start": 10.1,
+              "end": 10.44,
+              "probability": 0.67919921875
+            },
+            {
+              "text": " oh!",
+              "start": 10.5,
+              "end": 10.78,
+              "probability": 0.5361328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "scud",
+          "start": 0.5,
+          "end": 0.78
+        },
+        {
+          "raw": "all",
+          "start": 0.78,
+          "end": 0.94
+        },
+        {
+          "raw": "a",
+          "start": 0.94,
+          "end": 1.06
+        },
+        {
+          "raw": "flyin',—That's",
+          "start": 1.06,
+          "end": 1.92
+        },
+        {
+          "raw": "his",
+          "start": 1.92,
+          "end": 2.02
+        },
+        {
+          "raw": "flip",
+          "start": 2.02,
+          "end": 2.26
+        },
+        {
+          "raw": "only",
+          "start": 2.26,
+          "end": 2.54
+        },
+        {
+          "raw": "foamin';—When",
+          "start": 2.54,
+          "end": 3.68
+        },
+        {
+          "raw": "he",
+          "start": 3.68,
+          "end": 3.82
+        },
+        {
+          "raw": "stirs",
+          "start": 3.82,
+          "end": 4.2
+        },
+        {
+          "raw": "in",
+          "start": 4.2,
+          "end": 4.28
+        },
+        {
+          "raw": "the",
+          "start": 4.28,
+          "end": 4.38
+        },
+        {
+          "raw": "spicin',—Such",
+          "start": 4.38,
+          "end": 5.64
+        },
+        {
+          "raw": "a",
+          "start": 5.64,
+          "end": 5.86
+        },
+        {
+          "raw": "funny,",
+          "start": 5.86,
+          "end": 6.12
+        },
+        {
+          "raw": "sporty,",
+          "start": 6.4,
+          "end": 6.86
+        },
+        {
+          "raw": "gamy,",
+          "start": 7.08,
+          "end": 7.38
+        },
+        {
+          "raw": "jesty,",
+          "start": 7.54,
+          "end": 7.9
+        },
+        {
+          "raw": "joky,",
+          "start": 8.26,
+          "end": 8.46
+        },
+        {
+          "raw": "hoky",
+          "start": 8.78,
+          "end": 8.94
+        },
+        {
+          "raw": "-poky",
+          "start": 8.94,
+          "end": 9.22
+        },
+        {
+          "raw": "lad,",
+          "start": 9.22,
+          "end": 9.58
+        },
+        {
+          "raw": "is",
+          "start": 9.84,
+          "end": 9.96
+        },
+        {
+          "raw": "the",
+          "start": 9.96,
+          "end": 10.1
+        },
+        {
+          "raw": "Ocean,",
+          "start": 10.1,
+          "end": 10.44
+        },
+        {
+          "raw": "oh!",
+          "start": 10.5,
+          "end": 10.78
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "scud",
+        "all",
+        "a",
+        "flyin',",
+        "That's",
+        "his",
+        "flip",
+        "only",
+        "foamin';",
+        "When",
+        "he",
+        "stirs",
+        "in",
+        "the",
+        "spicin',—",
+        "Such",
+        "a",
+        "funny,",
+        "sporty,",
+        "gamy,",
+        "jesty,",
+        "joky,",
+        "hoky-poky",
+        "lad,",
+        "is",
+        "the",
+        "Ocean,",
+        "oh!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          6,
+          4,
+          5
+        ],
+        [
+          "equal",
+          6,
+          9,
+          5,
+          8
+        ],
+        [
+          "replace",
+          9,
+          11,
+          8,
+          9
+        ],
+        [
+          "equal",
+          11,
+          15,
+          9,
+          13
+        ],
+        [
+          "replace",
+          15,
+          17,
+          13,
+          14
+        ],
+        [
+          "equal",
+          17,
+          29,
+          14,
+          26
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 25
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          6,
+          4,
+          5
+        ],
+        [
+          "replace",
+          9,
+          11,
+          8,
+          9
+        ],
+        [
+          "replace",
+          15,
+          17,
+          13,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "scud",
+          "start": 0.5,
+          "end": 0.78,
+          "key": "scud",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 0.78,
+          "end": 0.94,
+          "key": "all",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.94,
+          "end": 1.06,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "flyin',—That's",
+          "start": 1.06,
+          "end": 1.92,
+          "key": "flyinthats",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.92,
+          "end": 2.02,
+          "key": "his",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "flip",
+          "start": 2.02,
+          "end": 2.26,
+          "key": "flip",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 2.26,
+          "end": 2.54,
+          "key": "only",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "foamin';—When",
+          "start": 2.54,
+          "end": 3.68,
+          "key": "foaminwhen",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.68,
+          "end": 3.82,
+          "key": "he",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "stirs",
+          "start": 3.82,
+          "end": 4.2,
+          "key": "stirs",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.2,
+          "end": 4.28,
+          "key": "in",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.28,
+          "end": 4.38,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "spicin',—Such",
+          "start": 4.38,
+          "end": 5.64,
+          "key": "spicinsuch",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.64,
+          "end": 5.86,
+          "key": "a",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "funny,",
+          "start": 5.86,
+          "end": 6.12,
+          "key": "funny",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "sporty,",
+          "start": 6.4,
+          "end": 6.86,
+          "key": "sporty",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "gamy,",
+          "start": 7.08,
+          "end": 7.38,
+          "key": "gamy",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "jesty,",
+          "start": 7.54,
+          "end": 7.9,
+          "key": "jesty",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "joky,",
+          "start": 8.26,
+          "end": 8.46,
+          "key": "joky",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "hoky -poky",
+          "start": 8.78,
+          "end": 9.22,
+          "key": "hokypoky",
+          "pieces": [
+            20,
+            21
+          ]
+        },
+        {
+          "raw": "lad,",
+          "start": 9.22,
+          "end": 9.58,
+          "key": "lad",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 9.84,
+          "end": 9.96,
+          "key": "is",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.96,
+          "end": 10.1,
+          "key": "the",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Ocean,",
+          "start": 10.1,
+          "end": 10.44,
+          "key": "ocean",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "oh!",
+          "start": 10.5,
+          "end": 10.78,
+          "key": "oh",
+          "pieces": [
+            26
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 23,
+          "text": "hoky-poky",
+          "heard": "hoky -poky",
+          "heard_indexes": [
+            20,
+            21
+          ],
+          "start": 8.78,
+          "end": 9.22
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "scud",
+          "start": 0.5,
+          "end": 0.78
+        },
+        {
+          "text": "all",
+          "start": 0.78,
+          "end": 0.94
+        },
+        {
+          "text": "a",
+          "start": 0.94,
+          "end": 1.06
+        },
+        {
+          "text": "flyin',",
+          "start": 1.06,
+          "end": 1.49
+        },
+        {
+          "text": "That's",
+          "start": 1.49,
+          "end": 1.705
+        },
+        {
+          "text": "his",
+          "start": 1.92,
+          "end": 2.02
+        },
+        {
+          "text": "flip",
+          "start": 2.02,
+          "end": 2.26
+        },
+        {
+          "text": "only",
+          "start": 2.26,
+          "end": 2.54
+        },
+        {
+          "text": "foamin';",
+          "start": 2.54,
+          "end": 3.11
+        },
+        {
+          "text": "When",
+          "start": 3.11,
+          "end": 3.395
+        },
+        {
+          "text": "he",
+          "start": 3.68,
+          "end": 3.82
+        },
+        {
+          "text": "stirs",
+          "start": 3.82,
+          "end": 4.2
+        },
+        {
+          "text": "in",
+          "start": 4.2,
+          "end": 4.28
+        },
+        {
+          "text": "the",
+          "start": 4.28,
+          "end": 4.38
+        },
+        {
+          "text": "spicin',—",
+          "start": 4.38,
+          "end": 5.01
+        },
+        {
+          "text": "Such",
+          "start": 5.01,
+          "end": 5.325
+        },
+        {
+          "text": "a",
+          "start": 5.64,
+          "end": 5.86
+        },
+        {
+          "text": "funny,",
+          "start": 5.86,
+          "end": 6.12
+        },
+        {
+          "text": "sporty,",
+          "start": 6.4,
+          "end": 6.86
+        },
+        {
+          "text": "gamy,",
+          "start": 7.08,
+          "end": 7.38
+        },
+        {
+          "text": "jesty,",
+          "start": 7.54,
+          "end": 7.9
+        },
+        {
+          "text": "joky,",
+          "start": 8.26,
+          "end": 8.46
+        },
+        {
+          "text": "hoky-poky",
+          "start": 8.78,
+          "end": 9.22
+        },
+        {
+          "text": "lad,",
+          "start": 9.22,
+          "end": 9.58
+        },
+        {
+          "text": "is",
+          "start": 9.84,
+          "end": 9.96
+        },
+        {
+          "text": "the",
+          "start": 9.96,
+          "end": 10.1
+        },
+        {
+          "text": "Ocean,",
+          "start": 10.1,
+          "end": 10.44
+        },
+        {
+          "text": "oh!",
+          "start": 10.5,
+          "end": 10.78
+        }
+      ],
+      "stats": {
+        "expected_words": 29,
+        "heard_words": 26,
+        "matched_words": 23
+      },
+      "match_ratio": 0.7931034482758621,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.4550681598484516
+    },
+    {
+      "asr_seconds": 0.5147314704954624,
+      "alignment_seconds": 0.0006742402911186218,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "That's, When, Such, Ocean"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " The scut all a flyin', that's his flip only foamin'. When he stirs in the spissin'.",
+          "start": 0.02,
+          "end": 5.52,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.8046875
+            },
+            {
+              "text": " scut",
+              "start": 0.5,
+              "end": 0.78,
+              "probability": 0.80078125
+            },
+            {
+              "text": " all",
+              "start": 0.78,
+              "end": 0.94,
+              "probability": 0.19384765625
+            },
+            {
+              "text": " a",
+              "start": 0.94,
+              "end": 1.06,
+              "probability": 0.84619140625
+            },
+            {
+              "text": " flyin',",
+              "start": 1.06,
+              "end": 1.66,
+              "probability": 0.6592610677083334
+            },
+            {
+              "text": " that's",
+              "start": 1.66,
+              "end": 1.92,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " his",
+              "start": 1.92,
+              "end": 2.02,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " flip",
+              "start": 2.02,
+              "end": 2.26,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " only",
+              "start": 2.26,
+              "end": 2.54,
+              "probability": 0.82275390625
+            },
+            {
+              "text": " foamin'.",
+              "start": 2.54,
+              "end": 3.58,
+              "probability": 0.4121907552083333
+            },
+            {
+              "text": " When",
+              "start": 3.58,
+              "end": 3.7,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " he",
+              "start": 3.7,
+              "end": 3.82,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " stirs",
+              "start": 3.82,
+              "end": 4.2,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " in",
+              "start": 4.2,
+              "end": 4.28,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " the",
+              "start": 4.28,
+              "end": 4.4,
+              "probability": 0.986328125
+            },
+            {
+              "text": " spissin'.",
+              "start": 4.4,
+              "end": 5.52,
+              "probability": 0.5972900390625
+            }
+          ]
+        },
+        {
+          "text": " Such a funny, sporty, gamey, jesty, jokey, hokey-pokey lad, is the Ocean O.",
+          "start": 5.52,
+          "end": 10.72,
+          "words": [
+            {
+              "text": " Such",
+              "start": 5.52,
+              "end": 5.66,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " a",
+              "start": 5.66,
+              "end": 5.84,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " funny,",
+              "start": 5.84,
+              "end": 6.14,
+              "probability": 0.99609375
+            },
+            {
+              "text": " sporty,",
+              "start": 6.44,
+              "end": 6.88,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " gamey,",
+              "start": 7.08,
+              "end": 7.4,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " jesty,",
+              "start": 7.52,
+              "end": 7.9,
+              "probability": 0.812744140625
+            },
+            {
+              "text": " jokey,",
+              "start": 8.26,
+              "end": 8.6,
+              "probability": 0.961669921875
+            },
+            {
+              "text": " hokey",
+              "start": 8.78,
+              "end": 9.02,
+              "probability": 0.97216796875
+            },
+            {
+              "text": "-pokey",
+              "start": 9.02,
+              "end": 9.38,
+              "probability": 0.87890625
+            },
+            {
+              "text": " lad,",
+              "start": 9.38,
+              "end": 9.58,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " is",
+              "start": 9.84,
+              "end": 9.96,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " the",
+              "start": 9.96,
+              "end": 10.1,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " Ocean",
+              "start": 10.1,
+              "end": 10.44,
+              "probability": 0.861328125
+            },
+            {
+              "text": " O.",
+              "start": 10.44,
+              "end": 10.72,
+              "probability": 0.685546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "scut",
+          "start": 0.5,
+          "end": 0.78
+        },
+        {
+          "raw": "all",
+          "start": 0.78,
+          "end": 0.94
+        },
+        {
+          "raw": "a",
+          "start": 0.94,
+          "end": 1.06
+        },
+        {
+          "raw": "flyin',",
+          "start": 1.06,
+          "end": 1.66
+        },
+        {
+          "raw": "that's",
+          "start": 1.66,
+          "end": 1.92
+        },
+        {
+          "raw": "his",
+          "start": 1.92,
+          "end": 2.02
+        },
+        {
+          "raw": "flip",
+          "start": 2.02,
+          "end": 2.26
+        },
+        {
+          "raw": "only",
+          "start": 2.26,
+          "end": 2.54
+        },
+        {
+          "raw": "foamin'.",
+          "start": 2.54,
+          "end": 3.58
+        },
+        {
+          "raw": "When",
+          "start": 3.58,
+          "end": 3.7
+        },
+        {
+          "raw": "he",
+          "start": 3.7,
+          "end": 3.82
+        },
+        {
+          "raw": "stirs",
+          "start": 3.82,
+          "end": 4.2
+        },
+        {
+          "raw": "in",
+          "start": 4.2,
+          "end": 4.28
+        },
+        {
+          "raw": "the",
+          "start": 4.28,
+          "end": 4.4
+        },
+        {
+          "raw": "spissin'.",
+          "start": 4.4,
+          "end": 5.52
+        },
+        {
+          "raw": "Such",
+          "start": 5.52,
+          "end": 5.66
+        },
+        {
+          "raw": "a",
+          "start": 5.66,
+          "end": 5.84
+        },
+        {
+          "raw": "funny,",
+          "start": 5.84,
+          "end": 6.14
+        },
+        {
+          "raw": "sporty,",
+          "start": 6.44,
+          "end": 6.88
+        },
+        {
+          "raw": "gamey,",
+          "start": 7.08,
+          "end": 7.4
+        },
+        {
+          "raw": "jesty,",
+          "start": 7.52,
+          "end": 7.9
+        },
+        {
+          "raw": "jokey,",
+          "start": 8.26,
+          "end": 8.6
+        },
+        {
+          "raw": "hokey",
+          "start": 8.78,
+          "end": 9.02
+        },
+        {
+          "raw": "-pokey",
+          "start": 9.02,
+          "end": 9.38
+        },
+        {
+          "raw": "lad,",
+          "start": 9.38,
+          "end": 9.58
+        },
+        {
+          "raw": "is",
+          "start": 9.84,
+          "end": 9.96
+        },
+        {
+          "raw": "the",
+          "start": 9.96,
+          "end": 10.1
+        },
+        {
+          "raw": "Ocean",
+          "start": 10.1,
+          "end": 10.44
+        },
+        {
+          "raw": "O.",
+          "start": 10.44,
+          "end": 10.72
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "scud",
+        "all",
+        "a",
+        "flyin',",
+        "That's",
+        "his",
+        "flip",
+        "only",
+        "foamin';",
+        "When",
+        "he",
+        "stirs",
+        "in",
+        "the",
+        "spicin',—",
+        "Such",
+        "a",
+        "funny,",
+        "sporty,",
+        "gamy,",
+        "jesty,",
+        "joky,",
+        "hoky-poky",
+        "lad,",
+        "is",
+        "the",
+        "Ocean,",
+        "oh!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          15,
+          2,
+          15
+        ],
+        [
+          "replace",
+          15,
+          16,
+          15,
+          16
+        ],
+        [
+          "equal",
+          16,
+          20,
+          16,
+          20
+        ],
+        [
+          "replace",
+          20,
+          21,
+          20,
+          21
+        ],
+        [
+          "equal",
+          21,
+          22,
+          21,
+          22
+        ],
+        [
+          "replace",
+          22,
+          24,
+          22,
+          25
+        ],
+        [
+          "equal",
+          24,
+          28,
+          25,
+          29
+        ],
+        [
+          "replace",
+          28,
+          29,
+          29,
+          30
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          15,
+          16,
+          15,
+          16
+        ],
+        [
+          "replace",
+          20,
+          21,
+          20,
+          21
+        ],
+        [
+          "replace",
+          22,
+          24,
+          22,
+          25
+        ],
+        [
+          "replace",
+          28,
+          29,
+          29,
+          30
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "scut",
+          "start": 0.5,
+          "end": 0.78,
+          "key": "scut",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 0.78,
+          "end": 0.94,
+          "key": "all",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.94,
+          "end": 1.06,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "flyin',",
+          "start": 1.06,
+          "end": 1.66,
+          "key": "flyin",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that's",
+          "start": 1.66,
+          "end": 1.92,
+          "key": "thats",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.92,
+          "end": 2.02,
+          "key": "his",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "flip",
+          "start": 2.02,
+          "end": 2.26,
+          "key": "flip",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 2.26,
+          "end": 2.54,
+          "key": "only",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "foamin'.",
+          "start": 2.54,
+          "end": 3.58,
+          "key": "foamin",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "When",
+          "start": 3.58,
+          "end": 3.7,
+          "key": "when",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.7,
+          "end": 3.82,
+          "key": "he",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "stirs",
+          "start": 3.82,
+          "end": 4.2,
+          "key": "stirs",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.2,
+          "end": 4.28,
+          "key": "in",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.28,
+          "end": 4.4,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "spissin'.",
+          "start": 4.4,
+          "end": 5.52,
+          "key": "spissin",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Such",
+          "start": 5.52,
+          "end": 5.66,
+          "key": "such",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.66,
+          "end": 5.84,
+          "key": "a",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "funny,",
+          "start": 5.84,
+          "end": 6.14,
+          "key": "funny",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "sporty,",
+          "start": 6.44,
+          "end": 6.88,
+          "key": "sporty",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "gamey,",
+          "start": 7.08,
+          "end": 7.4,
+          "key": "gamey",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "jesty,",
+          "start": 7.52,
+          "end": 7.9,
+          "key": "jesty",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "jokey,",
+          "start": 8.26,
+          "end": 8.6,
+          "key": "jokey",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "hokey",
+          "start": 8.78,
+          "end": 9.02,
+          "key": "hokey",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "-pokey",
+          "start": 9.02,
+          "end": 9.38,
+          "key": "pokey",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "lad,",
+          "start": 9.38,
+          "end": 9.58,
+          "key": "lad",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 9.84,
+          "end": 9.96,
+          "key": "is",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.96,
+          "end": 10.1,
+          "key": "the",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "Ocean",
+          "start": 10.1,
+          "end": 10.44,
+          "key": "ocean",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "O.",
+          "start": 10.44,
+          "end": 10.72,
+          "key": "o",
+          "pieces": [
+            29
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "scud",
+          "start": 0.5,
+          "end": 0.64
+        },
+        {
+          "text": "all",
+          "start": 0.78,
+          "end": 0.94
+        },
+        {
+          "text": "a",
+          "start": 0.94,
+          "end": 1.06
+        },
+        {
+          "text": "flyin',",
+          "start": 1.06,
+          "end": 1.66
+        },
+        {
+          "text": "That's",
+          "start": 1.66,
+          "end": 1.92
+        },
+        {
+          "text": "his",
+          "start": 1.92,
+          "end": 2.02
+        },
+        {
+          "text": "flip",
+          "start": 2.02,
+          "end": 2.26
+        },
+        {
+          "text": "only",
+          "start": 2.26,
+          "end": 2.54
+        },
+        {
+          "text": "foamin';",
+          "start": 2.54,
+          "end": 3.58
+        },
+        {
+          "text": "When",
+          "start": 3.58,
+          "end": 3.7
+        },
+        {
+          "text": "he",
+          "start": 3.7,
+          "end": 3.82
+        },
+        {
+          "text": "stirs",
+          "start": 3.82,
+          "end": 4.2
+        },
+        {
+          "text": "in",
+          "start": 4.2,
+          "end": 4.28
+        },
+        {
+          "text": "the",
+          "start": 4.28,
+          "end": 4.4
+        },
+        {
+          "text": "spicin',—",
+          "start": 4.4,
+          "end": 4.96
+        },
+        {
+          "text": "Such",
+          "start": 5.52,
+          "end": 5.66
+        },
+        {
+          "text": "a",
+          "start": 5.66,
+          "end": 5.84
+        },
+        {
+          "text": "funny,",
+          "start": 5.84,
+          "end": 6.14
+        },
+        {
+          "text": "sporty,",
+          "start": 6.44,
+          "end": 6.88
+        },
+        {
+          "text": "gamy,",
+          "start": 6.88,
+          "end": 7.2
+        },
+        {
+          "text": "jesty,",
+          "start": 7.52,
+          "end": 7.9
+        },
+        {
+          "text": "joky,",
+          "start": 7.9,
+          "end": 8.64
+        },
+        {
+          "text": "hoky-poky",
+          "start": 8.64,
+          "end": 9.01
+        },
+        {
+          "text": "lad,",
+          "start": 9.38,
+          "end": 9.58
+        },
+        {
+          "text": "is",
+          "start": 9.84,
+          "end": 9.96
+        },
+        {
+          "text": "the",
+          "start": 9.96,
+          "end": 10.1
+        },
+        {
+          "text": "Ocean,",
+          "start": 10.1,
+          "end": 10.44
+        },
+        {
+          "text": "oh!",
+          "start": 10.44,
+          "end": 10.58
+        }
+      ],
+      "stats": {
+        "expected_words": 29,
+        "heard_words": 30,
+        "matched_words": 23
+      },
+      "match_ratio": 0.7931034482758621,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.5156566388905048
+    },
+    {
+      "asr_seconds": 0.5076065398752689,
+      "alignment_seconds": 0.000562720000743866,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The scut all a flyin', that's his flip only foamin'.",
+          "start": 0.02,
+          "end": 3.58,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.8046875
+            },
+            {
+              "text": " scut",
+              "start": 0.5,
+              "end": 0.78,
+              "probability": 0.80078125
+            },
+            {
+              "text": " all",
+              "start": 0.78,
+              "end": 0.94,
+              "probability": 0.19384765625
+            },
+            {
+              "text": " a",
+              "start": 0.94,
+              "end": 1.06,
+              "probability": 0.84619140625
+            },
+            {
+              "text": " flyin',",
+              "start": 1.06,
+              "end": 1.66,
+              "probability": 0.6592610677083334
+            },
+            {
+              "text": " that's",
+              "start": 1.66,
+              "end": 1.92,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " his",
+              "start": 1.92,
+              "end": 2.02,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " flip",
+              "start": 2.02,
+              "end": 2.26,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " only",
+              "start": 2.26,
+              "end": 2.54,
+              "probability": 0.82275390625
+            },
+            {
+              "text": " foamin'.",
+              "start": 2.54,
+              "end": 3.58,
+              "probability": 0.4121907552083333
+            }
+          ]
+        },
+        {
+          "text": " When he stirs in the spicin'.",
+          "start": 3.58,
+          "end": 5.52,
+          "words": [
+            {
+              "text": " When",
+              "start": 3.58,
+              "end": 3.7,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " he",
+              "start": 3.7,
+              "end": 3.82,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " stirs",
+              "start": 3.82,
+              "end": 4.2,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " in",
+              "start": 4.2,
+              "end": 4.28,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " the",
+              "start": 4.28,
+              "end": 4.4,
+              "probability": 0.986328125
+            },
+            {
+              "text": " spicin'.",
+              "start": 4.4,
+              "end": 5.52,
+              "probability": 0.70672607421875
+            }
+          ]
+        },
+        {
+          "text": " Such a funny, sporty, gamey, jesty, jokey, hokey-pokey lad, is the Ocean O.",
+          "start": 5.52,
+          "end": 10.72,
+          "words": [
+            {
+              "text": " Such",
+              "start": 5.52,
+              "end": 5.66,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " a",
+              "start": 5.66,
+              "end": 5.84,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " funny,",
+              "start": 5.84,
+              "end": 6.14,
+              "probability": 0.99609375
+            },
+            {
+              "text": " sporty,",
+              "start": 6.44,
+              "end": 6.88,
+              "probability": 0.993408203125
+            },
+            {
+              "text": " gamey,",
+              "start": 7.08,
+              "end": 7.4,
+              "probability": 0.925537109375
+            },
+            {
+              "text": " jesty,",
+              "start": 7.52,
+              "end": 7.9,
+              "probability": 0.8154296875
+            },
+            {
+              "text": " jokey,",
+              "start": 8.26,
+              "end": 8.6,
+              "probability": 0.9609375
+            },
+            {
+              "text": " hokey",
+              "start": 8.78,
+              "end": 9.02,
+              "probability": 0.97216796875
+            },
+            {
+              "text": "-pokey",
+              "start": 9.02,
+              "end": 9.38,
+              "probability": 0.87646484375
+            },
+            {
+              "text": " lad,",
+              "start": 9.38,
+              "end": 9.58,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " is",
+              "start": 9.84,
+              "end": 9.96,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " the",
+              "start": 9.96,
+              "end": 10.1,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " Ocean",
+              "start": 10.1,
+              "end": 10.44,
+              "probability": 0.8603515625
+            },
+            {
+              "text": " O.",
+              "start": 10.44,
+              "end": 10.72,
+              "probability": 0.6865234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "scut",
+          "start": 0.5,
+          "end": 0.78
+        },
+        {
+          "raw": "all",
+          "start": 0.78,
+          "end": 0.94
+        },
+        {
+          "raw": "a",
+          "start": 0.94,
+          "end": 1.06
+        },
+        {
+          "raw": "flyin',",
+          "start": 1.06,
+          "end": 1.66
+        },
+        {
+          "raw": "that's",
+          "start": 1.66,
+          "end": 1.92
+        },
+        {
+          "raw": "his",
+          "start": 1.92,
+          "end": 2.02
+        },
+        {
+          "raw": "flip",
+          "start": 2.02,
+          "end": 2.26
+        },
+        {
+          "raw": "only",
+          "start": 2.26,
+          "end": 2.54
+        },
+        {
+          "raw": "foamin'.",
+          "start": 2.54,
+          "end": 3.58
+        },
+        {
+          "raw": "When",
+          "start": 3.58,
+          "end": 3.7
+        },
+        {
+          "raw": "he",
+          "start": 3.7,
+          "end": 3.82
+        },
+        {
+          "raw": "stirs",
+          "start": 3.82,
+          "end": 4.2
+        },
+        {
+          "raw": "in",
+          "start": 4.2,
+          "end": 4.28
+        },
+        {
+          "raw": "the",
+          "start": 4.28,
+          "end": 4.4
+        },
+        {
+          "raw": "spicin'.",
+          "start": 4.4,
+          "end": 5.52
+        },
+        {
+          "raw": "Such",
+          "start": 5.52,
+          "end": 5.66
+        },
+        {
+          "raw": "a",
+          "start": 5.66,
+          "end": 5.84
+        },
+        {
+          "raw": "funny,",
+          "start": 5.84,
+          "end": 6.14
+        },
+        {
+          "raw": "sporty,",
+          "start": 6.44,
+          "end": 6.88
+        },
+        {
+          "raw": "gamey,",
+          "start": 7.08,
+          "end": 7.4
+        },
+        {
+          "raw": "jesty,",
+          "start": 7.52,
+          "end": 7.9
+        },
+        {
+          "raw": "jokey,",
+          "start": 8.26,
+          "end": 8.6
+        },
+        {
+          "raw": "hokey",
+          "start": 8.78,
+          "end": 9.02
+        },
+        {
+          "raw": "-pokey",
+          "start": 9.02,
+          "end": 9.38
+        },
+        {
+          "raw": "lad,",
+          "start": 9.38,
+          "end": 9.58
+        },
+        {
+          "raw": "is",
+          "start": 9.84,
+          "end": 9.96
+        },
+        {
+          "raw": "the",
+          "start": 9.96,
+          "end": 10.1
+        },
+        {
+          "raw": "Ocean",
+          "start": 10.1,
+          "end": 10.44
+        },
+        {
+          "raw": "O.",
+          "start": 10.44,
+          "end": 10.72
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "scud",
+        "all",
+        "a",
+        "flyin',",
+        "That's",
+        "his",
+        "flip",
+        "only",
+        "foamin';",
+        "When",
+        "he",
+        "stirs",
+        "in",
+        "the",
+        "spicin',—",
+        "Such",
+        "a",
+        "funny,",
+        "sporty,",
+        "gamy,",
+        "jesty,",
+        "joky,",
+        "hoky-poky",
+        "lad,",
+        "is",
+        "the",
+        "Ocean,",
+        "oh!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          20,
+          2,
+          20
+        ],
+        [
+          "replace",
+          20,
+          21,
+          20,
+          21
+        ],
+        [
+          "equal",
+          21,
+          22,
+          21,
+          22
+        ],
+        [
+          "replace",
+          22,
+          24,
+          22,
+          25
+        ],
+        [
+          "equal",
+          24,
+          28,
+          25,
+          29
+        ],
+        [
+          "replace",
+          28,
+          29,
+          29,
+          30
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          20,
+          21,
+          20,
+          21
+        ],
+        [
+          "replace",
+          22,
+          24,
+          22,
+          25
+        ],
+        [
+          "replace",
+          28,
+          29,
+          29,
+          30
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "scut",
+          "start": 0.5,
+          "end": 0.78,
+          "key": "scut",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 0.78,
+          "end": 0.94,
+          "key": "all",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.94,
+          "end": 1.06,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "flyin',",
+          "start": 1.06,
+          "end": 1.66,
+          "key": "flyin",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that's",
+          "start": 1.66,
+          "end": 1.92,
+          "key": "thats",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.92,
+          "end": 2.02,
+          "key": "his",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "flip",
+          "start": 2.02,
+          "end": 2.26,
+          "key": "flip",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 2.26,
+          "end": 2.54,
+          "key": "only",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "foamin'.",
+          "start": 2.54,
+          "end": 3.58,
+          "key": "foamin",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "When",
+          "start": 3.58,
+          "end": 3.7,
+          "key": "when",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.7,
+          "end": 3.82,
+          "key": "he",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "stirs",
+          "start": 3.82,
+          "end": 4.2,
+          "key": "stirs",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.2,
+          "end": 4.28,
+          "key": "in",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.28,
+          "end": 4.4,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "spicin'.",
+          "start": 4.4,
+          "end": 5.52,
+          "key": "spicin",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Such",
+          "start": 5.52,
+          "end": 5.66,
+          "key": "such",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.66,
+          "end": 5.84,
+          "key": "a",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "funny,",
+          "start": 5.84,
+          "end": 6.14,
+          "key": "funny",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "sporty,",
+          "start": 6.44,
+          "end": 6.88,
+          "key": "sporty",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "gamey,",
+          "start": 7.08,
+          "end": 7.4,
+          "key": "gamey",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "jesty,",
+          "start": 7.52,
+          "end": 7.9,
+          "key": "jesty",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "jokey,",
+          "start": 8.26,
+          "end": 8.6,
+          "key": "jokey",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "hokey",
+          "start": 8.78,
+          "end": 9.02,
+          "key": "hokey",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "-pokey",
+          "start": 9.02,
+          "end": 9.38,
+          "key": "pokey",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "lad,",
+          "start": 9.38,
+          "end": 9.58,
+          "key": "lad",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 9.84,
+          "end": 9.96,
+          "key": "is",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.96,
+          "end": 10.1,
+          "key": "the",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "Ocean",
+          "start": 10.1,
+          "end": 10.44,
+          "key": "ocean",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "O.",
+          "start": 10.44,
+          "end": 10.72,
+          "key": "o",
+          "pieces": [
+            29
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "scud",
+          "start": 0.5,
+          "end": 0.64
+        },
+        {
+          "text": "all",
+          "start": 0.78,
+          "end": 0.94
+        },
+        {
+          "text": "a",
+          "start": 0.94,
+          "end": 1.06
+        },
+        {
+          "text": "flyin',",
+          "start": 1.06,
+          "end": 1.66
+        },
+        {
+          "text": "That's",
+          "start": 1.66,
+          "end": 1.92
+        },
+        {
+          "text": "his",
+          "start": 1.92,
+          "end": 2.02
+        },
+        {
+          "text": "flip",
+          "start": 2.02,
+          "end": 2.26
+        },
+        {
+          "text": "only",
+          "start": 2.26,
+          "end": 2.54
+        },
+        {
+          "text": "foamin';",
+          "start": 2.54,
+          "end": 3.58
+        },
+        {
+          "text": "When",
+          "start": 3.58,
+          "end": 3.7
+        },
+        {
+          "text": "he",
+          "start": 3.7,
+          "end": 3.82
+        },
+        {
+          "text": "stirs",
+          "start": 3.82,
+          "end": 4.2
+        },
+        {
+          "text": "in",
+          "start": 4.2,
+          "end": 4.28
+        },
+        {
+          "text": "the",
+          "start": 4.28,
+          "end": 4.4
+        },
+        {
+          "text": "spicin',—",
+          "start": 4.4,
+          "end": 5.52
+        },
+        {
+          "text": "Such",
+          "start": 5.52,
+          "end": 5.66
+        },
+        {
+          "text": "a",
+          "start": 5.66,
+          "end": 5.84
+        },
+        {
+          "text": "funny,",
+          "start": 5.84,
+          "end": 6.14
+        },
+        {
+          "text": "sporty,",
+          "start": 6.44,
+          "end": 6.88
+        },
+        {
+          "text": "gamy,",
+          "start": 6.88,
+          "end": 7.2
+        },
+        {
+          "text": "jesty,",
+          "start": 7.52,
+          "end": 7.9
+        },
+        {
+          "text": "joky,",
+          "start": 7.9,
+          "end": 8.64
+        },
+        {
+          "text": "hoky-poky",
+          "start": 8.64,
+          "end": 9.01
+        },
+        {
+          "text": "lad,",
+          "start": 9.38,
+          "end": 9.58
+        },
+        {
+          "text": "is",
+          "start": 9.84,
+          "end": 9.96
+        },
+        {
+          "text": "the",
+          "start": 9.96,
+          "end": 10.1
+        },
+        {
+          "text": "Ocean,",
+          "start": 10.1,
+          "end": 10.44
+        },
+        {
+          "text": "oh!",
+          "start": 10.44,
+          "end": 10.58
+        }
+      ],
+      "stats": {
+        "expected_words": 29,
+        "heard_words": 30,
+        "matched_words": 24
+      },
+      "match_ratio": 0.8275862068965517,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.508378054946661
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2d6cc600e528ab079c2b434a8472535ea68b2f5ecc30295b65f13a7331394b3f",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

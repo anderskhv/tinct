@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "d783cd61c4be496948aea79741f93fb66d682a0e3ca354c49dded804f0443bea",
+  "attempts": [
+    {
+      "asr_seconds": 0.13142159208655357,
+      "alignment_seconds": 0.00027009472250938416,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Well, manmaker!",
+        "hotwords": "Well"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Well, manmaker!",
+          "start": 0.02,
+          "end": 1.08,
+          "words": [
+            {
+              "text": " Well,",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.271240234375
+            },
+            {
+              "text": " manmaker!",
+              "start": 0.76,
+              "end": 1.08,
+              "probability": 0.4698486328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Well,",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "manmaker!",
+          "start": 0.76,
+          "end": 1.08
+        }
+      ],
+      "expected_tokens": [
+        "Well,",
+        "manmaker!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Well,",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "well",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "manmaker!",
+          "start": 0.76,
+          "end": 1.08,
+          "key": "manmaker",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Well,",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "manmaker!",
+          "start": 0.76,
+          "end": 1.08
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13178583607077599
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1357e588fc3d3da1f0b2b393f5adbcac5dafd8e4269a7db707dd52b267fceb97",
+  "selected_reasons": []
+}

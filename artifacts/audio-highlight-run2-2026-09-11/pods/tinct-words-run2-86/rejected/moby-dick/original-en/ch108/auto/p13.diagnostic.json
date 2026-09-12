@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "adcdbc1968ae4b7b758cd0effebeed0503829489458ce58ecdc476e2ac04be18",
+  "attempts": [
+    {
+      "asr_seconds": 0.12361634150147438,
+      "alignment_seconds": 0.0002253986895084381,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sir?",
+        "hotwords": "Sir"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sir",
+          "start": 0.08,
+          "end": 0.62,
+          "words": [
+            {
+              "text": " Sir",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.1422119140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sir",
+          "start": 0.08,
+          "end": 0.62
+        }
+      ],
+      "expected_tokens": [
+        "Sir?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sir",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "sir",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sir?",
+          "start": 0.08,
+          "end": 0.62
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12391184270381927
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ebf05de49a7f443463e7ce1a09a35da4da6ced16e79d171030f93e447f0cd4d7",
+  "selected_reasons": []
+}

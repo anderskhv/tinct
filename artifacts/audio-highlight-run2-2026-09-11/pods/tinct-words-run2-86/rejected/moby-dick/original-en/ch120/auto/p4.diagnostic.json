@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "7fc9d33128b2b88fc2ed5db0640f48c41f20bd7e5231bad795c56dd47c1bcbaf",
+  "attempts": [
+    {
+      "asr_seconds": 0.10826382786035538,
+      "alignment_seconds": 0.00010600686073303223,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Well.\"",
+        "hotwords": "Well"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Well.",
+          "start": 0.02,
+          "end": 0.64,
+          "words": [
+            {
+              "text": " Well.",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.6806640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Well.",
+          "start": 0.02,
+          "end": 0.64
+        }
+      ],
+      "expected_tokens": [
+        "\"Well.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Well.",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "well",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Well.\"",
+          "start": 0.02,
+          "end": 0.64
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1083998903632164
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "02b958a7186694368d3a9b2e18f91559a624c32a9e4fd1c47c222724d5c1602b",
+  "selected_reasons": []
+}

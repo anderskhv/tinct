@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "f2a611dbf0dd81125c8337b82bf763902dbfbeb12f79c3142828945b766ba382",
+  "attempts": [
+    {
+      "asr_seconds": 0.1145729124546051,
+      "alignment_seconds": 9.683147072792053e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Well.",
+          "start": 0.02,
+          "end": 0.64,
+          "words": [
+            {
+              "text": " Well.",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.6806640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Well.",
+          "start": 0.02,
+          "end": 0.64
+        }
+      ],
+      "expected_tokens": [
+        "\"Well.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Well.",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "well",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Well.\"",
+          "start": 0.02,
+          "end": 0.64
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11470101401209831
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "02b958a7186694368d3a9b2e18f91559a624c32a9e4fd1c47c222724d5c1602b",
+  "selected_reasons": []
+}

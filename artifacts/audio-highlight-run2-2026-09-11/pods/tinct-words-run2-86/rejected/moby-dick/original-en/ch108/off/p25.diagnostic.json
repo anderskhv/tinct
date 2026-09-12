@@ -1,0 +1,340 @@
+{
+  "complete": true,
+  "signature": "cfd436088ddd6405da5cfc71df61164790bd260ac595442cfb33dbc1ffdc7ee3",
+  "attempts": [
+    {
+      "asr_seconds": 0.176492840051651,
+      "alignment_seconds": 0.0004013665020465851,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sir, oh, ah, I guess so. Yes. Oh dear",
+          "start": 0.08,
+          "end": 2.94,
+          "words": [
+            {
+              "text": " Sir,",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.87353515625
+            },
+            {
+              "text": " oh,",
+              "start": 0.92,
+              "end": 1.04,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " ah,",
+              "start": 1.16,
+              "end": 1.24,
+              "probability": 0.395751953125
+            },
+            {
+              "text": " I",
+              "start": 1.3,
+              "end": 1.42,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " guess",
+              "start": 1.42,
+              "end": 1.58,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " so.",
+              "start": 1.58,
+              "end": 1.88,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " Yes.",
+              "start": 2.22,
+              "end": 2.38,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " Oh",
+              "start": 2.64,
+              "end": 2.7,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " dear",
+              "start": 2.7,
+              "end": 2.94,
+              "probability": 0.7861328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sir,",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "oh,",
+          "start": 0.92,
+          "end": 1.04
+        },
+        {
+          "raw": "ah,",
+          "start": 1.16,
+          "end": 1.24
+        },
+        {
+          "raw": "I",
+          "start": 1.3,
+          "end": 1.42
+        },
+        {
+          "raw": "guess",
+          "start": 1.42,
+          "end": 1.58
+        },
+        {
+          "raw": "so.",
+          "start": 1.58,
+          "end": 1.88
+        },
+        {
+          "raw": "Yes.",
+          "start": 2.22,
+          "end": 2.38
+        },
+        {
+          "raw": "Oh",
+          "start": 2.64,
+          "end": 2.7
+        },
+        {
+          "raw": "dear",
+          "start": 2.7,
+          "end": 2.94
+        }
+      ],
+      "expected_tokens": [
+        "Sir?—oh!",
+        "ah!—I",
+        "guess",
+        "so;—yes—oh,",
+        "dear!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          4
+        ],
+        [
+          "equal",
+          2,
+          3,
+          4,
+          5
+        ],
+        [
+          "replace",
+          3,
+          4,
+          5,
+          8
+        ],
+        [
+          "equal",
+          4,
+          5,
+          8,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          4
+        ],
+        [
+          "replace",
+          3,
+          4,
+          5,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sir,",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "sir",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "oh,",
+          "start": 0.92,
+          "end": 1.04,
+          "key": "oh",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ah,",
+          "start": 1.16,
+          "end": 1.24,
+          "key": "ah",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.3,
+          "end": 1.42,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "guess",
+          "start": 1.42,
+          "end": 1.58,
+          "key": "guess",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "so.",
+          "start": 1.58,
+          "end": 1.88,
+          "key": "so",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Yes.",
+          "start": 2.22,
+          "end": 2.38,
+          "key": "yes",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Oh",
+          "start": 2.64,
+          "end": 2.7,
+          "key": "oh",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "dear",
+          "start": 2.7,
+          "end": 2.94,
+          "key": "dear",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sir?—oh!",
+          "start": 0.0,
+          "end": 0.71
+        },
+        {
+          "text": "ah!—I",
+          "start": 0.71,
+          "end": 1.065
+        },
+        {
+          "text": "guess",
+          "start": 1.42,
+          "end": 1.58
+        },
+        {
+          "text": "so;—yes—oh,",
+          "start": 1.58,
+          "end": 2.14
+        },
+        {
+          "text": "dear!",
+          "start": 2.7,
+          "end": 2.94
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 9,
+        "matched_words": 2
+      },
+      "match_ratio": 0.4,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.177040733397007
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "252b510bf4f3a3a5fbd661ed559619d4f963ef60cc3a35b8d42ff6cd64c56b76",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

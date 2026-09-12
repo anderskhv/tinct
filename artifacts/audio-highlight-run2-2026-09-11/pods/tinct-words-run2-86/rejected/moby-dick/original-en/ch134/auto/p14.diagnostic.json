@@ -1,0 +1,7399 @@
+{
+  "complete": true,
+  "signature": "9b46035c71c3a7602e33f7a37dba5e3eae024393c8a1cfb5f13fc52c4a248e39",
+  "attempts": [
+    {
+      "asr_seconds": 0.8099476099014282,
+      "alignment_seconds": 0.0024933815002441406,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"There she breaches! there she breaches!\" was the cry, as in his immeasurable bravadoes the White Whale tossed himself salmon-like to Heaven. So suddenly seen in the blue plain of the sea, and relieved against the still bluer margin of the sky, the spray that he raised, for the moment, intolerably glittered and glared like a glacier; and stood there gradually fading and fading away from its first sparkling intensity, to the dim mistiness of an advancing shower in a vale.",
+        "hotwords": "White, Whale, Heaven, So"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " So suddenly seen in the blue plain of the sea, and relieved against the still bluer margin of the sky, the spray that he raised, for the moment, intolerably glittered and glared like a glacier, and stood there gradually fading and fading away from its first sparkling intensity, to the dim mistiness of an advancing shower in a vale.",
+          "start": 8.44,
+          "end": 27.7,
+          "words": [
+            {
+              "text": " So",
+              "start": 8.44,
+              "end": 9.04,
+              "probability": 0.00028777122497558594
+            },
+            {
+              "text": " suddenly",
+              "start": 9.04,
+              "end": 9.64,
+              "probability": 0.68505859375
+            },
+            {
+              "text": " seen",
+              "start": 9.64,
+              "end": 10.02,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " in",
+              "start": 10.02,
+              "end": 10.18,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " the",
+              "start": 10.18,
+              "end": 10.26,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " blue",
+              "start": 10.26,
+              "end": 10.44,
+              "probability": 0.98828125
+            },
+            {
+              "text": " plain",
+              "start": 10.44,
+              "end": 10.7,
+              "probability": 0.52294921875
+            },
+            {
+              "text": " of",
+              "start": 10.7,
+              "end": 10.82,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 10.82,
+              "end": 10.94,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " sea,",
+              "start": 10.94,
+              "end": 11.22,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " and",
+              "start": 11.74,
+              "end": 11.74,
+              "probability": 0.66845703125
+            },
+            {
+              "text": " relieved",
+              "start": 11.74,
+              "end": 12.08,
+              "probability": 0.98828125
+            },
+            {
+              "text": " against",
+              "start": 12.08,
+              "end": 12.38,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " the",
+              "start": 12.38,
+              "end": 12.62,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " still",
+              "start": 12.62,
+              "end": 12.88,
+              "probability": 0.998046875
+            },
+            {
+              "text": " bluer",
+              "start": 12.88,
+              "end": 13.26,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " margin",
+              "start": 13.26,
+              "end": 13.58,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " of",
+              "start": 13.58,
+              "end": 13.76,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 13.76,
+              "end": 13.86,
+              "probability": 0.998046875
+            },
+            {
+              "text": " sky,",
+              "start": 13.86,
+              "end": 14.18,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 14.68,
+              "end": 14.78,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " spray",
+              "start": 14.78,
+              "end": 15.04,
+              "probability": 0.990234375
+            },
+            {
+              "text": " that",
+              "start": 15.04,
+              "end": 15.2,
+              "probability": 0.994140625
+            },
+            {
+              "text": " he",
+              "start": 15.2,
+              "end": 15.32,
+              "probability": 0.994140625
+            },
+            {
+              "text": " raised,",
+              "start": 15.32,
+              "end": 15.74,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " for",
+              "start": 16.08,
+              "end": 16.2,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 16.2,
+              "end": 16.3,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " moment,",
+              "start": 16.3,
+              "end": 16.64,
+              "probability": 1.0
+            },
+            {
+              "text": " intolerably",
+              "start": 17.1,
+              "end": 17.78,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " glittered",
+              "start": 17.78,
+              "end": 18.12,
+              "probability": 0.968505859375
+            },
+            {
+              "text": " and",
+              "start": 18.12,
+              "end": 18.36,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " glared",
+              "start": 18.36,
+              "end": 18.66,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " like",
+              "start": 18.66,
+              "end": 18.92,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " a",
+              "start": 18.92,
+              "end": 19.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " glacier,",
+              "start": 19.04,
+              "end": 19.38,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " and",
+              "start": 19.98,
+              "end": 20.1,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " stood",
+              "start": 20.1,
+              "end": 20.3,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " there",
+              "start": 20.3,
+              "end": 20.52,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " gradually",
+              "start": 20.52,
+              "end": 20.98,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " fading",
+              "start": 20.98,
+              "end": 21.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 21.42,
+              "end": 21.72,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " fading",
+              "start": 21.72,
+              "end": 22.04,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " away",
+              "start": 22.04,
+              "end": 22.36,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " from",
+              "start": 22.36,
+              "end": 22.58,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " its",
+              "start": 22.58,
+              "end": 22.72,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " first",
+              "start": 22.72,
+              "end": 23.06,
+              "probability": 0.998046875
+            },
+            {
+              "text": " sparkling",
+              "start": 23.06,
+              "end": 23.62,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " intensity,",
+              "start": 23.62,
+              "end": 24.3,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 24.74,
+              "end": 24.9,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 24.9,
+              "end": 25.06,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " dim",
+              "start": 25.06,
+              "end": 25.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " mistiness",
+              "start": 25.26,
+              "end": 25.8,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " of",
+              "start": 25.8,
+              "end": 26.02,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " an",
+              "start": 26.02,
+              "end": 26.1,
+              "probability": 0.998046875
+            },
+            {
+              "text": " advancing",
+              "start": 26.1,
+              "end": 26.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " shower",
+              "start": 26.54,
+              "end": 26.98,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " in",
+              "start": 26.98,
+              "end": 27.22,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " a",
+              "start": 27.22,
+              "end": 27.32,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " vale.",
+              "start": 27.32,
+              "end": 27.7,
+              "probability": 0.5556640625
+            }
+          ]
+        },
+        {
+          "text": " ...",
+          "start": 27.7,
+          "end": 28.32,
+          "words": [
+            {
+              "text": " ...",
+              "start": 27.7,
+              "end": 28.32,
+              "probability": 0.006732940673828125
+            }
+          ]
+        },
+        {
+          "text": " ...",
+          "start": 28.32,
+          "end": 28.34,
+          "words": [
+            {
+              "text": " ...",
+              "start": 28.32,
+              "end": 28.34,
+              "probability": 0.1304931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "So",
+          "start": 8.44,
+          "end": 9.04
+        },
+        {
+          "raw": "suddenly",
+          "start": 9.04,
+          "end": 9.64
+        },
+        {
+          "raw": "seen",
+          "start": 9.64,
+          "end": 10.02
+        },
+        {
+          "raw": "in",
+          "start": 10.02,
+          "end": 10.18
+        },
+        {
+          "raw": "the",
+          "start": 10.18,
+          "end": 10.26
+        },
+        {
+          "raw": "blue",
+          "start": 10.26,
+          "end": 10.44
+        },
+        {
+          "raw": "plain",
+          "start": 10.44,
+          "end": 10.7
+        },
+        {
+          "raw": "of",
+          "start": 10.7,
+          "end": 10.82
+        },
+        {
+          "raw": "the",
+          "start": 10.82,
+          "end": 10.94
+        },
+        {
+          "raw": "sea,",
+          "start": 10.94,
+          "end": 11.22
+        },
+        {
+          "raw": "and",
+          "start": 11.74,
+          "end": 11.74
+        },
+        {
+          "raw": "relieved",
+          "start": 11.74,
+          "end": 12.08
+        },
+        {
+          "raw": "against",
+          "start": 12.08,
+          "end": 12.38
+        },
+        {
+          "raw": "the",
+          "start": 12.38,
+          "end": 12.62
+        },
+        {
+          "raw": "still",
+          "start": 12.62,
+          "end": 12.88
+        },
+        {
+          "raw": "bluer",
+          "start": 12.88,
+          "end": 13.26
+        },
+        {
+          "raw": "margin",
+          "start": 13.26,
+          "end": 13.58
+        },
+        {
+          "raw": "of",
+          "start": 13.58,
+          "end": 13.76
+        },
+        {
+          "raw": "the",
+          "start": 13.76,
+          "end": 13.86
+        },
+        {
+          "raw": "sky,",
+          "start": 13.86,
+          "end": 14.18
+        },
+        {
+          "raw": "the",
+          "start": 14.68,
+          "end": 14.78
+        },
+        {
+          "raw": "spray",
+          "start": 14.78,
+          "end": 15.04
+        },
+        {
+          "raw": "that",
+          "start": 15.04,
+          "end": 15.2
+        },
+        {
+          "raw": "he",
+          "start": 15.2,
+          "end": 15.32
+        },
+        {
+          "raw": "raised,",
+          "start": 15.32,
+          "end": 15.74
+        },
+        {
+          "raw": "for",
+          "start": 16.08,
+          "end": 16.2
+        },
+        {
+          "raw": "the",
+          "start": 16.2,
+          "end": 16.3
+        },
+        {
+          "raw": "moment,",
+          "start": 16.3,
+          "end": 16.64
+        },
+        {
+          "raw": "intolerably",
+          "start": 17.1,
+          "end": 17.78
+        },
+        {
+          "raw": "glittered",
+          "start": 17.78,
+          "end": 18.12
+        },
+        {
+          "raw": "and",
+          "start": 18.12,
+          "end": 18.36
+        },
+        {
+          "raw": "glared",
+          "start": 18.36,
+          "end": 18.66
+        },
+        {
+          "raw": "like",
+          "start": 18.66,
+          "end": 18.92
+        },
+        {
+          "raw": "a",
+          "start": 18.92,
+          "end": 19.04
+        },
+        {
+          "raw": "glacier,",
+          "start": 19.04,
+          "end": 19.38
+        },
+        {
+          "raw": "and",
+          "start": 19.98,
+          "end": 20.1
+        },
+        {
+          "raw": "stood",
+          "start": 20.1,
+          "end": 20.3
+        },
+        {
+          "raw": "there",
+          "start": 20.3,
+          "end": 20.52
+        },
+        {
+          "raw": "gradually",
+          "start": 20.52,
+          "end": 20.98
+        },
+        {
+          "raw": "fading",
+          "start": 20.98,
+          "end": 21.42
+        },
+        {
+          "raw": "and",
+          "start": 21.42,
+          "end": 21.72
+        },
+        {
+          "raw": "fading",
+          "start": 21.72,
+          "end": 22.04
+        },
+        {
+          "raw": "away",
+          "start": 22.04,
+          "end": 22.36
+        },
+        {
+          "raw": "from",
+          "start": 22.36,
+          "end": 22.58
+        },
+        {
+          "raw": "its",
+          "start": 22.58,
+          "end": 22.72
+        },
+        {
+          "raw": "first",
+          "start": 22.72,
+          "end": 23.06
+        },
+        {
+          "raw": "sparkling",
+          "start": 23.06,
+          "end": 23.62
+        },
+        {
+          "raw": "intensity,",
+          "start": 23.62,
+          "end": 24.3
+        },
+        {
+          "raw": "to",
+          "start": 24.74,
+          "end": 24.9
+        },
+        {
+          "raw": "the",
+          "start": 24.9,
+          "end": 25.06
+        },
+        {
+          "raw": "dim",
+          "start": 25.06,
+          "end": 25.26
+        },
+        {
+          "raw": "mistiness",
+          "start": 25.26,
+          "end": 25.8
+        },
+        {
+          "raw": "of",
+          "start": 25.8,
+          "end": 26.02
+        },
+        {
+          "raw": "an",
+          "start": 26.02,
+          "end": 26.1
+        },
+        {
+          "raw": "advancing",
+          "start": 26.1,
+          "end": 26.54
+        },
+        {
+          "raw": "shower",
+          "start": 26.54,
+          "end": 26.98
+        },
+        {
+          "raw": "in",
+          "start": 26.98,
+          "end": 27.22
+        },
+        {
+          "raw": "a",
+          "start": 27.22,
+          "end": 27.32
+        },
+        {
+          "raw": "vale.",
+          "start": 27.32,
+          "end": 27.7
+        },
+        {
+          "raw": "...",
+          "start": 27.7,
+          "end": 28.32
+        },
+        {
+          "raw": "...",
+          "start": 28.32,
+          "end": 28.34
+        }
+      ],
+      "expected_tokens": [
+        "\"There",
+        "she",
+        "breaches!",
+        "there",
+        "she",
+        "breaches!\"",
+        "was",
+        "the",
+        "cry,",
+        "as",
+        "in",
+        "his",
+        "immeasurable",
+        "bravadoes",
+        "the",
+        "White",
+        "Whale",
+        "tossed",
+        "himself",
+        "salmon-like",
+        "to",
+        "Heaven.",
+        "So",
+        "suddenly",
+        "seen",
+        "in",
+        "the",
+        "blue",
+        "plain",
+        "of",
+        "the",
+        "sea,",
+        "and",
+        "relieved",
+        "against",
+        "the",
+        "still",
+        "bluer",
+        "margin",
+        "of",
+        "the",
+        "sky,",
+        "the",
+        "spray",
+        "that",
+        "he",
+        "raised,",
+        "for",
+        "the",
+        "moment,",
+        "intolerably",
+        "glittered",
+        "and",
+        "glared",
+        "like",
+        "a",
+        "glacier;",
+        "and",
+        "stood",
+        "there",
+        "gradually",
+        "fading",
+        "and",
+        "fading",
+        "away",
+        "from",
+        "its",
+        "first",
+        "sparkling",
+        "intensity,",
+        "to",
+        "the",
+        "dim",
+        "mistiness",
+        "of",
+        "an",
+        "advancing",
+        "shower",
+        "in",
+        "a",
+        "vale."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          22,
+          0,
+          0
+        ],
+        [
+          "equal",
+          22,
+          81,
+          0,
+          59
+        ],
+        [
+          "insert",
+          81,
+          81,
+          59,
+          61
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 58
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          22,
+          0,
+          0
+        ],
+        [
+          "insert",
+          81,
+          81,
+          59,
+          61
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "So",
+          "start": 8.44,
+          "end": 9.04,
+          "key": "so",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "suddenly",
+          "start": 9.04,
+          "end": 9.64,
+          "key": "suddenly",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "seen",
+          "start": 9.64,
+          "end": 10.02,
+          "key": "seen",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 10.02,
+          "end": 10.18,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.18,
+          "end": 10.26,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "blue",
+          "start": 10.26,
+          "end": 10.44,
+          "key": "blue",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "plain",
+          "start": 10.44,
+          "end": 10.7,
+          "key": "plain",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 10.7,
+          "end": 10.82,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.82,
+          "end": 10.94,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "sea,",
+          "start": 10.94,
+          "end": 11.22,
+          "key": "sea",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 11.74,
+          "end": 11.74,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "relieved",
+          "start": 11.74,
+          "end": 12.08,
+          "key": "relieved",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "against",
+          "start": 12.08,
+          "end": 12.38,
+          "key": "against",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 12.38,
+          "end": 12.62,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "still",
+          "start": 12.62,
+          "end": 12.88,
+          "key": "still",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "bluer",
+          "start": 12.88,
+          "end": 13.26,
+          "key": "bluer",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "margin",
+          "start": 13.26,
+          "end": 13.58,
+          "key": "margin",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 13.58,
+          "end": 13.76,
+          "key": "of",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.76,
+          "end": 13.86,
+          "key": "the",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "sky,",
+          "start": 13.86,
+          "end": 14.18,
+          "key": "sky",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 14.68,
+          "end": 14.78,
+          "key": "the",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "spray",
+          "start": 14.78,
+          "end": 15.04,
+          "key": "spray",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 15.04,
+          "end": 15.2,
+          "key": "that",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 15.2,
+          "end": 15.32,
+          "key": "he",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "raised,",
+          "start": 15.32,
+          "end": 15.74,
+          "key": "raised",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 16.08,
+          "end": 16.2,
+          "key": "for",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 16.2,
+          "end": 16.3,
+          "key": "the",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "moment,",
+          "start": 16.3,
+          "end": 16.64,
+          "key": "moment",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "intolerably",
+          "start": 17.1,
+          "end": 17.78,
+          "key": "intolerably",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "glittered",
+          "start": 17.78,
+          "end": 18.12,
+          "key": "glittered",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 18.12,
+          "end": 18.36,
+          "key": "and",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "glared",
+          "start": 18.36,
+          "end": 18.66,
+          "key": "glared",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 18.66,
+          "end": 18.92,
+          "key": "like",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 18.92,
+          "end": 19.04,
+          "key": "a",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "glacier,",
+          "start": 19.04,
+          "end": 19.38,
+          "key": "glacier",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 19.98,
+          "end": 20.1,
+          "key": "and",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "stood",
+          "start": 20.1,
+          "end": 20.3,
+          "key": "stood",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 20.3,
+          "end": 20.52,
+          "key": "there",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "gradually",
+          "start": 20.52,
+          "end": 20.98,
+          "key": "gradually",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "fading",
+          "start": 20.98,
+          "end": 21.42,
+          "key": "fading",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 21.42,
+          "end": 21.72,
+          "key": "and",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "fading",
+          "start": 21.72,
+          "end": 22.04,
+          "key": "fading",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "away",
+          "start": 22.04,
+          "end": 22.36,
+          "key": "away",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 22.36,
+          "end": 22.58,
+          "key": "from",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "its",
+          "start": 22.58,
+          "end": 22.72,
+          "key": "its",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 22.72,
+          "end": 23.06,
+          "key": "first",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "sparkling",
+          "start": 23.06,
+          "end": 23.62,
+          "key": "sparkling",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "intensity,",
+          "start": 23.62,
+          "end": 24.3,
+          "key": "intensity",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 24.74,
+          "end": 24.9,
+          "key": "to",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 24.9,
+          "end": 25.06,
+          "key": "the",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "dim",
+          "start": 25.06,
+          "end": 25.26,
+          "key": "dim",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "mistiness",
+          "start": 25.26,
+          "end": 25.8,
+          "key": "mistiness",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 25.8,
+          "end": 26.02,
+          "key": "of",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 26.02,
+          "end": 26.1,
+          "key": "an",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "advancing",
+          "start": 26.1,
+          "end": 26.54,
+          "key": "advancing",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "shower",
+          "start": 26.54,
+          "end": 26.98,
+          "key": "shower",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 26.98,
+          "end": 27.22,
+          "key": "in",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 27.22,
+          "end": 27.32,
+          "key": "a",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "vale.",
+          "start": 27.32,
+          "end": 27.7,
+          "key": "vale",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "...",
+          "start": 27.7,
+          "end": 28.32,
+          "key": "",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "...",
+          "start": 28.32,
+          "end": 28.34,
+          "key": "",
+          "pieces": [
+            60
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"There",
+          "start": 0.0,
+          "end": 4.22
+        },
+        {
+          "text": "she",
+          "start": 4.22,
+          "end": 6.33
+        },
+        {
+          "text": "breaches!",
+          "start": 6.33,
+          "end": 7.385
+        },
+        {
+          "text": "there",
+          "start": 7.385,
+          "end": 7.912
+        },
+        {
+          "text": "she",
+          "start": 7.912,
+          "end": 8.176
+        },
+        {
+          "text": "breaches!\"",
+          "start": 8.176,
+          "end": 8.308
+        },
+        {
+          "text": "was",
+          "start": 8.308,
+          "end": 8.374
+        },
+        {
+          "text": "the",
+          "start": 8.374,
+          "end": 8.407
+        },
+        {
+          "text": "cry,",
+          "start": 8.407,
+          "end": 8.424
+        },
+        {
+          "text": "as",
+          "start": 8.424,
+          "end": 8.432
+        },
+        {
+          "text": "in",
+          "start": 8.432,
+          "end": 8.436
+        },
+        {
+          "text": "his",
+          "start": 8.436,
+          "end": 8.438
+        },
+        {
+          "text": "immeasurable",
+          "start": 8.438,
+          "end": 8.439
+        },
+        {
+          "text": "bravadoes",
+          "start": 8.439,
+          "end": 8.439
+        },
+        {
+          "text": "the",
+          "start": 8.439,
+          "end": 8.439
+        },
+        {
+          "text": "White",
+          "start": 8.439,
+          "end": 8.439
+        },
+        {
+          "text": "Whale",
+          "start": 8.439,
+          "end": 8.439
+        },
+        {
+          "text": "tossed",
+          "start": 8.439,
+          "end": 8.439
+        },
+        {
+          "text": "himself",
+          "start": 8.439,
+          "end": 8.439
+        },
+        {
+          "text": "salmon-like",
+          "start": 8.439,
+          "end": 8.439
+        },
+        {
+          "text": "to",
+          "start": 8.439,
+          "end": 8.439
+        },
+        {
+          "text": "Heaven.",
+          "start": 8.439,
+          "end": 8.439
+        },
+        {
+          "text": "So",
+          "start": 8.44,
+          "end": 9.04
+        },
+        {
+          "text": "suddenly",
+          "start": 9.04,
+          "end": 9.64
+        },
+        {
+          "text": "seen",
+          "start": 9.64,
+          "end": 10.02
+        },
+        {
+          "text": "in",
+          "start": 10.02,
+          "end": 10.18
+        },
+        {
+          "text": "the",
+          "start": 10.18,
+          "end": 10.26
+        },
+        {
+          "text": "blue",
+          "start": 10.26,
+          "end": 10.44
+        },
+        {
+          "text": "plain",
+          "start": 10.44,
+          "end": 10.7
+        },
+        {
+          "text": "of",
+          "start": 10.7,
+          "end": 10.82
+        },
+        {
+          "text": "the",
+          "start": 10.82,
+          "end": 10.94
+        },
+        {
+          "text": "sea,",
+          "start": 10.94,
+          "end": 11.22
+        },
+        {
+          "text": "and",
+          "start": 11.74,
+          "end": 11.74
+        },
+        {
+          "text": "relieved",
+          "start": 11.74,
+          "end": 12.08
+        },
+        {
+          "text": "against",
+          "start": 12.08,
+          "end": 12.38
+        },
+        {
+          "text": "the",
+          "start": 12.38,
+          "end": 12.62
+        },
+        {
+          "text": "still",
+          "start": 12.62,
+          "end": 12.88
+        },
+        {
+          "text": "bluer",
+          "start": 12.88,
+          "end": 13.26
+        },
+        {
+          "text": "margin",
+          "start": 13.26,
+          "end": 13.58
+        },
+        {
+          "text": "of",
+          "start": 13.58,
+          "end": 13.76
+        },
+        {
+          "text": "the",
+          "start": 13.76,
+          "end": 13.86
+        },
+        {
+          "text": "sky,",
+          "start": 13.86,
+          "end": 14.18
+        },
+        {
+          "text": "the",
+          "start": 14.68,
+          "end": 14.78
+        },
+        {
+          "text": "spray",
+          "start": 14.78,
+          "end": 15.04
+        },
+        {
+          "text": "that",
+          "start": 15.04,
+          "end": 15.2
+        },
+        {
+          "text": "he",
+          "start": 15.2,
+          "end": 15.32
+        },
+        {
+          "text": "raised,",
+          "start": 15.32,
+          "end": 15.74
+        },
+        {
+          "text": "for",
+          "start": 16.08,
+          "end": 16.2
+        },
+        {
+          "text": "the",
+          "start": 16.2,
+          "end": 16.3
+        },
+        {
+          "text": "moment,",
+          "start": 16.3,
+          "end": 16.64
+        },
+        {
+          "text": "intolerably",
+          "start": 17.1,
+          "end": 17.78
+        },
+        {
+          "text": "glittered",
+          "start": 17.78,
+          "end": 18.12
+        },
+        {
+          "text": "and",
+          "start": 18.12,
+          "end": 18.36
+        },
+        {
+          "text": "glared",
+          "start": 18.36,
+          "end": 18.66
+        },
+        {
+          "text": "like",
+          "start": 18.66,
+          "end": 18.92
+        },
+        {
+          "text": "a",
+          "start": 18.92,
+          "end": 19.04
+        },
+        {
+          "text": "glacier;",
+          "start": 19.04,
+          "end": 19.38
+        },
+        {
+          "text": "and",
+          "start": 19.98,
+          "end": 20.1
+        },
+        {
+          "text": "stood",
+          "start": 20.1,
+          "end": 20.3
+        },
+        {
+          "text": "there",
+          "start": 20.3,
+          "end": 20.52
+        },
+        {
+          "text": "gradually",
+          "start": 20.52,
+          "end": 20.98
+        },
+        {
+          "text": "fading",
+          "start": 20.98,
+          "end": 21.42
+        },
+        {
+          "text": "and",
+          "start": 21.42,
+          "end": 21.72
+        },
+        {
+          "text": "fading",
+          "start": 21.72,
+          "end": 22.04
+        },
+        {
+          "text": "away",
+          "start": 22.04,
+          "end": 22.36
+        },
+        {
+          "text": "from",
+          "start": 22.36,
+          "end": 22.58
+        },
+        {
+          "text": "its",
+          "start": 22.58,
+          "end": 22.72
+        },
+        {
+          "text": "first",
+          "start": 22.72,
+          "end": 23.06
+        },
+        {
+          "text": "sparkling",
+          "start": 23.06,
+          "end": 23.62
+        },
+        {
+          "text": "intensity,",
+          "start": 23.62,
+          "end": 24.3
+        },
+        {
+          "text": "to",
+          "start": 24.74,
+          "end": 24.9
+        },
+        {
+          "text": "the",
+          "start": 24.9,
+          "end": 25.06
+        },
+        {
+          "text": "dim",
+          "start": 25.06,
+          "end": 25.26
+        },
+        {
+          "text": "mistiness",
+          "start": 25.26,
+          "end": 25.8
+        },
+        {
+          "text": "of",
+          "start": 25.8,
+          "end": 26.02
+        },
+        {
+          "text": "an",
+          "start": 26.02,
+          "end": 26.1
+        },
+        {
+          "text": "advancing",
+          "start": 26.1,
+          "end": 26.54
+        },
+        {
+          "text": "shower",
+          "start": 26.54,
+          "end": 26.98
+        },
+        {
+          "text": "in",
+          "start": 26.98,
+          "end": 27.22
+        },
+        {
+          "text": "a",
+          "start": 27.22,
+          "end": 27.32
+        },
+        {
+          "text": "vale.",
+          "start": 27.32,
+          "end": 27.7
+        }
+      ],
+      "stats": {
+        "expected_words": 81,
+        "heard_words": 61,
+        "matched_words": 59
+      },
+      "match_ratio": 0.7283950617283951,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.8133216239511967
+    },
+    {
+      "asr_seconds": 2.662019234150648,
+      "alignment_seconds": 0.002574838697910309,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "White, Whale, Heaven, So"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " So suddenly seen in the blue plain of the sea, And relieved against the still bluer margin of the sky, The spray that he raised, for the moment, Intolerably glittered and glared like a glacier, And stood there gradually fading and fading away from its first sparkling intensity, To the dim mistiness of an advancing shower in a veil.",
+          "start": 8.52,
+          "end": 27.56,
+          "words": [
+            {
+              "text": " So",
+              "start": 8.52,
+              "end": 9.08,
+              "probability": 0.00028777122497558594
+            },
+            {
+              "text": " suddenly",
+              "start": 9.08,
+              "end": 9.64,
+              "probability": 0.68505859375
+            },
+            {
+              "text": " seen",
+              "start": 9.64,
+              "end": 10.02,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " in",
+              "start": 10.02,
+              "end": 10.18,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " the",
+              "start": 10.18,
+              "end": 10.26,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " blue",
+              "start": 10.26,
+              "end": 10.44,
+              "probability": 0.98828125
+            },
+            {
+              "text": " plain",
+              "start": 10.44,
+              "end": 10.7,
+              "probability": 0.52294921875
+            },
+            {
+              "text": " of",
+              "start": 10.7,
+              "end": 10.82,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 10.82,
+              "end": 10.94,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " sea,",
+              "start": 10.94,
+              "end": 11.24,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " And",
+              "start": 11.74,
+              "end": 11.74,
+              "probability": 0.310791015625
+            },
+            {
+              "text": " relieved",
+              "start": 11.74,
+              "end": 12.1,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " against",
+              "start": 12.1,
+              "end": 12.38,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " the",
+              "start": 12.38,
+              "end": 12.62,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " still",
+              "start": 12.62,
+              "end": 12.88,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " bluer",
+              "start": 12.88,
+              "end": 13.26,
+              "probability": 0.891845703125
+            },
+            {
+              "text": " margin",
+              "start": 13.26,
+              "end": 13.58,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " of",
+              "start": 13.58,
+              "end": 13.74,
+              "probability": 0.943359375
+            },
+            {
+              "text": " the",
+              "start": 13.74,
+              "end": 13.86,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " sky,",
+              "start": 13.86,
+              "end": 14.18,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " The",
+              "start": 14.64,
+              "end": 14.78,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " spray",
+              "start": 14.78,
+              "end": 15.04,
+              "probability": 0.986328125
+            },
+            {
+              "text": " that",
+              "start": 15.04,
+              "end": 15.2,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " he",
+              "start": 15.2,
+              "end": 15.32,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " raised,",
+              "start": 15.32,
+              "end": 15.72,
+              "probability": 0.9765625
+            },
+            {
+              "text": " for",
+              "start": 16.08,
+              "end": 16.2,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " the",
+              "start": 16.2,
+              "end": 16.3,
+              "probability": 0.998046875
+            },
+            {
+              "text": " moment,",
+              "start": 16.3,
+              "end": 16.66,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Intolerably",
+              "start": 17.14,
+              "end": 17.76,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " glittered",
+              "start": 17.76,
+              "end": 18.12,
+              "probability": 0.92578125
+            },
+            {
+              "text": " and",
+              "start": 18.12,
+              "end": 18.36,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " glared",
+              "start": 18.36,
+              "end": 18.66,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " like",
+              "start": 18.66,
+              "end": 18.92,
+              "probability": 0.986328125
+            },
+            {
+              "text": " a",
+              "start": 18.92,
+              "end": 19.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " glacier,",
+              "start": 19.04,
+              "end": 19.38,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " And",
+              "start": 19.96,
+              "end": 20.1,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " stood",
+              "start": 20.1,
+              "end": 20.3,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " there",
+              "start": 20.3,
+              "end": 20.52,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " gradually",
+              "start": 20.52,
+              "end": 21.0,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " fading",
+              "start": 21.0,
+              "end": 21.42,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 21.42,
+              "end": 21.74,
+              "probability": 0.6953125
+            },
+            {
+              "text": " fading",
+              "start": 21.74,
+              "end": 22.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " away",
+              "start": 22.04,
+              "end": 22.36,
+              "probability": 0.97265625
+            },
+            {
+              "text": " from",
+              "start": 22.36,
+              "end": 22.58,
+              "probability": 0.353271484375
+            },
+            {
+              "text": " its",
+              "start": 22.58,
+              "end": 22.7,
+              "probability": 0.83544921875
+            },
+            {
+              "text": " first",
+              "start": 22.7,
+              "end": 23.1,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " sparkling",
+              "start": 23.1,
+              "end": 23.62,
+              "probability": 0.958984375
+            },
+            {
+              "text": " intensity,",
+              "start": 23.62,
+              "end": 24.3,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " To",
+              "start": 24.74,
+              "end": 24.88,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " the",
+              "start": 24.88,
+              "end": 25.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " dim",
+              "start": 25.04,
+              "end": 25.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " mistiness",
+              "start": 25.26,
+              "end": 25.8,
+              "probability": 0.950927734375
+            },
+            {
+              "text": " of",
+              "start": 25.8,
+              "end": 26.02,
+              "probability": 0.998046875
+            },
+            {
+              "text": " an",
+              "start": 26.02,
+              "end": 26.1,
+              "probability": 0.998046875
+            },
+            {
+              "text": " advancing",
+              "start": 26.1,
+              "end": 26.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " shower",
+              "start": 26.54,
+              "end": 26.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 26.98,
+              "end": 27.22,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " a",
+              "start": 27.22,
+              "end": 27.32,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " veil.",
+              "start": 27.32,
+              "end": 27.56,
+              "probability": 0.76171875
+            }
+          ]
+        },
+        {
+          "text": " So suddenly seen in a veil.",
+          "start": 27.56,
+          "end": 27.72,
+          "words": [
+            {
+              "text": " So",
+              "start": 27.56,
+              "end": 27.56,
+              "probability": 0.0011625289916992188
+            },
+            {
+              "text": " suddenly",
+              "start": 27.56,
+              "end": 27.56,
+              "probability": 2.002716064453125e-05
+            },
+            {
+              "text": " seen",
+              "start": 27.56,
+              "end": 27.56,
+              "probability": 5.781650543212891e-06
+            },
+            {
+              "text": " in",
+              "start": 27.56,
+              "end": 27.58,
+              "probability": 0.010589599609375
+            },
+            {
+              "text": " a",
+              "start": 27.58,
+              "end": 27.6,
+              "probability": 0.0965576171875
+            },
+            {
+              "text": " veil.",
+              "start": 27.6,
+              "end": 27.72,
+              "probability": 1.138448715209961e-05
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "So",
+          "start": 8.52,
+          "end": 9.08
+        },
+        {
+          "raw": "suddenly",
+          "start": 9.08,
+          "end": 9.64
+        },
+        {
+          "raw": "seen",
+          "start": 9.64,
+          "end": 10.02
+        },
+        {
+          "raw": "in",
+          "start": 10.02,
+          "end": 10.18
+        },
+        {
+          "raw": "the",
+          "start": 10.18,
+          "end": 10.26
+        },
+        {
+          "raw": "blue",
+          "start": 10.26,
+          "end": 10.44
+        },
+        {
+          "raw": "plain",
+          "start": 10.44,
+          "end": 10.7
+        },
+        {
+          "raw": "of",
+          "start": 10.7,
+          "end": 10.82
+        },
+        {
+          "raw": "the",
+          "start": 10.82,
+          "end": 10.94
+        },
+        {
+          "raw": "sea,",
+          "start": 10.94,
+          "end": 11.24
+        },
+        {
+          "raw": "And",
+          "start": 11.74,
+          "end": 11.74
+        },
+        {
+          "raw": "relieved",
+          "start": 11.74,
+          "end": 12.1
+        },
+        {
+          "raw": "against",
+          "start": 12.1,
+          "end": 12.38
+        },
+        {
+          "raw": "the",
+          "start": 12.38,
+          "end": 12.62
+        },
+        {
+          "raw": "still",
+          "start": 12.62,
+          "end": 12.88
+        },
+        {
+          "raw": "bluer",
+          "start": 12.88,
+          "end": 13.26
+        },
+        {
+          "raw": "margin",
+          "start": 13.26,
+          "end": 13.58
+        },
+        {
+          "raw": "of",
+          "start": 13.58,
+          "end": 13.74
+        },
+        {
+          "raw": "the",
+          "start": 13.74,
+          "end": 13.86
+        },
+        {
+          "raw": "sky,",
+          "start": 13.86,
+          "end": 14.18
+        },
+        {
+          "raw": "The",
+          "start": 14.64,
+          "end": 14.78
+        },
+        {
+          "raw": "spray",
+          "start": 14.78,
+          "end": 15.04
+        },
+        {
+          "raw": "that",
+          "start": 15.04,
+          "end": 15.2
+        },
+        {
+          "raw": "he",
+          "start": 15.2,
+          "end": 15.32
+        },
+        {
+          "raw": "raised,",
+          "start": 15.32,
+          "end": 15.72
+        },
+        {
+          "raw": "for",
+          "start": 16.08,
+          "end": 16.2
+        },
+        {
+          "raw": "the",
+          "start": 16.2,
+          "end": 16.3
+        },
+        {
+          "raw": "moment,",
+          "start": 16.3,
+          "end": 16.66
+        },
+        {
+          "raw": "Intolerably",
+          "start": 17.14,
+          "end": 17.76
+        },
+        {
+          "raw": "glittered",
+          "start": 17.76,
+          "end": 18.12
+        },
+        {
+          "raw": "and",
+          "start": 18.12,
+          "end": 18.36
+        },
+        {
+          "raw": "glared",
+          "start": 18.36,
+          "end": 18.66
+        },
+        {
+          "raw": "like",
+          "start": 18.66,
+          "end": 18.92
+        },
+        {
+          "raw": "a",
+          "start": 18.92,
+          "end": 19.04
+        },
+        {
+          "raw": "glacier,",
+          "start": 19.04,
+          "end": 19.38
+        },
+        {
+          "raw": "And",
+          "start": 19.96,
+          "end": 20.1
+        },
+        {
+          "raw": "stood",
+          "start": 20.1,
+          "end": 20.3
+        },
+        {
+          "raw": "there",
+          "start": 20.3,
+          "end": 20.52
+        },
+        {
+          "raw": "gradually",
+          "start": 20.52,
+          "end": 21.0
+        },
+        {
+          "raw": "fading",
+          "start": 21.0,
+          "end": 21.42
+        },
+        {
+          "raw": "and",
+          "start": 21.42,
+          "end": 21.74
+        },
+        {
+          "raw": "fading",
+          "start": 21.74,
+          "end": 22.04
+        },
+        {
+          "raw": "away",
+          "start": 22.04,
+          "end": 22.36
+        },
+        {
+          "raw": "from",
+          "start": 22.36,
+          "end": 22.58
+        },
+        {
+          "raw": "its",
+          "start": 22.58,
+          "end": 22.7
+        },
+        {
+          "raw": "first",
+          "start": 22.7,
+          "end": 23.1
+        },
+        {
+          "raw": "sparkling",
+          "start": 23.1,
+          "end": 23.62
+        },
+        {
+          "raw": "intensity,",
+          "start": 23.62,
+          "end": 24.3
+        },
+        {
+          "raw": "To",
+          "start": 24.74,
+          "end": 24.88
+        },
+        {
+          "raw": "the",
+          "start": 24.88,
+          "end": 25.04
+        },
+        {
+          "raw": "dim",
+          "start": 25.04,
+          "end": 25.26
+        },
+        {
+          "raw": "mistiness",
+          "start": 25.26,
+          "end": 25.8
+        },
+        {
+          "raw": "of",
+          "start": 25.8,
+          "end": 26.02
+        },
+        {
+          "raw": "an",
+          "start": 26.02,
+          "end": 26.1
+        },
+        {
+          "raw": "advancing",
+          "start": 26.1,
+          "end": 26.54
+        },
+        {
+          "raw": "shower",
+          "start": 26.54,
+          "end": 26.98
+        },
+        {
+          "raw": "in",
+          "start": 26.98,
+          "end": 27.22
+        },
+        {
+          "raw": "a",
+          "start": 27.22,
+          "end": 27.32
+        },
+        {
+          "raw": "veil.",
+          "start": 27.32,
+          "end": 27.56
+        },
+        {
+          "raw": "So",
+          "start": 27.56,
+          "end": 27.56
+        },
+        {
+          "raw": "suddenly",
+          "start": 27.56,
+          "end": 27.56
+        },
+        {
+          "raw": "seen",
+          "start": 27.56,
+          "end": 27.56
+        },
+        {
+          "raw": "in",
+          "start": 27.56,
+          "end": 27.58
+        },
+        {
+          "raw": "a",
+          "start": 27.58,
+          "end": 27.6
+        },
+        {
+          "raw": "veil.",
+          "start": 27.6,
+          "end": 27.72
+        }
+      ],
+      "expected_tokens": [
+        "\"There",
+        "she",
+        "breaches!",
+        "there",
+        "she",
+        "breaches!\"",
+        "was",
+        "the",
+        "cry,",
+        "as",
+        "in",
+        "his",
+        "immeasurable",
+        "bravadoes",
+        "the",
+        "White",
+        "Whale",
+        "tossed",
+        "himself",
+        "salmon-like",
+        "to",
+        "Heaven.",
+        "So",
+        "suddenly",
+        "seen",
+        "in",
+        "the",
+        "blue",
+        "plain",
+        "of",
+        "the",
+        "sea,",
+        "and",
+        "relieved",
+        "against",
+        "the",
+        "still",
+        "bluer",
+        "margin",
+        "of",
+        "the",
+        "sky,",
+        "the",
+        "spray",
+        "that",
+        "he",
+        "raised,",
+        "for",
+        "the",
+        "moment,",
+        "intolerably",
+        "glittered",
+        "and",
+        "glared",
+        "like",
+        "a",
+        "glacier;",
+        "and",
+        "stood",
+        "there",
+        "gradually",
+        "fading",
+        "and",
+        "fading",
+        "away",
+        "from",
+        "its",
+        "first",
+        "sparkling",
+        "intensity,",
+        "to",
+        "the",
+        "dim",
+        "mistiness",
+        "of",
+        "an",
+        "advancing",
+        "shower",
+        "in",
+        "a",
+        "vale."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          22,
+          0,
+          0
+        ],
+        [
+          "equal",
+          22,
+          80,
+          0,
+          58
+        ],
+        [
+          "replace",
+          80,
+          81,
+          58,
+          65
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 80,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          22,
+          0,
+          0
+        ],
+        [
+          "replace",
+          80,
+          81,
+          58,
+          65
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "So",
+          "start": 8.52,
+          "end": 9.08,
+          "key": "so",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "suddenly",
+          "start": 9.08,
+          "end": 9.64,
+          "key": "suddenly",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "seen",
+          "start": 9.64,
+          "end": 10.02,
+          "key": "seen",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 10.02,
+          "end": 10.18,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.18,
+          "end": 10.26,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "blue",
+          "start": 10.26,
+          "end": 10.44,
+          "key": "blue",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "plain",
+          "start": 10.44,
+          "end": 10.7,
+          "key": "plain",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 10.7,
+          "end": 10.82,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.82,
+          "end": 10.94,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "sea,",
+          "start": 10.94,
+          "end": 11.24,
+          "key": "sea",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 11.74,
+          "end": 11.74,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "relieved",
+          "start": 11.74,
+          "end": 12.1,
+          "key": "relieved",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "against",
+          "start": 12.1,
+          "end": 12.38,
+          "key": "against",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 12.38,
+          "end": 12.62,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "still",
+          "start": 12.62,
+          "end": 12.88,
+          "key": "still",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "bluer",
+          "start": 12.88,
+          "end": 13.26,
+          "key": "bluer",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "margin",
+          "start": 13.26,
+          "end": 13.58,
+          "key": "margin",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 13.58,
+          "end": 13.74,
+          "key": "of",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.74,
+          "end": 13.86,
+          "key": "the",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "sky,",
+          "start": 13.86,
+          "end": 14.18,
+          "key": "sky",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 14.64,
+          "end": 14.78,
+          "key": "the",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "spray",
+          "start": 14.78,
+          "end": 15.04,
+          "key": "spray",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 15.04,
+          "end": 15.2,
+          "key": "that",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 15.2,
+          "end": 15.32,
+          "key": "he",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "raised,",
+          "start": 15.32,
+          "end": 15.72,
+          "key": "raised",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 16.08,
+          "end": 16.2,
+          "key": "for",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 16.2,
+          "end": 16.3,
+          "key": "the",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "moment,",
+          "start": 16.3,
+          "end": 16.66,
+          "key": "moment",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "Intolerably",
+          "start": 17.14,
+          "end": 17.76,
+          "key": "intolerably",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "glittered",
+          "start": 17.76,
+          "end": 18.12,
+          "key": "glittered",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 18.12,
+          "end": 18.36,
+          "key": "and",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "glared",
+          "start": 18.36,
+          "end": 18.66,
+          "key": "glared",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 18.66,
+          "end": 18.92,
+          "key": "like",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 18.92,
+          "end": 19.04,
+          "key": "a",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "glacier,",
+          "start": 19.04,
+          "end": 19.38,
+          "key": "glacier",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 19.96,
+          "end": 20.1,
+          "key": "and",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "stood",
+          "start": 20.1,
+          "end": 20.3,
+          "key": "stood",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 20.3,
+          "end": 20.52,
+          "key": "there",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "gradually",
+          "start": 20.52,
+          "end": 21.0,
+          "key": "gradually",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "fading",
+          "start": 21.0,
+          "end": 21.42,
+          "key": "fading",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 21.42,
+          "end": 21.74,
+          "key": "and",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "fading",
+          "start": 21.74,
+          "end": 22.04,
+          "key": "fading",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "away",
+          "start": 22.04,
+          "end": 22.36,
+          "key": "away",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 22.36,
+          "end": 22.58,
+          "key": "from",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "its",
+          "start": 22.58,
+          "end": 22.7,
+          "key": "its",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 22.7,
+          "end": 23.1,
+          "key": "first",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "sparkling",
+          "start": 23.1,
+          "end": 23.62,
+          "key": "sparkling",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "intensity,",
+          "start": 23.62,
+          "end": 24.3,
+          "key": "intensity",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 24.74,
+          "end": 24.88,
+          "key": "to",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 24.88,
+          "end": 25.04,
+          "key": "the",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "dim",
+          "start": 25.04,
+          "end": 25.26,
+          "key": "dim",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "mistiness",
+          "start": 25.26,
+          "end": 25.8,
+          "key": "mistiness",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 25.8,
+          "end": 26.02,
+          "key": "of",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 26.02,
+          "end": 26.1,
+          "key": "an",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "advancing",
+          "start": 26.1,
+          "end": 26.54,
+          "key": "advancing",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "shower",
+          "start": 26.54,
+          "end": 26.98,
+          "key": "shower",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 26.98,
+          "end": 27.22,
+          "key": "in",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 27.22,
+          "end": 27.32,
+          "key": "a",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "veil.",
+          "start": 27.32,
+          "end": 27.56,
+          "key": "veil",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "So",
+          "start": 27.56,
+          "end": 27.56,
+          "key": "so",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "suddenly",
+          "start": 27.56,
+          "end": 27.56,
+          "key": "suddenly",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "seen",
+          "start": 27.56,
+          "end": 27.56,
+          "key": "seen",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 27.56,
+          "end": 27.58,
+          "key": "in",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 27.58,
+          "end": 27.6,
+          "key": "a",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "veil.",
+          "start": 27.6,
+          "end": 27.72,
+          "key": "veil",
+          "pieces": [
+            64
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"There",
+          "start": 0.0,
+          "end": 4.26
+        },
+        {
+          "text": "she",
+          "start": 4.26,
+          "end": 6.39
+        },
+        {
+          "text": "breaches!",
+          "start": 6.39,
+          "end": 7.455
+        },
+        {
+          "text": "there",
+          "start": 7.455,
+          "end": 7.987
+        },
+        {
+          "text": "she",
+          "start": 7.987,
+          "end": 8.253
+        },
+        {
+          "text": "breaches!\"",
+          "start": 8.253,
+          "end": 8.386
+        },
+        {
+          "text": "was",
+          "start": 8.386,
+          "end": 8.453
+        },
+        {
+          "text": "the",
+          "start": 8.453,
+          "end": 8.486
+        },
+        {
+          "text": "cry,",
+          "start": 8.486,
+          "end": 8.503
+        },
+        {
+          "text": "as",
+          "start": 8.503,
+          "end": 8.511
+        },
+        {
+          "text": "in",
+          "start": 8.511,
+          "end": 8.515
+        },
+        {
+          "text": "his",
+          "start": 8.515,
+          "end": 8.518
+        },
+        {
+          "text": "immeasurable",
+          "start": 8.518,
+          "end": 8.519
+        },
+        {
+          "text": "bravadoes",
+          "start": 8.519,
+          "end": 8.52
+        },
+        {
+          "text": "the",
+          "start": 8.52,
+          "end": 8.52
+        },
+        {
+          "text": "White",
+          "start": 8.52,
+          "end": 8.52
+        },
+        {
+          "text": "Whale",
+          "start": 8.52,
+          "end": 8.52
+        },
+        {
+          "text": "tossed",
+          "start": 8.52,
+          "end": 8.52
+        },
+        {
+          "text": "himself",
+          "start": 8.52,
+          "end": 8.52
+        },
+        {
+          "text": "salmon-like",
+          "start": 8.52,
+          "end": 8.52
+        },
+        {
+          "text": "to",
+          "start": 8.52,
+          "end": 8.52
+        },
+        {
+          "text": "Heaven.",
+          "start": 8.52,
+          "end": 8.52
+        },
+        {
+          "text": "So",
+          "start": 8.52,
+          "end": 9.08
+        },
+        {
+          "text": "suddenly",
+          "start": 9.08,
+          "end": 9.64
+        },
+        {
+          "text": "seen",
+          "start": 9.64,
+          "end": 10.02
+        },
+        {
+          "text": "in",
+          "start": 10.02,
+          "end": 10.18
+        },
+        {
+          "text": "the",
+          "start": 10.18,
+          "end": 10.26
+        },
+        {
+          "text": "blue",
+          "start": 10.26,
+          "end": 10.44
+        },
+        {
+          "text": "plain",
+          "start": 10.44,
+          "end": 10.7
+        },
+        {
+          "text": "of",
+          "start": 10.7,
+          "end": 10.82
+        },
+        {
+          "text": "the",
+          "start": 10.82,
+          "end": 10.94
+        },
+        {
+          "text": "sea,",
+          "start": 10.94,
+          "end": 11.24
+        },
+        {
+          "text": "and",
+          "start": 11.74,
+          "end": 11.74
+        },
+        {
+          "text": "relieved",
+          "start": 11.74,
+          "end": 12.1
+        },
+        {
+          "text": "against",
+          "start": 12.1,
+          "end": 12.38
+        },
+        {
+          "text": "the",
+          "start": 12.38,
+          "end": 12.62
+        },
+        {
+          "text": "still",
+          "start": 12.62,
+          "end": 12.88
+        },
+        {
+          "text": "bluer",
+          "start": 12.88,
+          "end": 13.26
+        },
+        {
+          "text": "margin",
+          "start": 13.26,
+          "end": 13.58
+        },
+        {
+          "text": "of",
+          "start": 13.58,
+          "end": 13.74
+        },
+        {
+          "text": "the",
+          "start": 13.74,
+          "end": 13.86
+        },
+        {
+          "text": "sky,",
+          "start": 13.86,
+          "end": 14.18
+        },
+        {
+          "text": "the",
+          "start": 14.64,
+          "end": 14.78
+        },
+        {
+          "text": "spray",
+          "start": 14.78,
+          "end": 15.04
+        },
+        {
+          "text": "that",
+          "start": 15.04,
+          "end": 15.2
+        },
+        {
+          "text": "he",
+          "start": 15.2,
+          "end": 15.32
+        },
+        {
+          "text": "raised,",
+          "start": 15.32,
+          "end": 15.72
+        },
+        {
+          "text": "for",
+          "start": 16.08,
+          "end": 16.2
+        },
+        {
+          "text": "the",
+          "start": 16.2,
+          "end": 16.3
+        },
+        {
+          "text": "moment,",
+          "start": 16.3,
+          "end": 16.66
+        },
+        {
+          "text": "intolerably",
+          "start": 17.14,
+          "end": 17.76
+        },
+        {
+          "text": "glittered",
+          "start": 17.76,
+          "end": 18.12
+        },
+        {
+          "text": "and",
+          "start": 18.12,
+          "end": 18.36
+        },
+        {
+          "text": "glared",
+          "start": 18.36,
+          "end": 18.66
+        },
+        {
+          "text": "like",
+          "start": 18.66,
+          "end": 18.92
+        },
+        {
+          "text": "a",
+          "start": 18.92,
+          "end": 19.04
+        },
+        {
+          "text": "glacier;",
+          "start": 19.04,
+          "end": 19.38
+        },
+        {
+          "text": "and",
+          "start": 19.96,
+          "end": 20.1
+        },
+        {
+          "text": "stood",
+          "start": 20.1,
+          "end": 20.3
+        },
+        {
+          "text": "there",
+          "start": 20.3,
+          "end": 20.52
+        },
+        {
+          "text": "gradually",
+          "start": 20.52,
+          "end": 21.0
+        },
+        {
+          "text": "fading",
+          "start": 21.0,
+          "end": 21.42
+        },
+        {
+          "text": "and",
+          "start": 21.42,
+          "end": 21.74
+        },
+        {
+          "text": "fading",
+          "start": 21.74,
+          "end": 22.04
+        },
+        {
+          "text": "away",
+          "start": 22.04,
+          "end": 22.36
+        },
+        {
+          "text": "from",
+          "start": 22.36,
+          "end": 22.58
+        },
+        {
+          "text": "its",
+          "start": 22.58,
+          "end": 22.7
+        },
+        {
+          "text": "first",
+          "start": 22.7,
+          "end": 23.1
+        },
+        {
+          "text": "sparkling",
+          "start": 23.1,
+          "end": 23.62
+        },
+        {
+          "text": "intensity,",
+          "start": 23.62,
+          "end": 24.3
+        },
+        {
+          "text": "to",
+          "start": 24.74,
+          "end": 24.88
+        },
+        {
+          "text": "the",
+          "start": 24.88,
+          "end": 25.04
+        },
+        {
+          "text": "dim",
+          "start": 25.04,
+          "end": 25.26
+        },
+        {
+          "text": "mistiness",
+          "start": 25.26,
+          "end": 25.8
+        },
+        {
+          "text": "of",
+          "start": 25.8,
+          "end": 26.02
+        },
+        {
+          "text": "an",
+          "start": 26.02,
+          "end": 26.1
+        },
+        {
+          "text": "advancing",
+          "start": 26.1,
+          "end": 26.54
+        },
+        {
+          "text": "shower",
+          "start": 26.54,
+          "end": 26.98
+        },
+        {
+          "text": "in",
+          "start": 26.98,
+          "end": 27.22
+        },
+        {
+          "text": "a",
+          "start": 27.22,
+          "end": 27.32
+        },
+        {
+          "text": "vale.",
+          "start": 27.32,
+          "end": 27.52
+        }
+      ],
+      "stats": {
+        "expected_words": 81,
+        "heard_words": 65,
+        "matched_words": 58
+      },
+      "match_ratio": 0.7160493827160493,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 2.6655249819159508
+    },
+    {
+      "asr_seconds": 0.865406658500433,
+      "alignment_seconds": 0.0029989108443260193,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " There she breaches, there she breaches, was the cry, as in his immeasurable bravados the",
+          "start": 0.08,
+          "end": 6.1,
+          "words": [
+            {
+              "text": " There",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.218505859375
+            },
+            {
+              "text": " she",
+              "start": 0.58,
+              "end": 0.76,
+              "probability": 0.91796875
+            },
+            {
+              "text": " breaches,",
+              "start": 0.76,
+              "end": 1.12,
+              "probability": 0.78369140625
+            },
+            {
+              "text": " there",
+              "start": 1.72,
+              "end": 1.82,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " she",
+              "start": 1.82,
+              "end": 2.04,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " breaches,",
+              "start": 2.04,
+              "end": 2.46,
+              "probability": 0.9375
+            },
+            {
+              "text": " was",
+              "start": 3.12,
+              "end": 3.32,
+              "probability": 0.89794921875
+            },
+            {
+              "text": " the",
+              "start": 3.32,
+              "end": 3.5,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " cry,",
+              "start": 3.5,
+              "end": 3.82,
+              "probability": 0.9921875
+            },
+            {
+              "text": " as",
+              "start": 4.24,
+              "end": 4.36,
+              "probability": 0.98828125
+            },
+            {
+              "text": " in",
+              "start": 4.36,
+              "end": 4.52,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " his",
+              "start": 4.52,
+              "end": 4.7,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " immeasurable",
+              "start": 4.7,
+              "end": 5.32,
+              "probability": 0.9967041015625
+            },
+            {
+              "text": " bravados",
+              "start": 5.32,
+              "end": 5.82,
+              "probability": 0.836669921875
+            },
+            {
+              "text": " the",
+              "start": 5.82,
+              "end": 6.1,
+              "probability": 0.8603515625
+            }
+          ]
+        },
+        {
+          "text": " white whale tossed himself salmon-like to heaven.",
+          "start": 6.1,
+          "end": 8.36,
+          "words": [
+            {
+              "text": " white",
+              "start": 6.1,
+              "end": 6.28,
+              "probability": 0.7978515625
+            },
+            {
+              "text": " whale",
+              "start": 6.28,
+              "end": 6.6,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " tossed",
+              "start": 6.6,
+              "end": 6.9,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " himself",
+              "start": 6.9,
+              "end": 7.32,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " salmon",
+              "start": 7.32,
+              "end": 7.68,
+              "probability": 0.9755859375
+            },
+            {
+              "text": "-like",
+              "start": 7.68,
+              "end": 7.9,
+              "probability": 0.892822265625
+            },
+            {
+              "text": " to",
+              "start": 7.9,
+              "end": 8.12,
+              "probability": 0.998046875
+            },
+            {
+              "text": " heaven.",
+              "start": 8.12,
+              "end": 8.36,
+              "probability": 0.798828125
+            }
+          ]
+        },
+        {
+          "text": " So suddenly seen in the blue plain of the sea, and relieved against the still bluer margin",
+          "start": 9.1,
+          "end": 13.56,
+          "words": [
+            {
+              "text": " So",
+              "start": 9.1,
+              "end": 9.3,
+              "probability": 0.9921875
+            },
+            {
+              "text": " suddenly",
+              "start": 9.3,
+              "end": 9.66,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " seen",
+              "start": 9.66,
+              "end": 10.0,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " in",
+              "start": 10.0,
+              "end": 10.2,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 10.2,
+              "end": 10.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " blue",
+              "start": 10.26,
+              "end": 10.44,
+              "probability": 0.994140625
+            },
+            {
+              "text": " plain",
+              "start": 10.44,
+              "end": 10.68,
+              "probability": 0.60791015625
+            },
+            {
+              "text": " of",
+              "start": 10.68,
+              "end": 10.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 10.82,
+              "end": 10.94,
+              "probability": 0.998046875
+            },
+            {
+              "text": " sea,",
+              "start": 10.94,
+              "end": 11.22,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 11.64,
+              "end": 11.76,
+              "probability": 0.994140625
+            },
+            {
+              "text": " relieved",
+              "start": 11.76,
+              "end": 12.1,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " against",
+              "start": 12.1,
+              "end": 12.38,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 12.38,
+              "end": 12.6,
+              "probability": 0.998046875
+            },
+            {
+              "text": " still",
+              "start": 12.6,
+              "end": 12.88,
+              "probability": 0.998046875
+            },
+            {
+              "text": " bluer",
+              "start": 12.88,
+              "end": 13.24,
+              "probability": 0.910888671875
+            },
+            {
+              "text": " margin",
+              "start": 13.24,
+              "end": 13.56,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " of the sky, the spray that he raised, for the moment, intolerably glittered and glared",
+          "start": 13.56,
+          "end": 18.66,
+          "words": [
+            {
+              "text": " of",
+              "start": 13.56,
+              "end": 13.76,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 13.76,
+              "end": 13.86,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sky,",
+              "start": 13.86,
+              "end": 14.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 14.64,
+              "end": 14.78,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " spray",
+              "start": 14.78,
+              "end": 15.04,
+              "probability": 0.99609375
+            },
+            {
+              "text": " that",
+              "start": 15.04,
+              "end": 15.2,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " he",
+              "start": 15.2,
+              "end": 15.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " raised,",
+              "start": 15.32,
+              "end": 15.74,
+              "probability": 0.986328125
+            },
+            {
+              "text": " for",
+              "start": 16.04,
+              "end": 16.2,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 16.2,
+              "end": 16.3,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " moment,",
+              "start": 16.3,
+              "end": 16.64,
+              "probability": 1.0
+            },
+            {
+              "text": " intolerably",
+              "start": 17.38,
+              "end": 17.76,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " glittered",
+              "start": 17.76,
+              "end": 18.1,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " and",
+              "start": 18.1,
+              "end": 18.36,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " glared",
+              "start": 18.36,
+              "end": 18.66,
+              "probability": 0.96875
+            }
+          ]
+        },
+        {
+          "text": " like a glacier, and stood there gradually fading and fading away from its first sparkling",
+          "start": 18.66,
+          "end": 23.62,
+          "words": [
+            {
+              "text": " like",
+              "start": 18.66,
+              "end": 18.92,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 18.92,
+              "end": 19.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " glacier,",
+              "start": 19.04,
+              "end": 19.36,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " and",
+              "start": 19.92,
+              "end": 20.1,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " stood",
+              "start": 20.1,
+              "end": 20.3,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " there",
+              "start": 20.3,
+              "end": 20.52,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " gradually",
+              "start": 20.52,
+              "end": 20.98,
+              "probability": 0.994140625
+            },
+            {
+              "text": " fading",
+              "start": 20.98,
+              "end": 21.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 21.42,
+              "end": 21.72,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " fading",
+              "start": 21.72,
+              "end": 22.04,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " away",
+              "start": 22.04,
+              "end": 22.36,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " from",
+              "start": 22.36,
+              "end": 22.58,
+              "probability": 0.998046875
+            },
+            {
+              "text": " its",
+              "start": 22.58,
+              "end": 22.72,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " first",
+              "start": 22.72,
+              "end": 23.06,
+              "probability": 0.998046875
+            },
+            {
+              "text": " sparkling",
+              "start": 23.06,
+              "end": 23.62,
+              "probability": 0.9892578125
+            }
+          ]
+        },
+        {
+          "text": " intensity to the dim mistiness of an advancing shower in a veil.",
+          "start": 23.62,
+          "end": 27.54,
+          "words": [
+            {
+              "text": " intensity",
+              "start": 23.62,
+              "end": 24.26,
+              "probability": 0.80859375
+            },
+            {
+              "text": " to",
+              "start": 24.26,
+              "end": 24.9,
+              "probability": 0.7841796875
+            },
+            {
+              "text": " the",
+              "start": 24.9,
+              "end": 25.04,
+              "probability": 0.998046875
+            },
+            {
+              "text": " dim",
+              "start": 25.04,
+              "end": 25.26,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " mistiness",
+              "start": 25.26,
+              "end": 25.82,
+              "probability": 0.957763671875
+            },
+            {
+              "text": " of",
+              "start": 25.82,
+              "end": 26.02,
+              "probability": 0.998046875
+            },
+            {
+              "text": " an",
+              "start": 26.02,
+              "end": 26.1,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " advancing",
+              "start": 26.1,
+              "end": 26.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " shower",
+              "start": 26.54,
+              "end": 27.0,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " in",
+              "start": 27.0,
+              "end": 27.22,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " a",
+              "start": 27.22,
+              "end": 27.32,
+              "probability": 0.99609375
+            },
+            {
+              "text": " veil.",
+              "start": 27.32,
+              "end": 27.54,
+              "probability": 0.69970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "There",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "she",
+          "start": 0.58,
+          "end": 0.76
+        },
+        {
+          "raw": "breaches,",
+          "start": 0.76,
+          "end": 1.12
+        },
+        {
+          "raw": "there",
+          "start": 1.72,
+          "end": 1.82
+        },
+        {
+          "raw": "she",
+          "start": 1.82,
+          "end": 2.04
+        },
+        {
+          "raw": "breaches,",
+          "start": 2.04,
+          "end": 2.46
+        },
+        {
+          "raw": "was",
+          "start": 3.12,
+          "end": 3.32
+        },
+        {
+          "raw": "the",
+          "start": 3.32,
+          "end": 3.5
+        },
+        {
+          "raw": "cry,",
+          "start": 3.5,
+          "end": 3.82
+        },
+        {
+          "raw": "as",
+          "start": 4.24,
+          "end": 4.36
+        },
+        {
+          "raw": "in",
+          "start": 4.36,
+          "end": 4.52
+        },
+        {
+          "raw": "his",
+          "start": 4.52,
+          "end": 4.7
+        },
+        {
+          "raw": "immeasurable",
+          "start": 4.7,
+          "end": 5.32
+        },
+        {
+          "raw": "bravados",
+          "start": 5.32,
+          "end": 5.82
+        },
+        {
+          "raw": "the",
+          "start": 5.82,
+          "end": 6.1
+        },
+        {
+          "raw": "white",
+          "start": 6.1,
+          "end": 6.28
+        },
+        {
+          "raw": "whale",
+          "start": 6.28,
+          "end": 6.6
+        },
+        {
+          "raw": "tossed",
+          "start": 6.6,
+          "end": 6.9
+        },
+        {
+          "raw": "himself",
+          "start": 6.9,
+          "end": 7.32
+        },
+        {
+          "raw": "salmon",
+          "start": 7.32,
+          "end": 7.68
+        },
+        {
+          "raw": "-like",
+          "start": 7.68,
+          "end": 7.9
+        },
+        {
+          "raw": "to",
+          "start": 7.9,
+          "end": 8.12
+        },
+        {
+          "raw": "heaven.",
+          "start": 8.12,
+          "end": 8.36
+        },
+        {
+          "raw": "So",
+          "start": 9.1,
+          "end": 9.3
+        },
+        {
+          "raw": "suddenly",
+          "start": 9.3,
+          "end": 9.66
+        },
+        {
+          "raw": "seen",
+          "start": 9.66,
+          "end": 10.0
+        },
+        {
+          "raw": "in",
+          "start": 10.0,
+          "end": 10.2
+        },
+        {
+          "raw": "the",
+          "start": 10.2,
+          "end": 10.26
+        },
+        {
+          "raw": "blue",
+          "start": 10.26,
+          "end": 10.44
+        },
+        {
+          "raw": "plain",
+          "start": 10.44,
+          "end": 10.68
+        },
+        {
+          "raw": "of",
+          "start": 10.68,
+          "end": 10.82
+        },
+        {
+          "raw": "the",
+          "start": 10.82,
+          "end": 10.94
+        },
+        {
+          "raw": "sea,",
+          "start": 10.94,
+          "end": 11.22
+        },
+        {
+          "raw": "and",
+          "start": 11.64,
+          "end": 11.76
+        },
+        {
+          "raw": "relieved",
+          "start": 11.76,
+          "end": 12.1
+        },
+        {
+          "raw": "against",
+          "start": 12.1,
+          "end": 12.38
+        },
+        {
+          "raw": "the",
+          "start": 12.38,
+          "end": 12.6
+        },
+        {
+          "raw": "still",
+          "start": 12.6,
+          "end": 12.88
+        },
+        {
+          "raw": "bluer",
+          "start": 12.88,
+          "end": 13.24
+        },
+        {
+          "raw": "margin",
+          "start": 13.24,
+          "end": 13.56
+        },
+        {
+          "raw": "of",
+          "start": 13.56,
+          "end": 13.76
+        },
+        {
+          "raw": "the",
+          "start": 13.76,
+          "end": 13.86
+        },
+        {
+          "raw": "sky,",
+          "start": 13.86,
+          "end": 14.18
+        },
+        {
+          "raw": "the",
+          "start": 14.64,
+          "end": 14.78
+        },
+        {
+          "raw": "spray",
+          "start": 14.78,
+          "end": 15.04
+        },
+        {
+          "raw": "that",
+          "start": 15.04,
+          "end": 15.2
+        },
+        {
+          "raw": "he",
+          "start": 15.2,
+          "end": 15.32
+        },
+        {
+          "raw": "raised,",
+          "start": 15.32,
+          "end": 15.74
+        },
+        {
+          "raw": "for",
+          "start": 16.04,
+          "end": 16.2
+        },
+        {
+          "raw": "the",
+          "start": 16.2,
+          "end": 16.3
+        },
+        {
+          "raw": "moment,",
+          "start": 16.3,
+          "end": 16.64
+        },
+        {
+          "raw": "intolerably",
+          "start": 17.38,
+          "end": 17.76
+        },
+        {
+          "raw": "glittered",
+          "start": 17.76,
+          "end": 18.1
+        },
+        {
+          "raw": "and",
+          "start": 18.1,
+          "end": 18.36
+        },
+        {
+          "raw": "glared",
+          "start": 18.36,
+          "end": 18.66
+        },
+        {
+          "raw": "like",
+          "start": 18.66,
+          "end": 18.92
+        },
+        {
+          "raw": "a",
+          "start": 18.92,
+          "end": 19.04
+        },
+        {
+          "raw": "glacier,",
+          "start": 19.04,
+          "end": 19.36
+        },
+        {
+          "raw": "and",
+          "start": 19.92,
+          "end": 20.1
+        },
+        {
+          "raw": "stood",
+          "start": 20.1,
+          "end": 20.3
+        },
+        {
+          "raw": "there",
+          "start": 20.3,
+          "end": 20.52
+        },
+        {
+          "raw": "gradually",
+          "start": 20.52,
+          "end": 20.98
+        },
+        {
+          "raw": "fading",
+          "start": 20.98,
+          "end": 21.42
+        },
+        {
+          "raw": "and",
+          "start": 21.42,
+          "end": 21.72
+        },
+        {
+          "raw": "fading",
+          "start": 21.72,
+          "end": 22.04
+        },
+        {
+          "raw": "away",
+          "start": 22.04,
+          "end": 22.36
+        },
+        {
+          "raw": "from",
+          "start": 22.36,
+          "end": 22.58
+        },
+        {
+          "raw": "its",
+          "start": 22.58,
+          "end": 22.72
+        },
+        {
+          "raw": "first",
+          "start": 22.72,
+          "end": 23.06
+        },
+        {
+          "raw": "sparkling",
+          "start": 23.06,
+          "end": 23.62
+        },
+        {
+          "raw": "intensity",
+          "start": 23.62,
+          "end": 24.26
+        },
+        {
+          "raw": "to",
+          "start": 24.26,
+          "end": 24.9
+        },
+        {
+          "raw": "the",
+          "start": 24.9,
+          "end": 25.04
+        },
+        {
+          "raw": "dim",
+          "start": 25.04,
+          "end": 25.26
+        },
+        {
+          "raw": "mistiness",
+          "start": 25.26,
+          "end": 25.82
+        },
+        {
+          "raw": "of",
+          "start": 25.82,
+          "end": 26.02
+        },
+        {
+          "raw": "an",
+          "start": 26.02,
+          "end": 26.1
+        },
+        {
+          "raw": "advancing",
+          "start": 26.1,
+          "end": 26.54
+        },
+        {
+          "raw": "shower",
+          "start": 26.54,
+          "end": 27.0
+        },
+        {
+          "raw": "in",
+          "start": 27.0,
+          "end": 27.22
+        },
+        {
+          "raw": "a",
+          "start": 27.22,
+          "end": 27.32
+        },
+        {
+          "raw": "veil.",
+          "start": 27.32,
+          "end": 27.54
+        }
+      ],
+      "expected_tokens": [
+        "\"There",
+        "she",
+        "breaches!",
+        "there",
+        "she",
+        "breaches!\"",
+        "was",
+        "the",
+        "cry,",
+        "as",
+        "in",
+        "his",
+        "immeasurable",
+        "bravadoes",
+        "the",
+        "White",
+        "Whale",
+        "tossed",
+        "himself",
+        "salmon-like",
+        "to",
+        "Heaven.",
+        "So",
+        "suddenly",
+        "seen",
+        "in",
+        "the",
+        "blue",
+        "plain",
+        "of",
+        "the",
+        "sea,",
+        "and",
+        "relieved",
+        "against",
+        "the",
+        "still",
+        "bluer",
+        "margin",
+        "of",
+        "the",
+        "sky,",
+        "the",
+        "spray",
+        "that",
+        "he",
+        "raised,",
+        "for",
+        "the",
+        "moment,",
+        "intolerably",
+        "glittered",
+        "and",
+        "glared",
+        "like",
+        "a",
+        "glacier;",
+        "and",
+        "stood",
+        "there",
+        "gradually",
+        "fading",
+        "and",
+        "fading",
+        "away",
+        "from",
+        "its",
+        "first",
+        "sparkling",
+        "intensity,",
+        "to",
+        "the",
+        "dim",
+        "mistiness",
+        "of",
+        "an",
+        "advancing",
+        "shower",
+        "in",
+        "a",
+        "vale."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ],
+        [
+          "replace",
+          13,
+          14,
+          13,
+          14
+        ],
+        [
+          "equal",
+          14,
+          80,
+          14,
+          80
+        ],
+        [
+          "replace",
+          80,
+          81,
+          80,
+          81
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 80,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          13,
+          14,
+          13,
+          14
+        ],
+        [
+          "replace",
+          80,
+          81,
+          80,
+          81
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "There",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "there",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 0.58,
+          "end": 0.76,
+          "key": "she",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "breaches,",
+          "start": 0.76,
+          "end": 1.12,
+          "key": "breaches",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 1.72,
+          "end": 1.82,
+          "key": "there",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.82,
+          "end": 2.04,
+          "key": "she",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "breaches,",
+          "start": 2.04,
+          "end": 2.46,
+          "key": "breaches",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 3.12,
+          "end": 3.32,
+          "key": "was",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.32,
+          "end": 3.5,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "cry,",
+          "start": 3.5,
+          "end": 3.82,
+          "key": "cry",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 4.24,
+          "end": 4.36,
+          "key": "as",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.36,
+          "end": 4.52,
+          "key": "in",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.52,
+          "end": 4.7,
+          "key": "his",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "immeasurable",
+          "start": 4.7,
+          "end": 5.32,
+          "key": "immeasurable",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "bravados",
+          "start": 5.32,
+          "end": 5.82,
+          "key": "bravados",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.82,
+          "end": 6.1,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "white",
+          "start": 6.1,
+          "end": 6.28,
+          "key": "white",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "whale",
+          "start": 6.28,
+          "end": 6.6,
+          "key": "whale",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "tossed",
+          "start": 6.6,
+          "end": 6.9,
+          "key": "tossed",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "himself",
+          "start": 6.9,
+          "end": 7.32,
+          "key": "himself",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "salmon -like",
+          "start": 7.32,
+          "end": 7.9,
+          "key": "salmonlike",
+          "pieces": [
+            19,
+            20
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 7.9,
+          "end": 8.12,
+          "key": "to",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "heaven.",
+          "start": 8.12,
+          "end": 8.36,
+          "key": "heaven",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "So",
+          "start": 9.1,
+          "end": 9.3,
+          "key": "so",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "suddenly",
+          "start": 9.3,
+          "end": 9.66,
+          "key": "suddenly",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "seen",
+          "start": 9.66,
+          "end": 10.0,
+          "key": "seen",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 10.0,
+          "end": 10.2,
+          "key": "in",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.2,
+          "end": 10.26,
+          "key": "the",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "blue",
+          "start": 10.26,
+          "end": 10.44,
+          "key": "blue",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "plain",
+          "start": 10.44,
+          "end": 10.68,
+          "key": "plain",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 10.68,
+          "end": 10.82,
+          "key": "of",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.82,
+          "end": 10.94,
+          "key": "the",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "sea,",
+          "start": 10.94,
+          "end": 11.22,
+          "key": "sea",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 11.64,
+          "end": 11.76,
+          "key": "and",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "relieved",
+          "start": 11.76,
+          "end": 12.1,
+          "key": "relieved",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "against",
+          "start": 12.1,
+          "end": 12.38,
+          "key": "against",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 12.38,
+          "end": 12.6,
+          "key": "the",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "still",
+          "start": 12.6,
+          "end": 12.88,
+          "key": "still",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "bluer",
+          "start": 12.88,
+          "end": 13.24,
+          "key": "bluer",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "margin",
+          "start": 13.24,
+          "end": 13.56,
+          "key": "margin",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 13.56,
+          "end": 13.76,
+          "key": "of",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.76,
+          "end": 13.86,
+          "key": "the",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "sky,",
+          "start": 13.86,
+          "end": 14.18,
+          "key": "sky",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 14.64,
+          "end": 14.78,
+          "key": "the",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "spray",
+          "start": 14.78,
+          "end": 15.04,
+          "key": "spray",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 15.04,
+          "end": 15.2,
+          "key": "that",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 15.2,
+          "end": 15.32,
+          "key": "he",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "raised,",
+          "start": 15.32,
+          "end": 15.74,
+          "key": "raised",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 16.04,
+          "end": 16.2,
+          "key": "for",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 16.2,
+          "end": 16.3,
+          "key": "the",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "moment,",
+          "start": 16.3,
+          "end": 16.64,
+          "key": "moment",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "intolerably",
+          "start": 17.38,
+          "end": 17.76,
+          "key": "intolerably",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "glittered",
+          "start": 17.76,
+          "end": 18.1,
+          "key": "glittered",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 18.1,
+          "end": 18.36,
+          "key": "and",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "glared",
+          "start": 18.36,
+          "end": 18.66,
+          "key": "glared",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 18.66,
+          "end": 18.92,
+          "key": "like",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 18.92,
+          "end": 19.04,
+          "key": "a",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "glacier,",
+          "start": 19.04,
+          "end": 19.36,
+          "key": "glacier",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 19.92,
+          "end": 20.1,
+          "key": "and",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "stood",
+          "start": 20.1,
+          "end": 20.3,
+          "key": "stood",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 20.3,
+          "end": 20.52,
+          "key": "there",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "gradually",
+          "start": 20.52,
+          "end": 20.98,
+          "key": "gradually",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "fading",
+          "start": 20.98,
+          "end": 21.42,
+          "key": "fading",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 21.42,
+          "end": 21.72,
+          "key": "and",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "fading",
+          "start": 21.72,
+          "end": 22.04,
+          "key": "fading",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "away",
+          "start": 22.04,
+          "end": 22.36,
+          "key": "away",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 22.36,
+          "end": 22.58,
+          "key": "from",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "its",
+          "start": 22.58,
+          "end": 22.72,
+          "key": "its",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 22.72,
+          "end": 23.06,
+          "key": "first",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "sparkling",
+          "start": 23.06,
+          "end": 23.62,
+          "key": "sparkling",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "intensity",
+          "start": 23.62,
+          "end": 24.26,
+          "key": "intensity",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 24.26,
+          "end": 24.9,
+          "key": "to",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 24.9,
+          "end": 25.04,
+          "key": "the",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "dim",
+          "start": 25.04,
+          "end": 25.26,
+          "key": "dim",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "mistiness",
+          "start": 25.26,
+          "end": 25.82,
+          "key": "mistiness",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 25.82,
+          "end": 26.02,
+          "key": "of",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 26.02,
+          "end": 26.1,
+          "key": "an",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "advancing",
+          "start": 26.1,
+          "end": 26.54,
+          "key": "advancing",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "shower",
+          "start": 26.54,
+          "end": 27.0,
+          "key": "shower",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 27.0,
+          "end": 27.22,
+          "key": "in",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 27.22,
+          "end": 27.32,
+          "key": "a",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "veil.",
+          "start": 27.32,
+          "end": 27.54,
+          "key": "veil",
+          "pieces": [
+            81
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 19,
+          "text": "salmon-like",
+          "heard": "salmon -like",
+          "heard_indexes": [
+            19,
+            20
+          ],
+          "start": 7.32,
+          "end": 7.9
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"There",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "text": "she",
+          "start": 0.58,
+          "end": 0.76
+        },
+        {
+          "text": "breaches!",
+          "start": 0.76,
+          "end": 1.12
+        },
+        {
+          "text": "there",
+          "start": 1.72,
+          "end": 1.82
+        },
+        {
+          "text": "she",
+          "start": 1.82,
+          "end": 2.04
+        },
+        {
+          "text": "breaches!\"",
+          "start": 2.04,
+          "end": 2.46
+        },
+        {
+          "text": "was",
+          "start": 3.12,
+          "end": 3.32
+        },
+        {
+          "text": "the",
+          "start": 3.32,
+          "end": 3.5
+        },
+        {
+          "text": "cry,",
+          "start": 3.5,
+          "end": 3.82
+        },
+        {
+          "text": "as",
+          "start": 4.24,
+          "end": 4.36
+        },
+        {
+          "text": "in",
+          "start": 4.36,
+          "end": 4.52
+        },
+        {
+          "text": "his",
+          "start": 4.52,
+          "end": 4.7
+        },
+        {
+          "text": "immeasurable",
+          "start": 4.7,
+          "end": 5.32
+        },
+        {
+          "text": "bravadoes",
+          "start": 5.32,
+          "end": 5.57
+        },
+        {
+          "text": "the",
+          "start": 5.82,
+          "end": 6.1
+        },
+        {
+          "text": "White",
+          "start": 6.1,
+          "end": 6.28
+        },
+        {
+          "text": "Whale",
+          "start": 6.28,
+          "end": 6.6
+        },
+        {
+          "text": "tossed",
+          "start": 6.6,
+          "end": 6.9
+        },
+        {
+          "text": "himself",
+          "start": 6.9,
+          "end": 7.32
+        },
+        {
+          "text": "salmon-like",
+          "start": 7.32,
+          "end": 7.9
+        },
+        {
+          "text": "to",
+          "start": 7.9,
+          "end": 8.12
+        },
+        {
+          "text": "Heaven.",
+          "start": 8.12,
+          "end": 8.36
+        },
+        {
+          "text": "So",
+          "start": 9.1,
+          "end": 9.3
+        },
+        {
+          "text": "suddenly",
+          "start": 9.3,
+          "end": 9.66
+        },
+        {
+          "text": "seen",
+          "start": 9.66,
+          "end": 10.0
+        },
+        {
+          "text": "in",
+          "start": 10.0,
+          "end": 10.2
+        },
+        {
+          "text": "the",
+          "start": 10.2,
+          "end": 10.26
+        },
+        {
+          "text": "blue",
+          "start": 10.26,
+          "end": 10.44
+        },
+        {
+          "text": "plain",
+          "start": 10.44,
+          "end": 10.68
+        },
+        {
+          "text": "of",
+          "start": 10.68,
+          "end": 10.82
+        },
+        {
+          "text": "the",
+          "start": 10.82,
+          "end": 10.94
+        },
+        {
+          "text": "sea,",
+          "start": 10.94,
+          "end": 11.22
+        },
+        {
+          "text": "and",
+          "start": 11.64,
+          "end": 11.76
+        },
+        {
+          "text": "relieved",
+          "start": 11.76,
+          "end": 12.1
+        },
+        {
+          "text": "against",
+          "start": 12.1,
+          "end": 12.38
+        },
+        {
+          "text": "the",
+          "start": 12.38,
+          "end": 12.6
+        },
+        {
+          "text": "still",
+          "start": 12.6,
+          "end": 12.88
+        },
+        {
+          "text": "bluer",
+          "start": 12.88,
+          "end": 13.24
+        },
+        {
+          "text": "margin",
+          "start": 13.24,
+          "end": 13.56
+        },
+        {
+          "text": "of",
+          "start": 13.56,
+          "end": 13.76
+        },
+        {
+          "text": "the",
+          "start": 13.76,
+          "end": 13.86
+        },
+        {
+          "text": "sky,",
+          "start": 13.86,
+          "end": 14.18
+        },
+        {
+          "text": "the",
+          "start": 14.64,
+          "end": 14.78
+        },
+        {
+          "text": "spray",
+          "start": 14.78,
+          "end": 15.04
+        },
+        {
+          "text": "that",
+          "start": 15.04,
+          "end": 15.2
+        },
+        {
+          "text": "he",
+          "start": 15.2,
+          "end": 15.32
+        },
+        {
+          "text": "raised,",
+          "start": 15.32,
+          "end": 15.74
+        },
+        {
+          "text": "for",
+          "start": 16.04,
+          "end": 16.2
+        },
+        {
+          "text": "the",
+          "start": 16.2,
+          "end": 16.3
+        },
+        {
+          "text": "moment,",
+          "start": 16.3,
+          "end": 16.64
+        },
+        {
+          "text": "intolerably",
+          "start": 17.38,
+          "end": 17.76
+        },
+        {
+          "text": "glittered",
+          "start": 17.76,
+          "end": 18.1
+        },
+        {
+          "text": "and",
+          "start": 18.1,
+          "end": 18.36
+        },
+        {
+          "text": "glared",
+          "start": 18.36,
+          "end": 18.66
+        },
+        {
+          "text": "like",
+          "start": 18.66,
+          "end": 18.92
+        },
+        {
+          "text": "a",
+          "start": 18.92,
+          "end": 19.04
+        },
+        {
+          "text": "glacier;",
+          "start": 19.04,
+          "end": 19.36
+        },
+        {
+          "text": "and",
+          "start": 19.92,
+          "end": 20.1
+        },
+        {
+          "text": "stood",
+          "start": 20.1,
+          "end": 20.3
+        },
+        {
+          "text": "there",
+          "start": 20.3,
+          "end": 20.52
+        },
+        {
+          "text": "gradually",
+          "start": 20.52,
+          "end": 20.98
+        },
+        {
+          "text": "fading",
+          "start": 20.98,
+          "end": 21.42
+        },
+        {
+          "text": "and",
+          "start": 21.42,
+          "end": 21.72
+        },
+        {
+          "text": "fading",
+          "start": 21.72,
+          "end": 22.04
+        },
+        {
+          "text": "away",
+          "start": 22.04,
+          "end": 22.36
+        },
+        {
+          "text": "from",
+          "start": 22.36,
+          "end": 22.58
+        },
+        {
+          "text": "its",
+          "start": 22.58,
+          "end": 22.72
+        },
+        {
+          "text": "first",
+          "start": 22.72,
+          "end": 23.06
+        },
+        {
+          "text": "sparkling",
+          "start": 23.06,
+          "end": 23.62
+        },
+        {
+          "text": "intensity,",
+          "start": 23.62,
+          "end": 24.26
+        },
+        {
+          "text": "to",
+          "start": 24.26,
+          "end": 24.9
+        },
+        {
+          "text": "the",
+          "start": 24.9,
+          "end": 25.04
+        },
+        {
+          "text": "dim",
+          "start": 25.04,
+          "end": 25.26
+        },
+        {
+          "text": "mistiness",
+          "start": 25.26,
+          "end": 25.82
+        },
+        {
+          "text": "of",
+          "start": 25.82,
+          "end": 26.02
+        },
+        {
+          "text": "an",
+          "start": 26.02,
+          "end": 26.1
+        },
+        {
+          "text": "advancing",
+          "start": 26.1,
+          "end": 26.54
+        },
+        {
+          "text": "shower",
+          "start": 26.54,
+          "end": 27.0
+        },
+        {
+          "text": "in",
+          "start": 27.0,
+          "end": 27.22
+        },
+        {
+          "text": "a",
+          "start": 27.22,
+          "end": 27.32
+        },
+        {
+          "text": "vale.",
+          "start": 27.32,
+          "end": 27.43
+        }
+      ],
+      "stats": {
+        "expected_words": 81,
+        "heard_words": 81,
+        "matched_words": 79
+      },
+      "match_ratio": 0.9753086419753086,
+      "rejection_reasons": [],
+      "seconds": 0.8695489168167114
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a887ecc75790174fec00ab25a7a5ae6182fcd09c3b840dae63972e5a6f6128ad",
+  "selected_reasons": []
+}

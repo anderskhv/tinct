@@ -1,0 +1,4741 @@
+{
+  "complete": true,
+  "signature": "a2af1b2a53213a93e6e041dd3adb3972bf559a28263db9111cf978dbf0d4afe8",
+  "attempts": [
+    {
+      "asr_seconds": 0.5087113343179226,
+      "alignment_seconds": 0.0009245052933692932,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Aye, aye!\" cried Stubb, \"I knew it—ye can't escape—blow on and split your spout, O whale! the mad fiend himself is after ye! blow your trump—blister your lungs!—Ahab will dam off your blood, as a miller shuts his watergate upon the stream!\"",
+        "hotwords": "Stubb, I, O"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I, I cried Stubb, I knew it—ye can't escape—blow on and split your spout, O whale! the mad fiend",
+          "start": 0.02,
+          "end": 6.86,
+          "words": [
+            {
+              "text": " I,",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.047607421875
+            },
+            {
+              "text": " I",
+              "start": 0.64,
+              "end": 0.98,
+              "probability": 0.986328125
+            },
+            {
+              "text": " cried",
+              "start": 0.98,
+              "end": 1.46,
+              "probability": 0.56884765625
+            },
+            {
+              "text": " Stubb,",
+              "start": 1.46,
+              "end": 1.88,
+              "probability": 0.47997283935546875
+            },
+            {
+              "text": " I",
+              "start": 2.28,
+              "end": 2.4,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " knew",
+              "start": 2.4,
+              "end": 2.56,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " it—ye",
+              "start": 2.56,
+              "end": 3.04,
+              "probability": 0.3760058085123698
+            },
+            {
+              "text": " can't",
+              "start": 3.04,
+              "end": 3.32,
+              "probability": 0.914306640625
+            },
+            {
+              "text": " escape—blow",
+              "start": 3.32,
+              "end": 3.94,
+              "probability": 0.4773356119791667
+            },
+            {
+              "text": " on",
+              "start": 3.94,
+              "end": 4.24,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " and",
+              "start": 4.24,
+              "end": 4.4,
+              "probability": 0.7900390625
+            },
+            {
+              "text": " split",
+              "start": 4.4,
+              "end": 4.62,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " your",
+              "start": 4.62,
+              "end": 4.78,
+              "probability": 0.89599609375
+            },
+            {
+              "text": " spout,",
+              "start": 4.78,
+              "end": 5.16,
+              "probability": 0.988037109375
+            },
+            {
+              "text": " O",
+              "start": 5.34,
+              "end": 5.34,
+              "probability": 0.43505859375
+            },
+            {
+              "text": " whale!",
+              "start": 5.34,
+              "end": 5.64,
+              "probability": 0.491455078125
+            },
+            {
+              "text": " the",
+              "start": 6.26,
+              "end": 6.36,
+              "probability": 0.0200347900390625
+            },
+            {
+              "text": " mad",
+              "start": 6.36,
+              "end": 6.58,
+              "probability": 0.7998046875
+            },
+            {
+              "text": " fiend",
+              "start": 6.58,
+              "end": 6.86,
+              "probability": 0.984619140625
+            }
+          ]
+        },
+        {
+          "text": " himself is after ye! blow your trump—blister your lungs!—Ahab will dam off your blood,",
+          "start": 6.86,
+          "end": 12.28,
+          "words": [
+            {
+              "text": " himself",
+              "start": 6.86,
+              "end": 7.16,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " is",
+              "start": 7.16,
+              "end": 7.36,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " after",
+              "start": 7.36,
+              "end": 7.64,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " ye!",
+              "start": 7.64,
+              "end": 7.9,
+              "probability": 0.90087890625
+            },
+            {
+              "text": " blow",
+              "start": 8.36,
+              "end": 8.46,
+              "probability": 0.4384765625
+            },
+            {
+              "text": " your",
+              "start": 8.46,
+              "end": 8.68,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " trump—blister",
+              "start": 8.68,
+              "end": 9.44,
+              "probability": 0.79931640625
+            },
+            {
+              "text": " your",
+              "start": 9.44,
+              "end": 9.72,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " lungs",
+              "start": 9.72,
+              "end": 10.08,
+              "probability": 0.99267578125
+            },
+            {
+              "text": "!—Ahab",
+              "start": 10.08,
+              "end": 11.2,
+              "probability": 0.4630117416381836
+            },
+            {
+              "text": " will",
+              "start": 11.2,
+              "end": 11.4,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " dam",
+              "start": 11.4,
+              "end": 11.62,
+              "probability": 0.5439453125
+            },
+            {
+              "text": " off",
+              "start": 11.62,
+              "end": 11.84,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " your",
+              "start": 11.84,
+              "end": 12.0,
+              "probability": 0.98828125
+            },
+            {
+              "text": " blood,",
+              "start": 12.0,
+              "end": 12.28,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " as a miller shuts his watergate upon the stream!",
+          "start": 12.54,
+          "end": 14.82,
+          "words": [
+            {
+              "text": " as",
+              "start": 12.54,
+              "end": 12.7,
+              "probability": 0.94921875
+            },
+            {
+              "text": " a",
+              "start": 12.7,
+              "end": 12.8,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " miller",
+              "start": 12.8,
+              "end": 13.12,
+              "probability": 0.984375
+            },
+            {
+              "text": " shuts",
+              "start": 13.12,
+              "end": 13.36,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " his",
+              "start": 13.36,
+              "end": 13.58,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " watergate",
+              "start": 13.58,
+              "end": 14.08,
+              "probability": 0.644775390625
+            },
+            {
+              "text": " upon",
+              "start": 14.08,
+              "end": 14.32,
+              "probability": 0.9921875
+            },
+            {
+              "text": " the",
+              "start": 14.32,
+              "end": 14.48,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " stream!",
+              "start": 14.48,
+              "end": 14.82,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I,",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "I",
+          "start": 0.64,
+          "end": 0.98
+        },
+        {
+          "raw": "cried",
+          "start": 0.98,
+          "end": 1.46
+        },
+        {
+          "raw": "Stubb,",
+          "start": 1.46,
+          "end": 1.88
+        },
+        {
+          "raw": "I",
+          "start": 2.28,
+          "end": 2.4
+        },
+        {
+          "raw": "knew",
+          "start": 2.4,
+          "end": 2.56
+        },
+        {
+          "raw": "it—ye",
+          "start": 2.56,
+          "end": 3.04
+        },
+        {
+          "raw": "can't",
+          "start": 3.04,
+          "end": 3.32
+        },
+        {
+          "raw": "escape—blow",
+          "start": 3.32,
+          "end": 3.94
+        },
+        {
+          "raw": "on",
+          "start": 3.94,
+          "end": 4.24
+        },
+        {
+          "raw": "and",
+          "start": 4.24,
+          "end": 4.4
+        },
+        {
+          "raw": "split",
+          "start": 4.4,
+          "end": 4.62
+        },
+        {
+          "raw": "your",
+          "start": 4.62,
+          "end": 4.78
+        },
+        {
+          "raw": "spout,",
+          "start": 4.78,
+          "end": 5.16
+        },
+        {
+          "raw": "O",
+          "start": 5.34,
+          "end": 5.34
+        },
+        {
+          "raw": "whale!",
+          "start": 5.34,
+          "end": 5.64
+        },
+        {
+          "raw": "the",
+          "start": 6.26,
+          "end": 6.36
+        },
+        {
+          "raw": "mad",
+          "start": 6.36,
+          "end": 6.58
+        },
+        {
+          "raw": "fiend",
+          "start": 6.58,
+          "end": 6.86
+        },
+        {
+          "raw": "himself",
+          "start": 6.86,
+          "end": 7.16
+        },
+        {
+          "raw": "is",
+          "start": 7.16,
+          "end": 7.36
+        },
+        {
+          "raw": "after",
+          "start": 7.36,
+          "end": 7.64
+        },
+        {
+          "raw": "ye!",
+          "start": 7.64,
+          "end": 7.9
+        },
+        {
+          "raw": "blow",
+          "start": 8.36,
+          "end": 8.46
+        },
+        {
+          "raw": "your",
+          "start": 8.46,
+          "end": 8.68
+        },
+        {
+          "raw": "trump—blister",
+          "start": 8.68,
+          "end": 9.44
+        },
+        {
+          "raw": "your",
+          "start": 9.44,
+          "end": 9.72
+        },
+        {
+          "raw": "lungs",
+          "start": 9.72,
+          "end": 10.08
+        },
+        {
+          "raw": "!—Ahab",
+          "start": 10.08,
+          "end": 11.2
+        },
+        {
+          "raw": "will",
+          "start": 11.2,
+          "end": 11.4
+        },
+        {
+          "raw": "dam",
+          "start": 11.4,
+          "end": 11.62
+        },
+        {
+          "raw": "off",
+          "start": 11.62,
+          "end": 11.84
+        },
+        {
+          "raw": "your",
+          "start": 11.84,
+          "end": 12.0
+        },
+        {
+          "raw": "blood,",
+          "start": 12.0,
+          "end": 12.28
+        },
+        {
+          "raw": "as",
+          "start": 12.54,
+          "end": 12.7
+        },
+        {
+          "raw": "a",
+          "start": 12.7,
+          "end": 12.8
+        },
+        {
+          "raw": "miller",
+          "start": 12.8,
+          "end": 13.12
+        },
+        {
+          "raw": "shuts",
+          "start": 13.12,
+          "end": 13.36
+        },
+        {
+          "raw": "his",
+          "start": 13.36,
+          "end": 13.58
+        },
+        {
+          "raw": "watergate",
+          "start": 13.58,
+          "end": 14.08
+        },
+        {
+          "raw": "upon",
+          "start": 14.08,
+          "end": 14.32
+        },
+        {
+          "raw": "the",
+          "start": 14.32,
+          "end": 14.48
+        },
+        {
+          "raw": "stream!",
+          "start": 14.48,
+          "end": 14.82
+        }
+      ],
+      "expected_tokens": [
+        "\"Aye,",
+        "aye!\"",
+        "cried",
+        "Stubb,",
+        "\"I",
+        "knew",
+        "it—ye",
+        "can't",
+        "escape—blow",
+        "on",
+        "and",
+        "split",
+        "your",
+        "spout,",
+        "O",
+        "whale!",
+        "the",
+        "mad",
+        "fiend",
+        "himself",
+        "is",
+        "after",
+        "ye!",
+        "blow",
+        "your",
+        "trump—blister",
+        "your",
+        "lungs!—Ahab",
+        "will",
+        "dam",
+        "off",
+        "your",
+        "blood,",
+        "as",
+        "a",
+        "miller",
+        "shuts",
+        "his",
+        "watergate",
+        "upon",
+        "the",
+        "stream!\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          27,
+          2,
+          27
+        ],
+        [
+          "replace",
+          27,
+          28,
+          27,
+          29
+        ],
+        [
+          "equal",
+          28,
+          42,
+          29,
+          43
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          27,
+          28,
+          27,
+          29
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I,",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.64,
+          "end": 0.98,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 0.98,
+          "end": 1.46,
+          "key": "cried",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Stubb,",
+          "start": 1.46,
+          "end": 1.88,
+          "key": "stubb",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.28,
+          "end": 2.4,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "knew",
+          "start": 2.4,
+          "end": 2.56,
+          "key": "knew",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "it—ye",
+          "start": 2.56,
+          "end": 3.04,
+          "key": "itye",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "can't",
+          "start": 3.04,
+          "end": 3.32,
+          "key": "cant",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "escape—blow",
+          "start": 3.32,
+          "end": 3.94,
+          "key": "escapeblow",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 3.94,
+          "end": 4.24,
+          "key": "on",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.24,
+          "end": 4.4,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "split",
+          "start": 4.4,
+          "end": 4.62,
+          "key": "split",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 4.62,
+          "end": 4.78,
+          "key": "your",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "spout,",
+          "start": 4.78,
+          "end": 5.16,
+          "key": "spout",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 5.34,
+          "end": 5.34,
+          "key": "o",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "whale!",
+          "start": 5.34,
+          "end": 5.64,
+          "key": "whale",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.26,
+          "end": 6.36,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "mad",
+          "start": 6.36,
+          "end": 6.58,
+          "key": "mad",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "fiend",
+          "start": 6.58,
+          "end": 6.86,
+          "key": "fiend",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "himself",
+          "start": 6.86,
+          "end": 7.16,
+          "key": "himself",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 7.16,
+          "end": 7.36,
+          "key": "is",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 7.36,
+          "end": 7.64,
+          "key": "after",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "ye!",
+          "start": 7.64,
+          "end": 7.9,
+          "key": "ye",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "blow",
+          "start": 8.36,
+          "end": 8.46,
+          "key": "blow",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 8.46,
+          "end": 8.68,
+          "key": "your",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "trump—blister",
+          "start": 8.68,
+          "end": 9.44,
+          "key": "trumpblister",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 9.44,
+          "end": 9.72,
+          "key": "your",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "lungs",
+          "start": 9.72,
+          "end": 10.08,
+          "key": "lungs",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "!—Ahab",
+          "start": 10.08,
+          "end": 11.2,
+          "key": "ahab",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 11.2,
+          "end": 11.4,
+          "key": "will",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "dam",
+          "start": 11.4,
+          "end": 11.62,
+          "key": "dam",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "off",
+          "start": 11.62,
+          "end": 11.84,
+          "key": "off",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 11.84,
+          "end": 12.0,
+          "key": "your",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "blood,",
+          "start": 12.0,
+          "end": 12.28,
+          "key": "blood",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 12.54,
+          "end": 12.7,
+          "key": "as",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 12.7,
+          "end": 12.8,
+          "key": "a",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "miller",
+          "start": 12.8,
+          "end": 13.12,
+          "key": "miller",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "shuts",
+          "start": 13.12,
+          "end": 13.36,
+          "key": "shuts",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 13.36,
+          "end": 13.58,
+          "key": "his",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "watergate",
+          "start": 13.58,
+          "end": 14.08,
+          "key": "watergate",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 14.08,
+          "end": 14.32,
+          "key": "upon",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 14.32,
+          "end": 14.48,
+          "key": "the",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "stream!",
+          "start": 14.48,
+          "end": 14.82,
+          "key": "stream",
+          "pieces": [
+            42
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Aye,",
+          "start": 0.0,
+          "end": 0.49
+        },
+        {
+          "text": "aye!\"",
+          "start": 0.49,
+          "end": 0.735
+        },
+        {
+          "text": "cried",
+          "start": 0.98,
+          "end": 1.46
+        },
+        {
+          "text": "Stubb,",
+          "start": 1.46,
+          "end": 1.88
+        },
+        {
+          "text": "\"I",
+          "start": 2.28,
+          "end": 2.4
+        },
+        {
+          "text": "knew",
+          "start": 2.4,
+          "end": 2.56
+        },
+        {
+          "text": "it—ye",
+          "start": 2.56,
+          "end": 3.04
+        },
+        {
+          "text": "can't",
+          "start": 3.04,
+          "end": 3.32
+        },
+        {
+          "text": "escape—blow",
+          "start": 3.32,
+          "end": 3.94
+        },
+        {
+          "text": "on",
+          "start": 3.94,
+          "end": 4.24
+        },
+        {
+          "text": "and",
+          "start": 4.24,
+          "end": 4.4
+        },
+        {
+          "text": "split",
+          "start": 4.4,
+          "end": 4.62
+        },
+        {
+          "text": "your",
+          "start": 4.62,
+          "end": 4.78
+        },
+        {
+          "text": "spout,",
+          "start": 4.78,
+          "end": 5.16
+        },
+        {
+          "text": "O",
+          "start": 5.34,
+          "end": 5.34
+        },
+        {
+          "text": "whale!",
+          "start": 5.34,
+          "end": 5.64
+        },
+        {
+          "text": "the",
+          "start": 6.26,
+          "end": 6.36
+        },
+        {
+          "text": "mad",
+          "start": 6.36,
+          "end": 6.58
+        },
+        {
+          "text": "fiend",
+          "start": 6.58,
+          "end": 6.86
+        },
+        {
+          "text": "himself",
+          "start": 6.86,
+          "end": 7.16
+        },
+        {
+          "text": "is",
+          "start": 7.16,
+          "end": 7.36
+        },
+        {
+          "text": "after",
+          "start": 7.36,
+          "end": 7.64
+        },
+        {
+          "text": "ye!",
+          "start": 7.64,
+          "end": 7.9
+        },
+        {
+          "text": "blow",
+          "start": 8.36,
+          "end": 8.46
+        },
+        {
+          "text": "your",
+          "start": 8.46,
+          "end": 8.68
+        },
+        {
+          "text": "trump—blister",
+          "start": 8.68,
+          "end": 9.44
+        },
+        {
+          "text": "your",
+          "start": 9.44,
+          "end": 9.72
+        },
+        {
+          "text": "lungs!—Ahab",
+          "start": 9.72,
+          "end": 10.46
+        },
+        {
+          "text": "will",
+          "start": 11.2,
+          "end": 11.4
+        },
+        {
+          "text": "dam",
+          "start": 11.4,
+          "end": 11.62
+        },
+        {
+          "text": "off",
+          "start": 11.62,
+          "end": 11.84
+        },
+        {
+          "text": "your",
+          "start": 11.84,
+          "end": 12.0
+        },
+        {
+          "text": "blood,",
+          "start": 12.0,
+          "end": 12.28
+        },
+        {
+          "text": "as",
+          "start": 12.54,
+          "end": 12.7
+        },
+        {
+          "text": "a",
+          "start": 12.7,
+          "end": 12.8
+        },
+        {
+          "text": "miller",
+          "start": 12.8,
+          "end": 13.12
+        },
+        {
+          "text": "shuts",
+          "start": 13.12,
+          "end": 13.36
+        },
+        {
+          "text": "his",
+          "start": 13.36,
+          "end": 13.58
+        },
+        {
+          "text": "watergate",
+          "start": 13.58,
+          "end": 14.08
+        },
+        {
+          "text": "upon",
+          "start": 14.08,
+          "end": 14.32
+        },
+        {
+          "text": "the",
+          "start": 14.32,
+          "end": 14.48
+        },
+        {
+          "text": "stream!\"",
+          "start": 14.48,
+          "end": 14.82
+        }
+      ],
+      "stats": {
+        "expected_words": 42,
+        "heard_words": 43,
+        "matched_words": 39
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.5100668556988239
+    },
+    {
+      "asr_seconds": 0.477374903857708,
+      "alignment_seconds": 0.000996507704257965,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Stubb, I, O"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " I, I, cried Stubb, I knew it, ye can't escape, blow on and split your spout, O whale.",
+          "start": 0.02,
+          "end": 5.62,
+          "words": [
+            {
+              "text": " I,",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.047607421875
+            },
+            {
+              "text": " I,",
+              "start": 0.64,
+              "end": 0.98,
+              "probability": 0.986328125
+            },
+            {
+              "text": " cried",
+              "start": 1.18,
+              "end": 1.46,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " Stubb,",
+              "start": 1.46,
+              "end": 1.86,
+              "probability": 0.470245361328125
+            },
+            {
+              "text": " I",
+              "start": 2.28,
+              "end": 2.4,
+              "probability": 0.982421875
+            },
+            {
+              "text": " knew",
+              "start": 2.4,
+              "end": 2.56,
+              "probability": 0.98046875
+            },
+            {
+              "text": " it,",
+              "start": 2.56,
+              "end": 2.76,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " ye",
+              "start": 2.98,
+              "end": 3.04,
+              "probability": 0.82080078125
+            },
+            {
+              "text": " can't",
+              "start": 3.04,
+              "end": 3.32,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " escape,",
+              "start": 3.32,
+              "end": 3.58,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " blow",
+              "start": 3.88,
+              "end": 3.96,
+              "probability": 0.64013671875
+            },
+            {
+              "text": " on",
+              "start": 3.96,
+              "end": 4.24,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " and",
+              "start": 4.24,
+              "end": 4.4,
+              "probability": 0.74267578125
+            },
+            {
+              "text": " split",
+              "start": 4.4,
+              "end": 4.62,
+              "probability": 0.96875
+            },
+            {
+              "text": " your",
+              "start": 4.62,
+              "end": 4.78,
+              "probability": 0.958984375
+            },
+            {
+              "text": " spout,",
+              "start": 4.78,
+              "end": 5.16,
+              "probability": 0.987060546875
+            },
+            {
+              "text": " O",
+              "start": 5.34,
+              "end": 5.34,
+              "probability": 0.383056640625
+            },
+            {
+              "text": " whale.",
+              "start": 5.34,
+              "end": 5.62,
+              "probability": 0.48828125
+            }
+          ]
+        },
+        {
+          "text": " The mad fiend himself is after ye, blow your trump, blister your lungs. Ahab will damn",
+          "start": 6.26,
+          "end": 11.64,
+          "words": [
+            {
+              "text": " The",
+              "start": 6.26,
+              "end": 6.36,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " mad",
+              "start": 6.36,
+              "end": 6.58,
+              "probability": 0.8046875
+            },
+            {
+              "text": " fiend",
+              "start": 6.58,
+              "end": 6.86,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " himself",
+              "start": 6.86,
+              "end": 7.16,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " is",
+              "start": 7.16,
+              "end": 7.36,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " after",
+              "start": 7.36,
+              "end": 7.64,
+              "probability": 0.99609375
+            },
+            {
+              "text": " ye,",
+              "start": 7.64,
+              "end": 7.9,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " blow",
+              "start": 8.34,
+              "end": 8.46,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " your",
+              "start": 8.46,
+              "end": 8.68,
+              "probability": 0.984375
+            },
+            {
+              "text": " trump,",
+              "start": 8.68,
+              "end": 9.0,
+              "probability": 0.81982421875
+            },
+            {
+              "text": " blister",
+              "start": 9.26,
+              "end": 9.38,
+              "probability": 0.998046875
+            },
+            {
+              "text": " your",
+              "start": 9.38,
+              "end": 9.72,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " lungs.",
+              "start": 9.72,
+              "end": 10.06,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Ahab",
+              "start": 11.0,
+              "end": 11.2,
+              "probability": 0.951171875
+            },
+            {
+              "text": " will",
+              "start": 11.2,
+              "end": 11.4,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " damn",
+              "start": 11.4,
+              "end": 11.64,
+              "probability": 0.39013671875
+            }
+          ]
+        },
+        {
+          "text": " off your blood, as a miller shuts his Watergate upon the stream.",
+          "start": 11.64,
+          "end": 14.8,
+          "words": [
+            {
+              "text": " off",
+              "start": 11.64,
+              "end": 11.84,
+              "probability": 0.994140625
+            },
+            {
+              "text": " your",
+              "start": 11.84,
+              "end": 12.0,
+              "probability": 0.994140625
+            },
+            {
+              "text": " blood,",
+              "start": 12.0,
+              "end": 12.3,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " as",
+              "start": 12.54,
+              "end": 12.7,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " a",
+              "start": 12.7,
+              "end": 12.8,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " miller",
+              "start": 12.8,
+              "end": 13.14,
+              "probability": 0.981689453125
+            },
+            {
+              "text": " shuts",
+              "start": 13.14,
+              "end": 13.36,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " his",
+              "start": 13.36,
+              "end": 13.58,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Watergate",
+              "start": 13.58,
+              "end": 13.96,
+              "probability": 0.317626953125
+            },
+            {
+              "text": " upon",
+              "start": 13.96,
+              "end": 14.32,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " the",
+              "start": 14.32,
+              "end": 14.48,
+              "probability": 0.998046875
+            },
+            {
+              "text": " stream.",
+              "start": 14.48,
+              "end": 14.8,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I,",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "I,",
+          "start": 0.64,
+          "end": 0.98
+        },
+        {
+          "raw": "cried",
+          "start": 1.18,
+          "end": 1.46
+        },
+        {
+          "raw": "Stubb,",
+          "start": 1.46,
+          "end": 1.86
+        },
+        {
+          "raw": "I",
+          "start": 2.28,
+          "end": 2.4
+        },
+        {
+          "raw": "knew",
+          "start": 2.4,
+          "end": 2.56
+        },
+        {
+          "raw": "it,",
+          "start": 2.56,
+          "end": 2.76
+        },
+        {
+          "raw": "ye",
+          "start": 2.98,
+          "end": 3.04
+        },
+        {
+          "raw": "can't",
+          "start": 3.04,
+          "end": 3.32
+        },
+        {
+          "raw": "escape,",
+          "start": 3.32,
+          "end": 3.58
+        },
+        {
+          "raw": "blow",
+          "start": 3.88,
+          "end": 3.96
+        },
+        {
+          "raw": "on",
+          "start": 3.96,
+          "end": 4.24
+        },
+        {
+          "raw": "and",
+          "start": 4.24,
+          "end": 4.4
+        },
+        {
+          "raw": "split",
+          "start": 4.4,
+          "end": 4.62
+        },
+        {
+          "raw": "your",
+          "start": 4.62,
+          "end": 4.78
+        },
+        {
+          "raw": "spout,",
+          "start": 4.78,
+          "end": 5.16
+        },
+        {
+          "raw": "O",
+          "start": 5.34,
+          "end": 5.34
+        },
+        {
+          "raw": "whale.",
+          "start": 5.34,
+          "end": 5.62
+        },
+        {
+          "raw": "The",
+          "start": 6.26,
+          "end": 6.36
+        },
+        {
+          "raw": "mad",
+          "start": 6.36,
+          "end": 6.58
+        },
+        {
+          "raw": "fiend",
+          "start": 6.58,
+          "end": 6.86
+        },
+        {
+          "raw": "himself",
+          "start": 6.86,
+          "end": 7.16
+        },
+        {
+          "raw": "is",
+          "start": 7.16,
+          "end": 7.36
+        },
+        {
+          "raw": "after",
+          "start": 7.36,
+          "end": 7.64
+        },
+        {
+          "raw": "ye,",
+          "start": 7.64,
+          "end": 7.9
+        },
+        {
+          "raw": "blow",
+          "start": 8.34,
+          "end": 8.46
+        },
+        {
+          "raw": "your",
+          "start": 8.46,
+          "end": 8.68
+        },
+        {
+          "raw": "trump,",
+          "start": 8.68,
+          "end": 9.0
+        },
+        {
+          "raw": "blister",
+          "start": 9.26,
+          "end": 9.38
+        },
+        {
+          "raw": "your",
+          "start": 9.38,
+          "end": 9.72
+        },
+        {
+          "raw": "lungs.",
+          "start": 9.72,
+          "end": 10.06
+        },
+        {
+          "raw": "Ahab",
+          "start": 11.0,
+          "end": 11.2
+        },
+        {
+          "raw": "will",
+          "start": 11.2,
+          "end": 11.4
+        },
+        {
+          "raw": "damn",
+          "start": 11.4,
+          "end": 11.64
+        },
+        {
+          "raw": "off",
+          "start": 11.64,
+          "end": 11.84
+        },
+        {
+          "raw": "your",
+          "start": 11.84,
+          "end": 12.0
+        },
+        {
+          "raw": "blood,",
+          "start": 12.0,
+          "end": 12.3
+        },
+        {
+          "raw": "as",
+          "start": 12.54,
+          "end": 12.7
+        },
+        {
+          "raw": "a",
+          "start": 12.7,
+          "end": 12.8
+        },
+        {
+          "raw": "miller",
+          "start": 12.8,
+          "end": 13.14
+        },
+        {
+          "raw": "shuts",
+          "start": 13.14,
+          "end": 13.36
+        },
+        {
+          "raw": "his",
+          "start": 13.36,
+          "end": 13.58
+        },
+        {
+          "raw": "Watergate",
+          "start": 13.58,
+          "end": 13.96
+        },
+        {
+          "raw": "upon",
+          "start": 13.96,
+          "end": 14.32
+        },
+        {
+          "raw": "the",
+          "start": 14.32,
+          "end": 14.48
+        },
+        {
+          "raw": "stream.",
+          "start": 14.48,
+          "end": 14.8
+        }
+      ],
+      "expected_tokens": [
+        "\"Aye,",
+        "aye!\"",
+        "cried",
+        "Stubb,",
+        "\"I",
+        "knew",
+        "it—ye",
+        "can't",
+        "escape—blow",
+        "on",
+        "and",
+        "split",
+        "your",
+        "spout,",
+        "O",
+        "whale!",
+        "the",
+        "mad",
+        "fiend",
+        "himself",
+        "is",
+        "after",
+        "ye!",
+        "blow",
+        "your",
+        "trump—blister",
+        "your",
+        "lungs!—Ahab",
+        "will",
+        "dam",
+        "off",
+        "your",
+        "blood,",
+        "as",
+        "a",
+        "miller",
+        "shuts",
+        "his",
+        "watergate",
+        "upon",
+        "the",
+        "stream!\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          6,
+          2,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ],
+        [
+          "equal",
+          7,
+          8,
+          8,
+          9
+        ],
+        [
+          "replace",
+          8,
+          9,
+          9,
+          11
+        ],
+        [
+          "equal",
+          9,
+          25,
+          11,
+          27
+        ],
+        [
+          "replace",
+          25,
+          26,
+          27,
+          29
+        ],
+        [
+          "equal",
+          26,
+          27,
+          29,
+          30
+        ],
+        [
+          "replace",
+          27,
+          28,
+          30,
+          32
+        ],
+        [
+          "equal",
+          28,
+          29,
+          32,
+          33
+        ],
+        [
+          "replace",
+          29,
+          30,
+          33,
+          34
+        ],
+        [
+          "equal",
+          30,
+          42,
+          34,
+          46
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 27,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 45
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          9,
+          11
+        ],
+        [
+          "replace",
+          25,
+          26,
+          27,
+          29
+        ],
+        [
+          "replace",
+          27,
+          28,
+          30,
+          32
+        ],
+        [
+          "replace",
+          29,
+          30,
+          33,
+          34
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I,",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 0.64,
+          "end": 0.98,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 1.18,
+          "end": 1.46,
+          "key": "cried",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Stubb,",
+          "start": 1.46,
+          "end": 1.86,
+          "key": "stubb",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.28,
+          "end": 2.4,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "knew",
+          "start": 2.4,
+          "end": 2.56,
+          "key": "knew",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "it,",
+          "start": 2.56,
+          "end": 2.76,
+          "key": "it",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "ye",
+          "start": 2.98,
+          "end": 3.04,
+          "key": "ye",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "can't",
+          "start": 3.04,
+          "end": 3.32,
+          "key": "cant",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "escape,",
+          "start": 3.32,
+          "end": 3.58,
+          "key": "escape",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "blow",
+          "start": 3.88,
+          "end": 3.96,
+          "key": "blow",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 3.96,
+          "end": 4.24,
+          "key": "on",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.24,
+          "end": 4.4,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "split",
+          "start": 4.4,
+          "end": 4.62,
+          "key": "split",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 4.62,
+          "end": 4.78,
+          "key": "your",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "spout,",
+          "start": 4.78,
+          "end": 5.16,
+          "key": "spout",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 5.34,
+          "end": 5.34,
+          "key": "o",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "whale.",
+          "start": 5.34,
+          "end": 5.62,
+          "key": "whale",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 6.26,
+          "end": 6.36,
+          "key": "the",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "mad",
+          "start": 6.36,
+          "end": 6.58,
+          "key": "mad",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "fiend",
+          "start": 6.58,
+          "end": 6.86,
+          "key": "fiend",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "himself",
+          "start": 6.86,
+          "end": 7.16,
+          "key": "himself",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 7.16,
+          "end": 7.36,
+          "key": "is",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 7.36,
+          "end": 7.64,
+          "key": "after",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "ye,",
+          "start": 7.64,
+          "end": 7.9,
+          "key": "ye",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "blow",
+          "start": 8.34,
+          "end": 8.46,
+          "key": "blow",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 8.46,
+          "end": 8.68,
+          "key": "your",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "trump,",
+          "start": 8.68,
+          "end": 9.0,
+          "key": "trump",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "blister",
+          "start": 9.26,
+          "end": 9.38,
+          "key": "blister",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 9.38,
+          "end": 9.72,
+          "key": "your",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "lungs.",
+          "start": 9.72,
+          "end": 10.06,
+          "key": "lungs",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "Ahab",
+          "start": 11.0,
+          "end": 11.2,
+          "key": "ahab",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 11.2,
+          "end": 11.4,
+          "key": "will",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "damn",
+          "start": 11.4,
+          "end": 11.64,
+          "key": "damn",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "off",
+          "start": 11.64,
+          "end": 11.84,
+          "key": "off",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 11.84,
+          "end": 12.0,
+          "key": "your",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "blood,",
+          "start": 12.0,
+          "end": 12.3,
+          "key": "blood",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 12.54,
+          "end": 12.7,
+          "key": "as",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 12.7,
+          "end": 12.8,
+          "key": "a",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "miller",
+          "start": 12.8,
+          "end": 13.14,
+          "key": "miller",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "shuts",
+          "start": 13.14,
+          "end": 13.36,
+          "key": "shuts",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 13.36,
+          "end": 13.58,
+          "key": "his",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "Watergate",
+          "start": 13.58,
+          "end": 13.96,
+          "key": "watergate",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 13.96,
+          "end": 14.32,
+          "key": "upon",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 14.32,
+          "end": 14.48,
+          "key": "the",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "stream.",
+          "start": 14.48,
+          "end": 14.8,
+          "key": "stream",
+          "pieces": [
+            45
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Aye,",
+          "start": 0.0,
+          "end": 0.59
+        },
+        {
+          "text": "aye!\"",
+          "start": 0.59,
+          "end": 0.885
+        },
+        {
+          "text": "cried",
+          "start": 1.18,
+          "end": 1.46
+        },
+        {
+          "text": "Stubb,",
+          "start": 1.46,
+          "end": 1.86
+        },
+        {
+          "text": "\"I",
+          "start": 2.28,
+          "end": 2.4
+        },
+        {
+          "text": "knew",
+          "start": 2.4,
+          "end": 2.56
+        },
+        {
+          "text": "it—ye",
+          "start": 2.56,
+          "end": 2.8
+        },
+        {
+          "text": "can't",
+          "start": 3.04,
+          "end": 3.32
+        },
+        {
+          "text": "escape—blow",
+          "start": 3.32,
+          "end": 3.64
+        },
+        {
+          "text": "on",
+          "start": 3.96,
+          "end": 4.24
+        },
+        {
+          "text": "and",
+          "start": 4.24,
+          "end": 4.4
+        },
+        {
+          "text": "split",
+          "start": 4.4,
+          "end": 4.62
+        },
+        {
+          "text": "your",
+          "start": 4.62,
+          "end": 4.78
+        },
+        {
+          "text": "spout,",
+          "start": 4.78,
+          "end": 5.16
+        },
+        {
+          "text": "O",
+          "start": 5.34,
+          "end": 5.34
+        },
+        {
+          "text": "whale!",
+          "start": 5.34,
+          "end": 5.62
+        },
+        {
+          "text": "the",
+          "start": 6.26,
+          "end": 6.36
+        },
+        {
+          "text": "mad",
+          "start": 6.36,
+          "end": 6.58
+        },
+        {
+          "text": "fiend",
+          "start": 6.58,
+          "end": 6.86
+        },
+        {
+          "text": "himself",
+          "start": 6.86,
+          "end": 7.16
+        },
+        {
+          "text": "is",
+          "start": 7.16,
+          "end": 7.36
+        },
+        {
+          "text": "after",
+          "start": 7.36,
+          "end": 7.64
+        },
+        {
+          "text": "ye!",
+          "start": 7.64,
+          "end": 7.9
+        },
+        {
+          "text": "blow",
+          "start": 8.34,
+          "end": 8.46
+        },
+        {
+          "text": "your",
+          "start": 8.46,
+          "end": 8.68
+        },
+        {
+          "text": "trump—blister",
+          "start": 8.68,
+          "end": 9.03
+        },
+        {
+          "text": "your",
+          "start": 9.38,
+          "end": 9.72
+        },
+        {
+          "text": "lungs!—Ahab",
+          "start": 9.72,
+          "end": 10.46
+        },
+        {
+          "text": "will",
+          "start": 11.2,
+          "end": 11.4
+        },
+        {
+          "text": "dam",
+          "start": 11.4,
+          "end": 11.52
+        },
+        {
+          "text": "off",
+          "start": 11.64,
+          "end": 11.84
+        },
+        {
+          "text": "your",
+          "start": 11.84,
+          "end": 12.0
+        },
+        {
+          "text": "blood,",
+          "start": 12.0,
+          "end": 12.3
+        },
+        {
+          "text": "as",
+          "start": 12.54,
+          "end": 12.7
+        },
+        {
+          "text": "a",
+          "start": 12.7,
+          "end": 12.8
+        },
+        {
+          "text": "miller",
+          "start": 12.8,
+          "end": 13.14
+        },
+        {
+          "text": "shuts",
+          "start": 13.14,
+          "end": 13.36
+        },
+        {
+          "text": "his",
+          "start": 13.36,
+          "end": 13.58
+        },
+        {
+          "text": "watergate",
+          "start": 13.58,
+          "end": 13.96
+        },
+        {
+          "text": "upon",
+          "start": 13.96,
+          "end": 14.32
+        },
+        {
+          "text": "the",
+          "start": 14.32,
+          "end": 14.48
+        },
+        {
+          "text": "stream!\"",
+          "start": 14.48,
+          "end": 14.8
+        }
+      ],
+      "stats": {
+        "expected_words": 42,
+        "heard_words": 46,
+        "matched_words": 35
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.4788251407444477
+    },
+    {
+      "asr_seconds": 0.44158395752310753,
+      "alignment_seconds": 0.001018628478050232,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I I cried stub I knew it you can't escape blow on and split your spout",
+          "start": 0.02,
+          "end": 5.16,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.047607421875
+            },
+            {
+              "text": " I",
+              "start": 0.6,
+              "end": 0.94,
+              "probability": 0.092529296875
+            },
+            {
+              "text": " cried",
+              "start": 0.94,
+              "end": 1.46,
+              "probability": 0.7802734375
+            },
+            {
+              "text": " stub",
+              "start": 1.46,
+              "end": 1.8,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " I",
+              "start": 1.8,
+              "end": 2.38,
+              "probability": 0.5419921875
+            },
+            {
+              "text": " knew",
+              "start": 2.38,
+              "end": 2.56,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " it",
+              "start": 2.56,
+              "end": 2.76,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you",
+              "start": 2.76,
+              "end": 3.04,
+              "probability": 0.5849609375
+            },
+            {
+              "text": " can't",
+              "start": 3.04,
+              "end": 3.32,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " escape",
+              "start": 3.32,
+              "end": 3.58,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " blow",
+              "start": 3.58,
+              "end": 3.96,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " on",
+              "start": 3.96,
+              "end": 4.24,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 4.24,
+              "end": 4.38,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " split",
+              "start": 4.38,
+              "end": 4.64,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " your",
+              "start": 4.64,
+              "end": 4.78,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " spout",
+              "start": 4.78,
+              "end": 5.16,
+              "probability": 0.986083984375
+            }
+          ]
+        },
+        {
+          "text": " Oh whale the mad fiend himself is after ye blow your trump blister your lungs",
+          "start": 5.16,
+          "end": 10.2,
+          "words": [
+            {
+              "text": " Oh",
+              "start": 5.16,
+              "end": 5.34,
+              "probability": 0.28955078125
+            },
+            {
+              "text": " whale",
+              "start": 5.34,
+              "end": 5.74,
+              "probability": 0.68310546875
+            },
+            {
+              "text": " the",
+              "start": 5.74,
+              "end": 6.34,
+              "probability": 0.849609375
+            },
+            {
+              "text": " mad",
+              "start": 6.34,
+              "end": 6.58,
+              "probability": 0.859375
+            },
+            {
+              "text": " fiend",
+              "start": 6.58,
+              "end": 6.86,
+              "probability": 0.981201171875
+            },
+            {
+              "text": " himself",
+              "start": 6.86,
+              "end": 7.18,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " is",
+              "start": 7.18,
+              "end": 7.36,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " after",
+              "start": 7.36,
+              "end": 7.64,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " ye",
+              "start": 7.64,
+              "end": 7.94,
+              "probability": 0.85791015625
+            },
+            {
+              "text": " blow",
+              "start": 7.94,
+              "end": 8.46,
+              "probability": 0.86328125
+            },
+            {
+              "text": " your",
+              "start": 8.46,
+              "end": 8.68,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " trump",
+              "start": 8.68,
+              "end": 9.02,
+              "probability": 0.62841796875
+            },
+            {
+              "text": " blister",
+              "start": 9.02,
+              "end": 9.44,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " your",
+              "start": 9.44,
+              "end": 9.72,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " lungs",
+              "start": 9.72,
+              "end": 10.2,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " Ahab will damn off your blood as a miller shuts his Watergate upon the stream",
+          "start": 10.2,
+          "end": 14.84,
+          "words": [
+            {
+              "text": " Ahab",
+              "start": 10.2,
+              "end": 11.2,
+              "probability": 0.759765625
+            },
+            {
+              "text": " will",
+              "start": 11.2,
+              "end": 11.4,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " damn",
+              "start": 11.4,
+              "end": 11.64,
+              "probability": 0.576171875
+            },
+            {
+              "text": " off",
+              "start": 11.64,
+              "end": 11.84,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " your",
+              "start": 11.84,
+              "end": 12.0,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " blood",
+              "start": 12.0,
+              "end": 12.32,
+              "probability": 1.0
+            },
+            {
+              "text": " as",
+              "start": 12.32,
+              "end": 12.7,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 12.7,
+              "end": 12.8,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " miller",
+              "start": 12.8,
+              "end": 13.14,
+              "probability": 0.831298828125
+            },
+            {
+              "text": " shuts",
+              "start": 13.14,
+              "end": 13.36,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " his",
+              "start": 13.36,
+              "end": 13.58,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Watergate",
+              "start": 13.58,
+              "end": 13.98,
+              "probability": 0.736328125
+            },
+            {
+              "text": " upon",
+              "start": 13.98,
+              "end": 14.32,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " the",
+              "start": 14.32,
+              "end": 14.48,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " stream",
+              "start": 14.48,
+              "end": 14.84,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "I",
+          "start": 0.6,
+          "end": 0.94
+        },
+        {
+          "raw": "cried",
+          "start": 0.94,
+          "end": 1.46
+        },
+        {
+          "raw": "stub",
+          "start": 1.46,
+          "end": 1.8
+        },
+        {
+          "raw": "I",
+          "start": 1.8,
+          "end": 2.38
+        },
+        {
+          "raw": "knew",
+          "start": 2.38,
+          "end": 2.56
+        },
+        {
+          "raw": "it",
+          "start": 2.56,
+          "end": 2.76
+        },
+        {
+          "raw": "you",
+          "start": 2.76,
+          "end": 3.04
+        },
+        {
+          "raw": "can't",
+          "start": 3.04,
+          "end": 3.32
+        },
+        {
+          "raw": "escape",
+          "start": 3.32,
+          "end": 3.58
+        },
+        {
+          "raw": "blow",
+          "start": 3.58,
+          "end": 3.96
+        },
+        {
+          "raw": "on",
+          "start": 3.96,
+          "end": 4.24
+        },
+        {
+          "raw": "and",
+          "start": 4.24,
+          "end": 4.38
+        },
+        {
+          "raw": "split",
+          "start": 4.38,
+          "end": 4.64
+        },
+        {
+          "raw": "your",
+          "start": 4.64,
+          "end": 4.78
+        },
+        {
+          "raw": "spout",
+          "start": 4.78,
+          "end": 5.16
+        },
+        {
+          "raw": "Oh",
+          "start": 5.16,
+          "end": 5.34
+        },
+        {
+          "raw": "whale",
+          "start": 5.34,
+          "end": 5.74
+        },
+        {
+          "raw": "the",
+          "start": 5.74,
+          "end": 6.34
+        },
+        {
+          "raw": "mad",
+          "start": 6.34,
+          "end": 6.58
+        },
+        {
+          "raw": "fiend",
+          "start": 6.58,
+          "end": 6.86
+        },
+        {
+          "raw": "himself",
+          "start": 6.86,
+          "end": 7.18
+        },
+        {
+          "raw": "is",
+          "start": 7.18,
+          "end": 7.36
+        },
+        {
+          "raw": "after",
+          "start": 7.36,
+          "end": 7.64
+        },
+        {
+          "raw": "ye",
+          "start": 7.64,
+          "end": 7.94
+        },
+        {
+          "raw": "blow",
+          "start": 7.94,
+          "end": 8.46
+        },
+        {
+          "raw": "your",
+          "start": 8.46,
+          "end": 8.68
+        },
+        {
+          "raw": "trump",
+          "start": 8.68,
+          "end": 9.02
+        },
+        {
+          "raw": "blister",
+          "start": 9.02,
+          "end": 9.44
+        },
+        {
+          "raw": "your",
+          "start": 9.44,
+          "end": 9.72
+        },
+        {
+          "raw": "lungs",
+          "start": 9.72,
+          "end": 10.2
+        },
+        {
+          "raw": "Ahab",
+          "start": 10.2,
+          "end": 11.2
+        },
+        {
+          "raw": "will",
+          "start": 11.2,
+          "end": 11.4
+        },
+        {
+          "raw": "damn",
+          "start": 11.4,
+          "end": 11.64
+        },
+        {
+          "raw": "off",
+          "start": 11.64,
+          "end": 11.84
+        },
+        {
+          "raw": "your",
+          "start": 11.84,
+          "end": 12.0
+        },
+        {
+          "raw": "blood",
+          "start": 12.0,
+          "end": 12.32
+        },
+        {
+          "raw": "as",
+          "start": 12.32,
+          "end": 12.7
+        },
+        {
+          "raw": "a",
+          "start": 12.7,
+          "end": 12.8
+        },
+        {
+          "raw": "miller",
+          "start": 12.8,
+          "end": 13.14
+        },
+        {
+          "raw": "shuts",
+          "start": 13.14,
+          "end": 13.36
+        },
+        {
+          "raw": "his",
+          "start": 13.36,
+          "end": 13.58
+        },
+        {
+          "raw": "Watergate",
+          "start": 13.58,
+          "end": 13.98
+        },
+        {
+          "raw": "upon",
+          "start": 13.98,
+          "end": 14.32
+        },
+        {
+          "raw": "the",
+          "start": 14.32,
+          "end": 14.48
+        },
+        {
+          "raw": "stream",
+          "start": 14.48,
+          "end": 14.84
+        }
+      ],
+      "expected_tokens": [
+        "\"Aye,",
+        "aye!\"",
+        "cried",
+        "Stubb,",
+        "\"I",
+        "knew",
+        "it—ye",
+        "can't",
+        "escape—blow",
+        "on",
+        "and",
+        "split",
+        "your",
+        "spout,",
+        "O",
+        "whale!",
+        "the",
+        "mad",
+        "fiend",
+        "himself",
+        "is",
+        "after",
+        "ye!",
+        "blow",
+        "your",
+        "trump—blister",
+        "your",
+        "lungs!—Ahab",
+        "will",
+        "dam",
+        "off",
+        "your",
+        "blood,",
+        "as",
+        "a",
+        "miller",
+        "shuts",
+        "his",
+        "watergate",
+        "upon",
+        "the",
+        "stream!\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          6,
+          4,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ],
+        [
+          "equal",
+          7,
+          8,
+          8,
+          9
+        ],
+        [
+          "replace",
+          8,
+          9,
+          9,
+          11
+        ],
+        [
+          "equal",
+          9,
+          14,
+          11,
+          16
+        ],
+        [
+          "replace",
+          14,
+          15,
+          16,
+          17
+        ],
+        [
+          "equal",
+          15,
+          25,
+          17,
+          27
+        ],
+        [
+          "replace",
+          25,
+          26,
+          27,
+          29
+        ],
+        [
+          "equal",
+          26,
+          27,
+          29,
+          30
+        ],
+        [
+          "replace",
+          27,
+          28,
+          30,
+          32
+        ],
+        [
+          "equal",
+          28,
+          29,
+          32,
+          33
+        ],
+        [
+          "replace",
+          29,
+          30,
+          33,
+          34
+        ],
+        [
+          "equal",
+          30,
+          42,
+          34,
+          46
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 27,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 45
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          9,
+          11
+        ],
+        [
+          "replace",
+          14,
+          15,
+          16,
+          17
+        ],
+        [
+          "replace",
+          25,
+          26,
+          27,
+          29
+        ],
+        [
+          "replace",
+          27,
+          28,
+          30,
+          32
+        ],
+        [
+          "replace",
+          29,
+          30,
+          33,
+          34
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.6,
+          "end": 0.94,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 0.94,
+          "end": 1.46,
+          "key": "cried",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "stub",
+          "start": 1.46,
+          "end": 1.8,
+          "key": "stub",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.8,
+          "end": 2.38,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "knew",
+          "start": 2.38,
+          "end": 2.56,
+          "key": "knew",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.56,
+          "end": 2.76,
+          "key": "it",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.76,
+          "end": 3.04,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "can't",
+          "start": 3.04,
+          "end": 3.32,
+          "key": "cant",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "escape",
+          "start": 3.32,
+          "end": 3.58,
+          "key": "escape",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "blow",
+          "start": 3.58,
+          "end": 3.96,
+          "key": "blow",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 3.96,
+          "end": 4.24,
+          "key": "on",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.24,
+          "end": 4.38,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "split",
+          "start": 4.38,
+          "end": 4.64,
+          "key": "split",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 4.64,
+          "end": 4.78,
+          "key": "your",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "spout",
+          "start": 4.78,
+          "end": 5.16,
+          "key": "spout",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Oh",
+          "start": 5.16,
+          "end": 5.34,
+          "key": "oh",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "whale",
+          "start": 5.34,
+          "end": 5.74,
+          "key": "whale",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.74,
+          "end": 6.34,
+          "key": "the",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "mad",
+          "start": 6.34,
+          "end": 6.58,
+          "key": "mad",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "fiend",
+          "start": 6.58,
+          "end": 6.86,
+          "key": "fiend",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "himself",
+          "start": 6.86,
+          "end": 7.18,
+          "key": "himself",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 7.18,
+          "end": 7.36,
+          "key": "is",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 7.36,
+          "end": 7.64,
+          "key": "after",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "ye",
+          "start": 7.64,
+          "end": 7.94,
+          "key": "ye",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "blow",
+          "start": 7.94,
+          "end": 8.46,
+          "key": "blow",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 8.46,
+          "end": 8.68,
+          "key": "your",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "trump",
+          "start": 8.68,
+          "end": 9.02,
+          "key": "trump",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "blister",
+          "start": 9.02,
+          "end": 9.44,
+          "key": "blister",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 9.44,
+          "end": 9.72,
+          "key": "your",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "lungs",
+          "start": 9.72,
+          "end": 10.2,
+          "key": "lungs",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "Ahab",
+          "start": 10.2,
+          "end": 11.2,
+          "key": "ahab",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 11.2,
+          "end": 11.4,
+          "key": "will",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "damn",
+          "start": 11.4,
+          "end": 11.64,
+          "key": "damn",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "off",
+          "start": 11.64,
+          "end": 11.84,
+          "key": "off",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 11.84,
+          "end": 12.0,
+          "key": "your",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "blood",
+          "start": 12.0,
+          "end": 12.32,
+          "key": "blood",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 12.32,
+          "end": 12.7,
+          "key": "as",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 12.7,
+          "end": 12.8,
+          "key": "a",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "miller",
+          "start": 12.8,
+          "end": 13.14,
+          "key": "miller",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "shuts",
+          "start": 13.14,
+          "end": 13.36,
+          "key": "shuts",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 13.36,
+          "end": 13.58,
+          "key": "his",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "Watergate",
+          "start": 13.58,
+          "end": 13.98,
+          "key": "watergate",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 13.98,
+          "end": 14.32,
+          "key": "upon",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 14.32,
+          "end": 14.48,
+          "key": "the",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "stream",
+          "start": 14.48,
+          "end": 14.84,
+          "key": "stream",
+          "pieces": [
+            45
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Aye,",
+          "start": 0.0,
+          "end": 0.47
+        },
+        {
+          "text": "aye!\"",
+          "start": 0.47,
+          "end": 0.705
+        },
+        {
+          "text": "cried",
+          "start": 0.94,
+          "end": 1.46
+        },
+        {
+          "text": "Stubb,",
+          "start": 1.46,
+          "end": 1.63
+        },
+        {
+          "text": "\"I",
+          "start": 1.8,
+          "end": 2.38
+        },
+        {
+          "text": "knew",
+          "start": 2.38,
+          "end": 2.56
+        },
+        {
+          "text": "it—ye",
+          "start": 2.56,
+          "end": 2.8
+        },
+        {
+          "text": "can't",
+          "start": 3.04,
+          "end": 3.32
+        },
+        {
+          "text": "escape—blow",
+          "start": 3.32,
+          "end": 3.64
+        },
+        {
+          "text": "on",
+          "start": 3.96,
+          "end": 4.24
+        },
+        {
+          "text": "and",
+          "start": 4.24,
+          "end": 4.38
+        },
+        {
+          "text": "split",
+          "start": 4.38,
+          "end": 4.64
+        },
+        {
+          "text": "your",
+          "start": 4.64,
+          "end": 4.78
+        },
+        {
+          "text": "spout,",
+          "start": 4.78,
+          "end": 5.16
+        },
+        {
+          "text": "O",
+          "start": 5.16,
+          "end": 5.25
+        },
+        {
+          "text": "whale!",
+          "start": 5.34,
+          "end": 5.74
+        },
+        {
+          "text": "the",
+          "start": 5.74,
+          "end": 6.34
+        },
+        {
+          "text": "mad",
+          "start": 6.34,
+          "end": 6.58
+        },
+        {
+          "text": "fiend",
+          "start": 6.58,
+          "end": 6.86
+        },
+        {
+          "text": "himself",
+          "start": 6.86,
+          "end": 7.18
+        },
+        {
+          "text": "is",
+          "start": 7.18,
+          "end": 7.36
+        },
+        {
+          "text": "after",
+          "start": 7.36,
+          "end": 7.64
+        },
+        {
+          "text": "ye!",
+          "start": 7.64,
+          "end": 7.94
+        },
+        {
+          "text": "blow",
+          "start": 7.94,
+          "end": 8.46
+        },
+        {
+          "text": "your",
+          "start": 8.46,
+          "end": 8.68
+        },
+        {
+          "text": "trump—blister",
+          "start": 8.68,
+          "end": 9.06
+        },
+        {
+          "text": "your",
+          "start": 9.44,
+          "end": 9.72
+        },
+        {
+          "text": "lungs!—Ahab",
+          "start": 9.72,
+          "end": 10.46
+        },
+        {
+          "text": "will",
+          "start": 11.2,
+          "end": 11.4
+        },
+        {
+          "text": "dam",
+          "start": 11.4,
+          "end": 11.52
+        },
+        {
+          "text": "off",
+          "start": 11.64,
+          "end": 11.84
+        },
+        {
+          "text": "your",
+          "start": 11.84,
+          "end": 12.0
+        },
+        {
+          "text": "blood,",
+          "start": 12.0,
+          "end": 12.32
+        },
+        {
+          "text": "as",
+          "start": 12.32,
+          "end": 12.7
+        },
+        {
+          "text": "a",
+          "start": 12.7,
+          "end": 12.8
+        },
+        {
+          "text": "miller",
+          "start": 12.8,
+          "end": 13.14
+        },
+        {
+          "text": "shuts",
+          "start": 13.14,
+          "end": 13.36
+        },
+        {
+          "text": "his",
+          "start": 13.36,
+          "end": 13.58
+        },
+        {
+          "text": "watergate",
+          "start": 13.58,
+          "end": 13.98
+        },
+        {
+          "text": "upon",
+          "start": 13.98,
+          "end": 14.32
+        },
+        {
+          "text": "the",
+          "start": 14.32,
+          "end": 14.48
+        },
+        {
+          "text": "stream!\"",
+          "start": 14.48,
+          "end": 14.84
+        }
+      ],
+      "stats": {
+        "expected_words": 42,
+        "heard_words": 46,
+        "matched_words": 33
+      },
+      "match_ratio": 0.7857142857142857,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.4430628977715969
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e1e19402cfb717b928c6c2511658c1e173b15a3a177b73d4def3555f0a05d90a",
+  "selected_reasons": []
+}

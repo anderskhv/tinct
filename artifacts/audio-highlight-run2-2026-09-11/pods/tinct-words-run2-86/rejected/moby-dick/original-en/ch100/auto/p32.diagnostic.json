@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "71d3d9657219c558f07fa820b8e19b0a733c0db5ea21cc3f0d9241446bceecbe",
+  "attempts": [
+    {
+      "asr_seconds": 0.10696440935134888,
+      "alignment_seconds": 0.00011986494064331055,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Twice.\"",
+        "hotwords": "Twice"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Twice.",
+          "start": 0.11,
+          "end": 0.63,
+          "words": [
+            {
+              "text": " Twice.",
+              "start": 0.11,
+              "end": 0.63,
+              "probability": 0.431640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Twice.",
+          "start": 0.11,
+          "end": 0.63
+        }
+      ],
+      "expected_tokens": [
+        "\"Twice.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Twice.",
+          "start": 0.11,
+          "end": 0.63,
+          "key": "twice",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Twice.\"",
+          "start": 0.11,
+          "end": 0.63
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1071203276515007
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ab08b7a0b3c5ba0cc99628c73a36385da41547432227b7041ecfe4d40daf1b3f",
+  "selected_reasons": []
+}

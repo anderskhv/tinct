@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "f271a43d6ad7d3e9f6abd6762350e976a7ea9a01754fa60dff02195d1c4bad69",
+  "attempts": [
+    {
+      "asr_seconds": 0.15067993104457855,
+      "alignment_seconds": 0.0002064742147922516,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "When dusk descended, the whale was still in sight to leeward.",
+        "hotwords": "When"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " When dusk descended, the whale was still in sight to leeward.",
+          "start": 0.05,
+          "end": 3.41,
+          "words": [
+            {
+              "text": " When",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.978515625
+            },
+            {
+              "text": " dusk",
+              "start": 0.53,
+              "end": 0.79,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " descended,",
+              "start": 0.79,
+              "end": 1.33,
+              "probability": 0.9921875
+            },
+            {
+              "text": " the",
+              "start": 1.81,
+              "end": 1.85,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " whale",
+              "start": 1.85,
+              "end": 2.05,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " was",
+              "start": 2.05,
+              "end": 2.25,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " still",
+              "start": 2.25,
+              "end": 2.45,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 2.45,
+              "end": 2.61,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " sight",
+              "start": 2.61,
+              "end": 2.83,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 2.83,
+              "end": 3.03,
+              "probability": 0.80078125
+            },
+            {
+              "text": " leeward.",
+              "start": 3.03,
+              "end": 3.41,
+              "probability": 0.8346354166666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "When",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "dusk",
+          "start": 0.53,
+          "end": 0.79
+        },
+        {
+          "raw": "descended,",
+          "start": 0.79,
+          "end": 1.33
+        },
+        {
+          "raw": "the",
+          "start": 1.81,
+          "end": 1.85
+        },
+        {
+          "raw": "whale",
+          "start": 1.85,
+          "end": 2.05
+        },
+        {
+          "raw": "was",
+          "start": 2.05,
+          "end": 2.25
+        },
+        {
+          "raw": "still",
+          "start": 2.25,
+          "end": 2.45
+        },
+        {
+          "raw": "in",
+          "start": 2.45,
+          "end": 2.61
+        },
+        {
+          "raw": "sight",
+          "start": 2.61,
+          "end": 2.83
+        },
+        {
+          "raw": "to",
+          "start": 2.83,
+          "end": 3.03
+        },
+        {
+          "raw": "leeward.",
+          "start": 3.03,
+          "end": 3.41
+        }
+      ],
+      "expected_tokens": [
+        "When",
+        "dusk",
+        "descended,",
+        "the",
+        "whale",
+        "was",
+        "still",
+        "in",
+        "sight",
+        "to",
+        "leeward."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "When",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "when",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "dusk",
+          "start": 0.53,
+          "end": 0.79,
+          "key": "dusk",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "descended,",
+          "start": 0.79,
+          "end": 1.33,
+          "key": "descended",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.81,
+          "end": 1.85,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "whale",
+          "start": 1.85,
+          "end": 2.05,
+          "key": "whale",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 2.05,
+          "end": 2.25,
+          "key": "was",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "still",
+          "start": 2.25,
+          "end": 2.45,
+          "key": "still",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.45,
+          "end": 2.61,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "sight",
+          "start": 2.61,
+          "end": 2.83,
+          "key": "sight",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.83,
+          "end": 3.03,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "leeward.",
+          "start": 3.03,
+          "end": 3.41,
+          "key": "leeward",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "When",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "dusk",
+          "start": 0.53,
+          "end": 0.79
+        },
+        {
+          "text": "descended,",
+          "start": 0.79,
+          "end": 1.33
+        },
+        {
+          "text": "the",
+          "start": 1.81,
+          "end": 1.85
+        },
+        {
+          "text": "whale",
+          "start": 1.85,
+          "end": 2.05
+        },
+        {
+          "text": "was",
+          "start": 2.05,
+          "end": 2.25
+        },
+        {
+          "text": "still",
+          "start": 2.25,
+          "end": 2.45
+        },
+        {
+          "text": "in",
+          "start": 2.45,
+          "end": 2.61
+        },
+        {
+          "text": "sight",
+          "start": 2.61,
+          "end": 2.83
+        },
+        {
+          "text": "to",
+          "start": 2.83,
+          "end": 3.03
+        },
+        {
+          "text": "leeward.",
+          "start": 3.03,
+          "end": 3.41
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15097998827695847
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7f0d6152d1ff4e92da039d06ef47ffb5ad47e4ca0b26bbf356d19cd89ac92710",
+  "selected_reasons": []
+}

@@ -1,0 +1,650 @@
+{
+  "complete": true,
+  "signature": "07f8a455d1dd1d5beb6313ef56231206e732ca7a7aacae670dbda2cf45abd962",
+  "attempts": [
+    {
+      "asr_seconds": 0.35392408072948456,
+      "alignment_seconds": 0.0005681216716766357,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Man my boat!\" cried Ahab, impetuously, and tossing about the oars near him—\"Stand by to lower!\"",
+        "hotwords": "Man, Ahab"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Man my boat!\" cried Ahab, impetuously, and tossing about the oars near him—\"Stand by to lower!\"",
+          "start": 0.02,
+          "end": 7.14,
+          "words": [
+            {
+              "text": " Man",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.041412353515625
+            },
+            {
+              "text": " my",
+              "start": 0.66,
+              "end": 0.84,
+              "probability": 0.79833984375
+            },
+            {
+              "text": " boat",
+              "start": 0.84,
+              "end": 1.22,
+              "probability": 0.9853515625
+            },
+            {
+              "text": "!\"",
+              "start": 1.22,
+              "end": 1.58,
+              "probability": 0.1541748046875
+            },
+            {
+              "text": " cried",
+              "start": 1.58,
+              "end": 1.86,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " Ahab,",
+              "start": 1.86,
+              "end": 2.3,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " impetuously,",
+              "start": 2.42,
+              "end": 2.98,
+              "probability": 0.9798177083333334
+            },
+            {
+              "text": " and",
+              "start": 3.42,
+              "end": 3.5,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " tossing",
+              "start": 3.5,
+              "end": 3.82,
+              "probability": 0.90087890625
+            },
+            {
+              "text": " about",
+              "start": 3.82,
+              "end": 4.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 4.04,
+              "end": 4.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " oars",
+              "start": 4.2,
+              "end": 4.5,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " near",
+              "start": 4.5,
+              "end": 4.68,
+              "probability": 0.998046875
+            },
+            {
+              "text": " him—\"Stand",
+              "start": 4.68,
+              "end": 5.78,
+              "probability": 0.5231535832087199
+            },
+            {
+              "text": " by",
+              "start": 5.78,
+              "end": 6.02,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " to",
+              "start": 6.02,
+              "end": 6.18,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " lower",
+              "start": 6.18,
+              "end": 6.4,
+              "probability": 0.97998046875
+            },
+            {
+              "text": "!\"",
+              "start": 6.4,
+              "end": 7.14,
+              "probability": 0.416015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Man",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "my",
+          "start": 0.66,
+          "end": 0.84
+        },
+        {
+          "raw": "boat",
+          "start": 0.84,
+          "end": 1.22
+        },
+        {
+          "raw": "!\"",
+          "start": 1.22,
+          "end": 1.58
+        },
+        {
+          "raw": "cried",
+          "start": 1.58,
+          "end": 1.86
+        },
+        {
+          "raw": "Ahab,",
+          "start": 1.86,
+          "end": 2.3
+        },
+        {
+          "raw": "impetuously,",
+          "start": 2.42,
+          "end": 2.98
+        },
+        {
+          "raw": "and",
+          "start": 3.42,
+          "end": 3.5
+        },
+        {
+          "raw": "tossing",
+          "start": 3.5,
+          "end": 3.82
+        },
+        {
+          "raw": "about",
+          "start": 3.82,
+          "end": 4.04
+        },
+        {
+          "raw": "the",
+          "start": 4.04,
+          "end": 4.2
+        },
+        {
+          "raw": "oars",
+          "start": 4.2,
+          "end": 4.5
+        },
+        {
+          "raw": "near",
+          "start": 4.5,
+          "end": 4.68
+        },
+        {
+          "raw": "him—\"Stand",
+          "start": 4.68,
+          "end": 5.78
+        },
+        {
+          "raw": "by",
+          "start": 5.78,
+          "end": 6.02
+        },
+        {
+          "raw": "to",
+          "start": 6.02,
+          "end": 6.18
+        },
+        {
+          "raw": "lower",
+          "start": 6.18,
+          "end": 6.4
+        },
+        {
+          "raw": "!\"",
+          "start": 6.4,
+          "end": 7.14
+        }
+      ],
+      "expected_tokens": [
+        "\"Man",
+        "my",
+        "boat!\"",
+        "cried",
+        "Ahab,",
+        "impetuously,",
+        "and",
+        "tossing",
+        "about",
+        "the",
+        "oars",
+        "near",
+        "him—\"Stand",
+        "by",
+        "to",
+        "lower!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "insert",
+          3,
+          3,
+          3,
+          4
+        ],
+        [
+          "equal",
+          3,
+          16,
+          4,
+          17
+        ],
+        [
+          "insert",
+          16,
+          16,
+          17,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          3,
+          3,
+          3,
+          4
+        ],
+        [
+          "insert",
+          16,
+          16,
+          17,
+          18
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Man",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "man",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 0.66,
+          "end": 0.84,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "boat",
+          "start": 0.84,
+          "end": 1.22,
+          "key": "boat",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 1.22,
+          "end": 1.58,
+          "key": "",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 1.58,
+          "end": 1.86,
+          "key": "cried",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Ahab,",
+          "start": 1.86,
+          "end": 2.3,
+          "key": "ahab",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "impetuously,",
+          "start": 2.42,
+          "end": 2.98,
+          "key": "impetuously",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.42,
+          "end": 3.5,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "tossing",
+          "start": 3.5,
+          "end": 3.82,
+          "key": "tossing",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 3.82,
+          "end": 4.04,
+          "key": "about",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.04,
+          "end": 4.2,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "oars",
+          "start": 4.2,
+          "end": 4.5,
+          "key": "oars",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "near",
+          "start": 4.5,
+          "end": 4.68,
+          "key": "near",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "him—\"Stand",
+          "start": 4.68,
+          "end": 5.78,
+          "key": "himstand",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 5.78,
+          "end": 6.02,
+          "key": "by",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 6.02,
+          "end": 6.18,
+          "key": "to",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "lower",
+          "start": 6.18,
+          "end": 6.4,
+          "key": "lower",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 6.4,
+          "end": 7.14,
+          "key": "",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Man",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "my",
+          "start": 0.66,
+          "end": 0.84
+        },
+        {
+          "text": "boat!\"",
+          "start": 0.84,
+          "end": 1.22
+        },
+        {
+          "text": "cried",
+          "start": 1.58,
+          "end": 1.86
+        },
+        {
+          "text": "Ahab,",
+          "start": 1.86,
+          "end": 2.3
+        },
+        {
+          "text": "impetuously,",
+          "start": 2.42,
+          "end": 2.98
+        },
+        {
+          "text": "and",
+          "start": 3.42,
+          "end": 3.5
+        },
+        {
+          "text": "tossing",
+          "start": 3.5,
+          "end": 3.82
+        },
+        {
+          "text": "about",
+          "start": 3.82,
+          "end": 4.04
+        },
+        {
+          "text": "the",
+          "start": 4.04,
+          "end": 4.2
+        },
+        {
+          "text": "oars",
+          "start": 4.2,
+          "end": 4.5
+        },
+        {
+          "text": "near",
+          "start": 4.5,
+          "end": 4.68
+        },
+        {
+          "text": "him—\"Stand",
+          "start": 4.68,
+          "end": 5.78
+        },
+        {
+          "text": "by",
+          "start": 5.78,
+          "end": 6.02
+        },
+        {
+          "text": "to",
+          "start": 6.02,
+          "end": 6.18
+        },
+        {
+          "text": "lower!\"",
+          "start": 6.18,
+          "end": 6.4
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 18,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.35470208153128624
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "af51a7b3eedc5ba3eb8a96bd2b75a2ebd4e55672b8a33803bf419e192deadb23",
+  "selected_reasons": []
+}

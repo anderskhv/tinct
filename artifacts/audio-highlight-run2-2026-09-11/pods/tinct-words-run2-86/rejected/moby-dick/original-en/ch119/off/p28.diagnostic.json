@@ -1,0 +1,402 @@
+{
+  "complete": true,
+  "signature": "29d815559439edb26d0cafe4b2c4c934a25561b187ec0d3fa4ee61b4b5ca5ea6",
+  "attempts": [
+    {
+      "asr_seconds": 0.18065714091062546,
+      "alignment_seconds": 0.0003715492784976959,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The corpusants have mercy on us all, cried Stub again.",
+          "start": 0.02,
+          "end": 3.54,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.67626953125
+            },
+            {
+              "text": " corpusants",
+              "start": 0.52,
+              "end": 1.02,
+              "probability": 0.4955240885416667
+            },
+            {
+              "text": " have",
+              "start": 1.02,
+              "end": 1.24,
+              "probability": 0.98828125
+            },
+            {
+              "text": " mercy",
+              "start": 1.24,
+              "end": 1.48,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " on",
+              "start": 1.48,
+              "end": 1.76,
+              "probability": 0.998046875
+            },
+            {
+              "text": " us",
+              "start": 1.76,
+              "end": 1.88,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " all,",
+              "start": 1.88,
+              "end": 2.26,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " cried",
+              "start": 2.76,
+              "end": 2.8,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Stub",
+              "start": 2.8,
+              "end": 3.1,
+              "probability": 0.830078125
+            },
+            {
+              "text": " again.",
+              "start": 3.1,
+              "end": 3.54,
+              "probability": 0.939453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "corpusants",
+          "start": 0.52,
+          "end": 1.02
+        },
+        {
+          "raw": "have",
+          "start": 1.02,
+          "end": 1.24
+        },
+        {
+          "raw": "mercy",
+          "start": 1.24,
+          "end": 1.48
+        },
+        {
+          "raw": "on",
+          "start": 1.48,
+          "end": 1.76
+        },
+        {
+          "raw": "us",
+          "start": 1.76,
+          "end": 1.88
+        },
+        {
+          "raw": "all,",
+          "start": 1.88,
+          "end": 2.26
+        },
+        {
+          "raw": "cried",
+          "start": 2.76,
+          "end": 2.8
+        },
+        {
+          "raw": "Stub",
+          "start": 2.8,
+          "end": 3.1
+        },
+        {
+          "raw": "again.",
+          "start": 3.1,
+          "end": 3.54
+        }
+      ],
+      "expected_tokens": [
+        "\"The",
+        "corpusants",
+        "have",
+        "mercy",
+        "on",
+        "us",
+        "all,\"",
+        "cried",
+        "Stubb,",
+        "again."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "equal",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "corpusants",
+          "start": 0.52,
+          "end": 1.02,
+          "key": "corpusants",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.02,
+          "end": 1.24,
+          "key": "have",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "mercy",
+          "start": 1.24,
+          "end": 1.48,
+          "key": "mercy",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.48,
+          "end": 1.76,
+          "key": "on",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 1.76,
+          "end": 1.88,
+          "key": "us",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "all,",
+          "start": 1.88,
+          "end": 2.26,
+          "key": "all",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 2.76,
+          "end": 2.8,
+          "key": "cried",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Stub",
+          "start": 2.8,
+          "end": 3.1,
+          "key": "stub",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "again.",
+          "start": 3.1,
+          "end": 3.54,
+          "key": "again",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"The",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "corpusants",
+          "start": 0.52,
+          "end": 1.02
+        },
+        {
+          "text": "have",
+          "start": 1.02,
+          "end": 1.24
+        },
+        {
+          "text": "mercy",
+          "start": 1.24,
+          "end": 1.48
+        },
+        {
+          "text": "on",
+          "start": 1.48,
+          "end": 1.76
+        },
+        {
+          "text": "us",
+          "start": 1.76,
+          "end": 1.88
+        },
+        {
+          "text": "all,\"",
+          "start": 1.88,
+          "end": 2.26
+        },
+        {
+          "text": "cried",
+          "start": 2.76,
+          "end": 2.8
+        },
+        {
+          "text": "Stubb,",
+          "start": 2.8,
+          "end": 2.95
+        },
+        {
+          "text": "again.",
+          "start": 3.1,
+          "end": 3.54
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.18126562610268593
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "10f452c3bfb1f07feaada3b6ada6d3069209fe1a1b054f9ac7cc805193723f9a",
+  "selected_reasons": []
+}

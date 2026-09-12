@@ -1,0 +1,1629 @@
+{
+  "complete": true,
+  "signature": "e42c8ee744ee56854270c9f1080ffeb82e69bac73822f8d7c7c8d66e25d71962",
+  "attempts": [
+    {
+      "asr_seconds": 0.7311972714960575,
+      "alignment_seconds": 0.0017876960337162018,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Stubb saw him pause; and perhaps intending, not vainly, though, to evince his own unabated fortitude, and thus keep up a valiant place in his Captain's mind, he advanced, and eyeing the wreck exclaimed—\"The thistle the ass refused; it pricked his mouth too keenly, sir; ha! ha!\"",
+        "hotwords": "Stubb, Captain's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Stubb saw him pause, and perhaps intending, not vainly, though, to evince his own unabated",
+          "start": 0.05,
+          "end": 5.77,
+          "words": [
+            {
+              "text": " Stubb",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.460906982421875
+            },
+            {
+              "text": " saw",
+              "start": 0.57,
+              "end": 0.83,
+              "probability": 0.994140625
+            },
+            {
+              "text": " him",
+              "start": 0.83,
+              "end": 1.05,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " pause,",
+              "start": 1.05,
+              "end": 1.43,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 1.85,
+              "end": 2.01,
+              "probability": 0.998046875
+            },
+            {
+              "text": " perhaps",
+              "start": 2.01,
+              "end": 2.31,
+              "probability": 0.83984375
+            },
+            {
+              "text": " intending,",
+              "start": 2.31,
+              "end": 2.87,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " not",
+              "start": 3.09,
+              "end": 3.29,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " vainly,",
+              "start": 3.29,
+              "end": 3.77,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " though,",
+              "start": 3.87,
+              "end": 3.99,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 4.31,
+              "end": 4.41,
+              "probability": 0.998046875
+            },
+            {
+              "text": " evince",
+              "start": 4.41,
+              "end": 4.73,
+              "probability": 0.555389404296875
+            },
+            {
+              "text": " his",
+              "start": 4.73,
+              "end": 4.85,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " own",
+              "start": 4.85,
+              "end": 5.15,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " unabated",
+              "start": 5.15,
+              "end": 5.77,
+              "probability": 0.992431640625
+            }
+          ]
+        },
+        {
+          "text": " fortitude, and thus keep up a valiant place in his Captain's mind, he advanced, and eyeing",
+          "start": 5.77,
+          "end": 10.81,
+          "words": [
+            {
+              "text": " fortitude,",
+              "start": 5.77,
+              "end": 6.35,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 6.59,
+              "end": 6.63,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " thus",
+              "start": 6.63,
+              "end": 6.83,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " keep",
+              "start": 6.83,
+              "end": 7.03,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " up",
+              "start": 7.03,
+              "end": 7.17,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 7.17,
+              "end": 7.35,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " valiant",
+              "start": 7.35,
+              "end": 7.59,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " place",
+              "start": 7.59,
+              "end": 7.93,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " in",
+              "start": 7.93,
+              "end": 8.11,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " his",
+              "start": 8.11,
+              "end": 8.27,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Captain's",
+              "start": 8.27,
+              "end": 8.77,
+              "probability": 0.556488037109375
+            },
+            {
+              "text": " mind,",
+              "start": 8.77,
+              "end": 9.01,
+              "probability": 0.99609375
+            },
+            {
+              "text": " he",
+              "start": 9.51,
+              "end": 9.63,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " advanced,",
+              "start": 9.63,
+              "end": 10.09,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " and",
+              "start": 10.51,
+              "end": 10.59,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " eyeing",
+              "start": 10.59,
+              "end": 10.81,
+              "probability": 0.6796875
+            }
+          ]
+        },
+        {
+          "text": " the wreck exclaimed—\"The thistle the ass refused, it pricked his mouth too keenly,",
+          "start": 10.81,
+          "end": 16.13,
+          "words": [
+            {
+              "text": " the",
+              "start": 10.81,
+              "end": 11.03,
+              "probability": 0.994140625
+            },
+            {
+              "text": " wreck",
+              "start": 11.03,
+              "end": 11.19,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " exclaimed—\"The",
+              "start": 11.19,
+              "end": 12.75,
+              "probability": 0.4590061902999878
+            },
+            {
+              "text": " thistle",
+              "start": 12.75,
+              "end": 13.05,
+              "probability": 0.900390625
+            },
+            {
+              "text": " the",
+              "start": 13.05,
+              "end": 13.23,
+              "probability": 0.58837890625
+            },
+            {
+              "text": " ass",
+              "start": 13.23,
+              "end": 13.51,
+              "probability": 0.83642578125
+            },
+            {
+              "text": " refused,",
+              "start": 13.51,
+              "end": 14.05,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " it",
+              "start": 14.57,
+              "end": 14.75,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " pricked",
+              "start": 14.75,
+              "end": 14.99,
+              "probability": 0.986572265625
+            },
+            {
+              "text": " his",
+              "start": 14.99,
+              "end": 15.15,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " mouth",
+              "start": 15.15,
+              "end": 15.35,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " too",
+              "start": 15.35,
+              "end": 15.63,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " keenly,",
+              "start": 15.63,
+              "end": 16.13,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " sir.",
+          "start": 16.13,
+          "end": 16.39,
+          "words": [
+            {
+              "text": " sir.",
+              "start": 16.13,
+              "end": 16.39,
+              "probability": 0.09539794921875
+            }
+          ]
+        },
+        {
+          "text": " Ha! ha!\"",
+          "start": 16.81,
+          "end": 18.22,
+          "words": [
+            {
+              "text": " Ha!",
+              "start": 16.81,
+              "end": 17.21,
+              "probability": 0.64404296875
+            },
+            {
+              "text": " ha",
+              "start": 17.71,
+              "end": 17.81,
+              "probability": 0.042694091796875
+            },
+            {
+              "text": "!\"",
+              "start": 17.81,
+              "end": 18.22,
+              "probability": 0.01471710205078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Stubb",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "saw",
+          "start": 0.57,
+          "end": 0.83
+        },
+        {
+          "raw": "him",
+          "start": 0.83,
+          "end": 1.05
+        },
+        {
+          "raw": "pause,",
+          "start": 1.05,
+          "end": 1.43
+        },
+        {
+          "raw": "and",
+          "start": 1.85,
+          "end": 2.01
+        },
+        {
+          "raw": "perhaps",
+          "start": 2.01,
+          "end": 2.31
+        },
+        {
+          "raw": "intending,",
+          "start": 2.31,
+          "end": 2.87
+        },
+        {
+          "raw": "not",
+          "start": 3.09,
+          "end": 3.29
+        },
+        {
+          "raw": "vainly,",
+          "start": 3.29,
+          "end": 3.77
+        },
+        {
+          "raw": "though,",
+          "start": 3.87,
+          "end": 3.99
+        },
+        {
+          "raw": "to",
+          "start": 4.31,
+          "end": 4.41
+        },
+        {
+          "raw": "evince",
+          "start": 4.41,
+          "end": 4.73
+        },
+        {
+          "raw": "his",
+          "start": 4.73,
+          "end": 4.85
+        },
+        {
+          "raw": "own",
+          "start": 4.85,
+          "end": 5.15
+        },
+        {
+          "raw": "unabated",
+          "start": 5.15,
+          "end": 5.77
+        },
+        {
+          "raw": "fortitude,",
+          "start": 5.77,
+          "end": 6.35
+        },
+        {
+          "raw": "and",
+          "start": 6.59,
+          "end": 6.63
+        },
+        {
+          "raw": "thus",
+          "start": 6.63,
+          "end": 6.83
+        },
+        {
+          "raw": "keep",
+          "start": 6.83,
+          "end": 7.03
+        },
+        {
+          "raw": "up",
+          "start": 7.03,
+          "end": 7.17
+        },
+        {
+          "raw": "a",
+          "start": 7.17,
+          "end": 7.35
+        },
+        {
+          "raw": "valiant",
+          "start": 7.35,
+          "end": 7.59
+        },
+        {
+          "raw": "place",
+          "start": 7.59,
+          "end": 7.93
+        },
+        {
+          "raw": "in",
+          "start": 7.93,
+          "end": 8.11
+        },
+        {
+          "raw": "his",
+          "start": 8.11,
+          "end": 8.27
+        },
+        {
+          "raw": "Captain's",
+          "start": 8.27,
+          "end": 8.77
+        },
+        {
+          "raw": "mind,",
+          "start": 8.77,
+          "end": 9.01
+        },
+        {
+          "raw": "he",
+          "start": 9.51,
+          "end": 9.63
+        },
+        {
+          "raw": "advanced,",
+          "start": 9.63,
+          "end": 10.09
+        },
+        {
+          "raw": "and",
+          "start": 10.51,
+          "end": 10.59
+        },
+        {
+          "raw": "eyeing",
+          "start": 10.59,
+          "end": 10.81
+        },
+        {
+          "raw": "the",
+          "start": 10.81,
+          "end": 11.03
+        },
+        {
+          "raw": "wreck",
+          "start": 11.03,
+          "end": 11.19
+        },
+        {
+          "raw": "exclaimed—\"The",
+          "start": 11.19,
+          "end": 12.75
+        },
+        {
+          "raw": "thistle",
+          "start": 12.75,
+          "end": 13.05
+        },
+        {
+          "raw": "the",
+          "start": 13.05,
+          "end": 13.23
+        },
+        {
+          "raw": "ass",
+          "start": 13.23,
+          "end": 13.51
+        },
+        {
+          "raw": "refused,",
+          "start": 13.51,
+          "end": 14.05
+        },
+        {
+          "raw": "it",
+          "start": 14.57,
+          "end": 14.75
+        },
+        {
+          "raw": "pricked",
+          "start": 14.75,
+          "end": 14.99
+        },
+        {
+          "raw": "his",
+          "start": 14.99,
+          "end": 15.15
+        },
+        {
+          "raw": "mouth",
+          "start": 15.15,
+          "end": 15.35
+        },
+        {
+          "raw": "too",
+          "start": 15.35,
+          "end": 15.63
+        },
+        {
+          "raw": "keenly,",
+          "start": 15.63,
+          "end": 16.13
+        },
+        {
+          "raw": "sir.",
+          "start": 16.13,
+          "end": 16.39
+        },
+        {
+          "raw": "Ha!",
+          "start": 16.81,
+          "end": 17.21
+        },
+        {
+          "raw": "ha",
+          "start": 17.71,
+          "end": 17.81
+        },
+        {
+          "raw": "!\"",
+          "start": 17.81,
+          "end": 18.22
+        }
+      ],
+      "expected_tokens": [
+        "Stubb",
+        "saw",
+        "him",
+        "pause;",
+        "and",
+        "perhaps",
+        "intending,",
+        "not",
+        "vainly,",
+        "though,",
+        "to",
+        "evince",
+        "his",
+        "own",
+        "unabated",
+        "fortitude,",
+        "and",
+        "thus",
+        "keep",
+        "up",
+        "a",
+        "valiant",
+        "place",
+        "in",
+        "his",
+        "Captain's",
+        "mind,",
+        "he",
+        "advanced,",
+        "and",
+        "eyeing",
+        "the",
+        "wreck",
+        "exclaimed—\"The",
+        "thistle",
+        "the",
+        "ass",
+        "refused;",
+        "it",
+        "pricked",
+        "his",
+        "mouth",
+        "too",
+        "keenly,",
+        "sir;",
+        "ha!",
+        "ha!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          47,
+          0,
+          47
+        ],
+        [
+          "insert",
+          47,
+          47,
+          47,
+          48
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          47,
+          47,
+          47,
+          48
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Stubb",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "stubb",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "saw",
+          "start": 0.57,
+          "end": 0.83,
+          "key": "saw",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 0.83,
+          "end": 1.05,
+          "key": "him",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "pause,",
+          "start": 1.05,
+          "end": 1.43,
+          "key": "pause",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.85,
+          "end": 2.01,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "perhaps",
+          "start": 2.01,
+          "end": 2.31,
+          "key": "perhaps",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "intending,",
+          "start": 2.31,
+          "end": 2.87,
+          "key": "intending",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.09,
+          "end": 3.29,
+          "key": "not",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "vainly,",
+          "start": 3.29,
+          "end": 3.77,
+          "key": "vainly",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "though,",
+          "start": 3.87,
+          "end": 3.99,
+          "key": "though",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.31,
+          "end": 4.41,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "evince",
+          "start": 4.41,
+          "end": 4.73,
+          "key": "evince",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.73,
+          "end": 4.85,
+          "key": "his",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "own",
+          "start": 4.85,
+          "end": 5.15,
+          "key": "own",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "unabated",
+          "start": 5.15,
+          "end": 5.77,
+          "key": "unabated",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "fortitude,",
+          "start": 5.77,
+          "end": 6.35,
+          "key": "fortitude",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.59,
+          "end": 6.63,
+          "key": "and",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "thus",
+          "start": 6.63,
+          "end": 6.83,
+          "key": "thus",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "keep",
+          "start": 6.83,
+          "end": 7.03,
+          "key": "keep",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 7.03,
+          "end": 7.17,
+          "key": "up",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 7.17,
+          "end": 7.35,
+          "key": "a",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "valiant",
+          "start": 7.35,
+          "end": 7.59,
+          "key": "valiant",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "place",
+          "start": 7.59,
+          "end": 7.93,
+          "key": "place",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 7.93,
+          "end": 8.11,
+          "key": "in",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 8.11,
+          "end": 8.27,
+          "key": "his",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Captain's",
+          "start": 8.27,
+          "end": 8.77,
+          "key": "captains",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "mind,",
+          "start": 8.77,
+          "end": 9.01,
+          "key": "mind",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 9.51,
+          "end": 9.63,
+          "key": "he",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "advanced,",
+          "start": 9.63,
+          "end": 10.09,
+          "key": "advanced",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 10.51,
+          "end": 10.59,
+          "key": "and",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "eyeing",
+          "start": 10.59,
+          "end": 10.81,
+          "key": "eyeing",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.81,
+          "end": 11.03,
+          "key": "the",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "wreck",
+          "start": 11.03,
+          "end": 11.19,
+          "key": "wreck",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "exclaimed—\"The",
+          "start": 11.19,
+          "end": 12.75,
+          "key": "exclaimedthe",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "thistle",
+          "start": 12.75,
+          "end": 13.05,
+          "key": "thistle",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.05,
+          "end": 13.23,
+          "key": "the",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "ass",
+          "start": 13.23,
+          "end": 13.51,
+          "key": "ass",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "refused,",
+          "start": 13.51,
+          "end": 14.05,
+          "key": "refused",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 14.57,
+          "end": 14.75,
+          "key": "it",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "pricked",
+          "start": 14.75,
+          "end": 14.99,
+          "key": "pricked",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 14.99,
+          "end": 15.15,
+          "key": "his",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "mouth",
+          "start": 15.15,
+          "end": 15.35,
+          "key": "mouth",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 15.35,
+          "end": 15.63,
+          "key": "too",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "keenly,",
+          "start": 15.63,
+          "end": 16.13,
+          "key": "keenly",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 16.13,
+          "end": 16.39,
+          "key": "sir",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "Ha!",
+          "start": 16.81,
+          "end": 17.21,
+          "key": "ha",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "ha",
+          "start": 17.71,
+          "end": 17.81,
+          "key": "ha",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 17.81,
+          "end": 18.22,
+          "key": "",
+          "pieces": [
+            47
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Stubb",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "saw",
+          "start": 0.57,
+          "end": 0.83
+        },
+        {
+          "text": "him",
+          "start": 0.83,
+          "end": 1.05
+        },
+        {
+          "text": "pause;",
+          "start": 1.05,
+          "end": 1.43
+        },
+        {
+          "text": "and",
+          "start": 1.85,
+          "end": 2.01
+        },
+        {
+          "text": "perhaps",
+          "start": 2.01,
+          "end": 2.31
+        },
+        {
+          "text": "intending,",
+          "start": 2.31,
+          "end": 2.87
+        },
+        {
+          "text": "not",
+          "start": 3.09,
+          "end": 3.29
+        },
+        {
+          "text": "vainly,",
+          "start": 3.29,
+          "end": 3.77
+        },
+        {
+          "text": "though,",
+          "start": 3.87,
+          "end": 3.99
+        },
+        {
+          "text": "to",
+          "start": 4.31,
+          "end": 4.41
+        },
+        {
+          "text": "evince",
+          "start": 4.41,
+          "end": 4.73
+        },
+        {
+          "text": "his",
+          "start": 4.73,
+          "end": 4.85
+        },
+        {
+          "text": "own",
+          "start": 4.85,
+          "end": 5.15
+        },
+        {
+          "text": "unabated",
+          "start": 5.15,
+          "end": 5.77
+        },
+        {
+          "text": "fortitude,",
+          "start": 5.77,
+          "end": 6.35
+        },
+        {
+          "text": "and",
+          "start": 6.59,
+          "end": 6.63
+        },
+        {
+          "text": "thus",
+          "start": 6.63,
+          "end": 6.83
+        },
+        {
+          "text": "keep",
+          "start": 6.83,
+          "end": 7.03
+        },
+        {
+          "text": "up",
+          "start": 7.03,
+          "end": 7.17
+        },
+        {
+          "text": "a",
+          "start": 7.17,
+          "end": 7.35
+        },
+        {
+          "text": "valiant",
+          "start": 7.35,
+          "end": 7.59
+        },
+        {
+          "text": "place",
+          "start": 7.59,
+          "end": 7.93
+        },
+        {
+          "text": "in",
+          "start": 7.93,
+          "end": 8.11
+        },
+        {
+          "text": "his",
+          "start": 8.11,
+          "end": 8.27
+        },
+        {
+          "text": "Captain's",
+          "start": 8.27,
+          "end": 8.77
+        },
+        {
+          "text": "mind,",
+          "start": 8.77,
+          "end": 9.01
+        },
+        {
+          "text": "he",
+          "start": 9.51,
+          "end": 9.63
+        },
+        {
+          "text": "advanced,",
+          "start": 9.63,
+          "end": 10.09
+        },
+        {
+          "text": "and",
+          "start": 10.51,
+          "end": 10.59
+        },
+        {
+          "text": "eyeing",
+          "start": 10.59,
+          "end": 10.81
+        },
+        {
+          "text": "the",
+          "start": 10.81,
+          "end": 11.03
+        },
+        {
+          "text": "wreck",
+          "start": 11.03,
+          "end": 11.19
+        },
+        {
+          "text": "exclaimed—\"The",
+          "start": 11.19,
+          "end": 12.75
+        },
+        {
+          "text": "thistle",
+          "start": 12.75,
+          "end": 13.05
+        },
+        {
+          "text": "the",
+          "start": 13.05,
+          "end": 13.23
+        },
+        {
+          "text": "ass",
+          "start": 13.23,
+          "end": 13.51
+        },
+        {
+          "text": "refused;",
+          "start": 13.51,
+          "end": 14.05
+        },
+        {
+          "text": "it",
+          "start": 14.57,
+          "end": 14.75
+        },
+        {
+          "text": "pricked",
+          "start": 14.75,
+          "end": 14.99
+        },
+        {
+          "text": "his",
+          "start": 14.99,
+          "end": 15.15
+        },
+        {
+          "text": "mouth",
+          "start": 15.15,
+          "end": 15.35
+        },
+        {
+          "text": "too",
+          "start": 15.35,
+          "end": 15.63
+        },
+        {
+          "text": "keenly,",
+          "start": 15.63,
+          "end": 16.13
+        },
+        {
+          "text": "sir;",
+          "start": 16.13,
+          "end": 16.39
+        },
+        {
+          "text": "ha!",
+          "start": 16.81,
+          "end": 17.21
+        },
+        {
+          "text": "ha!\"",
+          "start": 17.71,
+          "end": 17.81
+        }
+      ],
+      "stats": {
+        "expected_words": 47,
+        "heard_words": 48,
+        "matched_words": 47
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.7337868474423885
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0da021245f003c97205a5a3b00fd50900801dd8de08dab638906ad0796598407",
+  "selected_reasons": []
+}

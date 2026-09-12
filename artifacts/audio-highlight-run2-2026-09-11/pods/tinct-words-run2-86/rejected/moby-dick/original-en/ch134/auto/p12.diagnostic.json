@@ -1,0 +1,1651 @@
+{
+  "complete": true,
+  "signature": "6a830b73e743330a7828f9143eaf68c1e6ff4d0d25ad622323d56dd9fefd9516",
+  "attempts": [
+    {
+      "asr_seconds": 0.6462579034268856,
+      "alignment_seconds": 0.0015469789505004883,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Why sing ye not out for him, if ye see him?\" cried Ahab, when, after the lapse of some minutes since the first cry, no more had been heard. \"Sway me up, men; ye have been deceived; not Moby Dick casts one odd jet that way, and then disappears.\"",
+        "hotwords": "Why, Ahab, Sway, Moby, Dick"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Why sing ye not out for him, if ye see him?\" cried Ahab, when, after the lapse of some minutes",
+          "start": 0.02,
+          "end": 5.64,
+          "words": [
+            {
+              "text": " Why",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.0465087890625
+            },
+            {
+              "text": " sing",
+              "start": 0.58,
+              "end": 0.86,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " ye",
+              "start": 0.86,
+              "end": 0.98,
+              "probability": 0.9609375
+            },
+            {
+              "text": " not",
+              "start": 0.98,
+              "end": 1.12,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " out",
+              "start": 1.12,
+              "end": 1.32,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " for",
+              "start": 1.32,
+              "end": 1.48,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " him,",
+              "start": 1.48,
+              "end": 1.68,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " if",
+              "start": 1.74,
+              "end": 1.84,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " ye",
+              "start": 1.84,
+              "end": 1.98,
+              "probability": 0.98046875
+            },
+            {
+              "text": " see",
+              "start": 1.98,
+              "end": 2.18,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " him?\"",
+              "start": 2.18,
+              "end": 2.86,
+              "probability": 0.630126953125
+            },
+            {
+              "text": " cried",
+              "start": 2.86,
+              "end": 3.12,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " Ahab,",
+              "start": 3.12,
+              "end": 3.58,
+              "probability": 0.950927734375
+            },
+            {
+              "text": " when,",
+              "start": 3.98,
+              "end": 4.22,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " after",
+              "start": 4.34,
+              "end": 4.62,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 4.62,
+              "end": 4.78,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " lapse",
+              "start": 4.78,
+              "end": 5.0,
+              "probability": 0.8955078125
+            },
+            {
+              "text": " of",
+              "start": 5.0,
+              "end": 5.2,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " some",
+              "start": 5.2,
+              "end": 5.38,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " minutes",
+              "start": 5.38,
+              "end": 5.64,
+              "probability": 0.974609375
+            }
+          ]
+        },
+        {
+          "text": " since the first cry, no more had been heard.",
+          "start": 5.64,
+          "end": 7.96,
+          "words": [
+            {
+              "text": " since",
+              "start": 5.64,
+              "end": 5.88,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 5.88,
+              "end": 6.06,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " first",
+              "start": 6.06,
+              "end": 6.3,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " cry,",
+              "start": 6.3,
+              "end": 6.7,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " no",
+              "start": 7.0,
+              "end": 7.12,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " more",
+              "start": 7.12,
+              "end": 7.32,
+              "probability": 0.998046875
+            },
+            {
+              "text": " had",
+              "start": 7.32,
+              "end": 7.5,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " been",
+              "start": 7.5,
+              "end": 7.66,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " heard.",
+              "start": 7.66,
+              "end": 7.96,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " Sway me up, men, ye have been deceived, not Moby Dick casts one odd jet that way,",
+          "start": 8.66,
+          "end": 13.48,
+          "words": [
+            {
+              "text": " Sway",
+              "start": 8.66,
+              "end": 9.1,
+              "probability": 0.3687744140625
+            },
+            {
+              "text": " me",
+              "start": 9.1,
+              "end": 9.24,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " up,",
+              "start": 9.24,
+              "end": 9.46,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " men,",
+              "start": 9.66,
+              "end": 9.74,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " ye",
+              "start": 10.16,
+              "end": 10.2,
+              "probability": 0.97265625
+            },
+            {
+              "text": " have",
+              "start": 10.2,
+              "end": 10.3,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " been",
+              "start": 10.3,
+              "end": 10.42,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " deceived,",
+              "start": 10.42,
+              "end": 10.88,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " not",
+              "start": 11.36,
+              "end": 11.4,
+              "probability": 0.445556640625
+            },
+            {
+              "text": " Moby",
+              "start": 11.4,
+              "end": 11.74,
+              "probability": 0.88818359375
+            },
+            {
+              "text": " Dick",
+              "start": 11.74,
+              "end": 11.88,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " casts",
+              "start": 11.88,
+              "end": 12.26,
+              "probability": 0.86572265625
+            },
+            {
+              "text": " one",
+              "start": 12.26,
+              "end": 12.54,
+              "probability": 0.978515625
+            },
+            {
+              "text": " odd",
+              "start": 12.54,
+              "end": 12.8,
+              "probability": 0.36572265625
+            },
+            {
+              "text": " jet",
+              "start": 12.8,
+              "end": 13.0,
+              "probability": 0.2230224609375
+            },
+            {
+              "text": " that",
+              "start": 13.0,
+              "end": 13.2,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " way,",
+              "start": 13.2,
+              "end": 13.48,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " and then disappears.",
+          "start": 13.78,
+          "end": 14.6,
+          "words": [
+            {
+              "text": " and",
+              "start": 13.78,
+              "end": 13.92,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " then",
+              "start": 13.92,
+              "end": 14.08,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " disappears.",
+              "start": 14.08,
+              "end": 14.6,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Why",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "sing",
+          "start": 0.58,
+          "end": 0.86
+        },
+        {
+          "raw": "ye",
+          "start": 0.86,
+          "end": 0.98
+        },
+        {
+          "raw": "not",
+          "start": 0.98,
+          "end": 1.12
+        },
+        {
+          "raw": "out",
+          "start": 1.12,
+          "end": 1.32
+        },
+        {
+          "raw": "for",
+          "start": 1.32,
+          "end": 1.48
+        },
+        {
+          "raw": "him,",
+          "start": 1.48,
+          "end": 1.68
+        },
+        {
+          "raw": "if",
+          "start": 1.74,
+          "end": 1.84
+        },
+        {
+          "raw": "ye",
+          "start": 1.84,
+          "end": 1.98
+        },
+        {
+          "raw": "see",
+          "start": 1.98,
+          "end": 2.18
+        },
+        {
+          "raw": "him?\"",
+          "start": 2.18,
+          "end": 2.86
+        },
+        {
+          "raw": "cried",
+          "start": 2.86,
+          "end": 3.12
+        },
+        {
+          "raw": "Ahab,",
+          "start": 3.12,
+          "end": 3.58
+        },
+        {
+          "raw": "when,",
+          "start": 3.98,
+          "end": 4.22
+        },
+        {
+          "raw": "after",
+          "start": 4.34,
+          "end": 4.62
+        },
+        {
+          "raw": "the",
+          "start": 4.62,
+          "end": 4.78
+        },
+        {
+          "raw": "lapse",
+          "start": 4.78,
+          "end": 5.0
+        },
+        {
+          "raw": "of",
+          "start": 5.0,
+          "end": 5.2
+        },
+        {
+          "raw": "some",
+          "start": 5.2,
+          "end": 5.38
+        },
+        {
+          "raw": "minutes",
+          "start": 5.38,
+          "end": 5.64
+        },
+        {
+          "raw": "since",
+          "start": 5.64,
+          "end": 5.88
+        },
+        {
+          "raw": "the",
+          "start": 5.88,
+          "end": 6.06
+        },
+        {
+          "raw": "first",
+          "start": 6.06,
+          "end": 6.3
+        },
+        {
+          "raw": "cry,",
+          "start": 6.3,
+          "end": 6.7
+        },
+        {
+          "raw": "no",
+          "start": 7.0,
+          "end": 7.12
+        },
+        {
+          "raw": "more",
+          "start": 7.12,
+          "end": 7.32
+        },
+        {
+          "raw": "had",
+          "start": 7.32,
+          "end": 7.5
+        },
+        {
+          "raw": "been",
+          "start": 7.5,
+          "end": 7.66
+        },
+        {
+          "raw": "heard.",
+          "start": 7.66,
+          "end": 7.96
+        },
+        {
+          "raw": "Sway",
+          "start": 8.66,
+          "end": 9.1
+        },
+        {
+          "raw": "me",
+          "start": 9.1,
+          "end": 9.24
+        },
+        {
+          "raw": "up,",
+          "start": 9.24,
+          "end": 9.46
+        },
+        {
+          "raw": "men,",
+          "start": 9.66,
+          "end": 9.74
+        },
+        {
+          "raw": "ye",
+          "start": 10.16,
+          "end": 10.2
+        },
+        {
+          "raw": "have",
+          "start": 10.2,
+          "end": 10.3
+        },
+        {
+          "raw": "been",
+          "start": 10.3,
+          "end": 10.42
+        },
+        {
+          "raw": "deceived,",
+          "start": 10.42,
+          "end": 10.88
+        },
+        {
+          "raw": "not",
+          "start": 11.36,
+          "end": 11.4
+        },
+        {
+          "raw": "Moby",
+          "start": 11.4,
+          "end": 11.74
+        },
+        {
+          "raw": "Dick",
+          "start": 11.74,
+          "end": 11.88
+        },
+        {
+          "raw": "casts",
+          "start": 11.88,
+          "end": 12.26
+        },
+        {
+          "raw": "one",
+          "start": 12.26,
+          "end": 12.54
+        },
+        {
+          "raw": "odd",
+          "start": 12.54,
+          "end": 12.8
+        },
+        {
+          "raw": "jet",
+          "start": 12.8,
+          "end": 13.0
+        },
+        {
+          "raw": "that",
+          "start": 13.0,
+          "end": 13.2
+        },
+        {
+          "raw": "way,",
+          "start": 13.2,
+          "end": 13.48
+        },
+        {
+          "raw": "and",
+          "start": 13.78,
+          "end": 13.92
+        },
+        {
+          "raw": "then",
+          "start": 13.92,
+          "end": 14.08
+        },
+        {
+          "raw": "disappears.",
+          "start": 14.08,
+          "end": 14.6
+        }
+      ],
+      "expected_tokens": [
+        "\"Why",
+        "sing",
+        "ye",
+        "not",
+        "out",
+        "for",
+        "him,",
+        "if",
+        "ye",
+        "see",
+        "him?\"",
+        "cried",
+        "Ahab,",
+        "when,",
+        "after",
+        "the",
+        "lapse",
+        "of",
+        "some",
+        "minutes",
+        "since",
+        "the",
+        "first",
+        "cry,",
+        "no",
+        "more",
+        "had",
+        "been",
+        "heard.",
+        "\"Sway",
+        "me",
+        "up,",
+        "men;",
+        "ye",
+        "have",
+        "been",
+        "deceived;",
+        "not",
+        "Moby",
+        "Dick",
+        "casts",
+        "one",
+        "odd",
+        "jet",
+        "that",
+        "way,",
+        "and",
+        "then",
+        "disappears.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          49,
+          0,
+          49
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Why",
+          "start": 0.02,
+          "end": 0.58,
+          "key": "why",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sing",
+          "start": 0.58,
+          "end": 0.86,
+          "key": "sing",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ye",
+          "start": 0.86,
+          "end": 0.98,
+          "key": "ye",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.98,
+          "end": 1.12,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 1.12,
+          "end": 1.32,
+          "key": "out",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.32,
+          "end": 1.48,
+          "key": "for",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 1.48,
+          "end": 1.68,
+          "key": "him",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 1.74,
+          "end": 1.84,
+          "key": "if",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "ye",
+          "start": 1.84,
+          "end": 1.98,
+          "key": "ye",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 1.98,
+          "end": 2.18,
+          "key": "see",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "him?\"",
+          "start": 2.18,
+          "end": 2.86,
+          "key": "him",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 2.86,
+          "end": 3.12,
+          "key": "cried",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Ahab,",
+          "start": 3.12,
+          "end": 3.58,
+          "key": "ahab",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "when,",
+          "start": 3.98,
+          "end": 4.22,
+          "key": "when",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 4.34,
+          "end": 4.62,
+          "key": "after",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.62,
+          "end": 4.78,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "lapse",
+          "start": 4.78,
+          "end": 5.0,
+          "key": "lapse",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.0,
+          "end": 5.2,
+          "key": "of",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 5.2,
+          "end": 5.38,
+          "key": "some",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "minutes",
+          "start": 5.38,
+          "end": 5.64,
+          "key": "minutes",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "since",
+          "start": 5.64,
+          "end": 5.88,
+          "key": "since",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.88,
+          "end": 6.06,
+          "key": "the",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 6.06,
+          "end": 6.3,
+          "key": "first",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "cry,",
+          "start": 6.3,
+          "end": 6.7,
+          "key": "cry",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 7.0,
+          "end": 7.12,
+          "key": "no",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 7.12,
+          "end": 7.32,
+          "key": "more",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 7.32,
+          "end": 7.5,
+          "key": "had",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 7.5,
+          "end": 7.66,
+          "key": "been",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "heard.",
+          "start": 7.66,
+          "end": 7.96,
+          "key": "heard",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "Sway",
+          "start": 8.66,
+          "end": 9.1,
+          "key": "sway",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 9.1,
+          "end": 9.24,
+          "key": "me",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "up,",
+          "start": 9.24,
+          "end": 9.46,
+          "key": "up",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "men,",
+          "start": 9.66,
+          "end": 9.74,
+          "key": "men",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "ye",
+          "start": 10.16,
+          "end": 10.2,
+          "key": "ye",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 10.2,
+          "end": 10.3,
+          "key": "have",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 10.3,
+          "end": 10.42,
+          "key": "been",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "deceived,",
+          "start": 10.42,
+          "end": 10.88,
+          "key": "deceived",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 11.36,
+          "end": 11.4,
+          "key": "not",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "Moby",
+          "start": 11.4,
+          "end": 11.74,
+          "key": "moby",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "Dick",
+          "start": 11.74,
+          "end": 11.88,
+          "key": "dick",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "casts",
+          "start": 11.88,
+          "end": 12.26,
+          "key": "casts",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 12.26,
+          "end": 12.54,
+          "key": "one",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "odd",
+          "start": 12.54,
+          "end": 12.8,
+          "key": "odd",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "jet",
+          "start": 12.8,
+          "end": 13.0,
+          "key": "jet",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 13.0,
+          "end": 13.2,
+          "key": "that",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "way,",
+          "start": 13.2,
+          "end": 13.48,
+          "key": "way",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 13.78,
+          "end": 13.92,
+          "key": "and",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 13.92,
+          "end": 14.08,
+          "key": "then",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "disappears.",
+          "start": 14.08,
+          "end": 14.6,
+          "key": "disappears",
+          "pieces": [
+            48
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Why",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "sing",
+          "start": 0.58,
+          "end": 0.86
+        },
+        {
+          "text": "ye",
+          "start": 0.86,
+          "end": 0.98
+        },
+        {
+          "text": "not",
+          "start": 0.98,
+          "end": 1.12
+        },
+        {
+          "text": "out",
+          "start": 1.12,
+          "end": 1.32
+        },
+        {
+          "text": "for",
+          "start": 1.32,
+          "end": 1.48
+        },
+        {
+          "text": "him,",
+          "start": 1.48,
+          "end": 1.68
+        },
+        {
+          "text": "if",
+          "start": 1.74,
+          "end": 1.84
+        },
+        {
+          "text": "ye",
+          "start": 1.84,
+          "end": 1.98
+        },
+        {
+          "text": "see",
+          "start": 1.98,
+          "end": 2.18
+        },
+        {
+          "text": "him?\"",
+          "start": 2.18,
+          "end": 2.86
+        },
+        {
+          "text": "cried",
+          "start": 2.86,
+          "end": 3.12
+        },
+        {
+          "text": "Ahab,",
+          "start": 3.12,
+          "end": 3.58
+        },
+        {
+          "text": "when,",
+          "start": 3.98,
+          "end": 4.22
+        },
+        {
+          "text": "after",
+          "start": 4.34,
+          "end": 4.62
+        },
+        {
+          "text": "the",
+          "start": 4.62,
+          "end": 4.78
+        },
+        {
+          "text": "lapse",
+          "start": 4.78,
+          "end": 5.0
+        },
+        {
+          "text": "of",
+          "start": 5.0,
+          "end": 5.2
+        },
+        {
+          "text": "some",
+          "start": 5.2,
+          "end": 5.38
+        },
+        {
+          "text": "minutes",
+          "start": 5.38,
+          "end": 5.64
+        },
+        {
+          "text": "since",
+          "start": 5.64,
+          "end": 5.88
+        },
+        {
+          "text": "the",
+          "start": 5.88,
+          "end": 6.06
+        },
+        {
+          "text": "first",
+          "start": 6.06,
+          "end": 6.3
+        },
+        {
+          "text": "cry,",
+          "start": 6.3,
+          "end": 6.7
+        },
+        {
+          "text": "no",
+          "start": 7.0,
+          "end": 7.12
+        },
+        {
+          "text": "more",
+          "start": 7.12,
+          "end": 7.32
+        },
+        {
+          "text": "had",
+          "start": 7.32,
+          "end": 7.5
+        },
+        {
+          "text": "been",
+          "start": 7.5,
+          "end": 7.66
+        },
+        {
+          "text": "heard.",
+          "start": 7.66,
+          "end": 7.96
+        },
+        {
+          "text": "\"Sway",
+          "start": 8.66,
+          "end": 9.1
+        },
+        {
+          "text": "me",
+          "start": 9.1,
+          "end": 9.24
+        },
+        {
+          "text": "up,",
+          "start": 9.24,
+          "end": 9.46
+        },
+        {
+          "text": "men;",
+          "start": 9.66,
+          "end": 9.74
+        },
+        {
+          "text": "ye",
+          "start": 10.16,
+          "end": 10.2
+        },
+        {
+          "text": "have",
+          "start": 10.2,
+          "end": 10.3
+        },
+        {
+          "text": "been",
+          "start": 10.3,
+          "end": 10.42
+        },
+        {
+          "text": "deceived;",
+          "start": 10.42,
+          "end": 10.88
+        },
+        {
+          "text": "not",
+          "start": 11.36,
+          "end": 11.4
+        },
+        {
+          "text": "Moby",
+          "start": 11.4,
+          "end": 11.74
+        },
+        {
+          "text": "Dick",
+          "start": 11.74,
+          "end": 11.88
+        },
+        {
+          "text": "casts",
+          "start": 11.88,
+          "end": 12.26
+        },
+        {
+          "text": "one",
+          "start": 12.26,
+          "end": 12.54
+        },
+        {
+          "text": "odd",
+          "start": 12.54,
+          "end": 12.8
+        },
+        {
+          "text": "jet",
+          "start": 12.8,
+          "end": 13.0
+        },
+        {
+          "text": "that",
+          "start": 13.0,
+          "end": 13.2
+        },
+        {
+          "text": "way,",
+          "start": 13.2,
+          "end": 13.48
+        },
+        {
+          "text": "and",
+          "start": 13.78,
+          "end": 13.92
+        },
+        {
+          "text": "then",
+          "start": 13.92,
+          "end": 14.08
+        },
+        {
+          "text": "disappears.\"",
+          "start": 14.08,
+          "end": 14.6
+        }
+      ],
+      "stats": {
+        "expected_words": 49,
+        "heard_words": 49,
+        "matched_words": 49
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.648621030151844
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b57185b39563677912d2517816a2175738fe9648ceb2046604f4c53a9aaa4c77",
+  "selected_reasons": []
+}
