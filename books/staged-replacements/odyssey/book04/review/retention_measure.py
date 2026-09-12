@@ -321,3 +321,30 @@ print('    count exactly (the shortlist a correction round should work from):')
 for r in sorted([r for r in b4 if r['dS'] <= 0.001], key=lambda r: -r['mws'])[:12]:
     print('      %s  %3d words in %d sentence(s) = %.0f w/s, Ro %.3f'
           % (r['pid'], r['n'], r['ns'], r['mws'], r['Ro']))
+
+print()
+print('=' * 78)
+print('5. THE SAME ANSWER WITHOUT ANY RATIO AT ALL — two counts anyone can check')
+print('=' * 78)
+print()
+def sents_of(ps):
+    out = []
+    for p in ps:
+        out += [x for x in re.split(r'(?<=[.!?])["”’]?\s+', ' '.join(p.split())) if x.strip()]
+    return out
+print('  Bk   source words   sentences src -> cand   60+ word sentences src -> cand')
+for bk in (1, 2, 3, 4):
+    s, c = book_join(bk)
+    w = len(' '.join(s).split())
+    ss, cc = sents_of(s), sents_of(c)
+    a = sum(1 for x in ss if len(x.split()) > 60)
+    d = sum(1 for x in cc if len(x.split()) > 60)
+    print('   %d      %5d         %4d -> %4d  (%+5.1f%%)      %2d -> %2d  (%+4.0f%%)'
+          % (bk, w, len(ss), len(cc), 100.0 * (len(cc) - len(ss)) / len(ss),
+             a, d, 100.0 * (d - a) / a if a else 0))
+print()
+print('  Book 4\'s source carries the HIGHEST density of sixty-word sentences of')
+print('  the four (17 in 8,042 words = 2.11 per 1,000, against 1.95 / 1.67 /')
+print('  1.92). The three ACCEPTED Books broke 100%, 43% and 33% of theirs.')
+print('  Book 4 v1 breaks one of seventeen and adds 1 sentence in 281.')
+print('  This is the finding, and it needs no measure of mine to check.')
