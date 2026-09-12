@@ -62,7 +62,7 @@ from controls import control, summary                       # noqa: E402
 # is the failure mode a hand-maintained list has in this package: the review
 # copy of this script named `book04/candidate-v3.json` and would have gone on
 # naming it after the fifth successor was built.
-BOOKS = (1, 2, 3, 4, 5, 6)
+BOOKS = (1, 2, 3, 4, 5, 6, 7)
 
 
 def newest(n):
