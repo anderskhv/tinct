@@ -71,6 +71,8 @@ import {
   writeLabPrefs,
   syncLabAudioEdition,
   effectiveLabAudioEdition,
+  migrateLabPrefsEditions,
+  selectableLabEditions,
   type LabPrefs,
   type LabAppearanceProfile,
   type LabReaderProgressMode,
@@ -357,9 +359,13 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     const restored = readerHandoff
       ? prefsFromLabReaderHandoff(stored, readerHandoff)
       : prefsFromLabResumePlace(stored, boot.resume)
-    return syncLabAudioEdition(restored, book.editions?.length ? book.editions : bibleEditions())
+    const migrated = migrateLabPrefsEditions(restored, book.bookId || 'bible')
+    return syncLabAudioEdition(migrated, book.editions?.length ? book.editions : bibleEditions())
   })
-  const bookEditions = book.editions?.length ? book.editions : bibleEditions()
+  const bookEditions = selectableLabEditions(
+    book.bookId || 'bible',
+    book.editions?.length ? book.editions : bibleEditions(),
+  )
   // The face on the page. A reader who has never picked one reads V2's new
   // default in V2 and the face today's reader has always set in V1.
   const readingFont = labReadingFont(prefs.fontFamily, chromeV2)
@@ -393,16 +399,27 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const [audioUnavailableNotice, setAudioUnavailableNotice] = useState(false)
   useEffect(() => setAudioUnavailableNotice(false), [book.bookId, audioEditionKey])
   const updatePrefs = useCallback((next: LabPrefs) => {
-    const synced = syncLabAudioEdition(next, bookEditions)
+    const synced = syncLabAudioEdition(migrateLabPrefsEditions(next, book.bookId || 'bible'), bookEditions)
     setPrefs(synced)
     writeLabPrefs(synced, appearanceProfile)
-  }, [appearanceProfile, bookEditions])
+  }, [appearanceProfile, book.bookId, bookEditions])
   const prefsProfileRef = useRef(appearanceProfile)
   useLayoutEffect(() => {
     if (prefsProfileRef.current === appearanceProfile) return
     prefsProfileRef.current = appearanceProfile
-    setPrefs(syncLabAudioEdition(readLabPrefs(appearanceProfile), bookEditions))
-  }, [appearanceProfile, bookEditions])
+    setPrefs(syncLabAudioEdition(
+      migrateLabPrefsEditions(readLabPrefs(appearanceProfile), book.bookId || 'bible'),
+      bookEditions,
+    ))
+  }, [appearanceProfile, book.bookId, bookEditions])
+  // The book on screen is not known until its source loads (a handoff mounts a
+  // placeholder first), so a withdrawn edition is corrected the moment we know
+  // which book it belongs to — and written back, so the dead key is gone from
+  // storage rather than waiting to break the next request.
+  useEffect(() => {
+    const migrated = migrateLabPrefsEditions(prefs, book.bookId || 'bible')
+    if (migrated !== prefs) updatePrefs(migrated)
+  }, [book.bookId, prefs, updatePrefs])
   useEffect(() => {
     releaseLabReaderHandoffForPage(readerHandoff)
     if (readerHandoff) writeLabPrefs(prefs, appearanceProfile)
