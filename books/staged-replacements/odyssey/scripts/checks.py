@@ -367,6 +367,7 @@ BASIS = {
     4: (None, "all 81 paragraphs"),
     5: (None, "all 37 paragraphs"),
     6: (None, "all 26 paragraphs"),
+    7: (None, "all 29 paragraphs"),
 }
 
 # The accepted file of each Book, and its successor where one exists. The
