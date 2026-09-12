@@ -1,0 +1,28 @@
+{
+  "bookId": "vindication-rights-of-woman",
+  "scope": "71 entities, all Reference -- per editorial policy's guidance for treatises ('cited thinkers normally remain references'), not excepting Rousseau despite his far longer engagement. No Central or Major entry: the author is never named in running text and gets no entry, and nothing in this treatise is a narrative or staged dialogue participant. Two title-only person references are bound (Talleyrand as 'the Bishop of Autun', Catherine the Great as 'the Empress of Russia'). One genuine namesake collision -- 'Eloisa' names both Rousseau's fictional Julie (4, 51) and the real historical Heloise (6, 85), the latter also named 'Heloisa' (9, 21) -- is resolved by a location-scoped custom bind() with no global alias for either entity's colliding spelling. One common-word hazard ('Day', Thomas Day of Sandford and Merton) is bound only at its one confirmed location, (5, 9).",
+  "authoredEntries": 71,
+  "editions": {
+    "original-en": {
+      "sourceSha256": "3e168f00ba7901f8a31cc36902f0046e9555d6fd5245566c437b029331e91aac",
+      "chapters": 15,
+      "paragraphs": 778,
+      "entries": 71,
+      "mentions": 183,
+      "omittedEntities": []
+    },
+    "modern-en": {
+      "sourceSha256": "4e7e6143670a4ca29fa6f004587578e56102ac7b2f1b00814ddefb303084ba63",
+      "chapters": 15,
+      "paragraphs": 778,
+      "entries": 71,
+      "mentions": 183,
+      "omittedEntities": []
+    }
+  },
+  "limits": [
+    "Authoring-agent source review; not independent editorial approval.",
+    "Named cast, speaking roles and named references; no claim of pronoun or every generic-title coverage.",
+    "No runtime registration or production verification in this content package."
+  ]
+}

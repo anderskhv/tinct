@@ -83,7 +83,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | Discourse on the Origin of Inequality (`discourse-on-inequality`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Strange Case of Dr Jekyll and Mr Hyde (`jekyll-and-hyde`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Walden (`walden`) | validated-package | awaiting-integration: register both English editions, version the asset, run app gates, and verify in production before changing appStatus |
-| A Vindication of the Rights of Woman (`vindication-rights-of-woman`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| A Vindication of the Rights of Woman (`vindication-rights-of-woman`) | validated-package | awaiting-integration: register both English editions, version the asset, run app gates, and verify in production before changing appStatus |
 | The Comedy of Errors (`comedy-of-errors`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | The Merchant of Venice (`merchant-of-venice`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Henry V (`henry-v`) | validated-package | Production verified September 10; restored through main 95029ffe2 September 11. Preserve released ambiguity exclusions. |
