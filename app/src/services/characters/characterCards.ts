@@ -22,7 +22,7 @@ const EN = ['original-en', 'modern-en']
 export const characterReleases: Record<string, { editions: string[]; revision: string }> = {
   // 2026-09-09.2 — pilots
   'the-awakening': { editions: EN, revision: '2026-09-09.2' },
-  bible: { editions: ['kjv-en', 'web-en'], revision: '2026-09-09.2' },
+  bible: { editions: ['kjv-en', 'web-en'], revision: '2026-09-12.2' },
   // 2026-09-10.1 — Hamlet, Macbeth, four philosophy/reference, nine plays
   hamlet: { editions: EN, revision: '2026-09-10.1' },
   macbeth: { editions: EN, revision: '2026-09-10.1' },
