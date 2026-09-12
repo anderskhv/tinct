@@ -79,6 +79,13 @@ def build(books):
                     for w in a[i1:i2]:
                         if w in rare:
                             fwd[w].add((w, "B%d-P%03d" % (n, i)))
+                        # Arrow B's side is NOT gated on rarity, and the audit
+                        # is why: Butler's `in two minds` is a COMMON phrase
+                        # reused, in accepted Book 4, as the rendering of his
+                        # RARE `doubted whether` one paragraph earlier. Gating
+                        # arrow B on Butler's rarity hid it, and it had to be
+                        # found by reading. The cost is a longer report.
+                        if len(w) >= MIN_LEN:
                             back[w].add((w, "B%d-P%03d" % (n, i)))
                     continue
                 if i2 - i1 > 4 or j2 - j1 > 4:
