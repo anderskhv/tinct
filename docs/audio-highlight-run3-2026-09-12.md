@@ -128,7 +128,7 @@ now checks that v2 is still selectable rather than that it is the default.
 ### The headline: 15 editions completed
 
 Run 2 published 934 chapters and completed **zero** editions. Run 3 published
-**988** chapters and completed **15 editions**, measured the only way that
+**990** chapters and completed **15 editions**, measured the only way that
 counts — by re-probing production for every chapter of every English edition
 (`edition_completion.py` → `edition-completion.json`), not by counting the
 journal:
@@ -192,7 +192,7 @@ The bottleneck was **the dispatcher's own `MAX_PODS`, nothing else**. Evidence:
 - **Not the wall clock.** The longest pod ran 40.0 min against the 50-minute
   limit, so nothing was cut off and no pod's work was thrown away by the guard.
 - **Not the GPU class.** Asking for RTX 4090 and A6000 first changed nothing:
-  RunPod's `gpuTypePriority: availability` still landed every one of the 72 pods
+  RunPod's `gpuTypePriority: availability` still landed every one of the 73 pods
   on the same $0.49/hr tier. GPU class is not a usable lever here, and the
   $1.00/hr ceiling was never approached.
 - **The harvester can keep up.** Harvests are serialised through one process to
@@ -218,23 +218,24 @@ what keeps that possible for v4 without carrying gigabytes.
 
 ### Pods and spend
 
-- **72 pods**, every one at $0.49/hr against the $1.00/hr ceiling, 1,977
-  pod-minutes, longest 40.0 min. Outcomes: 53 `done`, 15 `done-with-errors`,
+- **73 pods**, every one at $0.49/hr against the $1.00/hr ceiling, 1,985
+  pod-minutes, longest 40.0 min. Outcomes: 54 `done`, 15 `done-with-errors`,
   1 `agent-unreachable`, 1 `failed`, 2 without a recorded outcome; the four that
   produced no output at all were boot or agent failures and cost $0.41 between
   them.
-- **Spend $16.14 of the $20 envelope** by the mandate's measure (each pod
-  record's `costPerHr` × uptime), mean $0.224 a pod.
+- **Spend $16.21 of the $20 envelope** by the mandate's measure (each pod
+  record's `costPerHr` × uptime), mean $0.222 a pod.
 - The guard ran `enforce --apply` every five minutes for the life of the run
   (`guard/guard.log`) at `--max-rate 1.00 --max-minutes 50 --budget 20`.
 
 ### Publication
 
-- **988 chapters published**, 1 skipped (already present), across 78 editions.
+- **990 chapters published**, 2 skipped (one already present, one that failed
+  candidate validation and was correctly refused), across 81 editions.
   Every one validated before upload, uploaded conditionally so nothing was ever
   overwritten, and re-read from production at the journaled SHA-256.
-- Independent close-out re-fetch of all 988 from `tinct.app`:
-  **988 verified, 0 mismatched** (`verify-close.log`).
+- Independent close-out re-fetch of all 990 from `tinct.app`:
+  **990 verified, 0 mismatched** (`verify-close.log`).
 - Committed and pushed after **every** pod harvest, never in batches.
 
 ### Two stale pods cleaned up
@@ -253,7 +254,7 @@ were terminated deliberately by id rather than with a bare `stop-all`.
    Before building anything, count how many editions each candidate class
    actually finishes — run 3's own lesson is that a class worth 1,887 paragraphs
    finished 15 editions while a class worth twelve single chapters finished none.
-2. **The rest of the census.** 2,494 English chapters still have a recording and
+2. **The rest of the census.** 2,492 English chapters still have a recording and
    no sidecar, in 102 batches already cut (`batch-manifest-refill.json`,
    batches 401-502); most are the long books — Anna Karenina, War and Peace,
    Imitation of Christ, Don Quixote — where an edition only completes when every

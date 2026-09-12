@@ -1,68 +1,69 @@
-# Run-3 STATE
+# Run-3 STATE — CLOSED 2026-09-12 17:15 UTC
 
-_Last written: 2026-09-12 14:15 UTC._
+**Nothing is running.** No pod, no dispatcher, no harvest daemon, no guard loop.
+`guard/closing-status.txt` is the proof: `owned pods: 0` for the prefix
+`tinct-words-run3-`.
 
-## Right now — Part B is running
+## Final numbers
 
-- **Guard loop running** (`gloop.sh`): `runpod_guard.py enforce --apply` every 5
-  minutes at `--owner-prefix tinct-words-run3- --max-rate 1.00 --max-minutes 50
-  --budget 20`. Log: `guard/guard.log`.
-- **Dispatcher running** (`dispatch.py`), holding 10 pods, budget stop at $16.
-- **Harvest daemon running** (`harvest_daemon.py`): harvests, publishes and
-  **pushes after every single pod**. Log: `harvest.log`.
-- Pods are named `tinct-words-run3-<n>`; `orchestrate.py` terminates each one
-  itself after harvest, and the guard is the backstop.
+- **990 chapters published and verified** (`publication-journal.json`: 990
+  published, 2 skipped, 0 served-hash mismatches). Independent close-out
+  re-fetch from tinct.app: **990 verified, 0 mismatched** (`verify-close.log`).
+- **15 editions completed** — the number run 2 got wrong (it completed zero).
+  Measured by re-probing production for all 8,690 English chapters that have a
+  recording: `edition-completion.json`. 38 English editions are now complete.
+- **Spend $16.21 of the $20 envelope** (`spent.txt`), 73 pods, 1,985
+  pod-minutes, every pod at $0.49/hr against the $1.00/hr ceiling, longest 40.0
+  min against the 50-minute limit.
+- Helper v3 shipped and validated before any pod: 1,887 paragraphs cross the
+  0.85 gate upward on replay, **0** downward.
 
-**A fresh session must run `python3 tools/audio-highlight/runpod_guard.py status
---owner-prefix tinct-words-run3-` first.** Any pod still RUNNING with no
-`orchestrate.py` process alive must be adopted (`gpu/adopt.py` — the pods carry
-`TINCT_TOKEN`) or terminated. Never `pkill -f <script>`: the pattern matches the
-invoking shell and kills the tool call instead of the daemon. Kill by PID from
-`ps -eo pid,args`.
+Full account: `docs/audio-highlight-run3-2026-09-12.md`.
 
-## Part A — done and pushed
+## What a fresh session should do first
 
-Helper v3, 28 new unit tests, `PINS.md`, `trial.py --helper v3` (the default now),
-`pod_job.py`/`orchestrate.py` carrying v3 to the pods. Replay of all 210,214
-recorded run-2 attempts: 1,887 paragraphs cross the gate upward, **0** downward;
-67 more chapters pass. Macbeth CPU canary byte-identical to the v2 canary on both
-arms. Report: `docs/audio-highlight-run3-2026-09-12.md`.
+Nothing urgent — no resources are live. Run 4's work, in order:
 
-## Part B — how the queue was chosen, and why it was re-cut twice
+1. **Helper v4 against what is actually left.** The residue is no longer a
+   normalisation class: Latin/French/Greek passages, a looped sentence,
+   initials (`R.W.`), an unspaced `...`, plain recognition misses. The corpus to
+   measure a v4 against is `pods/*/rejected-extract.json` — for every below-gate
+   paragraph, its expected tokens and the recogniser's own heard words and
+   timings. Count editions finished per candidate class **before** building.
+2. **The rest of the census.** 2,492 English chapters still have a recording and
+   no sidecar; 102 batches are already cut
+   (`batch-manifest-refill.json`, batches 401-502). Mostly the long books, where
+   an edition only completes when every one of its batches lands.
+3. **Re-recording work**: the 4 missing recordings, the repair queue, Phaedo
+   ch1/ch7.
 
-1. `build_batches.py` ordered editions by fewest chapters missing. Batch 1 went
-   out on that basis and **published 3 of 17** — the replay had already said
-   twelve of those single chapters fail under v3 for reasons outside any
-   normalisation class (Latin passages, a looped sentence, plain recognition
-   misses). Ordering by gap alone buys almost nothing.
-2. `build_batches2.py` ranks editions by *completability*: tier 0 is an edition
-   where every chapter it still needs either was never attempted or the replay
-   says v3 passes it.
-3. `build_batches3.py` re-cut the remainder from the full production census
-   (`missing-timings.json`), which brought the untouched `modern-en` editions in
-   — several are one or two chapters from complete. Batch 201 alone completes
-   eight editions.
+## Operating notes worth keeping
 
-`pending.json` is the batches not yet launched; `dispatch.py` resumes from it.
-It has been trimmed to the batches that actually finish editions.
+- **Rank by completability, not by gap.** Ordering editions by "fewest chapters
+  missing" published 3 of 17 in batch 1. `build_batches2.py`'s tier-0 rule — every
+  chapter the edition still needs is either unattempted or replay-predicted to
+  pass — is what actually finished editions.
+- **Concurrency is the throughput lever**, not batch size or GPU class: setup is
+  ~1.6 min of a 16-40 min pod, RunPod refused nothing at 30 pods, and every pod
+  landed on the same $0.49/hr tier whatever GPU list was requested.
+- **Harvest prunes as it publishes.** At 22 concurrent pods the diagnostics hit
+  8.5 GB and the disk hit 96%. `harvest_one.sh` now distils each pod's
+  `rejected/` into `rejected-extract.json` and deletes `rejected/`, `out/`,
+  `cohort/` and the tarballs in the same step. Check free disk before raising
+  concurrency.
+- **The guard never acts on EXITED pods** by design, so a stale exited pod must
+  be terminated deliberately by id — never with a bare `stop-all`, which matches
+  live run pods. Two were cleaned up this way: `tinct-words-run2-6` and
+  `tinct-words-run3-45`.
+- Never `pkill -f <script-name>` here: the pattern matches the invoking shell and
+  kills the tool call instead of the daemon. Kill by PID from `ps -eo pid,args`.
 
-Skips, unchanged: already-published chapters (publication creates, never
-replaces), the repair queue, Phaedo ch1/ch7 (spelled-out speakers, re-recording),
-every `bible/*`, `magna-carta`, `faust-part-1`, `as-you-like-it`,
-`henry-iv-part-2`, `taming-of-the-shrew`. English only. Gate 0.85. Nothing
-synthesised.
+## Tooling built this run (all in this directory)
 
-## Measuring the thing that matters
-
-`edition_completion.py` re-probes production for every chapter of every edition
-and reports **editions completed**, not chapters published. Run it at close.
-
-## Spend
-
-`spent.txt`, recomputed by `recompute_spent.py` from every pod.json's
-`estimatedCost`. Envelope $20; dispatcher stops launching at $16.
-
-## Cleaned up
-
-`tinct-words-run2-6` (`zcpat4n88pbixj`), the stale EXITED run-2 pod, was
-terminated deliberately by id (the guard never acts on EXITED pods by design).
+`build_batches.py` / `build_batches2.py` / `build_batches3.py` / `refill.py`
+(queue cuts, completability first), `dispatch.py` (capacity-retrying launcher,
+live-tunable concurrency via `max_pods.txt`, budget stop), `harvest_daemon.py` +
+`harvest_one.sh` (publish, distil, prune, commit, push — one pod at a time),
+`distil_rejections.py`, `gloop.sh` (guard every 5 min at the mandate's limits),
+`quick_survey.py`, `edition_completion.py`, `verify_published.py`,
+`recompute_spent.py`, `tools/replay.py`.
