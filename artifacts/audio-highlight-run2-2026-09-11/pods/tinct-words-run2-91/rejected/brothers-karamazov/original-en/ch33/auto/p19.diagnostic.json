@@ -1,0 +1,677 @@
+{
+  "complete": true,
+  "signature": "8f993ed43b2add0dd3b7bbef1f912460c47b6825e503d42d5e58f52035eafdf8",
+  "attempts": [
+    {
+      "asr_seconds": 0.42134303599596024,
+      "alignment_seconds": 0.0003666095435619354,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I don't want to be a hussar, Marya Kondratyevna, and, what's more, I should like to abolish all soldiers.\"",
+        "hotwords": "I, Marya, Kondratyevna"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I don't want to be a hussar, Marya Kondratyevna, and, what's more, I should like to abolish",
+          "start": 0.08,
+          "end": 5.38,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.5,
+              "probability": 0.74560546875
+            },
+            {
+              "text": " don't",
+              "start": 0.5,
+              "end": 0.68,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " want",
+              "start": 0.68,
+              "end": 0.78,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " to",
+              "start": 0.78,
+              "end": 0.9,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " be",
+              "start": 0.9,
+              "end": 1.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 1.0,
+              "end": 1.14,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " hussar,",
+              "start": 1.14,
+              "end": 1.6,
+              "probability": 0.32519785563151044
+            },
+            {
+              "text": " Marya",
+              "start": 2.14,
+              "end": 2.4,
+              "probability": 0.25640869140625
+            },
+            {
+              "text": " Kondratyevna,",
+              "start": 2.4,
+              "end": 3.22,
+              "probability": 0.5296122233072916
+            },
+            {
+              "text": " and,",
+              "start": 3.66,
+              "end": 3.86,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " what's",
+              "start": 3.94,
+              "end": 4.16,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " more,",
+              "start": 4.16,
+              "end": 4.32,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " I",
+              "start": 4.48,
+              "end": 4.52,
+              "probability": 0.99609375
+            },
+            {
+              "text": " should",
+              "start": 4.52,
+              "end": 4.66,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " like",
+              "start": 4.66,
+              "end": 4.82,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " to",
+              "start": 4.82,
+              "end": 5.02,
+              "probability": 0.99609375
+            },
+            {
+              "text": " abolish",
+              "start": 5.02,
+              "end": 5.38,
+              "probability": 0.99169921875
+            }
+          ]
+        },
+        {
+          "text": " all soldiers.",
+          "start": 5.38,
+          "end": 6.24,
+          "words": [
+            {
+              "text": " all",
+              "start": 5.38,
+              "end": 5.78,
+              "probability": 0.99609375
+            },
+            {
+              "text": " soldiers.",
+              "start": 5.78,
+              "end": 6.24,
+              "probability": 0.9814453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "raw": "don't",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "raw": "want",
+          "start": 0.68,
+          "end": 0.78
+        },
+        {
+          "raw": "to",
+          "start": 0.78,
+          "end": 0.9
+        },
+        {
+          "raw": "be",
+          "start": 0.9,
+          "end": 1.0
+        },
+        {
+          "raw": "a",
+          "start": 1.0,
+          "end": 1.14
+        },
+        {
+          "raw": "hussar,",
+          "start": 1.14,
+          "end": 1.6
+        },
+        {
+          "raw": "Marya",
+          "start": 2.14,
+          "end": 2.4
+        },
+        {
+          "raw": "Kondratyevna,",
+          "start": 2.4,
+          "end": 3.22
+        },
+        {
+          "raw": "and,",
+          "start": 3.66,
+          "end": 3.86
+        },
+        {
+          "raw": "what's",
+          "start": 3.94,
+          "end": 4.16
+        },
+        {
+          "raw": "more,",
+          "start": 4.16,
+          "end": 4.32
+        },
+        {
+          "raw": "I",
+          "start": 4.48,
+          "end": 4.52
+        },
+        {
+          "raw": "should",
+          "start": 4.52,
+          "end": 4.66
+        },
+        {
+          "raw": "like",
+          "start": 4.66,
+          "end": 4.82
+        },
+        {
+          "raw": "to",
+          "start": 4.82,
+          "end": 5.02
+        },
+        {
+          "raw": "abolish",
+          "start": 5.02,
+          "end": 5.38
+        },
+        {
+          "raw": "all",
+          "start": 5.38,
+          "end": 5.78
+        },
+        {
+          "raw": "soldiers.",
+          "start": 5.78,
+          "end": 6.24
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "don't",
+        "want",
+        "to",
+        "be",
+        "a",
+        "hussar,",
+        "Marya",
+        "Kondratyevna,",
+        "and,",
+        "what's",
+        "more,",
+        "I",
+        "should",
+        "like",
+        "to",
+        "abolish",
+        "all",
+        "soldiers.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.5,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 0.5,
+          "end": 0.68,
+          "key": "dont",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "want",
+          "start": 0.68,
+          "end": 0.78,
+          "key": "want",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.78,
+          "end": 0.9,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 0.9,
+          "end": 1.0,
+          "key": "be",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.0,
+          "end": 1.14,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "hussar,",
+          "start": 1.14,
+          "end": 1.6,
+          "key": "hussar",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Marya",
+          "start": 2.14,
+          "end": 2.4,
+          "key": "marya",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Kondratyevna,",
+          "start": 2.4,
+          "end": 3.22,
+          "key": "kondratyevna",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and,",
+          "start": 3.66,
+          "end": 3.86,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "what's",
+          "start": 3.94,
+          "end": 4.16,
+          "key": "whats",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "more,",
+          "start": 4.16,
+          "end": 4.32,
+          "key": "more",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.48,
+          "end": 4.52,
+          "key": "i",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 4.52,
+          "end": 4.66,
+          "key": "should",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 4.66,
+          "end": 4.82,
+          "key": "like",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.82,
+          "end": 5.02,
+          "key": "to",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "abolish",
+          "start": 5.02,
+          "end": 5.38,
+          "key": "abolish",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 5.38,
+          "end": 5.78,
+          "key": "all",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "soldiers.",
+          "start": 5.78,
+          "end": 6.24,
+          "key": "soldiers",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "text": "don't",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "text": "want",
+          "start": 0.68,
+          "end": 0.78
+        },
+        {
+          "text": "to",
+          "start": 0.78,
+          "end": 0.9
+        },
+        {
+          "text": "be",
+          "start": 0.9,
+          "end": 1.0
+        },
+        {
+          "text": "a",
+          "start": 1.0,
+          "end": 1.14
+        },
+        {
+          "text": "hussar,",
+          "start": 1.14,
+          "end": 1.6
+        },
+        {
+          "text": "Marya",
+          "start": 2.14,
+          "end": 2.4
+        },
+        {
+          "text": "Kondratyevna,",
+          "start": 2.4,
+          "end": 3.22
+        },
+        {
+          "text": "and,",
+          "start": 3.66,
+          "end": 3.86
+        },
+        {
+          "text": "what's",
+          "start": 3.94,
+          "end": 4.16
+        },
+        {
+          "text": "more,",
+          "start": 4.16,
+          "end": 4.32
+        },
+        {
+          "text": "I",
+          "start": 4.48,
+          "end": 4.52
+        },
+        {
+          "text": "should",
+          "start": 4.52,
+          "end": 4.66
+        },
+        {
+          "text": "like",
+          "start": 4.66,
+          "end": 4.82
+        },
+        {
+          "text": "to",
+          "start": 4.82,
+          "end": 5.02
+        },
+        {
+          "text": "abolish",
+          "start": 5.02,
+          "end": 5.38
+        },
+        {
+          "text": "all",
+          "start": 5.38,
+          "end": 5.78
+        },
+        {
+          "text": "soldiers.\"",
+          "start": 5.78,
+          "end": 6.24
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4218801101669669
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bf8f9df5d10acaf7773db5f1eaff9c6830e8798cce158035ef640fb0b0b7ddbb",
+  "selected_reasons": []
+}

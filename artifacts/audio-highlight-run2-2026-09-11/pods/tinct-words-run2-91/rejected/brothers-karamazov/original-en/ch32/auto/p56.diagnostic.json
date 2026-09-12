@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "194920fcb5e5bb2586ea66216e58a5604d39ccda1af4c075251c55bfd6506122",
+  "attempts": [
+    {
+      "asr_seconds": 0.22612103074789047,
+      "alignment_seconds": 0.0004425961524248123,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Why, then you told a lie? You, a monk, told a lie!\"",
+        "hotwords": "Why"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Why, then you told a lie? You, a monk, told a lie!",
+          "start": 0.05,
+          "end": 3.01,
+          "words": [
+            {
+              "text": " Why,",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.8427734375
+            },
+            {
+              "text": " then",
+              "start": 0.69,
+              "end": 0.77,
+              "probability": 0.982421875
+            },
+            {
+              "text": " you",
+              "start": 0.77,
+              "end": 0.89,
+              "probability": 0.60888671875
+            },
+            {
+              "text": " told",
+              "start": 0.89,
+              "end": 1.09,
+              "probability": 0.9921875
+            },
+            {
+              "text": " a",
+              "start": 1.09,
+              "end": 1.23,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " lie?",
+              "start": 1.23,
+              "end": 1.47,
+              "probability": 0.994140625
+            },
+            {
+              "text": " You,",
+              "start": 1.95,
+              "end": 2.03,
+              "probability": 0.91748046875
+            },
+            {
+              "text": " a",
+              "start": 2.13,
+              "end": 2.19,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " monk,",
+              "start": 2.19,
+              "end": 2.35,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " told",
+              "start": 2.47,
+              "end": 2.61,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 2.61,
+              "end": 2.79,
+              "probability": 0.998046875
+            },
+            {
+              "text": " lie!",
+              "start": 2.79,
+              "end": 3.01,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Why,",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "then",
+          "start": 0.69,
+          "end": 0.77
+        },
+        {
+          "raw": "you",
+          "start": 0.77,
+          "end": 0.89
+        },
+        {
+          "raw": "told",
+          "start": 0.89,
+          "end": 1.09
+        },
+        {
+          "raw": "a",
+          "start": 1.09,
+          "end": 1.23
+        },
+        {
+          "raw": "lie?",
+          "start": 1.23,
+          "end": 1.47
+        },
+        {
+          "raw": "You,",
+          "start": 1.95,
+          "end": 2.03
+        },
+        {
+          "raw": "a",
+          "start": 2.13,
+          "end": 2.19
+        },
+        {
+          "raw": "monk,",
+          "start": 2.19,
+          "end": 2.35
+        },
+        {
+          "raw": "told",
+          "start": 2.47,
+          "end": 2.61
+        },
+        {
+          "raw": "a",
+          "start": 2.61,
+          "end": 2.79
+        },
+        {
+          "raw": "lie!",
+          "start": 2.79,
+          "end": 3.01
+        }
+      ],
+      "expected_tokens": [
+        "\"Why,",
+        "then",
+        "you",
+        "told",
+        "a",
+        "lie?",
+        "You,",
+        "a",
+        "monk,",
+        "told",
+        "a",
+        "lie!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Why,",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "why",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 0.69,
+          "end": 0.77,
+          "key": "then",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.77,
+          "end": 0.89,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "told",
+          "start": 0.89,
+          "end": 1.09,
+          "key": "told",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.09,
+          "end": 1.23,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "lie?",
+          "start": 1.23,
+          "end": 1.47,
+          "key": "lie",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "You,",
+          "start": 1.95,
+          "end": 2.03,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.13,
+          "end": 2.19,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "monk,",
+          "start": 2.19,
+          "end": 2.35,
+          "key": "monk",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "told",
+          "start": 2.47,
+          "end": 2.61,
+          "key": "told",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.61,
+          "end": 2.79,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "lie!",
+          "start": 2.79,
+          "end": 3.01,
+          "key": "lie",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Why,",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "then",
+          "start": 0.69,
+          "end": 0.77
+        },
+        {
+          "text": "you",
+          "start": 0.77,
+          "end": 0.89
+        },
+        {
+          "text": "told",
+          "start": 0.89,
+          "end": 1.09
+        },
+        {
+          "text": "a",
+          "start": 1.09,
+          "end": 1.23
+        },
+        {
+          "text": "lie?",
+          "start": 1.23,
+          "end": 1.47
+        },
+        {
+          "text": "You,",
+          "start": 1.95,
+          "end": 2.03
+        },
+        {
+          "text": "a",
+          "start": 2.13,
+          "end": 2.19
+        },
+        {
+          "text": "monk,",
+          "start": 2.19,
+          "end": 2.35
+        },
+        {
+          "text": "told",
+          "start": 2.47,
+          "end": 2.61
+        },
+        {
+          "text": "a",
+          "start": 2.61,
+          "end": 2.79
+        },
+        {
+          "text": "lie!\"",
+          "start": 2.79,
+          "end": 3.01
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2267215708270669
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "47129f89675b1179fccfb299cbd723977765c10486ab36e66064626ce1d0d511",
+  "selected_reasons": []
+}

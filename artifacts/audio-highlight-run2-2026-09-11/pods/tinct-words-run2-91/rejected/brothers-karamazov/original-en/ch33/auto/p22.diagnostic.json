@@ -1,0 +1,1246 @@
+{
+  "complete": true,
+  "signature": "06a7fe83f190e7917fdd4035de01874ed2d6253962fffa81f1ae53a9ada208cc",
+  "attempts": [
+    {
+      "asr_seconds": 0.4263665731996298,
+      "alignment_seconds": 0.000687343068420887,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Are they so much better in their own country than we are? I wouldn't change a dandy I know of for three young Englishmen,\" observed Marya Kondratyevna tenderly, doubtless accompanying her words with a most languishing glance.",
+        "hotwords": "I, Englishmen, Marya, Kondratyevna"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Are they so much better in their own country than we are? I wouldn't change a dandy I know of for three young Englishmen,\" observed Marya Kondratyevna tenderly, doubtless accompanying her words with a most languishing glance.",
+          "start": 0.08,
+          "end": 13.58,
+          "words": [
+            {
+              "text": " Are",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.40576171875
+            },
+            {
+              "text": " they",
+              "start": 0.52,
+              "end": 0.66,
+              "probability": 0.994140625
+            },
+            {
+              "text": " so",
+              "start": 0.66,
+              "end": 0.92,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " much",
+              "start": 0.92,
+              "end": 1.14,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " better",
+              "start": 1.14,
+              "end": 1.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 1.4,
+              "end": 1.64,
+              "probability": 0.98828125
+            },
+            {
+              "text": " their",
+              "start": 1.64,
+              "end": 1.78,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " own",
+              "start": 1.78,
+              "end": 2.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " country",
+              "start": 2.02,
+              "end": 2.44,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " than",
+              "start": 2.44,
+              "end": 2.68,
+              "probability": 0.986328125
+            },
+            {
+              "text": " we",
+              "start": 2.68,
+              "end": 2.86,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " are?",
+              "start": 2.86,
+              "end": 3.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 3.72,
+              "end": 3.84,
+              "probability": 0.9375
+            },
+            {
+              "text": " wouldn't",
+              "start": 3.84,
+              "end": 4.16,
+              "probability": 0.995361328125
+            },
+            {
+              "text": " change",
+              "start": 4.16,
+              "end": 4.32,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 4.32,
+              "end": 4.52,
+              "probability": 0.994140625
+            },
+            {
+              "text": " dandy",
+              "start": 4.52,
+              "end": 4.84,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " I",
+              "start": 4.84,
+              "end": 5.04,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " know",
+              "start": 5.04,
+              "end": 5.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 5.26,
+              "end": 5.46,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " for",
+              "start": 5.46,
+              "end": 5.62,
+              "probability": 0.92578125
+            },
+            {
+              "text": " three",
+              "start": 5.62,
+              "end": 5.98,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " young",
+              "start": 5.98,
+              "end": 6.26,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Englishmen,\"",
+              "start": 6.26,
+              "end": 7.5,
+              "probability": 0.715576171875
+            },
+            {
+              "text": " observed",
+              "start": 7.5,
+              "end": 8.08,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " Marya",
+              "start": 8.08,
+              "end": 8.6,
+              "probability": 0.6351318359375
+            },
+            {
+              "text": " Kondratyevna",
+              "start": 8.6,
+              "end": 9.38,
+              "probability": 0.56500244140625
+            },
+            {
+              "text": " tenderly,",
+              "start": 9.38,
+              "end": 10.18,
+              "probability": 0.994140625
+            },
+            {
+              "text": " doubtless",
+              "start": 10.54,
+              "end": 10.84,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " accompanying",
+              "start": 10.84,
+              "end": 11.4,
+              "probability": 0.998046875
+            },
+            {
+              "text": " her",
+              "start": 11.4,
+              "end": 11.76,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " words",
+              "start": 11.76,
+              "end": 12.06,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " with",
+              "start": 12.06,
+              "end": 12.3,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 12.3,
+              "end": 12.4,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " most",
+              "start": 12.4,
+              "end": 12.62,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " languishing",
+              "start": 12.62,
+              "end": 13.22,
+              "probability": 0.998779296875
+            },
+            {
+              "text": " glance.",
+              "start": 13.22,
+              "end": 13.58,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Are",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "they",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "raw": "so",
+          "start": 0.66,
+          "end": 0.92
+        },
+        {
+          "raw": "much",
+          "start": 0.92,
+          "end": 1.14
+        },
+        {
+          "raw": "better",
+          "start": 1.14,
+          "end": 1.4
+        },
+        {
+          "raw": "in",
+          "start": 1.4,
+          "end": 1.64
+        },
+        {
+          "raw": "their",
+          "start": 1.64,
+          "end": 1.78
+        },
+        {
+          "raw": "own",
+          "start": 1.78,
+          "end": 2.02
+        },
+        {
+          "raw": "country",
+          "start": 2.02,
+          "end": 2.44
+        },
+        {
+          "raw": "than",
+          "start": 2.44,
+          "end": 2.68
+        },
+        {
+          "raw": "we",
+          "start": 2.68,
+          "end": 2.86
+        },
+        {
+          "raw": "are?",
+          "start": 2.86,
+          "end": 3.14
+        },
+        {
+          "raw": "I",
+          "start": 3.72,
+          "end": 3.84
+        },
+        {
+          "raw": "wouldn't",
+          "start": 3.84,
+          "end": 4.16
+        },
+        {
+          "raw": "change",
+          "start": 4.16,
+          "end": 4.32
+        },
+        {
+          "raw": "a",
+          "start": 4.32,
+          "end": 4.52
+        },
+        {
+          "raw": "dandy",
+          "start": 4.52,
+          "end": 4.84
+        },
+        {
+          "raw": "I",
+          "start": 4.84,
+          "end": 5.04
+        },
+        {
+          "raw": "know",
+          "start": 5.04,
+          "end": 5.26
+        },
+        {
+          "raw": "of",
+          "start": 5.26,
+          "end": 5.46
+        },
+        {
+          "raw": "for",
+          "start": 5.46,
+          "end": 5.62
+        },
+        {
+          "raw": "three",
+          "start": 5.62,
+          "end": 5.98
+        },
+        {
+          "raw": "young",
+          "start": 5.98,
+          "end": 6.26
+        },
+        {
+          "raw": "Englishmen,\"",
+          "start": 6.26,
+          "end": 7.5
+        },
+        {
+          "raw": "observed",
+          "start": 7.5,
+          "end": 8.08
+        },
+        {
+          "raw": "Marya",
+          "start": 8.08,
+          "end": 8.6
+        },
+        {
+          "raw": "Kondratyevna",
+          "start": 8.6,
+          "end": 9.38
+        },
+        {
+          "raw": "tenderly,",
+          "start": 9.38,
+          "end": 10.18
+        },
+        {
+          "raw": "doubtless",
+          "start": 10.54,
+          "end": 10.84
+        },
+        {
+          "raw": "accompanying",
+          "start": 10.84,
+          "end": 11.4
+        },
+        {
+          "raw": "her",
+          "start": 11.4,
+          "end": 11.76
+        },
+        {
+          "raw": "words",
+          "start": 11.76,
+          "end": 12.06
+        },
+        {
+          "raw": "with",
+          "start": 12.06,
+          "end": 12.3
+        },
+        {
+          "raw": "a",
+          "start": 12.3,
+          "end": 12.4
+        },
+        {
+          "raw": "most",
+          "start": 12.4,
+          "end": 12.62
+        },
+        {
+          "raw": "languishing",
+          "start": 12.62,
+          "end": 13.22
+        },
+        {
+          "raw": "glance.",
+          "start": 13.22,
+          "end": 13.58
+        }
+      ],
+      "expected_tokens": [
+        "\"Are",
+        "they",
+        "so",
+        "much",
+        "better",
+        "in",
+        "their",
+        "own",
+        "country",
+        "than",
+        "we",
+        "are?",
+        "I",
+        "wouldn't",
+        "change",
+        "a",
+        "dandy",
+        "I",
+        "know",
+        "of",
+        "for",
+        "three",
+        "young",
+        "Englishmen,\"",
+        "observed",
+        "Marya",
+        "Kondratyevna",
+        "tenderly,",
+        "doubtless",
+        "accompanying",
+        "her",
+        "words",
+        "with",
+        "a",
+        "most",
+        "languishing",
+        "glance."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          37,
+          0,
+          37
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Are",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "are",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 0.52,
+          "end": 0.66,
+          "key": "they",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 0.66,
+          "end": 0.92,
+          "key": "so",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 0.92,
+          "end": 1.14,
+          "key": "much",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "better",
+          "start": 1.14,
+          "end": 1.4,
+          "key": "better",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.4,
+          "end": 1.64,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 1.64,
+          "end": 1.78,
+          "key": "their",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "own",
+          "start": 1.78,
+          "end": 2.02,
+          "key": "own",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "country",
+          "start": 2.02,
+          "end": 2.44,
+          "key": "country",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 2.44,
+          "end": 2.68,
+          "key": "than",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 2.68,
+          "end": 2.86,
+          "key": "we",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "are?",
+          "start": 2.86,
+          "end": 3.14,
+          "key": "are",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.72,
+          "end": 3.84,
+          "key": "i",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "wouldn't",
+          "start": 3.84,
+          "end": 4.16,
+          "key": "wouldnt",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "change",
+          "start": 4.16,
+          "end": 4.32,
+          "key": "change",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.32,
+          "end": 4.52,
+          "key": "a",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "dandy",
+          "start": 4.52,
+          "end": 4.84,
+          "key": "dandy",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.84,
+          "end": 5.04,
+          "key": "i",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 5.04,
+          "end": 5.26,
+          "key": "know",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.26,
+          "end": 5.46,
+          "key": "of",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 5.46,
+          "end": 5.62,
+          "key": "for",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "three",
+          "start": 5.62,
+          "end": 5.98,
+          "key": "three",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "young",
+          "start": 5.98,
+          "end": 6.26,
+          "key": "young",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Englishmen,\"",
+          "start": 6.26,
+          "end": 7.5,
+          "key": "englishmen",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "observed",
+          "start": 7.5,
+          "end": 8.08,
+          "key": "observed",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Marya",
+          "start": 8.08,
+          "end": 8.6,
+          "key": "marya",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Kondratyevna",
+          "start": 8.6,
+          "end": 9.38,
+          "key": "kondratyevna",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "tenderly,",
+          "start": 9.38,
+          "end": 10.18,
+          "key": "tenderly",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "doubtless",
+          "start": 10.54,
+          "end": 10.84,
+          "key": "doubtless",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "accompanying",
+          "start": 10.84,
+          "end": 11.4,
+          "key": "accompanying",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 11.4,
+          "end": 11.76,
+          "key": "her",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "words",
+          "start": 11.76,
+          "end": 12.06,
+          "key": "words",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 12.06,
+          "end": 12.3,
+          "key": "with",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 12.3,
+          "end": 12.4,
+          "key": "a",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 12.4,
+          "end": 12.62,
+          "key": "most",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "languishing",
+          "start": 12.62,
+          "end": 13.22,
+          "key": "languishing",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "glance.",
+          "start": 13.22,
+          "end": 13.58,
+          "key": "glance",
+          "pieces": [
+            36
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Are",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "they",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "text": "so",
+          "start": 0.66,
+          "end": 0.92
+        },
+        {
+          "text": "much",
+          "start": 0.92,
+          "end": 1.14
+        },
+        {
+          "text": "better",
+          "start": 1.14,
+          "end": 1.4
+        },
+        {
+          "text": "in",
+          "start": 1.4,
+          "end": 1.64
+        },
+        {
+          "text": "their",
+          "start": 1.64,
+          "end": 1.78
+        },
+        {
+          "text": "own",
+          "start": 1.78,
+          "end": 2.02
+        },
+        {
+          "text": "country",
+          "start": 2.02,
+          "end": 2.44
+        },
+        {
+          "text": "than",
+          "start": 2.44,
+          "end": 2.68
+        },
+        {
+          "text": "we",
+          "start": 2.68,
+          "end": 2.86
+        },
+        {
+          "text": "are?",
+          "start": 2.86,
+          "end": 3.14
+        },
+        {
+          "text": "I",
+          "start": 3.72,
+          "end": 3.84
+        },
+        {
+          "text": "wouldn't",
+          "start": 3.84,
+          "end": 4.16
+        },
+        {
+          "text": "change",
+          "start": 4.16,
+          "end": 4.32
+        },
+        {
+          "text": "a",
+          "start": 4.32,
+          "end": 4.52
+        },
+        {
+          "text": "dandy",
+          "start": 4.52,
+          "end": 4.84
+        },
+        {
+          "text": "I",
+          "start": 4.84,
+          "end": 5.04
+        },
+        {
+          "text": "know",
+          "start": 5.04,
+          "end": 5.26
+        },
+        {
+          "text": "of",
+          "start": 5.26,
+          "end": 5.46
+        },
+        {
+          "text": "for",
+          "start": 5.46,
+          "end": 5.62
+        },
+        {
+          "text": "three",
+          "start": 5.62,
+          "end": 5.98
+        },
+        {
+          "text": "young",
+          "start": 5.98,
+          "end": 6.26
+        },
+        {
+          "text": "Englishmen,\"",
+          "start": 6.26,
+          "end": 7.5
+        },
+        {
+          "text": "observed",
+          "start": 7.5,
+          "end": 8.08
+        },
+        {
+          "text": "Marya",
+          "start": 8.08,
+          "end": 8.6
+        },
+        {
+          "text": "Kondratyevna",
+          "start": 8.6,
+          "end": 9.38
+        },
+        {
+          "text": "tenderly,",
+          "start": 9.38,
+          "end": 10.18
+        },
+        {
+          "text": "doubtless",
+          "start": 10.54,
+          "end": 10.84
+        },
+        {
+          "text": "accompanying",
+          "start": 10.84,
+          "end": 11.4
+        },
+        {
+          "text": "her",
+          "start": 11.4,
+          "end": 11.76
+        },
+        {
+          "text": "words",
+          "start": 11.76,
+          "end": 12.06
+        },
+        {
+          "text": "with",
+          "start": 12.06,
+          "end": 12.3
+        },
+        {
+          "text": "a",
+          "start": 12.3,
+          "end": 12.4
+        },
+        {
+          "text": "most",
+          "start": 12.4,
+          "end": 12.62
+        },
+        {
+          "text": "languishing",
+          "start": 12.62,
+          "end": 13.22
+        },
+        {
+          "text": "glance.",
+          "start": 13.22,
+          "end": 13.58
+        }
+      ],
+      "stats": {
+        "expected_words": 37,
+        "heard_words": 37,
+        "matched_words": 37
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.427352974191308
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2434d6efcbbddc8e1b0304933b4cb70645a98d40ae3620e63584d28e1bfa9fda",
+  "selected_reasons": []
+}

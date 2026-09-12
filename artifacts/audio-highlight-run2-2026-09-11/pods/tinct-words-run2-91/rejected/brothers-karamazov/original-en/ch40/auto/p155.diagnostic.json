@@ -1,0 +1,478 @@
+{
+  "complete": true,
+  "signature": "d6c201eb65572a3ba89e9f5819c19883b1ba7dd20cd708dfedbbf434014898eb",
+  "attempts": [
+    {
+      "asr_seconds": 0.21424122247844934,
+      "alignment_seconds": 0.00024176109582185745,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "I did not tell him that they would not let me see him.",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I did not tell him that they would not let me see him.",
+          "start": 0.08,
+          "end": 2.92,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.896484375
+            },
+            {
+              "text": " did",
+              "start": 0.52,
+              "end": 0.62,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " not",
+              "start": 0.62,
+              "end": 0.82,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " tell",
+              "start": 0.82,
+              "end": 1.04,
+              "probability": 0.998046875
+            },
+            {
+              "text": " him",
+              "start": 1.04,
+              "end": 1.28,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " that",
+              "start": 1.28,
+              "end": 1.68,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " they",
+              "start": 1.68,
+              "end": 1.84,
+              "probability": 0.99609375
+            },
+            {
+              "text": " would",
+              "start": 1.84,
+              "end": 1.96,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " not",
+              "start": 1.96,
+              "end": 2.16,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " let",
+              "start": 2.16,
+              "end": 2.34,
+              "probability": 0.998046875
+            },
+            {
+              "text": " me",
+              "start": 2.34,
+              "end": 2.48,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " see",
+              "start": 2.48,
+              "end": 2.66,
+              "probability": 0.998046875
+            },
+            {
+              "text": " him.",
+              "start": 2.66,
+              "end": 2.92,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "did",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "raw": "not",
+          "start": 0.62,
+          "end": 0.82
+        },
+        {
+          "raw": "tell",
+          "start": 0.82,
+          "end": 1.04
+        },
+        {
+          "raw": "him",
+          "start": 1.04,
+          "end": 1.28
+        },
+        {
+          "raw": "that",
+          "start": 1.28,
+          "end": 1.68
+        },
+        {
+          "raw": "they",
+          "start": 1.68,
+          "end": 1.84
+        },
+        {
+          "raw": "would",
+          "start": 1.84,
+          "end": 1.96
+        },
+        {
+          "raw": "not",
+          "start": 1.96,
+          "end": 2.16
+        },
+        {
+          "raw": "let",
+          "start": 2.16,
+          "end": 2.34
+        },
+        {
+          "raw": "me",
+          "start": 2.34,
+          "end": 2.48
+        },
+        {
+          "raw": "see",
+          "start": 2.48,
+          "end": 2.66
+        },
+        {
+          "raw": "him.",
+          "start": 2.66,
+          "end": 2.92
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "did",
+        "not",
+        "tell",
+        "him",
+        "that",
+        "they",
+        "would",
+        "not",
+        "let",
+        "me",
+        "see",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 0.52,
+          "end": 0.62,
+          "key": "did",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.62,
+          "end": 0.82,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 0.82,
+          "end": 1.04,
+          "key": "tell",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 1.04,
+          "end": 1.28,
+          "key": "him",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.28,
+          "end": 1.68,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 1.68,
+          "end": 1.84,
+          "key": "they",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 1.84,
+          "end": 1.96,
+          "key": "would",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.96,
+          "end": 2.16,
+          "key": "not",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 2.16,
+          "end": 2.34,
+          "key": "let",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.34,
+          "end": 2.48,
+          "key": "me",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 2.48,
+          "end": 2.66,
+          "key": "see",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 2.66,
+          "end": 2.92,
+          "key": "him",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "did",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "text": "not",
+          "start": 0.62,
+          "end": 0.82
+        },
+        {
+          "text": "tell",
+          "start": 0.82,
+          "end": 1.04
+        },
+        {
+          "text": "him",
+          "start": 1.04,
+          "end": 1.28
+        },
+        {
+          "text": "that",
+          "start": 1.28,
+          "end": 1.68
+        },
+        {
+          "text": "they",
+          "start": 1.68,
+          "end": 1.84
+        },
+        {
+          "text": "would",
+          "start": 1.84,
+          "end": 1.96
+        },
+        {
+          "text": "not",
+          "start": 1.96,
+          "end": 2.16
+        },
+        {
+          "text": "let",
+          "start": 2.16,
+          "end": 2.34
+        },
+        {
+          "text": "me",
+          "start": 2.34,
+          "end": 2.48
+        },
+        {
+          "text": "see",
+          "start": 2.48,
+          "end": 2.66
+        },
+        {
+          "text": "him.",
+          "start": 2.66,
+          "end": 2.92
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2145808720961213
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "98744db490c89a00bf761927e948098d914280631f231fd0d0a4b50ec0276f12",
+  "selected_reasons": []
+}

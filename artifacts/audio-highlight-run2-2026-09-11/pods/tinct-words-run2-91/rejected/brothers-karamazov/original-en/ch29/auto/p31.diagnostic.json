@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "68617f9220a155892e7df209bb9aad8d99db4b7655f625c57dd0316c2ebd93c6",
+  "attempts": [
+    {
+      "asr_seconds": 0.21104369685053825,
+      "alignment_seconds": 0.00020799878984689713,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"What are you talking about? I don't understand.\"",
+        "hotwords": "What, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " What are you talking about? I don't understand.",
+          "start": 0.02,
+          "end": 2.34,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " are",
+              "start": 0.5,
+              "end": 0.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you",
+              "start": 0.6,
+              "end": 0.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " talking",
+              "start": 0.7,
+              "end": 0.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " about?",
+              "start": 0.94,
+              "end": 1.26,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 1.62,
+              "end": 1.74,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " don't",
+              "start": 1.74,
+              "end": 2.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " understand.",
+              "start": 2.18,
+              "end": 2.34,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "are",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "raw": "you",
+          "start": 0.6,
+          "end": 0.7
+        },
+        {
+          "raw": "talking",
+          "start": 0.7,
+          "end": 0.94
+        },
+        {
+          "raw": "about?",
+          "start": 0.94,
+          "end": 1.26
+        },
+        {
+          "raw": "I",
+          "start": 1.62,
+          "end": 1.74
+        },
+        {
+          "raw": "don't",
+          "start": 1.74,
+          "end": 2.18
+        },
+        {
+          "raw": "understand.",
+          "start": 2.18,
+          "end": 2.34
+        }
+      ],
+      "expected_tokens": [
+        "\"What",
+        "are",
+        "you",
+        "talking",
+        "about?",
+        "I",
+        "don't",
+        "understand.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 0.5,
+          "end": 0.6,
+          "key": "are",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.6,
+          "end": 0.7,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "talking",
+          "start": 0.7,
+          "end": 0.94,
+          "key": "talking",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "about?",
+          "start": 0.94,
+          "end": 1.26,
+          "key": "about",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.62,
+          "end": 1.74,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 1.74,
+          "end": 2.18,
+          "key": "dont",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "understand.",
+          "start": 2.18,
+          "end": 2.34,
+          "key": "understand",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"What",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "are",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "text": "you",
+          "start": 0.6,
+          "end": 0.7
+        },
+        {
+          "text": "talking",
+          "start": 0.7,
+          "end": 0.94
+        },
+        {
+          "text": "about?",
+          "start": 0.94,
+          "end": 1.26
+        },
+        {
+          "text": "I",
+          "start": 1.62,
+          "end": 1.74
+        },
+        {
+          "text": "don't",
+          "start": 1.74,
+          "end": 2.18
+        },
+        {
+          "text": "understand.\"",
+          "start": 2.18,
+          "end": 2.34
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21132353320717812
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9c67ec92741f3f114fd242ceb20cb2cf3b5d17f384d3b7058cb40f30a00606b4",
+  "selected_reasons": []
+}

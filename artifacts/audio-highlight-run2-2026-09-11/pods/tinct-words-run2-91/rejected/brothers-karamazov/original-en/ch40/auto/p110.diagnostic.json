@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "fe8753aa5b5da08a3f8ea91a86a499ee025e5595f60d3cb3ba3f25e6b29b1c8c",
+  "attempts": [
+    {
+      "asr_seconds": 0.11140007432550192,
+      "alignment_seconds": 0.00013263989239931107,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "I said nothing.",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I said nothing.",
+          "start": 0.05,
+          "end": 0.95,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.88671875
+            },
+            {
+              "text": " said",
+              "start": 0.51,
+              "end": 0.67,
+              "probability": 0.986328125
+            },
+            {
+              "text": " nothing.",
+              "start": 0.67,
+              "end": 0.95,
+              "probability": 0.95166015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "said",
+          "start": 0.51,
+          "end": 0.67
+        },
+        {
+          "raw": "nothing.",
+          "start": 0.67,
+          "end": 0.95
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "said",
+        "nothing."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 0.51,
+          "end": 0.67,
+          "key": "said",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "nothing.",
+          "start": 0.67,
+          "end": 0.95,
+          "key": "nothing",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "said",
+          "start": 0.51,
+          "end": 0.67
+        },
+        {
+          "text": "nothing.",
+          "start": 0.67,
+          "end": 0.95
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1115740379318595
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3c3c33b6de0014c6fd0f0c124b6c7fc7f1267824541ce4a485ffe074dfe2e55d",
+  "selected_reasons": []
+}

@@ -1,0 +1,572 @@
+{
+  "complete": true,
+  "signature": "583a1646a1cf445508ab36d34006225b72d08fcf7e6e5fee7c7eb57d6e264670",
+  "attempts": [
+    {
+      "asr_seconds": 0.24504319950938225,
+      "alignment_seconds": 0.0005228761583566666,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " How so? How is it better? Now they are without food and their case is hopeless.",
+          "start": 0.05,
+          "end": 4.47,
+          "words": [
+            {
+              "text": " How",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.9013671875
+            },
+            {
+              "text": " so?",
+              "start": 0.55,
+              "end": 0.85,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " How",
+              "start": 1.21,
+              "end": 1.39,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " is",
+              "start": 1.39,
+              "end": 1.53,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " it",
+              "start": 1.53,
+              "end": 1.65,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " better?",
+              "start": 1.65,
+              "end": 1.85,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Now",
+              "start": 2.41,
+              "end": 2.53,
+              "probability": 0.990234375
+            },
+            {
+              "text": " they",
+              "start": 2.53,
+              "end": 2.71,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " are",
+              "start": 2.71,
+              "end": 2.83,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " without",
+              "start": 2.83,
+              "end": 3.07,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " food",
+              "start": 3.07,
+              "end": 3.39,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 3.39,
+              "end": 3.57,
+              "probability": 0.85888671875
+            },
+            {
+              "text": " their",
+              "start": 3.57,
+              "end": 3.69,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " case",
+              "start": 3.69,
+              "end": 3.95,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " is",
+              "start": 3.95,
+              "end": 4.13,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " hopeless.",
+              "start": 4.13,
+              "end": 4.47,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "How",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "so?",
+          "start": 0.55,
+          "end": 0.85
+        },
+        {
+          "raw": "How",
+          "start": 1.21,
+          "end": 1.39
+        },
+        {
+          "raw": "is",
+          "start": 1.39,
+          "end": 1.53
+        },
+        {
+          "raw": "it",
+          "start": 1.53,
+          "end": 1.65
+        },
+        {
+          "raw": "better?",
+          "start": 1.65,
+          "end": 1.85
+        },
+        {
+          "raw": "Now",
+          "start": 2.41,
+          "end": 2.53
+        },
+        {
+          "raw": "they",
+          "start": 2.53,
+          "end": 2.71
+        },
+        {
+          "raw": "are",
+          "start": 2.71,
+          "end": 2.83
+        },
+        {
+          "raw": "without",
+          "start": 2.83,
+          "end": 3.07
+        },
+        {
+          "raw": "food",
+          "start": 3.07,
+          "end": 3.39
+        },
+        {
+          "raw": "and",
+          "start": 3.39,
+          "end": 3.57
+        },
+        {
+          "raw": "their",
+          "start": 3.57,
+          "end": 3.69
+        },
+        {
+          "raw": "case",
+          "start": 3.69,
+          "end": 3.95
+        },
+        {
+          "raw": "is",
+          "start": 3.95,
+          "end": 4.13
+        },
+        {
+          "raw": "hopeless.",
+          "start": 4.13,
+          "end": 4.47
+        }
+      ],
+      "expected_tokens": [
+        "\"How",
+        "so?",
+        "How",
+        "is",
+        "it",
+        "better?",
+        "Now",
+        "they",
+        "are",
+        "without",
+        "food",
+        "and",
+        "their",
+        "case",
+        "is",
+        "hopeless?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "How",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "how",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "so?",
+          "start": 0.55,
+          "end": 0.85,
+          "key": "so",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 1.21,
+          "end": 1.39,
+          "key": "how",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.39,
+          "end": 1.53,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.53,
+          "end": 1.65,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "better?",
+          "start": 1.65,
+          "end": 1.85,
+          "key": "better",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Now",
+          "start": 2.41,
+          "end": 2.53,
+          "key": "now",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 2.53,
+          "end": 2.71,
+          "key": "they",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.71,
+          "end": 2.83,
+          "key": "are",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "without",
+          "start": 2.83,
+          "end": 3.07,
+          "key": "without",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "food",
+          "start": 3.07,
+          "end": 3.39,
+          "key": "food",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.39,
+          "end": 3.57,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 3.57,
+          "end": 3.69,
+          "key": "their",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "case",
+          "start": 3.69,
+          "end": 3.95,
+          "key": "case",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.95,
+          "end": 4.13,
+          "key": "is",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "hopeless.",
+          "start": 4.13,
+          "end": 4.47,
+          "key": "hopeless",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"How",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "so?",
+          "start": 0.55,
+          "end": 0.85
+        },
+        {
+          "text": "How",
+          "start": 1.21,
+          "end": 1.39
+        },
+        {
+          "text": "is",
+          "start": 1.39,
+          "end": 1.53
+        },
+        {
+          "text": "it",
+          "start": 1.53,
+          "end": 1.65
+        },
+        {
+          "text": "better?",
+          "start": 1.65,
+          "end": 1.85
+        },
+        {
+          "text": "Now",
+          "start": 2.41,
+          "end": 2.53
+        },
+        {
+          "text": "they",
+          "start": 2.53,
+          "end": 2.71
+        },
+        {
+          "text": "are",
+          "start": 2.71,
+          "end": 2.83
+        },
+        {
+          "text": "without",
+          "start": 2.83,
+          "end": 3.07
+        },
+        {
+          "text": "food",
+          "start": 3.07,
+          "end": 3.39
+        },
+        {
+          "text": "and",
+          "start": 3.39,
+          "end": 3.57
+        },
+        {
+          "text": "their",
+          "start": 3.57,
+          "end": 3.69
+        },
+        {
+          "text": "case",
+          "start": 3.69,
+          "end": 3.95
+        },
+        {
+          "text": "is",
+          "start": 3.95,
+          "end": 4.13
+        },
+        {
+          "text": "hopeless?\"",
+          "start": 4.13,
+          "end": 4.47
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24580286163836718
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e8299ed34f69ea8f93f9ebd5a1f470c232d1b2d7475951dbb0ac2b8fde8516f1",
+  "selected_reasons": []
+}

@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "26d1a224677eb4adf716e1bc756a24dccb9aaf1bf9d8450246592ff65271185e",
+  "attempts": [
+    {
+      "asr_seconds": 0.18509180285036564,
+      "alignment_seconds": 0.000406777486205101,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " But I simply asked whether you do know Alyosha explained",
+          "start": 0.02,
+          "end": 3.54,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.401611328125
+            },
+            {
+              "text": " I",
+              "start": 0.5,
+              "end": 0.62,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " simply",
+              "start": 0.62,
+              "end": 0.88,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " asked",
+              "start": 0.88,
+              "end": 1.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " whether",
+              "start": 1.28,
+              "end": 1.48,
+              "probability": 0.98828125
+            },
+            {
+              "text": " you",
+              "start": 1.48,
+              "end": 1.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " do",
+              "start": 1.68,
+              "end": 1.8,
+              "probability": 0.9921875
+            },
+            {
+              "text": " know",
+              "start": 1.8,
+              "end": 2.16,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Alyosha",
+              "start": 2.16,
+              "end": 3.08,
+              "probability": 0.6681722005208334
+            },
+            {
+              "text": " explained",
+              "start": 3.08,
+              "end": 3.54,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "I",
+          "start": 0.5,
+          "end": 0.62
+        },
+        {
+          "raw": "simply",
+          "start": 0.62,
+          "end": 0.88
+        },
+        {
+          "raw": "asked",
+          "start": 0.88,
+          "end": 1.28
+        },
+        {
+          "raw": "whether",
+          "start": 1.28,
+          "end": 1.48
+        },
+        {
+          "raw": "you",
+          "start": 1.48,
+          "end": 1.68
+        },
+        {
+          "raw": "do",
+          "start": 1.68,
+          "end": 1.8
+        },
+        {
+          "raw": "know",
+          "start": 1.8,
+          "end": 2.16
+        },
+        {
+          "raw": "Alyosha",
+          "start": 2.16,
+          "end": 3.08
+        },
+        {
+          "raw": "explained",
+          "start": 3.08,
+          "end": 3.54
+        }
+      ],
+      "expected_tokens": [
+        "\"But",
+        "I",
+        "simply",
+        "asked",
+        "whether",
+        "you",
+        "do",
+        "know?\"",
+        "Alyosha",
+        "explained."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.5,
+          "end": 0.62,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "simply",
+          "start": 0.62,
+          "end": 0.88,
+          "key": "simply",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 0.88,
+          "end": 1.28,
+          "key": "asked",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "whether",
+          "start": 1.28,
+          "end": 1.48,
+          "key": "whether",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.48,
+          "end": 1.68,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.68,
+          "end": 1.8,
+          "key": "do",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 1.8,
+          "end": 2.16,
+          "key": "know",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Alyosha",
+          "start": 2.16,
+          "end": 3.08,
+          "key": "alyosha",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "explained",
+          "start": 3.08,
+          "end": 3.54,
+          "key": "explained",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"But",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "I",
+          "start": 0.5,
+          "end": 0.62
+        },
+        {
+          "text": "simply",
+          "start": 0.62,
+          "end": 0.88
+        },
+        {
+          "text": "asked",
+          "start": 0.88,
+          "end": 1.28
+        },
+        {
+          "text": "whether",
+          "start": 1.28,
+          "end": 1.48
+        },
+        {
+          "text": "you",
+          "start": 1.48,
+          "end": 1.68
+        },
+        {
+          "text": "do",
+          "start": 1.68,
+          "end": 1.8
+        },
+        {
+          "text": "know?\"",
+          "start": 1.8,
+          "end": 2.16
+        },
+        {
+          "text": "Alyosha",
+          "start": 2.16,
+          "end": 3.08
+        },
+        {
+          "text": "explained.",
+          "start": 3.08,
+          "end": 3.54
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18568121641874313
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "074ff39fa3af9965425583cc5e8aca2367caa3ab6a78588e2be3e60d10907d5c",
+  "selected_reasons": []
+}

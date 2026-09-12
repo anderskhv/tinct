@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "6c23ad3ec25afa03eb81c7a81c38c0f4f980673d6fae8332e424b5ee0c0c5704",
+  "attempts": [
+    {
+      "asr_seconds": 0.2779394816607237,
+      "alignment_seconds": 0.0005859266966581345,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"It is a fearful thing to fall into the hands of the living God.\"",
+        "hotwords": "It, God"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " It is a fearful thing to fall into the hands of the living God.",
+          "start": 0.05,
+          "end": 3.63,
+          "words": [
+            {
+              "text": " It",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.77880859375
+            },
+            {
+              "text": " is",
+              "start": 0.51,
+              "end": 0.63,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 0.63,
+              "end": 0.77,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " fearful",
+              "start": 0.77,
+              "end": 1.05,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " thing",
+              "start": 1.05,
+              "end": 1.41,
+              "probability": 1.0
+            },
+            {
+              "text": " to",
+              "start": 1.41,
+              "end": 1.69,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " fall",
+              "start": 1.69,
+              "end": 1.95,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " into",
+              "start": 1.95,
+              "end": 2.27,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 2.27,
+              "end": 2.41,
+              "probability": 1.0
+            },
+            {
+              "text": " hands",
+              "start": 2.41,
+              "end": 2.71,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 2.71,
+              "end": 2.89,
+              "probability": 1.0
+            },
+            {
+              "text": " the",
+              "start": 2.89,
+              "end": 2.99,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " living",
+              "start": 2.99,
+              "end": 3.23,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " God.",
+              "start": 3.23,
+              "end": 3.63,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "is",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "raw": "a",
+          "start": 0.63,
+          "end": 0.77
+        },
+        {
+          "raw": "fearful",
+          "start": 0.77,
+          "end": 1.05
+        },
+        {
+          "raw": "thing",
+          "start": 1.05,
+          "end": 1.41
+        },
+        {
+          "raw": "to",
+          "start": 1.41,
+          "end": 1.69
+        },
+        {
+          "raw": "fall",
+          "start": 1.69,
+          "end": 1.95
+        },
+        {
+          "raw": "into",
+          "start": 1.95,
+          "end": 2.27
+        },
+        {
+          "raw": "the",
+          "start": 2.27,
+          "end": 2.41
+        },
+        {
+          "raw": "hands",
+          "start": 2.41,
+          "end": 2.71
+        },
+        {
+          "raw": "of",
+          "start": 2.71,
+          "end": 2.89
+        },
+        {
+          "raw": "the",
+          "start": 2.89,
+          "end": 2.99
+        },
+        {
+          "raw": "living",
+          "start": 2.99,
+          "end": 3.23
+        },
+        {
+          "raw": "God.",
+          "start": 3.23,
+          "end": 3.63
+        }
+      ],
+      "expected_tokens": [
+        "\"It",
+        "is",
+        "a",
+        "fearful",
+        "thing",
+        "to",
+        "fall",
+        "into",
+        "the",
+        "hands",
+        "of",
+        "the",
+        "living",
+        "God.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "it",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.51,
+          "end": 0.63,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.63,
+          "end": 0.77,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "fearful",
+          "start": 0.77,
+          "end": 1.05,
+          "key": "fearful",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thing",
+          "start": 1.05,
+          "end": 1.41,
+          "key": "thing",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.41,
+          "end": 1.69,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "fall",
+          "start": 1.69,
+          "end": 1.95,
+          "key": "fall",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 1.95,
+          "end": 2.27,
+          "key": "into",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.27,
+          "end": 2.41,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "hands",
+          "start": 2.41,
+          "end": 2.71,
+          "key": "hands",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.71,
+          "end": 2.89,
+          "key": "of",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.89,
+          "end": 2.99,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "living",
+          "start": 2.99,
+          "end": 3.23,
+          "key": "living",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "God.",
+          "start": 3.23,
+          "end": 3.63,
+          "key": "god",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"It",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "is",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "text": "a",
+          "start": 0.63,
+          "end": 0.77
+        },
+        {
+          "text": "fearful",
+          "start": 0.77,
+          "end": 1.05
+        },
+        {
+          "text": "thing",
+          "start": 1.05,
+          "end": 1.41
+        },
+        {
+          "text": "to",
+          "start": 1.41,
+          "end": 1.69
+        },
+        {
+          "text": "fall",
+          "start": 1.69,
+          "end": 1.95
+        },
+        {
+          "text": "into",
+          "start": 1.95,
+          "end": 2.27
+        },
+        {
+          "text": "the",
+          "start": 2.27,
+          "end": 2.41
+        },
+        {
+          "text": "hands",
+          "start": 2.41,
+          "end": 2.71
+        },
+        {
+          "text": "of",
+          "start": 2.71,
+          "end": 2.89
+        },
+        {
+          "text": "the",
+          "start": 2.89,
+          "end": 2.99
+        },
+        {
+          "text": "living",
+          "start": 2.99,
+          "end": 3.23
+        },
+        {
+          "text": "God.\"",
+          "start": 3.23,
+          "end": 3.63
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.27876244857907295
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b989bffee97539dcb6293c49a8de9eb208318f75cb84496f4247071f6f24c2d0",
+  "selected_reasons": []
+}

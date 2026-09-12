@@ -1,0 +1,412 @@
+{
+  "complete": true,
+  "signature": "868471d697a1b8b21ba530429b19197e0ac22befaf6a5b2bd096deed44988176",
+  "attempts": [
+    {
+      "asr_seconds": 0.1860176995396614,
+      "alignment_seconds": 0.00020202156156301498,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Some stood up for me. He faced the shot. They said",
+          "start": 0.08,
+          "end": 3.44,
+          "words": [
+            {
+              "text": " Some",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.6494140625
+            },
+            {
+              "text": " stood",
+              "start": 0.58,
+              "end": 0.8,
+              "probability": 0.994140625
+            },
+            {
+              "text": " up",
+              "start": 0.8,
+              "end": 0.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " for",
+              "start": 0.92,
+              "end": 1.1,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " me.",
+              "start": 1.1,
+              "end": 1.3,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " He",
+              "start": 1.66,
+              "end": 1.8,
+              "probability": 0.8994140625
+            },
+            {
+              "text": " faced",
+              "start": 1.8,
+              "end": 2.06,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " the",
+              "start": 2.06,
+              "end": 2.26,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " shot.",
+              "start": 2.26,
+              "end": 2.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " They",
+              "start": 2.86,
+              "end": 2.96,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " said",
+              "start": 2.96,
+              "end": 3.44,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Some",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "stood",
+          "start": 0.58,
+          "end": 0.8
+        },
+        {
+          "raw": "up",
+          "start": 0.8,
+          "end": 0.92
+        },
+        {
+          "raw": "for",
+          "start": 0.92,
+          "end": 1.1
+        },
+        {
+          "raw": "me.",
+          "start": 1.1,
+          "end": 1.3
+        },
+        {
+          "raw": "He",
+          "start": 1.66,
+          "end": 1.8
+        },
+        {
+          "raw": "faced",
+          "start": 1.8,
+          "end": 2.06
+        },
+        {
+          "raw": "the",
+          "start": 2.06,
+          "end": 2.26
+        },
+        {
+          "raw": "shot.",
+          "start": 2.26,
+          "end": 2.54
+        },
+        {
+          "raw": "They",
+          "start": 2.86,
+          "end": 2.96
+        },
+        {
+          "raw": "said",
+          "start": 2.96,
+          "end": 3.44
+        }
+      ],
+      "expected_tokens": [
+        "Some",
+        "stood",
+        "up",
+        "for",
+        "me:",
+        "\"He",
+        "faced",
+        "the",
+        "shot,\"",
+        "they",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Some",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "some",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "stood",
+          "start": 0.58,
+          "end": 0.8,
+          "key": "stood",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 0.8,
+          "end": 0.92,
+          "key": "up",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 0.92,
+          "end": 1.1,
+          "key": "for",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 1.1,
+          "end": 1.3,
+          "key": "me",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 1.66,
+          "end": 1.8,
+          "key": "he",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "faced",
+          "start": 1.8,
+          "end": 2.06,
+          "key": "faced",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.06,
+          "end": 2.26,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "shot.",
+          "start": 2.26,
+          "end": 2.54,
+          "key": "shot",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 2.86,
+          "end": 2.96,
+          "key": "they",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.96,
+          "end": 3.44,
+          "key": "said",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Some",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "text": "stood",
+          "start": 0.58,
+          "end": 0.8
+        },
+        {
+          "text": "up",
+          "start": 0.8,
+          "end": 0.92
+        },
+        {
+          "text": "for",
+          "start": 0.92,
+          "end": 1.1
+        },
+        {
+          "text": "me:",
+          "start": 1.1,
+          "end": 1.3
+        },
+        {
+          "text": "\"He",
+          "start": 1.66,
+          "end": 1.8
+        },
+        {
+          "text": "faced",
+          "start": 1.8,
+          "end": 2.06
+        },
+        {
+          "text": "the",
+          "start": 2.06,
+          "end": 2.26
+        },
+        {
+          "text": "shot,\"",
+          "start": 2.26,
+          "end": 2.54
+        },
+        {
+          "text": "they",
+          "start": 2.86,
+          "end": 2.96
+        },
+        {
+          "text": "said.",
+          "start": 2.96,
+          "end": 3.44
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1862925011664629
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5abd57b430b7f0436e868686dcf03bb99269cbd4dd77a503943eb5447285e5f2",
+  "selected_reasons": []
+}

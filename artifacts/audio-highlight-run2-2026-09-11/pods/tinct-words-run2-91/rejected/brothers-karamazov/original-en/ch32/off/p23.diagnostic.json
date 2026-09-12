@@ -1,0 +1,562 @@
+{
+  "complete": true,
+  "signature": "caf1e39173d7536fc6718b61eafddf27ef5261b95ca7fd3a6a25c85abef2f237",
+  "attempts": [
+    {
+      "asr_seconds": 0.28377721924334764,
+      "alignment_seconds": 0.0003594057634472847,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ah, Aleksey Fyodorovich, dear. Let us care for people as we would for the sick.",
+          "start": 0.08,
+          "end": 4.78,
+          "words": [
+            {
+              "text": " Ah,",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.55908203125
+            },
+            {
+              "text": " Aleksey",
+              "start": 0.94,
+              "end": 1.4,
+              "probability": 0.67138671875
+            },
+            {
+              "text": " Fyodorovich,",
+              "start": 1.4,
+              "end": 2.08,
+              "probability": 0.77557373046875
+            },
+            {
+              "text": " dear.",
+              "start": 2.32,
+              "end": 2.38,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Let",
+              "start": 2.88,
+              "end": 2.96,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " us",
+              "start": 2.96,
+              "end": 3.1,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " care",
+              "start": 3.1,
+              "end": 3.28,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " for",
+              "start": 3.28,
+              "end": 3.48,
+              "probability": 0.998046875
+            },
+            {
+              "text": " people",
+              "start": 3.48,
+              "end": 3.72,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " as",
+              "start": 3.72,
+              "end": 3.92,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " we",
+              "start": 3.92,
+              "end": 4.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " would",
+              "start": 4.06,
+              "end": 4.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " for",
+              "start": 4.22,
+              "end": 4.38,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 4.38,
+              "end": 4.52,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sick.",
+              "start": 4.52,
+              "end": 4.78,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ah,",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "Aleksey",
+          "start": 0.94,
+          "end": 1.4
+        },
+        {
+          "raw": "Fyodorovich,",
+          "start": 1.4,
+          "end": 2.08
+        },
+        {
+          "raw": "dear.",
+          "start": 2.32,
+          "end": 2.38
+        },
+        {
+          "raw": "Let",
+          "start": 2.88,
+          "end": 2.96
+        },
+        {
+          "raw": "us",
+          "start": 2.96,
+          "end": 3.1
+        },
+        {
+          "raw": "care",
+          "start": 3.1,
+          "end": 3.28
+        },
+        {
+          "raw": "for",
+          "start": 3.28,
+          "end": 3.48
+        },
+        {
+          "raw": "people",
+          "start": 3.48,
+          "end": 3.72
+        },
+        {
+          "raw": "as",
+          "start": 3.72,
+          "end": 3.92
+        },
+        {
+          "raw": "we",
+          "start": 3.92,
+          "end": 4.06
+        },
+        {
+          "raw": "would",
+          "start": 4.06,
+          "end": 4.22
+        },
+        {
+          "raw": "for",
+          "start": 4.22,
+          "end": 4.38
+        },
+        {
+          "raw": "the",
+          "start": 4.38,
+          "end": 4.52
+        },
+        {
+          "raw": "sick.",
+          "start": 4.52,
+          "end": 4.78
+        }
+      ],
+      "expected_tokens": [
+        "\"Ah,",
+        "Alexey",
+        "Fyodorovitch,",
+        "dear,",
+        "let",
+        "us",
+        "care",
+        "for",
+        "people",
+        "as",
+        "we",
+        "would",
+        "for",
+        "the",
+        "sick!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "equal",
+          3,
+          15,
+          3,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          3,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ah,",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "ah",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Aleksey",
+          "start": 0.94,
+          "end": 1.4,
+          "key": "aleksey",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Fyodorovich,",
+          "start": 1.4,
+          "end": 2.08,
+          "key": "fyodorovich",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "dear.",
+          "start": 2.32,
+          "end": 2.38,
+          "key": "dear",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Let",
+          "start": 2.88,
+          "end": 2.96,
+          "key": "let",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 2.96,
+          "end": 3.1,
+          "key": "us",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "care",
+          "start": 3.1,
+          "end": 3.28,
+          "key": "care",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.28,
+          "end": 3.48,
+          "key": "for",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "people",
+          "start": 3.48,
+          "end": 3.72,
+          "key": "people",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.72,
+          "end": 3.92,
+          "key": "as",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 3.92,
+          "end": 4.06,
+          "key": "we",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 4.06,
+          "end": 4.22,
+          "key": "would",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.22,
+          "end": 4.38,
+          "key": "for",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.38,
+          "end": 4.52,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "sick.",
+          "start": 4.52,
+          "end": 4.78,
+          "key": "sick",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Ah,",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "text": "Alexey",
+          "start": 0.72,
+          "end": 1.52
+        },
+        {
+          "text": "Fyodorovitch,",
+          "start": 1.52,
+          "end": 1.92
+        },
+        {
+          "text": "dear,",
+          "start": 2.32,
+          "end": 2.38
+        },
+        {
+          "text": "let",
+          "start": 2.88,
+          "end": 2.96
+        },
+        {
+          "text": "us",
+          "start": 2.96,
+          "end": 3.1
+        },
+        {
+          "text": "care",
+          "start": 3.1,
+          "end": 3.28
+        },
+        {
+          "text": "for",
+          "start": 3.28,
+          "end": 3.48
+        },
+        {
+          "text": "people",
+          "start": 3.48,
+          "end": 3.72
+        },
+        {
+          "text": "as",
+          "start": 3.72,
+          "end": 3.92
+        },
+        {
+          "text": "we",
+          "start": 3.92,
+          "end": 4.06
+        },
+        {
+          "text": "would",
+          "start": 4.06,
+          "end": 4.22
+        },
+        {
+          "text": "for",
+          "start": 4.22,
+          "end": 4.38
+        },
+        {
+          "text": "the",
+          "start": 4.38,
+          "end": 4.52
+        },
+        {
+          "text": "sick!\"",
+          "start": 4.52,
+          "end": 4.78
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 13
+      },
+      "match_ratio": 0.8666666666666667,
+      "rejection_reasons": [],
+      "seconds": 0.2842744318768382
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "50dcf12d2f8dcec39105326384f66a505f6ee1df6111502b9c833f31c0763192",
+  "selected_reasons": []
+}

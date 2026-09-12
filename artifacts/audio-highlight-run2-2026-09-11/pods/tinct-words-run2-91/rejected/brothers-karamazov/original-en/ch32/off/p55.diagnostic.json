@@ -1,0 +1,540 @@
+{
+  "complete": true,
+  "signature": "0e97d4823f2b436e5b55de5a2b3a0f963d879443813d86d83a35a92d1a9999f2",
+  "attempts": [
+    {
+      "asr_seconds": 0.2556436089798808,
+      "alignment_seconds": 0.0006215982139110565,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " But I am not going to give it to you. Look at it from here.",
+          "start": 0.08,
+          "end": 3.12,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.79736328125
+            },
+            {
+              "text": " I",
+              "start": 0.52,
+              "end": 0.66,
+              "probability": 0.95703125
+            },
+            {
+              "text": " am",
+              "start": 0.66,
+              "end": 0.78,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " not",
+              "start": 0.78,
+              "end": 0.98,
+              "probability": 0.92578125
+            },
+            {
+              "text": " going",
+              "start": 0.98,
+              "end": 1.18,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 1.18,
+              "end": 1.34,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " give",
+              "start": 1.34,
+              "end": 1.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it",
+              "start": 1.46,
+              "end": 1.58,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " to",
+              "start": 1.58,
+              "end": 1.68,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " you.",
+              "start": 1.68,
+              "end": 1.94,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Look",
+              "start": 2.28,
+              "end": 2.38,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " at",
+              "start": 2.38,
+              "end": 2.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it",
+              "start": 2.54,
+              "end": 2.64,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " from",
+              "start": 2.64,
+              "end": 2.78,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " here.",
+              "start": 2.78,
+              "end": 3.12,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "I",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "raw": "am",
+          "start": 0.66,
+          "end": 0.78
+        },
+        {
+          "raw": "not",
+          "start": 0.78,
+          "end": 0.98
+        },
+        {
+          "raw": "going",
+          "start": 0.98,
+          "end": 1.18
+        },
+        {
+          "raw": "to",
+          "start": 1.18,
+          "end": 1.34
+        },
+        {
+          "raw": "give",
+          "start": 1.34,
+          "end": 1.46
+        },
+        {
+          "raw": "it",
+          "start": 1.46,
+          "end": 1.58
+        },
+        {
+          "raw": "to",
+          "start": 1.58,
+          "end": 1.68
+        },
+        {
+          "raw": "you.",
+          "start": 1.68,
+          "end": 1.94
+        },
+        {
+          "raw": "Look",
+          "start": 2.28,
+          "end": 2.38
+        },
+        {
+          "raw": "at",
+          "start": 2.38,
+          "end": 2.54
+        },
+        {
+          "raw": "it",
+          "start": 2.54,
+          "end": 2.64
+        },
+        {
+          "raw": "from",
+          "start": 2.64,
+          "end": 2.78
+        },
+        {
+          "raw": "here.",
+          "start": 2.78,
+          "end": 3.12
+        }
+      ],
+      "expected_tokens": [
+        "\"But",
+        "I",
+        "am",
+        "not",
+        "going",
+        "to",
+        "give",
+        "it",
+        "to",
+        "you.",
+        "Look",
+        "at",
+        "it",
+        "from",
+        "here.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.52,
+          "end": 0.66,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 0.66,
+          "end": 0.78,
+          "key": "am",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.78,
+          "end": 0.98,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "going",
+          "start": 0.98,
+          "end": 1.18,
+          "key": "going",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.18,
+          "end": 1.34,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 1.34,
+          "end": 1.46,
+          "key": "give",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.46,
+          "end": 1.58,
+          "key": "it",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.58,
+          "end": 1.68,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 1.68,
+          "end": 1.94,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Look",
+          "start": 2.28,
+          "end": 2.38,
+          "key": "look",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.38,
+          "end": 2.54,
+          "key": "at",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.54,
+          "end": 2.64,
+          "key": "it",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 2.64,
+          "end": 2.78,
+          "key": "from",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "here.",
+          "start": 2.78,
+          "end": 3.12,
+          "key": "here",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"But",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "I",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "text": "am",
+          "start": 0.66,
+          "end": 0.78
+        },
+        {
+          "text": "not",
+          "start": 0.78,
+          "end": 0.98
+        },
+        {
+          "text": "going",
+          "start": 0.98,
+          "end": 1.18
+        },
+        {
+          "text": "to",
+          "start": 1.18,
+          "end": 1.34
+        },
+        {
+          "text": "give",
+          "start": 1.34,
+          "end": 1.46
+        },
+        {
+          "text": "it",
+          "start": 1.46,
+          "end": 1.58
+        },
+        {
+          "text": "to",
+          "start": 1.58,
+          "end": 1.68
+        },
+        {
+          "text": "you.",
+          "start": 1.68,
+          "end": 1.94
+        },
+        {
+          "text": "Look",
+          "start": 2.28,
+          "end": 2.38
+        },
+        {
+          "text": "at",
+          "start": 2.38,
+          "end": 2.54
+        },
+        {
+          "text": "it",
+          "start": 2.54,
+          "end": 2.64
+        },
+        {
+          "text": "from",
+          "start": 2.64,
+          "end": 2.78
+        },
+        {
+          "text": "here.\"",
+          "start": 2.78,
+          "end": 3.12
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2565395552664995
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "65f838767644bb9dc38cbbe48acc9963f931040b75760105f86c82dec5c84f10",
+  "selected_reasons": []
+}

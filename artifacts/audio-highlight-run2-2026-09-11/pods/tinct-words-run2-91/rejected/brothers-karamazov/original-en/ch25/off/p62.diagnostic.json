@@ -1,0 +1,391 @@
+{
+  "complete": true,
+  "signature": "d31e2f0c55f4816eb81b17bc5b698a3ada20e44037c86e5c2636194fa7529acf",
+  "attempts": [
+    {
+      "asr_seconds": 0.3015142837539315,
+      "alignment_seconds": 0.00046364497393369675,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I did promise, to my father, my brothers, others too.",
+          "start": 0.08,
+          "end": 3.26,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.84130859375
+            },
+            {
+              "text": " did",
+              "start": 0.52,
+              "end": 0.68,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " promise,",
+              "start": 0.68,
+              "end": 1.08,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 1.46,
+              "end": 1.52,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " my",
+              "start": 1.52,
+              "end": 1.66,
+              "probability": 0.998046875
+            },
+            {
+              "text": " father,",
+              "start": 1.66,
+              "end": 1.94,
+              "probability": 0.978515625
+            },
+            {
+              "text": " my",
+              "start": 2.1,
+              "end": 2.2,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " brothers,",
+              "start": 2.2,
+              "end": 2.5,
+              "probability": 0.77392578125
+            },
+            {
+              "text": " others",
+              "start": 2.72,
+              "end": 2.84,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " too.",
+              "start": 2.84,
+              "end": 3.26,
+              "probability": 0.75830078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "did",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "raw": "promise,",
+          "start": 0.68,
+          "end": 1.08
+        },
+        {
+          "raw": "to",
+          "start": 1.46,
+          "end": 1.52
+        },
+        {
+          "raw": "my",
+          "start": 1.52,
+          "end": 1.66
+        },
+        {
+          "raw": "father,",
+          "start": 1.66,
+          "end": 1.94
+        },
+        {
+          "raw": "my",
+          "start": 2.1,
+          "end": 2.2
+        },
+        {
+          "raw": "brothers,",
+          "start": 2.2,
+          "end": 2.5
+        },
+        {
+          "raw": "others",
+          "start": 2.72,
+          "end": 2.84
+        },
+        {
+          "raw": "too.",
+          "start": 2.84,
+          "end": 3.26
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "did",
+        "promise—to",
+        "my",
+        "father—my",
+        "brothers—others",
+        "too.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          4,
+          4,
+          5
+        ],
+        [
+          "replace",
+          4,
+          6,
+          5,
+          9
+        ],
+        [
+          "equal",
+          6,
+          7,
+          9,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "replace",
+          4,
+          6,
+          5,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 0.52,
+          "end": 0.68,
+          "key": "did",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "promise,",
+          "start": 0.68,
+          "end": 1.08,
+          "key": "promise",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.46,
+          "end": 1.52,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.52,
+          "end": 1.66,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "father,",
+          "start": 1.66,
+          "end": 1.94,
+          "key": "father",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.1,
+          "end": 2.2,
+          "key": "my",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "brothers,",
+          "start": 2.2,
+          "end": 2.5,
+          "key": "brothers",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "others",
+          "start": 2.72,
+          "end": 2.84,
+          "key": "others",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "too.",
+          "start": 2.84,
+          "end": 3.26,
+          "key": "too",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "did",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "text": "promise—to",
+          "start": 0.68,
+          "end": 1.1
+        },
+        {
+          "text": "my",
+          "start": 1.52,
+          "end": 1.66
+        },
+        {
+          "text": "father—my",
+          "start": 1.66,
+          "end": 2.25
+        },
+        {
+          "text": "brothers—others",
+          "start": 2.25,
+          "end": 2.545
+        },
+        {
+          "text": "too.\"",
+          "start": 2.84,
+          "end": 3.26
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 10,
+        "matched_words": 4
+      },
+      "match_ratio": 0.5714285714285714,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3021255051717162
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4a71bbbd01362ae0fc537e0abfdeca10f2f57327c4745ce83a1a002303ce9356",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

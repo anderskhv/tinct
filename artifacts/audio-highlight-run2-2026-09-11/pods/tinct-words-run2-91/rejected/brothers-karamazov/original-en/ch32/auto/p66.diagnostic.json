@@ -1,0 +1,478 @@
+{
+  "complete": true,
+  "signature": "387f232189ecb0c195ef9cb13c7c02aa8561cbba4cbe21a3e9319f3143094b24",
+  "attempts": [
+    {
+      "asr_seconds": 0.2423877725377679,
+      "alignment_seconds": 0.00031505804508924484,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"And, Alyosha, will you give in to me? We must decide that too.\"",
+        "hotwords": "And, Alyosha, We"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And, Alyosha, will you give in to me? We must decide that too.",
+          "start": 0.18,
+          "end": 3.9,
+          "words": [
+            {
+              "text": " And,",
+              "start": 0.18,
+              "end": 0.58,
+              "probability": 0.6181640625
+            },
+            {
+              "text": " Alyosha,",
+              "start": 0.82,
+              "end": 1.24,
+              "probability": 0.9508463541666666
+            },
+            {
+              "text": " will",
+              "start": 1.38,
+              "end": 1.52,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " you",
+              "start": 1.52,
+              "end": 1.68,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " give",
+              "start": 1.68,
+              "end": 1.84,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " in",
+              "start": 1.84,
+              "end": 2.0,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " to",
+              "start": 2.0,
+              "end": 2.1,
+              "probability": 0.998046875
+            },
+            {
+              "text": " me?",
+              "start": 2.1,
+              "end": 2.3,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " We",
+              "start": 2.72,
+              "end": 2.82,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " must",
+              "start": 2.82,
+              "end": 2.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " decide",
+              "start": 2.94,
+              "end": 3.34,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " that",
+              "start": 3.34,
+              "end": 3.64,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " too.",
+              "start": 3.64,
+              "end": 3.9,
+              "probability": 0.52197265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And,",
+          "start": 0.18,
+          "end": 0.58
+        },
+        {
+          "raw": "Alyosha,",
+          "start": 0.82,
+          "end": 1.24
+        },
+        {
+          "raw": "will",
+          "start": 1.38,
+          "end": 1.52
+        },
+        {
+          "raw": "you",
+          "start": 1.52,
+          "end": 1.68
+        },
+        {
+          "raw": "give",
+          "start": 1.68,
+          "end": 1.84
+        },
+        {
+          "raw": "in",
+          "start": 1.84,
+          "end": 2.0
+        },
+        {
+          "raw": "to",
+          "start": 2.0,
+          "end": 2.1
+        },
+        {
+          "raw": "me?",
+          "start": 2.1,
+          "end": 2.3
+        },
+        {
+          "raw": "We",
+          "start": 2.72,
+          "end": 2.82
+        },
+        {
+          "raw": "must",
+          "start": 2.82,
+          "end": 2.94
+        },
+        {
+          "raw": "decide",
+          "start": 2.94,
+          "end": 3.34
+        },
+        {
+          "raw": "that",
+          "start": 3.34,
+          "end": 3.64
+        },
+        {
+          "raw": "too.",
+          "start": 3.64,
+          "end": 3.9
+        }
+      ],
+      "expected_tokens": [
+        "\"And,",
+        "Alyosha,",
+        "will",
+        "you",
+        "give",
+        "in",
+        "to",
+        "me?",
+        "We",
+        "must",
+        "decide",
+        "that",
+        "too.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And,",
+          "start": 0.18,
+          "end": 0.58,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Alyosha,",
+          "start": 0.82,
+          "end": 1.24,
+          "key": "alyosha",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.38,
+          "end": 1.52,
+          "key": "will",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.52,
+          "end": 1.68,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 1.68,
+          "end": 1.84,
+          "key": "give",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.84,
+          "end": 2.0,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.0,
+          "end": 2.1,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "me?",
+          "start": 2.1,
+          "end": 2.3,
+          "key": "me",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 2.72,
+          "end": 2.82,
+          "key": "we",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 2.82,
+          "end": 2.94,
+          "key": "must",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "decide",
+          "start": 2.94,
+          "end": 3.34,
+          "key": "decide",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.34,
+          "end": 3.64,
+          "key": "that",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "too.",
+          "start": 3.64,
+          "end": 3.9,
+          "key": "too",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"And,",
+          "start": 0.18,
+          "end": 0.58
+        },
+        {
+          "text": "Alyosha,",
+          "start": 0.82,
+          "end": 1.24
+        },
+        {
+          "text": "will",
+          "start": 1.38,
+          "end": 1.52
+        },
+        {
+          "text": "you",
+          "start": 1.52,
+          "end": 1.68
+        },
+        {
+          "text": "give",
+          "start": 1.68,
+          "end": 1.84
+        },
+        {
+          "text": "in",
+          "start": 1.84,
+          "end": 2.0
+        },
+        {
+          "text": "to",
+          "start": 2.0,
+          "end": 2.1
+        },
+        {
+          "text": "me?",
+          "start": 2.1,
+          "end": 2.3
+        },
+        {
+          "text": "We",
+          "start": 2.72,
+          "end": 2.82
+        },
+        {
+          "text": "must",
+          "start": 2.82,
+          "end": 2.94
+        },
+        {
+          "text": "decide",
+          "start": 2.94,
+          "end": 3.34
+        },
+        {
+          "text": "that",
+          "start": 3.34,
+          "end": 3.64
+        },
+        {
+          "text": "too.\"",
+          "start": 3.64,
+          "end": 3.9
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.242828119546175
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a4e914d799adf480e4032a3a6b0238bb8032857abfae7c09e1bb4cc8820f78ed",
+  "selected_reasons": []
+}

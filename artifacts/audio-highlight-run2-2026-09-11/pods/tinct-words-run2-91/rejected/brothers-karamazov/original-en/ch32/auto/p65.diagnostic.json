@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "b4af6cda4cbba75f1f02ea6360f75c6423aac634b003d828a3e3c7628d5f9858",
+  "attempts": [
+    {
+      "asr_seconds": 0.21708562690764666,
+      "alignment_seconds": 0.00027464237064123154,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Do, then; you won't find out anything,\" laughed Alyosha.",
+        "hotwords": "Do, Alyosha"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Do, then, you won't find out anything,\" laughed Alyosha.",
+          "start": 0.08,
+          "end": 3.36,
+          "words": [
+            {
+              "text": " Do,",
+              "start": 0.08,
+              "end": 0.6,
+              "probability": 0.60107421875
+            },
+            {
+              "text": " then,",
+              "start": 0.72,
+              "end": 0.82,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " you",
+              "start": 1.06,
+              "end": 1.14,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " won't",
+              "start": 1.14,
+              "end": 1.36,
+              "probability": 0.997314453125
+            },
+            {
+              "text": " find",
+              "start": 1.36,
+              "end": 1.5,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " out",
+              "start": 1.5,
+              "end": 1.64,
+              "probability": 0.99609375
+            },
+            {
+              "text": " anything,\"",
+              "start": 1.64,
+              "end": 2.6,
+              "probability": 0.5001707077026367
+            },
+            {
+              "text": " laughed",
+              "start": 2.6,
+              "end": 2.7,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Alyosha.",
+              "start": 2.7,
+              "end": 3.36,
+              "probability": 0.93701171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Do,",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "raw": "then,",
+          "start": 0.72,
+          "end": 0.82
+        },
+        {
+          "raw": "you",
+          "start": 1.06,
+          "end": 1.14
+        },
+        {
+          "raw": "won't",
+          "start": 1.14,
+          "end": 1.36
+        },
+        {
+          "raw": "find",
+          "start": 1.36,
+          "end": 1.5
+        },
+        {
+          "raw": "out",
+          "start": 1.5,
+          "end": 1.64
+        },
+        {
+          "raw": "anything,\"",
+          "start": 1.64,
+          "end": 2.6
+        },
+        {
+          "raw": "laughed",
+          "start": 2.6,
+          "end": 2.7
+        },
+        {
+          "raw": "Alyosha.",
+          "start": 2.7,
+          "end": 3.36
+        }
+      ],
+      "expected_tokens": [
+        "\"Do,",
+        "then;",
+        "you",
+        "won't",
+        "find",
+        "out",
+        "anything,\"",
+        "laughed",
+        "Alyosha."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Do,",
+          "start": 0.08,
+          "end": 0.6,
+          "key": "do",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "then,",
+          "start": 0.72,
+          "end": 0.82,
+          "key": "then",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.06,
+          "end": 1.14,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "won't",
+          "start": 1.14,
+          "end": 1.36,
+          "key": "wont",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "find",
+          "start": 1.36,
+          "end": 1.5,
+          "key": "find",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 1.5,
+          "end": 1.64,
+          "key": "out",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "anything,\"",
+          "start": 1.64,
+          "end": 2.6,
+          "key": "anything",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "laughed",
+          "start": 2.6,
+          "end": 2.7,
+          "key": "laughed",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Alyosha.",
+          "start": 2.7,
+          "end": 3.36,
+          "key": "alyosha",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Do,",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "text": "then;",
+          "start": 0.72,
+          "end": 0.82
+        },
+        {
+          "text": "you",
+          "start": 1.06,
+          "end": 1.14
+        },
+        {
+          "text": "won't",
+          "start": 1.14,
+          "end": 1.36
+        },
+        {
+          "text": "find",
+          "start": 1.36,
+          "end": 1.5
+        },
+        {
+          "text": "out",
+          "start": 1.5,
+          "end": 1.64
+        },
+        {
+          "text": "anything,\"",
+          "start": 1.64,
+          "end": 2.6
+        },
+        {
+          "text": "laughed",
+          "start": 2.6,
+          "end": 2.7
+        },
+        {
+          "text": "Alyosha.",
+          "start": 2.7,
+          "end": 3.36
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2174768317490816
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1911b8650377885639a9c64e3fe0489e541aeaee8338df95b9921116e8b01d59",
+  "selected_reasons": []
+}

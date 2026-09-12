@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "9de246f0c5f0ac7d3d03e37a1259261d202cf0214c3cdd23eea12fdf08dc35f8",
+  "attempts": [
+    {
+      "asr_seconds": 0.1445090351626277,
+      "alignment_seconds": 0.00018782727420330048,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " You sit down too said he",
+          "start": 0.02,
+          "end": 1.94,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.25830078125
+            },
+            {
+              "text": " sit",
+              "start": 0.52,
+              "end": 0.68,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " down",
+              "start": 0.68,
+              "end": 0.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " too",
+              "start": 0.92,
+              "end": 1.3,
+              "probability": 0.64208984375
+            },
+            {
+              "text": " said",
+              "start": 1.3,
+              "end": 1.7,
+              "probability": 0.337646484375
+            },
+            {
+              "text": " he",
+              "start": 1.7,
+              "end": 1.94,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "sit",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "raw": "down",
+          "start": 0.68,
+          "end": 0.92
+        },
+        {
+          "raw": "too",
+          "start": 0.92,
+          "end": 1.3
+        },
+        {
+          "raw": "said",
+          "start": 1.3,
+          "end": 1.7
+        },
+        {
+          "raw": "he",
+          "start": 1.7,
+          "end": 1.94
+        }
+      ],
+      "expected_tokens": [
+        "\"You",
+        "sit",
+        "down,",
+        "too,\"",
+        "said",
+        "he."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sit",
+          "start": 0.52,
+          "end": 0.68,
+          "key": "sit",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 0.68,
+          "end": 0.92,
+          "key": "down",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 0.92,
+          "end": 1.3,
+          "key": "too",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.3,
+          "end": 1.7,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.7,
+          "end": 1.94,
+          "key": "he",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"You",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "sit",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "text": "down,",
+          "start": 0.68,
+          "end": 0.92
+        },
+        {
+          "text": "too,\"",
+          "start": 0.92,
+          "end": 1.3
+        },
+        {
+          "text": "said",
+          "start": 1.3,
+          "end": 1.7
+        },
+        {
+          "text": "he.",
+          "start": 1.7,
+          "end": 1.94
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14476018492132425
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a9b26c1bdcaca1b7abea99cfb05d722f04012d475ed8befebf25f81d38b61aed",
+  "selected_reasons": []
+}

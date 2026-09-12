@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "610ae6973909de8bf40e9af1d64b21172c0fa663f42679338c094cd412af64c6",
+  "attempts": [
+    {
+      "asr_seconds": 0.19492723047733307,
+      "alignment_seconds": 0.0001496328040957451,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Your praise is, perhaps, excessive,\" I replied.",
+        "hotwords": "Your, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Your praise is, perhaps, excessive,\" I replied.",
+          "start": 0.02,
+          "end": 2.86,
+          "words": [
+            {
+              "text": " Your",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.46484375
+            },
+            {
+              "text": " praise",
+              "start": 0.52,
+              "end": 0.8,
+              "probability": 0.8291015625
+            },
+            {
+              "text": " is,",
+              "start": 0.8,
+              "end": 1.1,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " perhaps,",
+              "start": 1.1,
+              "end": 1.42,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " excessive,\"",
+              "start": 1.56,
+              "end": 2.36,
+              "probability": 0.6932373046875
+            },
+            {
+              "text": " I",
+              "start": 2.36,
+              "end": 2.52,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " replied.",
+              "start": 2.52,
+              "end": 2.86,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Your",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "praise",
+          "start": 0.52,
+          "end": 0.8
+        },
+        {
+          "raw": "is,",
+          "start": 0.8,
+          "end": 1.1
+        },
+        {
+          "raw": "perhaps,",
+          "start": 1.1,
+          "end": 1.42
+        },
+        {
+          "raw": "excessive,\"",
+          "start": 1.56,
+          "end": 2.36
+        },
+        {
+          "raw": "I",
+          "start": 2.36,
+          "end": 2.52
+        },
+        {
+          "raw": "replied.",
+          "start": 2.52,
+          "end": 2.86
+        }
+      ],
+      "expected_tokens": [
+        "\"Your",
+        "praise",
+        "is,",
+        "perhaps,",
+        "excessive,\"",
+        "I",
+        "replied."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Your",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "your",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "praise",
+          "start": 0.52,
+          "end": 0.8,
+          "key": "praise",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is,",
+          "start": 0.8,
+          "end": 1.1,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "perhaps,",
+          "start": 1.1,
+          "end": 1.42,
+          "key": "perhaps",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "excessive,\"",
+          "start": 1.56,
+          "end": 2.36,
+          "key": "excessive",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.36,
+          "end": 2.52,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "replied.",
+          "start": 2.52,
+          "end": 2.86,
+          "key": "replied",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Your",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "praise",
+          "start": 0.52,
+          "end": 0.8
+        },
+        {
+          "text": "is,",
+          "start": 0.8,
+          "end": 1.1
+        },
+        {
+          "text": "perhaps,",
+          "start": 1.1,
+          "end": 1.42
+        },
+        {
+          "text": "excessive,\"",
+          "start": 1.56,
+          "end": 2.36
+        },
+        {
+          "text": "I",
+          "start": 2.36,
+          "end": 2.52
+        },
+        {
+          "text": "replied.",
+          "start": 2.52,
+          "end": 2.86
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1951290238648653
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e9076e564e5096923c27ee8866b359ae2db343ca4195ae2ee8ff9df43a218598",
+  "selected_reasons": []
+}

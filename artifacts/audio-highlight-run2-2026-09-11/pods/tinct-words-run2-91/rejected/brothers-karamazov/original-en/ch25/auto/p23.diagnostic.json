@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "acad92351648f508ac828635bf0e98eaba8f956f7ba8388131edcb7c94566268",
+  "attempts": [
+    {
+      "asr_seconds": 0.11343650799244642,
+      "alignment_seconds": 0.00011776387691497803,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The monk hesitated.",
+        "hotwords": "The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The monk hesitated.",
+          "start": 0.02,
+          "end": 1.22,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.86669921875
+            },
+            {
+              "text": " monk",
+              "start": 0.5,
+              "end": 0.74,
+              "probability": 0.70458984375
+            },
+            {
+              "text": " hesitated.",
+              "start": 0.74,
+              "end": 1.22,
+              "probability": 0.96826171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "monk",
+          "start": 0.5,
+          "end": 0.74
+        },
+        {
+          "raw": "hesitated.",
+          "start": 0.74,
+          "end": 1.22
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "monk",
+        "hesitated."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "monk",
+          "start": 0.5,
+          "end": 0.74,
+          "key": "monk",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hesitated.",
+          "start": 0.74,
+          "end": 1.22,
+          "key": "hesitated",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "monk",
+          "start": 0.5,
+          "end": 0.74
+        },
+        {
+          "text": "hesitated.",
+          "start": 0.74,
+          "end": 1.22
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11359095107764006
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cc93b5d51675a8113e3301c6486afd8822d9108e641aab72a250b1f8833410d7",
+  "selected_reasons": []
+}

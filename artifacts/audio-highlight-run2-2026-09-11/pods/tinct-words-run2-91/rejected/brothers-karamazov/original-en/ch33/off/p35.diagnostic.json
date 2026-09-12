@@ -1,0 +1,594 @@
+{
+  "complete": true,
+  "signature": "5e9d8713116b2a999478c1e2834acefab73465bd826a0efe5ab860c734c03991",
+  "attempts": [
+    {
+      "asr_seconds": 0.2512445179745555,
+      "alignment_seconds": 0.0003292178735136986,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Will my brother Dimitri soon be back asked Alyosha with as much composure as he could",
+          "start": 0.02,
+          "end": 5.38,
+          "words": [
+            {
+              "text": " Will",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.5009765625
+            },
+            {
+              "text": " my",
+              "start": 0.52,
+              "end": 0.68,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " brother",
+              "start": 0.68,
+              "end": 0.94,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " Dimitri",
+              "start": 0.94,
+              "end": 1.36,
+              "probability": 0.7373046875
+            },
+            {
+              "text": " soon",
+              "start": 1.36,
+              "end": 1.7,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " be",
+              "start": 1.7,
+              "end": 1.88,
+              "probability": 0.998046875
+            },
+            {
+              "text": " back",
+              "start": 1.88,
+              "end": 2.28,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " asked",
+              "start": 2.28,
+              "end": 3.06,
+              "probability": 0.266357421875
+            },
+            {
+              "text": " Alyosha",
+              "start": 3.06,
+              "end": 3.74,
+              "probability": 0.8505859375
+            },
+            {
+              "text": " with",
+              "start": 3.74,
+              "end": 3.92,
+              "probability": 0.9921875
+            },
+            {
+              "text": " as",
+              "start": 3.92,
+              "end": 4.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " much",
+              "start": 4.06,
+              "end": 4.3,
+              "probability": 1.0
+            },
+            {
+              "text": " composure",
+              "start": 4.3,
+              "end": 4.74,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " as",
+              "start": 4.74,
+              "end": 4.98,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " he",
+              "start": 4.98,
+              "end": 5.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " could",
+              "start": 5.12,
+              "end": 5.38,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Will",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "my",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "raw": "brother",
+          "start": 0.68,
+          "end": 0.94
+        },
+        {
+          "raw": "Dimitri",
+          "start": 0.94,
+          "end": 1.36
+        },
+        {
+          "raw": "soon",
+          "start": 1.36,
+          "end": 1.7
+        },
+        {
+          "raw": "be",
+          "start": 1.7,
+          "end": 1.88
+        },
+        {
+          "raw": "back",
+          "start": 1.88,
+          "end": 2.28
+        },
+        {
+          "raw": "asked",
+          "start": 2.28,
+          "end": 3.06
+        },
+        {
+          "raw": "Alyosha",
+          "start": 3.06,
+          "end": 3.74
+        },
+        {
+          "raw": "with",
+          "start": 3.74,
+          "end": 3.92
+        },
+        {
+          "raw": "as",
+          "start": 3.92,
+          "end": 4.06
+        },
+        {
+          "raw": "much",
+          "start": 4.06,
+          "end": 4.3
+        },
+        {
+          "raw": "composure",
+          "start": 4.3,
+          "end": 4.74
+        },
+        {
+          "raw": "as",
+          "start": 4.74,
+          "end": 4.98
+        },
+        {
+          "raw": "he",
+          "start": 4.98,
+          "end": 5.12
+        },
+        {
+          "raw": "could",
+          "start": 5.12,
+          "end": 5.38
+        }
+      ],
+      "expected_tokens": [
+        "\"Will",
+        "my",
+        "brother",
+        "Dmitri",
+        "soon",
+        "be",
+        "back?\"",
+        "asked",
+        "Alyosha",
+        "with",
+        "as",
+        "much",
+        "composure",
+        "as",
+        "he",
+        "could."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          16,
+          4,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Will",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "will",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 0.52,
+          "end": 0.68,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "brother",
+          "start": 0.68,
+          "end": 0.94,
+          "key": "brother",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Dimitri",
+          "start": 0.94,
+          "end": 1.36,
+          "key": "dimitri",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "soon",
+          "start": 1.36,
+          "end": 1.7,
+          "key": "soon",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.7,
+          "end": 1.88,
+          "key": "be",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "back",
+          "start": 1.88,
+          "end": 2.28,
+          "key": "back",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 2.28,
+          "end": 3.06,
+          "key": "asked",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Alyosha",
+          "start": 3.06,
+          "end": 3.74,
+          "key": "alyosha",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.74,
+          "end": 3.92,
+          "key": "with",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.92,
+          "end": 4.06,
+          "key": "as",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 4.06,
+          "end": 4.3,
+          "key": "much",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "composure",
+          "start": 4.3,
+          "end": 4.74,
+          "key": "composure",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 4.74,
+          "end": 4.98,
+          "key": "as",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 4.98,
+          "end": 5.12,
+          "key": "he",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 5.12,
+          "end": 5.38,
+          "key": "could",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Will",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "my",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "text": "brother",
+          "start": 0.68,
+          "end": 0.94
+        },
+        {
+          "text": "Dmitri",
+          "start": 0.94,
+          "end": 1.15
+        },
+        {
+          "text": "soon",
+          "start": 1.36,
+          "end": 1.7
+        },
+        {
+          "text": "be",
+          "start": 1.7,
+          "end": 1.88
+        },
+        {
+          "text": "back?\"",
+          "start": 1.88,
+          "end": 2.28
+        },
+        {
+          "text": "asked",
+          "start": 2.28,
+          "end": 3.06
+        },
+        {
+          "text": "Alyosha",
+          "start": 3.06,
+          "end": 3.74
+        },
+        {
+          "text": "with",
+          "start": 3.74,
+          "end": 3.92
+        },
+        {
+          "text": "as",
+          "start": 3.92,
+          "end": 4.06
+        },
+        {
+          "text": "much",
+          "start": 4.06,
+          "end": 4.3
+        },
+        {
+          "text": "composure",
+          "start": 4.3,
+          "end": 4.74
+        },
+        {
+          "text": "as",
+          "start": 4.74,
+          "end": 4.98
+        },
+        {
+          "text": "he",
+          "start": 4.98,
+          "end": 5.12
+        },
+        {
+          "text": "could.",
+          "start": 5.12,
+          "end": 5.38
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.2517133504152298
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c96ce722b6e5ca37deb43883ab3d3c15a5862376426b91b31081f5397835f629",
+  "selected_reasons": []
+}

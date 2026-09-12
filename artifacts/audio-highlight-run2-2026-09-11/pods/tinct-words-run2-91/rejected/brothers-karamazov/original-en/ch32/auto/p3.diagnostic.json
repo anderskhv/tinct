@@ -1,0 +1,822 @@
+{
+  "complete": true,
+  "signature": "97c89173684d36d5abd1cf432ef6663a5a08dc4115d2525734fc36d1d9132e05",
+  "attempts": [
+    {
+      "asr_seconds": 0.21652480587363243,
+      "alignment_seconds": 0.000373070128262043,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"_Merci, maman._ Come in, Alexey Fyodorovitch.\"",
+        "hotwords": "Come, Alexey, Fyodorovitch"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " \"_Merci, maman._ Come in, Alexey Fyodorovitch.\"",
+          "start": 0.05,
+          "end": 3.63,
+          "words": [
+            {
+              "text": " \"_Merci,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.5188802282015482
+            },
+            {
+              "text": " maman._",
+              "start": 0.91,
+              "end": 1.67,
+              "probability": 0.279446283976237
+            },
+            {
+              "text": " Come",
+              "start": 1.67,
+              "end": 1.75,
+              "probability": 0.63916015625
+            },
+            {
+              "text": " in,",
+              "start": 1.75,
+              "end": 1.95,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " Alexey",
+              "start": 2.13,
+              "end": 2.47,
+              "probability": 0.5244140625
+            },
+            {
+              "text": " Fyodorovitch.\"",
+              "start": 2.47,
+              "end": 3.63,
+              "probability": 0.574951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "\"_Merci,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "maman._",
+          "start": 0.91,
+          "end": 1.67
+        },
+        {
+          "raw": "Come",
+          "start": 1.67,
+          "end": 1.75
+        },
+        {
+          "raw": "in,",
+          "start": 1.75,
+          "end": 1.95
+        },
+        {
+          "raw": "Alexey",
+          "start": 2.13,
+          "end": 2.47
+        },
+        {
+          "raw": "Fyodorovitch.\"",
+          "start": 2.47,
+          "end": 3.63
+        }
+      ],
+      "expected_tokens": [
+        "\"_Merci,",
+        "maman._",
+        "Come",
+        "in,",
+        "Alexey",
+        "Fyodorovitch.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          6,
+          2,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "\"_Merci,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "_merci",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "maman._",
+          "start": 0.91,
+          "end": 1.67,
+          "key": "maman_",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Come",
+          "start": 1.67,
+          "end": 1.75,
+          "key": "come",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in,",
+          "start": 1.75,
+          "end": 1.95,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Alexey",
+          "start": 2.13,
+          "end": 2.47,
+          "key": "alexey",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Fyodorovitch.\"",
+          "start": 2.47,
+          "end": 3.63,
+          "key": "fyodorovitch",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"_Merci,",
+          "start": 0.0,
+          "end": 0.835
+        },
+        {
+          "text": "maman._",
+          "start": 0.835,
+          "end": 1.252
+        },
+        {
+          "text": "Come",
+          "start": 1.67,
+          "end": 1.75
+        },
+        {
+          "text": "in,",
+          "start": 1.75,
+          "end": 1.95
+        },
+        {
+          "text": "Alexey",
+          "start": 2.13,
+          "end": 2.47
+        },
+        {
+          "text": "Fyodorovitch.\"",
+          "start": 2.47,
+          "end": 3.63
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2170107141137123
+    },
+    {
+      "asr_seconds": 0.2449935832992196,
+      "alignment_seconds": 0.00045264698565006256,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Come, Alexey, Fyodorovitch"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Merci, Mammon. Come in, Alexey, Fyodorovitch",
+          "start": 0.05,
+          "end": 3.19,
+          "words": [
+            {
+              "text": " Merci,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.782958984375
+            },
+            {
+              "text": " Mammon.",
+              "start": 0.97,
+              "end": 1.23,
+              "probability": 0.69677734375
+            },
+            {
+              "text": " Come",
+              "start": 1.65,
+              "end": 1.75,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " in,",
+              "start": 1.75,
+              "end": 1.97,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Alexey,",
+              "start": 2.13,
+              "end": 2.47,
+              "probability": 0.5396728515625
+            },
+            {
+              "text": " Fyodorovitch",
+              "start": 2.49,
+              "end": 3.19,
+              "probability": 0.6740234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Merci,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "Mammon.",
+          "start": 0.97,
+          "end": 1.23
+        },
+        {
+          "raw": "Come",
+          "start": 1.65,
+          "end": 1.75
+        },
+        {
+          "raw": "in,",
+          "start": 1.75,
+          "end": 1.97
+        },
+        {
+          "raw": "Alexey,",
+          "start": 2.13,
+          "end": 2.47
+        },
+        {
+          "raw": "Fyodorovitch",
+          "start": 2.49,
+          "end": 3.19
+        }
+      ],
+      "expected_tokens": [
+        "\"_Merci,",
+        "maman._",
+        "Come",
+        "in,",
+        "Alexey",
+        "Fyodorovitch.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          6,
+          2,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Merci,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "merci",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mammon.",
+          "start": 0.97,
+          "end": 1.23,
+          "key": "mammon",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Come",
+          "start": 1.65,
+          "end": 1.75,
+          "key": "come",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in,",
+          "start": 1.75,
+          "end": 1.97,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Alexey,",
+          "start": 2.13,
+          "end": 2.47,
+          "key": "alexey",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Fyodorovitch",
+          "start": 2.49,
+          "end": 3.19,
+          "key": "fyodorovitch",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"_Merci,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "maman._",
+          "start": 0.81,
+          "end": 1.23
+        },
+        {
+          "text": "Come",
+          "start": 1.65,
+          "end": 1.75
+        },
+        {
+          "text": "in,",
+          "start": 1.75,
+          "end": 1.97
+        },
+        {
+          "text": "Alexey",
+          "start": 2.13,
+          "end": 2.47
+        },
+        {
+          "text": "Fyodorovitch.\"",
+          "start": 2.49,
+          "end": 3.19
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.24560292717069387
+    },
+    {
+      "asr_seconds": 0.2627180526033044,
+      "alignment_seconds": 0.0002437615767121315,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Merci, Mammon. Come in, Alexei Fyodorovich.",
+          "start": 0.05,
+          "end": 3.05,
+          "words": [
+            {
+              "text": " Merci,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.782958984375
+            },
+            {
+              "text": " Mammon.",
+              "start": 0.97,
+              "end": 1.23,
+              "probability": 0.69677734375
+            },
+            {
+              "text": " Come",
+              "start": 1.65,
+              "end": 1.75,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " in,",
+              "start": 1.75,
+              "end": 1.97,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Alexei",
+              "start": 2.13,
+              "end": 2.47,
+              "probability": 0.57861328125
+            },
+            {
+              "text": " Fyodorovich.",
+              "start": 2.47,
+              "end": 3.05,
+              "probability": 0.7763671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Merci,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "Mammon.",
+          "start": 0.97,
+          "end": 1.23
+        },
+        {
+          "raw": "Come",
+          "start": 1.65,
+          "end": 1.75
+        },
+        {
+          "raw": "in,",
+          "start": 1.75,
+          "end": 1.97
+        },
+        {
+          "raw": "Alexei",
+          "start": 2.13,
+          "end": 2.47
+        },
+        {
+          "raw": "Fyodorovich.",
+          "start": 2.47,
+          "end": 3.05
+        }
+      ],
+      "expected_tokens": [
+        "\"_Merci,",
+        "maman._",
+        "Come",
+        "in,",
+        "Alexey",
+        "Fyodorovitch.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          4,
+          2,
+          4
+        ],
+        [
+          "replace",
+          4,
+          6,
+          4,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          4,
+          6,
+          4,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Merci,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "merci",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mammon.",
+          "start": 0.97,
+          "end": 1.23,
+          "key": "mammon",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Come",
+          "start": 1.65,
+          "end": 1.75,
+          "key": "come",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in,",
+          "start": 1.75,
+          "end": 1.97,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Alexei",
+          "start": 2.13,
+          "end": 2.47,
+          "key": "alexei",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Fyodorovich.",
+          "start": 2.47,
+          "end": 3.05,
+          "key": "fyodorovich",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"_Merci,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "maman._",
+          "start": 0.81,
+          "end": 1.23
+        },
+        {
+          "text": "Come",
+          "start": 1.65,
+          "end": 1.75
+        },
+        {
+          "text": "in,",
+          "start": 1.75,
+          "end": 1.97
+        },
+        {
+          "text": "Alexey",
+          "start": 1.97,
+          "end": 2.51
+        },
+        {
+          "text": "Fyodorovitch.\"",
+          "start": 2.51,
+          "end": 2.78
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 3
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2630768297240138
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "c41a439c9bb86e3f09d4a39f8e3d7f87946ef3bdec14066a4d81f85c0ca9f0ea",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

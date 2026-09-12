@@ -1,0 +1,390 @@
+{
+  "complete": true,
+  "signature": "652e0e2753177865b769ea1a9280bc67335b52999e1c2ba0dc1cba4ebe81a138",
+  "attempts": [
+    {
+      "asr_seconds": 0.2245633890852332,
+      "alignment_seconds": 0.00021735765039920807,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And I ran back alone to a fantasy's little room.",
+          "start": 0.05,
+          "end": 3.15,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.630859375
+            },
+            {
+              "text": " I",
+              "start": 0.49,
+              "end": 0.63,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " ran",
+              "start": 0.63,
+              "end": 0.83,
+              "probability": 0.998046875
+            },
+            {
+              "text": " back",
+              "start": 0.83,
+              "end": 1.11,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " alone",
+              "start": 1.11,
+              "end": 1.47,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " to",
+              "start": 1.47,
+              "end": 1.99,
+              "probability": 0.560546875
+            },
+            {
+              "text": " a",
+              "start": 1.99,
+              "end": 2.09,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " fantasy's",
+              "start": 2.09,
+              "end": 2.61,
+              "probability": 0.968994140625
+            },
+            {
+              "text": " little",
+              "start": 2.61,
+              "end": 2.77,
+              "probability": 0.99609375
+            },
+            {
+              "text": " room.",
+              "start": 2.77,
+              "end": 3.15,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "I",
+          "start": 0.49,
+          "end": 0.63
+        },
+        {
+          "raw": "ran",
+          "start": 0.63,
+          "end": 0.83
+        },
+        {
+          "raw": "back",
+          "start": 0.83,
+          "end": 1.11
+        },
+        {
+          "raw": "alone",
+          "start": 1.11,
+          "end": 1.47
+        },
+        {
+          "raw": "to",
+          "start": 1.47,
+          "end": 1.99
+        },
+        {
+          "raw": "a",
+          "start": 1.99,
+          "end": 2.09
+        },
+        {
+          "raw": "fantasy's",
+          "start": 2.09,
+          "end": 2.61
+        },
+        {
+          "raw": "little",
+          "start": 2.61,
+          "end": 2.77
+        },
+        {
+          "raw": "room.",
+          "start": 2.77,
+          "end": 3.15
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "I",
+        "ran",
+        "back",
+        "alone,",
+        "to",
+        "Afanasy's",
+        "little",
+        "room."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ],
+        [
+          "equal",
+          7,
+          9,
+          8,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.49,
+          "end": 0.63,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ran",
+          "start": 0.63,
+          "end": 0.83,
+          "key": "ran",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "back",
+          "start": 0.83,
+          "end": 1.11,
+          "key": "back",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "alone",
+          "start": 1.11,
+          "end": 1.47,
+          "key": "alone",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.47,
+          "end": 1.99,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.99,
+          "end": 2.09,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "fantasy's",
+          "start": 2.09,
+          "end": 2.61,
+          "key": "fantasys",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 2.61,
+          "end": 2.77,
+          "key": "little",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "room.",
+          "start": 2.77,
+          "end": 3.15,
+          "key": "room",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "I",
+          "start": 0.49,
+          "end": 0.63
+        },
+        {
+          "text": "ran",
+          "start": 0.63,
+          "end": 0.83
+        },
+        {
+          "text": "back",
+          "start": 0.83,
+          "end": 1.11
+        },
+        {
+          "text": "alone,",
+          "start": 1.11,
+          "end": 1.47
+        },
+        {
+          "text": "to",
+          "start": 1.47,
+          "end": 1.99
+        },
+        {
+          "text": "Afanasy's",
+          "start": 1.99,
+          "end": 2.3
+        },
+        {
+          "text": "little",
+          "start": 2.61,
+          "end": 2.77
+        },
+        {
+          "text": "room.",
+          "start": 2.77,
+          "end": 3.15
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 10,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.22487612441182137
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bfdb470a2a24381033d88051498cb62632f123b181541cf439396a61f0bcbc33",
+  "selected_reasons": []
+}
