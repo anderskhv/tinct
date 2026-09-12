@@ -3523,6 +3523,12 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         ['--lab-text-align' as string]: prefs.alignment,
         ['--lab-line-height' as string]: prefs.lineSpacing === 'compact' ? '1.34' : prefs.lineSpacing === 'open' ? '1.62' : '1.48',
         ['--lab-reader-margin' as string]: prefs.margins === 'narrow' ? '1.1rem' : prefs.margins === 'wide' ? '2.2rem' : '1.55rem',
+        // The V2 desktop leaves set their side padding from their own measured
+        // scale, not from a rem figure sized for the phone, so the Margins
+        // preference reaches them as a factor on that scale. Both the painted
+        // passage and the hidden measure box read it, so pagination and paint
+        // stay in step. V1 reads nothing of it, and its DOM stays as it was.
+        ...(chromeV2 ? { ['--lab-reader-margin-scale' as string]: prefs.margins === 'narrow' ? '0.7' : prefs.margins === 'wide' ? '1.45' : '1' } : {}),
         ['--lab-paragraph-gap' as string]: prefs.paragraphSpacing === 'compact' ? '.08em' : prefs.paragraphSpacing === 'generous' ? '.55em' : '.28em',
       }}
     >

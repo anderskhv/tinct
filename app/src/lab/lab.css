@@ -6575,7 +6575,7 @@
 
 /* Desktop uses measured leaves; all rules are scoped away from the phone. */
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-page-wrap {
-  --desktop-pad-x: clamp(28px, 3vw, 64px);
+  --desktop-pad-x: calc(clamp(28px, 3vw, 64px) * var(--lab-reader-margin-scale, 1));
   --desktop-pad-top: 24px;
   --desktop-pad-bottom: 62px;
   --desktop-gutter: 56px;
@@ -6765,7 +6765,7 @@
    and gutter, so each of the two columns keeps ~40 characters. */
 @media (max-width: 1100px) {
   .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-page-wrap {
-    --desktop-pad-x: 24px;
+    --desktop-pad-x: calc(24px * var(--lab-reader-margin-scale, 1));
     --desktop-gutter: 40px;
   }
 }
