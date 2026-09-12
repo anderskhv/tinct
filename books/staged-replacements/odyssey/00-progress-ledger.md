@@ -229,12 +229,21 @@ Kept current at every push.
    marriage-gifts formula (changed, in both Books, as finding 11.1). A later
    round added one recorded successor, `book02/candidate-v3.json`
    (`book02/changes-v2-to-v3.md`, one hyphen at B02-P034).
-3. **Book 4 — drafting.** **Unblocked**: D12 class C is settled (see D12 and
-   `GLOSSARY.md`). Book 4 ¶1 carries the poem's first class-C bracket, in its
-   first sentence, and it is **never closed** in the base text; Book 4 ¶52
-   carries the second. Steps 1–3 of `WORKFLOW.md`, then packets, then a
-   separate reviewer session.
-4. Book 10's disposition still needs a coordinator decision — see A2 below,
+3. **Book 4 is frozen at `book04/candidate-v1.json`** (sha256
+   `9c7d54af…b912e6553`, 81 paragraphs, ratio 0.9999, retention **0.960**, 27
+   packets) and **waiting on the coordinator for step 4, the independent
+   review** — a separate reviewer session, `book04/review-instructions.md`,
+   findings under `book04/review/`. **Five things are put to that reviewer
+   explicitly**: the **retention figure 0.960**, the package's highest, which
+   `book04/continuity.md` §6 records as a risk and does not defend; the
+   **three new rows** in the closed name table (Venus → Aphrodite, Juno → Hera,
+   Vulcan → Hephaestus, added by enumeration on the served `modern-en`'s own
+   counts, with `Idothea` deliberately left alone beside them); **D12 class C**,
+   applied for the first time in the poem at B04-P001 (never closed) and
+   B04-P052; the **B04-P040 quotation-mark repair**; and the **one deliberate
+   break in the `heaven` census** at B04-P034.
+4. **Book 5** after Book 4, in numerical order. Nothing blocks it.
+5. Book 10's disposition still needs a coordinator decision — see A2 below,
    now narrowed.
 
 ## Needs Anders (listed, not waited on)
