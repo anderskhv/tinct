@@ -32,3 +32,20 @@ ends or the 44-minute deadline hits, then writes pods/<name>/out/.
 `gloop.sh` runs `runpod_guard.py enforce --apply` every 5 min with the brief's
 limits (prefix tinct-words-run2-, $1.00/hr, 50 min, $20 budget, spent.txt).
 Do NOT `pkill -f guard-loop.sh` — that string matches the invoking shell too.
+
+## 05:35Z — wave 2 started alongside wave 1
+COMMUNITY cloud had no instances at all; SECURE had some, at the same
+$0.49/hr, so wave-2 pods run with `--cloud SECURE`. Capacity saturates at
+about 12 concurrent pods — batches 4, 5, 7, 8 were refused ("no instances
+currently available", costs nothing) and must be relaunched when wave-1 pods
+free capacity.
+
+Wave-2 pods live: 19 (batch 1), 20 (batch 2), 21 (batch 3), 24 (batch 6),
+each launched by `orchestrate.py run`, which harvests and terminates itself.
+Relaunch helper: `launch_wave2.sh <first-pod-number> <batch>...` (add
+`--cloud SECURE`). Remaining wave-2 batches after these: 4,5,7,8 then 9..95.
+
+## Harvest
+`harvest_one.sh <pod-name>` runs harvest.py --apply against
+publication-journal.json and commits+pushes that single pod. Run it per pod,
+never in batches.
