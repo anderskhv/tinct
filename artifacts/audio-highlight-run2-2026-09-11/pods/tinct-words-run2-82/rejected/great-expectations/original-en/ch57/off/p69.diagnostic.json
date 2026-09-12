@@ -1,0 +1,619 @@
+{
+  "complete": true,
+  "signature": "296c2fedb75b9c5e23fb769be78be894e6430453e2ac7af0d94664bd8860bba5",
+  "attempts": [
+    {
+      "asr_seconds": 0.3302561389282346,
+      "alignment_seconds": 0.0005038878880441189,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Looky here old chap said Joe bending over me ever the best of friends ain't us pip",
+          "start": 0.02,
+          "end": 5.66,
+          "words": [
+            {
+              "text": " Looky",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 0.319854736328125
+            },
+            {
+              "text": " here",
+              "start": 0.72,
+              "end": 0.94,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " old",
+              "start": 0.94,
+              "end": 1.18,
+              "probability": 0.278564453125
+            },
+            {
+              "text": " chap",
+              "start": 1.18,
+              "end": 1.6,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " said",
+              "start": 1.6,
+              "end": 2.16,
+              "probability": 0.443603515625
+            },
+            {
+              "text": " Joe",
+              "start": 2.16,
+              "end": 2.48,
+              "probability": 0.7353515625
+            },
+            {
+              "text": " bending",
+              "start": 2.48,
+              "end": 2.86,
+              "probability": 0.951171875
+            },
+            {
+              "text": " over",
+              "start": 2.86,
+              "end": 3.14,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " me",
+              "start": 3.14,
+              "end": 3.5,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " ever",
+              "start": 3.5,
+              "end": 4.08,
+              "probability": 0.8369140625
+            },
+            {
+              "text": " the",
+              "start": 4.08,
+              "end": 4.2,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " best",
+              "start": 4.2,
+              "end": 4.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 4.4,
+              "end": 4.56,
+              "probability": 0.994140625
+            },
+            {
+              "text": " friends",
+              "start": 4.56,
+              "end": 4.94,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " ain't",
+              "start": 4.94,
+              "end": 5.3,
+              "probability": 0.914794921875
+            },
+            {
+              "text": " us",
+              "start": 5.3,
+              "end": 5.42,
+              "probability": 0.966796875
+            },
+            {
+              "text": " pip",
+              "start": 5.42,
+              "end": 5.66,
+              "probability": 0.67138671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Looky",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "raw": "here",
+          "start": 0.72,
+          "end": 0.94
+        },
+        {
+          "raw": "old",
+          "start": 0.94,
+          "end": 1.18
+        },
+        {
+          "raw": "chap",
+          "start": 1.18,
+          "end": 1.6
+        },
+        {
+          "raw": "said",
+          "start": 1.6,
+          "end": 2.16
+        },
+        {
+          "raw": "Joe",
+          "start": 2.16,
+          "end": 2.48
+        },
+        {
+          "raw": "bending",
+          "start": 2.48,
+          "end": 2.86
+        },
+        {
+          "raw": "over",
+          "start": 2.86,
+          "end": 3.14
+        },
+        {
+          "raw": "me",
+          "start": 3.14,
+          "end": 3.5
+        },
+        {
+          "raw": "ever",
+          "start": 3.5,
+          "end": 4.08
+        },
+        {
+          "raw": "the",
+          "start": 4.08,
+          "end": 4.2
+        },
+        {
+          "raw": "best",
+          "start": 4.2,
+          "end": 4.4
+        },
+        {
+          "raw": "of",
+          "start": 4.4,
+          "end": 4.56
+        },
+        {
+          "raw": "friends",
+          "start": 4.56,
+          "end": 4.94
+        },
+        {
+          "raw": "ain't",
+          "start": 4.94,
+          "end": 5.3
+        },
+        {
+          "raw": "us",
+          "start": 5.3,
+          "end": 5.42
+        },
+        {
+          "raw": "pip",
+          "start": 5.42,
+          "end": 5.66
+        }
+      ],
+      "expected_tokens": [
+        "\"Lookee",
+        "here,",
+        "old",
+        "chap,\"",
+        "said",
+        "Joe,",
+        "bending",
+        "over",
+        "me.",
+        "\"Ever",
+        "the",
+        "best",
+        "of",
+        "friends;",
+        "ain't",
+        "us,",
+        "Pip?\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          17,
+          1,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Looky",
+          "start": 0.02,
+          "end": 0.72,
+          "key": "looky",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 0.72,
+          "end": 0.94,
+          "key": "here",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 0.94,
+          "end": 1.18,
+          "key": "old",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "chap",
+          "start": 1.18,
+          "end": 1.6,
+          "key": "chap",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.6,
+          "end": 2.16,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Joe",
+          "start": 2.16,
+          "end": 2.48,
+          "key": "joe",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "bending",
+          "start": 2.48,
+          "end": 2.86,
+          "key": "bending",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 2.86,
+          "end": 3.14,
+          "key": "over",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 3.14,
+          "end": 3.5,
+          "key": "me",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "ever",
+          "start": 3.5,
+          "end": 4.08,
+          "key": "ever",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.08,
+          "end": 4.2,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "best",
+          "start": 4.2,
+          "end": 4.4,
+          "key": "best",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.4,
+          "end": 4.56,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "friends",
+          "start": 4.56,
+          "end": 4.94,
+          "key": "friends",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "ain't",
+          "start": 4.94,
+          "end": 5.3,
+          "key": "aint",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 5.3,
+          "end": 5.42,
+          "key": "us",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "pip",
+          "start": 5.42,
+          "end": 5.66,
+          "key": "pip",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Lookee",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "text": "here,",
+          "start": 0.72,
+          "end": 0.94
+        },
+        {
+          "text": "old",
+          "start": 0.94,
+          "end": 1.18
+        },
+        {
+          "text": "chap,\"",
+          "start": 1.18,
+          "end": 1.6
+        },
+        {
+          "text": "said",
+          "start": 1.6,
+          "end": 2.16
+        },
+        {
+          "text": "Joe,",
+          "start": 2.16,
+          "end": 2.48
+        },
+        {
+          "text": "bending",
+          "start": 2.48,
+          "end": 2.86
+        },
+        {
+          "text": "over",
+          "start": 2.86,
+          "end": 3.14
+        },
+        {
+          "text": "me.",
+          "start": 3.14,
+          "end": 3.5
+        },
+        {
+          "text": "\"Ever",
+          "start": 3.5,
+          "end": 4.08
+        },
+        {
+          "text": "the",
+          "start": 4.08,
+          "end": 4.2
+        },
+        {
+          "text": "best",
+          "start": 4.2,
+          "end": 4.4
+        },
+        {
+          "text": "of",
+          "start": 4.4,
+          "end": 4.56
+        },
+        {
+          "text": "friends;",
+          "start": 4.56,
+          "end": 4.94
+        },
+        {
+          "text": "ain't",
+          "start": 4.94,
+          "end": 5.3
+        },
+        {
+          "text": "us,",
+          "start": 5.3,
+          "end": 5.42
+        },
+        {
+          "text": "Pip?\"",
+          "start": 5.42,
+          "end": 5.66
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 16
+      },
+      "match_ratio": 0.9411764705882353,
+      "rejection_reasons": [],
+      "seconds": 0.33095766184851527
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3d7641b378fe9c9b3aa808d934918629eb324293955c7f899a412e22551729fb",
+  "selected_reasons": []
+}

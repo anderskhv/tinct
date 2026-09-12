@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "c20ea280826d295e2c214899aae8faf6d7f3727fb54f9128860deb874bfeee93",
+  "attempts": [
+    {
+      "asr_seconds": 0.23751163994893432,
+      "alignment_seconds": 0.0005653370171785355,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"The man says,\" Joe assented. \"Is he right, that man?\"",
+        "hotwords": "The, Joe, Is"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The man says, Joe assented. Is he right, that man?\"",
+          "start": 0.02,
+          "end": 4.2,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.72314453125
+            },
+            {
+              "text": " man",
+              "start": 0.5,
+              "end": 0.7,
+              "probability": 0.9765625
+            },
+            {
+              "text": " says,",
+              "start": 0.7,
+              "end": 1.12,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Joe",
+              "start": 1.38,
+              "end": 1.62,
+              "probability": 0.771484375
+            },
+            {
+              "text": " assented.",
+              "start": 1.62,
+              "end": 2.06,
+              "probability": 0.92578125
+            },
+            {
+              "text": " Is",
+              "start": 2.6,
+              "end": 2.72,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " he",
+              "start": 2.72,
+              "end": 2.84,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " right,",
+              "start": 2.84,
+              "end": 3.04,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " that",
+              "start": 3.2,
+              "end": 3.24,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " man?\"",
+              "start": 3.24,
+              "end": 4.2,
+              "probability": 0.516571044921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "man",
+          "start": 0.5,
+          "end": 0.7
+        },
+        {
+          "raw": "says,",
+          "start": 0.7,
+          "end": 1.12
+        },
+        {
+          "raw": "Joe",
+          "start": 1.38,
+          "end": 1.62
+        },
+        {
+          "raw": "assented.",
+          "start": 1.62,
+          "end": 2.06
+        },
+        {
+          "raw": "Is",
+          "start": 2.6,
+          "end": 2.72
+        },
+        {
+          "raw": "he",
+          "start": 2.72,
+          "end": 2.84
+        },
+        {
+          "raw": "right,",
+          "start": 2.84,
+          "end": 3.04
+        },
+        {
+          "raw": "that",
+          "start": 3.2,
+          "end": 3.24
+        },
+        {
+          "raw": "man?\"",
+          "start": 3.24,
+          "end": 4.2
+        }
+      ],
+      "expected_tokens": [
+        "\"The",
+        "man",
+        "says,\"",
+        "Joe",
+        "assented.",
+        "\"Is",
+        "he",
+        "right,",
+        "that",
+        "man?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 0.5,
+          "end": 0.7,
+          "key": "man",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "says,",
+          "start": 0.7,
+          "end": 1.12,
+          "key": "says",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Joe",
+          "start": 1.38,
+          "end": 1.62,
+          "key": "joe",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "assented.",
+          "start": 1.62,
+          "end": 2.06,
+          "key": "assented",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 2.6,
+          "end": 2.72,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.72,
+          "end": 2.84,
+          "key": "he",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "right,",
+          "start": 2.84,
+          "end": 3.04,
+          "key": "right",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.2,
+          "end": 3.24,
+          "key": "that",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "man?\"",
+          "start": 3.24,
+          "end": 4.2,
+          "key": "man",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "man",
+          "start": 0.5,
+          "end": 0.7
+        },
+        {
+          "text": "says,\"",
+          "start": 0.7,
+          "end": 1.12
+        },
+        {
+          "text": "Joe",
+          "start": 1.38,
+          "end": 1.62
+        },
+        {
+          "text": "assented.",
+          "start": 1.62,
+          "end": 2.06
+        },
+        {
+          "text": "\"Is",
+          "start": 2.6,
+          "end": 2.72
+        },
+        {
+          "text": "he",
+          "start": 2.72,
+          "end": 2.84
+        },
+        {
+          "text": "right,",
+          "start": 2.84,
+          "end": 3.04
+        },
+        {
+          "text": "that",
+          "start": 3.2,
+          "end": 3.24
+        },
+        {
+          "text": "man?\"",
+          "start": 3.24,
+          "end": 4.2
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23827110091224313
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "66a7bfd70bf366230877b36f9a4467e13137554a4f54da5d235576c43df15323",
+  "selected_reasons": []
+}

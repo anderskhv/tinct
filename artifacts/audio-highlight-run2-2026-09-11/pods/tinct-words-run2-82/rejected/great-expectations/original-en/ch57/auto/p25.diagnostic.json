@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "fbe3bd614d7341feac357875de3efdc0cf52dab5697ddce74c35237b7faa0d30",
+  "attempts": [
+    {
+      "asr_seconds": 0.22794061014428735,
+      "alignment_seconds": 0.00040190620347857475,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"And have you been here all that time, dear Joe?\"",
+        "hotwords": "And, Joe"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And have you been here all that time, dear Joe?",
+          "start": 0.08,
+          "end": 2.4,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.83837890625
+            },
+            {
+              "text": " have",
+              "start": 0.54,
+              "end": 0.64,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " you",
+              "start": 0.64,
+              "end": 0.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " been",
+              "start": 0.76,
+              "end": 0.9,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " here",
+              "start": 0.9,
+              "end": 1.1,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " all",
+              "start": 1.1,
+              "end": 1.26,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " that",
+              "start": 1.26,
+              "end": 1.46,
+              "probability": 0.9921875
+            },
+            {
+              "text": " time,",
+              "start": 1.46,
+              "end": 1.82,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " dear",
+              "start": 2.06,
+              "end": 2.16,
+              "probability": 0.9296875
+            },
+            {
+              "text": " Joe?",
+              "start": 2.16,
+              "end": 2.4,
+              "probability": 0.7490234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "have",
+          "start": 0.54,
+          "end": 0.64
+        },
+        {
+          "raw": "you",
+          "start": 0.64,
+          "end": 0.76
+        },
+        {
+          "raw": "been",
+          "start": 0.76,
+          "end": 0.9
+        },
+        {
+          "raw": "here",
+          "start": 0.9,
+          "end": 1.1
+        },
+        {
+          "raw": "all",
+          "start": 1.1,
+          "end": 1.26
+        },
+        {
+          "raw": "that",
+          "start": 1.26,
+          "end": 1.46
+        },
+        {
+          "raw": "time,",
+          "start": 1.46,
+          "end": 1.82
+        },
+        {
+          "raw": "dear",
+          "start": 2.06,
+          "end": 2.16
+        },
+        {
+          "raw": "Joe?",
+          "start": 2.16,
+          "end": 2.4
+        }
+      ],
+      "expected_tokens": [
+        "\"And",
+        "have",
+        "you",
+        "been",
+        "here",
+        "all",
+        "that",
+        "time,",
+        "dear",
+        "Joe?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 0.54,
+          "end": 0.64,
+          "key": "have",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.64,
+          "end": 0.76,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 0.76,
+          "end": 0.9,
+          "key": "been",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 0.9,
+          "end": 1.1,
+          "key": "here",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.1,
+          "end": 1.26,
+          "key": "all",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.26,
+          "end": 1.46,
+          "key": "that",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "time,",
+          "start": 1.46,
+          "end": 1.82,
+          "key": "time",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "dear",
+          "start": 2.06,
+          "end": 2.16,
+          "key": "dear",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Joe?",
+          "start": 2.16,
+          "end": 2.4,
+          "key": "joe",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"And",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "have",
+          "start": 0.54,
+          "end": 0.64
+        },
+        {
+          "text": "you",
+          "start": 0.64,
+          "end": 0.76
+        },
+        {
+          "text": "been",
+          "start": 0.76,
+          "end": 0.9
+        },
+        {
+          "text": "here",
+          "start": 0.9,
+          "end": 1.1
+        },
+        {
+          "text": "all",
+          "start": 1.1,
+          "end": 1.26
+        },
+        {
+          "text": "that",
+          "start": 1.26,
+          "end": 1.46
+        },
+        {
+          "text": "time,",
+          "start": 1.46,
+          "end": 1.82
+        },
+        {
+          "text": "dear",
+          "start": 2.06,
+          "end": 2.16
+        },
+        {
+          "text": "Joe?\"",
+          "start": 2.16,
+          "end": 2.4
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22848364105448127
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a2f65669df7088cb08e6a12ff02a77ca0be5e5f44b16d2b153d83a07132b8c11",
+  "selected_reasons": []
+}

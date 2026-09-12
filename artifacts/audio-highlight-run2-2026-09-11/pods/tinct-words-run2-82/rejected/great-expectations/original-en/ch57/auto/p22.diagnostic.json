@@ -1,0 +1,478 @@
+{
+  "complete": true,
+  "signature": "803b678d576a683a4d73549291b975dd1ab5475e45928e014e4d16956ca988eb",
+  "attempts": [
+    {
+      "asr_seconds": 0.313315202947706,
+      "alignment_seconds": 0.0005775089375674725,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Which you meantersay, Pip, how long have your illness lasted, dear old chap?\"",
+        "hotwords": "Which, Pip"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Which you meantersay, Pip, how long have your illness lasted, dear old chap?",
+          "start": 0.02,
+          "end": 4.48,
+          "words": [
+            {
+              "text": " Which",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " you",
+              "start": 0.52,
+              "end": 0.7,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " meantersay,",
+              "start": 0.7,
+              "end": 1.3,
+              "probability": 0.45364729563395184
+            },
+            {
+              "text": " Pip,",
+              "start": 1.44,
+              "end": 1.52,
+              "probability": 0.70263671875
+            },
+            {
+              "text": " how",
+              "start": 1.92,
+              "end": 2.1,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " long",
+              "start": 2.1,
+              "end": 2.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " have",
+              "start": 2.32,
+              "end": 2.48,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " your",
+              "start": 2.48,
+              "end": 2.56,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " illness",
+              "start": 2.56,
+              "end": 2.86,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " lasted,",
+              "start": 2.86,
+              "end": 3.42,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " dear",
+              "start": 3.86,
+              "end": 3.9,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " old",
+              "start": 3.9,
+              "end": 4.18,
+              "probability": 0.966796875
+            },
+            {
+              "text": " chap?",
+              "start": 4.18,
+              "end": 4.48,
+              "probability": 0.94921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Which",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "you",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "raw": "meantersay,",
+          "start": 0.7,
+          "end": 1.3
+        },
+        {
+          "raw": "Pip,",
+          "start": 1.44,
+          "end": 1.52
+        },
+        {
+          "raw": "how",
+          "start": 1.92,
+          "end": 2.1
+        },
+        {
+          "raw": "long",
+          "start": 2.1,
+          "end": 2.32
+        },
+        {
+          "raw": "have",
+          "start": 2.32,
+          "end": 2.48
+        },
+        {
+          "raw": "your",
+          "start": 2.48,
+          "end": 2.56
+        },
+        {
+          "raw": "illness",
+          "start": 2.56,
+          "end": 2.86
+        },
+        {
+          "raw": "lasted,",
+          "start": 2.86,
+          "end": 3.42
+        },
+        {
+          "raw": "dear",
+          "start": 3.86,
+          "end": 3.9
+        },
+        {
+          "raw": "old",
+          "start": 3.9,
+          "end": 4.18
+        },
+        {
+          "raw": "chap?",
+          "start": 4.18,
+          "end": 4.48
+        }
+      ],
+      "expected_tokens": [
+        "\"Which",
+        "you",
+        "meantersay,",
+        "Pip,",
+        "how",
+        "long",
+        "have",
+        "your",
+        "illness",
+        "lasted,",
+        "dear",
+        "old",
+        "chap?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Which",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "which",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.52,
+          "end": 0.7,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "meantersay,",
+          "start": 0.7,
+          "end": 1.3,
+          "key": "meantersay",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Pip,",
+          "start": 1.44,
+          "end": 1.52,
+          "key": "pip",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 1.92,
+          "end": 2.1,
+          "key": "how",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "long",
+          "start": 2.1,
+          "end": 2.32,
+          "key": "long",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.32,
+          "end": 2.48,
+          "key": "have",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.48,
+          "end": 2.56,
+          "key": "your",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "illness",
+          "start": 2.56,
+          "end": 2.86,
+          "key": "illness",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "lasted,",
+          "start": 2.86,
+          "end": 3.42,
+          "key": "lasted",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "dear",
+          "start": 3.86,
+          "end": 3.9,
+          "key": "dear",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 3.9,
+          "end": 4.18,
+          "key": "old",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "chap?",
+          "start": 4.18,
+          "end": 4.48,
+          "key": "chap",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Which",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "you",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "text": "meantersay,",
+          "start": 0.7,
+          "end": 1.3
+        },
+        {
+          "text": "Pip,",
+          "start": 1.44,
+          "end": 1.52
+        },
+        {
+          "text": "how",
+          "start": 1.92,
+          "end": 2.1
+        },
+        {
+          "text": "long",
+          "start": 2.1,
+          "end": 2.32
+        },
+        {
+          "text": "have",
+          "start": 2.32,
+          "end": 2.48
+        },
+        {
+          "text": "your",
+          "start": 2.48,
+          "end": 2.56
+        },
+        {
+          "text": "illness",
+          "start": 2.56,
+          "end": 2.86
+        },
+        {
+          "text": "lasted,",
+          "start": 2.86,
+          "end": 3.42
+        },
+        {
+          "text": "dear",
+          "start": 3.86,
+          "end": 3.9
+        },
+        {
+          "text": "old",
+          "start": 3.9,
+          "end": 4.18
+        },
+        {
+          "text": "chap?\"",
+          "start": 4.18,
+          "end": 4.48
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3141325153410435
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "76cd63ba3af5a393f7cba6a5c8eaff2badadd0a5252260ffae5e0136c9cbccbd",
+  "selected_reasons": []
+}

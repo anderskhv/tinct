@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "1621b0407e5c521a22d611a11a9c1c7b1b3ae8f8bebff1e4dcbc3f1d679b9a9e",
+  "attempts": [
+    {
+      "asr_seconds": 0.11610866989940405,
+      "alignment_seconds": 0.00021835695952177048,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Jo.",
+        "hotwords": "Jo"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Jo.",
+          "start": 0.02,
+          "end": 0.58,
+          "words": [
+            {
+              "text": " Jo.",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.0257110595703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Jo.",
+          "start": 0.02,
+          "end": 0.58
+        }
+      ],
+      "expected_tokens": [
+        "Jo."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Jo.",
+          "start": 0.02,
+          "end": 0.58,
+          "key": "jo",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Jo.",
+          "start": 0.02,
+          "end": 0.58
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11639631912112236
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cd60cd16a5775b14390181b722697c128e44f533f597cd0e88c232a68ce82c49",
+  "selected_reasons": []
+}

@@ -1,0 +1,805 @@
+{
+  "complete": true,
+  "signature": "0d7a2f5c0d0c1ceaf111defbe3254f8ccf91440a67b2395520cf700291929bea",
+  "attempts": [
+    {
+      "asr_seconds": 0.46396614145487547,
+      "alignment_seconds": 0.0009324806742370129,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Joe patted the coverlet on my shoulder with his great good hand, and said, in what I thought a husky voice, \"Good night!\"",
+        "hotwords": "Joe, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Joe patted the coverlet on my shoulder with his great good hand, and said, in what I thought",
+          "start": 0.02,
+          "end": 5.28,
+          "words": [
+            {
+              "text": " Joe",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.88720703125
+            },
+            {
+              "text": " patted",
+              "start": 0.62,
+              "end": 0.96,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " the",
+              "start": 0.96,
+              "end": 1.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " coverlet",
+              "start": 1.14,
+              "end": 1.52,
+              "probability": 0.969970703125
+            },
+            {
+              "text": " on",
+              "start": 1.52,
+              "end": 1.66,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " my",
+              "start": 1.66,
+              "end": 1.82,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " shoulder",
+              "start": 1.82,
+              "end": 2.1,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " with",
+              "start": 2.1,
+              "end": 2.36,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " his",
+              "start": 2.36,
+              "end": 2.52,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " great",
+              "start": 2.52,
+              "end": 2.78,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " good",
+              "start": 2.78,
+              "end": 3.02,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " hand,",
+              "start": 3.02,
+              "end": 3.46,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " and",
+              "start": 3.92,
+              "end": 4.04,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " said,",
+              "start": 4.04,
+              "end": 4.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 4.84,
+              "end": 4.92,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " what",
+              "start": 4.92,
+              "end": 5.02,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " I",
+              "start": 5.02,
+              "end": 5.16,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " thought",
+              "start": 5.16,
+              "end": 5.28,
+              "probability": 0.994140625
+            }
+          ]
+        },
+        {
+          "text": " a husky voice, good night!",
+          "start": 5.28,
+          "end": 7.24,
+          "words": [
+            {
+              "text": " a",
+              "start": 5.28,
+              "end": 5.42,
+              "probability": 0.44921875
+            },
+            {
+              "text": " husky",
+              "start": 5.42,
+              "end": 5.8,
+              "probability": 0.959228515625
+            },
+            {
+              "text": " voice,",
+              "start": 5.8,
+              "end": 6.16,
+              "probability": 0.998046875
+            },
+            {
+              "text": " good",
+              "start": 6.6,
+              "end": 6.88,
+              "probability": 0.53515625
+            },
+            {
+              "text": " night!",
+              "start": 6.88,
+              "end": 7.24,
+              "probability": 0.70849609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Joe",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "patted",
+          "start": 0.62,
+          "end": 0.96
+        },
+        {
+          "raw": "the",
+          "start": 0.96,
+          "end": 1.14
+        },
+        {
+          "raw": "coverlet",
+          "start": 1.14,
+          "end": 1.52
+        },
+        {
+          "raw": "on",
+          "start": 1.52,
+          "end": 1.66
+        },
+        {
+          "raw": "my",
+          "start": 1.66,
+          "end": 1.82
+        },
+        {
+          "raw": "shoulder",
+          "start": 1.82,
+          "end": 2.1
+        },
+        {
+          "raw": "with",
+          "start": 2.1,
+          "end": 2.36
+        },
+        {
+          "raw": "his",
+          "start": 2.36,
+          "end": 2.52
+        },
+        {
+          "raw": "great",
+          "start": 2.52,
+          "end": 2.78
+        },
+        {
+          "raw": "good",
+          "start": 2.78,
+          "end": 3.02
+        },
+        {
+          "raw": "hand,",
+          "start": 3.02,
+          "end": 3.46
+        },
+        {
+          "raw": "and",
+          "start": 3.92,
+          "end": 4.04
+        },
+        {
+          "raw": "said,",
+          "start": 4.04,
+          "end": 4.32
+        },
+        {
+          "raw": "in",
+          "start": 4.84,
+          "end": 4.92
+        },
+        {
+          "raw": "what",
+          "start": 4.92,
+          "end": 5.02
+        },
+        {
+          "raw": "I",
+          "start": 5.02,
+          "end": 5.16
+        },
+        {
+          "raw": "thought",
+          "start": 5.16,
+          "end": 5.28
+        },
+        {
+          "raw": "a",
+          "start": 5.28,
+          "end": 5.42
+        },
+        {
+          "raw": "husky",
+          "start": 5.42,
+          "end": 5.8
+        },
+        {
+          "raw": "voice,",
+          "start": 5.8,
+          "end": 6.16
+        },
+        {
+          "raw": "good",
+          "start": 6.6,
+          "end": 6.88
+        },
+        {
+          "raw": "night!",
+          "start": 6.88,
+          "end": 7.24
+        }
+      ],
+      "expected_tokens": [
+        "Joe",
+        "patted",
+        "the",
+        "coverlet",
+        "on",
+        "my",
+        "shoulder",
+        "with",
+        "his",
+        "great",
+        "good",
+        "hand,",
+        "and",
+        "said,",
+        "in",
+        "what",
+        "I",
+        "thought",
+        "a",
+        "husky",
+        "voice,",
+        "\"Good",
+        "night!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          23,
+          0,
+          23
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Joe",
+          "start": 0.02,
+          "end": 0.62,
+          "key": "joe",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "patted",
+          "start": 0.62,
+          "end": 0.96,
+          "key": "patted",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.96,
+          "end": 1.14,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "coverlet",
+          "start": 1.14,
+          "end": 1.52,
+          "key": "coverlet",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.52,
+          "end": 1.66,
+          "key": "on",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.66,
+          "end": 1.82,
+          "key": "my",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "shoulder",
+          "start": 1.82,
+          "end": 2.1,
+          "key": "shoulder",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.1,
+          "end": 2.36,
+          "key": "with",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.36,
+          "end": 2.52,
+          "key": "his",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 2.52,
+          "end": 2.78,
+          "key": "great",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 2.78,
+          "end": 3.02,
+          "key": "good",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "hand,",
+          "start": 3.02,
+          "end": 3.46,
+          "key": "hand",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.92,
+          "end": 4.04,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 4.04,
+          "end": 4.32,
+          "key": "said",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.84,
+          "end": 4.92,
+          "key": "in",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 4.92,
+          "end": 5.02,
+          "key": "what",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.02,
+          "end": 5.16,
+          "key": "i",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "thought",
+          "start": 5.16,
+          "end": 5.28,
+          "key": "thought",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.28,
+          "end": 5.42,
+          "key": "a",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "husky",
+          "start": 5.42,
+          "end": 5.8,
+          "key": "husky",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "voice,",
+          "start": 5.8,
+          "end": 6.16,
+          "key": "voice",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 6.6,
+          "end": 6.88,
+          "key": "good",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "night!",
+          "start": 6.88,
+          "end": 7.24,
+          "key": "night",
+          "pieces": [
+            22
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Joe",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "text": "patted",
+          "start": 0.62,
+          "end": 0.96
+        },
+        {
+          "text": "the",
+          "start": 0.96,
+          "end": 1.14
+        },
+        {
+          "text": "coverlet",
+          "start": 1.14,
+          "end": 1.52
+        },
+        {
+          "text": "on",
+          "start": 1.52,
+          "end": 1.66
+        },
+        {
+          "text": "my",
+          "start": 1.66,
+          "end": 1.82
+        },
+        {
+          "text": "shoulder",
+          "start": 1.82,
+          "end": 2.1
+        },
+        {
+          "text": "with",
+          "start": 2.1,
+          "end": 2.36
+        },
+        {
+          "text": "his",
+          "start": 2.36,
+          "end": 2.52
+        },
+        {
+          "text": "great",
+          "start": 2.52,
+          "end": 2.78
+        },
+        {
+          "text": "good",
+          "start": 2.78,
+          "end": 3.02
+        },
+        {
+          "text": "hand,",
+          "start": 3.02,
+          "end": 3.46
+        },
+        {
+          "text": "and",
+          "start": 3.92,
+          "end": 4.04
+        },
+        {
+          "text": "said,",
+          "start": 4.04,
+          "end": 4.32
+        },
+        {
+          "text": "in",
+          "start": 4.84,
+          "end": 4.92
+        },
+        {
+          "text": "what",
+          "start": 4.92,
+          "end": 5.02
+        },
+        {
+          "text": "I",
+          "start": 5.02,
+          "end": 5.16
+        },
+        {
+          "text": "thought",
+          "start": 5.16,
+          "end": 5.28
+        },
+        {
+          "text": "a",
+          "start": 5.28,
+          "end": 5.42
+        },
+        {
+          "text": "husky",
+          "start": 5.42,
+          "end": 5.8
+        },
+        {
+          "text": "voice,",
+          "start": 5.8,
+          "end": 6.16
+        },
+        {
+          "text": "\"Good",
+          "start": 6.6,
+          "end": 6.88
+        },
+        {
+          "text": "night!\"",
+          "start": 6.88,
+          "end": 7.24
+        }
+      ],
+      "stats": {
+        "expected_words": 23,
+        "heard_words": 23,
+        "matched_words": 23
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4652727823704481
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4d8dfdd3dfc8269afd911290ca240a777b24e9b3cc0971fbea436a4650102c2b",
+  "selected_reasons": []
+}

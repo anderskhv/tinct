@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "2bfdf39f14fffabbf57178e2f1bdff9e3cfed831a2f8e90a4ede423f54eaccac",
+  "attempts": [
+    {
+      "asr_seconds": 0.12197845336049795,
+      "alignment_seconds": 0.0002055601216852665,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sonnet",
+        "hotwords": "Sonnet"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sonnet",
+          "start": 0.08,
+          "end": 0.82,
+          "words": [
+            {
+              "text": " Sonnet",
+              "start": 0.08,
+              "end": 0.82,
+              "probability": 0.83984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sonnet",
+          "start": 0.08,
+          "end": 0.82
+        }
+      ],
+      "expected_tokens": [
+        "Sonnet"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sonnet",
+          "start": 0.08,
+          "end": 0.82,
+          "key": "sonnet",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sonnet",
+          "start": 0.08,
+          "end": 0.82
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12225323310121894
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "27e9d483e28c318df208b40bdd2bd6ef1de9ebe2658d45d24c25d38e1c68b0e3",
+  "selected_reasons": []
+}

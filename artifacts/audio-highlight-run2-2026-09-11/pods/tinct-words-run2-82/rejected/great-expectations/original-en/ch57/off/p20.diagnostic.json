@@ -1,0 +1,771 @@
+{
+  "complete": true,
+  "signature": "fcd4a6b822e7ad970cc25a6a2c0e157ee1c937f034f979c019bea7768766dc57",
+  "attempts": [
+    {
+      "asr_seconds": 0.3175554326735437,
+      "alignment_seconds": 0.0006200089119374752,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Joe's eyes were red when I next found him beside me, but I was holding his hand, and",
+          "start": 0.02,
+          "end": 5.36,
+          "words": [
+            {
+              "text": " Joe's",
+              "start": 0.02,
+              "end": 0.76,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " eyes",
+              "start": 0.76,
+              "end": 1.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " were",
+              "start": 1.0,
+              "end": 1.28,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " red",
+              "start": 1.28,
+              "end": 1.54,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " when",
+              "start": 1.54,
+              "end": 1.74,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " I",
+              "start": 1.74,
+              "end": 1.86,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " next",
+              "start": 1.86,
+              "end": 2.1,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " found",
+              "start": 2.1,
+              "end": 2.38,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " him",
+              "start": 2.38,
+              "end": 2.56,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " beside",
+              "start": 2.56,
+              "end": 2.88,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " me,",
+              "start": 2.88,
+              "end": 3.22,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " but",
+              "start": 3.52,
+              "end": 3.74,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " I",
+              "start": 3.74,
+              "end": 3.84,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " was",
+              "start": 3.84,
+              "end": 3.96,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " holding",
+              "start": 3.96,
+              "end": 4.24,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " his",
+              "start": 4.24,
+              "end": 4.46,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " hand,",
+              "start": 4.46,
+              "end": 4.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 5.26,
+              "end": 5.36,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " we both felt happy.",
+          "start": 5.36,
+          "end": 6.36,
+          "words": [
+            {
+              "text": " we",
+              "start": 5.36,
+              "end": 5.5,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " both",
+              "start": 5.5,
+              "end": 5.72,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " felt",
+              "start": 5.72,
+              "end": 5.96,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " happy.",
+              "start": 5.96,
+              "end": 6.36,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Joe's",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "raw": "eyes",
+          "start": 0.76,
+          "end": 1.0
+        },
+        {
+          "raw": "were",
+          "start": 1.0,
+          "end": 1.28
+        },
+        {
+          "raw": "red",
+          "start": 1.28,
+          "end": 1.54
+        },
+        {
+          "raw": "when",
+          "start": 1.54,
+          "end": 1.74
+        },
+        {
+          "raw": "I",
+          "start": 1.74,
+          "end": 1.86
+        },
+        {
+          "raw": "next",
+          "start": 1.86,
+          "end": 2.1
+        },
+        {
+          "raw": "found",
+          "start": 2.1,
+          "end": 2.38
+        },
+        {
+          "raw": "him",
+          "start": 2.38,
+          "end": 2.56
+        },
+        {
+          "raw": "beside",
+          "start": 2.56,
+          "end": 2.88
+        },
+        {
+          "raw": "me,",
+          "start": 2.88,
+          "end": 3.22
+        },
+        {
+          "raw": "but",
+          "start": 3.52,
+          "end": 3.74
+        },
+        {
+          "raw": "I",
+          "start": 3.74,
+          "end": 3.84
+        },
+        {
+          "raw": "was",
+          "start": 3.84,
+          "end": 3.96
+        },
+        {
+          "raw": "holding",
+          "start": 3.96,
+          "end": 4.24
+        },
+        {
+          "raw": "his",
+          "start": 4.24,
+          "end": 4.46
+        },
+        {
+          "raw": "hand,",
+          "start": 4.46,
+          "end": 4.88
+        },
+        {
+          "raw": "and",
+          "start": 5.26,
+          "end": 5.36
+        },
+        {
+          "raw": "we",
+          "start": 5.36,
+          "end": 5.5
+        },
+        {
+          "raw": "both",
+          "start": 5.5,
+          "end": 5.72
+        },
+        {
+          "raw": "felt",
+          "start": 5.72,
+          "end": 5.96
+        },
+        {
+          "raw": "happy.",
+          "start": 5.96,
+          "end": 6.36
+        }
+      ],
+      "expected_tokens": [
+        "Joe's",
+        "eyes",
+        "were",
+        "red",
+        "when",
+        "I",
+        "next",
+        "found",
+        "him",
+        "beside",
+        "me;",
+        "but",
+        "I",
+        "was",
+        "holding",
+        "his",
+        "hand,",
+        "and",
+        "we",
+        "both",
+        "felt",
+        "happy."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Joe's",
+          "start": 0.02,
+          "end": 0.76,
+          "key": "joes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "eyes",
+          "start": 0.76,
+          "end": 1.0,
+          "key": "eyes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 1.0,
+          "end": 1.28,
+          "key": "were",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "red",
+          "start": 1.28,
+          "end": 1.54,
+          "key": "red",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 1.54,
+          "end": 1.74,
+          "key": "when",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.74,
+          "end": 1.86,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "next",
+          "start": 1.86,
+          "end": 2.1,
+          "key": "next",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "found",
+          "start": 2.1,
+          "end": 2.38,
+          "key": "found",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 2.38,
+          "end": 2.56,
+          "key": "him",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "beside",
+          "start": 2.56,
+          "end": 2.88,
+          "key": "beside",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 2.88,
+          "end": 3.22,
+          "key": "me",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 3.52,
+          "end": 3.74,
+          "key": "but",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.74,
+          "end": 3.84,
+          "key": "i",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 3.84,
+          "end": 3.96,
+          "key": "was",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "holding",
+          "start": 3.96,
+          "end": 4.24,
+          "key": "holding",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.24,
+          "end": 4.46,
+          "key": "his",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "hand,",
+          "start": 4.46,
+          "end": 4.88,
+          "key": "hand",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.26,
+          "end": 5.36,
+          "key": "and",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 5.36,
+          "end": 5.5,
+          "key": "we",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "both",
+          "start": 5.5,
+          "end": 5.72,
+          "key": "both",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "felt",
+          "start": 5.72,
+          "end": 5.96,
+          "key": "felt",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "happy.",
+          "start": 5.96,
+          "end": 6.36,
+          "key": "happy",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Joe's",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "text": "eyes",
+          "start": 0.76,
+          "end": 1.0
+        },
+        {
+          "text": "were",
+          "start": 1.0,
+          "end": 1.28
+        },
+        {
+          "text": "red",
+          "start": 1.28,
+          "end": 1.54
+        },
+        {
+          "text": "when",
+          "start": 1.54,
+          "end": 1.74
+        },
+        {
+          "text": "I",
+          "start": 1.74,
+          "end": 1.86
+        },
+        {
+          "text": "next",
+          "start": 1.86,
+          "end": 2.1
+        },
+        {
+          "text": "found",
+          "start": 2.1,
+          "end": 2.38
+        },
+        {
+          "text": "him",
+          "start": 2.38,
+          "end": 2.56
+        },
+        {
+          "text": "beside",
+          "start": 2.56,
+          "end": 2.88
+        },
+        {
+          "text": "me;",
+          "start": 2.88,
+          "end": 3.22
+        },
+        {
+          "text": "but",
+          "start": 3.52,
+          "end": 3.74
+        },
+        {
+          "text": "I",
+          "start": 3.74,
+          "end": 3.84
+        },
+        {
+          "text": "was",
+          "start": 3.84,
+          "end": 3.96
+        },
+        {
+          "text": "holding",
+          "start": 3.96,
+          "end": 4.24
+        },
+        {
+          "text": "his",
+          "start": 4.24,
+          "end": 4.46
+        },
+        {
+          "text": "hand,",
+          "start": 4.46,
+          "end": 4.88
+        },
+        {
+          "text": "and",
+          "start": 5.26,
+          "end": 5.36
+        },
+        {
+          "text": "we",
+          "start": 5.36,
+          "end": 5.5
+        },
+        {
+          "text": "both",
+          "start": 5.5,
+          "end": 5.72
+        },
+        {
+          "text": "felt",
+          "start": 5.72,
+          "end": 5.96
+        },
+        {
+          "text": "happy.",
+          "start": 5.96,
+          "end": 6.36
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3185882540419698
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "20d28ceca23454a9046fe379d4039cae79d9890f3345958ed9269ebf5ee83318",
+  "selected_reasons": []
+}
