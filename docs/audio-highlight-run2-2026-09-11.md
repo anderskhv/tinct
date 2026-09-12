@@ -57,3 +57,103 @@ single paragraph:
 None of these is a timing error — the words are in the right places; the
 comparison tokenizer and the recogniser disagree about how to spell them. They
 are the natural run-3 normalisation candidates, in that order.
+
+## Status at close — 934 chapters published and verified, nothing billing
+
+- **934 chapters published**, every one validated against production truth
+  before upload, uploaded with `If-None-Match` so nothing was ever overwritten,
+  and re-read from `tinct.app` afterwards at the journaled SHA-256. The journal
+  (`artifacts/audio-highlight-run2-2026-09-11/publication-journal.json`) records
+  934 `published` and 5 `skipped`, and **zero** served-hash mismatches.
+- **Spend: $17.32 of the $20 envelope**, by the mandate's measure (every pod
+  record's `costPerHr x uptime`, plus the $0.16 the previous session had spent).
+  85 pod records, 2022 pod-minutes, every pod at $0.49-$0.50/hr against a
+  $1.00/hr ceiling.
+- **62 editions advanced. Zero editions reached completion.** This is the
+  run's real finding and it is not a GPU problem: every edition that got close
+  is held open by two or three chapters that fail the 0.85 gate on both arms,
+  and those failures are all the same three normalisation classes below. More
+  pod time cannot finish a single edition; a tokenizer revision can finish
+  dozens.
+- **18 wave-2 batches were never dispatched** — the dispatcher stopped launching
+  at $15.79 to keep the close-out inside the envelope. They are the run-3 queue.
+
+### Editions within three chapters of complete
+
+| edition | timed / total | gained this run | short by |
+| --- | --- | --- | --- |
+| `beowulf/original-en` | 43/45 | +43 | 2 |
+| `frederick-douglass/original-en` | 12/14 | +2 | 2 |
+| `jungle-book/original-en` | 7/9 | +6 | 2 |
+| `the-art-of-war/original-en` | 13/15 | +13 | 2 |
+| `antigone/original-en` | 10/13 | +10 | 3 |
+| `candide/original-en` | 29/32 | +29 | 3 |
+| `communist-manifesto/original-en` | 4/7 | +1 | 3 |
+| `frankenstein/original-en` | 27/30 | +4 | 3 |
+| `genealogy-of-morals/original-en` | 3/6 | +1 | 3 |
+| `hume-enquiry/original-en` | 18/21 | +2 | 3 |
+| `jekyll-and-hyde/original-en` | 9/12 | +2 | 3 |
+| `medea/original-en` | 6/9 | +4 | 3 |
+| `midsummer/original-en` | 8/11 | +2 | 3 |
+| `nicomachean-ethics/original-en` | 9/12 | +2 | 3 |
+| `notes-from-underground/original-en` | 20/23 | +1 | 3 |
+| `oedipus-at-colonus/original-en` | 10/13 | +1 | 3 |
+| `oedipus-rex/original-en` | 10/13 | +10 | 3 |
+| `poetics/original-en` | 25/28 | +25 | 3 |
+| `the-awakening/original-en` | 38/41 | +23 | 3 |
+| `the-histories/original-en` | 1197/1200 | +17 | 3 |
+
+## Pods
+
+85 pod records under `artifacts/audio-highlight-run2-2026-09-11/pods/`, every
+one stopped and then terminated. Outcomes: 61 `done`, 9 `done-with-errors`,
+12 `pod-exited-externally` (SECURE-cloud hosts reclaimed mid-job; each was
+harvested from its last four-minute snapshot, so the work was not lost), 1
+`failed`, 1 terminated externally by the coordinator (pod 99, below).
+
+Run the tables from the evidence with:
+
+    python3 tools/audio-highlight/gpu/run_summary.py \
+      artifacts/audio-highlight-run2-2026-09-11
+
+## Two interruptions, both survived
+
+**The container restart (05:25 UTC).** Eight pods were left billing with no
+launcher. All eight were adopted rather than terminated (see above) and all 65
+wave-1 chapters were recovered.
+
+**Pod 99 (09:10 UTC).** The coordinator ran `runpod_guard.py stop-all
+--terminate --apply` intending to clear the eight long-dead pre-run-2 pods; the
+already-EXITED ones were unaffected and the only pod actually terminated was the
+live `tinct-words-run2-99`. Its four-minute snapshot (09:07:59, 12.4 MB) was
+extracted and harvested normally and **five chapters were published from it** —
+at most three minutes of alignment was lost, and its batch did not need
+re-running.
+
+To scope that cleanup safely, the guard already takes a name filter, and it only
+ever acts on pods matching it:
+
+    python3 tools/audio-highlight/runpod_guard.py stop-all --terminate --apply \
+      --owner-prefix tinct-words-shard-
+    python3 tools/audio-highlight/runpod_guard.py stop-all --terminate --apply \
+      --owner-prefix tinct-audio-bounded-trial-
+
+Run each prefix separately, and run it **without** `--apply` first — that prints
+exactly which pods would be touched and changes nothing. A bare `stop-all` uses
+the default prefix, which matches live run pods too.
+
+## What run 3 should do, in order
+
+1. **Normalisation revision, not GPU time.** Contractions, grouped numerals and
+   speaker-name punctuation (documented above) are what stand between this run
+   and several dozen finished editions. Each is a comparison-tokenizer question;
+   none is a timing error. Ship it as helper v3 with unit tests per class, the
+   way v2 was shipped, and re-run only the rejected chapters — they are cheap.
+2. **The 18 undispatched wave-2 batches** (`pending.json` at close), then the
+   rest of the Priority-1 queue.
+3. **The repair queue and the four missing recordings**, unchanged from run 1.
+
+Unchanged from the brief and untouched by this run: `bible/*`, `magna-carta`,
+`faust-part-1`, `as-you-like-it`, `henry-iv-part-2`, `taming-of-the-shrew`,
+Phaedo's spelled-out-speaker chapters, and everything not English. Nothing was
+synthesised; the gate stayed at 0.85; neither pinned helper was touched.

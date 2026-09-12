@@ -1,99 +1,36 @@
-# Run-2 STATE (live)
+# Run-2 STATE — CLOSED 2026-09-12 09:2x UTC
 
-Updated: 2026-09-12T05:27Z — session 2 (after container restart #2)
+**Nothing is running.** No pod, no dispatcher, no harvest daemon, no guard loop.
+`guard/closing-status.txt` is the proof: no `tinct-words-run2-*` pod RUNNING.
 
-## Decision this session
-ADOPTED the five orphaned pods (all carried TINCT_TOKEN + TINCT_TARGETS;
-`gpu/adopt.py` reached every status server on the first poll).
+## Final numbers
+- 934 chapters published and verified (`publication-journal.json`: 934
+  published, 5 skipped, 0 served-hash mismatches).
+- Independent close-out re-fetch from tinct.app: **934 verified, 0 mismatched**
+  (`verify-close.log`, produced by `verify_published.py`).
+- Spend $17.32 of the $20 envelope (`spent.txt`, from every pod.json's
+  estimatedCost plus the $0.16 carried in). 85 pod records, 2022 pod-minutes.
+- 62 editions advanced; **0 editions completed** — each is 2-3 chapters short
+  and every one of those chapters fails the 0.85 gate on a normalisation class,
+  not on timing. See `docs/audio-highlight-run2-2026-09-11.md`.
 
-## Pods alive right now
-| pod id | name | batch | elapsed at adopt | adopt log |
-|---|---|---|---|---|
-| nb7h7iwonfalzv | tinct-words-run2-15 | 2 | 2.1 min | adopt/nb7h7iwonfalzv.log |
-| q6ndkaec0kckxl | tinct-words-run2-14 | 4 | 4.0 min | adopt/q6ndkaec0kckxl.log |
-| pqbe77rs3u4p5s | tinct-words-run2-12 | 15 | 4.8 min | adopt/pqbe77rs3u4p5s.log |
-| v4d3gs7lbvxy0i | tinct-words-run2-13 | 15 | 5.6 min | adopt/v4d3gs7lbvxy0i.log |
-| zajjlwk12kr99z | tinct-words-run2-11 | 13 | 5.6 min | adopt/zajjlwk12kr99z.log |
-| zhrf869z78rkgd | tinct-words-run2-16 | 1 | 3.1 min | adopt/zhrf869z78rkgd.log |
-| siq39a3lr1wjtu | tinct-words-run2-17 | 4 | 3.0 min | adopt/siq39a3lr1wjtu.log |
-| 3fc9j170phnw37 | tinct-words-run2-18 | 11 | 3.0 min | adopt/3fc9j170phnw37.log |
+## What a fresh session should do first
+Nothing urgent — no resources are live. The run-3 work is:
+1. Helper v3 normalisation (contractions, grouped numerals, speaker-name
+   punctuation), then re-run only the rejected chapters.
+2. The 18 wave-2 batches still listed in `pending.json`, via
+   `dispatch.py` (it resumes from that file).
+3. One stale pod, `tinct-words-run2-6` (`zcpat4n88pbixj`), has been EXITED since
+   before this session and may still bill for stored disk. It was left alone
+   because it is not this session's pod and may hold output someone wanted.
+   Terminate it deliberately, not with a bare `stop-all`.
 
-EIGHT pods, 65 chapters in flight (16/17/18 were NOT in the handover list;
-`runpod_guard.py status` found them still RUNNING and they were adopted too). Each adopt.py stops+terminates its own pod when the job
-ends or the 44-minute deadline hits, then writes pods/<name>/out/.
+## Tooling built this session (all in this directory)
+`dispatch.py` (capacity-retrying launcher with a budget stop), `harvest_daemon.py`
+(publish+push per pod, serialised), `harvest_one.sh`, `launch_wave2.sh`,
+`gloop.sh` (guard every 5 min at the brief's limits), `recompute_spent.py`,
+`verify_published.py`.
 
-## What a fresh session should do FIRST
-1. `python3 tools/audio-highlight/runpod_guard.py status` — if pods are RUNNING
-   and no adopt.py is alive (`pgrep -f adopt.py`), re-adopt them exactly as
-   above with `--elapsed-minutes` set from `createdAt`; adoption works, use it.
-2. Then harvest/publish per `docs/audio-highlight-run2-brief-2026-09-11.md`.
-
-## Guard
-`gloop.sh` runs `runpod_guard.py enforce --apply` every 5 min with the brief's
-limits (prefix tinct-words-run2-, $1.00/hr, 50 min, $20 budget, spent.txt).
-Do NOT `pkill -f guard-loop.sh` — that string matches the invoking shell too.
-
-## 05:35Z — wave 2 started alongside wave 1
-COMMUNITY cloud had no instances at all; SECURE had some, at the same
-$0.49/hr, so wave-2 pods run with `--cloud SECURE`. Capacity saturates at
-about 12 concurrent pods — batches 4, 5, 7, 8 were refused ("no instances
-currently available", costs nothing) and must be relaunched when wave-1 pods
-free capacity.
-
-Wave-2 pods live: 19 (batch 1), 20 (batch 2), 21 (batch 3), 24 (batch 6),
-each launched by `orchestrate.py run`, which harvests and terminates itself.
-Relaunch helper: `launch_wave2.sh <first-pod-number> <batch>...` (add
-`--cloud SECURE`). Remaining wave-2 batches after these: 4,5,7,8 then 9..95.
-
-## Harvest
-`harvest_one.sh <pod-name>` runs harvest.py --apply against
-publication-journal.json and commits+pushes that single pod. Run it per pod,
-never in batches.
-
-## 05:38Z — dispatcher running
-`dispatch.py` (background) holds 12 concurrent pods, launches the next
-`wave2-batch-N.json` from `pending.json` whenever RunPod frees capacity,
-retries "no instances currently available" forever (that failure costs
-nothing), and stops launching at $16 projected so the close-out stays inside
-the $20 envelope. `recompute_spent.py` refreshes `spent.txt` from every
-pod.json's estimatedCost; the guard loop reads that file.
-
-**Every finished pod still needs `harvest_one.sh <pod-name>`** — orchestrate.py
-and adopt.py fetch and terminate, they do not publish.
-
-Published so far: the-republic ch5, the-tempest ch6 (journal has the truth).
-
-## 05:42Z — three daemons carry the run
-| process | job | restart command |
-|---|---|---|
-| `gloop.sh` | guard enforce every 5 min ($20, $1/hr, 50 min) | `nohup bash $A/gloop.sh &` |
-| `dispatch.py` | launch wave-2 batches from pending.json at 12 concurrent | `nohup python3 $A/dispatch.py &` |
-| `harvest_daemon.py` | harvest+publish+push each finished pod, one at a time | `nohup python3 $A/harvest_daemon.py &` |
-
-All three are idempotent and keep their state on disk (`pending.json`,
-`spent.txt`, `pods/*/candidates.json` as the harvested mark), so a fresh
-session restarts them and loses nothing. Check `dispatch.log`, `harvest.log`,
-`guard/guard.log`.
-
-Do not `pkill -f` these names — the pattern matches the invoking shell and
-kills the tool call instead.
-
-## 05:58Z — wave 1 complete
-All eight adopted pods finished and terminated themselves. 42 chapters
-published and verified so far (wave 1 plus the first wave-2 pods); wave 1 was
-the run-1 residue that produced nothing before helper v2, so the normalisation
-fix is doing its job.
-
-Wave 2 continues under `dispatch.py` (83 batches pending at this point). No
-manual step is needed: the dispatcher launches, orchestrate.py harvests and
-terminates, harvest_daemon.py publishes and pushes per pod.
-
-## 07:54Z — second dispatcher round
-The first round stopped itself at 36 batches remaining because its
-POD_PROJECTION ($0.45/pod) was far above what a run-2 pod actually costs
-($0.17-0.22 measured over 60 pods). Recalibrated to $0.22 with BUDGET_STOP
-$17.00 and restarted; worst case (12 pods each running the full 44 min from the
-moment of the stop) lands near $18.9, and runpod_guard.py still hard-stops
-everything at $20.
-
-Spend at restart: $12.56. Published at restart: 574 chapters.
+Note for whoever restarts them: never `pkill -f <script-name>` here — the
+pattern matches the invoking shell and kills the tool call instead of the
+daemon. Kill by PID from `ps -eo pid,args`.
