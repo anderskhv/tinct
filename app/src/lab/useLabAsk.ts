@@ -530,10 +530,11 @@ export function useLabAsk(options: UseLabAskOptions) {
       return
     }
     // A retry is the same question again, not a new one. The account policy
-    // already allowed this turn and it never produced an answer; charging the
-    // reader's one free action for a request that failed leaves "Try again"
-    // permanently dead behind the account sheet, with the failure notice still
-    // on screen — the panel looks broken rather than gated.
+    // already allowed this turn and it never produced an answer; spending one
+    // of an anonymous reader's free actions on a request that failed sends
+    // "Try again" into the account sheet instead of the network, with the
+    // failure notice still on screen — the panel looks broken rather than
+    // gated, and on the last free action it can never recover.
     if (!retry && !gateAiAction('chat', text)) { gatedChapterRef.current = chapterRequest; return }
     gatedChapterRef.current = undefined
     sendingRef.current = true
