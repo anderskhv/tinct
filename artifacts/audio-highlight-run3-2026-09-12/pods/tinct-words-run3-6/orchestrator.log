@@ -1,0 +1,28 @@
+[2026-09-12T13:32:44Z] created 0ro2e7opa0gp4t tinct-words-run3-6 gpu=None $0.49/hr
+[2026-09-12T13:32:45Z] waiting: pod RUNNING agent HTTP 404
+[2026-09-12T13:33:01Z] waiting: pod RUNNING agent HTTP 404
+[2026-09-12T13:33:17Z] phase cohort at 0.5 min; setup={"versions": {"faster-whisper": "1.2.1", "ctranslate2": "4.8.2", "av": "18.1.0"}, "commit": "c43ab3799d5b71c58b770ed22e1bd7bb9b2774cf", "model_tree_sha256": "f1fe271c349229677131d389a96d0a28062a6a2c2fee54a8ce119c43538315c5", "ld_library_path": "/usr/local/lib/python3.11/dist-packages/nvidia/cublas/l
+[2026-09-12T13:33:17Z] 0.5 min: cohort {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-12T13:33:47Z] 1.0 min: cohort {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-12T13:34:18Z] 1.6 min: cohort {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-12T13:34:48Z] phase aligning at 2.1 min; setup={"versions": {"faster-whisper": "1.2.1", "ctranslate2": "4.8.2", "av": "18.1.0"}, "commit": "c43ab3799d5b71c58b770ed22e1bd7bb9b2774cf", "model_tree_sha256": "f1fe271c349229677131d389a96d0a28062a6a2c2fee54a8ce119c43538315c5", "ld_library_path": "/usr/local/lib/python3.11/dist-packages/nvidia/cublas/l
+[2026-09-12T13:34:48Z] 2.1 min: aligning {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-12T13:35:19Z] 2.6 min: aligning {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 1, "paragraph_diagnostics": 65}
+[2026-09-12T13:35:49Z] 3.1 min: aligning {"arm_chapters_passed": 0, "arm_chapters_rejected": 1, "arm_chapters_running": 1, "paragraph_diagnostics": 115}
+[2026-09-12T13:36:20Z] 3.6 min: aligning {"arm_chapters_passed": 1, "arm_chapters_rejected": 1, "arm_chapters_running": 1, "paragraph_diagnostics": 182}
+[2026-09-12T13:36:50Z] 4.1 min: aligning {"arm_chapters_passed": 1, "arm_chapters_rejected": 2, "arm_chapters_running": 1, "paragraph_diagnostics": 227}
+[2026-09-12T13:37:22Z] snapshot 783554 bytes
+[2026-09-12T13:37:22Z] 4.6 min: aligning {"arm_chapters_passed": 2, "arm_chapters_rejected": 2, "arm_chapters_running": 1, "paragraph_diagnostics": 276}
+[2026-09-12T13:37:53Z] 5.1 min: aligning {"arm_chapters_passed": 3, "arm_chapters_rejected": 3, "arm_chapters_running": 1, "paragraph_diagnostics": 326}
+[2026-09-12T13:38:23Z] 5.6 min: aligning {"arm_chapters_passed": 3, "arm_chapters_rejected": 4, "arm_chapters_running": 1, "paragraph_diagnostics": 354}
+[2026-09-12T13:38:53Z] 6.1 min: aligning {"arm_chapters_passed": 3, "arm_chapters_rejected": 4, "arm_chapters_running": 1, "paragraph_diagnostics": 373}
+[2026-09-12T13:39:24Z] 6.7 min: aligning {"arm_chapters_passed": 5, "arm_chapters_rejected": 4, "arm_chapters_running": 1, "paragraph_diagnostics": 404}
+[2026-09-12T13:39:54Z] 7.2 min: aligning {"arm_chapters_passed": 6, "arm_chapters_rejected": 4, "arm_chapters_running": 1, "paragraph_diagnostics": 430}
+[2026-09-12T13:40:25Z] 7.7 min: aligning {"arm_chapters_passed": 6, "arm_chapters_rejected": 5, "arm_chapters_running": 1, "paragraph_diagnostics": 462}
+[2026-09-12T13:40:55Z] 8.2 min: aligning {"arm_chapters_passed": 7, "arm_chapters_rejected": 5, "arm_chapters_running": 1, "paragraph_diagnostics": 514}
+[2026-09-12T13:41:29Z] snapshot 2194038 bytes
+[2026-09-12T13:41:29Z] 8.7 min: aligning {"arm_chapters_passed": 7, "arm_chapters_rejected": 6, "arm_chapters_running": 1, "paragraph_diagnostics": 590}
+[2026-09-12T13:42:00Z] 9.3 min: aligning {"arm_chapters_passed": 9, "arm_chapters_rejected": 6, "arm_chapters_running": 1, "paragraph_diagnostics": 648}
+[2026-09-12T13:42:30Z] 9.8 min: aligning {"arm_chapters_passed": 10, "arm_chapters_rejected": 6, "arm_chapters_running": 1, "paragraph_diagnostics": 688}
+[2026-09-12T13:43:01Z] 10.3 min: aligning {"arm_chapters_passed": 11, "arm_chapters_rejected": 7, "arm_chapters_running": 1, "paragraph_diagnostics": 729}
+[2026-09-12T13:43:31Z] 10.8 min: aligning {"arm_chapters_passed": 11, "arm_chapters_rejected": 8, "arm_chapters_running": 1, "paragraph_diagnostics": 750}
