@@ -117,6 +117,21 @@ No edition byte was touched.
 - Books 3–9 (sections 398–1525): Cambyses and the Magian, Darius and the seven,
   the Scythian campaign, the Ionian revolt, Marathon, Thermopylae, Salamis and
   Plataea. Several hundred more people and nations.
+
+  **Book 3 has the worst namesake in the work and it must not be flattened.**
+  There are two men called **Smerdis**: Cyrus's son, whom Cambyses has Prexaspes
+  kill in secret, and the Magian who takes his name and his throne because nobody
+  outside the family knows the real one is dead. The entire plot of Book 3 depends
+  on the reader holding the two apart, and a single entity called "Smerdis" would
+  destroy it. Two entities, a position table, and a test.
+
+  Book 3 also has **two men called Archias** in one sentence (452), **Otanes**
+  the conspirator against **Otanes** the later general, and the tribute roll of
+  sections 489–495, which names about forty nations in a list. That roll is a
+  candidate for one grouped card — *the tribute nations of Darius* — on the same
+  reasoning as the Florentine houses in the Divine Comedy package: forty cards
+  reading "one of the peoples in Darius's twentieth division" is noise, and what
+  the reader wants is to know what the list is.
 - The namesake tables extended as each book is authored, and the `None` defaults
   replaced only where the later man is actually carded.
 - The six editorial checks re-run over the whole work, and a fresh spot-read.
