@@ -64,6 +64,15 @@ const edits = [
   // Trust: no named competitor, share image, no cover preload storm.
   ['html', 'competitor name', 'BOOK SUMMARY · BLINKIST', 'BOOK SUMMARY', null],
   ['story', 'competitor name', 'BOOK SUMMARY · BLINKIST', 'BOOK SUMMARY', null],
+  // Engagement numbers: the export gives all 48 cards of the slop takeover the same 2.4K likes, and the
+  // opening thread card the same 2.4K. One plausible number per card instead, varied in shape.
+  ['story', 'varied slop like counts', 'function Ja({progress:e,unique:t=!1}){',
+    'var slopLikes=[`847`,`3.1K`,`12K`,`96`,`4.8K`,`1.2K`,`218`,`27K`,`5.6K`,`74`,`9.3K`,`460`,`1.9K`,`88K`,`133`,`6.4K`,`15K`,`302`,`41K`];' +
+    'function Ja({progress:e,unique:t=!1}){', 1, 'var slopLikes='],
+  ['story', 'slop card reads its own count', 'children:`\u2661 2.4K \\xA0 \u2197 \\xA0 \u00b7\u00b7\u00b7`',
+    'children:`\u2661 `+slopLikes[r%slopLikes.length]+` \\xA0 \u2197 \\xA0 \u00b7\u00b7\u00b7`', 1],
+  ['story', 'opening thread card metrics', 'children:`\u2661 2.4K \\xA0 \u21bb 618`', 'children:`\u2661 3.1K \\xA0 \u21bb 412`', 1],
+  ['html', 'opening thread card metrics', '\u2661 2.4K \u00a0 \u21bb 618', '\u2661 3.1K \u00a0 \u21bb 412', 2],
   ['html', 'og:image + twitter card', '<meta property="og:type" content="website"/>',
     '<meta property="og:type" content="website"/>' +
     '<meta property="og:image" content="https://tinct.app/og-image.png"/>' +
@@ -119,6 +128,10 @@ const edits = [
     'opacity:Q(u,e.kind===`desktop`?.2:e.kind===`eink`?.28:.36,e.kind===`desktop`?.32:e.kind===`eink`?.4:.48)',
     'opacity:Q(u,e.kind===`desktop`?.1:e.kind===`eink`?.14:.18,e.kind===`desktop`?.2:e.kind===`eink`?.24:.28)', 1],
   // Overview scene: Scene II (so "Who is this?" lands on a real supporting name), one highlight and one question at a time.
+  // 2026-09-12 (Anders): the questions follow the order of the lines they ask about (the Voltemand card is the
+  // second of the three, not the last), the character question reads "Who is this again?", and the arrivals are
+  // respaced over the chapter's new 520svh (about-v21.css) so each question is readable for ~850px of scroll
+  // instead of ~420px, finishing before the sticky stage releases at 81% of the chapter.
   ['story', 'Scene II overview passage', 'return t===`character`?',
     'return k?(0,_.jsxs)(_.Fragment,{children:[(0,_.jsx)(`h3`,{children:(0,_.jsx)(`mark`,{className:`ask-mark`,style:{"--k":k[0]},children:`Scene II.`})}),' +
     '(0,_.jsx)(`p`,{children:(0,_.jsx)(`i`,{children:`King.`})}),' +
@@ -131,7 +144,7 @@ const edits = [
   ['story', 'passage steps param', 'function ro({modern:e=!1,highlight:t=``,audio:n=!1,onCharacter:r})',
     'function ro({modern:e=!1,highlight:t=``,audio:n=!1,onCharacter:r,steps:k=null})', 1],
   ['story', 'pass steps in overview', 'highlight:t?``:d<1||n.index===2||n.index===3?g:``,audio:n.index===4&&d>0})',
-    'highlight:t?``:d<1||n.index===2||n.index===3?g:``,audio:n.index===4&&d>0,steps:t?[Q(u,.12,.24)*(1-Q(u,.32,.4)),Q(u,.32,.44)*(1-Q(u,.52,.6)),Q(u,.52,.64)]:null})', 1],
+    'highlight:t?``:d<1||n.index===2||n.index===3?g:``,audio:n.index===4&&d>0,steps:t?[Q(u,.05,.1)*(1-Q(u,.24,.28)),Q(u,.57,.62),Q(u,.31,.36)*(1-Q(u,.5,.54))]:null})', 1],
   ['story', 'headline + name marks',
     '(0,_.jsxs)(_.Fragment,{children:[(0,_.jsx)(`h3`,{children:`Scene IV.`}),(0,_.jsx)(`p`,{children:(0,_.jsx)(`i`,{children:`Hamlet.`})}),e?',
     '(0,_.jsxs)(_.Fragment,{children:[(0,_.jsx)(`h3`,{children:(0,_.jsx)(`mark`,{className:`ask-mark`,style:{"--k":k?k[0]:0},children:`Scene IV.`})}),' +
@@ -140,11 +153,21 @@ const edits = [
     '(0,_.jsx)(`span`,{className:t===`language`||t===`voice`||n?`word-target`:``,children:`More honoured in the breach than the observance.`})',
     '(0,_.jsx)(`span`,{className:(t===`language`||t===`voice`||n?`word-target`:``)+(k?` ask-mark`:``),style:k?{"--k":k[1]}:void 0,children:`More honoured in the breach than the observance.`})', 1],
   ['story', 'overview questions', '[`Where was I?`,`What does this mean?`,`Who is this again?`].map((e,t)=>{let n=Q(u,.12+t*.2,.24+t*.2);return',
-    '[`What happened before this?`,`I have no idea what this means.`,`Who is this?`].map((e,t)=>{let n=Q(u,.12+t*.2,.24+t*.2)*(t<2?1-Q(u,.32+t*.2,.4+t*.2):1);return', 1],
+    '[`What happened before this?`,`Who is this again?`,`I have no idea what this means.`].map((e,t)=>{let n=Q(u,.05+t*.26,.1+t*.26)*(t<2?1-Q(u,.24+t*.26,.28+t*.26):1);return', 1],
   // Language scene: the edition is named in the page header.
   ['story', 'edition name in header', 'children:[`Act I, Scene `,n.index===3?`II`:`IV`]})]})',
     'children:[`Act I, Scene `,n.index===3||t?`II`:`IV`]}),(0,_.jsx)(`em`,{className:`edition-name`,style:{opacity:n.index===1&&h?1:0},children:`Modern translation`})]})', 1],
   // Type and copy.
+  // 2026-09-12 (Anders): the closing scene says the trial costs nothing to start. Same line about.html's older
+  // server-rendered copy already carries; the numbers are unchanged.
+  ['story', 'no credit card required', '(0,_.jsx)(`p`,{className:`closing-trial`,children:`Your first 30 days of Premium are free with a new account.`})',
+    '(0,_.jsxs)(`p`,{className:`closing-trial`,children:[`Your first 30 days of Premium are free with a new account.`,(0,_.jsx)(`br`,{}),`No credit card required.`]})', 1],
+  // 2026-09-12 (Anders): the character scene's answer is shorter — the page already shows the name being clicked.
+  ['story', 'character scene answer', '{problem:`Who is he? Is he important?`,answer:`Click a name. Find out.`,detail:``}',
+    '{problem:`Who is he? Is he important?`,answer:`Just click. Find out.`,detail:``}', 1],
+  // 2026-09-12 (Anders): "or chat with it" read as a second, different feature under "Talk to the book."
+  ['story', 'drop the chat-with-it line', '{problem:`I don’t understand this.`,answer:`Talk to the book.`,detail:`Or chat with it.`}',
+    '{problem:`I don’t understand this.`,answer:`Talk to the book.`,detail:``}', 1],
   ['story', 'recap line', '(0,_.jsxs)(`span`,{className:`recap-time`,children:[(0,_.jsx)(`span`,{children:`LAST TIME YOU READ`}),(0,_.jsx)(`span`,{children:`THREE WEEKS AGO`})]})',
     '(0,_.jsx)(`span`,{className:`recap-time`,children:`Last time you read: three weeks ago`})', 1],
   ['story', 'character card kicker', '(0,_.jsx)(`small`,{children:`CHARACTERS · HAMLET`})', '(0,_.jsx)(`small`,{children:`Characters · Hamlet`})', 1],
@@ -155,8 +178,15 @@ const edits = [
   ['iframe', 'intro line', 'Read and listen<br><em>at will.</em>', 'Read and listen<br><em>wherever you are.</em>', 1],
   ['iframe', 'intro width', '.ta-audio-intro{position:absolute;left:6%;top:32%;width:37%;', '.ta-audio-intro{position:absolute;left:6%;top:32%;width:40%;', 1],
   ['iframe', 'keep talking', '<div class="ta-keep-talking">and keep<br><em>talking.</em></div>', '<div class="ta-keep-talking">Keep<br><em>talking.</em></div>', 1],
-  ['iframe', 'Android e-readers', '<em>On your favourite<br>e-reader.</em>', '<em>On Android<br>e-readers.</em>', 1],
-  ['iframe', 'portrait captions', '#tinct-audio-couch-study .ta-audio-intro em{color:#d6c29b}</style>', '#tinct-audio-couch-study .ta-audio-intro em{color:#d6c29b}#tinct-audio-couch-study .ta-scene.ta-portrait .ta-caption,#tinct-audio-couch-study .ta-scene.ta-portrait .ta-unwind{left:24px;right:24px;width:auto;top:auto;bottom:max(28px,4vh)}#tinct-audio-couch-study .ta-scene.ta-portrait .ta-caption-title,#tinct-audio-couch-study .ta-scene.ta-portrait .ta-unwind{font-size:clamp(24px,6.2vw,40px);line-height:1.1}#tinct-audio-couch-study .ta-scene.ta-portrait .ta-keep-talking{margin-top:14px}#tinct-audio-couch-study .ta-scene.ta-portrait .ta-unwind em{font-size:.78em;margin-top:12px}#tinct-audio-couch-study .ta-scene.ta-portrait .ta-audio-intro{left:24px;right:24px;width:auto;top:auto;bottom:max(28px,4vh);font-size:clamp(24px,6.2vw,40px);line-height:1.1}</style>', 1, 'ta-portrait'],
+  // 2026-09-12 (Anders): the main line no longer names Android; the caveat is an asterisked footnote in much
+  // smaller type under it. The portrait size for the footnote rides along with the portrait caption edit below.
+  ['iframe', 'e-reader footnote', '<em>On your favourite<br>e-reader.</em>',
+    '<em>On your favourite<br>e-reader.<sup class="ta-note-mark">*</sup></em><small class="ta-footnote">* Android-based e-readers only</small>', 1, 'ta-footnote'],
+  ['iframe', 'e-reader footnote type', '.ta-unwind em{display:block;margin-top:24px;font-size:39px;color:#d6c29b}',
+    '.ta-unwind em{display:block;margin-top:24px;font-size:39px;color:#d6c29b}\n' +
+    '.ta-unwind em .ta-note-mark{font-size:.42em;line-height:0;vertical-align:.62em;margin-left:.06em}' +
+    '.ta-unwind .ta-footnote{display:block;margin-top:15px;font:16px/1.35 Georgia,serif;color:#a2917a;text-shadow:none}', 1, 'ta-note-mark{'],
+  ['iframe', 'portrait captions', '#tinct-audio-couch-study .ta-audio-intro em{color:#d6c29b}</style>', '#tinct-audio-couch-study .ta-audio-intro em{color:#d6c29b}#tinct-audio-couch-study .ta-scene.ta-portrait .ta-caption,#tinct-audio-couch-study .ta-scene.ta-portrait .ta-unwind{left:24px;right:24px;width:auto;top:auto;bottom:max(28px,4vh)}#tinct-audio-couch-study .ta-scene.ta-portrait .ta-caption-title,#tinct-audio-couch-study .ta-scene.ta-portrait .ta-unwind{font-size:clamp(24px,6.2vw,40px);line-height:1.1}#tinct-audio-couch-study .ta-scene.ta-portrait .ta-keep-talking{margin-top:14px}#tinct-audio-couch-study .ta-scene.ta-portrait .ta-unwind em{font-size:.78em;margin-top:12px}#tinct-audio-couch-study .ta-scene.ta-portrait .ta-unwind .ta-footnote{margin-top:9px;font-size:12px}#tinct-audio-couch-study .ta-scene.ta-portrait .ta-audio-intro{left:24px;right:24px;width:auto;top:auto;bottom:max(28px,4vh);font-size:clamp(24px,6.2vw,40px);line-height:1.1}</style>', 1, 'ta-portrait'],
   // On phones the persistent pill sits at the bottom centre (about-v21.css); the portrait captions end above it.
   ['iframe', 'portrait captions clear the pill', 'bottom:max(28px,4vh)', 'bottom:max(84px,4vh + 56px)', 2],
 ];
