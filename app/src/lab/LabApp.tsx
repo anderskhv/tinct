@@ -43,6 +43,7 @@ import {
   type LabReturnTo,
   type LabVoiceGatePhase,
   LAB_PHONE_QUERY,
+  labPageTurnAffordance,
 } from './labChrome'
 import { LabPhoneBibleTree } from './LabPhoneBibleTree'
 import { LabContentsV2 } from './LabContentsV2'
@@ -159,6 +160,27 @@ function readPhoneFooter(layoutOverride: ReturnType<typeof labLayoutOverride>, i
   return shouldShowLabPhoneFooter({
     isPhone,
     ...phoneSurfaceInput(layoutOverride),
+  })
+}
+
+const POINTER_QUERIES = ['(any-pointer: fine)', '(any-hover: hover)', '(any-pointer: coarse)'] as const
+
+/**
+ * The pointer, not the window width, decides how pages are turned. A narrow
+ * desktop window is still a mouse: it keeps the visible previous/next buttons.
+ */
+function readPageTurnAffordance(layoutOverride: ReturnType<typeof labLayoutOverride>) {
+  if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') {
+    return labPageTurnAffordance({ override: layoutOverride })
+  }
+  const matches = (query: string) => {
+    try { return window.matchMedia(query).matches } catch { return false }
+  }
+  return labPageTurnAffordance({
+    override: layoutOverride,
+    finePointer: matches(POINTER_QUERIES[0]),
+    hover: matches(POINTER_QUERIES[1]),
+    coarsePointer: matches(POINTER_QUERIES[2]),
   })
 }
 
@@ -338,6 +360,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     const phone = readPhoneSurface(layoutOverride)
     return readPhoneFooter(layoutOverride, phone)
   })
+  const [pageTurnAffordance, setPageTurnAffordance] = useState(() => readPageTurnAffordance(layoutOverride))
   const appearanceProfile: LabAppearanceProfile = showPhoneChrome ? 'phone' : 'desktop'
   // The full-screen call interface is Chrome V2, phone only. Every other
   // surface keeps the conversation overlay it ships with, untouched.
@@ -446,6 +469,18 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     query.addEventListener?.('change', onChange)
     return () => query.removeEventListener?.('change', onChange)
   }, [])
+  // A pointer can be plugged in or unplugged mid-session; re-read it when the
+  // capability queries change rather than only at mount.
+  useEffect(() => {
+    if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') return
+    const onChange = () => setPageTurnAffordance(readPageTurnAffordance(layoutOverride))
+    onChange()
+    const queries = POINTER_QUERIES.map(query => {
+      try { return window.matchMedia(query) } catch { return null }
+    })
+    for (const query of queries) query?.addEventListener?.('change', onChange)
+    return () => { for (const query of queries) query?.removeEventListener?.('change', onChange) }
+  }, [layoutOverride])
   const [pageTurn, setPageTurn] = useState<{
     direction: 'next' | 'previous'
     nonce: number
@@ -1320,7 +1355,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const primaryCharacters = useCharacterCards(book.bookId, prefs.primaryEdition)
   const compareCharacters = useCharacterCards(book.bookId, prefs.compareEdition)
   const define = useDefine()
-  const [selectionPopup, setSelectionPopup] = useState<(SelectionInfo & { range?: LabHighlightRange; editionKey?: string }) | null>(null)
+  const [selectionPopup, setSelectionPopup] = useState<(SelectionInfo & { range?: LabHighlightRange; editionKey?: string; defineText?: string }) | null>(null)
   const [popupMode, setPopupMode] = useState<PopupMode>('colors')
   const [noteInput, setNoteInput] = useState('')
   const popupRef = useRef<HTMLDivElement | null>(null)
@@ -2447,7 +2482,26 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     const existing = highlightsApi.findRange(range, editionKey) ?? highlightsApi.findContainingRange(range, editionKey)
     const character = offsets ? resolveCharacter(comparison ? compareCharacters : primaryCharacters, book.chapterNumber, range.paragraphIndex, ...offsets, paragraph, !!existing || highlightsApi.allHighlights.some(h => h.bookId === book.bookId && h.editionKey === editionKey && h.chapterNumber === book.chapterNumber && (h.paragraphIndex < range.paragraphIndex || h.paragraphIndex === range.paragraphIndex && h.fromWord < range.toWord) && (h.endParagraphIndex > range.paragraphIndex || h.endParagraphIndex === range.paragraphIndex && h.toWord > range.fromWord))) : null
     const highlight = existing
-    const mode = character ? 'character' as const : defaultPopupMode(range.text, existing?.id)
+    // A click inside an existing highlight is about the thing the reader
+    // marked, not the word under the cursor: Copy, Ask, Note and the note
+    // editor all take the whole highlight, across paragraph boundaries.
+    // Define stays word-scoped — a dictionary lookup of a whole sentence is
+    // meaningless. A fresh drag has just expressed a different intent, so it
+    // always keeps what was dragged even where it overlaps a highlight.
+    const clickedWordText = range.text
+    const pickedOneWord = range.paragraphIndex === range.endParagraphIndex && range.toWord - range.fromWord <= 1
+    const widerHighlight = highlight && (highlight.paragraphIndex !== range.paragraphIndex
+      || highlight.endParagraphIndex !== range.endParagraphIndex
+      || highlight.fromWord !== range.fromWord
+      || highlight.toWord !== range.toWord)
+    const subject = ((intent === 'lookup' || pickedOneWord) && highlight && widerHighlight
+      ? buildHighlightRange(
+          paragraphs,
+          { paragraphIndex: highlight.paragraphIndex, wordIndex: highlight.fromWord },
+          { paragraphIndex: highlight.endParagraphIndex, wordIndex: Math.max(highlight.fromWord, highlight.toWord - 1) },
+        )
+      : null) ?? range
+    const mode = character ? 'character' as const : defaultPopupMode(subject.text, existing?.id)
     setPopupMode(mode)
     setNoteInput(highlight?.note || '')
     if (mode === 'define') define.begin(range.text)
@@ -2468,18 +2522,19 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     setSelectionPopup({
       x: Math.max(24, Math.min(window.innerWidth - 24, clientX)),
       y: shouldFloatAbove ? floatingY : showBelow ? anchorY + 12 : anchorY - 12,
-      text: range.text,
-      paragraphIndex: range.paragraphIndex,
-      startOffset: range.fromWord,
-      endOffset: range.toWord,
+      text: subject.text,
+      paragraphIndex: subject.paragraphIndex,
+      startOffset: subject.fromWord,
+      endOffset: subject.toWord,
+      defineText: clickedWordText,
       showBelow,
       mobilePlacement: shouldFloatAbove ? 'above-selection' : 'bottom',
       existingHighlightId: highlight?.id,
       existingNote: highlight?.note,
-      homeMode: character ? 'main' : defaultPopupMode(range.text, existing?.id),
+      homeMode: character ? 'main' : defaultPopupMode(subject.text, existing?.id),
       character: character ?? undefined,
       editionKey,
-      range,
+      range: subject,
     })
   }, [define, highlightsApi, primaryCharacters, compareCharacters, book, prefs.primaryEdition, prefs.compareEdition, mobileCompareActive, initialResolving, frontispieceVisible, phoneAskOpen])
 
@@ -3498,8 +3553,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     <div
       ref={labRootRef}
       lang={bookEditions.find(edition => edition.key === readerEditionKey)?.language || 'en'}
-      className={`lab ${isPhone ? 'is-phone' : 'is-desktop'}${frontispieceVisible ? ' is-frontispiece' : ''}${showPhoneChrome ? ' has-phone-chrome' : ''}${showPhoneChrome && phoneReaderControlsVisible ? ' has-reader-controls' : ''}${ask.notice ? ' has-notice' : ''}${phoneAskOpen ? ' has-phone-ask' : ''}${phoneKeyboardOpen ? ' has-phone-keyboard' : ''}${resolvedDarkMode ? ' is-night' : ''}${prefs.theme === 'book' ? ' is-book-theme' : ''}${fullscreen ? ' is-fullscreen' : ''}`}
+      className={`lab ${isPhone ? 'is-phone' : 'is-desktop'}${frontispieceVisible ? ' is-frontispiece' : ''}${showPhoneChrome ? ' has-phone-chrome' : ''}${showPhoneChrome && phoneReaderControlsVisible ? ' has-reader-controls' : ''}${ask.notice ? ' has-notice' : ''}${phoneAskOpen ? ' has-phone-ask' : ''}${phoneKeyboardOpen ? ' has-phone-keyboard' : ''}${resolvedDarkMode ? ' is-night' : ''}${prefs.theme === 'book' ? ' is-book-theme' : ''}${fullscreen ? ' is-fullscreen' : ''}${pageTurnAffordance.buttons ? ' has-page-buttons' : ''}`}
       data-testid="lab-root"
+      data-page-turn-zones={pageTurnAffordance.tapZones === 'all' ? undefined : pageTurnAffordance.tapZones}
       data-theme={resolvedTheme}
       data-lab-layout={showPhoneChrome ? 'phone' : 'desktop'}
       data-chrome-state={chrome}
@@ -3790,6 +3846,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             selectingRange={selectionPopup?.range ?? null}
             selectingComparison={!mobileCompareActive && selectionPopup?.editionKey === prefs.compareEdition}
             pageTurn={chromeV2 ? undefined : pageTurn}
+            tapZones={pageTurnAffordance.tapZones}
             onSelectRange={phoneAsk ? undefined : handleSelectRange}
             onPageTurn={showPhoneChrome && !phoneAsk && !selectionPopup
               ? (direction) => {
@@ -4004,12 +4061,12 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           {chapterEndPage || (!chapterCoverTitle && !!currentOpeningTitle) || readingPageIndex > 0 || canPrevChapter ? (
             <button
               type="button"
-              className={showPhoneChrome ? 'lab-visually-hidden' : 'lab-page-turn-btn'}
+              className={pageTurnAffordance.buttons ? 'lab-page-turn-btn' : 'lab-visually-hidden'}
               data-testid="lab-page-prev"
               aria-label={LAB_COPY.previous}
               onClick={goPrev}
             >
-              {showPhoneChrome ? '←' : <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m15 6-6 6 6 6" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" /></svg>}
+              {pageTurnAffordance.buttons ? <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m15 6-6 6 6 6" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" /></svg> : '←'}
             </button>
           ) : (
             !showPhoneChrome ? <span className="lab-page-turn-spacer" /> : null
@@ -4041,12 +4098,12 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           {chapterEndNeedsPage && !chapterEndPage || chapterCoverTitle || readingPageIndex < labNavPageList(pagesStableRef.current, draftPages, readingPages).length - 1 || canNextChapter ? (
             <button
               type="button"
-              className={showPhoneChrome ? 'lab-visually-hidden' : 'lab-page-turn-btn'}
+              className={pageTurnAffordance.buttons ? 'lab-page-turn-btn' : 'lab-visually-hidden'}
               data-testid="lab-page-next"
               aria-label={LAB_COPY.next}
               onClick={() => goNext()}
             >
-              {showPhoneChrome ? '→' : <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9 6 6 6-6 6" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" /></svg>}
+              {pageTurnAffordance.buttons ? <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9 6 6 6-6 6" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" /></svg> : '→'}
             </button>
           ) : (
             !showPhoneChrome ? <span className="lab-page-turn-spacer" /> : null
@@ -4418,7 +4475,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           defineNotFound={define.notFound}
           runDefine={define.run}
           onDefine={() => {
-            if (selectionPopup.text) define.begin(selectionPopup.text)
+            // Define stays on the clicked word even when every other action
+            // has been widened to the highlight around it.
+            const lookup = selectionPopup.defineText || selectionPopup.text
+            if (lookup) define.begin(lookup)
             setPopupMode('define')
           }}
           issueTag=""

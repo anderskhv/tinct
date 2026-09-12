@@ -156,6 +156,51 @@ export function shouldShowLabPhoneFooter(input: {
   })
 }
 
+/**
+ * Width decides LAYOUT; the pointer decides INTERACTION.
+ *
+ * A half-screen desktop window genuinely has less room, so it gets the
+ * single-column layout — but it is still a mouse with hover and a keyboard,
+ * and the visible previous/next buttons must not vanish with the width. Edge
+ * tap-to-turn is the finger's affordance: a fingertip covers what it touches
+ * and there is no hover to reveal a control. A touchscreen laptop reports
+ * both and gets both — buttons for the mouse, taps for the finger.
+ *
+ * `any-pointer` / `any-hover` rather than `pointer` / `hover`: the primary
+ * pointer on a touchscreen laptop can be either, and we want the union.
+ */
+export type LabTapTurnZones = 'all' | 'touch' | 'none'
+
+export interface LabPageTurnAffordance {
+  /** Visible previous/next page buttons. */
+  buttons: boolean
+  /** Which pointers may turn the page by tapping the outer thirds. */
+  tapZones: LabTapTurnZones
+}
+
+export function labPageTurnAffordance(input: {
+  override?: LabLayoutHint
+  finePointer?: boolean
+  coarsePointer?: boolean
+  hover?: boolean
+}): LabPageTurnAffordance {
+  if (input.override === 'phone') return { buttons: false, tapZones: 'all' }
+  const fine = !!input.finePointer || !!input.hover
+  const coarse = !!input.coarsePointer
+  // Nothing known (an old browser, a test renderer): offer both rather than
+  // leave a reader with no way to turn the page.
+  if (!fine && !coarse) return { buttons: true, tapZones: 'all' }
+  if (fine && coarse) return { buttons: true, tapZones: 'touch' }
+  return fine ? { buttons: true, tapZones: 'none' } : { buttons: false, tapZones: 'all' }
+}
+
+/** Does this pointer get edge tap-to-turn, given the surface's zone policy? */
+export function labTapTurnAllowed(zones: LabTapTurnZones, pointerType?: string): boolean {
+  if (zones === 'none') return false
+  if (zones === 'all') return true
+  return pointerType !== 'mouse'
+}
+
 /** Paused chrome is page-turn; playing chrome is transport. */
 export function labBottomSlot(playing: boolean): 'page-turn' | 'transport' {
   return playing ? 'transport' : 'page-turn'

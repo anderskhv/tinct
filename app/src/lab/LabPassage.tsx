@@ -13,7 +13,7 @@ import {
 import { hearingFollowPaintActive, hearingReadingPageLines, hearingStageLines, isChapterFirstHearingPage, isChapterFirstReadingPage, isLabVerseMarker, labVerseMarkerDisplay, readingPageLines, tokenizeHearingWords } from './labHearing'
 import type { ChapterHearingPage } from './labHearing'
 import { followGranularity, followWordRole, type FollowParagraph, type FollowTarget } from './labFollow'
-import { labSwipeCompareSwap, labSwipePageDirection, labTapPageDirection, type LabPageTurnDirection } from './labChrome'
+import { labSwipeCompareSwap, labSwipePageDirection, labTapPageDirection, labTapTurnAllowed, type LabPageTurnDirection, type LabTapTurnZones } from './labChrome'
 
 export type LabPassageMode = 'reading' | 'hearing'
 
@@ -62,6 +62,12 @@ interface LabPassageProps {
   onSeekToWord?: (paragraphIndex: number, wordIndex: number) => void
   pageTurn?: { direction: 'next' | 'previous'; nonce: number } | null
   onPageTurn?: (direction: LabPageTurnDirection) => void
+  /**
+   * Which pointers may turn the page by tapping the outer thirds. Set by the
+   * pointer, never by the window width: 'none' where a mouse has visible
+   * previous/next buttons instead, 'touch' on a machine that has both.
+   */
+  tapZones?: LabTapTurnZones
   /** Compare's whole-page swap. A vertical swipe, and nothing that says so. */
   onCompareSwap?: () => void
   onToggleControls?: () => void
@@ -300,6 +306,7 @@ export function LabPassage({
   onSeekToWord,
   pageTurn,
   onPageTurn,
+  tapZones = 'all',
   onCompareSwap,
   onToggleControls,
   layoutKey = '',
@@ -420,10 +427,6 @@ export function LabPassage({
     const place = hearing ? null : wordPlaceFromTarget(event.target)
     if (place && onSeekToWord) return
     if (!place && !onPageTurn) return
-    const rect = event.currentTarget.getBoundingClientRect()
-    const edgeTurn = onPageTurn
-      ? labTapPageDirection(event.clientX, rect.left, rect.width)
-      : null
     // A word at the left/right edge can still be long-pressed. A short release
     // remains an edge page turn, while the long-press timer wins for selection.
     const selectionPlace = place
@@ -523,7 +526,23 @@ export function LabPassage({
     const deltaX = event.clientX - drag.startX
     const deltaY = event.clientY - drag.startY
     const duration = Math.max(0, event.timeStamp - drag.startedAt)
-    if (drag.pointerType === 'mouse' && !drag.selecting && drag.start && onSelectRange
+    const surfaceRect = event.currentTarget.getBoundingClientRect()
+    // Precedence, decided once and used by everything below: a click or tap
+    // that lands in a live page-turn zone turns the page and does nothing
+    // else. It must never also open a word definition — one click cannot both
+    // turn the page and pop a card. Where the pointer has visible
+    // previous/next buttons the zones are off (`tapZones` is 'none'), so a
+    // mouse click on a word anywhere on the page still defines it.
+    const tap = onPageTurn
+      && labTapTurnAllowed(tapZones, drag.pointerType)
+      && !selectingRange
+      && !drag.selecting
+      && Math.abs(deltaX) <= 10
+      && Math.abs(deltaY) <= 10
+      && duration <= 500
+      ? labTapPageDirection(event.clientX, surfaceRect.left, surfaceRect.width)
+      : null
+    if (tap == null && drag.pointerType === 'mouse' && !drag.selecting && drag.start && onSelectRange
       && Math.abs(deltaX) < 3 && Math.abs(deltaY) < 3) {
       const range = buildHighlightRange(drag.comparison ? compareParagraphs : paragraphs, drag.start, drag.start)
       dragRef.current = null
@@ -549,15 +568,6 @@ export function LabPassage({
     }
     const swipe = onPageTurn && !selectingRange && !drag.selecting
       ? labSwipePageDirection(deltaX, deltaY)
-      : null
-    const rect = event.currentTarget.getBoundingClientRect()
-    const tap = onPageTurn
-      && !selectingRange
-      && !drag.selecting
-      && Math.abs(deltaX) <= 10
-      && Math.abs(deltaY) <= 10
-      && duration <= 500
-      ? labTapPageDirection(event.clientX, rect.left, rect.width)
       : null
     const direction = swipe ?? tap
     if (direction != null) {
@@ -720,13 +730,18 @@ export function LabPassage({
               {renderReadingLines(readingLines)}
             </div>
           )}
-          {!compare && (!desktopSpread || !nextReadingPage) && !chapterEndPage && chapterEnd}
+          {!compare && !desktopSpread && !chapterEndPage && chapterEnd}
         </div>
         {desktopSpread && <div className="lab-book-col lab-book-col-next" data-testid="lab-next-page-col">
           <div className="lab-hearing-stage" data-testid="lab-next-reading-stage">
             {nextReadingPage && renderReadingLines(readingPageLines(paragraphs, nextReadingPage), true)}
           </div>
-          {nextReadingPage && !chapterEndPage && chapterEnd}
+          {/* On the spread the end-of-chapter card always belongs to the
+              second leaf. When the chapter's last text ends on the first leaf
+              the second is empty, and the card fills it — the reader sees the
+              text end and the card in one spread instead of turning a page to
+              a card floating beside a blank leaf. */}
+          {!chapterEndPage && chapterEnd}
         </div>}
         {compare && (
           <div className="lab-book-col lab-book-col-compare" data-testid="lab-compare-col">
