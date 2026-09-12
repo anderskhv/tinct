@@ -9,7 +9,7 @@ becomes Wycliffe, Zisca becomes Zizka, Trivulcio becomes Trivulzio, Fabricio
 becomes Fabrizio, Juliano becomes Giuliano, Fregosa becomes Fregoso, Sylla
 becomes Sulla, AEneid becomes Aeneid. Both spellings are carried on one card.
 
-Chapters 1-24 are authored. The rest are not.
+Chapters 1-25 are authored. The rest are not.
 
 Scope: named persons — historical, literary, mythological and scriptural — and
 the gods Montaigne treats as agents. Peoples, places, schools of philosophy and
@@ -331,7 +331,7 @@ for row in [
 ('jacques-pelletier','Jacques Pelletier','Who lived in Montaigne’s house and gave him the graven gold plate against sunstroke that Montaigne then used, with some private instructions and his own nightgown, to cure a bridegroom of an imagined impotence.','Jaques Pelletier|Jacques Pelletier'),
 ('amasis','Amasis, King of Egypt','Who married the beautiful Greek Laodice, found himself quite another man with her, threatened to kill her for a witch — and after vows to Venus was divinely restored the first night after his sacrifices.','Amasis'),
 ('laodice','Laodice','The Greek virgin Amasis married and at first could not enjoy.','Laodice'),
-('venus','Venus','The goddess to whom Amasis made his vows, and was restored.','Venus','reference','deity'),
+('venus','Venus','The goddess to whom Amasis made his vows, and was restored — and in whose avenues, Montaigne says in the chapter on education, the gods have planted more toil and sweat than in Minerva’s.','Venus','reference','deity'),
 ('pythagoras','Pythagoras','The philosopher, cited here for his daughter-in-law’s saying that a woman must put off her modesty with her petticoat and put it on again with the same.','Pythagoras','supporting'),
 ('vives','Vives','St Augustine’s commentator, who fortified his master’s example of the man who could command his rear with another, of a man who could break wind in tune.','Vives'),
 ('charles-iv','Charles, the Emperor and King of Bohemia','To whom a girl from near Pisa was presented, rough and covered with hair all over — conceived so, her mother said, because a picture of St John the Baptist hung inside her bed-curtains.'),
@@ -376,7 +376,7 @@ for row in [
 for row in [
 ('jacques-amyot','Jacques Amyot','Grand almoner of France, who told Montaigne the story of the prince who forgave the gentleman sent to murder him at the siege of Rouen. The older edition spells him Amiot.','Jacques Amiot|Jacques Amyot'),
 ('l-cinna','L. Cinna','Pompey’s nephew, of an illustrious family, who conspired to kill Augustus at sacrifice — and was told the whole plot back to his face, place, day and company, and then given his life a second time. He was made consul afterwards, was Augustus’s great friend, and left him his whole estate.','Cinna'),
-('livia','Livia','Augustus’s wife, who asked whether he would take a woman’s counsel and then gave the advice that ended the conspiracies: severity has got you nothing — Lepidus followed Salvidienus, Murena Lepidus, Caepio Murena, Egnatius Caepio — now try clemency.','Livia','supporting'),
+('livia','Livia','Augustus’s wife, who asked whether he would take a woman’s counsel and then gave the advice that ended the conspiracies: severity has got you nothing — Lepidus followed Salvidienus, Murena Lepidus, Caepio Murena, Egnatius Caepio — now try clemency.','','supporting'),
 ('lepidus-conspirator','Lepidus','One of the conspirators in Livia’s list, punished before Cinna and followed by another. Neither the Marcus Aemilius Lepidus of 3:15 nor the Aemilius Lepidus who died of a stumble.'),
 ('salvidienus','Salvidienus','The first name in Livia’s list of conspirators punished to no purpose.','Salvidienus'),
 ('murena','Murena','The third name in it.','Murena'),
@@ -430,8 +430,71 @@ for row in [
 ('charles-viii','King Charles VIII','Who saw himself possessed of Naples and a good part of Tuscany almost without striking a blow — which the nobles about him put down to the princes of Italy having studied to be ingenious and learned rather than vigorous and warlike.','Charles VIII'),
 ]:add(*row)
 
-print(len(entities),'entities authored: chapters 1-24')
+
+# ============================ CHAPTER 25 — of the education of children
+for row in [
+('diane-de-foix','Madame Diane de Foix, Comtesse de Gurson','The chapter’s dedicatee, expecting a child. Montaigne had a hand in making her marriage and writes her his one particular fancy about how the boy should be brought up. The dedication prints her name in capitals.','DIANE DE FOIX|Diane de Foix'),
+('danaides','The Danaides','Who eternally fill and whose vessels eternally run out — Montaigne’s figure for his own reading of Plutarch and Seneca. The modern edition spells them Danaids.','Danaides|Danaids','reference','mythological-figure'),
+('apollodorus','Apollodorus','Who said that if a man picked out of Chrysippus’s writings everything that was none of his, he would leave him nothing but blank paper.','Apollodorus'),
+('capilupus','Capilupus','A composer of centos Montaigne knew of, and one of the writers he exempts from the charge of stitching other men’s work into their own under their own name — because such men declare themselves for what they are.','Capilupus'),
+('lipsius','Lipsius','Whose Politics Montaigne calls a learned and laborious contexture, and another honest example of the same declared borrowing.','Lipsius'),
+('cimon','Cimon','With Themistocles, one of the thousand men who very much deceived the expectation others had of them — Montaigne’s warning against reading a child’s promise too early.','Cimon'),
+('themistocles','Themistocles','The other of that pair.','Themistocles','supporting'),
+('candale','Monsieur de Candale','Diane de Foix’s uncle, who every day obliges the world with writings of his own.','Candale'),
+('arcesilaus','Arcesilaus','Who, like Socrates before him, made his scholars speak first and then spoke to them.','Arcesilaus','supporting'),
+('dante','Dante','Quoted for the line Montaigne makes his pupil’s rule: I love to doubt as well as to know.','Dante'),
+('epicharmus','Epicharmus','Who said it is the understanding that sees and hears, the understanding that orders and rules everything, and that all the other faculties are blind and deaf and without soul.','Epicharmus'),
+('paluel','Paluel','One of the two noted dancers of Montaigne’s time who could not teach a man to cut capers by being watched — his figure for the pedants who mean to inform the understanding without setting it to work.','Paluel'),
+('pompey-the-dancer','Pompey','The other of the two noted dancers. Not Pompey the Great.'),
+('signora-livia','Signora Livia','Whose petticoats are one of the things Montaigne says a young traveller ought not to come home able to describe. Not the Livia who was Augustus’s wife.'),
+('marcellus','Marcellus','Whose death, Montaigne says, the pupil should be taught to judge rather than to locate: not so much where he died as why it was unworthy of his duty that he died there.','Marcellus'),
+('la-boetie','La Boetie','Étienne de La Boétie, Montaigne’s friend, whose “Voluntary Servitude” may have been prompted by a single sentence of Plutarch’s — that the people of Asia became the vassals of one man for not having been able to pronounce a single syllable, which is No. The modern edition spells him La Boétie.','La Boetie|La Boétie','major'),
+('alexandridas','Alexandridas','Who reproached a man for making very good but too long speeches to the Ephori: thou speakest the things thou shouldst speak, but not as thou shouldst speak them.','Alexandridas'),
+('anaximenes','Anaximenes','Who asked Pythagoras what purpose there was in searching out the secrets of the stars with death or slavery continually before his eyes — the kings of Persia being at that moment preparing to invade his country.','Anaximenes'),
+('theodorus-gaza','Gaza','The grammarian whose method Montaigne sets against his own: precepts so intricate and harsh, and words so vain and lean, that there is no hold to be taken of them.','Gaza'),
+('demetrius-grammarian','Demetrius the grammarian','Who found a knot of philosophers chatting in the temple at Delphos and told them that by their cheerful faces they could not be engaged in very deep discourse.','Demetrius the grammarian'),
+('heracleon','Heracleon the Megarean','Who answered him: it is for men puzzling over how a future tense is spelt to knit their brows; philosophical discourse always cheers those who entertain it and never makes them sad.','Heracleon'),
+('minerva','Minerva','The goddess of wisdom, set against Venus in that comparison, and one of the three to whom Plato gives the patronage of the young’s sports.','Minerva','reference','deity'),
+('bradamante','Bradamante','One of the two mistresses Montaigne would have the tutor hold up to the boy: a natural, active, generous, manly beauty in a glittering helmet, against Angelica tricked up in curls and ribbons.','Bradamante','reference','literary-figure'),
+('angelica','Angelica','The other: the soft, delicate, artificial, simpering form.','Angelica','reference','literary-figure'),
+('flora','Flora','With the Graces, one of the figures Speusippus painted his school with — and which Montaigne would paint a school with instead of birch and willow.','Flora','reference','deity'),
+('demophoon-steward','Demophoon','Alexander the Great’s steward, who sweated in the shade and shivered in the sun. The modern edition spells him Demophoön.','Demophoon|Demophoön'),
+('callisthenes','Callisthenes','Who forfeited Alexander’s favour by refusing to pledge him a cup of wine — and whom, Montaigne notes, not even the philosophers justify for it.','Callisthenes'),
+('alcibiades','Alcibiades','Whose constitution Montaigne admires with wonder: he could transform himself to any fashion without hurting his health, outdoing Persian luxury one while and Lacedaemonian austerity the next — as reformed in Sparta as he was voluptuous in Ionia.','Alcibiades','supporting'),
+('carneades','Carneades','So besotted with the thirst for knowledge that he could not find time to comb his head or pare his nails.','Carneades','supporting'),
+('quintilian','Quintilian','The Roman teacher of rhetoric, cited for the observation that an imperious authority in a schoolmaster is often attended by dangerous consequences.','Quintilian','supporting'),
+('boccaccio','Boccaccio','Whose novels, Montaigne says, are harder to understand than the plain philosophical discourses he would put into a child’s hands.','Boccaccio','supporting'),
+('menoeceus','Meniceus','The correspondent of the letter in which Epicurus says that neither the youngest should refuse to philosophise nor the oldest grow weary of it. The modern edition spells him Menoeceus.','Meniceus|Menoeceus'),
+('leo-of-phlius','Leo, prince of the Phliasians','Who asked Heraclides Ponticus what art or science he professed, and was told: neither art nor science, but I am a philosopher.','Leo, prince of the Phliasians'),
+('heraclides-ponticus','Heraclides Ponticus','Who gave that answer.','Heraclides Ponticus'),
+('diogenes-the-cynic','Diogenes','The Cynic, who when reproached that being ignorant he should pretend to philosophy answered that he pretended to it with so much the more reason. Not Diogenes the Atheist of 11:31.'),
+('hegesias','Hegesias','Who asked Diogenes to read him a book, and was asked in return why, since he chose figs that were true and natural rather than painted ones, he did not choose exercises that were naturally true rather than written.','Hegesias'),
+('zeuxidamus','Zeuxidamus','Who, asked why the Lacedaemonians did not write their rules of chivalry down for their young men to read, answered that it was to inure them to action and not amuse them with words.','Zeuxidamus'),
+('la-rochefoucauld','The Comte de la Rochefoucauld','At the head of the troop of horse behind the two pedants on the road to Orleans — one of whom, asked who the gentleman was, and thinking his companion meant, answered that he was no gentleman but a grammarian, and that he himself was a logician.','Comte de la Rochefoucauld|Rochefoucauld'),
+('aper','Aper','Who demonstrates in Tacitus how easily the fine decoration of painted speech is effaced by the lustre of a simple and blunt truth.','Aper','reference','literary-figure'),
+('tacitus','Tacitus','The Roman historian, in whose dialogue Aper makes that case.','Tacitus','supporting'),
+('cleomenes-sparta','Cleomenes, king of Sparta','Who heard out the long and elegant oration of the ambassadors of Samos and then answered: as to the exordium I remember it not, nor the middle of your speech; and as for your conclusion, I will not do what you desire.'),
+('polycrates','Polycrates','The tyrant the ambassadors of Samos wanted Cleomenes to make war on.','Polycrates'),
+('menander','Menander','Who, reproved for not having begun the comedy he had promised, answered that it was made and ready, all but the verses: having contrived the subject and disposed the scenes, he took little care for the rest.','Menander','supporting'),
+('ronsard','Ronsard','Who with Joachim du Bellay gave French poetry its reputation — since when, Montaigne says, every little dabbler swells his words as high and makes his cadences nearly as harmonious, and falls infinitely short of the rich descriptions of the one and the delicate invention of the other.','Ronsard','supporting'),
+('anacreon','Anacreon','The Greek lyric poet, quoted for the line: what care I about the Pleiades or the stars of Taurus?','Anacreon'),
+('suetonius','Suetonius','Who calls Julius Caesar’s style soldier-like — a judgment Montaigne repeats and says he cannot see the reason for.','Suetonius','supporting'),
+('aristophanes-grammarian','Aristophanes the grammarian','Who was quite out, Montaigne says, in reproving Epicurus for his plain way of delivering himself and for an oratory whose whole design was to be understood.','Aristophanes the grammarian'),
+('nicolas-grouchy','Nicolas Grouchy','Who wrote De Comitiis Romanorum, and one of the domestic tutors who told Montaigne that his infant Latin was so fluent they were afraid to enter into discourse with him.','Nicolas Grouchy|Grouchy'),
+('guillaume-guerente','Guillaume Guerente','Who wrote a comment upon Aristotle, another of those tutors, and one of the three whose Latin tragedies Montaigne acted in at the College of Guienne. The modern edition spells him Guérente.','Guillaume Guerente|Guillaume Guérente|Guerente|Guérente'),
+('george-buchanan','George Buchanan','The great Scottish poet, another of them, who told Montaigne he was about to write a treatise of education and meant to take his example from Montaigne’s own — being then tutor to the Comte de Brissac.','George Buchanan|Buchanan'),
+('marc-antoine-muret','Marc Antoine Muret','Whom both France and Italy acknowledged for the best orator of his time, the fourth of those tutors.','Marc Antoine Muret|Marc-Antoine Muret|Muret'),
+('brissac-mareschal','The Mareschal de Brissac','On whom Buchanan was attending when Montaigne saw him again.','Mareschal de Brissac'),
+('brissac-comte','The Comte de Brissac','Buchanan’s pupil, who afterwards proved so valiant and brave a gentleman.','Comte de Brissac'),
+('counts-of-foix','The Counts of Foix','The house Diane de Foix and her husband are both descended from, and whose writings Montaigne cites as evidence that learning runs in the family.','Counts of Foix','reference','group'),
+('the-graces','The Graces','With Flora, the figures Speusippus painted his school with.','the Graces','reference','deity'),
+('plautus','Plautus','The Latin comic poet, one of the books the boy Montaigne ran through by stealth after Ovid and Terence, allured by the sweetness of the subject.','Plautus'),
+('andreas-goveanus','Andreas Goveanus','Principal of the College of Guienne, and without comparison the best man in that employment in France.','Andreas Goveanus|Goveanus'),
+('aristo-tragedian','Aristo the tragedian','A man of good family and fortune, neither of which the profession blemished, nothing of the kind being a disparagement in Greece. Not Aristo of Chios.'),
+]:add(*row)
+
+print(len(entities),'entities authored: chapters 1-25')
 Path(__file__).parent.joinpath('editorial.json').write_text(json.dumps(dict(
- contentVersion='2026-09-12.3',
- coverage='Both full English editions, chapters 1-24 of 107. Named persons and the gods Montaigne treats as agents. Peoples, places, schools of philosophy and book titles are not cast.',
+ contentVersion='2026-09-12.4',
+ coverage='Both full English editions, chapters 1-25 of 107. Named persons and the gods Montaigne treats as agents. Peoples, places, schools of philosophy and book titles are not cast.',
  entities=[e for e in entities if e['name']!='unused']),ensure_ascii=False,indent=2)+'\n')

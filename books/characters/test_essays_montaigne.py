@@ -1,5 +1,5 @@
 """Focused checks for Montaigne's Essays.
-Chapters 1-24 of 107 are authored."""
+Chapters 1-25 of 107 are authored."""
 import unittest
 from build_essays_montaigne import compile_package
 
@@ -95,7 +95,7 @@ class EssaysMontaigne(unittest.TestCase):
             self.assertIn((5,9),where(ed,'martin-du-bellay'),ed)
             self.assertIn((14,1),where(ed,'martin-du-bellay'),ed)
             self.assertEqual(where(ed,'jean-du-bellay'),[(10,3)],ed)
-            for k in [(25,123),(74,157)]:
+            for k in [(74,157)]:
                 self.assertEqual([c for c in ids(ed,*k) if 'bellay' in c],[],(ed,k))
 
     def test_the_two_men_called_trivulzio(self):
@@ -193,8 +193,8 @@ class EssaysMontaigne(unittest.TestCase):
             self.assertEqual(w[0],(28,2),ed)
             self.assertLess(len(w),40,ed)
 
-    def test_only_the_first_twenty_four_chapters_are_authored(self):
-        self.assertIn('chapters 1-24 of 107',REPORT['scope'])
+    def test_only_the_first_twenty_five_chapters_are_authored(self):
+        self.assertIn('chapters 1-25 of 107',REPORT['scope'])
         self.assertEqual(REPORT['editions']['original-en']['chapters'],107)
         self.assertEqual(REPORT['editions']['original-en']['paragraphs'],4897)
         self.assertEqual(REPORT['editions']['modern-en']['paragraphs'],4897)
@@ -338,7 +338,7 @@ class EssaysMontaigne(unittest.TestCase):
         # 24:55, in both places named among the philosophers.
         for ed in ['original-en','modern-en']:
             self.assertEqual(where(ed,'zeno-mamertine'),[(1,5)],ed)
-            self.assertEqual(where(ed,'zeno-of-citium'),[(22,49),(24,55)],ed)
+            self.assertEqual(where(ed,'zeno-of-citium'),[(22,49),(24,55),(25,143)],ed)
 
     def test_the_three_men_called_scipio(self):
         # Pompey's father-in-law (18:12), the high priest in Cotta's list
@@ -346,7 +346,7 @@ class EssaysMontaigne(unittest.TestCase):
         for ed in ['original-en','modern-en']:
             self.assertEqual(where(ed,'metellus-scipio'),[(18,12)],ed)
             self.assertEqual(where(ed,'publius-scipio-pontifex'),[(22,49)],ed)
-            self.assertEqual(where(ed,'scipio-africanus'),[(23,10)],ed)
+            self.assertEqual(where(ed,'scipio-africanus'),[(23,10),(25,51)],ed)
 
     def test_the_fourth_man_called_lepidus(self):
         # Livia's list of conspirators punished to no purpose supplies a fourth:
@@ -367,7 +367,7 @@ class EssaysMontaigne(unittest.TestCase):
         for ed in ['original-en','modern-en']:
             self.assertIn((5,9),where(ed,'martin-du-bellay'),ed)
             self.assertEqual(where(ed,'jean-du-bellay'),[(10,3)],ed)
-            self.assertEqual(where(ed,'joachim-du-bellay'),[(24,0),(24,2)],ed)
+            self.assertEqual(where(ed,'joachim-du-bellay'),[(24,0),(24,2),(25,123)],ed)
 
     def test_philip_the_physician(self):
         # A fourth Philip: Alexander's physician, accused by Parmenio of taking
@@ -440,5 +440,67 @@ class EssaysMontaigne(unittest.TestCase):
             for k in [(24,51),(24,58),(24,59)]:
                 for cid,text in spans(ed,*k):
                     self.assertNotIn(text,{'Cotton','Rousseau','Charron','Nodier'},(ed,k,cid,text))
+
+    # ---------------------------------------------- added with chapter 25
+    def test_the_two_men_called_pompey(self):
+        # Pompey the Great, and one of the two noted dancers of Montaigne's day.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(where(ed,'pompey-the-dancer'),[(25,25)],ed)
+            self.assertNotIn((25,25),where(ed,'pompey'),ed)
+            self.assertIn((25,25),where(ed,'paluel'),ed)
+
+    def test_the_two_women_called_livia(self):
+        # Augustus's wife at 23:1; Signora Livia, whose petticoats a young
+        # traveller should not come home able to describe, at 25:26.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(where(ed,'livia'),[(23,1)],ed)
+            self.assertEqual(where(ed,'signora-livia'),[(25,26)],ed)
+
+    def test_the_two_men_called_aristo(self):
+        # The Stoic of Chios, bound by his full name, and the tragedian of
+        # 25:152, bound by the bare form in that one paragraph. The Latin dative
+        # Aristoni at 25:151 stays unbound.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(where(ed,'aristo-of-chios'),[(24,54)],ed)
+            self.assertEqual(where(ed,'aristo-tragedian'),[(25,152)],ed)
+            self.assertEqual(spans(ed,25,151),[],ed)
+
+    def test_the_two_men_called_diogenes(self):
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(where(ed,'diogenes-the-atheist'),[(11,31)],ed)
+            self.assertEqual(where(ed,'diogenes-the-cynic'),[(25,103)],ed)
+
+    def test_the_two_spartans_called_cleomenes(self):
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(where(ed,'cleomenes-i'),[(6,2)],ed)
+            self.assertEqual(where(ed,'cleomenes-sparta'),[(25,117)],ed)
+
+    def test_leo_the_zodiac_sign_is_not_a_pope(self):
+        # "the sign of angry Leo" at 25:65. Both men called Leo are bound by
+        # multi-word aliases, so the sign carries no card.
+        for ed in ['original-en','modern-en']:
+            for cid,text in spans(ed,25,65):
+                self.assertNotIn('Leo',text,(ed,cid,text))
+
+    def test_montaigne_names_his_own_teachers(self):
+        # The four domestic tutors and the principal of the College of Guienne.
+        for ed in ['original-en','modern-en']:
+            for cid in ['nicolas-grouchy','guillaume-guerente','george-buchanan',
+                        'marc-antoine-muret','andreas-goveanus']:
+                self.assertTrue(where(ed,cid),(ed,cid))
+
+    def test_the_chapter_25_transliterations(self):
+        for cid,older,newer in [('danaides','Danaides','Danaids'),
+                                ('la-boetie','La Boetie','La Boétie'),
+                                ('demophoon-steward','Demophoon','Demophoön'),
+                                ('menoeceus','Meniceus','Menoeceus'),
+                                ('guillaume-guerente','Guillaume Guerente','Guillaume Guérente'),
+                                ('marc-antoine-muret','Marc Antoine Muret','Marc-Antoine Muret')]:
+            self.assertIn(older,said('original-en',cid),cid)
+            self.assertIn(newer,said('modern-en',cid),cid)
+
+    def test_the_dedication_is_printed_in_capitals(self):
+        for ed in ['original-en','modern-en']:
+            self.assertIn(('diane-de-foix','DIANE DE FOIX'),spans(ed,25,0),ed)
 
 if __name__=='__main__':unittest.main()

@@ -1,15 +1,16 @@
 # Montaigne's Essays character package — IN PROGRESS
 
-**Chapters 1–24 of 107 are authored. The rest are not.** Status stays
+**Chapters 1–25 of 107 are authored. The rest are not.** Status stays
 `in-progress` and the package must not be integrated until the whole work is
 covered.
 
-Current state: 297 entities authored, all 297 bound in both editions, 2,495 and
-2,587 exact mentions. Of those, 161 and 179 fall inside chapters 1–10, 205 and 209
-inside chapters 11–20, and 168 and 178 inside chapters 21–24; the rest are later
-occurrences of names that belong to one man through the whole book — Cicero,
-Plato, Horace, Seneca, Socrates, Plutarch, Aristotle and the other authorities
-Montaigne quotes on every page. Content revision 2026-09-12.3.
+Current state: 355 entities authored, all 355 bound in both editions, 2,678 and
+2,780 exact mentions. Of those, 162 and 180 fall inside chapters 1–10, 205 and 209
+inside chapters 11–20, 168 and 178 inside chapters 21–24, and 172 and 175 inside
+chapter 25 alone; the rest are later occurrences of names that belong to one man
+through the whole book — Cicero, Plato, Horace, Seneca, Socrates, Plutarch,
+Aristotle and the other authorities Montaigne quotes on every page. Content
+revision 2026-09-12.4.
 
 ## What is hard about this book
 
@@ -39,6 +40,12 @@ this scale:
 | Ter. | Terence |
 | Paulus, Fabius (singular) | Paulli, Fabii (plural) |
 | **Aristo** | **Ariosto** (at 27:13 only) |
+| Danaides | Danaids |
+| La Boetie | La Boétie |
+| Demophoon | Demophoön |
+| Meniceus | Menoeceus |
+| Guillaume Guerente | Guillaume Guérente |
+| Marc Antoine Muret | Marc-Antoine Muret |
 | Dicarchus | Dicaearchus |
 | Propertious | Propertius |
 | Aeneius Fulvius | Cnaeus Fulvius |
@@ -58,7 +65,7 @@ the other.
 
 **The namesakes.** An essayist who cites for eleven hundred pages repeats names
 constantly, and Montaigne almost never distinguishes them. In the first
-twenty-four chapters:
+twenty-five chapters:
 
 | Entity | Where | Against |
 |---|---|---|
@@ -113,6 +120,12 @@ twenty-four chapters:
 | `aristo-of-chios` | 24:54 | a tragedian called Aristo at 25:152, and — in the older edition only — **Ariosto at 27:13**, where the modern edition prints the poet's name in full. Bound by his full name, so the bare form binds nothing |
 | `francis-brittany` / `john-v-brittany` / `charles-viii` | 24:49, 24:63 | four more men called Francis, two called John, three called Charles. All bound by their full names |
 | **`augustus` at 23:1** | 23:1 | Augustus calls himself Caesar when he asks Cinna what he means by undertaking Caesar. The Caesar table sends that paragraph to Augustus, not to Julius |
+| `pompey-the-dancer` | 25:25 | Pompey the Great. One of the two noted dancers of Montaigne's day carries the same name |
+| `signora-livia` | 25:26 | Augustus's wife. Her petticoats are what a young traveller should not come home able to describe |
+| `aristo-tragedian` | 25:152 | Aristo of Chios, and the Ariosto the older edition spells Aristo |
+| `diogenes-the-cynic` | 25:103 | Diogenes the Atheist of 11:31, and Diogenes Laertius at 68:61 |
+| `cleomenes-sparta` | 25:117 | the Cleomenes who broke the truce with Argos at 6:2 |
+| **the sign of Leo** | 25:65 | Pope Leo X and the Emperor Leo. Both are bound by multi-word aliases, so the zodiac sign carries no card |
 
 **Two of those were live mis-bindings the sweep caught**, not hypotheticals. The
 bare surname *Lepidus* was binding the man who died of a stumble at 19:24 to the
@@ -132,12 +145,12 @@ that is single-referent across the whole work — the authorities and philosophe
 Montaigne quotes on every page — is bound by alias and therefore appears in
 chapters that have not been authored yet, with a card written to be true
 anywhere in the book rather than to gloss the paragraph it was first found in.
-A hundred and twenty-nine entities bind beyond chapter 24 that way, and five of
+A hundred and fifty-five entities bind beyond chapter 25 that way, and five of
 them — Cicero, Plato, Horace, Seneca and Socrates — account for most of it.
 
-## Editorial checks — chapters 1–24
+## Editorial checks — chapters 1–25
 
-**1. Namesakes.** The fifty-four in the table above, each pinned by a test.
+**1. Namesakes.** The sixty in the table above, each pinned by a test.
 
 **2. Person or not.** This is the check that does the most work in an essayist.
 Excluded:
@@ -206,7 +219,7 @@ Three traps in this range are deliberately left alone and pinned by tests:
   this lane is to leave such an occurrence alone rather than pick the likelier
   man. A test pins the gap so it is not quietly filled in.
 
-**5. Spot-read and sweep.** Seventy-two mentions drawn at random, twelve per
+**5. Spot-read and sweep.** Ninety-six mentions drawn at random, twelve per
 edition per pass, read back against their paragraphs: all correct.
 
 The **unbound-tabled-names audit** — every pattern in `SPLIT` enumerated against
@@ -221,18 +234,21 @@ calling himself Caesar, not Julius. What the audit still reports over chapters
 *Charles* at 24:63, *Ludovico* at 18:3, *Lepidus* at 3:15 and 19:24, *Francesco*
 at 9:8 and *Caesar* at 4:10, every one of them already covered by a longer alias;
 plus *John* at 20:23, where John and Peter are nobody, and *Dionysius* at 24:32,
-which is deliberately unbound.
+which is deliberately unbound. Over chapter 25 it found four more real gaps —
+*Alexander* at 25:81 and 25:91, *du Bellay* at 25:123, and *Caesar* at 25:47 —
+which brings the audit's running total to nine gaps that nothing else would have
+caught.
 
 The **adjacency sweep** over every mention whose matched text abuts a capitalised
 word produces forty-eight hits in chapters 1–10, thirty in chapters 11–20 and
-twenty-two in chapters 21–24, with no mis-binding: *the Emperor Conrad III*, *Pope Leo X*, *Captain Bayard*, *the now
+twenty-two in chapters 21–24 and nine in chapter 25, with no mis-binding: *the Emperor Conrad III*, *Pope Leo X*, *Captain Bayard*, *the now
 King Philip*, *Count Guido di Rangone*, *Signor Fabricio Colonna*, *the Counts
 Horn and Egmont*, *Cardinal du Bellay*, *Queen Margaret of Navarre*, *Captain
 Martin du Bellay*, *Poor Judge Bebius*, *King Dagobert*, *The Duke of Athens*, *Old Aristo of
 Chios*, *our King Charles VIII*.
 
 **6. Both editions independently.** No entity is missing from either edition. The
-mention counts differ by about three and a half percent (2,495 against 2,587),
+mention counts differ by about four percent (2,678 against 2,780),
 partly because the modern edition resolves pronouns to names — it says *Dionysius*
 and *Scanderbeg* and *Betis* and *Ferdinand* where Cotton says *he* — and partly
 because it expands the citation abbreviations, so *Hor.* becomes *Horace* and
@@ -247,6 +263,8 @@ because it expands the citation abbreviations, so *Hor.* becomes *Horace* and
 | The modern edition supplies **the Black Prince** at 1:1, a gloss that is not in Cotton. | Carried as an alias on the same card, and pinned by a test. |
 | The older translation abbreviates some citations to **Hor.** and spells others **Horace**; the modern edition does both as well, in different places. | Both forms are aliases on one card. |
 | The note at 10:1 attributes the opening verse to **La Brebis** and gives nothing else. | Cast as a reference whose card says the note gives no more than the name. |
+| The dedication of chapter 25 prints its dedicatee in capitals: **TO MADAME DIANE DE FOIX**. | Carried as an alias in capitals as well as in ordinary case. She was omitted from both editions until this was found. |
+| The citation at 25:137 attributes an epitaph on Lucan to **Fabricius**, a bibliographer. | Apparatus, not Montaigne. Not cast, like Charron, Nodier, Cotton and Rousseau. |
 | **Paragraph 18:0 is an editor's note, not Montaigne**: both editions print "[Charron has borrowed with unusual liberality from this and the succeeding chapter. See Nodier, Questions, p. 206.]" as the first reading paragraph of the chapter. | Not repaired, and nothing in it is cast: Charron and Nodier are real people but they are not in the Essays. A test asserts that the paragraph binds nothing, so that a later pass does not "complete" it by adding them. |
 | The older edition prints **Aeneius Fulvius** at 15:4 where the modern prints **Cnaeus Fulvius** — a correction rather than a spelling variant. | Both forms are aliases on one card. |
 | The two editions differ in the **kind of apostrophe** inside *Lorenzo de’ Medici* (curly) and *Lorenzo de' Medici* (straight). | Both forms are aliases. The entity was omitted from the modern edition until this was found, which is how it was caught. |
@@ -255,11 +273,10 @@ No edition byte was touched.
 
 ## Remaining work
 
-- **Chapters 25–107.** Book I runs to chapter 57, Book II to chapter 94, Book III
+- **Chapters 26–107.** Book I runs to chapter 57, Book II to chapter 94, Book III
   from 95. The heaviest chapters are 69 (*Apology for Raimond Sebond*, 660
   paragraphs), 99 (*Upon some verses of Virgil*, 374), 103 (*Of vanity*, 300),
-  107 (*Of experience*, 240), 74 (*Of presumption*, 163) and 25 (*Of the
-  education of children*, 155).
+  107 (*Of experience*, 240) and 74 (*Of presumption*, 163).
 - **Run the unbound-tabled-names audit before believing the tests** — enumerate
   every `SPLIT` pattern against the new chapters rather than reading the mention
   list, since a table with no key produces no mention to audit. It found nothing
@@ -277,6 +294,6 @@ No edition byte was touched.
 ## Validation
 
 `python3 books/characters/build_essays_montaigne.py --check`, then
-`python3 -m unittest discover -s books/characters -p 'test_*.py'`. Fifty-three
+`python3 -m unittest discover -s books/characters -p 'test_*.py'`. Sixty-two
 focused tests so far. No edition changes, no network generation, no API spend: every card
 here was written in the authoring conversation and committed as a file.

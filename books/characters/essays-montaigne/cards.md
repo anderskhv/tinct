@@ -876,7 +876,7 @@ The Greek virgin Amasis married and at first could not enjoy.
 
 ## Venus · reference
 
-The goddess to whom Amasis made his vows, and was restored.
+The goddess to whom Amasis made his vows, and was restored — and in whose avenues, Montaigne says in the chapter on education, the gods have planted more toil and sweat than in Minerva’s.
 
 ## Pythagoras · supporting
 
@@ -1189,3 +1189,235 @@ One of Montaigne’s proofs that the most warlike nations are the most rude and 
 ## King Charles VIII · reference
 
 Who saw himself possessed of Naples and a good part of Tuscany almost without striking a blow — which the nobles about him put down to the princes of Italy having studied to be ingenious and learned rather than vigorous and warlike.
+
+## Madame Diane de Foix, Comtesse de Gurson · reference
+
+The chapter’s dedicatee, expecting a child. Montaigne had a hand in making her marriage and writes her his one particular fancy about how the boy should be brought up. The dedication prints her name in capitals.
+
+## The Danaides · reference
+
+Who eternally fill and whose vessels eternally run out — Montaigne’s figure for his own reading of Plutarch and Seneca. The modern edition spells them Danaids.
+
+## Apollodorus · reference
+
+Who said that if a man picked out of Chrysippus’s writings everything that was none of his, he would leave him nothing but blank paper.
+
+## Capilupus · reference
+
+A composer of centos Montaigne knew of, and one of the writers he exempts from the charge of stitching other men’s work into their own under their own name — because such men declare themselves for what they are.
+
+## Lipsius · reference
+
+Whose Politics Montaigne calls a learned and laborious contexture, and another honest example of the same declared borrowing.
+
+## Cimon · reference
+
+With Themistocles, one of the thousand men who very much deceived the expectation others had of them — Montaigne’s warning against reading a child’s promise too early.
+
+## Themistocles · supporting
+
+The other of that pair.
+
+## Monsieur de Candale · reference
+
+Diane de Foix’s uncle, who every day obliges the world with writings of his own.
+
+## Arcesilaus · supporting
+
+Who, like Socrates before him, made his scholars speak first and then spoke to them.
+
+## Dante · reference
+
+Quoted for the line Montaigne makes his pupil’s rule: I love to doubt as well as to know.
+
+## Epicharmus · reference
+
+Who said it is the understanding that sees and hears, the understanding that orders and rules everything, and that all the other faculties are blind and deaf and without soul.
+
+## Paluel · reference
+
+One of the two noted dancers of Montaigne’s time who could not teach a man to cut capers by being watched — his figure for the pedants who mean to inform the understanding without setting it to work.
+
+## Pompey · reference
+
+The other of the two noted dancers. Not Pompey the Great.
+
+## Signora Livia · reference
+
+Whose petticoats are one of the things Montaigne says a young traveller ought not to come home able to describe. Not the Livia who was Augustus’s wife.
+
+## Marcellus · reference
+
+Whose death, Montaigne says, the pupil should be taught to judge rather than to locate: not so much where he died as why it was unworthy of his duty that he died there.
+
+## La Boetie · major
+
+Étienne de La Boétie, Montaigne’s friend, whose “Voluntary Servitude” may have been prompted by a single sentence of Plutarch’s — that the people of Asia became the vassals of one man for not having been able to pronounce a single syllable, which is No. The modern edition spells him La Boétie.
+
+## Alexandridas · reference
+
+Who reproached a man for making very good but too long speeches to the Ephori: thou speakest the things thou shouldst speak, but not as thou shouldst speak them.
+
+## Anaximenes · reference
+
+Who asked Pythagoras what purpose there was in searching out the secrets of the stars with death or slavery continually before his eyes — the kings of Persia being at that moment preparing to invade his country.
+
+## Gaza · reference
+
+The grammarian whose method Montaigne sets against his own: precepts so intricate and harsh, and words so vain and lean, that there is no hold to be taken of them.
+
+## Demetrius the grammarian · reference
+
+Who found a knot of philosophers chatting in the temple at Delphos and told them that by their cheerful faces they could not be engaged in very deep discourse.
+
+## Heracleon the Megarean · reference
+
+Who answered him: it is for men puzzling over how a future tense is spelt to knit their brows; philosophical discourse always cheers those who entertain it and never makes them sad.
+
+## Minerva · reference
+
+The goddess of wisdom, set against Venus in that comparison, and one of the three to whom Plato gives the patronage of the young’s sports.
+
+## Bradamante · reference
+
+One of the two mistresses Montaigne would have the tutor hold up to the boy: a natural, active, generous, manly beauty in a glittering helmet, against Angelica tricked up in curls and ribbons.
+
+## Angelica · reference
+
+The other: the soft, delicate, artificial, simpering form.
+
+## Flora · reference
+
+With the Graces, one of the figures Speusippus painted his school with — and which Montaigne would paint a school with instead of birch and willow.
+
+## Demophoon · reference
+
+Alexander the Great’s steward, who sweated in the shade and shivered in the sun. The modern edition spells him Demophoön.
+
+## Callisthenes · reference
+
+Who forfeited Alexander’s favour by refusing to pledge him a cup of wine — and whom, Montaigne notes, not even the philosophers justify for it.
+
+## Alcibiades · supporting
+
+Whose constitution Montaigne admires with wonder: he could transform himself to any fashion without hurting his health, outdoing Persian luxury one while and Lacedaemonian austerity the next — as reformed in Sparta as he was voluptuous in Ionia.
+
+## Carneades · supporting
+
+So besotted with the thirst for knowledge that he could not find time to comb his head or pare his nails.
+
+## Quintilian · supporting
+
+The Roman teacher of rhetoric, cited for the observation that an imperious authority in a schoolmaster is often attended by dangerous consequences.
+
+## Boccaccio · supporting
+
+Whose novels, Montaigne says, are harder to understand than the plain philosophical discourses he would put into a child’s hands.
+
+## Meniceus · reference
+
+The correspondent of the letter in which Epicurus says that neither the youngest should refuse to philosophise nor the oldest grow weary of it. The modern edition spells him Menoeceus.
+
+## Leo, prince of the Phliasians · reference
+
+Who asked Heraclides Ponticus what art or science he professed, and was told: neither art nor science, but I am a philosopher.
+
+## Heraclides Ponticus · reference
+
+Who gave that answer.
+
+## Diogenes · reference
+
+The Cynic, who when reproached that being ignorant he should pretend to philosophy answered that he pretended to it with so much the more reason. Not Diogenes the Atheist of 11:31.
+
+## Hegesias · reference
+
+Who asked Diogenes to read him a book, and was asked in return why, since he chose figs that were true and natural rather than painted ones, he did not choose exercises that were naturally true rather than written.
+
+## Zeuxidamus · reference
+
+Who, asked why the Lacedaemonians did not write their rules of chivalry down for their young men to read, answered that it was to inure them to action and not amuse them with words.
+
+## The Comte de la Rochefoucauld · reference
+
+At the head of the troop of horse behind the two pedants on the road to Orleans — one of whom, asked who the gentleman was, and thinking his companion meant, answered that he was no gentleman but a grammarian, and that he himself was a logician.
+
+## Aper · reference
+
+Who demonstrates in Tacitus how easily the fine decoration of painted speech is effaced by the lustre of a simple and blunt truth.
+
+## Tacitus · supporting
+
+The Roman historian, in whose dialogue Aper makes that case.
+
+## Cleomenes, king of Sparta · reference
+
+Who heard out the long and elegant oration of the ambassadors of Samos and then answered: as to the exordium I remember it not, nor the middle of your speech; and as for your conclusion, I will not do what you desire.
+
+## Polycrates · reference
+
+The tyrant the ambassadors of Samos wanted Cleomenes to make war on.
+
+## Menander · supporting
+
+Who, reproved for not having begun the comedy he had promised, answered that it was made and ready, all but the verses: having contrived the subject and disposed the scenes, he took little care for the rest.
+
+## Ronsard · supporting
+
+Who with Joachim du Bellay gave French poetry its reputation — since when, Montaigne says, every little dabbler swells his words as high and makes his cadences nearly as harmonious, and falls infinitely short of the rich descriptions of the one and the delicate invention of the other.
+
+## Anacreon · reference
+
+The Greek lyric poet, quoted for the line: what care I about the Pleiades or the stars of Taurus?
+
+## Suetonius · supporting
+
+Who calls Julius Caesar’s style soldier-like — a judgment Montaigne repeats and says he cannot see the reason for.
+
+## Aristophanes the grammarian · reference
+
+Who was quite out, Montaigne says, in reproving Epicurus for his plain way of delivering himself and for an oratory whose whole design was to be understood.
+
+## Nicolas Grouchy · reference
+
+Who wrote De Comitiis Romanorum, and one of the domestic tutors who told Montaigne that his infant Latin was so fluent they were afraid to enter into discourse with him.
+
+## Guillaume Guerente · reference
+
+Who wrote a comment upon Aristotle, another of those tutors, and one of the three whose Latin tragedies Montaigne acted in at the College of Guienne. The modern edition spells him Guérente.
+
+## George Buchanan · reference
+
+The great Scottish poet, another of them, who told Montaigne he was about to write a treatise of education and meant to take his example from Montaigne’s own — being then tutor to the Comte de Brissac.
+
+## Marc Antoine Muret · reference
+
+Whom both France and Italy acknowledged for the best orator of his time, the fourth of those tutors.
+
+## The Mareschal de Brissac · reference
+
+On whom Buchanan was attending when Montaigne saw him again.
+
+## The Comte de Brissac · reference
+
+Buchanan’s pupil, who afterwards proved so valiant and brave a gentleman.
+
+## The Counts of Foix · reference
+
+The house Diane de Foix and her husband are both descended from, and whose writings Montaigne cites as evidence that learning runs in the family.
+
+## The Graces · reference
+
+With Flora, the figures Speusippus painted his school with.
+
+## Plautus · reference
+
+The Latin comic poet, one of the books the boy Montaigne ran through by stealth after Ovid and Terence, allured by the sweetness of the subject.
+
+## Andreas Goveanus · reference
+
+Principal of the College of Guienne, and without comparison the best man in that employment in France.
+
+## Aristo the tragedian · reference
+
+A man of good family and fortune, neither of which the profession blemished, nothing of the kind being a disparagement in Greece. Not Aristo of Chios.
