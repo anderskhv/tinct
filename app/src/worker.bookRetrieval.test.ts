@@ -72,11 +72,13 @@ describe('findScanOrder', () => {
     const chapters = Array.from({ length: 1189 }, (_, i) => i + 1)
     const order = findScanOrder({ chapters, current: 782, trail: [12, 777], sections: BIBLE_SECTIONS })
     expect(order.length).toBeLessThanOrEqual(FIND_SCAN_CAP)
-    expect(order.slice(0, 5)).toEqual([782, 781, 783, 780, 784])
+    // Current chapter, then the chapters the reader actually visited, then the
+    // rest of the current biblical book outward. The trail goes before the
+    // section: Jeremiah alone is 52 chapters and would otherwise fill the cap.
+    expect(order.slice(0, 5)).toEqual([782, 777, 12, 781, 783])
     const jeremiah = new Set(Array.from({ length: 52 }, (_, i) => 746 + i))
-    expect(order.slice(0, 52).every(number => jeremiah.has(number))).toBe(true)
-    expect(order[52]).toBe(12)
-    expect(order.indexOf(12)).toBeLessThan(order.indexOf(798))
+    expect(order.slice(2).every(number => number === 12 || jeremiah.has(number))).toBe(true)
+    expect(order.indexOf(12)).toBeLessThan(order.indexOf(780))
     expect(new Set(order).size).toBe(order.length)
   })
 

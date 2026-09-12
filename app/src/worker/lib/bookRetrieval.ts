@@ -98,7 +98,29 @@ export interface ToolOutcome {
 
 export const READ_CHAPTER_MAX_CHARS = 6_000
 export const FIND_MAX_MATCHES = 5
-export const FIND_SCAN_CAP = 80
+/**
+ * Chapters one search may look at, nearest-first.
+ *
+ * This was 80, which only ever bit in the Bible: every other book has fewer
+ * chapters than the cap, so the whole book was searched in well under a dozen
+ * fetches. In the Bible a query with no hits near the reader walked all 80
+ * shards — 81 asset subrequests in a single Worker request, measured against
+ * the shipped edition — which is over Cloudflare's 50-subrequest limit on the
+ * Workers Free plan. Past that limit every later `fetch` in the same request
+ * throws, including the tool loop's own call back to Anthropic, so the whole
+ * turn died and the client showed "Ask is unavailable right now". A search
+ * whose answer was near the reader (a recap, a name in the current book)
+ * finished in 8 chapters and worked, which is why it looked intermittent.
+ */
+export const FIND_SCAN_CAP = 24
+
+/**
+ * Asset subrequests one retrieval may spend, across every tool call in the
+ * request. The rest of the Worker's budget belongs to the tool loop's calls to
+ * Anthropic (up to MAX_TOOL_ROUNDS + 1) — running out there is what turns a
+ * bounded search into a dead turn, so retrieval stops well short.
+ */
+export const RETRIEVAL_ASSET_BUDGET = 32
 export const FIND_SNIPPET_CHARS = 280
 export const FIND_QUERY_MAX_CHARS = 120
 export const TRAIL_MAX_CHAPTERS = 10
@@ -195,8 +217,13 @@ export function findScanOrder(input: {
     order.push(chapterNumber)
   }
   const current = input.current
+  if (current != null) push(current)
+  // The trail comes before the rest of the section. Under a cap small enough
+  // to keep one search inside the Worker's subrequest budget, a long section
+  // (Jeremiah is 52 chapters) would otherwise fill the whole scan and the
+  // chapters the reader actually visited would never be looked at.
+  ;(input.trail ?? []).slice().reverse().forEach(push)
   if (current != null) {
-    push(current)
     const leaf = leafContaining(input.sections, current)
     if (leaf?.chapters) {
       // Walk the section outward from the current chapter so the nearest
@@ -205,7 +232,6 @@ export function findScanOrder(input: {
       sorted.forEach(push)
     }
   }
-  ;(input.trail ?? []).slice().reverse().forEach(push)
   if (current != null) {
     const sorted = [...input.chapters].sort((a, b) => Math.abs(a - current) - Math.abs(b - current) || a - b)
     for (const chapterNumber of sorted) {
@@ -260,6 +286,8 @@ export interface FindResult {
   editionNote?: string
   matches: FindMatch[]
   scanned: { chapters: number; ofChapters: number; complete: boolean }
+  /** Set when the scan was bounded, so the model can say what it did not cover. */
+  note?: string
 }
 
 /** Case-insensitive substring search over one chapter, at most two hits per chapter. */
@@ -329,7 +357,12 @@ export function createBookRetrieval(input: {
   /** Set once an edition resolves; every chapter read uses the edition that actually loaded. */
   let editionId = requestedEditionId
 
+  let assetFetches = 0
+  const budgetSpent = () => assetFetches >= RETRIEVAL_ASSET_BUDGET
+
   const fetchJson = async (path: string): Promise<unknown | null> => {
+    if (budgetSpent()) return null
+    assetFetches += 1
     try {
       const response = await assets.fetch(new Request(new URL(path, origin)))
       if (!response.ok) return null
@@ -499,7 +532,7 @@ export function createBookRetrieval(input: {
       let scanned = 0
       let cursor = 0
       const worker = async () => {
-        while (cursor < order.length && matches.length < FIND_MAX_MATCHES) {
+        while (cursor < order.length && matches.length < FIND_MAX_MATCHES && !budgetSpent()) {
           const chapterNumber = order[cursor++]
           const chapter = await loadChapter(chapterNumber)
           scanned += 1
@@ -523,6 +556,14 @@ export function createBookRetrieval(input: {
           ofChapters: index.chapters.length,
           complete: scanned >= index.chapters.length || matches.length >= FIND_MAX_MATCHES,
         },
+      }
+      // A partial search is a real answer, not a failure. Say so plainly so the
+      // model answers from what it found and from the chapter it already has,
+      // and tells the reader what it could not cover.
+      if (!result.scanned.complete) {
+        result.note = matches.length > 0
+          ? `Searched the ${scanned} chapters nearest the reader, not the whole book. There may be more elsewhere.`
+          : `Searched the ${scanned} chapters nearest the reader and found nothing; this book has ${index.chapters.length} chapters, so the whole book was not covered. Answer from the chapter in front of you and from what you know, and say you could not search the whole book.`
       }
       return { content: JSON.stringify(result) }
     },
