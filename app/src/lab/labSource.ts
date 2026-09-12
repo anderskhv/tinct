@@ -116,14 +116,22 @@ function sourceFromChapter(input: {
   chaptersProvisional?: boolean
   sections?: Section[]
   cast: LabCastMember[]
+  /** The edition actually loaded. Omitted only by the pre-network fixture. */
+  editionKey?: string
 }): LabSource {
   const parsed = parseBibleChapterTitle(input.chapterTitle)
+  const editions = getBook(LAB_BOOK_ID)?.editions
   return {
     bookId: LAB_BOOK_ID,
-    editions: getBook(LAB_BOOK_ID)?.editions,
+    editions,
     bookTitle: LAB_COPY.bookTitle,
     bookAuthor: LAB_COPY.bookAuthor,
-    editionLabel: LAB_COPY.editionLabel,
+    // The Bible loader used to name the KJV whatever was on the page. The
+    // companion is told which edition the reader is in, so a reader in the
+    // World English Bible must not have their questions answered as if they
+    // were looking at 1611 English.
+    editionLabel: editions?.find(edition => edition.key === input.editionKey)?.label
+      ?? LAB_COPY.editionLabel,
     chapterLabel: input.chapterTitle,
     chapterTitle: input.chapterTitle,
     chapterNumber: input.chapterNumber,
@@ -400,6 +408,7 @@ export async function loadLabSource(
     return { ...sourceFromChapter({
       chapterNumber: entry.number,
       chapterTitle: entry.title,
+      editionKey: primary,
       paragraphs,
       compareParagraphs,
       followParagraphs: supporting.followParagraphs,
