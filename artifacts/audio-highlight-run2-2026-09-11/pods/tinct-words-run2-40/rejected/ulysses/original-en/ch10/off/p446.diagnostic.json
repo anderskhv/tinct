@@ -1,0 +1,706 @@
+{
+  "complete": true,
+  "signature": "f6883a066d026d63b3361e9c082d97a8f3631c5bbe28c5201db9f93f8f1765ac",
+  "attempts": [
+    {
+      "asr_seconds": 0.3163373810239136,
+      "alignment_seconds": 0.0005525900050997734,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Filberts, I believe they were, Mr. Daedalus said, as he dropped his glasses on his coat",
+          "start": 0.05,
+          "end": 5.49,
+          "words": [
+            {
+              "text": " Filberts,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.505401611328125
+            },
+            {
+              "text": " I",
+              "start": 0.93,
+              "end": 1.05,
+              "probability": 0.98828125
+            },
+            {
+              "text": " believe",
+              "start": 1.05,
+              "end": 1.35,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " they",
+              "start": 1.35,
+              "end": 1.63,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " were,",
+              "start": 1.63,
+              "end": 2.03,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Mr.",
+              "start": 2.39,
+              "end": 2.57,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " Daedalus",
+              "start": 2.79,
+              "end": 3.03,
+              "probability": 0.5718587239583334
+            },
+            {
+              "text": " said,",
+              "start": 3.03,
+              "end": 3.39,
+              "probability": 0.9921875
+            },
+            {
+              "text": " as",
+              "start": 3.89,
+              "end": 3.97,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " he",
+              "start": 3.97,
+              "end": 4.09,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " dropped",
+              "start": 4.09,
+              "end": 4.33,
+              "probability": 0.99609375
+            },
+            {
+              "text": " his",
+              "start": 4.33,
+              "end": 4.57,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " glasses",
+              "start": 4.57,
+              "end": 4.93,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " on",
+              "start": 4.93,
+              "end": 5.15,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " his",
+              "start": 5.15,
+              "end": 5.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " coat",
+              "start": 5.31,
+              "end": 5.49,
+              "probability": 0.9892578125
+            }
+          ]
+        },
+        {
+          "text": " front, following them.",
+          "start": 5.49,
+          "end": 6.67,
+          "words": [
+            {
+              "text": " front,",
+              "start": 5.49,
+              "end": 5.81,
+              "probability": 0.90087890625
+            },
+            {
+              "text": " following",
+              "start": 5.99,
+              "end": 6.33,
+              "probability": 0.998046875
+            },
+            {
+              "text": " them.",
+              "start": 6.33,
+              "end": 6.67,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Filberts,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "I",
+          "start": 0.93,
+          "end": 1.05
+        },
+        {
+          "raw": "believe",
+          "start": 1.05,
+          "end": 1.35
+        },
+        {
+          "raw": "they",
+          "start": 1.35,
+          "end": 1.63
+        },
+        {
+          "raw": "were,",
+          "start": 1.63,
+          "end": 2.03
+        },
+        {
+          "raw": "Mr.",
+          "start": 2.39,
+          "end": 2.57
+        },
+        {
+          "raw": "Daedalus",
+          "start": 2.79,
+          "end": 3.03
+        },
+        {
+          "raw": "said,",
+          "start": 3.03,
+          "end": 3.39
+        },
+        {
+          "raw": "as",
+          "start": 3.89,
+          "end": 3.97
+        },
+        {
+          "raw": "he",
+          "start": 3.97,
+          "end": 4.09
+        },
+        {
+          "raw": "dropped",
+          "start": 4.09,
+          "end": 4.33
+        },
+        {
+          "raw": "his",
+          "start": 4.33,
+          "end": 4.57
+        },
+        {
+          "raw": "glasses",
+          "start": 4.57,
+          "end": 4.93
+        },
+        {
+          "raw": "on",
+          "start": 4.93,
+          "end": 5.15
+        },
+        {
+          "raw": "his",
+          "start": 5.15,
+          "end": 5.31
+        },
+        {
+          "raw": "coat",
+          "start": 5.31,
+          "end": 5.49
+        },
+        {
+          "raw": "front,",
+          "start": 5.49,
+          "end": 5.81
+        },
+        {
+          "raw": "following",
+          "start": 5.99,
+          "end": 6.33
+        },
+        {
+          "raw": "them.",
+          "start": 6.33,
+          "end": 6.67
+        }
+      ],
+      "expected_tokens": [
+        "—Filberts",
+        "I",
+        "believe",
+        "they",
+        "were,",
+        "Mr",
+        "Dedalus",
+        "said,",
+        "as",
+        "he",
+        "dropped",
+        "his",
+        "glasses",
+        "on",
+        "his",
+        "coatfront,",
+        "following",
+        "them."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          15,
+          7,
+          15
+        ],
+        [
+          "replace",
+          15,
+          16,
+          15,
+          17
+        ],
+        [
+          "equal",
+          16,
+          18,
+          17,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "replace",
+          15,
+          16,
+          15,
+          17
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Filberts,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "filberts",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.93,
+          "end": 1.05,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "believe",
+          "start": 1.05,
+          "end": 1.35,
+          "key": "believe",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 1.35,
+          "end": 1.63,
+          "key": "they",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "were,",
+          "start": 1.63,
+          "end": 2.03,
+          "key": "were",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 2.39,
+          "end": 2.57,
+          "key": "mr",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Daedalus",
+          "start": 2.79,
+          "end": 3.03,
+          "key": "daedalus",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 3.03,
+          "end": 3.39,
+          "key": "said",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.89,
+          "end": 3.97,
+          "key": "as",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.97,
+          "end": 4.09,
+          "key": "he",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "dropped",
+          "start": 4.09,
+          "end": 4.33,
+          "key": "dropped",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.33,
+          "end": 4.57,
+          "key": "his",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "glasses",
+          "start": 4.57,
+          "end": 4.93,
+          "key": "glasses",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 4.93,
+          "end": 5.15,
+          "key": "on",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 5.15,
+          "end": 5.31,
+          "key": "his",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "coat",
+          "start": 5.31,
+          "end": 5.49,
+          "key": "coat",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "front,",
+          "start": 5.49,
+          "end": 5.81,
+          "key": "front",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "following",
+          "start": 5.99,
+          "end": 6.33,
+          "key": "following",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 6.33,
+          "end": 6.67,
+          "key": "them",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Filberts",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "I",
+          "start": 0.93,
+          "end": 1.05
+        },
+        {
+          "text": "believe",
+          "start": 1.05,
+          "end": 1.35
+        },
+        {
+          "text": "they",
+          "start": 1.35,
+          "end": 1.63
+        },
+        {
+          "text": "were,",
+          "start": 1.63,
+          "end": 2.03
+        },
+        {
+          "text": "Mr",
+          "start": 2.39,
+          "end": 2.57
+        },
+        {
+          "text": "Dedalus",
+          "start": 2.57,
+          "end": 2.8
+        },
+        {
+          "text": "said,",
+          "start": 3.03,
+          "end": 3.39
+        },
+        {
+          "text": "as",
+          "start": 3.89,
+          "end": 3.97
+        },
+        {
+          "text": "he",
+          "start": 3.97,
+          "end": 4.09
+        },
+        {
+          "text": "dropped",
+          "start": 4.09,
+          "end": 4.33
+        },
+        {
+          "text": "his",
+          "start": 4.33,
+          "end": 4.57
+        },
+        {
+          "text": "glasses",
+          "start": 4.57,
+          "end": 4.93
+        },
+        {
+          "text": "on",
+          "start": 4.93,
+          "end": 5.15
+        },
+        {
+          "text": "his",
+          "start": 5.15,
+          "end": 5.31
+        },
+        {
+          "text": "coatfront,",
+          "start": 5.31,
+          "end": 5.65
+        },
+        {
+          "text": "following",
+          "start": 5.99,
+          "end": 6.33
+        },
+        {
+          "text": "them.",
+          "start": 6.33,
+          "end": 6.67
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 19,
+        "matched_words": 16
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.31713589234277606
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cbf20204c92f7f75275c7ec7ac657570479972e0181e1d0828abf5ee9d93a2db",
+  "selected_reasons": []
+}

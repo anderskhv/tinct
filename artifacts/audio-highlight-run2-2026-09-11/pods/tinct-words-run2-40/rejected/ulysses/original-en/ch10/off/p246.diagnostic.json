@@ -1,0 +1,724 @@
+{
+  "complete": true,
+  "signature": "037d3fe228c795c639e3cb0c8a019a620d6363fd70a0c94d46c7cf52ea2459b3",
+  "attempts": [
+    {
+      "asr_seconds": 0.3246185062453151,
+      "alignment_seconds": 0.0005916040390729904,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Master Patrick Aloysius Dignam came out of Mangons, late Farrenbox, carrying a pound",
+          "start": 0.05,
+          "end": 6.01,
+          "words": [
+            {
+              "text": " Master",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.88916015625
+            },
+            {
+              "text": " Patrick",
+              "start": 0.75,
+              "end": 1.21,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " Aloysius",
+              "start": 1.21,
+              "end": 1.79,
+              "probability": 0.6272786458333334
+            },
+            {
+              "text": " Dignam",
+              "start": 1.79,
+              "end": 2.21,
+              "probability": 0.5455729166666666
+            },
+            {
+              "text": " came",
+              "start": 2.21,
+              "end": 2.49,
+              "probability": 0.982421875
+            },
+            {
+              "text": " out",
+              "start": 2.49,
+              "end": 2.69,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 2.69,
+              "end": 2.83,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Mangons,",
+              "start": 2.83,
+              "end": 3.37,
+              "probability": 0.6685791015625
+            },
+            {
+              "text": " late",
+              "start": 3.79,
+              "end": 4.03,
+              "probability": 0.9140625
+            },
+            {
+              "text": " Farrenbox,",
+              "start": 4.03,
+              "end": 4.67,
+              "probability": 0.3653971354166667
+            },
+            {
+              "text": " carrying",
+              "start": 5.25,
+              "end": 5.55,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " a",
+              "start": 5.55,
+              "end": 5.83,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " pound",
+              "start": 5.83,
+              "end": 6.01,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " and a half of pork steaks.",
+          "start": 6.01,
+          "end": 7.27,
+          "words": [
+            {
+              "text": " and",
+              "start": 6.01,
+              "end": 6.23,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " a",
+              "start": 6.23,
+              "end": 6.33,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " half",
+              "start": 6.33,
+              "end": 6.47,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 6.47,
+              "end": 6.65,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " pork",
+              "start": 6.65,
+              "end": 6.81,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " steaks.",
+              "start": 6.81,
+              "end": 7.27,
+              "probability": 0.974853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Master",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "Patrick",
+          "start": 0.75,
+          "end": 1.21
+        },
+        {
+          "raw": "Aloysius",
+          "start": 1.21,
+          "end": 1.79
+        },
+        {
+          "raw": "Dignam",
+          "start": 1.79,
+          "end": 2.21
+        },
+        {
+          "raw": "came",
+          "start": 2.21,
+          "end": 2.49
+        },
+        {
+          "raw": "out",
+          "start": 2.49,
+          "end": 2.69
+        },
+        {
+          "raw": "of",
+          "start": 2.69,
+          "end": 2.83
+        },
+        {
+          "raw": "Mangons,",
+          "start": 2.83,
+          "end": 3.37
+        },
+        {
+          "raw": "late",
+          "start": 3.79,
+          "end": 4.03
+        },
+        {
+          "raw": "Farrenbox,",
+          "start": 4.03,
+          "end": 4.67
+        },
+        {
+          "raw": "carrying",
+          "start": 5.25,
+          "end": 5.55
+        },
+        {
+          "raw": "a",
+          "start": 5.55,
+          "end": 5.83
+        },
+        {
+          "raw": "pound",
+          "start": 5.83,
+          "end": 6.01
+        },
+        {
+          "raw": "and",
+          "start": 6.01,
+          "end": 6.23
+        },
+        {
+          "raw": "a",
+          "start": 6.23,
+          "end": 6.33
+        },
+        {
+          "raw": "half",
+          "start": 6.33,
+          "end": 6.47
+        },
+        {
+          "raw": "of",
+          "start": 6.47,
+          "end": 6.65
+        },
+        {
+          "raw": "pork",
+          "start": 6.65,
+          "end": 6.81
+        },
+        {
+          "raw": "steaks.",
+          "start": 6.81,
+          "end": 7.27
+        }
+      ],
+      "expected_tokens": [
+        "Master",
+        "Patrick",
+        "Aloysius",
+        "Dignam",
+        "came",
+        "out",
+        "of",
+        "Mangan's,",
+        "late",
+        "Fehrenbach's,",
+        "carrying",
+        "a",
+        "pound",
+        "and",
+        "a",
+        "half",
+        "of",
+        "porksteaks."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "equal",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "equal",
+          10,
+          17,
+          10,
+          17
+        ],
+        [
+          "replace",
+          17,
+          18,
+          17,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "replace",
+          17,
+          18,
+          17,
+          19
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Master",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "master",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Patrick",
+          "start": 0.75,
+          "end": 1.21,
+          "key": "patrick",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Aloysius",
+          "start": 1.21,
+          "end": 1.79,
+          "key": "aloysius",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Dignam",
+          "start": 1.79,
+          "end": 2.21,
+          "key": "dignam",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "came",
+          "start": 2.21,
+          "end": 2.49,
+          "key": "came",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 2.49,
+          "end": 2.69,
+          "key": "out",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.69,
+          "end": 2.83,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Mangons,",
+          "start": 2.83,
+          "end": 3.37,
+          "key": "mangons",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "late",
+          "start": 3.79,
+          "end": 4.03,
+          "key": "late",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Farrenbox,",
+          "start": 4.03,
+          "end": 4.67,
+          "key": "farrenbox",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "carrying",
+          "start": 5.25,
+          "end": 5.55,
+          "key": "carrying",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.55,
+          "end": 5.83,
+          "key": "a",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "pound",
+          "start": 5.83,
+          "end": 6.01,
+          "key": "pound",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.01,
+          "end": 6.23,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 6.23,
+          "end": 6.33,
+          "key": "a",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "half",
+          "start": 6.33,
+          "end": 6.47,
+          "key": "half",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.47,
+          "end": 6.65,
+          "key": "of",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "pork",
+          "start": 6.65,
+          "end": 6.81,
+          "key": "pork",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "steaks.",
+          "start": 6.81,
+          "end": 7.27,
+          "key": "steaks",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Master",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "Patrick",
+          "start": 0.75,
+          "end": 1.21
+        },
+        {
+          "text": "Aloysius",
+          "start": 1.21,
+          "end": 1.79
+        },
+        {
+          "text": "Dignam",
+          "start": 1.79,
+          "end": 2.21
+        },
+        {
+          "text": "came",
+          "start": 2.21,
+          "end": 2.49
+        },
+        {
+          "text": "out",
+          "start": 2.49,
+          "end": 2.69
+        },
+        {
+          "text": "of",
+          "start": 2.69,
+          "end": 2.83
+        },
+        {
+          "text": "Mangan's,",
+          "start": 2.83,
+          "end": 3.31
+        },
+        {
+          "text": "late",
+          "start": 3.79,
+          "end": 4.03
+        },
+        {
+          "text": "Fehrenbach's,",
+          "start": 4.03,
+          "end": 4.64
+        },
+        {
+          "text": "carrying",
+          "start": 5.25,
+          "end": 5.55
+        },
+        {
+          "text": "a",
+          "start": 5.55,
+          "end": 5.83
+        },
+        {
+          "text": "pound",
+          "start": 5.83,
+          "end": 6.01
+        },
+        {
+          "text": "and",
+          "start": 6.01,
+          "end": 6.23
+        },
+        {
+          "text": "a",
+          "start": 6.23,
+          "end": 6.33
+        },
+        {
+          "text": "half",
+          "start": 6.33,
+          "end": 6.47
+        },
+        {
+          "text": "of",
+          "start": 6.47,
+          "end": 6.65
+        },
+        {
+          "text": "porksteaks.",
+          "start": 6.65,
+          "end": 6.96
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 19,
+        "matched_words": 15
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.32540835021063685
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "dfa5bcc686d8c32252d4b45847cc2e8513a26271bbd068e48a2ac23e3877b923",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

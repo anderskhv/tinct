@@ -1,0 +1,476 @@
+{
+  "complete": true,
+  "signature": "d992e6f9953d5dd46792d053a12de2a92ae57819ae29ab37244189c9c8a4a5a8",
+  "attempts": [
+    {
+      "asr_seconds": 0.23387289699167013,
+      "alignment_seconds": 0.0005568251945078373,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He left her and walked on. Dilly followed quickly and pulled his coat.",
+          "start": 0.02,
+          "end": 3.98,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " left",
+              "start": 0.5,
+              "end": 0.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " her",
+              "start": 0.68,
+              "end": 0.88,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 0.88,
+              "end": 1.02,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " walked",
+              "start": 1.02,
+              "end": 1.26,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " on.",
+              "start": 1.26,
+              "end": 1.68,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Dilly",
+              "start": 2.24,
+              "end": 2.34,
+              "probability": 0.807861328125
+            },
+            {
+              "text": " followed",
+              "start": 2.34,
+              "end": 2.64,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " quickly",
+              "start": 2.64,
+              "end": 3.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 3.06,
+              "end": 3.32,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " pulled",
+              "start": 3.32,
+              "end": 3.52,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 3.52,
+              "end": 3.74,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " coat.",
+              "start": 3.74,
+              "end": 3.98,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "left",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "raw": "her",
+          "start": 0.68,
+          "end": 0.88
+        },
+        {
+          "raw": "and",
+          "start": 0.88,
+          "end": 1.02
+        },
+        {
+          "raw": "walked",
+          "start": 1.02,
+          "end": 1.26
+        },
+        {
+          "raw": "on.",
+          "start": 1.26,
+          "end": 1.68
+        },
+        {
+          "raw": "Dilly",
+          "start": 2.24,
+          "end": 2.34
+        },
+        {
+          "raw": "followed",
+          "start": 2.34,
+          "end": 2.64
+        },
+        {
+          "raw": "quickly",
+          "start": 2.64,
+          "end": 3.06
+        },
+        {
+          "raw": "and",
+          "start": 3.06,
+          "end": 3.32
+        },
+        {
+          "raw": "pulled",
+          "start": 3.32,
+          "end": 3.52
+        },
+        {
+          "raw": "his",
+          "start": 3.52,
+          "end": 3.74
+        },
+        {
+          "raw": "coat.",
+          "start": 3.74,
+          "end": 3.98
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "left",
+        "her",
+        "and",
+        "walked",
+        "on.",
+        "Dilly",
+        "followed",
+        "quickly",
+        "and",
+        "pulled",
+        "his",
+        "coat."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "left",
+          "start": 0.5,
+          "end": 0.68,
+          "key": "left",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 0.68,
+          "end": 0.88,
+          "key": "her",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.88,
+          "end": 1.02,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "walked",
+          "start": 1.02,
+          "end": 1.26,
+          "key": "walked",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "on.",
+          "start": 1.26,
+          "end": 1.68,
+          "key": "on",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Dilly",
+          "start": 2.24,
+          "end": 2.34,
+          "key": "dilly",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "followed",
+          "start": 2.34,
+          "end": 2.64,
+          "key": "followed",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "quickly",
+          "start": 2.64,
+          "end": 3.06,
+          "key": "quickly",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.06,
+          "end": 3.32,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "pulled",
+          "start": 3.32,
+          "end": 3.52,
+          "key": "pulled",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.52,
+          "end": 3.74,
+          "key": "his",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "coat.",
+          "start": 3.74,
+          "end": 3.98,
+          "key": "coat",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "left",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "text": "her",
+          "start": 0.68,
+          "end": 0.88
+        },
+        {
+          "text": "and",
+          "start": 0.88,
+          "end": 1.02
+        },
+        {
+          "text": "walked",
+          "start": 1.02,
+          "end": 1.26
+        },
+        {
+          "text": "on.",
+          "start": 1.26,
+          "end": 1.68
+        },
+        {
+          "text": "Dilly",
+          "start": 2.24,
+          "end": 2.34
+        },
+        {
+          "text": "followed",
+          "start": 2.34,
+          "end": 2.64
+        },
+        {
+          "text": "quickly",
+          "start": 2.64,
+          "end": 3.06
+        },
+        {
+          "text": "and",
+          "start": 3.06,
+          "end": 3.32
+        },
+        {
+          "text": "pulled",
+          "start": 3.32,
+          "end": 3.52
+        },
+        {
+          "text": "his",
+          "start": 3.52,
+          "end": 3.74
+        },
+        {
+          "text": "coat.",
+          "start": 3.74,
+          "end": 3.98
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23466218262910843
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b00ce93dbc0ac9d9faa3adf146e999605edb53f40c0496c919903e75ffe59bd3",
+  "selected_reasons": []
+}

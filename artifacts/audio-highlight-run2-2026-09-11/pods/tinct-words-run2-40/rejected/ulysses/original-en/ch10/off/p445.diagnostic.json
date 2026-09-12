@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "a5e13b898b01d411e42989a837f25d1e7925e593be37df6c978be502092757e6",
+  "attempts": [
+    {
+      "asr_seconds": 0.21520498720929027,
+      "alignment_seconds": 0.00039125001057982445,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He led father Cowley boldly forward linked to his bulk",
+          "start": 0.02,
+          "end": 3.42,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.9072265625
+            },
+            {
+              "text": " led",
+              "start": 0.5,
+              "end": 0.68,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " father",
+              "start": 0.68,
+              "end": 1.02,
+              "probability": 0.371337890625
+            },
+            {
+              "text": " Cowley",
+              "start": 1.02,
+              "end": 1.4,
+              "probability": 0.908203125
+            },
+            {
+              "text": " boldly",
+              "start": 1.4,
+              "end": 1.72,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " forward",
+              "start": 1.72,
+              "end": 2.26,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " linked",
+              "start": 2.26,
+              "end": 2.78,
+              "probability": 0.29931640625
+            },
+            {
+              "text": " to",
+              "start": 2.78,
+              "end": 2.98,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " his",
+              "start": 2.98,
+              "end": 3.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " bulk",
+              "start": 3.12,
+              "end": 3.42,
+              "probability": 0.97705078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "led",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "raw": "father",
+          "start": 0.68,
+          "end": 1.02
+        },
+        {
+          "raw": "Cowley",
+          "start": 1.02,
+          "end": 1.4
+        },
+        {
+          "raw": "boldly",
+          "start": 1.4,
+          "end": 1.72
+        },
+        {
+          "raw": "forward",
+          "start": 1.72,
+          "end": 2.26
+        },
+        {
+          "raw": "linked",
+          "start": 2.26,
+          "end": 2.78
+        },
+        {
+          "raw": "to",
+          "start": 2.78,
+          "end": 2.98
+        },
+        {
+          "raw": "his",
+          "start": 2.98,
+          "end": 3.12
+        },
+        {
+          "raw": "bulk",
+          "start": 3.12,
+          "end": 3.42
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "led",
+        "Father",
+        "Cowley",
+        "boldly",
+        "forward,",
+        "linked",
+        "to",
+        "his",
+        "bulk."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "led",
+          "start": 0.5,
+          "end": 0.68,
+          "key": "led",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "father",
+          "start": 0.68,
+          "end": 1.02,
+          "key": "father",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Cowley",
+          "start": 1.02,
+          "end": 1.4,
+          "key": "cowley",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "boldly",
+          "start": 1.4,
+          "end": 1.72,
+          "key": "boldly",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "forward",
+          "start": 1.72,
+          "end": 2.26,
+          "key": "forward",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "linked",
+          "start": 2.26,
+          "end": 2.78,
+          "key": "linked",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.78,
+          "end": 2.98,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.98,
+          "end": 3.12,
+          "key": "his",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "bulk",
+          "start": 3.12,
+          "end": 3.42,
+          "key": "bulk",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "led",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "text": "Father",
+          "start": 0.68,
+          "end": 1.02
+        },
+        {
+          "text": "Cowley",
+          "start": 1.02,
+          "end": 1.4
+        },
+        {
+          "text": "boldly",
+          "start": 1.4,
+          "end": 1.72
+        },
+        {
+          "text": "forward,",
+          "start": 1.72,
+          "end": 2.26
+        },
+        {
+          "text": "linked",
+          "start": 2.26,
+          "end": 2.78
+        },
+        {
+          "text": "to",
+          "start": 2.78,
+          "end": 2.98
+        },
+        {
+          "text": "his",
+          "start": 2.98,
+          "end": 3.12
+        },
+        {
+          "text": "bulk.",
+          "start": 3.12,
+          "end": 3.42
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2157488912343979
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2caae9b920a431714a7af9b7538dff30a39674f40841af778b6d502bb6d46aff",
+  "selected_reasons": []
+}

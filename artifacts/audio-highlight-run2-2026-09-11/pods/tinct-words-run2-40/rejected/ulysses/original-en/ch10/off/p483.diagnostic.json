@@ -1,0 +1,658 @@
+{
+  "complete": true,
+  "signature": "7b755d183e207a1ed3b5feeac011edc210a11e9fe049e348798443a41a3467e5",
+  "attempts": [
+    {
+      "asr_seconds": 0.3302038609981537,
+      "alignment_seconds": 0.00047337496653199196,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Testole, he made room for himself beside Long John Fanning's flank and passed in and up",
+          "start": 0.05,
+          "end": 5.45,
+          "words": [
+            {
+              "text": " Testole,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.5657958984375
+            },
+            {
+              "text": " he",
+              "start": 0.87,
+              "end": 0.99,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " made",
+              "start": 0.99,
+              "end": 1.17,
+              "probability": 0.998046875
+            },
+            {
+              "text": " room",
+              "start": 1.17,
+              "end": 1.37,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " for",
+              "start": 1.37,
+              "end": 1.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " himself",
+              "start": 1.55,
+              "end": 1.91,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " beside",
+              "start": 1.91,
+              "end": 2.37,
+              "probability": 0.759765625
+            },
+            {
+              "text": " Long",
+              "start": 2.37,
+              "end": 2.73,
+              "probability": 0.7666015625
+            },
+            {
+              "text": " John",
+              "start": 2.73,
+              "end": 3.13,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " Fanning's",
+              "start": 3.13,
+              "end": 3.65,
+              "probability": 0.9606119791666666
+            },
+            {
+              "text": " flank",
+              "start": 3.65,
+              "end": 3.95,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " and",
+              "start": 3.95,
+              "end": 4.53,
+              "probability": 0.72412109375
+            },
+            {
+              "text": " passed",
+              "start": 4.53,
+              "end": 4.85,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " in",
+              "start": 4.85,
+              "end": 5.19,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 5.19,
+              "end": 5.31,
+              "probability": 0.99609375
+            },
+            {
+              "text": " up",
+              "start": 5.31,
+              "end": 5.45,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " the stairs.",
+          "start": 5.45,
+          "end": 5.87,
+          "words": [
+            {
+              "text": " the",
+              "start": 5.45,
+              "end": 5.59,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " stairs.",
+              "start": 5.59,
+              "end": 5.87,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Testole,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "he",
+          "start": 0.87,
+          "end": 0.99
+        },
+        {
+          "raw": "made",
+          "start": 0.99,
+          "end": 1.17
+        },
+        {
+          "raw": "room",
+          "start": 1.17,
+          "end": 1.37
+        },
+        {
+          "raw": "for",
+          "start": 1.37,
+          "end": 1.55
+        },
+        {
+          "raw": "himself",
+          "start": 1.55,
+          "end": 1.91
+        },
+        {
+          "raw": "beside",
+          "start": 1.91,
+          "end": 2.37
+        },
+        {
+          "raw": "Long",
+          "start": 2.37,
+          "end": 2.73
+        },
+        {
+          "raw": "John",
+          "start": 2.73,
+          "end": 3.13
+        },
+        {
+          "raw": "Fanning's",
+          "start": 3.13,
+          "end": 3.65
+        },
+        {
+          "raw": "flank",
+          "start": 3.65,
+          "end": 3.95
+        },
+        {
+          "raw": "and",
+          "start": 3.95,
+          "end": 4.53
+        },
+        {
+          "raw": "passed",
+          "start": 4.53,
+          "end": 4.85
+        },
+        {
+          "raw": "in",
+          "start": 4.85,
+          "end": 5.19
+        },
+        {
+          "raw": "and",
+          "start": 5.19,
+          "end": 5.31
+        },
+        {
+          "raw": "up",
+          "start": 5.31,
+          "end": 5.45
+        },
+        {
+          "raw": "the",
+          "start": 5.45,
+          "end": 5.59
+        },
+        {
+          "raw": "stairs.",
+          "start": 5.59,
+          "end": 5.87
+        }
+      ],
+      "expected_tokens": [
+        "Testily",
+        "he",
+        "made",
+        "room",
+        "for",
+        "himself",
+        "beside",
+        "long",
+        "John",
+        "Fanning's",
+        "flank",
+        "and",
+        "passed",
+        "in",
+        "and",
+        "up",
+        "the",
+        "stairs."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          18,
+          1,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Testole,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "testole",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.87,
+          "end": 0.99,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "made",
+          "start": 0.99,
+          "end": 1.17,
+          "key": "made",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "room",
+          "start": 1.17,
+          "end": 1.37,
+          "key": "room",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.37,
+          "end": 1.55,
+          "key": "for",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "himself",
+          "start": 1.55,
+          "end": 1.91,
+          "key": "himself",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "beside",
+          "start": 1.91,
+          "end": 2.37,
+          "key": "beside",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Long",
+          "start": 2.37,
+          "end": 2.73,
+          "key": "long",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "John",
+          "start": 2.73,
+          "end": 3.13,
+          "key": "john",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Fanning's",
+          "start": 3.13,
+          "end": 3.65,
+          "key": "fannings",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "flank",
+          "start": 3.65,
+          "end": 3.95,
+          "key": "flank",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.95,
+          "end": 4.53,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "passed",
+          "start": 4.53,
+          "end": 4.85,
+          "key": "passed",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.85,
+          "end": 5.19,
+          "key": "in",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.19,
+          "end": 5.31,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 5.31,
+          "end": 5.45,
+          "key": "up",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.45,
+          "end": 5.59,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "stairs.",
+          "start": 5.59,
+          "end": 5.87,
+          "key": "stairs",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Testily",
+          "start": 0.0,
+          "end": 0.435
+        },
+        {
+          "text": "he",
+          "start": 0.87,
+          "end": 0.99
+        },
+        {
+          "text": "made",
+          "start": 0.99,
+          "end": 1.17
+        },
+        {
+          "text": "room",
+          "start": 1.17,
+          "end": 1.37
+        },
+        {
+          "text": "for",
+          "start": 1.37,
+          "end": 1.55
+        },
+        {
+          "text": "himself",
+          "start": 1.55,
+          "end": 1.91
+        },
+        {
+          "text": "beside",
+          "start": 1.91,
+          "end": 2.37
+        },
+        {
+          "text": "long",
+          "start": 2.37,
+          "end": 2.73
+        },
+        {
+          "text": "John",
+          "start": 2.73,
+          "end": 3.13
+        },
+        {
+          "text": "Fanning's",
+          "start": 3.13,
+          "end": 3.65
+        },
+        {
+          "text": "flank",
+          "start": 3.65,
+          "end": 3.95
+        },
+        {
+          "text": "and",
+          "start": 3.95,
+          "end": 4.53
+        },
+        {
+          "text": "passed",
+          "start": 4.53,
+          "end": 4.85
+        },
+        {
+          "text": "in",
+          "start": 4.85,
+          "end": 5.19
+        },
+        {
+          "text": "and",
+          "start": 5.19,
+          "end": 5.31
+        },
+        {
+          "text": "up",
+          "start": 5.31,
+          "end": 5.45
+        },
+        {
+          "text": "the",
+          "start": 5.45,
+          "end": 5.59
+        },
+        {
+          "text": "stairs.",
+          "start": 5.59,
+          "end": 5.87
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 17
+      },
+      "match_ratio": 0.9444444444444444,
+      "rejection_reasons": [],
+      "seconds": 0.3308657230809331
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f3ac33d60a6418c14f6f615a7335633d98f0053bbb50f327d1b235c0cbc189c5",
+  "selected_reasons": []
+}

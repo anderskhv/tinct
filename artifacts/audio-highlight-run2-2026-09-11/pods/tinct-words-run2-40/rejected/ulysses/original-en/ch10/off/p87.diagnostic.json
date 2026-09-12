@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "aef7fe6ffb1491c0ccf0b18471aa6f3e769b7a6de9f59f3b9400673c9fdc4dd8",
+  "attempts": [
+    {
+      "asr_seconds": 0.20298253512009978,
+      "alignment_seconds": 0.00046306662261486053,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " They wouldn't give anything on them, she said.",
+          "start": 0.05,
+          "end": 2.23,
+          "words": [
+            {
+              "text": " They",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.439697265625
+            },
+            {
+              "text": " wouldn't",
+              "start": 0.51,
+              "end": 0.79,
+              "probability": 0.995849609375
+            },
+            {
+              "text": " give",
+              "start": 0.79,
+              "end": 0.89,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " anything",
+              "start": 0.89,
+              "end": 1.17,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " on",
+              "start": 1.17,
+              "end": 1.37,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " them,",
+              "start": 1.37,
+              "end": 1.65,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " she",
+              "start": 1.87,
+              "end": 1.97,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " said.",
+              "start": 1.97,
+              "end": 2.23,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "They",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "wouldn't",
+          "start": 0.51,
+          "end": 0.79
+        },
+        {
+          "raw": "give",
+          "start": 0.79,
+          "end": 0.89
+        },
+        {
+          "raw": "anything",
+          "start": 0.89,
+          "end": 1.17
+        },
+        {
+          "raw": "on",
+          "start": 1.17,
+          "end": 1.37
+        },
+        {
+          "raw": "them,",
+          "start": 1.37,
+          "end": 1.65
+        },
+        {
+          "raw": "she",
+          "start": 1.87,
+          "end": 1.97
+        },
+        {
+          "raw": "said.",
+          "start": 1.97,
+          "end": 2.23
+        }
+      ],
+      "expected_tokens": [
+        "—They",
+        "wouldn't",
+        "give",
+        "anything",
+        "on",
+        "them,",
+        "she",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "They",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "they",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "wouldn't",
+          "start": 0.51,
+          "end": 0.79,
+          "key": "wouldnt",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 0.79,
+          "end": 0.89,
+          "key": "give",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "anything",
+          "start": 0.89,
+          "end": 1.17,
+          "key": "anything",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.17,
+          "end": 1.37,
+          "key": "on",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "them,",
+          "start": 1.37,
+          "end": 1.65,
+          "key": "them",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.87,
+          "end": 1.97,
+          "key": "she",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 1.97,
+          "end": 2.23,
+          "key": "said",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—They",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "wouldn't",
+          "start": 0.51,
+          "end": 0.79
+        },
+        {
+          "text": "give",
+          "start": 0.79,
+          "end": 0.89
+        },
+        {
+          "text": "anything",
+          "start": 0.89,
+          "end": 1.17
+        },
+        {
+          "text": "on",
+          "start": 1.17,
+          "end": 1.37
+        },
+        {
+          "text": "them,",
+          "start": 1.37,
+          "end": 1.65
+        },
+        {
+          "text": "she",
+          "start": 1.87,
+          "end": 1.97
+        },
+        {
+          "text": "said.",
+          "start": 1.97,
+          "end": 2.23
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20361104235053062
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3f1d927a53b73f8422b9793dae3da4e03ddb19324b58718d0ba9925bd6d7c702",
+  "selected_reasons": []
+}

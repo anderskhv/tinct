@@ -1,0 +1,648 @@
+{
+  "complete": true,
+  "signature": "bedd06ede13f2e8807cf5bcd1db81e45e80dce47e3a06d68b9778cde6b12c052",
+  "attempts": [
+    {
+      "asr_seconds": 0.34054365614429116,
+      "alignment_seconds": 0.0004604407586157322,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The Lord Lieutenant General and General Governor of Ireland,",
+          "start": 0.05,
+          "end": 3.55,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.60986328125
+            },
+            {
+              "text": " Lord",
+              "start": 0.51,
+              "end": 0.79,
+              "probability": 0.974609375
+            },
+            {
+              "text": " Lieutenant",
+              "start": 0.79,
+              "end": 1.27,
+              "probability": 0.533203125
+            },
+            {
+              "text": " General",
+              "start": 1.27,
+              "end": 1.77,
+              "probability": 0.87158203125
+            },
+            {
+              "text": " and",
+              "start": 1.77,
+              "end": 2.23,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " General",
+              "start": 2.23,
+              "end": 2.55,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " Governor",
+              "start": 2.55,
+              "end": 2.83,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " of",
+              "start": 2.83,
+              "end": 3.09,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Ireland,",
+              "start": 3.09,
+              "end": 3.55,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " John Wise Nalen, answered from the stair foot.",
+          "start": 4.21,
+          "end": 6.61,
+          "words": [
+            {
+              "text": " John",
+              "start": 4.21,
+              "end": 4.41,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " Wise",
+              "start": 4.41,
+              "end": 4.81,
+              "probability": 0.90478515625
+            },
+            {
+              "text": " Nalen,",
+              "start": 4.81,
+              "end": 5.37,
+              "probability": 0.7027180989583334
+            },
+            {
+              "text": " answered",
+              "start": 5.43,
+              "end": 5.75,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " from",
+              "start": 5.75,
+              "end": 6.01,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 6.01,
+              "end": 6.15,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " stair",
+              "start": 6.15,
+              "end": 6.35,
+              "probability": 0.90234375
+            },
+            {
+              "text": " foot.",
+              "start": 6.35,
+              "end": 6.61,
+              "probability": 0.57177734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "Lord",
+          "start": 0.51,
+          "end": 0.79
+        },
+        {
+          "raw": "Lieutenant",
+          "start": 0.79,
+          "end": 1.27
+        },
+        {
+          "raw": "General",
+          "start": 1.27,
+          "end": 1.77
+        },
+        {
+          "raw": "and",
+          "start": 1.77,
+          "end": 2.23
+        },
+        {
+          "raw": "General",
+          "start": 2.23,
+          "end": 2.55
+        },
+        {
+          "raw": "Governor",
+          "start": 2.55,
+          "end": 2.83
+        },
+        {
+          "raw": "of",
+          "start": 2.83,
+          "end": 3.09
+        },
+        {
+          "raw": "Ireland,",
+          "start": 3.09,
+          "end": 3.55
+        },
+        {
+          "raw": "John",
+          "start": 4.21,
+          "end": 4.41
+        },
+        {
+          "raw": "Wise",
+          "start": 4.41,
+          "end": 4.81
+        },
+        {
+          "raw": "Nalen,",
+          "start": 4.81,
+          "end": 5.37
+        },
+        {
+          "raw": "answered",
+          "start": 5.43,
+          "end": 5.75
+        },
+        {
+          "raw": "from",
+          "start": 5.75,
+          "end": 6.01
+        },
+        {
+          "raw": "the",
+          "start": 6.01,
+          "end": 6.15
+        },
+        {
+          "raw": "stair",
+          "start": 6.15,
+          "end": 6.35
+        },
+        {
+          "raw": "foot.",
+          "start": 6.35,
+          "end": 6.61
+        }
+      ],
+      "expected_tokens": [
+        "—The",
+        "lord",
+        "lieutenantgeneral",
+        "and",
+        "general",
+        "governor",
+        "of",
+        "Ireland,",
+        "John",
+        "Wyse",
+        "Nolan",
+        "answered",
+        "from",
+        "the",
+        "stairfoot."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          9,
+          4,
+          10
+        ],
+        [
+          "replace",
+          9,
+          11,
+          10,
+          12
+        ],
+        [
+          "equal",
+          11,
+          14,
+          12,
+          15
+        ],
+        [
+          "replace",
+          14,
+          15,
+          15,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "replace",
+          9,
+          11,
+          10,
+          12
+        ],
+        [
+          "replace",
+          14,
+          15,
+          15,
+          17
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lord",
+          "start": 0.51,
+          "end": 0.79,
+          "key": "lord",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Lieutenant",
+          "start": 0.79,
+          "end": 1.27,
+          "key": "lieutenant",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "General",
+          "start": 1.27,
+          "end": 1.77,
+          "key": "general",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.77,
+          "end": 2.23,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "General",
+          "start": 2.23,
+          "end": 2.55,
+          "key": "general",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Governor",
+          "start": 2.55,
+          "end": 2.83,
+          "key": "governor",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.83,
+          "end": 3.09,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Ireland,",
+          "start": 3.09,
+          "end": 3.55,
+          "key": "ireland",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "John",
+          "start": 4.21,
+          "end": 4.41,
+          "key": "john",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Wise",
+          "start": 4.41,
+          "end": 4.81,
+          "key": "wise",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Nalen,",
+          "start": 4.81,
+          "end": 5.37,
+          "key": "nalen",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "answered",
+          "start": 5.43,
+          "end": 5.75,
+          "key": "answered",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 5.75,
+          "end": 6.01,
+          "key": "from",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.01,
+          "end": 6.15,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "stair",
+          "start": 6.15,
+          "end": 6.35,
+          "key": "stair",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "foot.",
+          "start": 6.35,
+          "end": 6.61,
+          "key": "foot",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—The",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "lord",
+          "start": 0.51,
+          "end": 0.79
+        },
+        {
+          "text": "lieutenantgeneral",
+          "start": 0.79,
+          "end": 1.28
+        },
+        {
+          "text": "and",
+          "start": 1.77,
+          "end": 2.23
+        },
+        {
+          "text": "general",
+          "start": 2.23,
+          "end": 2.55
+        },
+        {
+          "text": "governor",
+          "start": 2.55,
+          "end": 2.83
+        },
+        {
+          "text": "of",
+          "start": 2.83,
+          "end": 3.09
+        },
+        {
+          "text": "Ireland,",
+          "start": 3.09,
+          "end": 3.55
+        },
+        {
+          "text": "John",
+          "start": 4.21,
+          "end": 4.41
+        },
+        {
+          "text": "Wyse",
+          "start": 4.41,
+          "end": 4.92
+        },
+        {
+          "text": "Nolan",
+          "start": 4.92,
+          "end": 5.175
+        },
+        {
+          "text": "answered",
+          "start": 5.43,
+          "end": 5.75
+        },
+        {
+          "text": "from",
+          "start": 5.75,
+          "end": 6.01
+        },
+        {
+          "text": "the",
+          "start": 6.01,
+          "end": 6.15
+        },
+        {
+          "text": "stairfoot.",
+          "start": 6.15,
+          "end": 6.38
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 17,
+        "matched_words": 11
+      },
+      "match_ratio": 0.7333333333333333,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3411835692822933
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f4d506b45cafb1de5b5cf17842a1109fee502d6b3e754412d69e32644975fc36",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

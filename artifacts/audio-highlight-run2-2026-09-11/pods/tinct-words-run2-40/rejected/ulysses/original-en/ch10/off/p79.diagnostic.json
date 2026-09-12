@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "e6a6cc8b7a61e2db20e55a48612cdd873b11d74f9886063a80708de766486f4b",
+  "attempts": [
+    {
+      "asr_seconds": 0.11557498900219798,
+      "alignment_seconds": 0.0002970038913190365,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Home and beauty",
+          "start": 0.05,
+          "end": 0.99,
+          "words": [
+            {
+              "text": " Home",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.68798828125
+            },
+            {
+              "text": " and",
+              "start": 0.57,
+              "end": 0.73,
+              "probability": 0.90673828125
+            },
+            {
+              "text": " beauty",
+              "start": 0.73,
+              "end": 0.99,
+              "probability": 0.64599609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Home",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "and",
+          "start": 0.57,
+          "end": 0.73
+        },
+        {
+          "raw": "beauty",
+          "start": 0.73,
+          "end": 0.99
+        }
+      ],
+      "expected_tokens": [
+        "—_home",
+        "and",
+        "beauty._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Home",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "home",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.57,
+          "end": 0.73,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "beauty",
+          "start": 0.73,
+          "end": 0.99,
+          "key": "beauty",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—_home",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "and",
+          "start": 0.57,
+          "end": 0.73
+        },
+        {
+          "text": "beauty._",
+          "start": 0.73,
+          "end": 0.99
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11597799602895975
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "87595de774f664999da7d92246a7ebf816417aab32f9ca31175b0698212e82d6",
+  "selected_reasons": []
+}

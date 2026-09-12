@@ -1,0 +1,412 @@
+{
+  "complete": true,
+  "signature": "112c839c4627ebbc8f45d2bb92ac5e78e3d75efac8cc8800ddca8fbca8a4c336",
+  "attempts": [
+    {
+      "asr_seconds": 0.19795458810403943,
+      "alignment_seconds": 0.0005021602846682072,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He tasted a spoonful from the creamy cone of his cup.",
+          "start": 0.02,
+          "end": 3.1,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.8857421875
+            },
+            {
+              "text": " tasted",
+              "start": 0.5,
+              "end": 0.78,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 0.78,
+              "end": 1.0,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " spoonful",
+              "start": 1.0,
+              "end": 1.5,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " from",
+              "start": 1.5,
+              "end": 1.84,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " the",
+              "start": 1.84,
+              "end": 1.98,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " creamy",
+              "start": 1.98,
+              "end": 2.24,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " cone",
+              "start": 2.24,
+              "end": 2.54,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " of",
+              "start": 2.54,
+              "end": 2.72,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 2.72,
+              "end": 2.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " cup.",
+              "start": 2.84,
+              "end": 3.1,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "tasted",
+          "start": 0.5,
+          "end": 0.78
+        },
+        {
+          "raw": "a",
+          "start": 0.78,
+          "end": 1.0
+        },
+        {
+          "raw": "spoonful",
+          "start": 1.0,
+          "end": 1.5
+        },
+        {
+          "raw": "from",
+          "start": 1.5,
+          "end": 1.84
+        },
+        {
+          "raw": "the",
+          "start": 1.84,
+          "end": 1.98
+        },
+        {
+          "raw": "creamy",
+          "start": 1.98,
+          "end": 2.24
+        },
+        {
+          "raw": "cone",
+          "start": 2.24,
+          "end": 2.54
+        },
+        {
+          "raw": "of",
+          "start": 2.54,
+          "end": 2.72
+        },
+        {
+          "raw": "his",
+          "start": 2.72,
+          "end": 2.84
+        },
+        {
+          "raw": "cup.",
+          "start": 2.84,
+          "end": 3.1
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "tasted",
+        "a",
+        "spoonful",
+        "from",
+        "the",
+        "creamy",
+        "cone",
+        "of",
+        "his",
+        "cup."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "tasted",
+          "start": 0.5,
+          "end": 0.78,
+          "key": "tasted",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.78,
+          "end": 1.0,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "spoonful",
+          "start": 1.0,
+          "end": 1.5,
+          "key": "spoonful",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 1.5,
+          "end": 1.84,
+          "key": "from",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.84,
+          "end": 1.98,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "creamy",
+          "start": 1.98,
+          "end": 2.24,
+          "key": "creamy",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "cone",
+          "start": 2.24,
+          "end": 2.54,
+          "key": "cone",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.54,
+          "end": 2.72,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.72,
+          "end": 2.84,
+          "key": "his",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "cup.",
+          "start": 2.84,
+          "end": 3.1,
+          "key": "cup",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "tasted",
+          "start": 0.5,
+          "end": 0.78
+        },
+        {
+          "text": "a",
+          "start": 0.78,
+          "end": 1.0
+        },
+        {
+          "text": "spoonful",
+          "start": 1.0,
+          "end": 1.5
+        },
+        {
+          "text": "from",
+          "start": 1.5,
+          "end": 1.84
+        },
+        {
+          "text": "the",
+          "start": 1.84,
+          "end": 1.98
+        },
+        {
+          "text": "creamy",
+          "start": 1.98,
+          "end": 2.24
+        },
+        {
+          "text": "cone",
+          "start": 2.24,
+          "end": 2.54
+        },
+        {
+          "text": "of",
+          "start": 2.54,
+          "end": 2.72
+        },
+        {
+          "text": "his",
+          "start": 2.72,
+          "end": 2.84
+        },
+        {
+          "text": "cup.",
+          "start": 2.84,
+          "end": 3.1
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19865784514695406
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a6e10010f0ffff36d87240bde6a75a5c034962181126652598eab6e8fbfcbed6",
+  "selected_reasons": []
+}

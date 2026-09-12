@@ -1,0 +1,641 @@
+{
+  "complete": true,
+  "signature": "fa9a90eabc320d226eb2ac0a5cc30818bcfff0b809a062d9a60367004f3a3726",
+  "attempts": [
+    {
+      "asr_seconds": 0.31336169270798564,
+      "alignment_seconds": 0.00045934179797768593,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "He swung himself forward in vigorous jerks, halted, lifted his head towards a window and bayed deeply:",
+        "hotwords": "He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " He He swung himself forward in vigorous jerks, halted, lifted his head towards a window and bayed deeply.",
+          "start": 0.05,
+          "end": 6.41,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.884765625
+            },
+            {
+              "text": " He",
+              "start": 0.51,
+              "end": 0.63,
+              "probability": 6.556510925292969e-07
+            },
+            {
+              "text": " swung",
+              "start": 0.63,
+              "end": 0.79,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " himself",
+              "start": 0.79,
+              "end": 1.07,
+              "probability": 0.98828125
+            },
+            {
+              "text": " forward",
+              "start": 1.07,
+              "end": 1.53,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " in",
+              "start": 1.53,
+              "end": 1.81,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " vigorous",
+              "start": 1.81,
+              "end": 2.09,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " jerks,",
+              "start": 2.09,
+              "end": 2.75,
+              "probability": 0.994384765625
+            },
+            {
+              "text": " halted,",
+              "start": 3.17,
+              "end": 3.39,
+              "probability": 0.96875
+            },
+            {
+              "text": " lifted",
+              "start": 3.99,
+              "end": 4.13,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " his",
+              "start": 4.13,
+              "end": 4.37,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " head",
+              "start": 4.37,
+              "end": 4.59,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " towards",
+              "start": 4.59,
+              "end": 4.87,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " a",
+              "start": 4.87,
+              "end": 5.09,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " window",
+              "start": 5.09,
+              "end": 5.37,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " and",
+              "start": 5.37,
+              "end": 5.71,
+              "probability": 0.59033203125
+            },
+            {
+              "text": " bayed",
+              "start": 5.71,
+              "end": 6.13,
+              "probability": 0.4857177734375
+            },
+            {
+              "text": " deeply.",
+              "start": 6.13,
+              "end": 6.41,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "He",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "raw": "swung",
+          "start": 0.63,
+          "end": 0.79
+        },
+        {
+          "raw": "himself",
+          "start": 0.79,
+          "end": 1.07
+        },
+        {
+          "raw": "forward",
+          "start": 1.07,
+          "end": 1.53
+        },
+        {
+          "raw": "in",
+          "start": 1.53,
+          "end": 1.81
+        },
+        {
+          "raw": "vigorous",
+          "start": 1.81,
+          "end": 2.09
+        },
+        {
+          "raw": "jerks,",
+          "start": 2.09,
+          "end": 2.75
+        },
+        {
+          "raw": "halted,",
+          "start": 3.17,
+          "end": 3.39
+        },
+        {
+          "raw": "lifted",
+          "start": 3.99,
+          "end": 4.13
+        },
+        {
+          "raw": "his",
+          "start": 4.13,
+          "end": 4.37
+        },
+        {
+          "raw": "head",
+          "start": 4.37,
+          "end": 4.59
+        },
+        {
+          "raw": "towards",
+          "start": 4.59,
+          "end": 4.87
+        },
+        {
+          "raw": "a",
+          "start": 4.87,
+          "end": 5.09
+        },
+        {
+          "raw": "window",
+          "start": 5.09,
+          "end": 5.37
+        },
+        {
+          "raw": "and",
+          "start": 5.37,
+          "end": 5.71
+        },
+        {
+          "raw": "bayed",
+          "start": 5.71,
+          "end": 6.13
+        },
+        {
+          "raw": "deeply.",
+          "start": 6.13,
+          "end": 6.41
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "swung",
+        "himself",
+        "forward",
+        "in",
+        "vigorous",
+        "jerks,",
+        "halted,",
+        "lifted",
+        "his",
+        "head",
+        "towards",
+        "a",
+        "window",
+        "and",
+        "bayed",
+        "deeply:"
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          17,
+          1,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 0.51,
+          "end": 0.63,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "swung",
+          "start": 0.63,
+          "end": 0.79,
+          "key": "swung",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "himself",
+          "start": 0.79,
+          "end": 1.07,
+          "key": "himself",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "forward",
+          "start": 1.07,
+          "end": 1.53,
+          "key": "forward",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.53,
+          "end": 1.81,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "vigorous",
+          "start": 1.81,
+          "end": 2.09,
+          "key": "vigorous",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "jerks,",
+          "start": 2.09,
+          "end": 2.75,
+          "key": "jerks",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "halted,",
+          "start": 3.17,
+          "end": 3.39,
+          "key": "halted",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "lifted",
+          "start": 3.99,
+          "end": 4.13,
+          "key": "lifted",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.13,
+          "end": 4.37,
+          "key": "his",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "head",
+          "start": 4.37,
+          "end": 4.59,
+          "key": "head",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "towards",
+          "start": 4.59,
+          "end": 4.87,
+          "key": "towards",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.87,
+          "end": 5.09,
+          "key": "a",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "window",
+          "start": 5.09,
+          "end": 5.37,
+          "key": "window",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.37,
+          "end": 5.71,
+          "key": "and",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "bayed",
+          "start": 5.71,
+          "end": 6.13,
+          "key": "bayed",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "deeply.",
+          "start": 6.13,
+          "end": 6.41,
+          "key": "deeply",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "text": "swung",
+          "start": 0.63,
+          "end": 0.79
+        },
+        {
+          "text": "himself",
+          "start": 0.79,
+          "end": 1.07
+        },
+        {
+          "text": "forward",
+          "start": 1.07,
+          "end": 1.53
+        },
+        {
+          "text": "in",
+          "start": 1.53,
+          "end": 1.81
+        },
+        {
+          "text": "vigorous",
+          "start": 1.81,
+          "end": 2.09
+        },
+        {
+          "text": "jerks,",
+          "start": 2.09,
+          "end": 2.75
+        },
+        {
+          "text": "halted,",
+          "start": 3.17,
+          "end": 3.39
+        },
+        {
+          "text": "lifted",
+          "start": 3.99,
+          "end": 4.13
+        },
+        {
+          "text": "his",
+          "start": 4.13,
+          "end": 4.37
+        },
+        {
+          "text": "head",
+          "start": 4.37,
+          "end": 4.59
+        },
+        {
+          "text": "towards",
+          "start": 4.59,
+          "end": 4.87
+        },
+        {
+          "text": "a",
+          "start": 4.87,
+          "end": 5.09
+        },
+        {
+          "text": "window",
+          "start": 5.09,
+          "end": 5.37
+        },
+        {
+          "text": "and",
+          "start": 5.37,
+          "end": 5.71
+        },
+        {
+          "text": "bayed",
+          "start": 5.71,
+          "end": 6.13
+        },
+        {
+          "text": "deeply:",
+          "start": 6.13,
+          "end": 6.41
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 18,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.31402630964294076
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c02c6b4c84d6f387f27fedb80e291b2500a7e709792afcff9deba260d2bcf6c0",
+  "selected_reasons": []
+}

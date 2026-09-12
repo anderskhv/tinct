@@ -1,0 +1,547 @@
+{
+  "complete": true,
+  "signature": "cd14c8775e710f85dab59d28e98c062bd62b9646f546df90a83151489466b287",
+  "attempts": [
+    {
+      "asr_seconds": 0.3394257491454482,
+      "alignment_seconds": 0.00039052218198776245,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I'm deeply obliged, Mr. Lambert, the clergyman said.",
+          "start": 0.08,
+          "end": 3.36,
+          "words": [
+            {
+              "text": " I'm",
+              "start": 0.08,
+              "end": 0.6,
+              "probability": 0.54730224609375
+            },
+            {
+              "text": " deeply",
+              "start": 0.6,
+              "end": 0.88,
+              "probability": 0.998046875
+            },
+            {
+              "text": " obliged,",
+              "start": 0.88,
+              "end": 1.58,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Mr.",
+              "start": 1.78,
+              "end": 2.02,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " Lambert,",
+              "start": 2.42,
+              "end": 2.42,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " the",
+              "start": 2.56,
+              "end": 2.68,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " clergyman",
+              "start": 2.68,
+              "end": 3.06,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " said.",
+              "start": 3.06,
+              "end": 3.36,
+              "probability": 0.99169921875
+            }
+          ]
+        },
+        {
+          "text": " I won't trespass on your valuable time.",
+          "start": 3.88,
+          "end": 5.74,
+          "words": [
+            {
+              "text": " I",
+              "start": 3.88,
+              "end": 4.0,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " won't",
+              "start": 4.0,
+              "end": 4.22,
+              "probability": 0.996337890625
+            },
+            {
+              "text": " trespass",
+              "start": 4.22,
+              "end": 4.52,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " on",
+              "start": 4.52,
+              "end": 4.78,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " your",
+              "start": 4.78,
+              "end": 4.9,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " valuable",
+              "start": 4.9,
+              "end": 5.3,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " time.",
+              "start": 5.3,
+              "end": 5.74,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I'm",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "raw": "deeply",
+          "start": 0.6,
+          "end": 0.88
+        },
+        {
+          "raw": "obliged,",
+          "start": 0.88,
+          "end": 1.58
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.78,
+          "end": 2.02
+        },
+        {
+          "raw": "Lambert,",
+          "start": 2.42,
+          "end": 2.42
+        },
+        {
+          "raw": "the",
+          "start": 2.56,
+          "end": 2.68
+        },
+        {
+          "raw": "clergyman",
+          "start": 2.68,
+          "end": 3.06
+        },
+        {
+          "raw": "said.",
+          "start": 3.06,
+          "end": 3.36
+        },
+        {
+          "raw": "I",
+          "start": 3.88,
+          "end": 4.0
+        },
+        {
+          "raw": "won't",
+          "start": 4.0,
+          "end": 4.22
+        },
+        {
+          "raw": "trespass",
+          "start": 4.22,
+          "end": 4.52
+        },
+        {
+          "raw": "on",
+          "start": 4.52,
+          "end": 4.78
+        },
+        {
+          "raw": "your",
+          "start": 4.78,
+          "end": 4.9
+        },
+        {
+          "raw": "valuable",
+          "start": 4.9,
+          "end": 5.3
+        },
+        {
+          "raw": "time.",
+          "start": 5.3,
+          "end": 5.74
+        }
+      ],
+      "expected_tokens": [
+        "—I'm",
+        "deeply",
+        "obliged,",
+        "Mr",
+        "Lambert,",
+        "the",
+        "clergyman",
+        "said.",
+        "I",
+        "won't",
+        "trespass",
+        "on",
+        "your",
+        "valuable",
+        "time..."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I'm",
+          "start": 0.08,
+          "end": 0.6,
+          "key": "im",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "deeply",
+          "start": 0.6,
+          "end": 0.88,
+          "key": "deeply",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "obliged,",
+          "start": 0.88,
+          "end": 1.58,
+          "key": "obliged",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.78,
+          "end": 2.02,
+          "key": "mr",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Lambert,",
+          "start": 2.42,
+          "end": 2.42,
+          "key": "lambert",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.56,
+          "end": 2.68,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "clergyman",
+          "start": 2.68,
+          "end": 3.06,
+          "key": "clergyman",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 3.06,
+          "end": 3.36,
+          "key": "said",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.88,
+          "end": 4.0,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "won't",
+          "start": 4.0,
+          "end": 4.22,
+          "key": "wont",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "trespass",
+          "start": 4.22,
+          "end": 4.52,
+          "key": "trespass",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 4.52,
+          "end": 4.78,
+          "key": "on",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 4.78,
+          "end": 4.9,
+          "key": "your",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "valuable",
+          "start": 4.9,
+          "end": 5.3,
+          "key": "valuable",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "time.",
+          "start": 5.3,
+          "end": 5.74,
+          "key": "time",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—I'm",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "text": "deeply",
+          "start": 0.6,
+          "end": 0.88
+        },
+        {
+          "text": "obliged,",
+          "start": 0.88,
+          "end": 1.58
+        },
+        {
+          "text": "Mr",
+          "start": 1.78,
+          "end": 2.02
+        },
+        {
+          "text": "Lambert,",
+          "start": 2.42,
+          "end": 2.42
+        },
+        {
+          "text": "the",
+          "start": 2.56,
+          "end": 2.68
+        },
+        {
+          "text": "clergyman",
+          "start": 2.68,
+          "end": 3.06
+        },
+        {
+          "text": "said.",
+          "start": 3.06,
+          "end": 3.36
+        },
+        {
+          "text": "I",
+          "start": 3.88,
+          "end": 4.0
+        },
+        {
+          "text": "won't",
+          "start": 4.0,
+          "end": 4.22
+        },
+        {
+          "text": "trespass",
+          "start": 4.22,
+          "end": 4.52
+        },
+        {
+          "text": "on",
+          "start": 4.52,
+          "end": 4.78
+        },
+        {
+          "text": "your",
+          "start": 4.78,
+          "end": 4.9
+        },
+        {
+          "text": "valuable",
+          "start": 4.9,
+          "end": 5.3
+        },
+        {
+          "text": "time...",
+          "start": 5.3,
+          "end": 5.74
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3399622980505228
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "aeddcb904d7977df86c57853863ccfaba32742ec9532bef6fc7bd9ee467962ea",
+  "selected_reasons": []
+}

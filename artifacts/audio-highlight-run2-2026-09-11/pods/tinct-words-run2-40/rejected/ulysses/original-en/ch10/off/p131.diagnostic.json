@@ -1,0 +1,444 @@
+{
+  "complete": true,
+  "signature": "7978ab6a752b3c1f7e95c114222ea51400c26630de782429b50bd6fff9945336",
+  "attempts": [
+    {
+      "asr_seconds": 0.2461693580262363,
+      "alignment_seconds": 0.0005496051162481308,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Blaze's boylan at the counter wrote and pushed the docket to her",
+          "start": 0.08,
+          "end": 3.74,
+          "words": [
+            {
+              "text": " Blaze's",
+              "start": 0.08,
+              "end": 0.88,
+              "probability": 0.708984375
+            },
+            {
+              "text": " boylan",
+              "start": 0.88,
+              "end": 1.3,
+              "probability": 0.427001953125
+            },
+            {
+              "text": " at",
+              "start": 1.3,
+              "end": 1.42,
+              "probability": 0.9921875
+            },
+            {
+              "text": " the",
+              "start": 1.42,
+              "end": 1.52,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " counter",
+              "start": 1.52,
+              "end": 1.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " wrote",
+              "start": 1.78,
+              "end": 2.1,
+              "probability": 0.88525390625
+            },
+            {
+              "text": " and",
+              "start": 2.1,
+              "end": 2.6,
+              "probability": 0.70556640625
+            },
+            {
+              "text": " pushed",
+              "start": 2.6,
+              "end": 2.8,
+              "probability": 0.955078125
+            },
+            {
+              "text": " the",
+              "start": 2.8,
+              "end": 2.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " docket",
+              "start": 2.98,
+              "end": 3.24,
+              "probability": 0.986083984375
+            },
+            {
+              "text": " to",
+              "start": 3.24,
+              "end": 3.46,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " her",
+              "start": 3.46,
+              "end": 3.74,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Blaze's",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "raw": "boylan",
+          "start": 0.88,
+          "end": 1.3
+        },
+        {
+          "raw": "at",
+          "start": 1.3,
+          "end": 1.42
+        },
+        {
+          "raw": "the",
+          "start": 1.42,
+          "end": 1.52
+        },
+        {
+          "raw": "counter",
+          "start": 1.52,
+          "end": 1.78
+        },
+        {
+          "raw": "wrote",
+          "start": 1.78,
+          "end": 2.1
+        },
+        {
+          "raw": "and",
+          "start": 2.1,
+          "end": 2.6
+        },
+        {
+          "raw": "pushed",
+          "start": 2.6,
+          "end": 2.8
+        },
+        {
+          "raw": "the",
+          "start": 2.8,
+          "end": 2.98
+        },
+        {
+          "raw": "docket",
+          "start": 2.98,
+          "end": 3.24
+        },
+        {
+          "raw": "to",
+          "start": 3.24,
+          "end": 3.46
+        },
+        {
+          "raw": "her",
+          "start": 3.46,
+          "end": 3.74
+        }
+      ],
+      "expected_tokens": [
+        "Blazes",
+        "Boylan",
+        "at",
+        "the",
+        "counter",
+        "wrote",
+        "and",
+        "pushed",
+        "the",
+        "docket",
+        "to",
+        "her."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Blaze's",
+          "start": 0.08,
+          "end": 0.88,
+          "key": "blazes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "boylan",
+          "start": 0.88,
+          "end": 1.3,
+          "key": "boylan",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.3,
+          "end": 1.42,
+          "key": "at",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.42,
+          "end": 1.52,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "counter",
+          "start": 1.52,
+          "end": 1.78,
+          "key": "counter",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "wrote",
+          "start": 1.78,
+          "end": 2.1,
+          "key": "wrote",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.1,
+          "end": 2.6,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "pushed",
+          "start": 2.6,
+          "end": 2.8,
+          "key": "pushed",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.8,
+          "end": 2.98,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "docket",
+          "start": 2.98,
+          "end": 3.24,
+          "key": "docket",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.24,
+          "end": 3.46,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.46,
+          "end": 3.74,
+          "key": "her",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Blazes",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "text": "Boylan",
+          "start": 0.88,
+          "end": 1.3
+        },
+        {
+          "text": "at",
+          "start": 1.3,
+          "end": 1.42
+        },
+        {
+          "text": "the",
+          "start": 1.42,
+          "end": 1.52
+        },
+        {
+          "text": "counter",
+          "start": 1.52,
+          "end": 1.78
+        },
+        {
+          "text": "wrote",
+          "start": 1.78,
+          "end": 2.1
+        },
+        {
+          "text": "and",
+          "start": 2.1,
+          "end": 2.6
+        },
+        {
+          "text": "pushed",
+          "start": 2.6,
+          "end": 2.8
+        },
+        {
+          "text": "the",
+          "start": 2.8,
+          "end": 2.98
+        },
+        {
+          "text": "docket",
+          "start": 2.98,
+          "end": 3.24
+        },
+        {
+          "text": "to",
+          "start": 3.24,
+          "end": 3.46
+        },
+        {
+          "text": "her.",
+          "start": 3.46,
+          "end": 3.74
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24694017600268126
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3855f097373ad8345184149c2a1e6219dcec079ba0ac49cd039afa728a3fbbf0",
+  "selected_reasons": []
+}

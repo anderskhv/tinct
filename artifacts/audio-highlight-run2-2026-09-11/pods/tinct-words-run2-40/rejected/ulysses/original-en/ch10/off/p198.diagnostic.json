@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "b2356d6cf0c70d820573566ffb3a88e988a0edd80695e468b99acca751212896",
+  "attempts": [
+    {
+      "asr_seconds": 0.12287988606840372,
+      "alignment_seconds": 0.00027254270389676094,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Whoa, a sunny",
+          "start": 0.02,
+          "end": 0.92,
+          "words": [
+            {
+              "text": " Whoa,",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.550140380859375
+            },
+            {
+              "text": " a",
+              "start": 0.66,
+              "end": 0.7,
+              "probability": 0.16650390625
+            },
+            {
+              "text": " sunny",
+              "start": 0.7,
+              "end": 0.92,
+              "probability": 0.65283203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Whoa,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "a",
+          "start": 0.66,
+          "end": 0.7
+        },
+        {
+          "raw": "sunny",
+          "start": 0.7,
+          "end": 0.92
+        }
+      ],
+      "expected_tokens": [
+        "—Woa,",
+        "sonny!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Whoa,",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "whoa",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.66,
+          "end": 0.7,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sunny",
+          "start": 0.7,
+          "end": 0.92,
+          "key": "sunny",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Woa,",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "text": "sonny!",
+          "start": 0.46,
+          "end": 0.69
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 3,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12325556389987469
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "446253acd418514616257dd976e767b072b9628f0d92f89506440481e361a893",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

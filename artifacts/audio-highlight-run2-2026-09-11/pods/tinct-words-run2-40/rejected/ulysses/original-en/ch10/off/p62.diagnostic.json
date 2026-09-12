@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "a3772ea48c492b89592f133df2447c55a162a545d96e13bf8f97e55a230f3030",
+  "attempts": [
+    {
+      "asr_seconds": 0.22182378312572837,
+      "alignment_seconds": 0.0003762817941606045,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " That's a fine day, Mr. Kelleher.",
+          "start": 0.14,
+          "end": 2.16,
+          "words": [
+            {
+              "text": " That's",
+              "start": 0.14,
+              "end": 0.62,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " a",
+              "start": 0.62,
+              "end": 0.72,
+              "probability": 0.99609375
+            },
+            {
+              "text": " fine",
+              "start": 0.72,
+              "end": 0.92,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " day,",
+              "start": 0.92,
+              "end": 1.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Mr.",
+              "start": 1.6,
+              "end": 1.74,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " Kelleher.",
+              "start": 1.92,
+              "end": 2.16,
+              "probability": 0.88525390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That's",
+          "start": 0.14,
+          "end": 0.62
+        },
+        {
+          "raw": "a",
+          "start": 0.62,
+          "end": 0.72
+        },
+        {
+          "raw": "fine",
+          "start": 0.72,
+          "end": 0.92
+        },
+        {
+          "raw": "day,",
+          "start": 0.92,
+          "end": 1.28
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.6,
+          "end": 1.74
+        },
+        {
+          "raw": "Kelleher.",
+          "start": 1.92,
+          "end": 2.16
+        }
+      ],
+      "expected_tokens": [
+        "—That's",
+        "a",
+        "fine",
+        "day,",
+        "Mr",
+        "Kelleher."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "That's",
+          "start": 0.14,
+          "end": 0.62,
+          "key": "thats",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.62,
+          "end": 0.72,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "fine",
+          "start": 0.72,
+          "end": 0.92,
+          "key": "fine",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "day,",
+          "start": 0.92,
+          "end": 1.28,
+          "key": "day",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.6,
+          "end": 1.74,
+          "key": "mr",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Kelleher.",
+          "start": 1.92,
+          "end": 2.16,
+          "key": "kelleher",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—That's",
+          "start": 0.14,
+          "end": 0.62
+        },
+        {
+          "text": "a",
+          "start": 0.62,
+          "end": 0.72
+        },
+        {
+          "text": "fine",
+          "start": 0.72,
+          "end": 0.92
+        },
+        {
+          "text": "day,",
+          "start": 0.92,
+          "end": 1.28
+        },
+        {
+          "text": "Mr",
+          "start": 1.6,
+          "end": 1.74
+        },
+        {
+          "text": "Kelleher.",
+          "start": 1.92,
+          "end": 2.16
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22232246911153197
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "40e9759d9cb5c2c5ba06eef2b5351c5fe2148ad6b690b95144c80da5cba7be8b",
+  "selected_reasons": []
+}

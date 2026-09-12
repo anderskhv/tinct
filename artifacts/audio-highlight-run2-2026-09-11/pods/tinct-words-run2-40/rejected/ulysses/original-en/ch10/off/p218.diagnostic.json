@@ -1,0 +1,427 @@
+{
+  "complete": true,
+  "signature": "19086e3fb58ac4a64b0906696abcb36a349eda3af4467c937f1694a4a6c830f3",
+  "attempts": [
+    {
+      "asr_seconds": 0.22137384908273816,
+      "alignment_seconds": 0.0004612221382558346,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Do Tom Rockford said tell him I'm boiling with impatience",
+          "start": 0.08,
+          "end": 4.02,
+          "words": [
+            {
+              "text": " Do",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.27587890625
+            },
+            {
+              "text": " Tom",
+              "start": 0.68,
+              "end": 1.16,
+              "probability": 0.50927734375
+            },
+            {
+              "text": " Rockford",
+              "start": 1.16,
+              "end": 1.56,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " said",
+              "start": 1.56,
+              "end": 1.9,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " tell",
+              "start": 1.9,
+              "end": 2.4,
+              "probability": 0.951171875
+            },
+            {
+              "text": " him",
+              "start": 2.4,
+              "end": 2.54,
+              "probability": 0.9921875
+            },
+            {
+              "text": " I'm",
+              "start": 2.54,
+              "end": 2.72,
+              "probability": 0.981201171875
+            },
+            {
+              "text": " boiling",
+              "start": 2.72,
+              "end": 2.98,
+              "probability": 0.81201171875
+            },
+            {
+              "text": " with",
+              "start": 2.98,
+              "end": 3.22,
+              "probability": 0.99609375
+            },
+            {
+              "text": " impatience",
+              "start": 3.22,
+              "end": 4.02,
+              "probability": 0.970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Do",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "Tom",
+          "start": 0.68,
+          "end": 1.16
+        },
+        {
+          "raw": "Rockford",
+          "start": 1.16,
+          "end": 1.56
+        },
+        {
+          "raw": "said",
+          "start": 1.56,
+          "end": 1.9
+        },
+        {
+          "raw": "tell",
+          "start": 1.9,
+          "end": 2.4
+        },
+        {
+          "raw": "him",
+          "start": 2.4,
+          "end": 2.54
+        },
+        {
+          "raw": "I'm",
+          "start": 2.54,
+          "end": 2.72
+        },
+        {
+          "raw": "boiling",
+          "start": 2.72,
+          "end": 2.98
+        },
+        {
+          "raw": "with",
+          "start": 2.98,
+          "end": 3.22
+        },
+        {
+          "raw": "impatience",
+          "start": 3.22,
+          "end": 4.02
+        }
+      ],
+      "expected_tokens": [
+        "—Do,",
+        "Tom",
+        "Rochford",
+        "said.",
+        "Tell",
+        "him",
+        "I'm",
+        "Boylan",
+        "with",
+        "impatience."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          7,
+          3,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "equal",
+          8,
+          10,
+          8,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Do",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "do",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Tom",
+          "start": 0.68,
+          "end": 1.16,
+          "key": "tom",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Rockford",
+          "start": 1.16,
+          "end": 1.56,
+          "key": "rockford",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.56,
+          "end": 1.9,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 1.9,
+          "end": 2.4,
+          "key": "tell",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 2.4,
+          "end": 2.54,
+          "key": "him",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I'm",
+          "start": 2.54,
+          "end": 2.72,
+          "key": "im",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "boiling",
+          "start": 2.72,
+          "end": 2.98,
+          "key": "boiling",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.98,
+          "end": 3.22,
+          "key": "with",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "impatience",
+          "start": 3.22,
+          "end": 4.02,
+          "key": "impatience",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Do,",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "Tom",
+          "start": 0.68,
+          "end": 1.16
+        },
+        {
+          "text": "Rochford",
+          "start": 1.16,
+          "end": 1.36
+        },
+        {
+          "text": "said.",
+          "start": 1.56,
+          "end": 1.9
+        },
+        {
+          "text": "Tell",
+          "start": 1.9,
+          "end": 2.4
+        },
+        {
+          "text": "him",
+          "start": 2.4,
+          "end": 2.54
+        },
+        {
+          "text": "I'm",
+          "start": 2.54,
+          "end": 2.72
+        },
+        {
+          "text": "Boylan",
+          "start": 2.72,
+          "end": 2.85
+        },
+        {
+          "text": "with",
+          "start": 2.98,
+          "end": 3.22
+        },
+        {
+          "text": "impatience.",
+          "start": 3.22,
+          "end": 4.02
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.22198711521923542
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0cd91f0bf635cc4381dbebe62cf831530fe21ac1359ce545eb12b198d30f1020",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

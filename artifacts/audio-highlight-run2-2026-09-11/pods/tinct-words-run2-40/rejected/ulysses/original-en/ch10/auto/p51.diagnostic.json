@@ -1,0 +1,670 @@
+{
+  "complete": true,
+  "signature": "65696db893768bb00416e47391dcaa265bc35c6ea4196e54d442a0ed5118f350",
+  "attempts": [
+    {
+      "asr_seconds": 0.26114303804934025,
+      "alignment_seconds": 0.0003670128062367439,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Father Conmee drew off his gloves and took his rededged breviary out. An ivory bookmark told him the page.",
+        "hotwords": "Father, Conmee, An"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Father Conmee drew off his gloves and took his rededged breviary out. An ivory bookmark told him the page.",
+          "start": 0.05,
+          "end": 6.91,
+          "words": [
+            {
+              "text": " Father",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " Conmee",
+              "start": 0.67,
+              "end": 1.23,
+              "probability": 0.29443359375
+            },
+            {
+              "text": " drew",
+              "start": 1.23,
+              "end": 1.37,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " off",
+              "start": 1.37,
+              "end": 1.59,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " his",
+              "start": 1.59,
+              "end": 1.77,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " gloves",
+              "start": 1.77,
+              "end": 2.09,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 2.09,
+              "end": 2.65,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " took",
+              "start": 2.65,
+              "end": 2.79,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " his",
+              "start": 2.79,
+              "end": 2.95,
+              "probability": 0.998046875
+            },
+            {
+              "text": " rededged",
+              "start": 2.95,
+              "end": 3.49,
+              "probability": 0.404541015625
+            },
+            {
+              "text": " breviary",
+              "start": 3.49,
+              "end": 4.01,
+              "probability": 0.513671875
+            },
+            {
+              "text": " out.",
+              "start": 4.01,
+              "end": 4.41,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " An",
+              "start": 4.85,
+              "end": 5.09,
+              "probability": 0.984375
+            },
+            {
+              "text": " ivory",
+              "start": 5.09,
+              "end": 5.41,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " bookmark",
+              "start": 5.41,
+              "end": 5.93,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " told",
+              "start": 5.93,
+              "end": 6.25,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " him",
+              "start": 6.25,
+              "end": 6.45,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 6.45,
+              "end": 6.57,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " page.",
+              "start": 6.57,
+              "end": 6.91,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Father",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Conmee",
+          "start": 0.67,
+          "end": 1.23
+        },
+        {
+          "raw": "drew",
+          "start": 1.23,
+          "end": 1.37
+        },
+        {
+          "raw": "off",
+          "start": 1.37,
+          "end": 1.59
+        },
+        {
+          "raw": "his",
+          "start": 1.59,
+          "end": 1.77
+        },
+        {
+          "raw": "gloves",
+          "start": 1.77,
+          "end": 2.09
+        },
+        {
+          "raw": "and",
+          "start": 2.09,
+          "end": 2.65
+        },
+        {
+          "raw": "took",
+          "start": 2.65,
+          "end": 2.79
+        },
+        {
+          "raw": "his",
+          "start": 2.79,
+          "end": 2.95
+        },
+        {
+          "raw": "rededged",
+          "start": 2.95,
+          "end": 3.49
+        },
+        {
+          "raw": "breviary",
+          "start": 3.49,
+          "end": 4.01
+        },
+        {
+          "raw": "out.",
+          "start": 4.01,
+          "end": 4.41
+        },
+        {
+          "raw": "An",
+          "start": 4.85,
+          "end": 5.09
+        },
+        {
+          "raw": "ivory",
+          "start": 5.09,
+          "end": 5.41
+        },
+        {
+          "raw": "bookmark",
+          "start": 5.41,
+          "end": 5.93
+        },
+        {
+          "raw": "told",
+          "start": 5.93,
+          "end": 6.25
+        },
+        {
+          "raw": "him",
+          "start": 6.25,
+          "end": 6.45
+        },
+        {
+          "raw": "the",
+          "start": 6.45,
+          "end": 6.57
+        },
+        {
+          "raw": "page.",
+          "start": 6.57,
+          "end": 6.91
+        }
+      ],
+      "expected_tokens": [
+        "Father",
+        "Conmee",
+        "drew",
+        "off",
+        "his",
+        "gloves",
+        "and",
+        "took",
+        "his",
+        "rededged",
+        "breviary",
+        "out.",
+        "An",
+        "ivory",
+        "bookmark",
+        "told",
+        "him",
+        "the",
+        "page."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Father",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "father",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Conmee",
+          "start": 0.67,
+          "end": 1.23,
+          "key": "conmee",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "drew",
+          "start": 1.23,
+          "end": 1.37,
+          "key": "drew",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "off",
+          "start": 1.37,
+          "end": 1.59,
+          "key": "off",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.59,
+          "end": 1.77,
+          "key": "his",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "gloves",
+          "start": 1.77,
+          "end": 2.09,
+          "key": "gloves",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.09,
+          "end": 2.65,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "took",
+          "start": 2.65,
+          "end": 2.79,
+          "key": "took",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.79,
+          "end": 2.95,
+          "key": "his",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "rededged",
+          "start": 2.95,
+          "end": 3.49,
+          "key": "rededged",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "breviary",
+          "start": 3.49,
+          "end": 4.01,
+          "key": "breviary",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "out.",
+          "start": 4.01,
+          "end": 4.41,
+          "key": "out",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "An",
+          "start": 4.85,
+          "end": 5.09,
+          "key": "an",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "ivory",
+          "start": 5.09,
+          "end": 5.41,
+          "key": "ivory",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "bookmark",
+          "start": 5.41,
+          "end": 5.93,
+          "key": "bookmark",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "told",
+          "start": 5.93,
+          "end": 6.25,
+          "key": "told",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 6.25,
+          "end": 6.45,
+          "key": "him",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.45,
+          "end": 6.57,
+          "key": "the",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "page.",
+          "start": 6.57,
+          "end": 6.91,
+          "key": "page",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Father",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Conmee",
+          "start": 0.67,
+          "end": 1.23
+        },
+        {
+          "text": "drew",
+          "start": 1.23,
+          "end": 1.37
+        },
+        {
+          "text": "off",
+          "start": 1.37,
+          "end": 1.59
+        },
+        {
+          "text": "his",
+          "start": 1.59,
+          "end": 1.77
+        },
+        {
+          "text": "gloves",
+          "start": 1.77,
+          "end": 2.09
+        },
+        {
+          "text": "and",
+          "start": 2.09,
+          "end": 2.65
+        },
+        {
+          "text": "took",
+          "start": 2.65,
+          "end": 2.79
+        },
+        {
+          "text": "his",
+          "start": 2.79,
+          "end": 2.95
+        },
+        {
+          "text": "rededged",
+          "start": 2.95,
+          "end": 3.49
+        },
+        {
+          "text": "breviary",
+          "start": 3.49,
+          "end": 4.01
+        },
+        {
+          "text": "out.",
+          "start": 4.01,
+          "end": 4.41
+        },
+        {
+          "text": "An",
+          "start": 4.85,
+          "end": 5.09
+        },
+        {
+          "text": "ivory",
+          "start": 5.09,
+          "end": 5.41
+        },
+        {
+          "text": "bookmark",
+          "start": 5.41,
+          "end": 5.93
+        },
+        {
+          "text": "told",
+          "start": 5.93,
+          "end": 6.25
+        },
+        {
+          "text": "him",
+          "start": 6.25,
+          "end": 6.45
+        },
+        {
+          "text": "the",
+          "start": 6.45,
+          "end": 6.57
+        },
+        {
+          "text": "page.",
+          "start": 6.57,
+          "end": 6.91
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.26170435966923833
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "45bf23010206e2e1cbbe758838aea3a7e0e362066019bbf859722675307b644d",
+  "selected_reasons": []
+}

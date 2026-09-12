@@ -1,0 +1,246 @@
+{
+  "complete": true,
+  "signature": "f081ba2025a07d02746c936a2adecae26631d565e2826d0dd9adb06141328709",
+  "attempts": [
+    {
+      "asr_seconds": 0.1599624021910131,
+      "alignment_seconds": 0.0003422829322516918,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " There he is, Lenihan said.",
+          "start": 0.05,
+          "end": 1.75,
+          "words": [
+            {
+              "text": " There",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.46728515625
+            },
+            {
+              "text": " he",
+              "start": 0.53,
+              "end": 0.69,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " is,",
+              "start": 0.69,
+              "end": 0.97,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Lenihan",
+              "start": 1.21,
+              "end": 1.51,
+              "probability": 0.6507161458333334
+            },
+            {
+              "text": " said.",
+              "start": 1.51,
+              "end": 1.75,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "There",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "he",
+          "start": 0.53,
+          "end": 0.69
+        },
+        {
+          "raw": "is,",
+          "start": 0.69,
+          "end": 0.97
+        },
+        {
+          "raw": "Lenihan",
+          "start": 1.21,
+          "end": 1.51
+        },
+        {
+          "raw": "said.",
+          "start": 1.51,
+          "end": 1.75
+        }
+      ],
+      "expected_tokens": [
+        "—There",
+        "he",
+        "is,",
+        "Lenehan",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "There",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "there",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.53,
+          "end": 0.69,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is,",
+          "start": 0.69,
+          "end": 0.97,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Lenihan",
+          "start": 1.21,
+          "end": 1.51,
+          "key": "lenihan",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 1.51,
+          "end": 1.75,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—There",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "he",
+          "start": 0.53,
+          "end": 0.69
+        },
+        {
+          "text": "is,",
+          "start": 0.69,
+          "end": 0.97
+        },
+        {
+          "text": "Lenehan",
+          "start": 0.97,
+          "end": 1.24
+        },
+        {
+          "text": "said.",
+          "start": 1.51,
+          "end": 1.75
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.16041344311088324
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fe40a6ad779629b5ab6f22d77ecc635ebd8629e03f5843e987afe9ea1989971b",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

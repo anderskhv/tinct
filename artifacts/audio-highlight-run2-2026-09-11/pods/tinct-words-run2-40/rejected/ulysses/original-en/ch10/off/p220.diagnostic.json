@@ -1,0 +1,408 @@
+{
+  "complete": true,
+  "signature": "323a99adfcfda6fffe232c4310f9944e234fbe3afca0f29e6ab1d1316c089baf",
+  "attempts": [
+    {
+      "asr_seconds": 0.18388246977701783,
+      "alignment_seconds": 0.00042074499651789665,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " No see Flynn stoop towards the lever snuffling at it",
+          "start": 0.05,
+          "end": 3.45,
+          "words": [
+            {
+              "text": " No",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.8828125
+            },
+            {
+              "text": " see",
+              "start": 0.57,
+              "end": 0.77,
+              "probability": 0.255859375
+            },
+            {
+              "text": " Flynn",
+              "start": 0.77,
+              "end": 1.01,
+              "probability": 0.87744140625
+            },
+            {
+              "text": " stoop",
+              "start": 1.01,
+              "end": 1.41,
+              "probability": 0.91455078125
+            },
+            {
+              "text": " towards",
+              "start": 1.41,
+              "end": 1.61,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " the",
+              "start": 1.61,
+              "end": 1.79,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " lever",
+              "start": 1.79,
+              "end": 2.05,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " snuffling",
+              "start": 2.05,
+              "end": 2.93,
+              "probability": 0.87939453125
+            },
+            {
+              "text": " at",
+              "start": 2.93,
+              "end": 3.11,
+              "probability": 0.98828125
+            },
+            {
+              "text": " it",
+              "start": 3.11,
+              "end": 3.45,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "see",
+          "start": 0.57,
+          "end": 0.77
+        },
+        {
+          "raw": "Flynn",
+          "start": 0.77,
+          "end": 1.01
+        },
+        {
+          "raw": "stoop",
+          "start": 1.01,
+          "end": 1.41
+        },
+        {
+          "raw": "towards",
+          "start": 1.41,
+          "end": 1.61
+        },
+        {
+          "raw": "the",
+          "start": 1.61,
+          "end": 1.79
+        },
+        {
+          "raw": "lever",
+          "start": 1.79,
+          "end": 2.05
+        },
+        {
+          "raw": "snuffling",
+          "start": 2.05,
+          "end": 2.93
+        },
+        {
+          "raw": "at",
+          "start": 2.93,
+          "end": 3.11
+        },
+        {
+          "raw": "it",
+          "start": 3.11,
+          "end": 3.45
+        }
+      ],
+      "expected_tokens": [
+        "Nosey",
+        "Flynn",
+        "stooped",
+        "towards",
+        "the",
+        "lever,",
+        "snuffling",
+        "at",
+        "it."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          2,
+          2,
+          3
+        ],
+        [
+          "replace",
+          2,
+          3,
+          3,
+          4
+        ],
+        [
+          "equal",
+          3,
+          9,
+          4,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 0.57,
+          "end": 0.77,
+          "key": "see",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Flynn",
+          "start": 0.77,
+          "end": 1.01,
+          "key": "flynn",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "stoop",
+          "start": 1.01,
+          "end": 1.41,
+          "key": "stoop",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "towards",
+          "start": 1.41,
+          "end": 1.61,
+          "key": "towards",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.61,
+          "end": 1.79,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "lever",
+          "start": 1.79,
+          "end": 2.05,
+          "key": "lever",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "snuffling",
+          "start": 2.05,
+          "end": 2.93,
+          "key": "snuffling",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.93,
+          "end": 3.11,
+          "key": "at",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 3.11,
+          "end": 3.45,
+          "key": "it",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Nosey",
+          "start": 0.0,
+          "end": 0.385
+        },
+        {
+          "text": "Flynn",
+          "start": 0.77,
+          "end": 1.01
+        },
+        {
+          "text": "stooped",
+          "start": 1.01,
+          "end": 1.21
+        },
+        {
+          "text": "towards",
+          "start": 1.41,
+          "end": 1.61
+        },
+        {
+          "text": "the",
+          "start": 1.61,
+          "end": 1.79
+        },
+        {
+          "text": "lever,",
+          "start": 1.79,
+          "end": 2.05
+        },
+        {
+          "text": "snuffling",
+          "start": 2.05,
+          "end": 2.93
+        },
+        {
+          "text": "at",
+          "start": 2.93,
+          "end": 3.11
+        },
+        {
+          "text": "it.",
+          "start": 3.11,
+          "end": 3.45
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 10,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7777777777777778,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.18445491883903742
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f241dd095b307e281b22090bb4c1df6afab824817380d26ce1f19dfc63dbb8f8",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

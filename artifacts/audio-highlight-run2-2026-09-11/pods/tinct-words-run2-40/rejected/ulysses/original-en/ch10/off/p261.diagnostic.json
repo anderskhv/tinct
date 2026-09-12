@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "a07a6c3935fe04bef12443f3da6368665fd892a1ce40fb9b75da7b3e979f4759",
+  "attempts": [
+    {
+      "asr_seconds": 0.1324290670454502,
+      "alignment_seconds": 0.0003290679305791855,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I'm weak he gasped",
+          "start": 0.02,
+          "end": 1.26,
+          "words": [
+            {
+              "text": " I'm",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " weak",
+              "start": 0.62,
+              "end": 0.76,
+              "probability": 0.391357421875
+            },
+            {
+              "text": " he",
+              "start": 0.76,
+              "end": 0.9,
+              "probability": 0.1812744140625
+            },
+            {
+              "text": " gasped",
+              "start": 0.9,
+              "end": 1.26,
+              "probability": 0.96435546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I'm",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "weak",
+          "start": 0.62,
+          "end": 0.76
+        },
+        {
+          "raw": "he",
+          "start": 0.76,
+          "end": 0.9
+        },
+        {
+          "raw": "gasped",
+          "start": 0.9,
+          "end": 1.26
+        }
+      ],
+      "expected_tokens": [
+        "—I'm",
+        "weak,",
+        "he",
+        "gasped."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I'm",
+          "start": 0.02,
+          "end": 0.62,
+          "key": "im",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "weak",
+          "start": 0.62,
+          "end": 0.76,
+          "key": "weak",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.76,
+          "end": 0.9,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "gasped",
+          "start": 0.9,
+          "end": 1.26,
+          "key": "gasped",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—I'm",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "text": "weak,",
+          "start": 0.62,
+          "end": 0.76
+        },
+        {
+          "text": "he",
+          "start": 0.76,
+          "end": 0.9
+        },
+        {
+          "text": "gasped.",
+          "start": 0.9,
+          "end": 1.26
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13287956826388836
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a421c5e93577450b4895f5018aa99e579a28fc51bf866e2251cd8d9cc1b9b372",
+  "selected_reasons": []
+}

@@ -1,0 +1,444 @@
+{
+  "complete": true,
+  "signature": "29c353ad2a4408bcb8b82f6ca58b88d5b11bc03ca55174880f094dccd02ac09e",
+  "attempts": [
+    {
+      "asr_seconds": 0.2609283681958914,
+      "alignment_seconds": 0.0004122448153793812,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Good day, Mr. Subsheriff, Martin Cunningham said, as all halted and greeted.",
+          "start": 0.08,
+          "end": 5.08,
+          "words": [
+            {
+              "text": " Good",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.146484375
+            },
+            {
+              "text": " day,",
+              "start": 0.58,
+              "end": 0.96,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " Mr.",
+              "start": 1.2,
+              "end": 1.36,
+              "probability": 0.83251953125
+            },
+            {
+              "text": " Subsheriff,",
+              "start": 1.68,
+              "end": 2.14,
+              "probability": 0.69207763671875
+            },
+            {
+              "text": " Martin",
+              "start": 2.38,
+              "end": 2.62,
+              "probability": 0.8779296875
+            },
+            {
+              "text": " Cunningham",
+              "start": 2.62,
+              "end": 2.94,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " said,",
+              "start": 2.94,
+              "end": 3.4,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " as",
+              "start": 3.76,
+              "end": 3.94,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " all",
+              "start": 3.94,
+              "end": 4.2,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " halted",
+              "start": 4.2,
+              "end": 4.58,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " and",
+              "start": 4.58,
+              "end": 4.8,
+              "probability": 0.998046875
+            },
+            {
+              "text": " greeted.",
+              "start": 4.8,
+              "end": 5.08,
+              "probability": 0.9892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Good",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "day,",
+          "start": 0.58,
+          "end": 0.96
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.2,
+          "end": 1.36
+        },
+        {
+          "raw": "Subsheriff,",
+          "start": 1.68,
+          "end": 2.14
+        },
+        {
+          "raw": "Martin",
+          "start": 2.38,
+          "end": 2.62
+        },
+        {
+          "raw": "Cunningham",
+          "start": 2.62,
+          "end": 2.94
+        },
+        {
+          "raw": "said,",
+          "start": 2.94,
+          "end": 3.4
+        },
+        {
+          "raw": "as",
+          "start": 3.76,
+          "end": 3.94
+        },
+        {
+          "raw": "all",
+          "start": 3.94,
+          "end": 4.2
+        },
+        {
+          "raw": "halted",
+          "start": 4.2,
+          "end": 4.58
+        },
+        {
+          "raw": "and",
+          "start": 4.58,
+          "end": 4.8
+        },
+        {
+          "raw": "greeted.",
+          "start": 4.8,
+          "end": 5.08
+        }
+      ],
+      "expected_tokens": [
+        "—Good",
+        "day,",
+        "Mr",
+        "Subsheriff,",
+        "Martin",
+        "Cunningham",
+        "said,",
+        "as",
+        "all",
+        "halted",
+        "and",
+        "greeted."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Good",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "good",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "day,",
+          "start": 0.58,
+          "end": 0.96,
+          "key": "day",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.2,
+          "end": 1.36,
+          "key": "mr",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Subsheriff,",
+          "start": 1.68,
+          "end": 2.14,
+          "key": "subsheriff",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Martin",
+          "start": 2.38,
+          "end": 2.62,
+          "key": "martin",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Cunningham",
+          "start": 2.62,
+          "end": 2.94,
+          "key": "cunningham",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 2.94,
+          "end": 3.4,
+          "key": "said",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.76,
+          "end": 3.94,
+          "key": "as",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 3.94,
+          "end": 4.2,
+          "key": "all",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "halted",
+          "start": 4.2,
+          "end": 4.58,
+          "key": "halted",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.58,
+          "end": 4.8,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "greeted.",
+          "start": 4.8,
+          "end": 5.08,
+          "key": "greeted",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Good",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "text": "day,",
+          "start": 0.58,
+          "end": 0.96
+        },
+        {
+          "text": "Mr",
+          "start": 1.2,
+          "end": 1.36
+        },
+        {
+          "text": "Subsheriff,",
+          "start": 1.68,
+          "end": 2.14
+        },
+        {
+          "text": "Martin",
+          "start": 2.38,
+          "end": 2.62
+        },
+        {
+          "text": "Cunningham",
+          "start": 2.62,
+          "end": 2.94
+        },
+        {
+          "text": "said,",
+          "start": 2.94,
+          "end": 3.4
+        },
+        {
+          "text": "as",
+          "start": 3.76,
+          "end": 3.94
+        },
+        {
+          "text": "all",
+          "start": 3.94,
+          "end": 4.2
+        },
+        {
+          "text": "halted",
+          "start": 4.2,
+          "end": 4.58
+        },
+        {
+          "text": "and",
+          "start": 4.58,
+          "end": 4.8
+        },
+        {
+          "text": "greeted.",
+          "start": 4.8,
+          "end": 5.08
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.26150598702952266
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6e9edbfcc32b7ad90203155815003db442f0d2eda2c8cd8c576cd6bc305e7352",
+  "selected_reasons": []
+}

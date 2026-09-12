@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "b9459cd8c8c334b820bfeaa7c7b3383616a059e50d937dd8c0c77064d7c52533",
+  "attempts": [
+    {
+      "asr_seconds": 0.22755455784499645,
+      "alignment_seconds": 0.0003471300005912781,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Very well indeed father and you father",
+          "start": 0.05,
+          "end": 2.51,
+          "words": [
+            {
+              "text": " Very",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.8095703125
+            },
+            {
+              "text": " well",
+              "start": 0.63,
+              "end": 0.85,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " indeed",
+              "start": 0.85,
+              "end": 1.17,
+              "probability": 0.6982421875
+            },
+            {
+              "text": " father",
+              "start": 1.17,
+              "end": 1.53,
+              "probability": 0.334716796875
+            },
+            {
+              "text": " and",
+              "start": 1.53,
+              "end": 2.07,
+              "probability": 0.43896484375
+            },
+            {
+              "text": " you",
+              "start": 2.07,
+              "end": 2.23,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " father",
+              "start": 2.23,
+              "end": 2.51,
+              "probability": 0.9716796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Very",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "well",
+          "start": 0.63,
+          "end": 0.85
+        },
+        {
+          "raw": "indeed",
+          "start": 0.85,
+          "end": 1.17
+        },
+        {
+          "raw": "father",
+          "start": 1.17,
+          "end": 1.53
+        },
+        {
+          "raw": "and",
+          "start": 1.53,
+          "end": 2.07
+        },
+        {
+          "raw": "you",
+          "start": 2.07,
+          "end": 2.23
+        },
+        {
+          "raw": "father",
+          "start": 2.23,
+          "end": 2.51
+        }
+      ],
+      "expected_tokens": [
+        "—Very",
+        "well,",
+        "indeed,",
+        "father.",
+        "And",
+        "you,",
+        "father?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Very",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "very",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 0.63,
+          "end": 0.85,
+          "key": "well",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "indeed",
+          "start": 0.85,
+          "end": 1.17,
+          "key": "indeed",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "father",
+          "start": 1.17,
+          "end": 1.53,
+          "key": "father",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.53,
+          "end": 2.07,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.07,
+          "end": 2.23,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "father",
+          "start": 2.23,
+          "end": 2.51,
+          "key": "father",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Very",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "well,",
+          "start": 0.63,
+          "end": 0.85
+        },
+        {
+          "text": "indeed,",
+          "start": 0.85,
+          "end": 1.17
+        },
+        {
+          "text": "father.",
+          "start": 1.17,
+          "end": 1.53
+        },
+        {
+          "text": "And",
+          "start": 1.53,
+          "end": 2.07
+        },
+        {
+          "text": "you,",
+          "start": 2.07,
+          "end": 2.23
+        },
+        {
+          "text": "father?",
+          "start": 2.23,
+          "end": 2.51
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22801515460014343
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e6bf3891cdbf1836306eb912f6a61f349810beac39370ac55709b60d93cc7a7b",
+  "selected_reasons": []
+}

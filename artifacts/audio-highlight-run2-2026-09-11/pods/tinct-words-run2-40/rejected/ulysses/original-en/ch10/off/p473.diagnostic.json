@@ -1,0 +1,476 @@
+{
+  "complete": true,
+  "signature": "652bfc226742e649966a824ced655c863f1025a33fca5d5ce47838525fc51ffe",
+  "attempts": [
+    {
+      "asr_seconds": 0.20574613101780415,
+      "alignment_seconds": 0.00042229611426591873,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The tall form of Long John Fanning filled the doorway where he stood.",
+          "start": 0.02,
+          "end": 3.88,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.91796875
+            },
+            {
+              "text": " tall",
+              "start": 0.48,
+              "end": 0.7,
+              "probability": 0.998046875
+            },
+            {
+              "text": " form",
+              "start": 0.7,
+              "end": 1.02,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 1.02,
+              "end": 1.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Long",
+              "start": 1.22,
+              "end": 1.44,
+              "probability": 0.890625
+            },
+            {
+              "text": " John",
+              "start": 1.44,
+              "end": 1.78,
+              "probability": 0.93359375
+            },
+            {
+              "text": " Fanning",
+              "start": 1.78,
+              "end": 2.3,
+              "probability": 0.955810546875
+            },
+            {
+              "text": " filled",
+              "start": 2.3,
+              "end": 2.8,
+              "probability": 0.96875
+            },
+            {
+              "text": " the",
+              "start": 2.8,
+              "end": 2.98,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " doorway",
+              "start": 2.98,
+              "end": 3.24,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " where",
+              "start": 3.24,
+              "end": 3.48,
+              "probability": 0.9921875
+            },
+            {
+              "text": " he",
+              "start": 3.48,
+              "end": 3.62,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " stood.",
+              "start": 3.62,
+              "end": 3.88,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "tall",
+          "start": 0.48,
+          "end": 0.7
+        },
+        {
+          "raw": "form",
+          "start": 0.7,
+          "end": 1.02
+        },
+        {
+          "raw": "of",
+          "start": 1.02,
+          "end": 1.22
+        },
+        {
+          "raw": "Long",
+          "start": 1.22,
+          "end": 1.44
+        },
+        {
+          "raw": "John",
+          "start": 1.44,
+          "end": 1.78
+        },
+        {
+          "raw": "Fanning",
+          "start": 1.78,
+          "end": 2.3
+        },
+        {
+          "raw": "filled",
+          "start": 2.3,
+          "end": 2.8
+        },
+        {
+          "raw": "the",
+          "start": 2.8,
+          "end": 2.98
+        },
+        {
+          "raw": "doorway",
+          "start": 2.98,
+          "end": 3.24
+        },
+        {
+          "raw": "where",
+          "start": 3.24,
+          "end": 3.48
+        },
+        {
+          "raw": "he",
+          "start": 3.48,
+          "end": 3.62
+        },
+        {
+          "raw": "stood.",
+          "start": 3.62,
+          "end": 3.88
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "tall",
+        "form",
+        "of",
+        "long",
+        "John",
+        "Fanning",
+        "filled",
+        "the",
+        "doorway",
+        "where",
+        "he",
+        "stood."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "tall",
+          "start": 0.48,
+          "end": 0.7,
+          "key": "tall",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "form",
+          "start": 0.7,
+          "end": 1.02,
+          "key": "form",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.02,
+          "end": 1.22,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Long",
+          "start": 1.22,
+          "end": 1.44,
+          "key": "long",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "John",
+          "start": 1.44,
+          "end": 1.78,
+          "key": "john",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Fanning",
+          "start": 1.78,
+          "end": 2.3,
+          "key": "fanning",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "filled",
+          "start": 2.3,
+          "end": 2.8,
+          "key": "filled",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.8,
+          "end": 2.98,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "doorway",
+          "start": 2.98,
+          "end": 3.24,
+          "key": "doorway",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 3.24,
+          "end": 3.48,
+          "key": "where",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.48,
+          "end": 3.62,
+          "key": "he",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "stood.",
+          "start": 3.62,
+          "end": 3.88,
+          "key": "stood",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "tall",
+          "start": 0.48,
+          "end": 0.7
+        },
+        {
+          "text": "form",
+          "start": 0.7,
+          "end": 1.02
+        },
+        {
+          "text": "of",
+          "start": 1.02,
+          "end": 1.22
+        },
+        {
+          "text": "long",
+          "start": 1.22,
+          "end": 1.44
+        },
+        {
+          "text": "John",
+          "start": 1.44,
+          "end": 1.78
+        },
+        {
+          "text": "Fanning",
+          "start": 1.78,
+          "end": 2.3
+        },
+        {
+          "text": "filled",
+          "start": 2.3,
+          "end": 2.8
+        },
+        {
+          "text": "the",
+          "start": 2.8,
+          "end": 2.98
+        },
+        {
+          "text": "doorway",
+          "start": 2.98,
+          "end": 3.24
+        },
+        {
+          "text": "where",
+          "start": 3.24,
+          "end": 3.48
+        },
+        {
+          "text": "he",
+          "start": 3.48,
+          "end": 3.62
+        },
+        {
+          "text": "stood.",
+          "start": 3.62,
+          "end": 3.88
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20634063193574548
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "88276cfb3d33ff7a8fd166aa82460c86a628d69da0d4ea8ffd9a79d374da6599",
+  "selected_reasons": []
+}

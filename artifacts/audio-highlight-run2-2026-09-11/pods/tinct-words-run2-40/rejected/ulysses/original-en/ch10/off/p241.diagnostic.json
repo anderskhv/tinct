@@ -1,0 +1,402 @@
+{
+  "complete": true,
+  "signature": "d2f40a99b8896e0ac8672a9d4d79a16ab3d069908d4c54335938f9b173e7ecce",
+  "attempts": [
+    {
+      "asr_seconds": 0.2132282960228622,
+      "alignment_seconds": 0.000469971913844347,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Leopoldo, or the bloom is on the rye, Lenihan said.",
+          "start": 0.64,
+          "end": 3.16,
+          "words": [
+            {
+              "text": " Leopoldo,",
+              "start": 0.64,
+              "end": 1.08,
+              "probability": 0.8770751953125
+            },
+            {
+              "text": " or",
+              "start": 1.24,
+              "end": 1.32,
+              "probability": 0.89013671875
+            },
+            {
+              "text": " the",
+              "start": 1.32,
+              "end": 1.42,
+              "probability": 0.79296875
+            },
+            {
+              "text": " bloom",
+              "start": 1.42,
+              "end": 1.64,
+              "probability": 0.7470703125
+            },
+            {
+              "text": " is",
+              "start": 1.64,
+              "end": 1.8,
+              "probability": 0.626953125
+            },
+            {
+              "text": " on",
+              "start": 1.8,
+              "end": 1.92,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 1.92,
+              "end": 2.02,
+              "probability": 0.998046875
+            },
+            {
+              "text": " rye,",
+              "start": 2.02,
+              "end": 2.28,
+              "probability": 0.837890625
+            },
+            {
+              "text": " Lenihan",
+              "start": 2.62,
+              "end": 2.86,
+              "probability": 0.7386067708333334
+            },
+            {
+              "text": " said.",
+              "start": 2.86,
+              "end": 3.16,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leopoldo,",
+          "start": 0.64,
+          "end": 1.08
+        },
+        {
+          "raw": "or",
+          "start": 1.24,
+          "end": 1.32
+        },
+        {
+          "raw": "the",
+          "start": 1.32,
+          "end": 1.42
+        },
+        {
+          "raw": "bloom",
+          "start": 1.42,
+          "end": 1.64
+        },
+        {
+          "raw": "is",
+          "start": 1.64,
+          "end": 1.8
+        },
+        {
+          "raw": "on",
+          "start": 1.8,
+          "end": 1.92
+        },
+        {
+          "raw": "the",
+          "start": 1.92,
+          "end": 2.02
+        },
+        {
+          "raw": "rye,",
+          "start": 2.02,
+          "end": 2.28
+        },
+        {
+          "raw": "Lenihan",
+          "start": 2.62,
+          "end": 2.86
+        },
+        {
+          "raw": "said.",
+          "start": 2.86,
+          "end": 3.16
+        }
+      ],
+      "expected_tokens": [
+        "—_Leopoldo",
+        "or",
+        "the",
+        "Bloom",
+        "is",
+        "on",
+        "the",
+        "Rye,_",
+        "Lenehan",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "equal",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leopoldo,",
+          "start": 0.64,
+          "end": 1.08,
+          "key": "leopoldo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 1.24,
+          "end": 1.32,
+          "key": "or",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.32,
+          "end": 1.42,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "bloom",
+          "start": 1.42,
+          "end": 1.64,
+          "key": "bloom",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.64,
+          "end": 1.8,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.8,
+          "end": 1.92,
+          "key": "on",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.92,
+          "end": 2.02,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "rye,",
+          "start": 2.02,
+          "end": 2.28,
+          "key": "rye",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Lenihan",
+          "start": 2.62,
+          "end": 2.86,
+          "key": "lenihan",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 2.86,
+          "end": 3.16,
+          "key": "said",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—_Leopoldo",
+          "start": 0.64,
+          "end": 1.08
+        },
+        {
+          "text": "or",
+          "start": 1.24,
+          "end": 1.32
+        },
+        {
+          "text": "the",
+          "start": 1.32,
+          "end": 1.42
+        },
+        {
+          "text": "Bloom",
+          "start": 1.42,
+          "end": 1.64
+        },
+        {
+          "text": "is",
+          "start": 1.64,
+          "end": 1.8
+        },
+        {
+          "text": "on",
+          "start": 1.8,
+          "end": 1.92
+        },
+        {
+          "text": "the",
+          "start": 1.92,
+          "end": 2.02
+        },
+        {
+          "text": "Rye,_",
+          "start": 2.02,
+          "end": 2.28
+        },
+        {
+          "text": "Lenehan",
+          "start": 2.28,
+          "end": 2.57
+        },
+        {
+          "text": "said.",
+          "start": 2.86,
+          "end": 3.16
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.21386688202619553
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e314eb0a7ee5f1d4b9934277b4a504c1f34fdd6e09a47913d4c8e460b5a1b1eb",
+  "selected_reasons": []
+}

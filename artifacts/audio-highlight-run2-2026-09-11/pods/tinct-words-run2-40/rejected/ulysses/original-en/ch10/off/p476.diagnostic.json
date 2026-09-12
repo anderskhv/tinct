@@ -1,0 +1,675 @@
+{
+  "complete": true,
+  "signature": "41ebda9fa212007b265b5dd0b6113b91811025b024ada2d619ee672d0e91034b",
+  "attempts": [
+    {
+      "asr_seconds": 0.29882413800805807,
+      "alignment_seconds": 0.00045841094106435776,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Are the conscript fathers pursuing their peaceful deliberations?",
+          "start": 0.08,
+          "end": 3.34,
+          "words": [
+            {
+              "text": " Are",
+              "start": 0.08,
+              "end": 0.5,
+              "probability": 0.48388671875
+            },
+            {
+              "text": " the",
+              "start": 0.5,
+              "end": 0.66,
+              "probability": 0.984375
+            },
+            {
+              "text": " conscript",
+              "start": 0.66,
+              "end": 1.16,
+              "probability": 0.950927734375
+            },
+            {
+              "text": " fathers",
+              "start": 1.16,
+              "end": 1.58,
+              "probability": 0.473388671875
+            },
+            {
+              "text": " pursuing",
+              "start": 1.58,
+              "end": 2.06,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " their",
+              "start": 2.06,
+              "end": 2.36,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " peaceful",
+              "start": 2.36,
+              "end": 2.78,
+              "probability": 0.994140625
+            },
+            {
+              "text": " deliberations?",
+              "start": 2.78,
+              "end": 3.34,
+              "probability": 0.98779296875
+            }
+          ]
+        },
+        {
+          "text": " He said with rich, acrid utterance to the assistant town clerk.",
+          "start": 4.14,
+          "end": 7.56,
+          "words": [
+            {
+              "text": " He",
+              "start": 4.14,
+              "end": 4.34,
+              "probability": 0.74609375
+            },
+            {
+              "text": " said",
+              "start": 4.34,
+              "end": 4.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " with",
+              "start": 4.6,
+              "end": 4.86,
+              "probability": 0.634765625
+            },
+            {
+              "text": " rich,",
+              "start": 4.86,
+              "end": 5.16,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " acrid",
+              "start": 5.16,
+              "end": 5.62,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " utterance",
+              "start": 5.62,
+              "end": 6.1,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " to",
+              "start": 6.1,
+              "end": 6.26,
+              "probability": 0.990234375
+            },
+            {
+              "text": " the",
+              "start": 6.26,
+              "end": 6.4,
+              "probability": 0.99609375
+            },
+            {
+              "text": " assistant",
+              "start": 6.4,
+              "end": 6.76,
+              "probability": 0.876953125
+            },
+            {
+              "text": " town",
+              "start": 6.76,
+              "end": 7.2,
+              "probability": 0.94921875
+            },
+            {
+              "text": " clerk.",
+              "start": 7.2,
+              "end": 7.56,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Are",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "raw": "the",
+          "start": 0.5,
+          "end": 0.66
+        },
+        {
+          "raw": "conscript",
+          "start": 0.66,
+          "end": 1.16
+        },
+        {
+          "raw": "fathers",
+          "start": 1.16,
+          "end": 1.58
+        },
+        {
+          "raw": "pursuing",
+          "start": 1.58,
+          "end": 2.06
+        },
+        {
+          "raw": "their",
+          "start": 2.06,
+          "end": 2.36
+        },
+        {
+          "raw": "peaceful",
+          "start": 2.36,
+          "end": 2.78
+        },
+        {
+          "raw": "deliberations?",
+          "start": 2.78,
+          "end": 3.34
+        },
+        {
+          "raw": "He",
+          "start": 4.14,
+          "end": 4.34
+        },
+        {
+          "raw": "said",
+          "start": 4.34,
+          "end": 4.6
+        },
+        {
+          "raw": "with",
+          "start": 4.6,
+          "end": 4.86
+        },
+        {
+          "raw": "rich,",
+          "start": 4.86,
+          "end": 5.16
+        },
+        {
+          "raw": "acrid",
+          "start": 5.16,
+          "end": 5.62
+        },
+        {
+          "raw": "utterance",
+          "start": 5.62,
+          "end": 6.1
+        },
+        {
+          "raw": "to",
+          "start": 6.1,
+          "end": 6.26
+        },
+        {
+          "raw": "the",
+          "start": 6.26,
+          "end": 6.4
+        },
+        {
+          "raw": "assistant",
+          "start": 6.4,
+          "end": 6.76
+        },
+        {
+          "raw": "town",
+          "start": 6.76,
+          "end": 7.2
+        },
+        {
+          "raw": "clerk.",
+          "start": 7.2,
+          "end": 7.56
+        }
+      ],
+      "expected_tokens": [
+        "—Are",
+        "the",
+        "conscript",
+        "fathers",
+        "pursuing",
+        "their",
+        "peaceful",
+        "deliberations?",
+        "he",
+        "said",
+        "with",
+        "rich",
+        "acrid",
+        "utterance",
+        "to",
+        "the",
+        "assistant",
+        "town",
+        "clerk."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Are",
+          "start": 0.08,
+          "end": 0.5,
+          "key": "are",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.5,
+          "end": 0.66,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "conscript",
+          "start": 0.66,
+          "end": 1.16,
+          "key": "conscript",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "fathers",
+          "start": 1.16,
+          "end": 1.58,
+          "key": "fathers",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "pursuing",
+          "start": 1.58,
+          "end": 2.06,
+          "key": "pursuing",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 2.06,
+          "end": 2.36,
+          "key": "their",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "peaceful",
+          "start": 2.36,
+          "end": 2.78,
+          "key": "peaceful",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "deliberations?",
+          "start": 2.78,
+          "end": 3.34,
+          "key": "deliberations",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 4.14,
+          "end": 4.34,
+          "key": "he",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 4.34,
+          "end": 4.6,
+          "key": "said",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.6,
+          "end": 4.86,
+          "key": "with",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "rich,",
+          "start": 4.86,
+          "end": 5.16,
+          "key": "rich",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "acrid",
+          "start": 5.16,
+          "end": 5.62,
+          "key": "acrid",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "utterance",
+          "start": 5.62,
+          "end": 6.1,
+          "key": "utterance",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 6.1,
+          "end": 6.26,
+          "key": "to",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.26,
+          "end": 6.4,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "assistant",
+          "start": 6.4,
+          "end": 6.76,
+          "key": "assistant",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "town",
+          "start": 6.76,
+          "end": 7.2,
+          "key": "town",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "clerk.",
+          "start": 7.2,
+          "end": 7.56,
+          "key": "clerk",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Are",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "text": "the",
+          "start": 0.5,
+          "end": 0.66
+        },
+        {
+          "text": "conscript",
+          "start": 0.66,
+          "end": 1.16
+        },
+        {
+          "text": "fathers",
+          "start": 1.16,
+          "end": 1.58
+        },
+        {
+          "text": "pursuing",
+          "start": 1.58,
+          "end": 2.06
+        },
+        {
+          "text": "their",
+          "start": 2.06,
+          "end": 2.36
+        },
+        {
+          "text": "peaceful",
+          "start": 2.36,
+          "end": 2.78
+        },
+        {
+          "text": "deliberations?",
+          "start": 2.78,
+          "end": 3.34
+        },
+        {
+          "text": "he",
+          "start": 4.14,
+          "end": 4.34
+        },
+        {
+          "text": "said",
+          "start": 4.34,
+          "end": 4.6
+        },
+        {
+          "text": "with",
+          "start": 4.6,
+          "end": 4.86
+        },
+        {
+          "text": "rich",
+          "start": 4.86,
+          "end": 5.16
+        },
+        {
+          "text": "acrid",
+          "start": 5.16,
+          "end": 5.62
+        },
+        {
+          "text": "utterance",
+          "start": 5.62,
+          "end": 6.1
+        },
+        {
+          "text": "to",
+          "start": 6.1,
+          "end": 6.26
+        },
+        {
+          "text": "the",
+          "start": 6.26,
+          "end": 6.4
+        },
+        {
+          "text": "assistant",
+          "start": 6.4,
+          "end": 6.76
+        },
+        {
+          "text": "town",
+          "start": 6.76,
+          "end": 7.2
+        },
+        {
+          "text": "clerk.",
+          "start": 7.2,
+          "end": 7.56
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2994617773219943
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3af110956f16d1ae03544e49569f7bb5a7babde5f5ba889cb9432b1113278f5b",
+  "selected_reasons": []
+}

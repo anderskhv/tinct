@@ -1,0 +1,459 @@
+{
+  "complete": true,
+  "signature": "d9bdbb69396cc36d772ef1e559c7667d49ba1356397faf9f51795f4abcd7df9c",
+  "attempts": [
+    {
+      "asr_seconds": 0.26563136791810393,
+      "alignment_seconds": 0.000443766824901104,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Father John Conmey stepped into the Dallamount Tram on Newcomen Bridge.",
+          "start": 0.05,
+          "end": 4.33,
+          "words": [
+            {
+              "text": " Father",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.78466796875
+            },
+            {
+              "text": " John",
+              "start": 0.67,
+              "end": 1.07,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " Conmey",
+              "start": 1.07,
+              "end": 1.99,
+              "probability": 0.5943196614583334
+            },
+            {
+              "text": " stepped",
+              "start": 1.99,
+              "end": 2.15,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " into",
+              "start": 2.15,
+              "end": 2.41,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " the",
+              "start": 2.41,
+              "end": 2.59,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Dallamount",
+              "start": 2.59,
+              "end": 3.01,
+              "probability": 0.546173095703125
+            },
+            {
+              "text": " Tram",
+              "start": 3.01,
+              "end": 3.33,
+              "probability": 0.7330322265625
+            },
+            {
+              "text": " on",
+              "start": 3.33,
+              "end": 3.57,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Newcomen",
+              "start": 3.57,
+              "end": 4.07,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " Bridge.",
+              "start": 4.07,
+              "end": 4.33,
+              "probability": 0.8603515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Father",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "John",
+          "start": 0.67,
+          "end": 1.07
+        },
+        {
+          "raw": "Conmey",
+          "start": 1.07,
+          "end": 1.99
+        },
+        {
+          "raw": "stepped",
+          "start": 1.99,
+          "end": 2.15
+        },
+        {
+          "raw": "into",
+          "start": 2.15,
+          "end": 2.41
+        },
+        {
+          "raw": "the",
+          "start": 2.41,
+          "end": 2.59
+        },
+        {
+          "raw": "Dallamount",
+          "start": 2.59,
+          "end": 3.01
+        },
+        {
+          "raw": "Tram",
+          "start": 3.01,
+          "end": 3.33
+        },
+        {
+          "raw": "on",
+          "start": 3.33,
+          "end": 3.57
+        },
+        {
+          "raw": "Newcomen",
+          "start": 3.57,
+          "end": 4.07
+        },
+        {
+          "raw": "Bridge.",
+          "start": 4.07,
+          "end": 4.33
+        }
+      ],
+      "expected_tokens": [
+        "Father",
+        "John",
+        "Conmee",
+        "stepped",
+        "into",
+        "the",
+        "Dollymount",
+        "tram",
+        "on",
+        "Newcomen",
+        "bridge."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          6,
+          3,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          11,
+          7,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Father",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "father",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "John",
+          "start": 0.67,
+          "end": 1.07,
+          "key": "john",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Conmey",
+          "start": 1.07,
+          "end": 1.99,
+          "key": "conmey",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "stepped",
+          "start": 1.99,
+          "end": 2.15,
+          "key": "stepped",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 2.15,
+          "end": 2.41,
+          "key": "into",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.41,
+          "end": 2.59,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Dallamount",
+          "start": 2.59,
+          "end": 3.01,
+          "key": "dallamount",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Tram",
+          "start": 3.01,
+          "end": 3.33,
+          "key": "tram",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 3.33,
+          "end": 3.57,
+          "key": "on",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Newcomen",
+          "start": 3.57,
+          "end": 4.07,
+          "key": "newcomen",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Bridge.",
+          "start": 4.07,
+          "end": 4.33,
+          "key": "bridge",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Father",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "John",
+          "start": 0.67,
+          "end": 1.07
+        },
+        {
+          "text": "Conmee",
+          "start": 1.07,
+          "end": 1.53
+        },
+        {
+          "text": "stepped",
+          "start": 1.99,
+          "end": 2.15
+        },
+        {
+          "text": "into",
+          "start": 2.15,
+          "end": 2.41
+        },
+        {
+          "text": "the",
+          "start": 2.41,
+          "end": 2.59
+        },
+        {
+          "text": "Dollymount",
+          "start": 2.59,
+          "end": 2.8
+        },
+        {
+          "text": "tram",
+          "start": 3.01,
+          "end": 3.33
+        },
+        {
+          "text": "on",
+          "start": 3.33,
+          "end": 3.57
+        },
+        {
+          "text": "Newcomen",
+          "start": 3.57,
+          "end": 4.07
+        },
+        {
+          "text": "bridge.",
+          "start": 4.07,
+          "end": 4.33
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 9
+      },
+      "match_ratio": 0.8181818181818182,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2662229989655316
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f8166710ee27e6f787bb91b70bdb8667e507576601ac7854aa3e354bde888c0e",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

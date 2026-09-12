@@ -1,0 +1,545 @@
+{
+  "complete": true,
+  "signature": "68b90c99c2832f18c859addec0ef289cc258fa19cbafcf1630bf4f8a7c205557",
+  "attempts": [
+    {
+      "asr_seconds": 0.238809818867594,
+      "alignment_seconds": 0.0006133979186415672,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Katie and Booty dead Alice shoved in the door of the closed steaming kitchen",
+          "start": 0.05,
+          "end": 3.81,
+          "words": [
+            {
+              "text": " Katie",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.74462890625
+            },
+            {
+              "text": " and",
+              "start": 0.61,
+              "end": 0.95,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " Booty",
+              "start": 0.95,
+              "end": 1.25,
+              "probability": 0.896728515625
+            },
+            {
+              "text": " dead",
+              "start": 1.25,
+              "end": 1.39,
+              "probability": 0.16650390625
+            },
+            {
+              "text": " Alice",
+              "start": 1.39,
+              "end": 1.71,
+              "probability": 0.890625
+            },
+            {
+              "text": " shoved",
+              "start": 1.71,
+              "end": 2.17,
+              "probability": 0.85400390625
+            },
+            {
+              "text": " in",
+              "start": 2.17,
+              "end": 2.43,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 2.43,
+              "end": 2.53,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " door",
+              "start": 2.53,
+              "end": 2.67,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " of",
+              "start": 2.67,
+              "end": 2.81,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 2.81,
+              "end": 2.93,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " closed",
+              "start": 2.93,
+              "end": 3.13,
+              "probability": 0.4609375
+            },
+            {
+              "text": " steaming",
+              "start": 3.13,
+              "end": 3.51,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " kitchen",
+              "start": 3.51,
+              "end": 3.81,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Katie",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "and",
+          "start": 0.61,
+          "end": 0.95
+        },
+        {
+          "raw": "Booty",
+          "start": 0.95,
+          "end": 1.25
+        },
+        {
+          "raw": "dead",
+          "start": 1.25,
+          "end": 1.39
+        },
+        {
+          "raw": "Alice",
+          "start": 1.39,
+          "end": 1.71
+        },
+        {
+          "raw": "shoved",
+          "start": 1.71,
+          "end": 2.17
+        },
+        {
+          "raw": "in",
+          "start": 2.17,
+          "end": 2.43
+        },
+        {
+          "raw": "the",
+          "start": 2.43,
+          "end": 2.53
+        },
+        {
+          "raw": "door",
+          "start": 2.53,
+          "end": 2.67
+        },
+        {
+          "raw": "of",
+          "start": 2.67,
+          "end": 2.81
+        },
+        {
+          "raw": "the",
+          "start": 2.81,
+          "end": 2.93
+        },
+        {
+          "raw": "closed",
+          "start": 2.93,
+          "end": 3.13
+        },
+        {
+          "raw": "steaming",
+          "start": 3.13,
+          "end": 3.51
+        },
+        {
+          "raw": "kitchen",
+          "start": 3.51,
+          "end": 3.81
+        }
+      ],
+      "expected_tokens": [
+        "Katey",
+        "and",
+        "Boody",
+        "Dedalus",
+        "shoved",
+        "in",
+        "the",
+        "door",
+        "of",
+        "the",
+        "closesteaming",
+        "kitchen."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          5
+        ],
+        [
+          "equal",
+          4,
+          10,
+          5,
+          11
+        ],
+        [
+          "replace",
+          10,
+          11,
+          11,
+          13
+        ],
+        [
+          "equal",
+          11,
+          12,
+          13,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          5
+        ],
+        [
+          "replace",
+          10,
+          11,
+          11,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Katie",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "katie",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.61,
+          "end": 0.95,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Booty",
+          "start": 0.95,
+          "end": 1.25,
+          "key": "booty",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "dead",
+          "start": 1.25,
+          "end": 1.39,
+          "key": "dead",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Alice",
+          "start": 1.39,
+          "end": 1.71,
+          "key": "alice",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "shoved",
+          "start": 1.71,
+          "end": 2.17,
+          "key": "shoved",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.17,
+          "end": 2.43,
+          "key": "in",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.43,
+          "end": 2.53,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "door",
+          "start": 2.53,
+          "end": 2.67,
+          "key": "door",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.67,
+          "end": 2.81,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.81,
+          "end": 2.93,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "closed",
+          "start": 2.93,
+          "end": 3.13,
+          "key": "closed",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "steaming",
+          "start": 3.13,
+          "end": 3.51,
+          "key": "steaming",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "kitchen",
+          "start": 3.51,
+          "end": 3.81,
+          "key": "kitchen",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Katey",
+          "start": 0.0,
+          "end": 0.305
+        },
+        {
+          "text": "and",
+          "start": 0.61,
+          "end": 0.95
+        },
+        {
+          "text": "Boody",
+          "start": 0.95,
+          "end": 1.33
+        },
+        {
+          "text": "Dedalus",
+          "start": 1.33,
+          "end": 1.52
+        },
+        {
+          "text": "shoved",
+          "start": 1.71,
+          "end": 2.17
+        },
+        {
+          "text": "in",
+          "start": 2.17,
+          "end": 2.43
+        },
+        {
+          "text": "the",
+          "start": 2.43,
+          "end": 2.53
+        },
+        {
+          "text": "door",
+          "start": 2.53,
+          "end": 2.67
+        },
+        {
+          "text": "of",
+          "start": 2.67,
+          "end": 2.81
+        },
+        {
+          "text": "the",
+          "start": 2.81,
+          "end": 2.93
+        },
+        {
+          "text": "closesteaming",
+          "start": 2.93,
+          "end": 3.22
+        },
+        {
+          "text": "kitchen.",
+          "start": 3.51,
+          "end": 3.81
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 14,
+        "matched_words": 8
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.23966811690479517
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "737f4caed116536eaa26a7a22554db859841e6269d31eb8a174404e364305254",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

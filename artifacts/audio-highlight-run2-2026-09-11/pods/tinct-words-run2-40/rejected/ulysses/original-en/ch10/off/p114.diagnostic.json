@@ -1,0 +1,175 @@
+{
+  "complete": true,
+  "signature": "444020d8095e93a7dcd0ab8c2bfa9dfcdbd492b7069a4b6fff38ac12a1d771af",
+  "attempts": [
+    {
+      "asr_seconds": 0.1274509197100997,
+      "alignment_seconds": 0.000330848153680563,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Booty for shame.",
+          "start": 0.05,
+          "end": 1.35,
+          "words": [
+            {
+              "text": " Booty",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.944091796875
+            },
+            {
+              "text": " for",
+              "start": 0.77,
+              "end": 1.09,
+              "probability": 0.8828125
+            },
+            {
+              "text": " shame.",
+              "start": 1.09,
+              "end": 1.35,
+              "probability": 0.87353515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Booty",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "for",
+          "start": 0.77,
+          "end": 1.09
+        },
+        {
+          "raw": "shame.",
+          "start": 1.09,
+          "end": 1.35
+        }
+      ],
+      "expected_tokens": [
+        "—Boody!",
+        "For",
+        "shame!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Booty",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "booty",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 0.77,
+          "end": 1.09,
+          "key": "for",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "shame.",
+          "start": 1.09,
+          "end": 1.35,
+          "key": "shame",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Boody!",
+          "start": 0.0,
+          "end": 0.385
+        },
+        {
+          "text": "For",
+          "start": 0.77,
+          "end": 1.09
+        },
+        {
+          "text": "shame!",
+          "start": 1.09,
+          "end": 1.35
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12788634467869997
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4a34d5b45de0e32698f9a9a7768b3db6891d8bc54930b4169a05ccfbf7ea5897",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

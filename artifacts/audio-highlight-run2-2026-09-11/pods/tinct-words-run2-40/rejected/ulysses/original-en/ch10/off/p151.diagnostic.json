@@ -1,0 +1,702 @@
+{
+  "complete": true,
+  "signature": "4ea43d9846a5cc0bc76089924fdd201304bd29cf489651ac480393237fde23e0",
+  "attempts": [
+    {
+      "asr_seconds": 0.36360469786450267,
+      "alignment_seconds": 0.0004986212588846684,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " By the stern stone hand of Grattan, Bittingholt, an Incicor tram unloaded straggling highland",
+          "start": 0.08,
+          "end": 6.4,
+          "words": [
+            {
+              "text": " By",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.52392578125
+            },
+            {
+              "text": " the",
+              "start": 0.52,
+              "end": 0.68,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " stern",
+              "start": 0.68,
+              "end": 0.98,
+              "probability": 0.99609375
+            },
+            {
+              "text": " stone",
+              "start": 0.98,
+              "end": 1.32,
+              "probability": 0.8203125
+            },
+            {
+              "text": " hand",
+              "start": 1.32,
+              "end": 1.7,
+              "probability": 0.8759765625
+            },
+            {
+              "text": " of",
+              "start": 1.7,
+              "end": 1.9,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Grattan,",
+              "start": 1.9,
+              "end": 2.4,
+              "probability": 0.7439778645833334
+            },
+            {
+              "text": " Bittingholt,",
+              "start": 2.7,
+              "end": 3.36,
+              "probability": 0.67510986328125
+            },
+            {
+              "text": " an",
+              "start": 3.74,
+              "end": 3.84,
+              "probability": 0.947265625
+            },
+            {
+              "text": " Incicor",
+              "start": 3.84,
+              "end": 4.38,
+              "probability": 0.4320475260416667
+            },
+            {
+              "text": " tram",
+              "start": 4.38,
+              "end": 4.7,
+              "probability": 0.8837890625
+            },
+            {
+              "text": " unloaded",
+              "start": 4.7,
+              "end": 5.24,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " straggling",
+              "start": 5.24,
+              "end": 5.9,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " highland",
+              "start": 5.9,
+              "end": 6.4,
+              "probability": 0.80810546875
+            }
+          ]
+        },
+        {
+          "text": " soldiers of a band.",
+          "start": 6.4,
+          "end": 7.56,
+          "words": [
+            {
+              "text": " soldiers",
+              "start": 6.4,
+              "end": 6.9,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " of",
+              "start": 6.9,
+              "end": 7.16,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 7.16,
+              "end": 7.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " band.",
+              "start": 7.26,
+              "end": 7.56,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "By",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "the",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "raw": "stern",
+          "start": 0.68,
+          "end": 0.98
+        },
+        {
+          "raw": "stone",
+          "start": 0.98,
+          "end": 1.32
+        },
+        {
+          "raw": "hand",
+          "start": 1.32,
+          "end": 1.7
+        },
+        {
+          "raw": "of",
+          "start": 1.7,
+          "end": 1.9
+        },
+        {
+          "raw": "Grattan,",
+          "start": 1.9,
+          "end": 2.4
+        },
+        {
+          "raw": "Bittingholt,",
+          "start": 2.7,
+          "end": 3.36
+        },
+        {
+          "raw": "an",
+          "start": 3.74,
+          "end": 3.84
+        },
+        {
+          "raw": "Incicor",
+          "start": 3.84,
+          "end": 4.38
+        },
+        {
+          "raw": "tram",
+          "start": 4.38,
+          "end": 4.7
+        },
+        {
+          "raw": "unloaded",
+          "start": 4.7,
+          "end": 5.24
+        },
+        {
+          "raw": "straggling",
+          "start": 5.24,
+          "end": 5.9
+        },
+        {
+          "raw": "highland",
+          "start": 5.9,
+          "end": 6.4
+        },
+        {
+          "raw": "soldiers",
+          "start": 6.4,
+          "end": 6.9
+        },
+        {
+          "raw": "of",
+          "start": 6.9,
+          "end": 7.16
+        },
+        {
+          "raw": "a",
+          "start": 7.16,
+          "end": 7.26
+        },
+        {
+          "raw": "band.",
+          "start": 7.26,
+          "end": 7.56
+        }
+      ],
+      "expected_tokens": [
+        "By",
+        "the",
+        "stern",
+        "stone",
+        "hand",
+        "of",
+        "Grattan,",
+        "bidding",
+        "halt,",
+        "an",
+        "Inchicore",
+        "tram",
+        "unloaded",
+        "straggling",
+        "Highland",
+        "soldiers",
+        "of",
+        "a",
+        "band."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          9,
+          7,
+          8
+        ],
+        [
+          "equal",
+          9,
+          10,
+          8,
+          9
+        ],
+        [
+          "replace",
+          10,
+          11,
+          9,
+          10
+        ],
+        [
+          "equal",
+          11,
+          19,
+          10,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          9,
+          7,
+          8
+        ],
+        [
+          "replace",
+          10,
+          11,
+          9,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "By",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "by",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.52,
+          "end": 0.68,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "stern",
+          "start": 0.68,
+          "end": 0.98,
+          "key": "stern",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "stone",
+          "start": 0.98,
+          "end": 1.32,
+          "key": "stone",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hand",
+          "start": 1.32,
+          "end": 1.7,
+          "key": "hand",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.7,
+          "end": 1.9,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Grattan,",
+          "start": 1.9,
+          "end": 2.4,
+          "key": "grattan",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Bittingholt,",
+          "start": 2.7,
+          "end": 3.36,
+          "key": "bittingholt",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 3.74,
+          "end": 3.84,
+          "key": "an",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Incicor",
+          "start": 3.84,
+          "end": 4.38,
+          "key": "incicor",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "tram",
+          "start": 4.38,
+          "end": 4.7,
+          "key": "tram",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "unloaded",
+          "start": 4.7,
+          "end": 5.24,
+          "key": "unloaded",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "straggling",
+          "start": 5.24,
+          "end": 5.9,
+          "key": "straggling",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "highland",
+          "start": 5.9,
+          "end": 6.4,
+          "key": "highland",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "soldiers",
+          "start": 6.4,
+          "end": 6.9,
+          "key": "soldiers",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.9,
+          "end": 7.16,
+          "key": "of",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 7.16,
+          "end": 7.26,
+          "key": "a",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "band.",
+          "start": 7.26,
+          "end": 7.56,
+          "key": "band",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "By",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "the",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "text": "stern",
+          "start": 0.68,
+          "end": 0.98
+        },
+        {
+          "text": "stone",
+          "start": 0.98,
+          "end": 1.32
+        },
+        {
+          "text": "hand",
+          "start": 1.32,
+          "end": 1.7
+        },
+        {
+          "text": "of",
+          "start": 1.7,
+          "end": 1.9
+        },
+        {
+          "text": "Grattan,",
+          "start": 1.9,
+          "end": 2.4
+        },
+        {
+          "text": "bidding",
+          "start": 2.4,
+          "end": 3.07
+        },
+        {
+          "text": "halt,",
+          "start": 3.07,
+          "end": 3.405
+        },
+        {
+          "text": "an",
+          "start": 3.74,
+          "end": 3.84
+        },
+        {
+          "text": "Inchicore",
+          "start": 3.84,
+          "end": 4.11
+        },
+        {
+          "text": "tram",
+          "start": 4.38,
+          "end": 4.7
+        },
+        {
+          "text": "unloaded",
+          "start": 4.7,
+          "end": 5.24
+        },
+        {
+          "text": "straggling",
+          "start": 5.24,
+          "end": 5.9
+        },
+        {
+          "text": "Highland",
+          "start": 5.9,
+          "end": 6.4
+        },
+        {
+          "text": "soldiers",
+          "start": 6.4,
+          "end": 6.9
+        },
+        {
+          "text": "of",
+          "start": 6.9,
+          "end": 7.16
+        },
+        {
+          "text": "a",
+          "start": 7.16,
+          "end": 7.26
+        },
+        {
+          "text": "band.",
+          "start": 7.26,
+          "end": 7.56
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 18,
+        "matched_words": 16
+      },
+      "match_ratio": 0.8421052631578947,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3642773157916963
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "abfb722887273b67eb39a3b3967ceb0d21af79687e89ea4e25e3efd62c8f85a2",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

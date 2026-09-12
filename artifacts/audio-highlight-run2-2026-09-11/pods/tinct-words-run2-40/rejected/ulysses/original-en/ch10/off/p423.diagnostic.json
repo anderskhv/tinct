@@ -1,0 +1,771 @@
+{
+  "complete": true,
+  "signature": "638c33ec85f4363d0dc07c661db5d1dc7a10b9b3a5e723ace6701bc1189600b2",
+  "attempts": [
+    {
+      "asr_seconds": 0.36333485879004,
+      "alignment_seconds": 0.0005539306439459324,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Why, God eternally curse your soul, Ben Dollard growled furiously.",
+          "start": 0.02,
+          "end": 4.46,
+          "words": [
+            {
+              "text": " Why,",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.6533203125
+            },
+            {
+              "text": " God",
+              "start": 0.94,
+              "end": 1.12,
+              "probability": 0.78759765625
+            },
+            {
+              "text": " eternally",
+              "start": 1.12,
+              "end": 1.54,
+              "probability": 0.946044921875
+            },
+            {
+              "text": " curse",
+              "start": 1.54,
+              "end": 1.9,
+              "probability": 0.703125
+            },
+            {
+              "text": " your",
+              "start": 1.9,
+              "end": 2.16,
+              "probability": 0.986328125
+            },
+            {
+              "text": " soul,",
+              "start": 2.16,
+              "end": 2.48,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Ben",
+              "start": 3.12,
+              "end": 3.2,
+              "probability": 0.53125
+            },
+            {
+              "text": " Dollard",
+              "start": 3.2,
+              "end": 3.64,
+              "probability": 0.6573486328125
+            },
+            {
+              "text": " growled",
+              "start": 3.64,
+              "end": 4.06,
+              "probability": 0.990234375
+            },
+            {
+              "text": " furiously.",
+              "start": 4.06,
+              "end": 4.46,
+              "probability": 0.9892578125
+            }
+          ]
+        },
+        {
+          "text": " I threw out more clothes in my time than you ever saw.",
+          "start": 5.18,
+          "end": 7.7,
+          "words": [
+            {
+              "text": " I",
+              "start": 5.18,
+              "end": 5.28,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " threw",
+              "start": 5.28,
+              "end": 5.48,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " out",
+              "start": 5.48,
+              "end": 5.68,
+              "probability": 0.998046875
+            },
+            {
+              "text": " more",
+              "start": 5.68,
+              "end": 5.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " clothes",
+              "start": 5.88,
+              "end": 6.24,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " in",
+              "start": 6.24,
+              "end": 6.44,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " my",
+              "start": 6.44,
+              "end": 6.56,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " time",
+              "start": 6.56,
+              "end": 6.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " than",
+              "start": 6.86,
+              "end": 7.04,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " you",
+              "start": 7.04,
+              "end": 7.18,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " ever",
+              "start": 7.18,
+              "end": 7.36,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " saw.",
+              "start": 7.36,
+              "end": 7.7,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Why,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "God",
+          "start": 0.94,
+          "end": 1.12
+        },
+        {
+          "raw": "eternally",
+          "start": 1.12,
+          "end": 1.54
+        },
+        {
+          "raw": "curse",
+          "start": 1.54,
+          "end": 1.9
+        },
+        {
+          "raw": "your",
+          "start": 1.9,
+          "end": 2.16
+        },
+        {
+          "raw": "soul,",
+          "start": 2.16,
+          "end": 2.48
+        },
+        {
+          "raw": "Ben",
+          "start": 3.12,
+          "end": 3.2
+        },
+        {
+          "raw": "Dollard",
+          "start": 3.2,
+          "end": 3.64
+        },
+        {
+          "raw": "growled",
+          "start": 3.64,
+          "end": 4.06
+        },
+        {
+          "raw": "furiously.",
+          "start": 4.06,
+          "end": 4.46
+        },
+        {
+          "raw": "I",
+          "start": 5.18,
+          "end": 5.28
+        },
+        {
+          "raw": "threw",
+          "start": 5.28,
+          "end": 5.48
+        },
+        {
+          "raw": "out",
+          "start": 5.48,
+          "end": 5.68
+        },
+        {
+          "raw": "more",
+          "start": 5.68,
+          "end": 5.88
+        },
+        {
+          "raw": "clothes",
+          "start": 5.88,
+          "end": 6.24
+        },
+        {
+          "raw": "in",
+          "start": 6.24,
+          "end": 6.44
+        },
+        {
+          "raw": "my",
+          "start": 6.44,
+          "end": 6.56
+        },
+        {
+          "raw": "time",
+          "start": 6.56,
+          "end": 6.86
+        },
+        {
+          "raw": "than",
+          "start": 6.86,
+          "end": 7.04
+        },
+        {
+          "raw": "you",
+          "start": 7.04,
+          "end": 7.18
+        },
+        {
+          "raw": "ever",
+          "start": 7.18,
+          "end": 7.36
+        },
+        {
+          "raw": "saw.",
+          "start": 7.36,
+          "end": 7.7
+        }
+      ],
+      "expected_tokens": [
+        "—Why,",
+        "God",
+        "eternally",
+        "curse",
+        "your",
+        "soul,",
+        "Ben",
+        "Dollard",
+        "growled",
+        "furiously,",
+        "I",
+        "threw",
+        "out",
+        "more",
+        "clothes",
+        "in",
+        "my",
+        "time",
+        "than",
+        "you",
+        "ever",
+        "saw."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Why,",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "why",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "God",
+          "start": 0.94,
+          "end": 1.12,
+          "key": "god",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "eternally",
+          "start": 1.12,
+          "end": 1.54,
+          "key": "eternally",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "curse",
+          "start": 1.54,
+          "end": 1.9,
+          "key": "curse",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.9,
+          "end": 2.16,
+          "key": "your",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "soul,",
+          "start": 2.16,
+          "end": 2.48,
+          "key": "soul",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Ben",
+          "start": 3.12,
+          "end": 3.2,
+          "key": "ben",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Dollard",
+          "start": 3.2,
+          "end": 3.64,
+          "key": "dollard",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "growled",
+          "start": 3.64,
+          "end": 4.06,
+          "key": "growled",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "furiously.",
+          "start": 4.06,
+          "end": 4.46,
+          "key": "furiously",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.18,
+          "end": 5.28,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "threw",
+          "start": 5.28,
+          "end": 5.48,
+          "key": "threw",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 5.48,
+          "end": 5.68,
+          "key": "out",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 5.68,
+          "end": 5.88,
+          "key": "more",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "clothes",
+          "start": 5.88,
+          "end": 6.24,
+          "key": "clothes",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 6.24,
+          "end": 6.44,
+          "key": "in",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 6.44,
+          "end": 6.56,
+          "key": "my",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 6.56,
+          "end": 6.86,
+          "key": "time",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 6.86,
+          "end": 7.04,
+          "key": "than",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 7.04,
+          "end": 7.18,
+          "key": "you",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "ever",
+          "start": 7.18,
+          "end": 7.36,
+          "key": "ever",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "saw.",
+          "start": 7.36,
+          "end": 7.7,
+          "key": "saw",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Why,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "God",
+          "start": 0.94,
+          "end": 1.12
+        },
+        {
+          "text": "eternally",
+          "start": 1.12,
+          "end": 1.54
+        },
+        {
+          "text": "curse",
+          "start": 1.54,
+          "end": 1.9
+        },
+        {
+          "text": "your",
+          "start": 1.9,
+          "end": 2.16
+        },
+        {
+          "text": "soul,",
+          "start": 2.16,
+          "end": 2.48
+        },
+        {
+          "text": "Ben",
+          "start": 3.12,
+          "end": 3.2
+        },
+        {
+          "text": "Dollard",
+          "start": 3.2,
+          "end": 3.64
+        },
+        {
+          "text": "growled",
+          "start": 3.64,
+          "end": 4.06
+        },
+        {
+          "text": "furiously,",
+          "start": 4.06,
+          "end": 4.46
+        },
+        {
+          "text": "I",
+          "start": 5.18,
+          "end": 5.28
+        },
+        {
+          "text": "threw",
+          "start": 5.28,
+          "end": 5.48
+        },
+        {
+          "text": "out",
+          "start": 5.48,
+          "end": 5.68
+        },
+        {
+          "text": "more",
+          "start": 5.68,
+          "end": 5.88
+        },
+        {
+          "text": "clothes",
+          "start": 5.88,
+          "end": 6.24
+        },
+        {
+          "text": "in",
+          "start": 6.24,
+          "end": 6.44
+        },
+        {
+          "text": "my",
+          "start": 6.44,
+          "end": 6.56
+        },
+        {
+          "text": "time",
+          "start": 6.56,
+          "end": 6.86
+        },
+        {
+          "text": "than",
+          "start": 6.86,
+          "end": 7.04
+        },
+        {
+          "text": "you",
+          "start": 7.04,
+          "end": 7.18
+        },
+        {
+          "text": "ever",
+          "start": 7.18,
+          "end": 7.36
+        },
+        {
+          "text": "saw.",
+          "start": 7.36,
+          "end": 7.7
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.36410915199667215
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2cdc9a3c3b9dc760b49cc3f969c4d8b8bf86ed01a56fe0119dfaea0e9afbabe7",
+  "selected_reasons": []
+}

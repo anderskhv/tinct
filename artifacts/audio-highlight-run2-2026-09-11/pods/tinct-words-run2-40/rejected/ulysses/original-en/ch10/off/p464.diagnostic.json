@@ -1,0 +1,444 @@
+{
+  "complete": true,
+  "signature": "6d1734b5a6ef9e5c3f3f96a65cdc34052b8b027918d01dd1ff03fc12a4b662fd",
+  "attempts": [
+    {
+      "asr_seconds": 0.20897744968533516,
+      "alignment_seconds": 0.00047359615564346313,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I'll say there is much kindness in the Jew,\" he quoted elegantly.",
+          "start": 0.05,
+          "end": 3.87,
+          "words": [
+            {
+              "text": " I'll",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.7161865234375
+            },
+            {
+              "text": " say",
+              "start": 0.61,
+              "end": 0.77,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " there",
+              "start": 0.77,
+              "end": 0.93,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " is",
+              "start": 0.93,
+              "end": 1.05,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " much",
+              "start": 1.05,
+              "end": 1.25,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " kindness",
+              "start": 1.25,
+              "end": 1.65,
+              "probability": 0.994140625
+            },
+            {
+              "text": " in",
+              "start": 1.65,
+              "end": 1.85,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 1.85,
+              "end": 1.97,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Jew,\"",
+              "start": 1.97,
+              "end": 2.55,
+              "probability": 0.764404296875
+            },
+            {
+              "text": " he",
+              "start": 2.55,
+              "end": 2.73,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " quoted",
+              "start": 2.73,
+              "end": 3.05,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " elegantly.",
+              "start": 3.05,
+              "end": 3.87,
+              "probability": 0.88916015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I'll",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "say",
+          "start": 0.61,
+          "end": 0.77
+        },
+        {
+          "raw": "there",
+          "start": 0.77,
+          "end": 0.93
+        },
+        {
+          "raw": "is",
+          "start": 0.93,
+          "end": 1.05
+        },
+        {
+          "raw": "much",
+          "start": 1.05,
+          "end": 1.25
+        },
+        {
+          "raw": "kindness",
+          "start": 1.25,
+          "end": 1.65
+        },
+        {
+          "raw": "in",
+          "start": 1.65,
+          "end": 1.85
+        },
+        {
+          "raw": "the",
+          "start": 1.85,
+          "end": 1.97
+        },
+        {
+          "raw": "Jew,\"",
+          "start": 1.97,
+          "end": 2.55
+        },
+        {
+          "raw": "he",
+          "start": 2.55,
+          "end": 2.73
+        },
+        {
+          "raw": "quoted",
+          "start": 2.73,
+          "end": 3.05
+        },
+        {
+          "raw": "elegantly.",
+          "start": 3.05,
+          "end": 3.87
+        }
+      ],
+      "expected_tokens": [
+        "—I'll",
+        "say",
+        "there",
+        "is",
+        "much",
+        "kindness",
+        "in",
+        "the",
+        "jew,",
+        "he",
+        "quoted,",
+        "elegantly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I'll",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "ill",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 0.61,
+          "end": 0.77,
+          "key": "say",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 0.77,
+          "end": 0.93,
+          "key": "there",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.93,
+          "end": 1.05,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 1.05,
+          "end": 1.25,
+          "key": "much",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "kindness",
+          "start": 1.25,
+          "end": 1.65,
+          "key": "kindness",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.65,
+          "end": 1.85,
+          "key": "in",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.85,
+          "end": 1.97,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Jew,\"",
+          "start": 1.97,
+          "end": 2.55,
+          "key": "jew",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.55,
+          "end": 2.73,
+          "key": "he",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "quoted",
+          "start": 2.73,
+          "end": 3.05,
+          "key": "quoted",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "elegantly.",
+          "start": 3.05,
+          "end": 3.87,
+          "key": "elegantly",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—I'll",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "say",
+          "start": 0.61,
+          "end": 0.77
+        },
+        {
+          "text": "there",
+          "start": 0.77,
+          "end": 0.93
+        },
+        {
+          "text": "is",
+          "start": 0.93,
+          "end": 1.05
+        },
+        {
+          "text": "much",
+          "start": 1.05,
+          "end": 1.25
+        },
+        {
+          "text": "kindness",
+          "start": 1.25,
+          "end": 1.65
+        },
+        {
+          "text": "in",
+          "start": 1.65,
+          "end": 1.85
+        },
+        {
+          "text": "the",
+          "start": 1.85,
+          "end": 1.97
+        },
+        {
+          "text": "jew,",
+          "start": 1.97,
+          "end": 2.55
+        },
+        {
+          "text": "he",
+          "start": 2.55,
+          "end": 2.73
+        },
+        {
+          "text": "quoted,",
+          "start": 2.73,
+          "end": 3.05
+        },
+        {
+          "text": "elegantly.",
+          "start": 3.05,
+          "end": 3.87
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20962739270180464
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8374078498d0c2b37f02da37c4ec672e95aee2c4a4ae4c2e8c0440735557bf2c",
+  "selected_reasons": []
+}

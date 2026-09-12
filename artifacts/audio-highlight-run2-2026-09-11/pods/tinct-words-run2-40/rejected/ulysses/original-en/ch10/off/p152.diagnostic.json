@@ -1,0 +1,408 @@
+{
+  "complete": true,
+  "signature": "1d004f9d0d2278d60f5c6a5996de018b76167f735d19beac031bee3703dffb4c",
+  "attempts": [
+    {
+      "asr_seconds": 0.28679185220971704,
+      "alignment_seconds": 0.0004899436607956886,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " CI Rifletaro, Stephen said, glancing down the solid trouser leg.",
+          "start": 0.11,
+          "end": 4.71,
+          "words": [
+            {
+              "text": " CI",
+              "start": 0.11,
+              "end": 0.73,
+              "probability": 0.2208251953125
+            },
+            {
+              "text": " Rifletaro,",
+              "start": 0.73,
+              "end": 1.45,
+              "probability": 0.59112548828125
+            },
+            {
+              "text": " Stephen",
+              "start": 1.77,
+              "end": 2.05,
+              "probability": 0.57177734375
+            },
+            {
+              "text": " said,",
+              "start": 2.05,
+              "end": 2.47,
+              "probability": 0.99609375
+            },
+            {
+              "text": " glancing",
+              "start": 2.99,
+              "end": 3.21,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " down",
+              "start": 3.21,
+              "end": 3.53,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 3.53,
+              "end": 3.71,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " solid",
+              "start": 3.71,
+              "end": 4.03,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " trouser",
+              "start": 4.03,
+              "end": 4.47,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " leg.",
+              "start": 4.47,
+              "end": 4.71,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "CI",
+          "start": 0.11,
+          "end": 0.73
+        },
+        {
+          "raw": "Rifletaro,",
+          "start": 0.73,
+          "end": 1.45
+        },
+        {
+          "raw": "Stephen",
+          "start": 1.77,
+          "end": 2.05
+        },
+        {
+          "raw": "said,",
+          "start": 2.05,
+          "end": 2.47
+        },
+        {
+          "raw": "glancing",
+          "start": 2.99,
+          "end": 3.21
+        },
+        {
+          "raw": "down",
+          "start": 3.21,
+          "end": 3.53
+        },
+        {
+          "raw": "the",
+          "start": 3.53,
+          "end": 3.71
+        },
+        {
+          "raw": "solid",
+          "start": 3.71,
+          "end": 4.03
+        },
+        {
+          "raw": "trouser",
+          "start": 4.03,
+          "end": 4.47
+        },
+        {
+          "raw": "leg.",
+          "start": 4.47,
+          "end": 4.71
+        }
+      ],
+      "expected_tokens": [
+        "—_Ci",
+        "rifletterò,_",
+        "Stephen",
+        "said,",
+        "glancing",
+        "down",
+        "the",
+        "solid",
+        "trouserleg."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          8,
+          2,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "CI",
+          "start": 0.11,
+          "end": 0.73,
+          "key": "ci",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Rifletaro,",
+          "start": 0.73,
+          "end": 1.45,
+          "key": "rifletaro",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Stephen",
+          "start": 1.77,
+          "end": 2.05,
+          "key": "stephen",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 2.05,
+          "end": 2.47,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "glancing",
+          "start": 2.99,
+          "end": 3.21,
+          "key": "glancing",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 3.21,
+          "end": 3.53,
+          "key": "down",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.53,
+          "end": 3.71,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "solid",
+          "start": 3.71,
+          "end": 4.03,
+          "key": "solid",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "trouser",
+          "start": 4.03,
+          "end": 4.47,
+          "key": "trouser",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "leg.",
+          "start": 4.47,
+          "end": 4.71,
+          "key": "leg",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—_Ci",
+          "start": 0.11,
+          "end": 0.73
+        },
+        {
+          "text": "rifletterò,_",
+          "start": 0.73,
+          "end": 1.25
+        },
+        {
+          "text": "Stephen",
+          "start": 1.77,
+          "end": 2.05
+        },
+        {
+          "text": "said,",
+          "start": 2.05,
+          "end": 2.47
+        },
+        {
+          "text": "glancing",
+          "start": 2.99,
+          "end": 3.21
+        },
+        {
+          "text": "down",
+          "start": 3.21,
+          "end": 3.53
+        },
+        {
+          "text": "the",
+          "start": 3.53,
+          "end": 3.71
+        },
+        {
+          "text": "solid",
+          "start": 3.71,
+          "end": 4.03
+        },
+        {
+          "text": "trouserleg.",
+          "start": 4.03,
+          "end": 4.37
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 10,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7777777777777778,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2874527652747929
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ac5690a75aad53d7394a16c7be5f8cbcc33895f0daf76d493d0ffa40b3350c23",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

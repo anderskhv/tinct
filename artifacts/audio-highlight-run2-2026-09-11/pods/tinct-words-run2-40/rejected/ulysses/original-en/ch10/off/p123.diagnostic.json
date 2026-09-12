@@ -1,0 +1,675 @@
+{
+  "complete": true,
+  "signature": "8608c250805174ca92a467f5f74f7b1b56541b023ec8738c745fbfbfaf4c8d46",
+  "attempts": [
+    {
+      "asr_seconds": 0.36733262799680233,
+      "alignment_seconds": 0.0006399503909051418,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " H.E.L.Y.S. filed before him, tall white-hatted, past Tangier Lane, plotting towards their",
+          "start": 0.02,
+          "end": 6.18,
+          "words": [
+            {
+              "text": " H",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.446044921875
+            },
+            {
+              "text": ".E",
+              "start": 0.58,
+              "end": 0.84,
+              "probability": 0.837646484375
+            },
+            {
+              "text": ".L",
+              "start": 0.84,
+              "end": 1.08,
+              "probability": 0.990478515625
+            },
+            {
+              "text": ".Y",
+              "start": 1.08,
+              "end": 1.28,
+              "probability": 0.988525390625
+            },
+            {
+              "text": ".S.",
+              "start": 1.28,
+              "end": 1.46,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " filed",
+              "start": 1.66,
+              "end": 1.78,
+              "probability": 0.94140625
+            },
+            {
+              "text": " before",
+              "start": 1.78,
+              "end": 2.08,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " him,",
+              "start": 2.08,
+              "end": 2.38,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " tall",
+              "start": 2.66,
+              "end": 2.92,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " white",
+              "start": 2.92,
+              "end": 3.12,
+              "probability": 0.7119140625
+            },
+            {
+              "text": "-hatted,",
+              "start": 3.12,
+              "end": 3.62,
+              "probability": 0.8600260416666666
+            },
+            {
+              "text": " past",
+              "start": 3.84,
+              "end": 4.14,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " Tangier",
+              "start": 4.14,
+              "end": 4.62,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " Lane,",
+              "start": 4.62,
+              "end": 4.94,
+              "probability": 0.97265625
+            },
+            {
+              "text": " plotting",
+              "start": 5.34,
+              "end": 5.56,
+              "probability": 0.927734375
+            },
+            {
+              "text": " towards",
+              "start": 5.56,
+              "end": 5.92,
+              "probability": 0.95703125
+            },
+            {
+              "text": " their",
+              "start": 5.92,
+              "end": 6.18,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " goal.",
+          "start": 6.18,
+          "end": 6.46,
+          "words": [
+            {
+              "text": " goal.",
+              "start": 6.18,
+              "end": 6.46,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "H",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": ".E",
+          "start": 0.58,
+          "end": 0.84
+        },
+        {
+          "raw": ".L",
+          "start": 0.84,
+          "end": 1.08
+        },
+        {
+          "raw": ".Y",
+          "start": 1.08,
+          "end": 1.28
+        },
+        {
+          "raw": ".S.",
+          "start": 1.28,
+          "end": 1.46
+        },
+        {
+          "raw": "filed",
+          "start": 1.66,
+          "end": 1.78
+        },
+        {
+          "raw": "before",
+          "start": 1.78,
+          "end": 2.08
+        },
+        {
+          "raw": "him,",
+          "start": 2.08,
+          "end": 2.38
+        },
+        {
+          "raw": "tall",
+          "start": 2.66,
+          "end": 2.92
+        },
+        {
+          "raw": "white",
+          "start": 2.92,
+          "end": 3.12
+        },
+        {
+          "raw": "-hatted,",
+          "start": 3.12,
+          "end": 3.62
+        },
+        {
+          "raw": "past",
+          "start": 3.84,
+          "end": 4.14
+        },
+        {
+          "raw": "Tangier",
+          "start": 4.14,
+          "end": 4.62
+        },
+        {
+          "raw": "Lane,",
+          "start": 4.62,
+          "end": 4.94
+        },
+        {
+          "raw": "plotting",
+          "start": 5.34,
+          "end": 5.56
+        },
+        {
+          "raw": "towards",
+          "start": 5.56,
+          "end": 5.92
+        },
+        {
+          "raw": "their",
+          "start": 5.92,
+          "end": 6.18
+        },
+        {
+          "raw": "goal.",
+          "start": 6.18,
+          "end": 6.46
+        }
+      ],
+      "expected_tokens": [
+        "H.",
+        "E.",
+        "L.",
+        "Y.'S",
+        "filed",
+        "before",
+        "him,",
+        "tallwhitehatted,",
+        "past",
+        "Tangier",
+        "lane,",
+        "plodding",
+        "towards",
+        "their",
+        "goal."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          7,
+          5,
+          8
+        ],
+        [
+          "replace",
+          7,
+          8,
+          8,
+          11
+        ],
+        [
+          "equal",
+          8,
+          11,
+          11,
+          14
+        ],
+        [
+          "replace",
+          11,
+          12,
+          14,
+          15
+        ],
+        [
+          "equal",
+          12,
+          15,
+          15,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "replace",
+          7,
+          8,
+          8,
+          11
+        ],
+        [
+          "replace",
+          11,
+          12,
+          14,
+          15
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "H",
+          "start": 0.02,
+          "end": 0.58,
+          "key": "h",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": ".E",
+          "start": 0.58,
+          "end": 0.84,
+          "key": "e",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": ".L",
+          "start": 0.84,
+          "end": 1.08,
+          "key": "l",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": ".Y",
+          "start": 1.08,
+          "end": 1.28,
+          "key": "y",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": ".S.",
+          "start": 1.28,
+          "end": 1.46,
+          "key": "s",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "filed",
+          "start": 1.66,
+          "end": 1.78,
+          "key": "filed",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 1.78,
+          "end": 2.08,
+          "key": "before",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 2.08,
+          "end": 2.38,
+          "key": "him",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "tall",
+          "start": 2.66,
+          "end": 2.92,
+          "key": "tall",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "white",
+          "start": 2.92,
+          "end": 3.12,
+          "key": "white",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "-hatted,",
+          "start": 3.12,
+          "end": 3.62,
+          "key": "hatted",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "past",
+          "start": 3.84,
+          "end": 4.14,
+          "key": "past",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Tangier",
+          "start": 4.14,
+          "end": 4.62,
+          "key": "tangier",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Lane,",
+          "start": 4.62,
+          "end": 4.94,
+          "key": "lane",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "plotting",
+          "start": 5.34,
+          "end": 5.56,
+          "key": "plotting",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "towards",
+          "start": 5.56,
+          "end": 5.92,
+          "key": "towards",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 5.92,
+          "end": 6.18,
+          "key": "their",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "goal.",
+          "start": 6.18,
+          "end": 6.46,
+          "key": "goal",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "H.",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "E.",
+          "start": 0.58,
+          "end": 0.84
+        },
+        {
+          "text": "L.",
+          "start": 0.84,
+          "end": 1.08
+        },
+        {
+          "text": "Y.'S",
+          "start": 1.08,
+          "end": 1.37
+        },
+        {
+          "text": "filed",
+          "start": 1.66,
+          "end": 1.78
+        },
+        {
+          "text": "before",
+          "start": 1.78,
+          "end": 2.08
+        },
+        {
+          "text": "him,",
+          "start": 2.08,
+          "end": 2.38
+        },
+        {
+          "text": "tallwhitehatted,",
+          "start": 2.38,
+          "end": 3.11
+        },
+        {
+          "text": "past",
+          "start": 3.84,
+          "end": 4.14
+        },
+        {
+          "text": "Tangier",
+          "start": 4.14,
+          "end": 4.62
+        },
+        {
+          "text": "lane,",
+          "start": 4.62,
+          "end": 4.94
+        },
+        {
+          "text": "plodding",
+          "start": 4.94,
+          "end": 5.25
+        },
+        {
+          "text": "towards",
+          "start": 5.56,
+          "end": 5.92
+        },
+        {
+          "text": "their",
+          "start": 5.92,
+          "end": 6.18
+        },
+        {
+          "text": "goal.",
+          "start": 6.18,
+          "end": 6.46
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 18,
+        "matched_words": 12
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.36821766709908843
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a8096ba372db7695449a57725677774dfa8f414438fd4a8ebbf9ea55730efe29",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

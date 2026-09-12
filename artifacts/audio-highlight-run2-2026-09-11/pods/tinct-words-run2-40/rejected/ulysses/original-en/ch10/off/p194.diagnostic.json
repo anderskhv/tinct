@@ -1,0 +1,518 @@
+{
+  "complete": true,
+  "signature": "3caab94974c0d6ad4fdf9d5243197b94ab28b8668e818c933ea18513c8ad3715",
+  "attempts": [
+    {
+      "asr_seconds": 0.24792647315189242,
+      "alignment_seconds": 0.000404509250074625,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I thought you were at a new gunpowder plot, J.J. O'Malley said.",
+          "start": 0.08,
+          "end": 3.78,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.5,
+              "probability": 0.54345703125
+            },
+            {
+              "text": " thought",
+              "start": 0.5,
+              "end": 0.68,
+              "probability": 0.994140625
+            },
+            {
+              "text": " you",
+              "start": 0.68,
+              "end": 0.84,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " were",
+              "start": 0.84,
+              "end": 0.92,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " at",
+              "start": 0.92,
+              "end": 1.02,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " a",
+              "start": 1.02,
+              "end": 1.14,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " new",
+              "start": 1.14,
+              "end": 1.32,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " gunpowder",
+              "start": 1.32,
+              "end": 1.82,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " plot,",
+              "start": 1.82,
+              "end": 2.24,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " J",
+              "start": 2.7,
+              "end": 2.74,
+              "probability": 0.30517578125
+            },
+            {
+              "text": ".J.",
+              "start": 2.74,
+              "end": 3.0,
+              "probability": 0.946533203125
+            },
+            {
+              "text": " O",
+              "start": 3.12,
+              "end": 3.2,
+              "probability": 0.84716796875
+            },
+            {
+              "text": "'Malley",
+              "start": 3.2,
+              "end": 3.44,
+              "probability": 0.846435546875
+            },
+            {
+              "text": " said.",
+              "start": 3.44,
+              "end": 3.78,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "raw": "thought",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "raw": "you",
+          "start": 0.68,
+          "end": 0.84
+        },
+        {
+          "raw": "were",
+          "start": 0.84,
+          "end": 0.92
+        },
+        {
+          "raw": "at",
+          "start": 0.92,
+          "end": 1.02
+        },
+        {
+          "raw": "a",
+          "start": 1.02,
+          "end": 1.14
+        },
+        {
+          "raw": "new",
+          "start": 1.14,
+          "end": 1.32
+        },
+        {
+          "raw": "gunpowder",
+          "start": 1.32,
+          "end": 1.82
+        },
+        {
+          "raw": "plot,",
+          "start": 1.82,
+          "end": 2.24
+        },
+        {
+          "raw": "J",
+          "start": 2.7,
+          "end": 2.74
+        },
+        {
+          "raw": ".J.",
+          "start": 2.74,
+          "end": 3.0
+        },
+        {
+          "raw": "O",
+          "start": 3.12,
+          "end": 3.2
+        },
+        {
+          "raw": "'Malley",
+          "start": 3.2,
+          "end": 3.44
+        },
+        {
+          "raw": "said.",
+          "start": 3.44,
+          "end": 3.78
+        }
+      ],
+      "expected_tokens": [
+        "—I",
+        "thought",
+        "you",
+        "were",
+        "at",
+        "a",
+        "new",
+        "gunpowder",
+        "plot,",
+        "J.",
+        "J.",
+        "O'Molloy",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          13
+        ],
+        [
+          "equal",
+          12,
+          13,
+          13,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          11,
+          12,
+          11,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.5,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "thought",
+          "start": 0.5,
+          "end": 0.68,
+          "key": "thought",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.68,
+          "end": 0.84,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 0.84,
+          "end": 0.92,
+          "key": "were",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 0.92,
+          "end": 1.02,
+          "key": "at",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.02,
+          "end": 1.14,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "new",
+          "start": 1.14,
+          "end": 1.32,
+          "key": "new",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "gunpowder",
+          "start": 1.32,
+          "end": 1.82,
+          "key": "gunpowder",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "plot,",
+          "start": 1.82,
+          "end": 2.24,
+          "key": "plot",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "J",
+          "start": 2.7,
+          "end": 2.74,
+          "key": "j",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": ".J.",
+          "start": 2.74,
+          "end": 3.0,
+          "key": "j",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 3.12,
+          "end": 3.2,
+          "key": "o",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "'Malley",
+          "start": 3.2,
+          "end": 3.44,
+          "key": "malley",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 3.44,
+          "end": 3.78,
+          "key": "said",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—I",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "text": "thought",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "text": "you",
+          "start": 0.68,
+          "end": 0.84
+        },
+        {
+          "text": "were",
+          "start": 0.84,
+          "end": 0.92
+        },
+        {
+          "text": "at",
+          "start": 0.92,
+          "end": 1.02
+        },
+        {
+          "text": "a",
+          "start": 1.02,
+          "end": 1.14
+        },
+        {
+          "text": "new",
+          "start": 1.14,
+          "end": 1.32
+        },
+        {
+          "text": "gunpowder",
+          "start": 1.32,
+          "end": 1.82
+        },
+        {
+          "text": "plot,",
+          "start": 1.82,
+          "end": 2.24
+        },
+        {
+          "text": "J.",
+          "start": 2.7,
+          "end": 2.74
+        },
+        {
+          "text": "J.",
+          "start": 2.74,
+          "end": 3.0
+        },
+        {
+          "text": "O'Molloy",
+          "start": 3.0,
+          "end": 3.22
+        },
+        {
+          "text": "said.",
+          "start": 3.44,
+          "end": 3.78
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 14,
+        "matched_words": 12
+      },
+      "match_ratio": 0.9230769230769231,
+      "rejection_reasons": [],
+      "seconds": 0.24848263477906585
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2fdb849940127149d7bd070cbab6f022ead2afb6d77085369e58cafc223fd0fc",
+  "selected_reasons": []
+}
