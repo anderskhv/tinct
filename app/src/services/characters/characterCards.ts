@@ -90,6 +90,7 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   'paradise-lost': { editions: EN, revision: '2026-09-12.1' },
   'faust-part-1': { editions: EN, revision: '2026-09-12.1' },
   'the-histories': { editions: EN, revision: '2026-09-12.1' },
+  'peloponnesian-war': { editions: EN, revision: '2026-09-12.1' },
 }
 const supportedEditions = (bookId: string): string[] | undefined => characterReleases[bookId]?.editions
 export async function verifyCharacters(asset: CharacterAsset, bookId: string, editionKey: string, raw: ArrayBuffer): Promise<VerifiedCharacters | null> {
