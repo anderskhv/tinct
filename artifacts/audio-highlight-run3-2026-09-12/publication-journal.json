@@ -10878,5 +10878,39 @@
   "servedSha256": "c30066fff4844476aac1b5bdcd45f7422c6da6a6506902ff189f1f7377d0b03f",
   "outcome": "published",
   "reason": "served bytes match"
+ },
+ {
+  "key": "don-quixote/original-en/ch52/words.json",
+  "source": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-73/out/don-quixote/original-en/ch52/auto/words.candidate.json",
+  "at": "2026-09-12T17:01:25Z",
+  "sha256": "4f94f8ceab562919a3052f4bc3cf14c71e4e168631f86c32eecb39834f5de702",
+  "bytes": 607726,
+  "validationFailures": [
+   "text: paragraph 47 matches the edition text at 0.500, below 0.85"
+  ],
+  "outcome": "skipped",
+  "reason": "failed validation"
+ },
+ {
+  "key": "pride-and-prejudice/original-en/ch29/words.json",
+  "source": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-73/out/pride-and-prejudice/original-en/ch29/auto/words.candidate.json",
+  "at": "2026-09-12T17:01:25Z",
+  "sha256": "91a6884ae89a851289a1cb61d8a2affae6d0d64488cf92acace2ae81caea95bb",
+  "bytes": 238793,
+  "validationFailures": [],
+  "servedSha256": "91a6884ae89a851289a1cb61d8a2affae6d0d64488cf92acace2ae81caea95bb",
+  "outcome": "published",
+  "reason": "served bytes match"
+ },
+ {
+  "key": "the-prince/original-en/ch8/words.json",
+  "source": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-73/out/the-prince/original-en/ch8/auto/words.candidate.json",
+  "at": "2026-09-12T17:01:28Z",
+  "sha256": "701fbdd2f2d60bb56dbfc291e84073ee54a3a811aa17ecd81db04aab5ab7be21",
+  "bytes": 267590,
+  "validationFailures": [],
+  "servedSha256": "701fbdd2f2d60bb56dbfc291e84073ee54a3a811aa17ecd81db04aab5ab7be21",
+  "outcome": "published",
+  "reason": "served bytes match"
  }
 ]

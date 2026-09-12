@@ -571,3 +571,66 @@ owned pods: 1   other pods left alone: 1
   3xm4zhpntotknx tinct-words-run3-45 EXITED $0.49/hr up 0.0m (not-running) None
 estimated spend this envelope: $16.14 of $20.00
 [20260912T165047Z] enforce exit 0 spent=16.1437
+Traceback (most recent call last):
+  File "/usr/lib/python3.11/urllib/request.py", line 1348, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "/usr/lib/python3.11/http/client.py", line 1323, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3.11/http/client.py", line 1369, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.11/http/client.py", line 1318, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.11/http/client.py", line 1078, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.11/http/client.py", line 1016, in send
+    self.connect()
+  File "/usr/lib/python3.11/http/client.py", line 1495, in connect
+    self.sock = self._context.wrap_socket(self.sock,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/ssl.py", line 517, in wrap_socket
+    return self.sslsocket_class._create(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/ssl.py", line 1104, in _create
+    self.do_handshake()
+  File "/usr/lib/python3.11/ssl.py", line 1382, in do_handshake
+    self._sslobj.do_handshake()
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/user/tinct/tools/audio-highlight/runpod_guard.py", line 249, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/home/user/tinct/tools/audio-highlight/runpod_guard.py", line 166, in main
+    pods = list_pods(key)
+           ^^^^^^^^^^^^^^
+  File "/home/user/tinct/tools/audio-highlight/runpod_guard.py", line 102, in list_pods
+    status, body = _call("GET", "/pods", key)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/tinct/tools/audio-highlight/runpod_guard.py", line 54, in _call
+    with urllib.request.urlopen(request, timeout=45) as response:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/urllib/request.py", line 216, in urlopen
+    return opener.open(url, data, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/urllib/request.py", line 519, in open
+    response = self._open(req, data)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/urllib/request.py", line 536, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/urllib/request.py", line 496, in _call_chain
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "/usr/lib/python3.11/urllib/request.py", line 1391, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/urllib/request.py", line 1351, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [Errno 104] Connection reset by peer>
+[20260912T165548Z] enforce exit 1 spent=16.1437
+owned pods: 1   other pods left alone: 1
+  6gejzf95vlyjki tinct-words-run3-73 RUNNING $0.49/hr up 7.9m (timestamp) None
+estimated spend this envelope: $16.21 of $20.00
+[20260912T170054Z] enforce exit 0 spent=16.1437
