@@ -269,7 +269,7 @@ there. Listed here because Book 3 is where each is first met or first recurs.
 
 | | with B03-P038 | without it |
 |---|---|---|
-| word ratio | **0.9561** (4,683 / 4,898) | **0.9959** (4,672 / 4,690) |
+| word ratio | **0.9561** (4,683 / 4,898) | **0.9959** (4,671 / 4,690) |
 | Butler token retention | 0.859 | **0.895** |
 
 **The figure to read is the one without B03-P038**, because that paragraph's
