@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "6e15cfbc78ce4556713b199f9b51dbce9b9bc56e3494e69a9cbe8a1d7a92d151",
+  "attempts": [
+    {
+      "asr_seconds": 0.16973571898415685,
+      "alignment_seconds": 0.0002777108456939459,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"She's a married lady, and has two children.\"",
+        "hotwords": "She's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " She's a married lady, and has two children.",
+          "start": 0.08,
+          "end": 2.56,
+          "words": [
+            {
+              "text": " She's",
+              "start": 0.08,
+              "end": 0.6,
+              "probability": 0.977783203125
+            },
+            {
+              "text": " a",
+              "start": 0.6,
+              "end": 0.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " married",
+              "start": 0.68,
+              "end": 0.92,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " lady,",
+              "start": 0.92,
+              "end": 1.32,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 1.6,
+              "end": 1.76,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " has",
+              "start": 1.76,
+              "end": 1.92,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " two",
+              "start": 1.92,
+              "end": 2.14,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " children.",
+              "start": 2.14,
+              "end": 2.56,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "She's",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "raw": "a",
+          "start": 0.6,
+          "end": 0.68
+        },
+        {
+          "raw": "married",
+          "start": 0.68,
+          "end": 0.92
+        },
+        {
+          "raw": "lady,",
+          "start": 0.92,
+          "end": 1.32
+        },
+        {
+          "raw": "and",
+          "start": 1.6,
+          "end": 1.76
+        },
+        {
+          "raw": "has",
+          "start": 1.76,
+          "end": 1.92
+        },
+        {
+          "raw": "two",
+          "start": 1.92,
+          "end": 2.14
+        },
+        {
+          "raw": "children.",
+          "start": 2.14,
+          "end": 2.56
+        }
+      ],
+      "expected_tokens": [
+        "\"She's",
+        "a",
+        "married",
+        "lady,",
+        "and",
+        "has",
+        "two",
+        "children.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "She's",
+          "start": 0.08,
+          "end": 0.6,
+          "key": "shes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.6,
+          "end": 0.68,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "married",
+          "start": 0.68,
+          "end": 0.92,
+          "key": "married",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lady,",
+          "start": 0.92,
+          "end": 1.32,
+          "key": "lady",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.6,
+          "end": 1.76,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 1.76,
+          "end": 1.92,
+          "key": "has",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 1.92,
+          "end": 2.14,
+          "key": "two",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "children.",
+          "start": 2.14,
+          "end": 2.56,
+          "key": "children",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"She's",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "text": "a",
+          "start": 0.6,
+          "end": 0.68
+        },
+        {
+          "text": "married",
+          "start": 0.68,
+          "end": 0.92
+        },
+        {
+          "text": "lady,",
+          "start": 0.92,
+          "end": 1.32
+        },
+        {
+          "text": "and",
+          "start": 1.6,
+          "end": 1.76
+        },
+        {
+          "text": "has",
+          "start": 1.76,
+          "end": 1.92
+        },
+        {
+          "text": "two",
+          "start": 1.92,
+          "end": 2.14
+        },
+        {
+          "text": "children.\"",
+          "start": 2.14,
+          "end": 2.56
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17012495105154812
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6f34196372e5e4fad461f948daa13468576ef8f3c9bde8920a67c6ba80bd0726",
+  "selected_reasons": []
+}

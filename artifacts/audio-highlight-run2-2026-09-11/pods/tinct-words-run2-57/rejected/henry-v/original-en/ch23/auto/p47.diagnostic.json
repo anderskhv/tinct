@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "a2258bb481d24f59f99745e1d83898ef262238edc6ecc60a2a677f69144902bd",
+  "attempts": [
+    {
+      "asr_seconds": 0.19645523000508547,
+      "alignment_seconds": 0.0003184480592608452,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "King Henry. Then I will kiss your lips, Kate.",
+        "hotwords": "King, Henry, Then, I, Kate"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " King Henry. Then I will kiss your lips, Kate.",
+          "start": 0.05,
+          "end": 2.49,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.74853515625
+            },
+            {
+              "text": " Henry.",
+              "start": 0.55,
+              "end": 0.93,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " Then",
+              "start": 1.33,
+              "end": 1.45,
+              "probability": 0.966796875
+            },
+            {
+              "text": " I",
+              "start": 1.45,
+              "end": 1.55,
+              "probability": 0.947265625
+            },
+            {
+              "text": " will",
+              "start": 1.55,
+              "end": 1.67,
+              "probability": 0.994140625
+            },
+            {
+              "text": " kiss",
+              "start": 1.67,
+              "end": 1.81,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " your",
+              "start": 1.81,
+              "end": 1.97,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " lips,",
+              "start": 1.97,
+              "end": 2.23,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Kate.",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.96875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "Henry.",
+          "start": 0.55,
+          "end": 0.93
+        },
+        {
+          "raw": "Then",
+          "start": 1.33,
+          "end": 1.45
+        },
+        {
+          "raw": "I",
+          "start": 1.45,
+          "end": 1.55
+        },
+        {
+          "raw": "will",
+          "start": 1.55,
+          "end": 1.67
+        },
+        {
+          "raw": "kiss",
+          "start": 1.67,
+          "end": 1.81
+        },
+        {
+          "raw": "your",
+          "start": 1.81,
+          "end": 1.97
+        },
+        {
+          "raw": "lips,",
+          "start": 1.97,
+          "end": 2.23
+        },
+        {
+          "raw": "Kate.",
+          "start": 2.49,
+          "end": 2.49
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Henry.",
+        "Then",
+        "I",
+        "will",
+        "kiss",
+        "your",
+        "lips,",
+        "Kate."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Henry.",
+          "start": 0.55,
+          "end": 0.93,
+          "key": "henry",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Then",
+          "start": 1.33,
+          "end": 1.45,
+          "key": "then",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.45,
+          "end": 1.55,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.55,
+          "end": 1.67,
+          "key": "will",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "kiss",
+          "start": 1.67,
+          "end": 1.81,
+          "key": "kiss",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.81,
+          "end": 1.97,
+          "key": "your",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "lips,",
+          "start": 1.97,
+          "end": 2.23,
+          "key": "lips",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Kate.",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "kate",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "Henry.",
+          "start": 0.55,
+          "end": 0.93
+        },
+        {
+          "text": "Then",
+          "start": 1.33,
+          "end": 1.45
+        },
+        {
+          "text": "I",
+          "start": 1.45,
+          "end": 1.55
+        },
+        {
+          "text": "will",
+          "start": 1.55,
+          "end": 1.67
+        },
+        {
+          "text": "kiss",
+          "start": 1.67,
+          "end": 1.81
+        },
+        {
+          "text": "your",
+          "start": 1.81,
+          "end": 1.97
+        },
+        {
+          "text": "lips,",
+          "start": 1.97,
+          "end": 2.23
+        },
+        {
+          "text": "Kate.",
+          "start": 2.49,
+          "end": 2.49
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1969215909484774
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "661ac3671edad499e812de33cdaffd23933bf74c37c1750a8fa071e8e419bc9f",
+  "selected_reasons": []
+}

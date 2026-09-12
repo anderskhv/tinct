@@ -1,0 +1,670 @@
+{
+  "complete": true,
+  "signature": "56de2b533388686ce099205c248cb09b4f212db93d571796d706000d712c0b48",
+  "attempts": [
+    {
+      "asr_seconds": 0.3734710649587214,
+      "alignment_seconds": 0.0005003700498491526,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Williams. All offences, my lord, come from the heart. Never came any from mine that might offend your Majesty.",
+        "hotwords": "Williams, All, Never, Majesty"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Williams, All offences, my lord, come from the heart. Never came any from mine that might offend your Majesty.",
+          "start": 0.02,
+          "end": 6.66,
+          "words": [
+            {
+              "text": " Williams,",
+              "start": 0.02,
+              "end": 0.86,
+              "probability": 0.369384765625
+            },
+            {
+              "text": " All",
+              "start": 1.56,
+              "end": 1.7,
+              "probability": 0.07513427734375
+            },
+            {
+              "text": " offences,",
+              "start": 1.7,
+              "end": 2.12,
+              "probability": 0.046966552734375
+            },
+            {
+              "text": " my",
+              "start": 2.42,
+              "end": 2.56,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " lord,",
+              "start": 2.56,
+              "end": 2.84,
+              "probability": 0.499755859375
+            },
+            {
+              "text": " come",
+              "start": 3.1,
+              "end": 3.24,
+              "probability": 0.76611328125
+            },
+            {
+              "text": " from",
+              "start": 3.24,
+              "end": 3.44,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " the",
+              "start": 3.44,
+              "end": 3.56,
+              "probability": 0.990234375
+            },
+            {
+              "text": " heart.",
+              "start": 3.56,
+              "end": 3.8,
+              "probability": 0.970703125
+            },
+            {
+              "text": " Never",
+              "start": 4.44,
+              "end": 4.56,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " came",
+              "start": 4.56,
+              "end": 4.8,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " any",
+              "start": 4.8,
+              "end": 5.02,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " from",
+              "start": 5.02,
+              "end": 5.22,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " mine",
+              "start": 5.22,
+              "end": 5.5,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " that",
+              "start": 5.5,
+              "end": 5.72,
+              "probability": 0.94921875
+            },
+            {
+              "text": " might",
+              "start": 5.72,
+              "end": 5.9,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " offend",
+              "start": 5.9,
+              "end": 6.2,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " your",
+              "start": 6.2,
+              "end": 6.36,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " Majesty.",
+              "start": 6.36,
+              "end": 6.66,
+              "probability": 0.08233642578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Williams,",
+          "start": 0.02,
+          "end": 0.86
+        },
+        {
+          "raw": "All",
+          "start": 1.56,
+          "end": 1.7
+        },
+        {
+          "raw": "offences,",
+          "start": 1.7,
+          "end": 2.12
+        },
+        {
+          "raw": "my",
+          "start": 2.42,
+          "end": 2.56
+        },
+        {
+          "raw": "lord,",
+          "start": 2.56,
+          "end": 2.84
+        },
+        {
+          "raw": "come",
+          "start": 3.1,
+          "end": 3.24
+        },
+        {
+          "raw": "from",
+          "start": 3.24,
+          "end": 3.44
+        },
+        {
+          "raw": "the",
+          "start": 3.44,
+          "end": 3.56
+        },
+        {
+          "raw": "heart.",
+          "start": 3.56,
+          "end": 3.8
+        },
+        {
+          "raw": "Never",
+          "start": 4.44,
+          "end": 4.56
+        },
+        {
+          "raw": "came",
+          "start": 4.56,
+          "end": 4.8
+        },
+        {
+          "raw": "any",
+          "start": 4.8,
+          "end": 5.02
+        },
+        {
+          "raw": "from",
+          "start": 5.02,
+          "end": 5.22
+        },
+        {
+          "raw": "mine",
+          "start": 5.22,
+          "end": 5.5
+        },
+        {
+          "raw": "that",
+          "start": 5.5,
+          "end": 5.72
+        },
+        {
+          "raw": "might",
+          "start": 5.72,
+          "end": 5.9
+        },
+        {
+          "raw": "offend",
+          "start": 5.9,
+          "end": 6.2
+        },
+        {
+          "raw": "your",
+          "start": 6.2,
+          "end": 6.36
+        },
+        {
+          "raw": "Majesty.",
+          "start": 6.36,
+          "end": 6.66
+        }
+      ],
+      "expected_tokens": [
+        "Williams.",
+        "All",
+        "offences,",
+        "my",
+        "lord,",
+        "come",
+        "from",
+        "the",
+        "heart.",
+        "Never",
+        "came",
+        "any",
+        "from",
+        "mine",
+        "that",
+        "might",
+        "offend",
+        "your",
+        "Majesty."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Williams,",
+          "start": 0.02,
+          "end": 0.86,
+          "key": "williams",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "All",
+          "start": 1.56,
+          "end": 1.7,
+          "key": "all",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "offences,",
+          "start": 1.7,
+          "end": 2.12,
+          "key": "offences",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.42,
+          "end": 2.56,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lord,",
+          "start": 2.56,
+          "end": 2.84,
+          "key": "lord",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 3.1,
+          "end": 3.24,
+          "key": "come",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 3.24,
+          "end": 3.44,
+          "key": "from",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.44,
+          "end": 3.56,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "heart.",
+          "start": 3.56,
+          "end": 3.8,
+          "key": "heart",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Never",
+          "start": 4.44,
+          "end": 4.56,
+          "key": "never",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "came",
+          "start": 4.56,
+          "end": 4.8,
+          "key": "came",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 4.8,
+          "end": 5.02,
+          "key": "any",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 5.02,
+          "end": 5.22,
+          "key": "from",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "mine",
+          "start": 5.22,
+          "end": 5.5,
+          "key": "mine",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 5.5,
+          "end": 5.72,
+          "key": "that",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "might",
+          "start": 5.72,
+          "end": 5.9,
+          "key": "might",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "offend",
+          "start": 5.9,
+          "end": 6.2,
+          "key": "offend",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 6.2,
+          "end": 6.36,
+          "key": "your",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Majesty.",
+          "start": 6.36,
+          "end": 6.66,
+          "key": "majesty",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Williams.",
+          "start": 0.02,
+          "end": 0.86
+        },
+        {
+          "text": "All",
+          "start": 1.56,
+          "end": 1.7
+        },
+        {
+          "text": "offences,",
+          "start": 1.7,
+          "end": 2.12
+        },
+        {
+          "text": "my",
+          "start": 2.42,
+          "end": 2.56
+        },
+        {
+          "text": "lord,",
+          "start": 2.56,
+          "end": 2.84
+        },
+        {
+          "text": "come",
+          "start": 3.1,
+          "end": 3.24
+        },
+        {
+          "text": "from",
+          "start": 3.24,
+          "end": 3.44
+        },
+        {
+          "text": "the",
+          "start": 3.44,
+          "end": 3.56
+        },
+        {
+          "text": "heart.",
+          "start": 3.56,
+          "end": 3.8
+        },
+        {
+          "text": "Never",
+          "start": 4.44,
+          "end": 4.56
+        },
+        {
+          "text": "came",
+          "start": 4.56,
+          "end": 4.8
+        },
+        {
+          "text": "any",
+          "start": 4.8,
+          "end": 5.02
+        },
+        {
+          "text": "from",
+          "start": 5.02,
+          "end": 5.22
+        },
+        {
+          "text": "mine",
+          "start": 5.22,
+          "end": 5.5
+        },
+        {
+          "text": "that",
+          "start": 5.5,
+          "end": 5.72
+        },
+        {
+          "text": "might",
+          "start": 5.72,
+          "end": 5.9
+        },
+        {
+          "text": "offend",
+          "start": 5.9,
+          "end": 6.2
+        },
+        {
+          "text": "your",
+          "start": 6.2,
+          "end": 6.36
+        },
+        {
+          "text": "Majesty.",
+          "start": 6.36,
+          "end": 6.66
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.37421916192397475
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7a419694bbe214f070ab132dfdb74df282ccc0dd244f0239de1e08d67362bab4",
+  "selected_reasons": []
+}

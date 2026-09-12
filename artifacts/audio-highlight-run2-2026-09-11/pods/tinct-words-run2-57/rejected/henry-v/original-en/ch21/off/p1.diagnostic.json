@@ -1,0 +1,354 @@
+{
+  "complete": true,
+  "signature": "718020d1ea253336795e3230b56d8da7912ef2bbfdf4097abcde21a806298c03",
+  "attempts": [
+    {
+      "asr_seconds": 0.19785323296673596,
+      "alignment_seconds": 0.0004134399350732565,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Williams, I warrant it as tonight, you captain.",
+          "start": 0.46,
+          "end": 2.68,
+          "words": [
+            {
+              "text": " Williams,",
+              "start": 0.46,
+              "end": 0.82,
+              "probability": 0.79296875
+            },
+            {
+              "text": " I",
+              "start": 1.4,
+              "end": 1.48,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " warrant",
+              "start": 1.48,
+              "end": 1.66,
+              "probability": 0.66845703125
+            },
+            {
+              "text": " it",
+              "start": 1.66,
+              "end": 1.82,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " as",
+              "start": 1.82,
+              "end": 1.92,
+              "probability": 0.489013671875
+            },
+            {
+              "text": " tonight,",
+              "start": 1.92,
+              "end": 2.16,
+              "probability": 0.89013671875
+            },
+            {
+              "text": " you",
+              "start": 2.34,
+              "end": 2.4,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " captain.",
+              "start": 2.4,
+              "end": 2.68,
+              "probability": 0.6640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Williams,",
+          "start": 0.46,
+          "end": 0.82
+        },
+        {
+          "raw": "I",
+          "start": 1.4,
+          "end": 1.48
+        },
+        {
+          "raw": "warrant",
+          "start": 1.48,
+          "end": 1.66
+        },
+        {
+          "raw": "it",
+          "start": 1.66,
+          "end": 1.82
+        },
+        {
+          "raw": "as",
+          "start": 1.82,
+          "end": 1.92
+        },
+        {
+          "raw": "tonight,",
+          "start": 1.92,
+          "end": 2.16
+        },
+        {
+          "raw": "you",
+          "start": 2.34,
+          "end": 2.4
+        },
+        {
+          "raw": "captain.",
+          "start": 2.4,
+          "end": 2.68
+        }
+      ],
+      "expected_tokens": [
+        "Williams.",
+        "I",
+        "warrant",
+        "it",
+        "is",
+        "to",
+        "knight",
+        "you,",
+        "Captain."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          7,
+          4,
+          6
+        ],
+        [
+          "equal",
+          7,
+          9,
+          6,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          7,
+          4,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Williams,",
+          "start": 0.46,
+          "end": 0.82,
+          "key": "williams",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.4,
+          "end": 1.48,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "warrant",
+          "start": 1.48,
+          "end": 1.66,
+          "key": "warrant",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.66,
+          "end": 1.82,
+          "key": "it",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.82,
+          "end": 1.92,
+          "key": "as",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "tonight,",
+          "start": 1.92,
+          "end": 2.16,
+          "key": "tonight",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.34,
+          "end": 2.4,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "captain.",
+          "start": 2.4,
+          "end": 2.68,
+          "key": "captain",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Williams.",
+          "start": 0.46,
+          "end": 0.82
+        },
+        {
+          "text": "I",
+          "start": 1.4,
+          "end": 1.48
+        },
+        {
+          "text": "warrant",
+          "start": 1.48,
+          "end": 1.66
+        },
+        {
+          "text": "it",
+          "start": 1.66,
+          "end": 1.82
+        },
+        {
+          "text": "is",
+          "start": 1.82,
+          "end": 2.08
+        },
+        {
+          "text": "to",
+          "start": 2.08,
+          "end": 2.21
+        },
+        {
+          "text": "knight",
+          "start": 2.21,
+          "end": 2.275
+        },
+        {
+          "text": "you,",
+          "start": 2.34,
+          "end": 2.4
+        },
+        {
+          "text": "Captain.",
+          "start": 2.4,
+          "end": 2.68
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 8,
+        "matched_words": 6
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19840056891553104
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "75bac70fae2d424e5892849bb9dfe0fa7c6a3a74a14048a6903be4b2e998297c",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

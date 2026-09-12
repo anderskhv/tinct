@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "9a06da2fd0d76bd9517536b2662ceaf00f1acc4b1704594b01374f0f2cbe81e5",
+  "attempts": [
+    {
+      "asr_seconds": 0.3228427660651505,
+      "alignment_seconds": 0.0005991240032017231,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Alarum. Enter King Henry and forces; Warwick, Gloucester, Exeter with prisoners. Flourish.",
+        "hotwords": "Alarum, Enter, King, Henry, Warwick, Gloucester, Exeter, Flourish"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Alarum. Enter King Henry and forces. Warwick, Gloucester, Exeter with prisoners. Flourish.",
+          "start": 0.05,
+          "end": 6.11,
+          "words": [
+            {
+              "text": " Alarum.",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.4461263020833333
+            },
+            {
+              "text": " Enter",
+              "start": 1.33,
+              "end": 1.41,
+              "probability": 0.97265625
+            },
+            {
+              "text": " King",
+              "start": 1.41,
+              "end": 1.65,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " Henry",
+              "start": 1.65,
+              "end": 1.95,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " and",
+              "start": 1.95,
+              "end": 2.17,
+              "probability": 0.81591796875
+            },
+            {
+              "text": " forces.",
+              "start": 2.17,
+              "end": 2.51,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " Warwick,",
+              "start": 3.27,
+              "end": 3.27,
+              "probability": 0.8203125
+            },
+            {
+              "text": " Gloucester,",
+              "start": 3.63,
+              "end": 3.93,
+              "probability": 0.9453125
+            },
+            {
+              "text": " Exeter",
+              "start": 4.05,
+              "end": 4.35,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " with",
+              "start": 4.35,
+              "end": 4.61,
+              "probability": 0.85693359375
+            },
+            {
+              "text": " prisoners.",
+              "start": 4.61,
+              "end": 4.95,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " Flourish.",
+              "start": 5.71,
+              "end": 6.11,
+              "probability": 0.9757486979166666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Alarum.",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "raw": "Enter",
+          "start": 1.33,
+          "end": 1.41
+        },
+        {
+          "raw": "King",
+          "start": 1.41,
+          "end": 1.65
+        },
+        {
+          "raw": "Henry",
+          "start": 1.65,
+          "end": 1.95
+        },
+        {
+          "raw": "and",
+          "start": 1.95,
+          "end": 2.17
+        },
+        {
+          "raw": "forces.",
+          "start": 2.17,
+          "end": 2.51
+        },
+        {
+          "raw": "Warwick,",
+          "start": 3.27,
+          "end": 3.27
+        },
+        {
+          "raw": "Gloucester,",
+          "start": 3.63,
+          "end": 3.93
+        },
+        {
+          "raw": "Exeter",
+          "start": 4.05,
+          "end": 4.35
+        },
+        {
+          "raw": "with",
+          "start": 4.35,
+          "end": 4.61
+        },
+        {
+          "raw": "prisoners.",
+          "start": 4.61,
+          "end": 4.95
+        },
+        {
+          "raw": "Flourish.",
+          "start": 5.71,
+          "end": 6.11
+        }
+      ],
+      "expected_tokens": [
+        "Alarum.",
+        "Enter",
+        "King",
+        "Henry",
+        "and",
+        "forces;",
+        "Warwick,",
+        "Gloucester,",
+        "Exeter",
+        "with",
+        "prisoners.",
+        "Flourish."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Alarum.",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "alarum",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Enter",
+          "start": 1.33,
+          "end": 1.41,
+          "key": "enter",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "King",
+          "start": 1.41,
+          "end": 1.65,
+          "key": "king",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Henry",
+          "start": 1.65,
+          "end": 1.95,
+          "key": "henry",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.95,
+          "end": 2.17,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "forces.",
+          "start": 2.17,
+          "end": 2.51,
+          "key": "forces",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Warwick,",
+          "start": 3.27,
+          "end": 3.27,
+          "key": "warwick",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Gloucester,",
+          "start": 3.63,
+          "end": 3.93,
+          "key": "gloucester",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Exeter",
+          "start": 4.05,
+          "end": 4.35,
+          "key": "exeter",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.35,
+          "end": 4.61,
+          "key": "with",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "prisoners.",
+          "start": 4.61,
+          "end": 4.95,
+          "key": "prisoners",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Flourish.",
+          "start": 5.71,
+          "end": 6.11,
+          "key": "flourish",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Alarum.",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "text": "Enter",
+          "start": 1.33,
+          "end": 1.41
+        },
+        {
+          "text": "King",
+          "start": 1.41,
+          "end": 1.65
+        },
+        {
+          "text": "Henry",
+          "start": 1.65,
+          "end": 1.95
+        },
+        {
+          "text": "and",
+          "start": 1.95,
+          "end": 2.17
+        },
+        {
+          "text": "forces;",
+          "start": 2.17,
+          "end": 2.51
+        },
+        {
+          "text": "Warwick,",
+          "start": 3.27,
+          "end": 3.27
+        },
+        {
+          "text": "Gloucester,",
+          "start": 3.63,
+          "end": 3.93
+        },
+        {
+          "text": "Exeter",
+          "start": 4.05,
+          "end": 4.35
+        },
+        {
+          "text": "with",
+          "start": 4.35,
+          "end": 4.61
+        },
+        {
+          "text": "prisoners.",
+          "start": 4.61,
+          "end": 4.95
+        },
+        {
+          "text": "Flourish.",
+          "start": 5.71,
+          "end": 6.11
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3236647180747241
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2df8e3e3d93ab8dcb30b0cdd04e736cb559df22dee464a8f9bd03a731802d789",
+  "selected_reasons": []
+}

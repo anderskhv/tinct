@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "80c1c48feedba5353587edda046f6457c6f4d2f7daa490e831a2cf14974cf83b",
+  "attempts": [
+    {
+      "asr_seconds": 0.13827577698975801,
+      "alignment_seconds": 0.0003872150555253029,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " King Henry, God keep me so.",
+          "start": 0.05,
+          "end": 2.19,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.83447265625
+            },
+            {
+              "text": " Henry,",
+              "start": 0.53,
+              "end": 0.91,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " God",
+              "start": 1.39,
+              "end": 1.51,
+              "probability": 0.728515625
+            },
+            {
+              "text": " keep",
+              "start": 1.51,
+              "end": 1.75,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " me",
+              "start": 1.75,
+              "end": 1.93,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " so.",
+              "start": 1.93,
+              "end": 2.19,
+              "probability": 0.97119140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "Henry,",
+          "start": 0.53,
+          "end": 0.91
+        },
+        {
+          "raw": "God",
+          "start": 1.39,
+          "end": 1.51
+        },
+        {
+          "raw": "keep",
+          "start": 1.51,
+          "end": 1.75
+        },
+        {
+          "raw": "me",
+          "start": 1.75,
+          "end": 1.93
+        },
+        {
+          "raw": "so.",
+          "start": 1.93,
+          "end": 2.19
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Henry.",
+        "God",
+        "keep",
+        "me",
+        "so!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Henry,",
+          "start": 0.53,
+          "end": 0.91,
+          "key": "henry",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "God",
+          "start": 1.39,
+          "end": 1.51,
+          "key": "god",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "keep",
+          "start": 1.51,
+          "end": 1.75,
+          "key": "keep",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.75,
+          "end": 1.93,
+          "key": "me",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "so.",
+          "start": 1.93,
+          "end": 2.19,
+          "key": "so",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "Henry.",
+          "start": 0.53,
+          "end": 0.91
+        },
+        {
+          "text": "God",
+          "start": 1.39,
+          "end": 1.51
+        },
+        {
+          "text": "keep",
+          "start": 1.51,
+          "end": 1.75
+        },
+        {
+          "text": "me",
+          "start": 1.75,
+          "end": 1.93
+        },
+        {
+          "text": "so!",
+          "start": 1.93,
+          "end": 2.19
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13880345388315618
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c78018ddbe40a26a29933c34ff94c0828e1216dece77ad4411602b0a40048f46",
+  "selected_reasons": []
+}

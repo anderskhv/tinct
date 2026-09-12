@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "d1f59fa3ae735e75d140a8db176fe093b84dfe8a7807610af7da618bc040c214",
+  "attempts": [
+    {
+      "asr_seconds": 0.16408928204327822,
+      "alignment_seconds": 0.00034196116030216217,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " King Henry shall Kate be my wife",
+          "start": 0.02,
+          "end": 2.16,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.71484375
+            },
+            {
+              "text": " Henry",
+              "start": 0.54,
+              "end": 0.92,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " shall",
+              "start": 0.92,
+              "end": 1.4,
+              "probability": 0.5087890625
+            },
+            {
+              "text": " Kate",
+              "start": 1.4,
+              "end": 1.56,
+              "probability": 0.77197265625
+            },
+            {
+              "text": " be",
+              "start": 1.56,
+              "end": 1.74,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " my",
+              "start": 1.74,
+              "end": 1.88,
+              "probability": 0.998046875
+            },
+            {
+              "text": " wife",
+              "start": 1.88,
+              "end": 2.16,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "Henry",
+          "start": 0.54,
+          "end": 0.92
+        },
+        {
+          "raw": "shall",
+          "start": 0.92,
+          "end": 1.4
+        },
+        {
+          "raw": "Kate",
+          "start": 1.4,
+          "end": 1.56
+        },
+        {
+          "raw": "be",
+          "start": 1.56,
+          "end": 1.74
+        },
+        {
+          "raw": "my",
+          "start": 1.74,
+          "end": 1.88
+        },
+        {
+          "raw": "wife",
+          "start": 1.88,
+          "end": 2.16
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Henry.",
+        "Shall",
+        "Kate",
+        "be",
+        "my",
+        "wife?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Henry",
+          "start": 0.54,
+          "end": 0.92,
+          "key": "henry",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 0.92,
+          "end": 1.4,
+          "key": "shall",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Kate",
+          "start": 1.4,
+          "end": 1.56,
+          "key": "kate",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.56,
+          "end": 1.74,
+          "key": "be",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.74,
+          "end": 1.88,
+          "key": "my",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "wife",
+          "start": 1.88,
+          "end": 2.16,
+          "key": "wife",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "Henry.",
+          "start": 0.54,
+          "end": 0.92
+        },
+        {
+          "text": "Shall",
+          "start": 0.92,
+          "end": 1.4
+        },
+        {
+          "text": "Kate",
+          "start": 1.4,
+          "end": 1.56
+        },
+        {
+          "text": "be",
+          "start": 1.56,
+          "end": 1.74
+        },
+        {
+          "text": "my",
+          "start": 1.74,
+          "end": 1.88
+        },
+        {
+          "text": "wife?",
+          "start": 1.88,
+          "end": 2.16
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1645599869079888
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3c839a8f0c49a7ad16c7e3dff5eaccec5cb2b51a1a4e88b748600951f68101eb",
+  "selected_reasons": []
+}

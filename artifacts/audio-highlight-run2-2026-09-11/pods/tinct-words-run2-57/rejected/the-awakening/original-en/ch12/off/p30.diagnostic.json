@@ -1,0 +1,227 @@
+{
+  "complete": true,
+  "signature": "17f8b4811fe53a381ac0cd889b8592d48c87cdc8fe33ce7ed26ed768e4b1f3dc",
+  "attempts": [
+    {
+      "asr_seconds": 0.163916178047657,
+      "alignment_seconds": 0.00023080315440893173,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Anything, cast bait for fish.",
+          "start": 0.08,
+          "end": 2.02,
+          "words": [
+            {
+              "text": " Anything,",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.6708984375
+            },
+            {
+              "text": " cast",
+              "start": 1.2,
+              "end": 1.28,
+              "probability": 0.919921875
+            },
+            {
+              "text": " bait",
+              "start": 1.28,
+              "end": 1.52,
+              "probability": 0.87451171875
+            },
+            {
+              "text": " for",
+              "start": 1.52,
+              "end": 1.74,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " fish.",
+              "start": 1.74,
+              "end": 2.02,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Anything,",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "raw": "cast",
+          "start": 1.2,
+          "end": 1.28
+        },
+        {
+          "raw": "bait",
+          "start": 1.28,
+          "end": 1.52
+        },
+        {
+          "raw": "for",
+          "start": 1.52,
+          "end": 1.74
+        },
+        {
+          "raw": "fish.",
+          "start": 1.74,
+          "end": 2.02
+        }
+      ],
+      "expected_tokens": [
+        "\"Anything—cast",
+        "bait",
+        "for",
+        "fish.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          4,
+          2,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Anything,",
+          "start": 0.08,
+          "end": 0.78,
+          "key": "anything",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "cast",
+          "start": 1.2,
+          "end": 1.28,
+          "key": "cast",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "bait",
+          "start": 1.28,
+          "end": 1.52,
+          "key": "bait",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.52,
+          "end": 1.74,
+          "key": "for",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "fish.",
+          "start": 1.74,
+          "end": 2.02,
+          "key": "fish",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Anything—cast",
+          "start": 0.0,
+          "end": 0.64
+        },
+        {
+          "text": "bait",
+          "start": 1.28,
+          "end": 1.52
+        },
+        {
+          "text": "for",
+          "start": 1.52,
+          "end": 1.74
+        },
+        {
+          "text": "fish.\"",
+          "start": 1.74,
+          "end": 2.02
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 5,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.16423263191245496
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8ecb93cd0f4ec2f525fde285ed11f48c01add67c02cd87d6e203e9b321e72cb2",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

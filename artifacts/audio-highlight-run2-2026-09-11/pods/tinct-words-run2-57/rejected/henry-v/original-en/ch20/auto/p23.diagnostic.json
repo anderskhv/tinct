@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "2855e3c43019f4bc18cc448316fe838a63976d47311a21f83c11e6db54d446e3",
+  "attempts": [
+    {
+      "asr_seconds": 0.20059456792660058,
+      "alignment_seconds": 0.0003343517892062664,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Montjoy. They call it Agincourt.",
+        "hotwords": "Montjoy, They, Agincourt"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Montjoy. They call it Agincourt.",
+          "start": 0.05,
+          "end": 2.15,
+          "words": [
+            {
+              "text": " Montjoy.",
+              "start": 0.05,
+              "end": 0.99,
+              "probability": 0.08295559883117676
+            },
+            {
+              "text": " They",
+              "start": 1.33,
+              "end": 1.35,
+              "probability": 0.96484375
+            },
+            {
+              "text": " call",
+              "start": 1.35,
+              "end": 1.53,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it",
+              "start": 1.53,
+              "end": 1.67,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Agincourt.",
+              "start": 1.67,
+              "end": 2.15,
+              "probability": 0.7313639322916666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Montjoy.",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "raw": "They",
+          "start": 1.33,
+          "end": 1.35
+        },
+        {
+          "raw": "call",
+          "start": 1.35,
+          "end": 1.53
+        },
+        {
+          "raw": "it",
+          "start": 1.53,
+          "end": 1.67
+        },
+        {
+          "raw": "Agincourt.",
+          "start": 1.67,
+          "end": 2.15
+        }
+      ],
+      "expected_tokens": [
+        "Montjoy.",
+        "They",
+        "call",
+        "it",
+        "Agincourt."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Montjoy.",
+          "start": 0.05,
+          "end": 0.99,
+          "key": "montjoy",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 1.33,
+          "end": 1.35,
+          "key": "they",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "call",
+          "start": 1.35,
+          "end": 1.53,
+          "key": "call",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.53,
+          "end": 1.67,
+          "key": "it",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Agincourt.",
+          "start": 1.67,
+          "end": 2.15,
+          "key": "agincourt",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Montjoy.",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "text": "They",
+          "start": 1.33,
+          "end": 1.35
+        },
+        {
+          "text": "call",
+          "start": 1.35,
+          "end": 1.53
+        },
+        {
+          "text": "it",
+          "start": 1.53,
+          "end": 1.67
+        },
+        {
+          "text": "Agincourt.",
+          "start": 1.67,
+          "end": 2.15
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20105439890176058
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d5e4b0c59c8245301469363c23d190d099dae9c322a371a3ce42c70f79e4303d",
+  "selected_reasons": []
+}

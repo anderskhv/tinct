@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "bedf698d541f6794a3be6a1f2ed99241041d3e87345dc22d0cdb65946ed73cb5",
+  "attempts": [
+    {
+      "asr_seconds": 0.24156264099292457,
+      "alignment_seconds": 0.00026184297166764736,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "King Henry. Yet they do wink and yield, as love is blind and enforces.",
+        "hotwords": "King, Henry, Yet"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " King Henry. Yet they do wink and yield, as love is blind and enforces.",
+          "start": 0.05,
+          "end": 4.85,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.87451171875
+            },
+            {
+              "text": " Henry.",
+              "start": 0.55,
+              "end": 0.93,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " Yet",
+              "start": 1.57,
+              "end": 1.65,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " they",
+              "start": 1.65,
+              "end": 1.83,
+              "probability": 0.88623046875
+            },
+            {
+              "text": " do",
+              "start": 1.83,
+              "end": 2.01,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " wink",
+              "start": 2.01,
+              "end": 2.29,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " and",
+              "start": 2.29,
+              "end": 2.51,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " yield,",
+              "start": 2.51,
+              "end": 2.85,
+              "probability": 0.994140625
+            },
+            {
+              "text": " as",
+              "start": 3.19,
+              "end": 3.35,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " love",
+              "start": 3.35,
+              "end": 3.59,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " is",
+              "start": 3.59,
+              "end": 3.81,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " blind",
+              "start": 3.81,
+              "end": 4.17,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 4.17,
+              "end": 4.39,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " enforces.",
+              "start": 4.39,
+              "end": 4.85,
+              "probability": 0.967041015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "Henry.",
+          "start": 0.55,
+          "end": 0.93
+        },
+        {
+          "raw": "Yet",
+          "start": 1.57,
+          "end": 1.65
+        },
+        {
+          "raw": "they",
+          "start": 1.65,
+          "end": 1.83
+        },
+        {
+          "raw": "do",
+          "start": 1.83,
+          "end": 2.01
+        },
+        {
+          "raw": "wink",
+          "start": 2.01,
+          "end": 2.29
+        },
+        {
+          "raw": "and",
+          "start": 2.29,
+          "end": 2.51
+        },
+        {
+          "raw": "yield,",
+          "start": 2.51,
+          "end": 2.85
+        },
+        {
+          "raw": "as",
+          "start": 3.19,
+          "end": 3.35
+        },
+        {
+          "raw": "love",
+          "start": 3.35,
+          "end": 3.59
+        },
+        {
+          "raw": "is",
+          "start": 3.59,
+          "end": 3.81
+        },
+        {
+          "raw": "blind",
+          "start": 3.81,
+          "end": 4.17
+        },
+        {
+          "raw": "and",
+          "start": 4.17,
+          "end": 4.39
+        },
+        {
+          "raw": "enforces.",
+          "start": 4.39,
+          "end": 4.85
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Henry.",
+        "Yet",
+        "they",
+        "do",
+        "wink",
+        "and",
+        "yield,",
+        "as",
+        "love",
+        "is",
+        "blind",
+        "and",
+        "enforces."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Henry.",
+          "start": 0.55,
+          "end": 0.93,
+          "key": "henry",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Yet",
+          "start": 1.57,
+          "end": 1.65,
+          "key": "yet",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 1.65,
+          "end": 1.83,
+          "key": "they",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.83,
+          "end": 2.01,
+          "key": "do",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "wink",
+          "start": 2.01,
+          "end": 2.29,
+          "key": "wink",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.29,
+          "end": 2.51,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "yield,",
+          "start": 2.51,
+          "end": 2.85,
+          "key": "yield",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.19,
+          "end": 3.35,
+          "key": "as",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 3.35,
+          "end": 3.59,
+          "key": "love",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.59,
+          "end": 3.81,
+          "key": "is",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "blind",
+          "start": 3.81,
+          "end": 4.17,
+          "key": "blind",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.17,
+          "end": 4.39,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "enforces.",
+          "start": 4.39,
+          "end": 4.85,
+          "key": "enforces",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "Henry.",
+          "start": 0.55,
+          "end": 0.93
+        },
+        {
+          "text": "Yet",
+          "start": 1.57,
+          "end": 1.65
+        },
+        {
+          "text": "they",
+          "start": 1.65,
+          "end": 1.83
+        },
+        {
+          "text": "do",
+          "start": 1.83,
+          "end": 2.01
+        },
+        {
+          "text": "wink",
+          "start": 2.01,
+          "end": 2.29
+        },
+        {
+          "text": "and",
+          "start": 2.29,
+          "end": 2.51
+        },
+        {
+          "text": "yield,",
+          "start": 2.51,
+          "end": 2.85
+        },
+        {
+          "text": "as",
+          "start": 3.19,
+          "end": 3.35
+        },
+        {
+          "text": "love",
+          "start": 3.35,
+          "end": 3.59
+        },
+        {
+          "text": "is",
+          "start": 3.59,
+          "end": 3.81
+        },
+        {
+          "text": "blind",
+          "start": 3.81,
+          "end": 4.17
+        },
+        {
+          "text": "and",
+          "start": 4.17,
+          "end": 4.39
+        },
+        {
+          "text": "enforces.",
+          "start": 4.39,
+          "end": 4.85
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24192370404489338
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4f2e6861e27d71b70ccdcaff3db05514a7b210ee1e9c503362a28f9bb29a1348",
+  "selected_reasons": []
+}
