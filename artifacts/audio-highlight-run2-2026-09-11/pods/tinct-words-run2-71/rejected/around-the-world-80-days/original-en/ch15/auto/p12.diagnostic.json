@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "810cd75c7a049e18daa8aec0cd87936c0b85207d01935d7afd199ada851960d7",
+  "attempts": [
+    {
+      "asr_seconds": 0.21484886668622494,
+      "alignment_seconds": 0.0004206448793411255,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Why, we are prisoners!\" exclaimed Passepartout, falling into a chair.",
+        "hotwords": "Why, Passepartout"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Why, we are prisoners! exclaimed Passepartout, falling into a chair.",
+          "start": 0.05,
+          "end": 4.27,
+          "words": [
+            {
+              "text": " Why,",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.30615234375
+            },
+            {
+              "text": " we",
+              "start": 0.67,
+              "end": 0.85,
+              "probability": 0.966796875
+            },
+            {
+              "text": " are",
+              "start": 0.85,
+              "end": 0.99,
+              "probability": 0.994140625
+            },
+            {
+              "text": " prisoners!",
+              "start": 0.99,
+              "end": 1.39,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " exclaimed",
+              "start": 2.09,
+              "end": 2.37,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " Passepartout,",
+              "start": 2.37,
+              "end": 3.27,
+              "probability": 0.4496269226074219
+            },
+            {
+              "text": " falling",
+              "start": 3.37,
+              "end": 3.61,
+              "probability": 0.994140625
+            },
+            {
+              "text": " into",
+              "start": 3.61,
+              "end": 3.89,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 3.89,
+              "end": 4.03,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " chair.",
+              "start": 4.03,
+              "end": 4.27,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Why,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "we",
+          "start": 0.67,
+          "end": 0.85
+        },
+        {
+          "raw": "are",
+          "start": 0.85,
+          "end": 0.99
+        },
+        {
+          "raw": "prisoners!",
+          "start": 0.99,
+          "end": 1.39
+        },
+        {
+          "raw": "exclaimed",
+          "start": 2.09,
+          "end": 2.37
+        },
+        {
+          "raw": "Passepartout,",
+          "start": 2.37,
+          "end": 3.27
+        },
+        {
+          "raw": "falling",
+          "start": 3.37,
+          "end": 3.61
+        },
+        {
+          "raw": "into",
+          "start": 3.61,
+          "end": 3.89
+        },
+        {
+          "raw": "a",
+          "start": 3.89,
+          "end": 4.03
+        },
+        {
+          "raw": "chair.",
+          "start": 4.03,
+          "end": 4.27
+        }
+      ],
+      "expected_tokens": [
+        "\"Why,",
+        "we",
+        "are",
+        "prisoners!\"",
+        "exclaimed",
+        "Passepartout,",
+        "falling",
+        "into",
+        "a",
+        "chair."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Why,",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "why",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 0.67,
+          "end": 0.85,
+          "key": "we",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 0.85,
+          "end": 0.99,
+          "key": "are",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "prisoners!",
+          "start": 0.99,
+          "end": 1.39,
+          "key": "prisoners",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "exclaimed",
+          "start": 2.09,
+          "end": 2.37,
+          "key": "exclaimed",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Passepartout,",
+          "start": 2.37,
+          "end": 3.27,
+          "key": "passepartout",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "falling",
+          "start": 3.37,
+          "end": 3.61,
+          "key": "falling",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 3.61,
+          "end": 3.89,
+          "key": "into",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.89,
+          "end": 4.03,
+          "key": "a",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "chair.",
+          "start": 4.03,
+          "end": 4.27,
+          "key": "chair",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Why,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "we",
+          "start": 0.67,
+          "end": 0.85
+        },
+        {
+          "text": "are",
+          "start": 0.85,
+          "end": 0.99
+        },
+        {
+          "text": "prisoners!\"",
+          "start": 0.99,
+          "end": 1.39
+        },
+        {
+          "text": "exclaimed",
+          "start": 2.09,
+          "end": 2.37
+        },
+        {
+          "text": "Passepartout,",
+          "start": 2.37,
+          "end": 3.27
+        },
+        {
+          "text": "falling",
+          "start": 3.37,
+          "end": 3.61
+        },
+        {
+          "text": "into",
+          "start": 3.61,
+          "end": 3.89
+        },
+        {
+          "text": "a",
+          "start": 3.89,
+          "end": 4.03
+        },
+        {
+          "text": "chair.",
+          "start": 4.03,
+          "end": 4.27
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2154222195968032
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a283a48a6164791db71e33a5f6e1ea1d995b45dcc5e6c67285166472a00d3798",
+  "selected_reasons": []
+}

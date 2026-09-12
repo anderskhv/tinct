@@ -1,0 +1,476 @@
+{
+  "complete": true,
+  "signature": "af63726284f40dc214933af7e185c0220feae65fa92f69ba480cabe1904f04b7",
+  "attempts": [
+    {
+      "asr_seconds": 0.2376655451953411,
+      "alignment_seconds": 0.0005777580663561821,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " That was because they had intoxicated her with fumes of hemp and opium.",
+          "start": 0.05,
+          "end": 4.31,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " was",
+              "start": 0.63,
+              "end": 0.79,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " because",
+              "start": 0.79,
+              "end": 1.13,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " they",
+              "start": 1.13,
+              "end": 1.45,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " had",
+              "start": 1.45,
+              "end": 1.55,
+              "probability": 0.998046875
+            },
+            {
+              "text": " intoxicated",
+              "start": 1.55,
+              "end": 2.11,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " her",
+              "start": 2.11,
+              "end": 2.47,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " with",
+              "start": 2.47,
+              "end": 2.87,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " fumes",
+              "start": 2.87,
+              "end": 3.19,
+              "probability": 0.9765625
+            },
+            {
+              "text": " of",
+              "start": 3.19,
+              "end": 3.45,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " hemp",
+              "start": 3.45,
+              "end": 3.75,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 3.75,
+              "end": 3.95,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " opium.",
+              "start": 3.95,
+              "end": 4.31,
+              "probability": 0.98486328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "was",
+          "start": 0.63,
+          "end": 0.79
+        },
+        {
+          "raw": "because",
+          "start": 0.79,
+          "end": 1.13
+        },
+        {
+          "raw": "they",
+          "start": 1.13,
+          "end": 1.45
+        },
+        {
+          "raw": "had",
+          "start": 1.45,
+          "end": 1.55
+        },
+        {
+          "raw": "intoxicated",
+          "start": 1.55,
+          "end": 2.11
+        },
+        {
+          "raw": "her",
+          "start": 2.11,
+          "end": 2.47
+        },
+        {
+          "raw": "with",
+          "start": 2.47,
+          "end": 2.87
+        },
+        {
+          "raw": "fumes",
+          "start": 2.87,
+          "end": 3.19
+        },
+        {
+          "raw": "of",
+          "start": 3.19,
+          "end": 3.45
+        },
+        {
+          "raw": "hemp",
+          "start": 3.45,
+          "end": 3.75
+        },
+        {
+          "raw": "and",
+          "start": 3.75,
+          "end": 3.95
+        },
+        {
+          "raw": "opium.",
+          "start": 3.95,
+          "end": 4.31
+        }
+      ],
+      "expected_tokens": [
+        "\"That",
+        "was",
+        "because",
+        "they",
+        "had",
+        "intoxicated",
+        "her",
+        "with",
+        "fumes",
+        "of",
+        "hemp",
+        "and",
+        "opium.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "That",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "that",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.63,
+          "end": 0.79,
+          "key": "was",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "because",
+          "start": 0.79,
+          "end": 1.13,
+          "key": "because",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 1.13,
+          "end": 1.45,
+          "key": "they",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 1.45,
+          "end": 1.55,
+          "key": "had",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "intoxicated",
+          "start": 1.55,
+          "end": 2.11,
+          "key": "intoxicated",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 2.11,
+          "end": 2.47,
+          "key": "her",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.47,
+          "end": 2.87,
+          "key": "with",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "fumes",
+          "start": 2.87,
+          "end": 3.19,
+          "key": "fumes",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.19,
+          "end": 3.45,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "hemp",
+          "start": 3.45,
+          "end": 3.75,
+          "key": "hemp",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.75,
+          "end": 3.95,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "opium.",
+          "start": 3.95,
+          "end": 4.31,
+          "key": "opium",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"That",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "was",
+          "start": 0.63,
+          "end": 0.79
+        },
+        {
+          "text": "because",
+          "start": 0.79,
+          "end": 1.13
+        },
+        {
+          "text": "they",
+          "start": 1.13,
+          "end": 1.45
+        },
+        {
+          "text": "had",
+          "start": 1.45,
+          "end": 1.55
+        },
+        {
+          "text": "intoxicated",
+          "start": 1.55,
+          "end": 2.11
+        },
+        {
+          "text": "her",
+          "start": 2.11,
+          "end": 2.47
+        },
+        {
+          "text": "with",
+          "start": 2.47,
+          "end": 2.87
+        },
+        {
+          "text": "fumes",
+          "start": 2.87,
+          "end": 3.19
+        },
+        {
+          "text": "of",
+          "start": 3.19,
+          "end": 3.45
+        },
+        {
+          "text": "hemp",
+          "start": 3.45,
+          "end": 3.75
+        },
+        {
+          "text": "and",
+          "start": 3.75,
+          "end": 3.95
+        },
+        {
+          "text": "opium.\"",
+          "start": 3.95,
+          "end": 4.31
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2384748524054885
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "daa24283c1db22f673e96f69930b56819f982e9b7ca52b0cc509988cab30c9af",
+  "selected_reasons": []
+}

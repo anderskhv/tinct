@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "f865a60018d2cea62a3b957abf4f40ae9f53a7a93984fe759a2d6e0deb2a325a",
+  "attempts": [
+    {
+      "asr_seconds": 0.22121031489223242,
+      "alignment_seconds": 0.00034651532769203186,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Whereupon he placed a pair of shoes on his desk.",
+        "hotwords": "Whereupon"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Whereupon he placed a pair of shoes on his desk.",
+          "start": 0.51,
+          "end": 3.01,
+          "words": [
+            {
+              "text": " Whereupon",
+              "start": 0.51,
+              "end": 0.95,
+              "probability": 0.8076171875
+            },
+            {
+              "text": " he",
+              "start": 0.95,
+              "end": 1.35,
+              "probability": 0.488037109375
+            },
+            {
+              "text": " placed",
+              "start": 1.35,
+              "end": 1.57,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " a",
+              "start": 1.57,
+              "end": 1.73,
+              "probability": 0.998046875
+            },
+            {
+              "text": " pair",
+              "start": 1.73,
+              "end": 1.89,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 1.89,
+              "end": 2.05,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " shoes",
+              "start": 2.05,
+              "end": 2.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " on",
+              "start": 2.23,
+              "end": 2.45,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 2.45,
+              "end": 2.59,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " desk.",
+              "start": 2.59,
+              "end": 3.01,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Whereupon",
+          "start": 0.51,
+          "end": 0.95
+        },
+        {
+          "raw": "he",
+          "start": 0.95,
+          "end": 1.35
+        },
+        {
+          "raw": "placed",
+          "start": 1.35,
+          "end": 1.57
+        },
+        {
+          "raw": "a",
+          "start": 1.57,
+          "end": 1.73
+        },
+        {
+          "raw": "pair",
+          "start": 1.73,
+          "end": 1.89
+        },
+        {
+          "raw": "of",
+          "start": 1.89,
+          "end": 2.05
+        },
+        {
+          "raw": "shoes",
+          "start": 2.05,
+          "end": 2.23
+        },
+        {
+          "raw": "on",
+          "start": 2.23,
+          "end": 2.45
+        },
+        {
+          "raw": "his",
+          "start": 2.45,
+          "end": 2.59
+        },
+        {
+          "raw": "desk.",
+          "start": 2.59,
+          "end": 3.01
+        }
+      ],
+      "expected_tokens": [
+        "Whereupon",
+        "he",
+        "placed",
+        "a",
+        "pair",
+        "of",
+        "shoes",
+        "on",
+        "his",
+        "desk."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Whereupon",
+          "start": 0.51,
+          "end": 0.95,
+          "key": "whereupon",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.95,
+          "end": 1.35,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "placed",
+          "start": 1.35,
+          "end": 1.57,
+          "key": "placed",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.57,
+          "end": 1.73,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "pair",
+          "start": 1.73,
+          "end": 1.89,
+          "key": "pair",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.89,
+          "end": 2.05,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "shoes",
+          "start": 2.05,
+          "end": 2.23,
+          "key": "shoes",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.23,
+          "end": 2.45,
+          "key": "on",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.45,
+          "end": 2.59,
+          "key": "his",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "desk.",
+          "start": 2.59,
+          "end": 3.01,
+          "key": "desk",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Whereupon",
+          "start": 0.51,
+          "end": 0.95
+        },
+        {
+          "text": "he",
+          "start": 0.95,
+          "end": 1.35
+        },
+        {
+          "text": "placed",
+          "start": 1.35,
+          "end": 1.57
+        },
+        {
+          "text": "a",
+          "start": 1.57,
+          "end": 1.73
+        },
+        {
+          "text": "pair",
+          "start": 1.73,
+          "end": 1.89
+        },
+        {
+          "text": "of",
+          "start": 1.89,
+          "end": 2.05
+        },
+        {
+          "text": "shoes",
+          "start": 2.05,
+          "end": 2.23
+        },
+        {
+          "text": "on",
+          "start": 2.23,
+          "end": 2.45
+        },
+        {
+          "text": "his",
+          "start": 2.45,
+          "end": 2.59
+        },
+        {
+          "text": "desk.",
+          "start": 2.59,
+          "end": 3.01
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2217063158750534
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2afd8b71b4f5938a404d98976b353a162778dfe0ab23f90e5e077ed1990980a0",
+  "selected_reasons": []
+}

@@ -1,0 +1,645 @@
+{
+  "complete": true,
+  "signature": "6ca4c4a4c66a57e5246f09509b8e7942b8e8790986d26e9e8f9d89a1d2fed7b1",
+  "attempts": [
+    {
+      "asr_seconds": 0.35953416489064693,
+      "alignment_seconds": 0.0005272747948765755,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Pilot,\" said Mr. Fogg, \"I must take the American steamer at Yokohama, and not at Shanghai or Nagasaki.\"",
+        "hotwords": "Pilot, Mr, Fogg, I, American, Yokohama, Shanghai, Nagasaki"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Pilot, said Mr. Fogg, I must take the American steamer at Yokohama, and not at Shanghai or",
+          "start": 0.02,
+          "end": 6.46,
+          "words": [
+            {
+              "text": " Pilot,",
+              "start": 0.02,
+              "end": 0.8,
+              "probability": 0.1282958984375
+            },
+            {
+              "text": " said",
+              "start": 1.16,
+              "end": 1.4,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " Mr.",
+              "start": 1.4,
+              "end": 1.72,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " Fogg,",
+              "start": 1.94,
+              "end": 2.06,
+              "probability": 0.770751953125
+            },
+            {
+              "text": " I",
+              "start": 2.62,
+              "end": 2.7,
+              "probability": 0.591796875
+            },
+            {
+              "text": " must",
+              "start": 2.7,
+              "end": 2.86,
+              "probability": 0.998046875
+            },
+            {
+              "text": " take",
+              "start": 2.86,
+              "end": 3.06,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 3.06,
+              "end": 3.26,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " American",
+              "start": 3.26,
+              "end": 3.68,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " steamer",
+              "start": 3.68,
+              "end": 4.2,
+              "probability": 0.867431640625
+            },
+            {
+              "text": " at",
+              "start": 4.2,
+              "end": 4.34,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Yokohama,",
+              "start": 4.34,
+              "end": 4.92,
+              "probability": 0.9939778645833334
+            },
+            {
+              "text": " and",
+              "start": 5.24,
+              "end": 5.4,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " not",
+              "start": 5.4,
+              "end": 5.6,
+              "probability": 0.998046875
+            },
+            {
+              "text": " at",
+              "start": 5.6,
+              "end": 5.74,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Shanghai",
+              "start": 5.74,
+              "end": 6.12,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " or",
+              "start": 6.12,
+              "end": 6.46,
+              "probability": 0.98193359375
+            }
+          ]
+        },
+        {
+          "text": " Nagasaki.",
+          "start": 6.46,
+          "end": 7.02,
+          "words": [
+            {
+              "text": " Nagasaki.",
+              "start": 6.46,
+              "end": 7.02,
+              "probability": 0.996826171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pilot,",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "raw": "said",
+          "start": 1.16,
+          "end": 1.4
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.4,
+          "end": 1.72
+        },
+        {
+          "raw": "Fogg,",
+          "start": 1.94,
+          "end": 2.06
+        },
+        {
+          "raw": "I",
+          "start": 2.62,
+          "end": 2.7
+        },
+        {
+          "raw": "must",
+          "start": 2.7,
+          "end": 2.86
+        },
+        {
+          "raw": "take",
+          "start": 2.86,
+          "end": 3.06
+        },
+        {
+          "raw": "the",
+          "start": 3.06,
+          "end": 3.26
+        },
+        {
+          "raw": "American",
+          "start": 3.26,
+          "end": 3.68
+        },
+        {
+          "raw": "steamer",
+          "start": 3.68,
+          "end": 4.2
+        },
+        {
+          "raw": "at",
+          "start": 4.2,
+          "end": 4.34
+        },
+        {
+          "raw": "Yokohama,",
+          "start": 4.34,
+          "end": 4.92
+        },
+        {
+          "raw": "and",
+          "start": 5.24,
+          "end": 5.4
+        },
+        {
+          "raw": "not",
+          "start": 5.4,
+          "end": 5.6
+        },
+        {
+          "raw": "at",
+          "start": 5.6,
+          "end": 5.74
+        },
+        {
+          "raw": "Shanghai",
+          "start": 5.74,
+          "end": 6.12
+        },
+        {
+          "raw": "or",
+          "start": 6.12,
+          "end": 6.46
+        },
+        {
+          "raw": "Nagasaki.",
+          "start": 6.46,
+          "end": 7.02
+        }
+      ],
+      "expected_tokens": [
+        "\"Pilot,\"",
+        "said",
+        "Mr.",
+        "Fogg,",
+        "\"I",
+        "must",
+        "take",
+        "the",
+        "American",
+        "steamer",
+        "at",
+        "Yokohama,",
+        "and",
+        "not",
+        "at",
+        "Shanghai",
+        "or",
+        "Nagasaki.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pilot,",
+          "start": 0.02,
+          "end": 0.8,
+          "key": "pilot",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.16,
+          "end": 1.4,
+          "key": "said",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.4,
+          "end": 1.72,
+          "key": "mr",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Fogg,",
+          "start": 1.94,
+          "end": 2.06,
+          "key": "fogg",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.62,
+          "end": 2.7,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 2.7,
+          "end": 2.86,
+          "key": "must",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 2.86,
+          "end": 3.06,
+          "key": "take",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.06,
+          "end": 3.26,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "American",
+          "start": 3.26,
+          "end": 3.68,
+          "key": "american",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "steamer",
+          "start": 3.68,
+          "end": 4.2,
+          "key": "steamer",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 4.2,
+          "end": 4.34,
+          "key": "at",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Yokohama,",
+          "start": 4.34,
+          "end": 4.92,
+          "key": "yokohama",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.24,
+          "end": 5.4,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 5.4,
+          "end": 5.6,
+          "key": "not",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 5.6,
+          "end": 5.74,
+          "key": "at",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Shanghai",
+          "start": 5.74,
+          "end": 6.12,
+          "key": "shanghai",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 6.12,
+          "end": 6.46,
+          "key": "or",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Nagasaki.",
+          "start": 6.46,
+          "end": 7.02,
+          "key": "nagasaki",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Pilot,\"",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "text": "said",
+          "start": 1.16,
+          "end": 1.4
+        },
+        {
+          "text": "Mr.",
+          "start": 1.4,
+          "end": 1.72
+        },
+        {
+          "text": "Fogg,",
+          "start": 1.94,
+          "end": 2.06
+        },
+        {
+          "text": "\"I",
+          "start": 2.62,
+          "end": 2.7
+        },
+        {
+          "text": "must",
+          "start": 2.7,
+          "end": 2.86
+        },
+        {
+          "text": "take",
+          "start": 2.86,
+          "end": 3.06
+        },
+        {
+          "text": "the",
+          "start": 3.06,
+          "end": 3.26
+        },
+        {
+          "text": "American",
+          "start": 3.26,
+          "end": 3.68
+        },
+        {
+          "text": "steamer",
+          "start": 3.68,
+          "end": 4.2
+        },
+        {
+          "text": "at",
+          "start": 4.2,
+          "end": 4.34
+        },
+        {
+          "text": "Yokohama,",
+          "start": 4.34,
+          "end": 4.92
+        },
+        {
+          "text": "and",
+          "start": 5.24,
+          "end": 5.4
+        },
+        {
+          "text": "not",
+          "start": 5.4,
+          "end": 5.6
+        },
+        {
+          "text": "at",
+          "start": 5.6,
+          "end": 5.74
+        },
+        {
+          "text": "Shanghai",
+          "start": 5.74,
+          "end": 6.12
+        },
+        {
+          "text": "or",
+          "start": 6.12,
+          "end": 6.46
+        },
+        {
+          "text": "Nagasaki.\"",
+          "start": 6.46,
+          "end": 7.02
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3603239953517914
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e7865912ddc90e0c9cc0061cf9aa36ac4dce176d40ddeeea6a3c0b1a8384e379",
+  "selected_reasons": []
+}

@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "ae7231fabbde133d01011b2dddaf7ce300f0f7517a611ad218e430f10d6f912d",
+  "attempts": [
+    {
+      "asr_seconds": 0.18696899246424437,
+      "alignment_seconds": 0.00033372920006513596,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I am sorry,\" said the sailor; \"but it is impossible.\"",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I am sorry, said the sailor, but it is impossible.",
+          "start": 0.08,
+          "end": 3.12,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.2177734375
+            },
+            {
+              "text": " am",
+              "start": 0.54,
+              "end": 0.66,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " sorry,",
+              "start": 0.66,
+              "end": 1.08,
+              "probability": 0.994140625
+            },
+            {
+              "text": " said",
+              "start": 1.34,
+              "end": 1.48,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 1.48,
+              "end": 1.6,
+              "probability": 0.990234375
+            },
+            {
+              "text": " sailor,",
+              "start": 1.6,
+              "end": 1.86,
+              "probability": 0.5625
+            },
+            {
+              "text": " but",
+              "start": 2.28,
+              "end": 2.44,
+              "probability": 0.99609375
+            },
+            {
+              "text": " it",
+              "start": 2.44,
+              "end": 2.52,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " is",
+              "start": 2.52,
+              "end": 2.64,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " impossible.",
+              "start": 2.64,
+              "end": 3.12,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "am",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "raw": "sorry,",
+          "start": 0.66,
+          "end": 1.08
+        },
+        {
+          "raw": "said",
+          "start": 1.34,
+          "end": 1.48
+        },
+        {
+          "raw": "the",
+          "start": 1.48,
+          "end": 1.6
+        },
+        {
+          "raw": "sailor,",
+          "start": 1.6,
+          "end": 1.86
+        },
+        {
+          "raw": "but",
+          "start": 2.28,
+          "end": 2.44
+        },
+        {
+          "raw": "it",
+          "start": 2.44,
+          "end": 2.52
+        },
+        {
+          "raw": "is",
+          "start": 2.52,
+          "end": 2.64
+        },
+        {
+          "raw": "impossible.",
+          "start": 2.64,
+          "end": 3.12
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "am",
+        "sorry,\"",
+        "said",
+        "the",
+        "sailor;",
+        "\"but",
+        "it",
+        "is",
+        "impossible.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 0.54,
+          "end": 0.66,
+          "key": "am",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sorry,",
+          "start": 0.66,
+          "end": 1.08,
+          "key": "sorry",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.34,
+          "end": 1.48,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.48,
+          "end": 1.6,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sailor,",
+          "start": 1.6,
+          "end": 1.86,
+          "key": "sailor",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.28,
+          "end": 2.44,
+          "key": "but",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.44,
+          "end": 2.52,
+          "key": "it",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.52,
+          "end": 2.64,
+          "key": "is",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "impossible.",
+          "start": 2.64,
+          "end": 3.12,
+          "key": "impossible",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "am",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "text": "sorry,\"",
+          "start": 0.66,
+          "end": 1.08
+        },
+        {
+          "text": "said",
+          "start": 1.34,
+          "end": 1.48
+        },
+        {
+          "text": "the",
+          "start": 1.48,
+          "end": 1.6
+        },
+        {
+          "text": "sailor;",
+          "start": 1.6,
+          "end": 1.86
+        },
+        {
+          "text": "\"but",
+          "start": 2.28,
+          "end": 2.44
+        },
+        {
+          "text": "it",
+          "start": 2.44,
+          "end": 2.52
+        },
+        {
+          "text": "is",
+          "start": 2.52,
+          "end": 2.64
+        },
+        {
+          "text": "impossible.\"",
+          "start": 2.64,
+          "end": 3.12
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18745242711156607
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "77a36a53e37e772b07cca66abbe87c94d16098da939294df3261b9b299b2f932",
+  "selected_reasons": []
+}

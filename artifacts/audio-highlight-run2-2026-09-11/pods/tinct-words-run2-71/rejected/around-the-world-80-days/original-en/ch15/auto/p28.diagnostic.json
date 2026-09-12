@@ -1,0 +1,353 @@
+{
+  "complete": true,
+  "signature": "8f4e7fee6fbb178a3f0c08ad2b17cba0e0fa55c624fe2b740a26597e469bd6bf",
+  "attempts": [
+    {
+      "asr_seconds": 0.16227062419056892,
+      "alignment_seconds": 0.00019609183073043823,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Passepartout?\"",
+        "hotwords": "Passepartout"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Passapartout",
+          "start": 0.05,
+          "end": 1.11,
+          "words": [
+            {
+              "text": " Passapartout",
+              "start": 0.05,
+              "end": 1.11,
+              "probability": 0.4816246032714844
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Passapartout",
+          "start": 0.05,
+          "end": 1.11
+        }
+      ],
+      "expected_tokens": [
+        "\"Passepartout?\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Passapartout",
+          "start": 0.05,
+          "end": 1.11,
+          "key": "passapartout",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Passepartout?\"",
+          "start": 0.0,
+          "end": 0.555
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.16252832114696503
+    },
+    {
+      "asr_seconds": 0.12832712661474943,
+      "alignment_seconds": 0.00020718015730381012,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Passepartout"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Passapartout",
+          "start": 0.05,
+          "end": 1.11,
+          "words": [
+            {
+              "text": " Passapartout",
+              "start": 0.05,
+              "end": 1.11,
+              "probability": 0.4816246032714844
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Passapartout",
+          "start": 0.05,
+          "end": 1.11
+        }
+      ],
+      "expected_tokens": [
+        "\"Passepartout?\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Passapartout",
+          "start": 0.05,
+          "end": 1.11,
+          "key": "passapartout",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Passepartout?\"",
+          "start": 0.0,
+          "end": 0.555
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12859901785850525
+    },
+    {
+      "asr_seconds": 0.13214240409433842,
+      "alignment_seconds": 0.00025226548314094543,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Pass the part out.",
+          "start": 0.05,
+          "end": 1.13,
+          "words": [
+            {
+              "text": " Pass",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " the",
+              "start": 0.61,
+              "end": 0.73,
+              "probability": 0.427490234375
+            },
+            {
+              "text": " part",
+              "start": 0.73,
+              "end": 0.89,
+              "probability": 0.64306640625
+            },
+            {
+              "text": " out.",
+              "start": 0.89,
+              "end": 1.13,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pass",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "the",
+          "start": 0.61,
+          "end": 0.73
+        },
+        {
+          "raw": "part",
+          "start": 0.73,
+          "end": 0.89
+        },
+        {
+          "raw": "out.",
+          "start": 0.89,
+          "end": 1.13
+        }
+      ],
+      "expected_tokens": [
+        "\"Passepartout?\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pass",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "pass",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.61,
+          "end": 0.73,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "part",
+          "start": 0.73,
+          "end": 0.89,
+          "key": "part",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "out.",
+          "start": 0.89,
+          "end": 1.13,
+          "key": "out",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Passepartout?\"",
+          "start": 0.0,
+          "end": 0.565
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 4,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13251708447933197
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3e900e9888b841753e19eb1853a5ea0756d1c5787d744656906968ce49c7f8a2",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "f396e14b66eaca8df7a8cdbc47cad3f99a90bf88e857352f620d0b07d52a9464",
+  "attempts": [
+    {
+      "asr_seconds": 0.1522940592840314,
+      "alignment_seconds": 0.00022977031767368317,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " especially after a good meal.",
+          "start": 0.02,
+          "end": 1.9,
+          "words": [
+            {
+              "text": " especially",
+              "start": 0.02,
+              "end": 0.82,
+              "probability": 0.6416015625
+            },
+            {
+              "text": " after",
+              "start": 0.82,
+              "end": 1.3,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " a",
+              "start": 1.3,
+              "end": 1.48,
+              "probability": 0.998046875
+            },
+            {
+              "text": " good",
+              "start": 1.48,
+              "end": 1.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " meal.",
+              "start": 1.58,
+              "end": 1.9,
+              "probability": 1.0
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "especially",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "raw": "after",
+          "start": 0.82,
+          "end": 1.3
+        },
+        {
+          "raw": "a",
+          "start": 1.3,
+          "end": 1.48
+        },
+        {
+          "raw": "good",
+          "start": 1.48,
+          "end": 1.58
+        },
+        {
+          "raw": "meal.",
+          "start": 1.58,
+          "end": 1.9
+        }
+      ],
+      "expected_tokens": [
+        "\"Especially",
+        "after",
+        "a",
+        "good",
+        "meal.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "especially",
+          "start": 0.02,
+          "end": 0.82,
+          "key": "especially",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 0.82,
+          "end": 1.3,
+          "key": "after",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.3,
+          "end": 1.48,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.48,
+          "end": 1.58,
+          "key": "good",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "meal.",
+          "start": 1.58,
+          "end": 1.9,
+          "key": "meal",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Especially",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "text": "after",
+          "start": 0.82,
+          "end": 1.3
+        },
+        {
+          "text": "a",
+          "start": 1.3,
+          "end": 1.48
+        },
+        {
+          "text": "good",
+          "start": 1.48,
+          "end": 1.58
+        },
+        {
+          "text": "meal.\"",
+          "start": 1.58,
+          "end": 1.9
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1526189548894763
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7841ce53f26d5823d70c315af82043d9f5fee2de64dea127cc355a5f5def9eca",
+  "selected_reasons": []
+}

@@ -1,0 +1,506 @@
+{
+  "complete": true,
+  "signature": "bc05836bc64a831f03d78a0e6c361d9498f023c53f1afc5442326526ab3b38b3",
+  "attempts": [
+    {
+      "asr_seconds": 0.3282388485968113,
+      "alignment_seconds": 0.000472046434879303,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Reach Turin by Mount Sennies Friday, October 4th at 6.35 a.m.",
+          "start": 0.02,
+          "end": 5.46,
+          "words": [
+            {
+              "text": " Reach",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.53759765625
+            },
+            {
+              "text": " Turin",
+              "start": 0.62,
+              "end": 0.96,
+              "probability": 0.704345703125
+            },
+            {
+              "text": " by",
+              "start": 0.96,
+              "end": 1.12,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " Mount",
+              "start": 1.12,
+              "end": 1.38,
+              "probability": 0.1270751953125
+            },
+            {
+              "text": " Sennies",
+              "start": 1.38,
+              "end": 1.86,
+              "probability": 0.599609375
+            },
+            {
+              "text": " Friday,",
+              "start": 1.86,
+              "end": 2.52,
+              "probability": 0.56640625
+            },
+            {
+              "text": " October",
+              "start": 2.8,
+              "end": 3.06,
+              "probability": 0.6748046875
+            },
+            {
+              "text": " 4th",
+              "start": 3.06,
+              "end": 3.88,
+              "probability": 0.7103271484375
+            },
+            {
+              "text": " at",
+              "start": 3.88,
+              "end": 3.96,
+              "probability": 0.7587890625
+            },
+            {
+              "text": " 6",
+              "start": 3.96,
+              "end": 4.28,
+              "probability": 0.99609375
+            },
+            {
+              "text": ".35",
+              "start": 4.28,
+              "end": 4.92,
+              "probability": 0.995849609375
+            },
+            {
+              "text": " a",
+              "start": 4.92,
+              "end": 5.2,
+              "probability": 0.55029296875
+            },
+            {
+              "text": ".m.",
+              "start": 5.2,
+              "end": 5.46,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Reach",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "Turin",
+          "start": 0.62,
+          "end": 0.96
+        },
+        {
+          "raw": "by",
+          "start": 0.96,
+          "end": 1.12
+        },
+        {
+          "raw": "Mount",
+          "start": 1.12,
+          "end": 1.38
+        },
+        {
+          "raw": "Sennies",
+          "start": 1.38,
+          "end": 1.86
+        },
+        {
+          "raw": "Friday,",
+          "start": 1.86,
+          "end": 2.52
+        },
+        {
+          "raw": "October",
+          "start": 2.8,
+          "end": 3.06
+        },
+        {
+          "raw": "4th",
+          "start": 3.06,
+          "end": 3.88
+        },
+        {
+          "raw": "at",
+          "start": 3.88,
+          "end": 3.96
+        },
+        {
+          "raw": "6",
+          "start": 3.96,
+          "end": 4.28
+        },
+        {
+          "raw": ".35",
+          "start": 4.28,
+          "end": 4.92
+        },
+        {
+          "raw": "a",
+          "start": 4.92,
+          "end": 5.2
+        },
+        {
+          "raw": ".m.",
+          "start": 5.2,
+          "end": 5.46
+        }
+      ],
+      "expected_tokens": [
+        "\"Reached",
+        "Turin",
+        "by",
+        "Mont",
+        "Cenis,",
+        "Friday,",
+        "October",
+        "4th,",
+        "at",
+        "6.35",
+        "a.m."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          5
+        ],
+        [
+          "equal",
+          5,
+          9,
+          5,
+          9
+        ],
+        [
+          "replace",
+          9,
+          11,
+          9,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          5
+        ],
+        [
+          "replace",
+          9,
+          11,
+          9,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Reach",
+          "start": 0.02,
+          "end": 0.62,
+          "key": "reach",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Turin",
+          "start": 0.62,
+          "end": 0.96,
+          "key": "turin",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 0.96,
+          "end": 1.12,
+          "key": "by",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Mount",
+          "start": 1.12,
+          "end": 1.38,
+          "key": "mount",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Sennies",
+          "start": 1.38,
+          "end": 1.86,
+          "key": "sennies",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Friday,",
+          "start": 1.86,
+          "end": 2.52,
+          "key": "friday",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "October",
+          "start": 2.8,
+          "end": 3.06,
+          "key": "october",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "4th",
+          "start": 3.06,
+          "end": 3.88,
+          "key": "4th",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 3.88,
+          "end": 3.96,
+          "key": "at",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "6",
+          "start": 3.96,
+          "end": 4.28,
+          "key": "six",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": ".35",
+          "start": 4.28,
+          "end": 4.92,
+          "key": "thirtyfive",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.92,
+          "end": 5.2,
+          "key": "a",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": ".m.",
+          "start": 5.2,
+          "end": 5.46,
+          "key": "m",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Reached",
+          "start": 0.0,
+          "end": 0.31
+        },
+        {
+          "text": "Turin",
+          "start": 0.62,
+          "end": 0.96
+        },
+        {
+          "text": "by",
+          "start": 0.96,
+          "end": 1.12
+        },
+        {
+          "text": "Mont",
+          "start": 1.12,
+          "end": 1.49
+        },
+        {
+          "text": "Cenis,",
+          "start": 1.49,
+          "end": 1.675
+        },
+        {
+          "text": "Friday,",
+          "start": 1.86,
+          "end": 2.52
+        },
+        {
+          "text": "October",
+          "start": 2.8,
+          "end": 3.06
+        },
+        {
+          "text": "4th,",
+          "start": 3.06,
+          "end": 3.88
+        },
+        {
+          "text": "at",
+          "start": 3.88,
+          "end": 3.96
+        },
+        {
+          "text": "6.35",
+          "start": 3.96,
+          "end": 4.71
+        },
+        {
+          "text": "a.m.",
+          "start": 4.71,
+          "end": 5.085
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 13,
+        "matched_words": 6
+      },
+      "match_ratio": 0.5454545454545454,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.32888079434633255
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d0e5c4d34c76e2c6e76cb3cc642690cdfd01c2c166529eaba796cc5b9698a004",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

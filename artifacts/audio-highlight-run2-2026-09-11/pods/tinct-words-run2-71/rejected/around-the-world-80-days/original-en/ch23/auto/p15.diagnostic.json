@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "048c8cc80d83c1d544f51f4619148630e543c033c2e3190d7281f0fa3082ad84",
+  "attempts": [
+    {
+      "asr_seconds": 0.2248849431052804,
+      "alignment_seconds": 0.0003896653652191162,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Would you like a servant, sir?\" asked Passepartout.",
+        "hotwords": "Would, Passepartout"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Would you like a servant, sir?\" asked Passepartout.",
+          "start": 0.02,
+          "end": 3.12,
+          "words": [
+            {
+              "text": " Would",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.470458984375
+            },
+            {
+              "text": " you",
+              "start": 0.52,
+              "end": 0.64,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " like",
+              "start": 0.64,
+              "end": 0.82,
+              "probability": 0.99609375
+            },
+            {
+              "text": " a",
+              "start": 0.82,
+              "end": 0.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " servant,",
+              "start": 0.96,
+              "end": 1.28,
+              "probability": 0.984375
+            },
+            {
+              "text": " sir?\"",
+              "start": 1.62,
+              "end": 2.28,
+              "probability": 0.5736083984375
+            },
+            {
+              "text": " asked",
+              "start": 2.28,
+              "end": 2.28,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " Passepartout.",
+              "start": 2.28,
+              "end": 3.12,
+              "probability": 0.49512290954589844
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Would",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "you",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "raw": "like",
+          "start": 0.64,
+          "end": 0.82
+        },
+        {
+          "raw": "a",
+          "start": 0.82,
+          "end": 0.96
+        },
+        {
+          "raw": "servant,",
+          "start": 0.96,
+          "end": 1.28
+        },
+        {
+          "raw": "sir?\"",
+          "start": 1.62,
+          "end": 2.28
+        },
+        {
+          "raw": "asked",
+          "start": 2.28,
+          "end": 2.28
+        },
+        {
+          "raw": "Passepartout.",
+          "start": 2.28,
+          "end": 3.12
+        }
+      ],
+      "expected_tokens": [
+        "\"Would",
+        "you",
+        "like",
+        "a",
+        "servant,",
+        "sir?\"",
+        "asked",
+        "Passepartout."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Would",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "would",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.52,
+          "end": 0.64,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 0.64,
+          "end": 0.82,
+          "key": "like",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.82,
+          "end": 0.96,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "servant,",
+          "start": 0.96,
+          "end": 1.28,
+          "key": "servant",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sir?\"",
+          "start": 1.62,
+          "end": 2.28,
+          "key": "sir",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 2.28,
+          "end": 2.28,
+          "key": "asked",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Passepartout.",
+          "start": 2.28,
+          "end": 3.12,
+          "key": "passepartout",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Would",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "you",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "text": "like",
+          "start": 0.64,
+          "end": 0.82
+        },
+        {
+          "text": "a",
+          "start": 0.82,
+          "end": 0.96
+        },
+        {
+          "text": "servant,",
+          "start": 0.96,
+          "end": 1.28
+        },
+        {
+          "text": "sir?\"",
+          "start": 1.62,
+          "end": 2.28
+        },
+        {
+          "text": "asked",
+          "start": 2.28,
+          "end": 2.28
+        },
+        {
+          "text": "Passepartout.",
+          "start": 2.28,
+          "end": 3.12
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22541770432144403
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "068baeabd3f88c5dfc08af67c5a2474f7e649106da7822bb56bc0c66236da72a",
+  "selected_reasons": []
+}

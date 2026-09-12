@@ -1,0 +1,549 @@
+{
+  "complete": true,
+  "signature": "9cedcbea7fb353e2eb012898a71df722b345cf7799a121c998434c08530ac41d",
+  "attempts": [
+    {
+      "asr_seconds": 0.30207345448434353,
+      "alignment_seconds": 0.0004298165440559387,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sir Francis, recognising the statue, whispered, \"The goddess Kali; the goddess of love and death.\"",
+        "hotwords": "Sir, Francis, Kali"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sir Francis, recognising the statue, whispered,",
+          "start": 0.05,
+          "end": 2.95,
+          "words": [
+            {
+              "text": " Sir",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.83251953125
+            },
+            {
+              "text": " Francis,",
+              "start": 0.53,
+              "end": 0.99,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " recognising",
+              "start": 1.43,
+              "end": 1.93,
+              "probability": 0.5019073486328125
+            },
+            {
+              "text": " the",
+              "start": 1.93,
+              "end": 2.13,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " statue,",
+              "start": 2.13,
+              "end": 2.53,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " whispered,",
+              "start": 2.73,
+              "end": 2.95,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " The goddess Kali, the goddess of love and death.",
+          "start": 3.57,
+          "end": 6.19,
+          "words": [
+            {
+              "text": " The",
+              "start": 3.57,
+              "end": 3.65,
+              "probability": 0.05413818359375
+            },
+            {
+              "text": " goddess",
+              "start": 3.65,
+              "end": 3.89,
+              "probability": 0.4345703125
+            },
+            {
+              "text": " Kali,",
+              "start": 3.89,
+              "end": 4.29,
+              "probability": 0.60595703125
+            },
+            {
+              "text": " the",
+              "start": 4.75,
+              "end": 4.85,
+              "probability": 0.89111328125
+            },
+            {
+              "text": " goddess",
+              "start": 4.85,
+              "end": 5.13,
+              "probability": 0.77734375
+            },
+            {
+              "text": " of",
+              "start": 5.13,
+              "end": 5.37,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " love",
+              "start": 5.37,
+              "end": 5.65,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " and",
+              "start": 5.65,
+              "end": 5.89,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " death.",
+              "start": 5.89,
+              "end": 6.19,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sir",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "Francis,",
+          "start": 0.53,
+          "end": 0.99
+        },
+        {
+          "raw": "recognising",
+          "start": 1.43,
+          "end": 1.93
+        },
+        {
+          "raw": "the",
+          "start": 1.93,
+          "end": 2.13
+        },
+        {
+          "raw": "statue,",
+          "start": 2.13,
+          "end": 2.53
+        },
+        {
+          "raw": "whispered,",
+          "start": 2.73,
+          "end": 2.95
+        },
+        {
+          "raw": "The",
+          "start": 3.57,
+          "end": 3.65
+        },
+        {
+          "raw": "goddess",
+          "start": 3.65,
+          "end": 3.89
+        },
+        {
+          "raw": "Kali,",
+          "start": 3.89,
+          "end": 4.29
+        },
+        {
+          "raw": "the",
+          "start": 4.75,
+          "end": 4.85
+        },
+        {
+          "raw": "goddess",
+          "start": 4.85,
+          "end": 5.13
+        },
+        {
+          "raw": "of",
+          "start": 5.13,
+          "end": 5.37
+        },
+        {
+          "raw": "love",
+          "start": 5.37,
+          "end": 5.65
+        },
+        {
+          "raw": "and",
+          "start": 5.65,
+          "end": 5.89
+        },
+        {
+          "raw": "death.",
+          "start": 5.89,
+          "end": 6.19
+        }
+      ],
+      "expected_tokens": [
+        "Sir",
+        "Francis,",
+        "recognising",
+        "the",
+        "statue,",
+        "whispered,",
+        "\"The",
+        "goddess",
+        "Kali;",
+        "the",
+        "goddess",
+        "of",
+        "love",
+        "and",
+        "death.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sir",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "sir",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Francis,",
+          "start": 0.53,
+          "end": 0.99,
+          "key": "francis",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "recognising",
+          "start": 1.43,
+          "end": 1.93,
+          "key": "recognising",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.93,
+          "end": 2.13,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "statue,",
+          "start": 2.13,
+          "end": 2.53,
+          "key": "statue",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "whispered,",
+          "start": 2.73,
+          "end": 2.95,
+          "key": "whispered",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 3.57,
+          "end": 3.65,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "goddess",
+          "start": 3.65,
+          "end": 3.89,
+          "key": "goddess",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Kali,",
+          "start": 3.89,
+          "end": 4.29,
+          "key": "kali",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.75,
+          "end": 4.85,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "goddess",
+          "start": 4.85,
+          "end": 5.13,
+          "key": "goddess",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.13,
+          "end": 5.37,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 5.37,
+          "end": 5.65,
+          "key": "love",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.65,
+          "end": 5.89,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "death.",
+          "start": 5.89,
+          "end": 6.19,
+          "key": "death",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sir",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "Francis,",
+          "start": 0.53,
+          "end": 0.99
+        },
+        {
+          "text": "recognising",
+          "start": 1.43,
+          "end": 1.93
+        },
+        {
+          "text": "the",
+          "start": 1.93,
+          "end": 2.13
+        },
+        {
+          "text": "statue,",
+          "start": 2.13,
+          "end": 2.53
+        },
+        {
+          "text": "whispered,",
+          "start": 2.73,
+          "end": 2.95
+        },
+        {
+          "text": "\"The",
+          "start": 3.57,
+          "end": 3.65
+        },
+        {
+          "text": "goddess",
+          "start": 3.65,
+          "end": 3.89
+        },
+        {
+          "text": "Kali;",
+          "start": 3.89,
+          "end": 4.29
+        },
+        {
+          "text": "the",
+          "start": 4.75,
+          "end": 4.85
+        },
+        {
+          "text": "goddess",
+          "start": 4.85,
+          "end": 5.13
+        },
+        {
+          "text": "of",
+          "start": 5.13,
+          "end": 5.37
+        },
+        {
+          "text": "love",
+          "start": 5.37,
+          "end": 5.65
+        },
+        {
+          "text": "and",
+          "start": 5.65,
+          "end": 5.89
+        },
+        {
+          "text": "death.\"",
+          "start": 5.89,
+          "end": 6.19
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.30266414396464825
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "eb39337dbbaf07bbc7126ac726da38228b93a552815e573da5b51382f3205436",
+  "selected_reasons": []
+}

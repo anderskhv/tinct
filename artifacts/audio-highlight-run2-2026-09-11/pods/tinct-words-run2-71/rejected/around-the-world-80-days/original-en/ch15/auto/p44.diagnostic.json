@@ -1,0 +1,542 @@
+{
+  "complete": true,
+  "signature": "e75816bb9f70e894f2d750192d10152971b674ae2241428aa557750d9f17f3f0",
+  "attempts": [
+    {
+      "asr_seconds": 0.24892502184957266,
+      "alignment_seconds": 0.0004163002595305443,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The priests looked at each other; they did not seem to understand what was said.",
+        "hotwords": "The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The priests looked at each other. They did not seem to understand what was said.",
+          "start": 0.02,
+          "end": 4.2,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.900390625
+            },
+            {
+              "text": " priests",
+              "start": 0.48,
+              "end": 0.8,
+              "probability": 0.9921875
+            },
+            {
+              "text": " looked",
+              "start": 0.8,
+              "end": 1.18,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " at",
+              "start": 1.18,
+              "end": 1.34,
+              "probability": 0.998046875
+            },
+            {
+              "text": " each",
+              "start": 1.34,
+              "end": 1.5,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " other.",
+              "start": 1.5,
+              "end": 1.8,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " They",
+              "start": 2.28,
+              "end": 2.34,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " did",
+              "start": 2.34,
+              "end": 2.42,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " not",
+              "start": 2.42,
+              "end": 2.62,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " seem",
+              "start": 2.62,
+              "end": 2.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 2.84,
+              "end": 3.02,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " understand",
+              "start": 3.02,
+              "end": 3.48,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " what",
+              "start": 3.48,
+              "end": 3.76,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " was",
+              "start": 3.76,
+              "end": 3.9,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " said.",
+              "start": 3.9,
+              "end": 4.2,
+              "probability": 1.0
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "priests",
+          "start": 0.48,
+          "end": 0.8
+        },
+        {
+          "raw": "looked",
+          "start": 0.8,
+          "end": 1.18
+        },
+        {
+          "raw": "at",
+          "start": 1.18,
+          "end": 1.34
+        },
+        {
+          "raw": "each",
+          "start": 1.34,
+          "end": 1.5
+        },
+        {
+          "raw": "other.",
+          "start": 1.5,
+          "end": 1.8
+        },
+        {
+          "raw": "They",
+          "start": 2.28,
+          "end": 2.34
+        },
+        {
+          "raw": "did",
+          "start": 2.34,
+          "end": 2.42
+        },
+        {
+          "raw": "not",
+          "start": 2.42,
+          "end": 2.62
+        },
+        {
+          "raw": "seem",
+          "start": 2.62,
+          "end": 2.84
+        },
+        {
+          "raw": "to",
+          "start": 2.84,
+          "end": 3.02
+        },
+        {
+          "raw": "understand",
+          "start": 3.02,
+          "end": 3.48
+        },
+        {
+          "raw": "what",
+          "start": 3.48,
+          "end": 3.76
+        },
+        {
+          "raw": "was",
+          "start": 3.76,
+          "end": 3.9
+        },
+        {
+          "raw": "said.",
+          "start": 3.9,
+          "end": 4.2
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "priests",
+        "looked",
+        "at",
+        "each",
+        "other;",
+        "they",
+        "did",
+        "not",
+        "seem",
+        "to",
+        "understand",
+        "what",
+        "was",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "priests",
+          "start": 0.48,
+          "end": 0.8,
+          "key": "priests",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 0.8,
+          "end": 1.18,
+          "key": "looked",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.18,
+          "end": 1.34,
+          "key": "at",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "each",
+          "start": 1.34,
+          "end": 1.5,
+          "key": "each",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "other.",
+          "start": 1.5,
+          "end": 1.8,
+          "key": "other",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 2.28,
+          "end": 2.34,
+          "key": "they",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 2.34,
+          "end": 2.42,
+          "key": "did",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.42,
+          "end": 2.62,
+          "key": "not",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "seem",
+          "start": 2.62,
+          "end": 2.84,
+          "key": "seem",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.84,
+          "end": 3.02,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "understand",
+          "start": 3.02,
+          "end": 3.48,
+          "key": "understand",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 3.48,
+          "end": 3.76,
+          "key": "what",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 3.76,
+          "end": 3.9,
+          "key": "was",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 3.9,
+          "end": 4.2,
+          "key": "said",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "priests",
+          "start": 0.48,
+          "end": 0.8
+        },
+        {
+          "text": "looked",
+          "start": 0.8,
+          "end": 1.18
+        },
+        {
+          "text": "at",
+          "start": 1.18,
+          "end": 1.34
+        },
+        {
+          "text": "each",
+          "start": 1.34,
+          "end": 1.5
+        },
+        {
+          "text": "other;",
+          "start": 1.5,
+          "end": 1.8
+        },
+        {
+          "text": "they",
+          "start": 2.28,
+          "end": 2.34
+        },
+        {
+          "text": "did",
+          "start": 2.34,
+          "end": 2.42
+        },
+        {
+          "text": "not",
+          "start": 2.42,
+          "end": 2.62
+        },
+        {
+          "text": "seem",
+          "start": 2.62,
+          "end": 2.84
+        },
+        {
+          "text": "to",
+          "start": 2.84,
+          "end": 3.02
+        },
+        {
+          "text": "understand",
+          "start": 3.02,
+          "end": 3.48
+        },
+        {
+          "text": "what",
+          "start": 3.48,
+          "end": 3.76
+        },
+        {
+          "text": "was",
+          "start": 3.76,
+          "end": 3.9
+        },
+        {
+          "text": "said.",
+          "start": 3.9,
+          "end": 4.2
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24959939997643232
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "285604d86cea0f3a69c13d4834dc052fb3802b877f401cba5dbe8f38b4651325",
+  "selected_reasons": []
+}

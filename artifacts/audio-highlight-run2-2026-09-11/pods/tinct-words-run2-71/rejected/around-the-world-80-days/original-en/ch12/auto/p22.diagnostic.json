@@ -1,0 +1,613 @@
+{
+  "complete": true,
+  "signature": "7b8fba958910b0aeedecd7a8d65e93cbb117a58dd761511d2c69ba642a66b7b5",
+  "attempts": [
+    {
+      "asr_seconds": 0.37391615472733974,
+      "alignment_seconds": 0.0007424848154187202,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sir Francis watched the procession with a sad countenance, and, turning to the guide, said, \"A suttee.\"",
+        "hotwords": "Sir, Francis"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sir Francis watched the procession with a sad countenance, and, turning to the guide, said,",
+          "start": 0.05,
+          "end": 4.75,
+          "words": [
+            {
+              "text": " Sir",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.884765625
+            },
+            {
+              "text": " Francis",
+              "start": 0.51,
+              "end": 0.89,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " watched",
+              "start": 0.89,
+              "end": 1.29,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " the",
+              "start": 1.29,
+              "end": 1.53,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " procession",
+              "start": 1.53,
+              "end": 1.87,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " with",
+              "start": 1.87,
+              "end": 2.15,
+              "probability": 0.99609375
+            },
+            {
+              "text": " a",
+              "start": 2.15,
+              "end": 2.27,
+              "probability": 0.994140625
+            },
+            {
+              "text": " sad",
+              "start": 2.27,
+              "end": 2.55,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " countenance,",
+              "start": 2.55,
+              "end": 3.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and,",
+              "start": 3.45,
+              "end": 3.63,
+              "probability": 0.994140625
+            },
+            {
+              "text": " turning",
+              "start": 3.77,
+              "end": 3.85,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 3.85,
+              "end": 4.03,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 4.03,
+              "end": 4.13,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " guide,",
+              "start": 4.13,
+              "end": 4.39,
+              "probability": 0.861328125
+            },
+            {
+              "text": " said,",
+              "start": 4.59,
+              "end": 4.75,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " \"'A suttee.'\"",
+          "start": 4.75,
+          "end": 6.23,
+          "words": [
+            {
+              "text": " \"'A",
+              "start": 4.75,
+              "end": 5.49,
+              "probability": 0.06359556317329407
+            },
+            {
+              "text": " suttee.'\"",
+              "start": 5.49,
+              "end": 6.23,
+              "probability": 0.28667221069335935
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sir",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "Francis",
+          "start": 0.51,
+          "end": 0.89
+        },
+        {
+          "raw": "watched",
+          "start": 0.89,
+          "end": 1.29
+        },
+        {
+          "raw": "the",
+          "start": 1.29,
+          "end": 1.53
+        },
+        {
+          "raw": "procession",
+          "start": 1.53,
+          "end": 1.87
+        },
+        {
+          "raw": "with",
+          "start": 1.87,
+          "end": 2.15
+        },
+        {
+          "raw": "a",
+          "start": 2.15,
+          "end": 2.27
+        },
+        {
+          "raw": "sad",
+          "start": 2.27,
+          "end": 2.55
+        },
+        {
+          "raw": "countenance,",
+          "start": 2.55,
+          "end": 3.15
+        },
+        {
+          "raw": "and,",
+          "start": 3.45,
+          "end": 3.63
+        },
+        {
+          "raw": "turning",
+          "start": 3.77,
+          "end": 3.85
+        },
+        {
+          "raw": "to",
+          "start": 3.85,
+          "end": 4.03
+        },
+        {
+          "raw": "the",
+          "start": 4.03,
+          "end": 4.13
+        },
+        {
+          "raw": "guide,",
+          "start": 4.13,
+          "end": 4.39
+        },
+        {
+          "raw": "said,",
+          "start": 4.59,
+          "end": 4.75
+        },
+        {
+          "raw": "\"'A",
+          "start": 4.75,
+          "end": 5.49
+        },
+        {
+          "raw": "suttee.'\"",
+          "start": 5.49,
+          "end": 6.23
+        }
+      ],
+      "expected_tokens": [
+        "Sir",
+        "Francis",
+        "watched",
+        "the",
+        "procession",
+        "with",
+        "a",
+        "sad",
+        "countenance,",
+        "and,",
+        "turning",
+        "to",
+        "the",
+        "guide,",
+        "said,",
+        "\"A",
+        "suttee.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sir",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "sir",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Francis",
+          "start": 0.51,
+          "end": 0.89,
+          "key": "francis",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "watched",
+          "start": 0.89,
+          "end": 1.29,
+          "key": "watched",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.29,
+          "end": 1.53,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "procession",
+          "start": 1.53,
+          "end": 1.87,
+          "key": "procession",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.87,
+          "end": 2.15,
+          "key": "with",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.15,
+          "end": 2.27,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "sad",
+          "start": 2.27,
+          "end": 2.55,
+          "key": "sad",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "countenance,",
+          "start": 2.55,
+          "end": 3.15,
+          "key": "countenance",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and,",
+          "start": 3.45,
+          "end": 3.63,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "turning",
+          "start": 3.77,
+          "end": 3.85,
+          "key": "turning",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.85,
+          "end": 4.03,
+          "key": "to",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.03,
+          "end": 4.13,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "guide,",
+          "start": 4.13,
+          "end": 4.39,
+          "key": "guide",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 4.59,
+          "end": 4.75,
+          "key": "said",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "\"'A",
+          "start": 4.75,
+          "end": 5.49,
+          "key": "a",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "suttee.'\"",
+          "start": 5.49,
+          "end": 6.23,
+          "key": "suttee",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sir",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "Francis",
+          "start": 0.51,
+          "end": 0.89
+        },
+        {
+          "text": "watched",
+          "start": 0.89,
+          "end": 1.29
+        },
+        {
+          "text": "the",
+          "start": 1.29,
+          "end": 1.53
+        },
+        {
+          "text": "procession",
+          "start": 1.53,
+          "end": 1.87
+        },
+        {
+          "text": "with",
+          "start": 1.87,
+          "end": 2.15
+        },
+        {
+          "text": "a",
+          "start": 2.15,
+          "end": 2.27
+        },
+        {
+          "text": "sad",
+          "start": 2.27,
+          "end": 2.55
+        },
+        {
+          "text": "countenance,",
+          "start": 2.55,
+          "end": 3.15
+        },
+        {
+          "text": "and,",
+          "start": 3.45,
+          "end": 3.63
+        },
+        {
+          "text": "turning",
+          "start": 3.77,
+          "end": 3.85
+        },
+        {
+          "text": "to",
+          "start": 3.85,
+          "end": 4.03
+        },
+        {
+          "text": "the",
+          "start": 4.03,
+          "end": 4.13
+        },
+        {
+          "text": "guide,",
+          "start": 4.13,
+          "end": 4.39
+        },
+        {
+          "text": "said,",
+          "start": 4.59,
+          "end": 4.75
+        },
+        {
+          "text": "\"A",
+          "start": 4.75,
+          "end": 5.49
+        },
+        {
+          "text": "suttee.\"",
+          "start": 5.49,
+          "end": 6.23
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3749445443972945
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "57d8ee690f594ad15e6a1719b49286637420d4f3409781490c90e9e4ab1ee558",
+  "selected_reasons": []
+}

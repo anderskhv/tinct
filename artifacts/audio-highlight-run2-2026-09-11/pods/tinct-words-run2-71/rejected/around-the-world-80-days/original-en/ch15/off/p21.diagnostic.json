@@ -1,0 +1,388 @@
+{
+  "complete": true,
+  "signature": "6c41619bb1b644d3590e489ab3a759746c657f277d08d9880f549e6ef3a280be",
+  "attempts": [
+    {
+      "asr_seconds": 0.2090711509808898,
+      "alignment_seconds": 0.0005277711898088455,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Know your worship return the clerk it is mine",
+          "start": 0.05,
+          "end": 3.09,
+          "words": [
+            {
+              "text": " Know",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.810546875
+            },
+            {
+              "text": " your",
+              "start": 0.61,
+              "end": 0.79,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " worship",
+              "start": 0.79,
+              "end": 1.19,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " return",
+              "start": 1.19,
+              "end": 1.77,
+              "probability": 0.354248046875
+            },
+            {
+              "text": " the",
+              "start": 1.77,
+              "end": 1.95,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " clerk",
+              "start": 1.95,
+              "end": 2.19,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " it",
+              "start": 2.19,
+              "end": 2.61,
+              "probability": 0.61572265625
+            },
+            {
+              "text": " is",
+              "start": 2.61,
+              "end": 2.75,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " mine",
+              "start": 2.75,
+              "end": 3.09,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Know",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "your",
+          "start": 0.61,
+          "end": 0.79
+        },
+        {
+          "raw": "worship",
+          "start": 0.79,
+          "end": 1.19
+        },
+        {
+          "raw": "return",
+          "start": 1.19,
+          "end": 1.77
+        },
+        {
+          "raw": "the",
+          "start": 1.77,
+          "end": 1.95
+        },
+        {
+          "raw": "clerk",
+          "start": 1.95,
+          "end": 2.19
+        },
+        {
+          "raw": "it",
+          "start": 2.19,
+          "end": 2.61
+        },
+        {
+          "raw": "is",
+          "start": 2.61,
+          "end": 2.75
+        },
+        {
+          "raw": "mine",
+          "start": 2.75,
+          "end": 3.09
+        }
+      ],
+      "expected_tokens": [
+        "\"No,",
+        "your",
+        "worship,\"",
+        "returned",
+        "the",
+        "clerk,",
+        "\"it",
+        "is",
+        "mine.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          9,
+          4,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Know",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "know",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 0.61,
+          "end": 0.79,
+          "key": "your",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "worship",
+          "start": 0.79,
+          "end": 1.19,
+          "key": "worship",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "return",
+          "start": 1.19,
+          "end": 1.77,
+          "key": "return",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.77,
+          "end": 1.95,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "clerk",
+          "start": 1.95,
+          "end": 2.19,
+          "key": "clerk",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.19,
+          "end": 2.61,
+          "key": "it",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.61,
+          "end": 2.75,
+          "key": "is",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "mine",
+          "start": 2.75,
+          "end": 3.09,
+          "key": "mine",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"No,",
+          "start": 0.0,
+          "end": 0.305
+        },
+        {
+          "text": "your",
+          "start": 0.61,
+          "end": 0.79
+        },
+        {
+          "text": "worship,\"",
+          "start": 0.79,
+          "end": 1.19
+        },
+        {
+          "text": "returned",
+          "start": 1.19,
+          "end": 1.48
+        },
+        {
+          "text": "the",
+          "start": 1.77,
+          "end": 1.95
+        },
+        {
+          "text": "clerk,",
+          "start": 1.95,
+          "end": 2.19
+        },
+        {
+          "text": "\"it",
+          "start": 2.19,
+          "end": 2.61
+        },
+        {
+          "text": "is",
+          "start": 2.61,
+          "end": 2.75
+        },
+        {
+          "text": "mine.\"",
+          "start": 2.75,
+          "end": 3.09
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7777777777777778,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20978038106113672
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7b87a4f4c68a011549d8a595a9ef835100d5570a27fcf36d4d9d681142c5a0e7",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

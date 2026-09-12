@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "8cea18212f895403b98d74dba1590d350a140325fca967b7bb89df9c3a482d1f",
+  "attempts": [
+    {
+      "asr_seconds": 0.19703275337815285,
+      "alignment_seconds": 0.00020886491984128952,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Admitted,\" replied Mr. Fogg, coldly.",
+        "hotwords": "Admitted, Mr, Fogg"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Admitted, replied Mr. Fogg, coldly.",
+          "start": 0.08,
+          "end": 2.9,
+          "words": [
+            {
+              "text": " Admitted,",
+              "start": 0.08,
+              "end": 0.9,
+              "probability": 0.85595703125
+            },
+            {
+              "text": " replied",
+              "start": 1.34,
+              "end": 1.6,
+              "probability": 0.89990234375
+            },
+            {
+              "text": " Mr.",
+              "start": 1.6,
+              "end": 1.94,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " Fogg,",
+              "start": 2.16,
+              "end": 2.3,
+              "probability": 0.83056640625
+            },
+            {
+              "text": " coldly.",
+              "start": 2.36,
+              "end": 2.9,
+              "probability": 0.986083984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Admitted,",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "raw": "replied",
+          "start": 1.34,
+          "end": 1.6
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.6,
+          "end": 1.94
+        },
+        {
+          "raw": "Fogg,",
+          "start": 2.16,
+          "end": 2.3
+        },
+        {
+          "raw": "coldly.",
+          "start": 2.36,
+          "end": 2.9
+        }
+      ],
+      "expected_tokens": [
+        "\"Admitted,\"",
+        "replied",
+        "Mr.",
+        "Fogg,",
+        "coldly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Admitted,",
+          "start": 0.08,
+          "end": 0.9,
+          "key": "admitted",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "replied",
+          "start": 1.34,
+          "end": 1.6,
+          "key": "replied",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.6,
+          "end": 1.94,
+          "key": "mr",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Fogg,",
+          "start": 2.16,
+          "end": 2.3,
+          "key": "fogg",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "coldly.",
+          "start": 2.36,
+          "end": 2.9,
+          "key": "coldly",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Admitted,\"",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "text": "replied",
+          "start": 1.34,
+          "end": 1.6
+        },
+        {
+          "text": "Mr.",
+          "start": 1.6,
+          "end": 1.94
+        },
+        {
+          "text": "Fogg,",
+          "start": 2.16,
+          "end": 2.3
+        },
+        {
+          "text": "coldly.",
+          "start": 2.36,
+          "end": 2.9
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1973133236169815
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f9b47dce7230fb6bca5eb10eb11609a80d43b91bfc29a289417f92e763513a70",
+  "selected_reasons": []
+}

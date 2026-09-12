@@ -1,0 +1,1040 @@
+{
+  "complete": true,
+  "signature": "ea0e2550ac22fa70a99a178a274a8c04550c2ef97cdc6e7fac0ba5fc6985d911",
+  "attempts": [
+    {
+      "asr_seconds": 0.26597119588404894,
+      "alignment_seconds": 0.0004483005031943321,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Left London, Wednesday, October 2nd, at 8.45 p.m.",
+        "hotwords": "Left, London, Wednesday, October"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Left London, Wednesday, October 2nd, at 8.45 p.m.",
+          "start": 0.05,
+          "end": 4.55,
+          "words": [
+            {
+              "text": " Left",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.82861328125
+            },
+            {
+              "text": " London,",
+              "start": 0.63,
+              "end": 1.05,
+              "probability": 0.98046875
+            },
+            {
+              "text": " Wednesday,",
+              "start": 1.51,
+              "end": 1.71,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " October",
+              "start": 2.09,
+              "end": 2.33,
+              "probability": 0.8076171875
+            },
+            {
+              "text": " 2nd,",
+              "start": 2.33,
+              "end": 2.97,
+              "probability": 0.958984375
+            },
+            {
+              "text": " at",
+              "start": 3.11,
+              "end": 3.13,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " 8",
+              "start": 3.13,
+              "end": 3.33,
+              "probability": 0.9951171875
+            },
+            {
+              "text": ".45",
+              "start": 3.33,
+              "end": 3.97,
+              "probability": 0.99609375
+            },
+            {
+              "text": " p",
+              "start": 3.97,
+              "end": 4.25,
+              "probability": 0.29150390625
+            },
+            {
+              "text": ".m.",
+              "start": 4.25,
+              "end": 4.55,
+              "probability": 0.996826171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Left",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "London,",
+          "start": 0.63,
+          "end": 1.05
+        },
+        {
+          "raw": "Wednesday,",
+          "start": 1.51,
+          "end": 1.71
+        },
+        {
+          "raw": "October",
+          "start": 2.09,
+          "end": 2.33
+        },
+        {
+          "raw": "2nd,",
+          "start": 2.33,
+          "end": 2.97
+        },
+        {
+          "raw": "at",
+          "start": 3.11,
+          "end": 3.13
+        },
+        {
+          "raw": "8",
+          "start": 3.13,
+          "end": 3.33
+        },
+        {
+          "raw": ".45",
+          "start": 3.33,
+          "end": 3.97
+        },
+        {
+          "raw": "p",
+          "start": 3.97,
+          "end": 4.25
+        },
+        {
+          "raw": ".m.",
+          "start": 4.25,
+          "end": 4.55
+        }
+      ],
+      "expected_tokens": [
+        "\"Left",
+        "London,",
+        "Wednesday,",
+        "October",
+        "2nd,",
+        "at",
+        "8.45",
+        "p.m."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          8,
+          6,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          8,
+          6,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Left",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "left",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "London,",
+          "start": 0.63,
+          "end": 1.05,
+          "key": "london",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Wednesday,",
+          "start": 1.51,
+          "end": 1.71,
+          "key": "wednesday",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "October",
+          "start": 2.09,
+          "end": 2.33,
+          "key": "october",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "2nd,",
+          "start": 2.33,
+          "end": 2.97,
+          "key": "2nd",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 3.11,
+          "end": 3.13,
+          "key": "at",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "8",
+          "start": 3.13,
+          "end": 3.33,
+          "key": "eight",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": ".45",
+          "start": 3.33,
+          "end": 3.97,
+          "key": "fortyfive",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "p",
+          "start": 3.97,
+          "end": 4.25,
+          "key": "p",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": ".m.",
+          "start": 4.25,
+          "end": 4.55,
+          "key": "m",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Left",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "London,",
+          "start": 0.63,
+          "end": 1.05
+        },
+        {
+          "text": "Wednesday,",
+          "start": 1.51,
+          "end": 1.71
+        },
+        {
+          "text": "October",
+          "start": 2.09,
+          "end": 2.33
+        },
+        {
+          "text": "2nd,",
+          "start": 2.33,
+          "end": 2.97
+        },
+        {
+          "text": "at",
+          "start": 3.11,
+          "end": 3.13
+        },
+        {
+          "text": "8.45",
+          "start": 3.13,
+          "end": 3.84
+        },
+        {
+          "text": "p.m.",
+          "start": 3.84,
+          "end": 4.195
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 10,
+        "matched_words": 6
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.26660793367773294
+    },
+    {
+      "asr_seconds": 0.26779818069189787,
+      "alignment_seconds": 0.00034917984157800674,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Left, London, Wednesday, October"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " 2nd, at 8.45 p.m.",
+          "start": 2.03,
+          "end": 4.75,
+          "words": [
+            {
+              "text": " 2nd,",
+              "start": 2.03,
+              "end": 2.87,
+              "probability": 0.211006760597229
+            },
+            {
+              "text": " at",
+              "start": 3.11,
+              "end": 3.11,
+              "probability": 0.3466796875
+            },
+            {
+              "text": " 8",
+              "start": 3.11,
+              "end": 3.31,
+              "probability": 0.9775390625
+            },
+            {
+              "text": ".45",
+              "start": 3.31,
+              "end": 3.97,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " p",
+              "start": 3.97,
+              "end": 4.25,
+              "probability": 0.2548828125
+            },
+            {
+              "text": ".m.",
+              "start": 4.25,
+              "end": 4.75,
+              "probability": 0.993408203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "2nd,",
+          "start": 2.03,
+          "end": 2.87
+        },
+        {
+          "raw": "at",
+          "start": 3.11,
+          "end": 3.11
+        },
+        {
+          "raw": "8",
+          "start": 3.11,
+          "end": 3.31
+        },
+        {
+          "raw": ".45",
+          "start": 3.31,
+          "end": 3.97
+        },
+        {
+          "raw": "p",
+          "start": 3.97,
+          "end": 4.25
+        },
+        {
+          "raw": ".m.",
+          "start": 4.25,
+          "end": 4.75
+        }
+      ],
+      "expected_tokens": [
+        "\"Left",
+        "London,",
+        "Wednesday,",
+        "October",
+        "2nd,",
+        "at",
+        "8.45",
+        "p.m."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          4,
+          0,
+          0
+        ],
+        [
+          "equal",
+          4,
+          6,
+          0,
+          2
+        ],
+        [
+          "replace",
+          6,
+          8,
+          2,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          4,
+          0,
+          0
+        ],
+        [
+          "replace",
+          6,
+          8,
+          2,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "2nd,",
+          "start": 2.03,
+          "end": 2.87,
+          "key": "2nd",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 3.11,
+          "end": 3.11,
+          "key": "at",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "8",
+          "start": 3.11,
+          "end": 3.31,
+          "key": "eight",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": ".45",
+          "start": 3.31,
+          "end": 3.97,
+          "key": "fortyfive",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "p",
+          "start": 3.97,
+          "end": 4.25,
+          "key": "p",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": ".m.",
+          "start": 4.25,
+          "end": 4.75,
+          "key": "m",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Left",
+          "start": 0.0,
+          "end": 1.015
+        },
+        {
+          "text": "London,",
+          "start": 1.015,
+          "end": 1.522
+        },
+        {
+          "text": "Wednesday,",
+          "start": 1.522,
+          "end": 1.776
+        },
+        {
+          "text": "October",
+          "start": 1.776,
+          "end": 1.903
+        },
+        {
+          "text": "2nd,",
+          "start": 2.03,
+          "end": 2.87
+        },
+        {
+          "text": "at",
+          "start": 3.11,
+          "end": 3.11
+        },
+        {
+          "text": "8.45",
+          "start": 3.11,
+          "end": 3.93
+        },
+        {
+          "text": "p.m.",
+          "start": 3.93,
+          "end": 4.34
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 6,
+        "matched_words": 2
+      },
+      "match_ratio": 0.25,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.26826020888984203
+    },
+    {
+      "asr_seconds": 0.3081952780485153,
+      "alignment_seconds": 0.0004988620057702065,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Left London Wednesday, October 2nd at 8.45 p.m.",
+          "start": 0.05,
+          "end": 4.57,
+          "words": [
+            {
+              "text": " Left",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.82861328125
+            },
+            {
+              "text": " London",
+              "start": 0.63,
+              "end": 1.03,
+              "probability": 0.98046875
+            },
+            {
+              "text": " Wednesday,",
+              "start": 1.03,
+              "end": 1.75,
+              "probability": 0.298583984375
+            },
+            {
+              "text": " October",
+              "start": 2.05,
+              "end": 2.31,
+              "probability": 0.890625
+            },
+            {
+              "text": " 2nd",
+              "start": 2.31,
+              "end": 2.99,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " at",
+              "start": 2.99,
+              "end": 3.13,
+              "probability": 0.88232421875
+            },
+            {
+              "text": " 8",
+              "start": 3.13,
+              "end": 3.33,
+              "probability": 0.97998046875
+            },
+            {
+              "text": ".45",
+              "start": 3.33,
+              "end": 3.95,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " p",
+              "start": 3.95,
+              "end": 4.25,
+              "probability": 0.583984375
+            },
+            {
+              "text": ".m.",
+              "start": 4.25,
+              "end": 4.57,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Left",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "London",
+          "start": 0.63,
+          "end": 1.03
+        },
+        {
+          "raw": "Wednesday,",
+          "start": 1.03,
+          "end": 1.75
+        },
+        {
+          "raw": "October",
+          "start": 2.05,
+          "end": 2.31
+        },
+        {
+          "raw": "2nd",
+          "start": 2.31,
+          "end": 2.99
+        },
+        {
+          "raw": "at",
+          "start": 2.99,
+          "end": 3.13
+        },
+        {
+          "raw": "8",
+          "start": 3.13,
+          "end": 3.33
+        },
+        {
+          "raw": ".45",
+          "start": 3.33,
+          "end": 3.95
+        },
+        {
+          "raw": "p",
+          "start": 3.95,
+          "end": 4.25
+        },
+        {
+          "raw": ".m.",
+          "start": 4.25,
+          "end": 4.57
+        }
+      ],
+      "expected_tokens": [
+        "\"Left",
+        "London,",
+        "Wednesday,",
+        "October",
+        "2nd,",
+        "at",
+        "8.45",
+        "p.m."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          8,
+          6,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          8,
+          6,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Left",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "left",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "London",
+          "start": 0.63,
+          "end": 1.03,
+          "key": "london",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Wednesday,",
+          "start": 1.03,
+          "end": 1.75,
+          "key": "wednesday",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "October",
+          "start": 2.05,
+          "end": 2.31,
+          "key": "october",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "2nd",
+          "start": 2.31,
+          "end": 2.99,
+          "key": "2nd",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.99,
+          "end": 3.13,
+          "key": "at",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "8",
+          "start": 3.13,
+          "end": 3.33,
+          "key": "eight",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": ".45",
+          "start": 3.33,
+          "end": 3.95,
+          "key": "fortyfive",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "p",
+          "start": 3.95,
+          "end": 4.25,
+          "key": "p",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": ".m.",
+          "start": 4.25,
+          "end": 4.57,
+          "key": "m",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Left",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "London,",
+          "start": 0.63,
+          "end": 1.03
+        },
+        {
+          "text": "Wednesday,",
+          "start": 1.03,
+          "end": 1.75
+        },
+        {
+          "text": "October",
+          "start": 2.05,
+          "end": 2.31
+        },
+        {
+          "text": "2nd,",
+          "start": 2.31,
+          "end": 2.99
+        },
+        {
+          "text": "at",
+          "start": 2.99,
+          "end": 3.13
+        },
+        {
+          "text": "8.45",
+          "start": 3.13,
+          "end": 3.85
+        },
+        {
+          "text": "p.m.",
+          "start": 3.85,
+          "end": 4.21
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 10,
+        "matched_words": 6
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3089136956259608
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c0d1d66f455ff3156017be6769a5728224216e7c1fc180b56e1dbdaf423c9a5a",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

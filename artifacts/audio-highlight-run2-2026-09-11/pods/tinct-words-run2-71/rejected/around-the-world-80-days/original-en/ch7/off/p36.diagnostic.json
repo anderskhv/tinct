@@ -1,0 +1,376 @@
+{
+  "complete": true,
+  "signature": "9a806c4f452b49552f98cd4116c6cafe632220fbd11b3feb73ef6f056ae8bea2",
+  "attempts": [
+    {
+      "asr_seconds": 0.2253599977120757,
+      "alignment_seconds": 0.0004231138154864311,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " reached Suey's Wednesday, October 9th at 11 a.m.",
+          "start": 0.05,
+          "end": 3.47,
+          "words": [
+            {
+              "text": " reached",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.7109375
+            },
+            {
+              "text": " Suey's",
+              "start": 0.65,
+              "end": 1.27,
+              "probability": 0.496826171875
+            },
+            {
+              "text": " Wednesday,",
+              "start": 1.27,
+              "end": 1.61,
+              "probability": 0.7568359375
+            },
+            {
+              "text": " October",
+              "start": 1.79,
+              "end": 2.07,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " 9th",
+              "start": 2.07,
+              "end": 2.63,
+              "probability": 0.853271484375
+            },
+            {
+              "text": " at",
+              "start": 2.63,
+              "end": 2.71,
+              "probability": 0.77734375
+            },
+            {
+              "text": " 11",
+              "start": 2.71,
+              "end": 3.01,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " a",
+              "start": 3.01,
+              "end": 3.25,
+              "probability": 0.62158203125
+            },
+            {
+              "text": ".m.",
+              "start": 3.25,
+              "end": 3.47,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "reached",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Suey's",
+          "start": 0.65,
+          "end": 1.27
+        },
+        {
+          "raw": "Wednesday,",
+          "start": 1.27,
+          "end": 1.61
+        },
+        {
+          "raw": "October",
+          "start": 1.79,
+          "end": 2.07
+        },
+        {
+          "raw": "9th",
+          "start": 2.07,
+          "end": 2.63
+        },
+        {
+          "raw": "at",
+          "start": 2.63,
+          "end": 2.71
+        },
+        {
+          "raw": "11",
+          "start": 2.71,
+          "end": 3.01
+        },
+        {
+          "raw": "a",
+          "start": 3.01,
+          "end": 3.25
+        },
+        {
+          "raw": ".m.",
+          "start": 3.25,
+          "end": 3.47
+        }
+      ],
+      "expected_tokens": [
+        "\"Reached",
+        "Suez,",
+        "Wednesday,",
+        "October",
+        "9th,",
+        "at",
+        "11",
+        "a.m."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          7,
+          2,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "reached",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "reached",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Suey's",
+          "start": 0.65,
+          "end": 1.27,
+          "key": "sueys",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Wednesday,",
+          "start": 1.27,
+          "end": 1.61,
+          "key": "wednesday",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "October",
+          "start": 1.79,
+          "end": 2.07,
+          "key": "october",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "9th",
+          "start": 2.07,
+          "end": 2.63,
+          "key": "9th",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.63,
+          "end": 2.71,
+          "key": "at",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "11",
+          "start": 2.71,
+          "end": 3.01,
+          "key": "eleven",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.01,
+          "end": 3.25,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": ".m.",
+          "start": 3.25,
+          "end": 3.47,
+          "key": "m",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Reached",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Suez,",
+          "start": 0.65,
+          "end": 0.96
+        },
+        {
+          "text": "Wednesday,",
+          "start": 1.27,
+          "end": 1.61
+        },
+        {
+          "text": "October",
+          "start": 1.79,
+          "end": 2.07
+        },
+        {
+          "text": "9th,",
+          "start": 2.07,
+          "end": 2.63
+        },
+        {
+          "text": "at",
+          "start": 2.63,
+          "end": 2.71
+        },
+        {
+          "text": "11",
+          "start": 2.71,
+          "end": 3.01
+        },
+        {
+          "text": "a.m.",
+          "start": 3.01,
+          "end": 3.24
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 9,
+        "matched_words": 6
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.22593735717236996
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9684dd0d072e8339c1baa7da0376f465b8c7f34dc76270573938d9efbf6ef303",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

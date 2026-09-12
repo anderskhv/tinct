@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "910903dda5a0155a6eccf88e15891bf5c3a95d96fef5ef6af90e36655df8d426",
+  "attempts": [
+    {
+      "asr_seconds": 0.2930751405656338,
+      "alignment_seconds": 0.0004959935322403908,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"What victim?\" said Judge Obadiah. \"Burn whom? In Bombay itself?\"",
+        "hotwords": "What, Judge, Obadiah, Burn, In, Bombay"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " What victim? said Judge Obadiah. Burn whom? In Bombay itself.",
+          "start": 0.05,
+          "end": 4.23,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.3251953125
+            },
+            {
+              "text": " victim?",
+              "start": 0.57,
+              "end": 1.01,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " said",
+              "start": 1.47,
+              "end": 1.49,
+              "probability": 0.888671875
+            },
+            {
+              "text": " Judge",
+              "start": 1.49,
+              "end": 1.71,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " Obadiah.",
+              "start": 1.71,
+              "end": 2.23,
+              "probability": 0.8811848958333334
+            },
+            {
+              "text": " Burn",
+              "start": 2.75,
+              "end": 2.89,
+              "probability": 0.984375
+            },
+            {
+              "text": " whom?",
+              "start": 2.89,
+              "end": 3.17,
+              "probability": 0.88427734375
+            },
+            {
+              "text": " In",
+              "start": 3.41,
+              "end": 3.49,
+              "probability": 0.33203125
+            },
+            {
+              "text": " Bombay",
+              "start": 3.49,
+              "end": 3.83,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " itself.",
+              "start": 3.83,
+              "end": 4.23,
+              "probability": 0.984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "victim?",
+          "start": 0.57,
+          "end": 1.01
+        },
+        {
+          "raw": "said",
+          "start": 1.47,
+          "end": 1.49
+        },
+        {
+          "raw": "Judge",
+          "start": 1.49,
+          "end": 1.71
+        },
+        {
+          "raw": "Obadiah.",
+          "start": 1.71,
+          "end": 2.23
+        },
+        {
+          "raw": "Burn",
+          "start": 2.75,
+          "end": 2.89
+        },
+        {
+          "raw": "whom?",
+          "start": 2.89,
+          "end": 3.17
+        },
+        {
+          "raw": "In",
+          "start": 3.41,
+          "end": 3.49
+        },
+        {
+          "raw": "Bombay",
+          "start": 3.49,
+          "end": 3.83
+        },
+        {
+          "raw": "itself.",
+          "start": 3.83,
+          "end": 4.23
+        }
+      ],
+      "expected_tokens": [
+        "\"What",
+        "victim?\"",
+        "said",
+        "Judge",
+        "Obadiah.",
+        "\"Burn",
+        "whom?",
+        "In",
+        "Bombay",
+        "itself?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "victim?",
+          "start": 0.57,
+          "end": 1.01,
+          "key": "victim",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.47,
+          "end": 1.49,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Judge",
+          "start": 1.49,
+          "end": 1.71,
+          "key": "judge",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Obadiah.",
+          "start": 1.71,
+          "end": 2.23,
+          "key": "obadiah",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Burn",
+          "start": 2.75,
+          "end": 2.89,
+          "key": "burn",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "whom?",
+          "start": 2.89,
+          "end": 3.17,
+          "key": "whom",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 3.41,
+          "end": 3.49,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Bombay",
+          "start": 3.49,
+          "end": 3.83,
+          "key": "bombay",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "itself.",
+          "start": 3.83,
+          "end": 4.23,
+          "key": "itself",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"What",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "victim?\"",
+          "start": 0.57,
+          "end": 1.01
+        },
+        {
+          "text": "said",
+          "start": 1.47,
+          "end": 1.49
+        },
+        {
+          "text": "Judge",
+          "start": 1.49,
+          "end": 1.71
+        },
+        {
+          "text": "Obadiah.",
+          "start": 1.71,
+          "end": 2.23
+        },
+        {
+          "text": "\"Burn",
+          "start": 2.75,
+          "end": 2.89
+        },
+        {
+          "text": "whom?",
+          "start": 2.89,
+          "end": 3.17
+        },
+        {
+          "text": "In",
+          "start": 3.41,
+          "end": 3.49
+        },
+        {
+          "text": "Bombay",
+          "start": 3.49,
+          "end": 3.83
+        },
+        {
+          "text": "itself?\"",
+          "start": 3.83,
+          "end": 4.23
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.29376284405589104
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e5ce33ceaa6f522da24ee31ef4eaf998e26af836fa7c047fe169490bc51296c6",
+  "selected_reasons": []
+}

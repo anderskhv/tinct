@@ -1,0 +1,306 @@
+{
+  "complete": true,
+  "signature": "12cef4da0f2c90d22837077782c9be7cf95632dfc377c30857d3145a1fb332a1",
+  "attempts": [
+    {
+      "asr_seconds": 0.10981796123087406,
+      "alignment_seconds": 0.00037635117769241333,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Is your honor looking for a boat?",
+          "start": 0.05,
+          "end": 1.73,
+          "words": [
+            {
+              "text": " Is",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.4560546875
+            },
+            {
+              "text": " your",
+              "start": 0.53,
+              "end": 0.67,
+              "probability": 0.939453125
+            },
+            {
+              "text": " honor",
+              "start": 0.67,
+              "end": 0.93,
+              "probability": 0.54052734375
+            },
+            {
+              "text": " looking",
+              "start": 0.93,
+              "end": 1.19,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " for",
+              "start": 1.19,
+              "end": 1.45,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 1.45,
+              "end": 1.55,
+              "probability": 0.998046875
+            },
+            {
+              "text": " boat?",
+              "start": 1.55,
+              "end": 1.73,
+              "probability": 0.9873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Is",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "your",
+          "start": 0.53,
+          "end": 0.67
+        },
+        {
+          "raw": "honor",
+          "start": 0.67,
+          "end": 0.93
+        },
+        {
+          "raw": "looking",
+          "start": 0.93,
+          "end": 1.19
+        },
+        {
+          "raw": "for",
+          "start": 1.19,
+          "end": 1.45
+        },
+        {
+          "raw": "a",
+          "start": 1.45,
+          "end": 1.55
+        },
+        {
+          "raw": "boat?",
+          "start": 1.55,
+          "end": 1.73
+        }
+      ],
+      "expected_tokens": [
+        "\"Is",
+        "your",
+        "honour",
+        "looking",
+        "for",
+        "a",
+        "boat?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          7,
+          3,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Is",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "is",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 0.53,
+          "end": 0.67,
+          "key": "your",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "honor",
+          "start": 0.67,
+          "end": 0.93,
+          "key": "honor",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "looking",
+          "start": 0.93,
+          "end": 1.19,
+          "key": "looking",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.19,
+          "end": 1.45,
+          "key": "for",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.45,
+          "end": 1.55,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "boat?",
+          "start": 1.55,
+          "end": 1.73,
+          "key": "boat",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Is",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "your",
+          "start": 0.53,
+          "end": 0.67
+        },
+        {
+          "text": "honour",
+          "start": 0.67,
+          "end": 0.8
+        },
+        {
+          "text": "looking",
+          "start": 0.93,
+          "end": 1.19
+        },
+        {
+          "text": "for",
+          "start": 1.19,
+          "end": 1.45
+        },
+        {
+          "text": "a",
+          "start": 1.45,
+          "end": 1.55
+        },
+        {
+          "text": "boat?\"",
+          "start": 1.55,
+          "end": 1.73
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.1103177759796381
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d74136ef8c7badce4201518caac4c91b57ba6cdc9cb845a4029414d28c570116",
+  "selected_reasons": []
+}

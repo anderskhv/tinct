@@ -1,0 +1,739 @@
+{
+  "complete": true,
+  "signature": "72b1eb141dacf0db7142133ff89ec32b8b258991bfb765f00d738164e727f5c9",
+  "attempts": [
+    {
+      "asr_seconds": 0.36508314684033394,
+      "alignment_seconds": 0.00048353802412748337,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " But the principal attraction was the exhibition of the long noses, a show to which Europe",
+          "start": 0.11,
+          "end": 5.33,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.11,
+              "end": 0.47,
+              "probability": 0.64501953125
+            },
+            {
+              "text": " the",
+              "start": 0.47,
+              "end": 0.59,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " principal",
+              "start": 0.59,
+              "end": 0.95,
+              "probability": 0.89208984375
+            },
+            {
+              "text": " attraction",
+              "start": 0.95,
+              "end": 1.43,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " was",
+              "start": 1.43,
+              "end": 1.85,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " the",
+              "start": 1.85,
+              "end": 2.01,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " exhibition",
+              "start": 2.01,
+              "end": 2.57,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " of",
+              "start": 2.57,
+              "end": 2.87,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 2.87,
+              "end": 2.99,
+              "probability": 0.81787109375
+            },
+            {
+              "text": " long",
+              "start": 2.99,
+              "end": 3.25,
+              "probability": 0.5126953125
+            },
+            {
+              "text": " noses,",
+              "start": 3.25,
+              "end": 3.69,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " a",
+              "start": 4.33,
+              "end": 4.43,
+              "probability": 0.994140625
+            },
+            {
+              "text": " show",
+              "start": 4.43,
+              "end": 4.65,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 4.65,
+              "end": 4.83,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " which",
+              "start": 4.83,
+              "end": 5.01,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Europe",
+              "start": 5.01,
+              "end": 5.33,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " is as yet a stranger.",
+          "start": 5.33,
+          "end": 6.45,
+          "words": [
+            {
+              "text": " is",
+              "start": 5.33,
+              "end": 5.67,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " as",
+              "start": 5.67,
+              "end": 5.87,
+              "probability": 0.84765625
+            },
+            {
+              "text": " yet",
+              "start": 5.87,
+              "end": 6.05,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " a",
+              "start": 6.05,
+              "end": 6.19,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " stranger.",
+              "start": 6.19,
+              "end": 6.45,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.11,
+          "end": 0.47
+        },
+        {
+          "raw": "the",
+          "start": 0.47,
+          "end": 0.59
+        },
+        {
+          "raw": "principal",
+          "start": 0.59,
+          "end": 0.95
+        },
+        {
+          "raw": "attraction",
+          "start": 0.95,
+          "end": 1.43
+        },
+        {
+          "raw": "was",
+          "start": 1.43,
+          "end": 1.85
+        },
+        {
+          "raw": "the",
+          "start": 1.85,
+          "end": 2.01
+        },
+        {
+          "raw": "exhibition",
+          "start": 2.01,
+          "end": 2.57
+        },
+        {
+          "raw": "of",
+          "start": 2.57,
+          "end": 2.87
+        },
+        {
+          "raw": "the",
+          "start": 2.87,
+          "end": 2.99
+        },
+        {
+          "raw": "long",
+          "start": 2.99,
+          "end": 3.25
+        },
+        {
+          "raw": "noses,",
+          "start": 3.25,
+          "end": 3.69
+        },
+        {
+          "raw": "a",
+          "start": 4.33,
+          "end": 4.43
+        },
+        {
+          "raw": "show",
+          "start": 4.43,
+          "end": 4.65
+        },
+        {
+          "raw": "to",
+          "start": 4.65,
+          "end": 4.83
+        },
+        {
+          "raw": "which",
+          "start": 4.83,
+          "end": 5.01
+        },
+        {
+          "raw": "Europe",
+          "start": 5.01,
+          "end": 5.33
+        },
+        {
+          "raw": "is",
+          "start": 5.33,
+          "end": 5.67
+        },
+        {
+          "raw": "as",
+          "start": 5.67,
+          "end": 5.87
+        },
+        {
+          "raw": "yet",
+          "start": 5.87,
+          "end": 6.05
+        },
+        {
+          "raw": "a",
+          "start": 6.05,
+          "end": 6.19
+        },
+        {
+          "raw": "stranger.",
+          "start": 6.19,
+          "end": 6.45
+        }
+      ],
+      "expected_tokens": [
+        "But",
+        "the",
+        "principal",
+        "attraction",
+        "was",
+        "the",
+        "exhibition",
+        "of",
+        "the",
+        "Long",
+        "Noses,",
+        "a",
+        "show",
+        "to",
+        "which",
+        "Europe",
+        "is",
+        "as",
+        "yet",
+        "a",
+        "stranger."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.11,
+          "end": 0.47,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.47,
+          "end": 0.59,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "principal",
+          "start": 0.59,
+          "end": 0.95,
+          "key": "principal",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "attraction",
+          "start": 0.95,
+          "end": 1.43,
+          "key": "attraction",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 1.43,
+          "end": 1.85,
+          "key": "was",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.85,
+          "end": 2.01,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "exhibition",
+          "start": 2.01,
+          "end": 2.57,
+          "key": "exhibition",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.57,
+          "end": 2.87,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.87,
+          "end": 2.99,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "long",
+          "start": 2.99,
+          "end": 3.25,
+          "key": "long",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "noses,",
+          "start": 3.25,
+          "end": 3.69,
+          "key": "noses",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.33,
+          "end": 4.43,
+          "key": "a",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "show",
+          "start": 4.43,
+          "end": 4.65,
+          "key": "show",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.65,
+          "end": 4.83,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 4.83,
+          "end": 5.01,
+          "key": "which",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Europe",
+          "start": 5.01,
+          "end": 5.33,
+          "key": "europe",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 5.33,
+          "end": 5.67,
+          "key": "is",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 5.67,
+          "end": 5.87,
+          "key": "as",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "yet",
+          "start": 5.87,
+          "end": 6.05,
+          "key": "yet",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 6.05,
+          "end": 6.19,
+          "key": "a",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "stranger.",
+          "start": 6.19,
+          "end": 6.45,
+          "key": "stranger",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "But",
+          "start": 0.11,
+          "end": 0.47
+        },
+        {
+          "text": "the",
+          "start": 0.47,
+          "end": 0.59
+        },
+        {
+          "text": "principal",
+          "start": 0.59,
+          "end": 0.95
+        },
+        {
+          "text": "attraction",
+          "start": 0.95,
+          "end": 1.43
+        },
+        {
+          "text": "was",
+          "start": 1.43,
+          "end": 1.85
+        },
+        {
+          "text": "the",
+          "start": 1.85,
+          "end": 2.01
+        },
+        {
+          "text": "exhibition",
+          "start": 2.01,
+          "end": 2.57
+        },
+        {
+          "text": "of",
+          "start": 2.57,
+          "end": 2.87
+        },
+        {
+          "text": "the",
+          "start": 2.87,
+          "end": 2.99
+        },
+        {
+          "text": "Long",
+          "start": 2.99,
+          "end": 3.25
+        },
+        {
+          "text": "Noses,",
+          "start": 3.25,
+          "end": 3.69
+        },
+        {
+          "text": "a",
+          "start": 4.33,
+          "end": 4.43
+        },
+        {
+          "text": "show",
+          "start": 4.43,
+          "end": 4.65
+        },
+        {
+          "text": "to",
+          "start": 4.65,
+          "end": 4.83
+        },
+        {
+          "text": "which",
+          "start": 4.83,
+          "end": 5.01
+        },
+        {
+          "text": "Europe",
+          "start": 5.01,
+          "end": 5.33
+        },
+        {
+          "text": "is",
+          "start": 5.33,
+          "end": 5.67
+        },
+        {
+          "text": "as",
+          "start": 5.67,
+          "end": 5.87
+        },
+        {
+          "text": "yet",
+          "start": 5.87,
+          "end": 6.05
+        },
+        {
+          "text": "a",
+          "start": 6.05,
+          "end": 6.19
+        },
+        {
+          "text": "stranger.",
+          "start": 6.19,
+          "end": 6.45
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.36582356598228216
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9038db226cb5be9b91ea4b51c0276939195e4863e9cdce50283f91898ceb0902",
+  "selected_reasons": []
+}

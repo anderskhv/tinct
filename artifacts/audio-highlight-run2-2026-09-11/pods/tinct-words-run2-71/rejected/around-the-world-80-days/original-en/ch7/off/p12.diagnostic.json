@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "e5fd7039daad856fea34d4b43a5d7675dd3155397308b3637405907518218550",
+  "attempts": [
+    {
+      "asr_seconds": 0.1409409837797284,
+      "alignment_seconds": 0.000382215715944767,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And this man is your servant.",
+          "start": 0.05,
+          "end": 1.51,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.7294921875
+            },
+            {
+              "text": " this",
+              "start": 0.53,
+              "end": 0.67,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " man",
+              "start": 0.67,
+              "end": 0.91,
+              "probability": 0.99609375
+            },
+            {
+              "text": " is",
+              "start": 0.91,
+              "end": 1.07,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " your",
+              "start": 1.07,
+              "end": 1.19,
+              "probability": 0.994140625
+            },
+            {
+              "text": " servant.",
+              "start": 1.19,
+              "end": 1.51,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "this",
+          "start": 0.53,
+          "end": 0.67
+        },
+        {
+          "raw": "man",
+          "start": 0.67,
+          "end": 0.91
+        },
+        {
+          "raw": "is",
+          "start": 0.91,
+          "end": 1.07
+        },
+        {
+          "raw": "your",
+          "start": 1.07,
+          "end": 1.19
+        },
+        {
+          "raw": "servant.",
+          "start": 1.19,
+          "end": 1.51
+        }
+      ],
+      "expected_tokens": [
+        "\"And",
+        "this",
+        "man",
+        "is",
+        "your",
+        "servant?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 0.53,
+          "end": 0.67,
+          "key": "this",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 0.67,
+          "end": 0.91,
+          "key": "man",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.91,
+          "end": 1.07,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.07,
+          "end": 1.19,
+          "key": "your",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "servant.",
+          "start": 1.19,
+          "end": 1.51,
+          "key": "servant",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"And",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "this",
+          "start": 0.53,
+          "end": 0.67
+        },
+        {
+          "text": "man",
+          "start": 0.67,
+          "end": 0.91
+        },
+        {
+          "text": "is",
+          "start": 0.91,
+          "end": 1.07
+        },
+        {
+          "text": "your",
+          "start": 1.07,
+          "end": 1.19
+        },
+        {
+          "text": "servant?\"",
+          "start": 1.19,
+          "end": 1.51
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1414603153243661
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b1924c3f0ce75486af0f7ecce919822430fd6cbde19ea1dbff41e85af3610b76",
+  "selected_reasons": []
+}

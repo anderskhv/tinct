@@ -1,0 +1,478 @@
+{
+  "complete": true,
+  "signature": "c09be643d227f3e2a43be8343c7a1c4fcb87850aadd743742bad19b410ad3d6f",
+  "attempts": [
+    {
+      "asr_seconds": 0.2877198327332735,
+      "alignment_seconds": 0.0005824975669384003,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Of forged iron,\" replied Passepartout, as he set about preparing a hasty breakfast.",
+        "hotwords": "Of, Passepartout"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Of forged iron, replied Passepartout, as he set about preparing a hasty breakfast.",
+          "start": 0.02,
+          "end": 5.6,
+          "words": [
+            {
+              "text": " Of",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.004932403564453125
+            },
+            {
+              "text": " forged",
+              "start": 0.56,
+              "end": 1.0,
+              "probability": 0.77880859375
+            },
+            {
+              "text": " iron,",
+              "start": 1.0,
+              "end": 1.56,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " replied",
+              "start": 1.92,
+              "end": 2.32,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Passepartout,",
+              "start": 2.32,
+              "end": 3.22,
+              "probability": 0.4515800476074219
+            },
+            {
+              "text": " as",
+              "start": 3.34,
+              "end": 3.72,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " he",
+              "start": 3.72,
+              "end": 3.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " set",
+              "start": 3.84,
+              "end": 4.0,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " about",
+              "start": 4.0,
+              "end": 4.26,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " preparing",
+              "start": 4.26,
+              "end": 4.66,
+              "probability": 0.994140625
+            },
+            {
+              "text": " a",
+              "start": 4.66,
+              "end": 4.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " hasty",
+              "start": 4.88,
+              "end": 5.18,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " breakfast.",
+              "start": 5.18,
+              "end": 5.6,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Of",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "forged",
+          "start": 0.56,
+          "end": 1.0
+        },
+        {
+          "raw": "iron,",
+          "start": 1.0,
+          "end": 1.56
+        },
+        {
+          "raw": "replied",
+          "start": 1.92,
+          "end": 2.32
+        },
+        {
+          "raw": "Passepartout,",
+          "start": 2.32,
+          "end": 3.22
+        },
+        {
+          "raw": "as",
+          "start": 3.34,
+          "end": 3.72
+        },
+        {
+          "raw": "he",
+          "start": 3.72,
+          "end": 3.84
+        },
+        {
+          "raw": "set",
+          "start": 3.84,
+          "end": 4.0
+        },
+        {
+          "raw": "about",
+          "start": 4.0,
+          "end": 4.26
+        },
+        {
+          "raw": "preparing",
+          "start": 4.26,
+          "end": 4.66
+        },
+        {
+          "raw": "a",
+          "start": 4.66,
+          "end": 4.88
+        },
+        {
+          "raw": "hasty",
+          "start": 4.88,
+          "end": 5.18
+        },
+        {
+          "raw": "breakfast.",
+          "start": 5.18,
+          "end": 5.6
+        }
+      ],
+      "expected_tokens": [
+        "\"Of",
+        "forged",
+        "iron,\"",
+        "replied",
+        "Passepartout,",
+        "as",
+        "he",
+        "set",
+        "about",
+        "preparing",
+        "a",
+        "hasty",
+        "breakfast."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Of",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "of",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "forged",
+          "start": 0.56,
+          "end": 1.0,
+          "key": "forged",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "iron,",
+          "start": 1.0,
+          "end": 1.56,
+          "key": "iron",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "replied",
+          "start": 1.92,
+          "end": 2.32,
+          "key": "replied",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Passepartout,",
+          "start": 2.32,
+          "end": 3.22,
+          "key": "passepartout",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.34,
+          "end": 3.72,
+          "key": "as",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.72,
+          "end": 3.84,
+          "key": "he",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "set",
+          "start": 3.84,
+          "end": 4.0,
+          "key": "set",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 4.0,
+          "end": 4.26,
+          "key": "about",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "preparing",
+          "start": 4.26,
+          "end": 4.66,
+          "key": "preparing",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.66,
+          "end": 4.88,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "hasty",
+          "start": 4.88,
+          "end": 5.18,
+          "key": "hasty",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "breakfast.",
+          "start": 5.18,
+          "end": 5.6,
+          "key": "breakfast",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Of",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "forged",
+          "start": 0.56,
+          "end": 1.0
+        },
+        {
+          "text": "iron,\"",
+          "start": 1.0,
+          "end": 1.56
+        },
+        {
+          "text": "replied",
+          "start": 1.92,
+          "end": 2.32
+        },
+        {
+          "text": "Passepartout,",
+          "start": 2.32,
+          "end": 3.22
+        },
+        {
+          "text": "as",
+          "start": 3.34,
+          "end": 3.72
+        },
+        {
+          "text": "he",
+          "start": 3.72,
+          "end": 3.84
+        },
+        {
+          "text": "set",
+          "start": 3.84,
+          "end": 4.0
+        },
+        {
+          "text": "about",
+          "start": 4.0,
+          "end": 4.26
+        },
+        {
+          "text": "preparing",
+          "start": 4.26,
+          "end": 4.66
+        },
+        {
+          "text": "a",
+          "start": 4.66,
+          "end": 4.88
+        },
+        {
+          "text": "hasty",
+          "start": 4.88,
+          "end": 5.18
+        },
+        {
+          "text": "breakfast.",
+          "start": 5.18,
+          "end": 5.6
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.28855966310948133
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ac33193f4c2c48ca711011d00ec99e84831ee925b6541c8fd006984073730646",
+  "selected_reasons": []
+}

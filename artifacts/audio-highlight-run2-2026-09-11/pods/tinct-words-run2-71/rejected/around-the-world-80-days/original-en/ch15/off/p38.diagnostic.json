@@ -1,0 +1,615 @@
+{
+  "complete": true,
+  "signature": "b5d985c87199b3d8fe210cd98b57cfa238b2e7dfbd74ad0a0c6055fc5c356ba2",
+  "attempts": [
+    {
+      "asr_seconds": 0.34198902547359467,
+      "alignment_seconds": 0.0005447873845696449,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " That's it, muttered Passapartout. These are the rogues who are going to burn our young lady.",
+          "start": 0.42,
+          "end": 5.16,
+          "words": [
+            {
+              "text": " That's",
+              "start": 0.42,
+              "end": 0.78,
+              "probability": 0.5396728515625
+            },
+            {
+              "text": " it,",
+              "start": 0.78,
+              "end": 1.02,
+              "probability": 0.998046875
+            },
+            {
+              "text": " muttered",
+              "start": 1.38,
+              "end": 1.54,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " Passapartout.",
+              "start": 1.54,
+              "end": 2.42,
+              "probability": 0.882568359375
+            },
+            {
+              "text": " These",
+              "start": 2.98,
+              "end": 3.16,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " are",
+              "start": 3.16,
+              "end": 3.3,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 3.3,
+              "end": 3.42,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " rogues",
+              "start": 3.42,
+              "end": 3.82,
+              "probability": 0.889892578125
+            },
+            {
+              "text": " who",
+              "start": 3.82,
+              "end": 3.9,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " are",
+              "start": 3.9,
+              "end": 3.98,
+              "probability": 0.6884765625
+            },
+            {
+              "text": " going",
+              "start": 3.98,
+              "end": 4.16,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 4.16,
+              "end": 4.32,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " burn",
+              "start": 4.32,
+              "end": 4.5,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " our",
+              "start": 4.5,
+              "end": 4.66,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " young",
+              "start": 4.66,
+              "end": 4.84,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " lady.",
+              "start": 4.84,
+              "end": 5.16,
+              "probability": 0.970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That's",
+          "start": 0.42,
+          "end": 0.78
+        },
+        {
+          "raw": "it,",
+          "start": 0.78,
+          "end": 1.02
+        },
+        {
+          "raw": "muttered",
+          "start": 1.38,
+          "end": 1.54
+        },
+        {
+          "raw": "Passapartout.",
+          "start": 1.54,
+          "end": 2.42
+        },
+        {
+          "raw": "These",
+          "start": 2.98,
+          "end": 3.16
+        },
+        {
+          "raw": "are",
+          "start": 3.16,
+          "end": 3.3
+        },
+        {
+          "raw": "the",
+          "start": 3.3,
+          "end": 3.42
+        },
+        {
+          "raw": "rogues",
+          "start": 3.42,
+          "end": 3.82
+        },
+        {
+          "raw": "who",
+          "start": 3.82,
+          "end": 3.9
+        },
+        {
+          "raw": "are",
+          "start": 3.9,
+          "end": 3.98
+        },
+        {
+          "raw": "going",
+          "start": 3.98,
+          "end": 4.16
+        },
+        {
+          "raw": "to",
+          "start": 4.16,
+          "end": 4.32
+        },
+        {
+          "raw": "burn",
+          "start": 4.32,
+          "end": 4.5
+        },
+        {
+          "raw": "our",
+          "start": 4.5,
+          "end": 4.66
+        },
+        {
+          "raw": "young",
+          "start": 4.66,
+          "end": 4.84
+        },
+        {
+          "raw": "lady.",
+          "start": 4.84,
+          "end": 5.16
+        }
+      ],
+      "expected_tokens": [
+        "\"That's",
+        "it,\"",
+        "muttered",
+        "Passepartout;",
+        "\"these",
+        "are",
+        "the",
+        "rogues",
+        "who",
+        "were",
+        "going",
+        "to",
+        "burn",
+        "our",
+        "young",
+        "lady.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          9,
+          4,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "equal",
+          10,
+          16,
+          10,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "That's",
+          "start": 0.42,
+          "end": 0.78,
+          "key": "thats",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "it,",
+          "start": 0.78,
+          "end": 1.02,
+          "key": "it",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "muttered",
+          "start": 1.38,
+          "end": 1.54,
+          "key": "muttered",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Passapartout.",
+          "start": 1.54,
+          "end": 2.42,
+          "key": "passapartout",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "These",
+          "start": 2.98,
+          "end": 3.16,
+          "key": "these",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 3.16,
+          "end": 3.3,
+          "key": "are",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.3,
+          "end": 3.42,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "rogues",
+          "start": 3.42,
+          "end": 3.82,
+          "key": "rogues",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 3.82,
+          "end": 3.9,
+          "key": "who",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 3.9,
+          "end": 3.98,
+          "key": "are",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "going",
+          "start": 3.98,
+          "end": 4.16,
+          "key": "going",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.16,
+          "end": 4.32,
+          "key": "to",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "burn",
+          "start": 4.32,
+          "end": 4.5,
+          "key": "burn",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 4.5,
+          "end": 4.66,
+          "key": "our",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "young",
+          "start": 4.66,
+          "end": 4.84,
+          "key": "young",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "lady.",
+          "start": 4.84,
+          "end": 5.16,
+          "key": "lady",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"That's",
+          "start": 0.42,
+          "end": 0.78
+        },
+        {
+          "text": "it,\"",
+          "start": 0.78,
+          "end": 1.02
+        },
+        {
+          "text": "muttered",
+          "start": 1.38,
+          "end": 1.54
+        },
+        {
+          "text": "Passepartout;",
+          "start": 1.54,
+          "end": 2.26
+        },
+        {
+          "text": "\"these",
+          "start": 2.98,
+          "end": 3.16
+        },
+        {
+          "text": "are",
+          "start": 3.16,
+          "end": 3.3
+        },
+        {
+          "text": "the",
+          "start": 3.3,
+          "end": 3.42
+        },
+        {
+          "text": "rogues",
+          "start": 3.42,
+          "end": 3.82
+        },
+        {
+          "text": "who",
+          "start": 3.82,
+          "end": 3.9
+        },
+        {
+          "text": "were",
+          "start": 3.9,
+          "end": 3.94
+        },
+        {
+          "text": "going",
+          "start": 3.98,
+          "end": 4.16
+        },
+        {
+          "text": "to",
+          "start": 4.16,
+          "end": 4.32
+        },
+        {
+          "text": "burn",
+          "start": 4.32,
+          "end": 4.5
+        },
+        {
+          "text": "our",
+          "start": 4.5,
+          "end": 4.66
+        },
+        {
+          "text": "young",
+          "start": 4.66,
+          "end": 4.84
+        },
+        {
+          "text": "lady.\"",
+          "start": 4.84,
+          "end": 5.16
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 14
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.3427375452592969
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cf34219b75e0937ec33e103f2868c6e6743245c7fd3aa4233e4dd755d7d211f6",
+  "selected_reasons": []
+}

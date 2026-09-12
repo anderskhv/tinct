@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "e68893c10bf97923ae44a32e663b1c99f3c12648d6f3eb7eb09f63ba12f3cb2f",
+  "attempts": [
+    {
+      "asr_seconds": 0.2252451404929161,
+      "alignment_seconds": 0.00048136990517377853,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"The devil! I should so like to cross the Pacific with you!\"",
+        "hotwords": "I, Pacific"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The devil! I should so like to cross the Pacific with you!",
+          "start": 0.02,
+          "end": 3.18,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.78759765625
+            },
+            {
+              "text": " devil!",
+              "start": 0.5,
+              "end": 0.82,
+              "probability": 0.521484375
+            },
+            {
+              "text": " I",
+              "start": 1.22,
+              "end": 1.38,
+              "probability": 0.98828125
+            },
+            {
+              "text": " should",
+              "start": 1.38,
+              "end": 1.5,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " so",
+              "start": 1.5,
+              "end": 1.7,
+              "probability": 0.998046875
+            },
+            {
+              "text": " like",
+              "start": 1.7,
+              "end": 1.88,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 1.88,
+              "end": 2.04,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " cross",
+              "start": 2.04,
+              "end": 2.24,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 2.24,
+              "end": 2.42,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Pacific",
+              "start": 2.42,
+              "end": 2.64,
+              "probability": 0.962890625
+            },
+            {
+              "text": " with",
+              "start": 2.64,
+              "end": 2.94,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you!",
+              "start": 2.94,
+              "end": 3.18,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "devil!",
+          "start": 0.5,
+          "end": 0.82
+        },
+        {
+          "raw": "I",
+          "start": 1.22,
+          "end": 1.38
+        },
+        {
+          "raw": "should",
+          "start": 1.38,
+          "end": 1.5
+        },
+        {
+          "raw": "so",
+          "start": 1.5,
+          "end": 1.7
+        },
+        {
+          "raw": "like",
+          "start": 1.7,
+          "end": 1.88
+        },
+        {
+          "raw": "to",
+          "start": 1.88,
+          "end": 2.04
+        },
+        {
+          "raw": "cross",
+          "start": 2.04,
+          "end": 2.24
+        },
+        {
+          "raw": "the",
+          "start": 2.24,
+          "end": 2.42
+        },
+        {
+          "raw": "Pacific",
+          "start": 2.42,
+          "end": 2.64
+        },
+        {
+          "raw": "with",
+          "start": 2.64,
+          "end": 2.94
+        },
+        {
+          "raw": "you!",
+          "start": 2.94,
+          "end": 3.18
+        }
+      ],
+      "expected_tokens": [
+        "\"The",
+        "devil!",
+        "I",
+        "should",
+        "so",
+        "like",
+        "to",
+        "cross",
+        "the",
+        "Pacific",
+        "with",
+        "you!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "devil!",
+          "start": 0.5,
+          "end": 0.82,
+          "key": "devil",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.22,
+          "end": 1.38,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 1.38,
+          "end": 1.5,
+          "key": "should",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 1.5,
+          "end": 1.7,
+          "key": "so",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 1.7,
+          "end": 1.88,
+          "key": "like",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.88,
+          "end": 2.04,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "cross",
+          "start": 2.04,
+          "end": 2.24,
+          "key": "cross",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.24,
+          "end": 2.42,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Pacific",
+          "start": 2.42,
+          "end": 2.64,
+          "key": "pacific",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.64,
+          "end": 2.94,
+          "key": "with",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "you!",
+          "start": 2.94,
+          "end": 3.18,
+          "key": "you",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "devil!",
+          "start": 0.5,
+          "end": 0.82
+        },
+        {
+          "text": "I",
+          "start": 1.22,
+          "end": 1.38
+        },
+        {
+          "text": "should",
+          "start": 1.38,
+          "end": 1.5
+        },
+        {
+          "text": "so",
+          "start": 1.5,
+          "end": 1.7
+        },
+        {
+          "text": "like",
+          "start": 1.7,
+          "end": 1.88
+        },
+        {
+          "text": "to",
+          "start": 1.88,
+          "end": 2.04
+        },
+        {
+          "text": "cross",
+          "start": 2.04,
+          "end": 2.24
+        },
+        {
+          "text": "the",
+          "start": 2.24,
+          "end": 2.42
+        },
+        {
+          "text": "Pacific",
+          "start": 2.42,
+          "end": 2.64
+        },
+        {
+          "text": "with",
+          "start": 2.64,
+          "end": 2.94
+        },
+        {
+          "text": "you!\"",
+          "start": 2.94,
+          "end": 3.18
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22592978551983833
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "600d8ec8f07c25c24af15da67ed47088c45024b63c4790d2a448f82be6003ae5",
+  "selected_reasons": []
+}

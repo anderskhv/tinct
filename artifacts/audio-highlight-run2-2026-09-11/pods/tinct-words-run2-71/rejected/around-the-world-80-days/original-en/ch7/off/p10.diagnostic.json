@@ -1,0 +1,491 @@
+{
+  "complete": true,
+  "signature": "171e123bab764e06fc473576f427d68b02d9060f3353e0379900e90ea2e6a741",
+  "attempts": [
+    {
+      "asr_seconds": 0.24455159530043602,
+      "alignment_seconds": 0.000645454041659832,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " You are Mr. Filia's fog said the console after reading the passport",
+          "start": 0.05,
+          "end": 4.37,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.161865234375
+            },
+            {
+              "text": " are",
+              "start": 0.59,
+              "end": 0.75,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Mr.",
+              "start": 0.75,
+              "end": 0.99,
+              "probability": 0.85888671875
+            },
+            {
+              "text": " Filia's",
+              "start": 1.19,
+              "end": 1.51,
+              "probability": 0.79638671875
+            },
+            {
+              "text": " fog",
+              "start": 1.51,
+              "end": 1.83,
+              "probability": 0.806640625
+            },
+            {
+              "text": " said",
+              "start": 1.83,
+              "end": 2.53,
+              "probability": 0.1268310546875
+            },
+            {
+              "text": " the",
+              "start": 2.53,
+              "end": 2.67,
+              "probability": 0.990234375
+            },
+            {
+              "text": " console",
+              "start": 2.67,
+              "end": 3.05,
+              "probability": 0.8671875
+            },
+            {
+              "text": " after",
+              "start": 3.05,
+              "end": 3.51,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " reading",
+              "start": 3.51,
+              "end": 3.77,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 3.77,
+              "end": 3.97,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " passport",
+              "start": 3.97,
+              "end": 4.37,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "are",
+          "start": 0.59,
+          "end": 0.75
+        },
+        {
+          "raw": "Mr.",
+          "start": 0.75,
+          "end": 0.99
+        },
+        {
+          "raw": "Filia's",
+          "start": 1.19,
+          "end": 1.51
+        },
+        {
+          "raw": "fog",
+          "start": 1.51,
+          "end": 1.83
+        },
+        {
+          "raw": "said",
+          "start": 1.83,
+          "end": 2.53
+        },
+        {
+          "raw": "the",
+          "start": 2.53,
+          "end": 2.67
+        },
+        {
+          "raw": "console",
+          "start": 2.67,
+          "end": 3.05
+        },
+        {
+          "raw": "after",
+          "start": 3.05,
+          "end": 3.51
+        },
+        {
+          "raw": "reading",
+          "start": 3.51,
+          "end": 3.77
+        },
+        {
+          "raw": "the",
+          "start": 3.77,
+          "end": 3.97
+        },
+        {
+          "raw": "passport",
+          "start": 3.97,
+          "end": 4.37
+        }
+      ],
+      "expected_tokens": [
+        "\"You",
+        "are",
+        "Mr.",
+        "Phileas",
+        "Fogg?\"",
+        "said",
+        "the",
+        "consul,",
+        "after",
+        "reading",
+        "the",
+        "passport."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          5
+        ],
+        [
+          "equal",
+          5,
+          7,
+          5,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "equal",
+          8,
+          12,
+          8,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          5,
+          3,
+          5
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 0.59,
+          "end": 0.75,
+          "key": "are",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 0.75,
+          "end": 0.99,
+          "key": "mr",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Filia's",
+          "start": 1.19,
+          "end": 1.51,
+          "key": "filias",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "fog",
+          "start": 1.51,
+          "end": 1.83,
+          "key": "fog",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.83,
+          "end": 2.53,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.53,
+          "end": 2.67,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "console",
+          "start": 2.67,
+          "end": 3.05,
+          "key": "console",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 3.05,
+          "end": 3.51,
+          "key": "after",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "reading",
+          "start": 3.51,
+          "end": 3.77,
+          "key": "reading",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.77,
+          "end": 3.97,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "passport",
+          "start": 3.97,
+          "end": 4.37,
+          "key": "passport",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"You",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "are",
+          "start": 0.59,
+          "end": 0.75
+        },
+        {
+          "text": "Mr.",
+          "start": 0.75,
+          "end": 0.99
+        },
+        {
+          "text": "Phileas",
+          "start": 0.99,
+          "end": 1.41
+        },
+        {
+          "text": "Fogg?\"",
+          "start": 1.41,
+          "end": 1.62
+        },
+        {
+          "text": "said",
+          "start": 1.83,
+          "end": 2.53
+        },
+        {
+          "text": "the",
+          "start": 2.53,
+          "end": 2.67
+        },
+        {
+          "text": "consul,",
+          "start": 2.67,
+          "end": 2.86
+        },
+        {
+          "text": "after",
+          "start": 3.05,
+          "end": 3.51
+        },
+        {
+          "text": "reading",
+          "start": 3.51,
+          "end": 3.77
+        },
+        {
+          "text": "the",
+          "start": 3.77,
+          "end": 3.97
+        },
+        {
+          "text": "passport.",
+          "start": 3.97,
+          "end": 4.37
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 9
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.24541649501770735
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d9a0b9106aa29c41c539f6d5804d44331e173c2789da993f1553ec597a9efae7",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

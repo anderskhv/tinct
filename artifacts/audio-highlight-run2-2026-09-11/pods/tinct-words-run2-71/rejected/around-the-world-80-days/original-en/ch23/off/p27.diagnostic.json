@@ -1,0 +1,54 @@
+{
+  "complete": true,
+  "signature": "08e4229e63e969dcd9ebf1cdbc8517c82ec9485097fbb98a477ece5e3178c30e",
+  "attempts": [
+    {
+      "asr_seconds": 0.03218819573521614,
+      "alignment_seconds": 6.847642362117767e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [],
+      "heard_words": [],
+      "expected_tokens": [
+        "\"Ah!\""
+      ],
+      "opcodes": [],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [],
+      "merges": [],
+      "candidate_words": [],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 0,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent",
+        "no_timed_words"
+      ],
+      "seconds": 0.032291680574417114
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f70ba0283fd74aebe5f5ccadea4f6956c65c09275408f510b20e6e3078c4a6ad",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent",
+    "no_timed_words"
+  ]
+}

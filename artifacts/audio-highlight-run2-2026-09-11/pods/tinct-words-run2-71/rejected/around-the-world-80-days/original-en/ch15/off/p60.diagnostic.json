@@ -1,0 +1,505 @@
+{
+  "complete": true,
+  "signature": "9d2b8c281894d75ae679bf04aa61b2b66afaf4bac93daec3beef5cc7e60c062a",
+  "attempts": [
+    {
+      "asr_seconds": 0.2637973837554455,
+      "alignment_seconds": 0.0006269942969083786,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " 300 pounds!\" cried Passapartout, startled at the largeness of the sum.",
+          "start": 0.05,
+          "end": 4.87,
+          "words": [
+            {
+              "text": " 300",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.313232421875
+            },
+            {
+              "text": " pounds",
+              "start": 0.93,
+              "end": 1.45,
+              "probability": 0.849609375
+            },
+            {
+              "text": "!\"",
+              "start": 1.45,
+              "end": 2.19,
+              "probability": 0.166259765625
+            },
+            {
+              "text": " cried",
+              "start": 2.19,
+              "end": 2.21,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " Passapartout,",
+              "start": 2.21,
+              "end": 3.07,
+              "probability": 0.790771484375
+            },
+            {
+              "text": " startled",
+              "start": 3.35,
+              "end": 3.65,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " at",
+              "start": 3.65,
+              "end": 3.89,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 3.89,
+              "end": 4.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " largeness",
+              "start": 4.01,
+              "end": 4.41,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " of",
+              "start": 4.41,
+              "end": 4.55,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 4.55,
+              "end": 4.67,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sum.",
+              "start": 4.67,
+              "end": 4.87,
+              "probability": 0.7724609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "300",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "raw": "pounds",
+          "start": 0.93,
+          "end": 1.45
+        },
+        {
+          "raw": "!\"",
+          "start": 1.45,
+          "end": 2.19
+        },
+        {
+          "raw": "cried",
+          "start": 2.19,
+          "end": 2.21
+        },
+        {
+          "raw": "Passapartout,",
+          "start": 2.21,
+          "end": 3.07
+        },
+        {
+          "raw": "startled",
+          "start": 3.35,
+          "end": 3.65
+        },
+        {
+          "raw": "at",
+          "start": 3.65,
+          "end": 3.89
+        },
+        {
+          "raw": "the",
+          "start": 3.89,
+          "end": 4.01
+        },
+        {
+          "raw": "largeness",
+          "start": 4.01,
+          "end": 4.41
+        },
+        {
+          "raw": "of",
+          "start": 4.41,
+          "end": 4.55
+        },
+        {
+          "raw": "the",
+          "start": 4.55,
+          "end": 4.67
+        },
+        {
+          "raw": "sum.",
+          "start": 4.67,
+          "end": 4.87
+        }
+      ],
+      "expected_tokens": [
+        "\"Three",
+        "hundred",
+        "pounds!\"",
+        "cried",
+        "Passepartout,",
+        "startled",
+        "at",
+        "the",
+        "largeness",
+        "of",
+        "the",
+        "sum."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ],
+        [
+          "equal",
+          2,
+          3,
+          1,
+          2
+        ],
+        [
+          "insert",
+          3,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          12,
+          5,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ],
+        [
+          "insert",
+          3,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "300",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "300",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "pounds",
+          "start": 0.93,
+          "end": 1.45,
+          "key": "pounds",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 1.45,
+          "end": 2.19,
+          "key": "",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 2.19,
+          "end": 2.21,
+          "key": "cried",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Passapartout,",
+          "start": 2.21,
+          "end": 3.07,
+          "key": "passapartout",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "startled",
+          "start": 3.35,
+          "end": 3.65,
+          "key": "startled",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 3.65,
+          "end": 3.89,
+          "key": "at",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.89,
+          "end": 4.01,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "largeness",
+          "start": 4.01,
+          "end": 4.41,
+          "key": "largeness",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.41,
+          "end": 4.55,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.55,
+          "end": 4.67,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "sum.",
+          "start": 4.67,
+          "end": 4.87,
+          "key": "sum",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Three",
+          "start": 0.0,
+          "end": 0.465
+        },
+        {
+          "text": "hundred",
+          "start": 0.465,
+          "end": 0.698
+        },
+        {
+          "text": "pounds!\"",
+          "start": 0.93,
+          "end": 1.45
+        },
+        {
+          "text": "cried",
+          "start": 2.19,
+          "end": 2.21
+        },
+        {
+          "text": "Passepartout,",
+          "start": 2.21,
+          "end": 2.78
+        },
+        {
+          "text": "startled",
+          "start": 3.35,
+          "end": 3.65
+        },
+        {
+          "text": "at",
+          "start": 3.65,
+          "end": 3.89
+        },
+        {
+          "text": "the",
+          "start": 3.89,
+          "end": 4.01
+        },
+        {
+          "text": "largeness",
+          "start": 4.01,
+          "end": 4.41
+        },
+        {
+          "text": "of",
+          "start": 4.41,
+          "end": 4.55
+        },
+        {
+          "text": "the",
+          "start": 4.55,
+          "end": 4.67
+        },
+        {
+          "text": "sum.",
+          "start": 4.67,
+          "end": 4.87
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 9
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.26466123666614294
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "71dfc9a2497388c2444902275da042a0d2b49ee0a9fa63ce7d6a76a52ee68ed5",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

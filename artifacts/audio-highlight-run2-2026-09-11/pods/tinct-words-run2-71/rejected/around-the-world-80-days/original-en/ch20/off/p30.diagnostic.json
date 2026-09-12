@@ -1,0 +1,766 @@
+{
+  "complete": true,
+  "signature": "ba6d3e1a4247e6ab8f5be1e71c8b3920502d57a6ba171b76bdef7833a27f02c7",
+  "attempts": [
+    {
+      "asr_seconds": 0.36764231976121664,
+      "alignment_seconds": 0.0006166240200400352,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I offer you a hundred pounds per day and an additional reward of 200 pounds if I reach Yokohama in time.",
+          "start": 0.11,
+          "end": 6.91,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.11,
+              "end": 0.53,
+              "probability": 0.89306640625
+            },
+            {
+              "text": " offer",
+              "start": 0.53,
+              "end": 0.81,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " you",
+              "start": 0.81,
+              "end": 1.07,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " a",
+              "start": 1.07,
+              "end": 1.21,
+              "probability": 0.541015625
+            },
+            {
+              "text": " hundred",
+              "start": 1.21,
+              "end": 1.53,
+              "probability": 0.8173828125
+            },
+            {
+              "text": " pounds",
+              "start": 1.53,
+              "end": 1.85,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " per",
+              "start": 1.85,
+              "end": 2.15,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " day",
+              "start": 2.15,
+              "end": 2.41,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 2.41,
+              "end": 3.01,
+              "probability": 0.67138671875
+            },
+            {
+              "text": " an",
+              "start": 3.01,
+              "end": 3.09,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " additional",
+              "start": 3.09,
+              "end": 3.45,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " reward",
+              "start": 3.45,
+              "end": 3.99,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " of",
+              "start": 3.99,
+              "end": 4.21,
+              "probability": 0.99609375
+            },
+            {
+              "text": " 200",
+              "start": 4.21,
+              "end": 4.65,
+              "probability": 0.59326171875
+            },
+            {
+              "text": " pounds",
+              "start": 4.65,
+              "end": 5.21,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " if",
+              "start": 5.21,
+              "end": 5.43,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " I",
+              "start": 5.43,
+              "end": 5.57,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " reach",
+              "start": 5.57,
+              "end": 5.77,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Yokohama",
+              "start": 5.77,
+              "end": 6.35,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " in",
+              "start": 6.35,
+              "end": 6.57,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " time.",
+              "start": 6.57,
+              "end": 6.91,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.11,
+          "end": 0.53
+        },
+        {
+          "raw": "offer",
+          "start": 0.53,
+          "end": 0.81
+        },
+        {
+          "raw": "you",
+          "start": 0.81,
+          "end": 1.07
+        },
+        {
+          "raw": "a",
+          "start": 1.07,
+          "end": 1.21
+        },
+        {
+          "raw": "hundred",
+          "start": 1.21,
+          "end": 1.53
+        },
+        {
+          "raw": "pounds",
+          "start": 1.53,
+          "end": 1.85
+        },
+        {
+          "raw": "per",
+          "start": 1.85,
+          "end": 2.15
+        },
+        {
+          "raw": "day",
+          "start": 2.15,
+          "end": 2.41
+        },
+        {
+          "raw": "and",
+          "start": 2.41,
+          "end": 3.01
+        },
+        {
+          "raw": "an",
+          "start": 3.01,
+          "end": 3.09
+        },
+        {
+          "raw": "additional",
+          "start": 3.09,
+          "end": 3.45
+        },
+        {
+          "raw": "reward",
+          "start": 3.45,
+          "end": 3.99
+        },
+        {
+          "raw": "of",
+          "start": 3.99,
+          "end": 4.21
+        },
+        {
+          "raw": "200",
+          "start": 4.21,
+          "end": 4.65
+        },
+        {
+          "raw": "pounds",
+          "start": 4.65,
+          "end": 5.21
+        },
+        {
+          "raw": "if",
+          "start": 5.21,
+          "end": 5.43
+        },
+        {
+          "raw": "I",
+          "start": 5.43,
+          "end": 5.57
+        },
+        {
+          "raw": "reach",
+          "start": 5.57,
+          "end": 5.77
+        },
+        {
+          "raw": "Yokohama",
+          "start": 5.77,
+          "end": 6.35
+        },
+        {
+          "raw": "in",
+          "start": 6.35,
+          "end": 6.57
+        },
+        {
+          "raw": "time.",
+          "start": 6.57,
+          "end": 6.91
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "offer",
+        "you",
+        "a",
+        "hundred",
+        "pounds",
+        "per",
+        "day,",
+        "and",
+        "an",
+        "additional",
+        "reward",
+        "of",
+        "two",
+        "hundred",
+        "pounds",
+        "if",
+        "I",
+        "reach",
+        "Yokohama",
+        "in",
+        "time.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ],
+        [
+          "replace",
+          13,
+          15,
+          13,
+          14
+        ],
+        [
+          "equal",
+          15,
+          22,
+          14,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          13,
+          15,
+          13,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.11,
+          "end": 0.53,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "offer",
+          "start": 0.53,
+          "end": 0.81,
+          "key": "offer",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.81,
+          "end": 1.07,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.07,
+          "end": 1.21,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hundred",
+          "start": 1.21,
+          "end": 1.53,
+          "key": "hundred",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "pounds",
+          "start": 1.53,
+          "end": 1.85,
+          "key": "pounds",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "per",
+          "start": 1.85,
+          "end": 2.15,
+          "key": "per",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "day",
+          "start": 2.15,
+          "end": 2.41,
+          "key": "day",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.41,
+          "end": 3.01,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 3.01,
+          "end": 3.09,
+          "key": "an",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "additional",
+          "start": 3.09,
+          "end": 3.45,
+          "key": "additional",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "reward",
+          "start": 3.45,
+          "end": 3.99,
+          "key": "reward",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.99,
+          "end": 4.21,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "200",
+          "start": 4.21,
+          "end": 4.65,
+          "key": "200",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "pounds",
+          "start": 4.65,
+          "end": 5.21,
+          "key": "pounds",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 5.21,
+          "end": 5.43,
+          "key": "if",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.43,
+          "end": 5.57,
+          "key": "i",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "reach",
+          "start": 5.57,
+          "end": 5.77,
+          "key": "reach",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Yokohama",
+          "start": 5.77,
+          "end": 6.35,
+          "key": "yokohama",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 6.35,
+          "end": 6.57,
+          "key": "in",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "time.",
+          "start": 6.57,
+          "end": 6.91,
+          "key": "time",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.11,
+          "end": 0.53
+        },
+        {
+          "text": "offer",
+          "start": 0.53,
+          "end": 0.81
+        },
+        {
+          "text": "you",
+          "start": 0.81,
+          "end": 1.07
+        },
+        {
+          "text": "a",
+          "start": 1.07,
+          "end": 1.21
+        },
+        {
+          "text": "hundred",
+          "start": 1.21,
+          "end": 1.53
+        },
+        {
+          "text": "pounds",
+          "start": 1.53,
+          "end": 1.85
+        },
+        {
+          "text": "per",
+          "start": 1.85,
+          "end": 2.15
+        },
+        {
+          "text": "day,",
+          "start": 2.15,
+          "end": 2.41
+        },
+        {
+          "text": "and",
+          "start": 2.41,
+          "end": 3.01
+        },
+        {
+          "text": "an",
+          "start": 3.01,
+          "end": 3.09
+        },
+        {
+          "text": "additional",
+          "start": 3.09,
+          "end": 3.45
+        },
+        {
+          "text": "reward",
+          "start": 3.45,
+          "end": 3.99
+        },
+        {
+          "text": "of",
+          "start": 3.99,
+          "end": 4.21
+        },
+        {
+          "text": "two",
+          "start": 4.21,
+          "end": 4.43
+        },
+        {
+          "text": "hundred",
+          "start": 4.43,
+          "end": 4.54
+        },
+        {
+          "text": "pounds",
+          "start": 4.65,
+          "end": 5.21
+        },
+        {
+          "text": "if",
+          "start": 5.21,
+          "end": 5.43
+        },
+        {
+          "text": "I",
+          "start": 5.43,
+          "end": 5.57
+        },
+        {
+          "text": "reach",
+          "start": 5.57,
+          "end": 5.77
+        },
+        {
+          "text": "Yokohama",
+          "start": 5.77,
+          "end": 6.35
+        },
+        {
+          "text": "in",
+          "start": 6.35,
+          "end": 6.57
+        },
+        {
+          "text": "time.\"",
+          "start": 6.57,
+          "end": 6.91
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 21,
+        "matched_words": 20
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.3684910172596574
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "daee72fec443966ffe748ab18844149b539efe4fff7d5fbee08a483580dca699",
+  "selected_reasons": []
+}

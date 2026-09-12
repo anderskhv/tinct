@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "8403c6105a1e7875220c677c825c1e095266eef79bd3c7537baefe654612e48d",
+  "attempts": [
+    {
+      "asr_seconds": 0.13832679018378258,
+      "alignment_seconds": 0.00040170736610889435,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"So I can be of no use to you?\"",
+        "hotwords": "So, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " So I can be of no use to you?",
+          "start": 0.05,
+          "end": 1.83,
+          "words": [
+            {
+              "text": " So",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.39404296875
+            },
+            {
+              "text": " I",
+              "start": 0.49,
+              "end": 0.61,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " can",
+              "start": 0.61,
+              "end": 0.75,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " be",
+              "start": 0.75,
+              "end": 0.91,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " of",
+              "start": 0.91,
+              "end": 1.03,
+              "probability": 0.99609375
+            },
+            {
+              "text": " no",
+              "start": 1.03,
+              "end": 1.21,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " use",
+              "start": 1.21,
+              "end": 1.43,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 1.43,
+              "end": 1.61,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you?",
+              "start": 1.61,
+              "end": 1.83,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "So",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "I",
+          "start": 0.49,
+          "end": 0.61
+        },
+        {
+          "raw": "can",
+          "start": 0.61,
+          "end": 0.75
+        },
+        {
+          "raw": "be",
+          "start": 0.75,
+          "end": 0.91
+        },
+        {
+          "raw": "of",
+          "start": 0.91,
+          "end": 1.03
+        },
+        {
+          "raw": "no",
+          "start": 1.03,
+          "end": 1.21
+        },
+        {
+          "raw": "use",
+          "start": 1.21,
+          "end": 1.43
+        },
+        {
+          "raw": "to",
+          "start": 1.43,
+          "end": 1.61
+        },
+        {
+          "raw": "you?",
+          "start": 1.61,
+          "end": 1.83
+        }
+      ],
+      "expected_tokens": [
+        "\"So",
+        "I",
+        "can",
+        "be",
+        "of",
+        "no",
+        "use",
+        "to",
+        "you?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "So",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "so",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.49,
+          "end": 0.61,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 0.61,
+          "end": 0.75,
+          "key": "can",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 0.75,
+          "end": 0.91,
+          "key": "be",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.91,
+          "end": 1.03,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 1.03,
+          "end": 1.21,
+          "key": "no",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "use",
+          "start": 1.21,
+          "end": 1.43,
+          "key": "use",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.43,
+          "end": 1.61,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you?",
+          "start": 1.61,
+          "end": 1.83,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"So",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "I",
+          "start": 0.49,
+          "end": 0.61
+        },
+        {
+          "text": "can",
+          "start": 0.61,
+          "end": 0.75
+        },
+        {
+          "text": "be",
+          "start": 0.75,
+          "end": 0.91
+        },
+        {
+          "text": "of",
+          "start": 0.91,
+          "end": 1.03
+        },
+        {
+          "text": "no",
+          "start": 1.03,
+          "end": 1.21
+        },
+        {
+          "text": "use",
+          "start": 1.21,
+          "end": 1.43
+        },
+        {
+          "text": "to",
+          "start": 1.43,
+          "end": 1.61
+        },
+        {
+          "text": "you?\"",
+          "start": 1.61,
+          "end": 1.83
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1388846067711711
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2550c28dec9f038293815432f5ed5cf4963316d9163b5ede6983d4f0c2e97a44",
+  "selected_reasons": []
+}

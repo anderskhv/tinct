@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "877d33be52e342bd1ea90b5765f6781d56db1f83119c0654c35a61d67ac2daaa",
+  "attempts": [
+    {
+      "asr_seconds": 0.2605236889794469,
+      "alignment_seconds": 0.0005493760108947754,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Between eight and nine knots the hour. Will you look at her?\"",
+        "hotwords": "Between, Will"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Between eight and nine knots the hour. Will you look at her?",
+          "start": 0.05,
+          "end": 3.31,
+          "words": [
+            {
+              "text": " Between",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.876953125
+            },
+            {
+              "text": " eight",
+              "start": 0.67,
+              "end": 0.89,
+              "probability": 0.5078125
+            },
+            {
+              "text": " and",
+              "start": 0.89,
+              "end": 1.05,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " nine",
+              "start": 1.05,
+              "end": 1.33,
+              "probability": 0.99609375
+            },
+            {
+              "text": " knots",
+              "start": 1.33,
+              "end": 1.65,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " the",
+              "start": 1.65,
+              "end": 1.83,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " hour.",
+              "start": 1.83,
+              "end": 2.17,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Will",
+              "start": 2.67,
+              "end": 2.75,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " you",
+              "start": 2.75,
+              "end": 2.87,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " look",
+              "start": 2.87,
+              "end": 3.03,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " at",
+              "start": 3.03,
+              "end": 3.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " her?",
+              "start": 3.15,
+              "end": 3.31,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Between",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "eight",
+          "start": 0.67,
+          "end": 0.89
+        },
+        {
+          "raw": "and",
+          "start": 0.89,
+          "end": 1.05
+        },
+        {
+          "raw": "nine",
+          "start": 1.05,
+          "end": 1.33
+        },
+        {
+          "raw": "knots",
+          "start": 1.33,
+          "end": 1.65
+        },
+        {
+          "raw": "the",
+          "start": 1.65,
+          "end": 1.83
+        },
+        {
+          "raw": "hour.",
+          "start": 1.83,
+          "end": 2.17
+        },
+        {
+          "raw": "Will",
+          "start": 2.67,
+          "end": 2.75
+        },
+        {
+          "raw": "you",
+          "start": 2.75,
+          "end": 2.87
+        },
+        {
+          "raw": "look",
+          "start": 2.87,
+          "end": 3.03
+        },
+        {
+          "raw": "at",
+          "start": 3.03,
+          "end": 3.15
+        },
+        {
+          "raw": "her?",
+          "start": 3.15,
+          "end": 3.31
+        }
+      ],
+      "expected_tokens": [
+        "\"Between",
+        "eight",
+        "and",
+        "nine",
+        "knots",
+        "the",
+        "hour.",
+        "Will",
+        "you",
+        "look",
+        "at",
+        "her?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Between",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "between",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "eight",
+          "start": 0.67,
+          "end": 0.89,
+          "key": "eight",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.89,
+          "end": 1.05,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "nine",
+          "start": 1.05,
+          "end": 1.33,
+          "key": "nine",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "knots",
+          "start": 1.33,
+          "end": 1.65,
+          "key": "knots",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.65,
+          "end": 1.83,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "hour.",
+          "start": 1.83,
+          "end": 2.17,
+          "key": "hour",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Will",
+          "start": 2.67,
+          "end": 2.75,
+          "key": "will",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.75,
+          "end": 2.87,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 2.87,
+          "end": 3.03,
+          "key": "look",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 3.03,
+          "end": 3.15,
+          "key": "at",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "her?",
+          "start": 3.15,
+          "end": 3.31,
+          "key": "her",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Between",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "eight",
+          "start": 0.67,
+          "end": 0.89
+        },
+        {
+          "text": "and",
+          "start": 0.89,
+          "end": 1.05
+        },
+        {
+          "text": "nine",
+          "start": 1.05,
+          "end": 1.33
+        },
+        {
+          "text": "knots",
+          "start": 1.33,
+          "end": 1.65
+        },
+        {
+          "text": "the",
+          "start": 1.65,
+          "end": 1.83
+        },
+        {
+          "text": "hour.",
+          "start": 1.83,
+          "end": 2.17
+        },
+        {
+          "text": "Will",
+          "start": 2.67,
+          "end": 2.75
+        },
+        {
+          "text": "you",
+          "start": 2.75,
+          "end": 2.87
+        },
+        {
+          "text": "look",
+          "start": 2.87,
+          "end": 3.03
+        },
+        {
+          "text": "at",
+          "start": 3.03,
+          "end": 3.15
+        },
+        {
+          "text": "her?\"",
+          "start": 3.15,
+          "end": 3.31
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.26129498798400164
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "38d1d2214210fba4e28ac28d0cbf019e07ea08ed40bd80c4277b7803df278542",
+  "selected_reasons": []
+}

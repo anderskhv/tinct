@@ -1,0 +1,867 @@
+{
+  "complete": true,
+  "signature": "bfd4cd10101f233ececb244d1329c42b30afe76bfe2ed59d25807231af1a9f1f",
+  "attempts": [
+    {
+      "asr_seconds": 0.3636572044342756,
+      "alignment_seconds": 0.0005559530109167099,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " No, I have missed the Carnatic, and I must get to Yokohama by the 14th at the latest,",
+          "start": 0.05,
+          "end": 5.89,
+          "words": [
+            {
+              "text": " No,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.74560546875
+            },
+            {
+              "text": " I",
+              "start": 1.01,
+              "end": 1.29,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " have",
+              "start": 1.29,
+              "end": 1.43,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " missed",
+              "start": 1.43,
+              "end": 1.69,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 1.69,
+              "end": 1.95,
+              "probability": 0.978515625
+            },
+            {
+              "text": " Carnatic,",
+              "start": 1.95,
+              "end": 2.49,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " and",
+              "start": 2.95,
+              "end": 3.19,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " I",
+              "start": 3.19,
+              "end": 3.33,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " must",
+              "start": 3.33,
+              "end": 3.49,
+              "probability": 0.99609375
+            },
+            {
+              "text": " get",
+              "start": 3.49,
+              "end": 3.73,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 3.73,
+              "end": 3.89,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Yokohama",
+              "start": 3.89,
+              "end": 4.43,
+              "probability": 0.994140625
+            },
+            {
+              "text": " by",
+              "start": 4.43,
+              "end": 4.67,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 4.67,
+              "end": 4.81,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " 14th",
+              "start": 4.81,
+              "end": 5.37,
+              "probability": 0.88671875
+            },
+            {
+              "text": " at",
+              "start": 5.37,
+              "end": 5.43,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " the",
+              "start": 5.43,
+              "end": 5.55,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " latest,",
+              "start": 5.55,
+              "end": 5.89,
+              "probability": 0.99169921875
+            }
+          ]
+        },
+        {
+          "text": " to take the boat for San Francisco.",
+          "start": 6.33,
+          "end": 8.13,
+          "words": [
+            {
+              "text": " to",
+              "start": 6.33,
+              "end": 6.51,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " take",
+              "start": 6.51,
+              "end": 6.69,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 6.69,
+              "end": 6.87,
+              "probability": 0.998046875
+            },
+            {
+              "text": " boat",
+              "start": 6.87,
+              "end": 7.03,
+              "probability": 0.998046875
+            },
+            {
+              "text": " for",
+              "start": 7.03,
+              "end": 7.29,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " San",
+              "start": 7.29,
+              "end": 7.55,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Francisco.",
+              "start": 7.55,
+              "end": 8.13,
+              "probability": 0.97509765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "I",
+          "start": 1.01,
+          "end": 1.29
+        },
+        {
+          "raw": "have",
+          "start": 1.29,
+          "end": 1.43
+        },
+        {
+          "raw": "missed",
+          "start": 1.43,
+          "end": 1.69
+        },
+        {
+          "raw": "the",
+          "start": 1.69,
+          "end": 1.95
+        },
+        {
+          "raw": "Carnatic,",
+          "start": 1.95,
+          "end": 2.49
+        },
+        {
+          "raw": "and",
+          "start": 2.95,
+          "end": 3.19
+        },
+        {
+          "raw": "I",
+          "start": 3.19,
+          "end": 3.33
+        },
+        {
+          "raw": "must",
+          "start": 3.33,
+          "end": 3.49
+        },
+        {
+          "raw": "get",
+          "start": 3.49,
+          "end": 3.73
+        },
+        {
+          "raw": "to",
+          "start": 3.73,
+          "end": 3.89
+        },
+        {
+          "raw": "Yokohama",
+          "start": 3.89,
+          "end": 4.43
+        },
+        {
+          "raw": "by",
+          "start": 4.43,
+          "end": 4.67
+        },
+        {
+          "raw": "the",
+          "start": 4.67,
+          "end": 4.81
+        },
+        {
+          "raw": "14th",
+          "start": 4.81,
+          "end": 5.37
+        },
+        {
+          "raw": "at",
+          "start": 5.37,
+          "end": 5.43
+        },
+        {
+          "raw": "the",
+          "start": 5.43,
+          "end": 5.55
+        },
+        {
+          "raw": "latest,",
+          "start": 5.55,
+          "end": 5.89
+        },
+        {
+          "raw": "to",
+          "start": 6.33,
+          "end": 6.51
+        },
+        {
+          "raw": "take",
+          "start": 6.51,
+          "end": 6.69
+        },
+        {
+          "raw": "the",
+          "start": 6.69,
+          "end": 6.87
+        },
+        {
+          "raw": "boat",
+          "start": 6.87,
+          "end": 7.03
+        },
+        {
+          "raw": "for",
+          "start": 7.03,
+          "end": 7.29
+        },
+        {
+          "raw": "San",
+          "start": 7.29,
+          "end": 7.55
+        },
+        {
+          "raw": "Francisco.",
+          "start": 7.55,
+          "end": 8.13
+        }
+      ],
+      "expected_tokens": [
+        "\"No.",
+        "I",
+        "have",
+        "missed",
+        "the",
+        "'Carnatic,'",
+        "and",
+        "I",
+        "must",
+        "get",
+        "to",
+        "Yokohama",
+        "by",
+        "the",
+        "14th",
+        "at",
+        "the",
+        "latest,",
+        "to",
+        "take",
+        "the",
+        "boat",
+        "for",
+        "San",
+        "Francisco.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          25,
+          0,
+          25
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.01,
+          "end": 1.29,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.29,
+          "end": 1.43,
+          "key": "have",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "missed",
+          "start": 1.43,
+          "end": 1.69,
+          "key": "missed",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.69,
+          "end": 1.95,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Carnatic,",
+          "start": 1.95,
+          "end": 2.49,
+          "key": "carnatic",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.95,
+          "end": 3.19,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.19,
+          "end": 3.33,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 3.33,
+          "end": 3.49,
+          "key": "must",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "get",
+          "start": 3.49,
+          "end": 3.73,
+          "key": "get",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.73,
+          "end": 3.89,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Yokohama",
+          "start": 3.89,
+          "end": 4.43,
+          "key": "yokohama",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 4.43,
+          "end": 4.67,
+          "key": "by",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.67,
+          "end": 4.81,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "14th",
+          "start": 4.81,
+          "end": 5.37,
+          "key": "14th",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 5.37,
+          "end": 5.43,
+          "key": "at",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.43,
+          "end": 5.55,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "latest,",
+          "start": 5.55,
+          "end": 5.89,
+          "key": "latest",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 6.33,
+          "end": 6.51,
+          "key": "to",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 6.51,
+          "end": 6.69,
+          "key": "take",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.69,
+          "end": 6.87,
+          "key": "the",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "boat",
+          "start": 6.87,
+          "end": 7.03,
+          "key": "boat",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 7.03,
+          "end": 7.29,
+          "key": "for",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "San",
+          "start": 7.29,
+          "end": 7.55,
+          "key": "san",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Francisco.",
+          "start": 7.55,
+          "end": 8.13,
+          "key": "francisco",
+          "pieces": [
+            24
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"No.",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "I",
+          "start": 1.01,
+          "end": 1.29
+        },
+        {
+          "text": "have",
+          "start": 1.29,
+          "end": 1.43
+        },
+        {
+          "text": "missed",
+          "start": 1.43,
+          "end": 1.69
+        },
+        {
+          "text": "the",
+          "start": 1.69,
+          "end": 1.95
+        },
+        {
+          "text": "'Carnatic,'",
+          "start": 1.95,
+          "end": 2.49
+        },
+        {
+          "text": "and",
+          "start": 2.95,
+          "end": 3.19
+        },
+        {
+          "text": "I",
+          "start": 3.19,
+          "end": 3.33
+        },
+        {
+          "text": "must",
+          "start": 3.33,
+          "end": 3.49
+        },
+        {
+          "text": "get",
+          "start": 3.49,
+          "end": 3.73
+        },
+        {
+          "text": "to",
+          "start": 3.73,
+          "end": 3.89
+        },
+        {
+          "text": "Yokohama",
+          "start": 3.89,
+          "end": 4.43
+        },
+        {
+          "text": "by",
+          "start": 4.43,
+          "end": 4.67
+        },
+        {
+          "text": "the",
+          "start": 4.67,
+          "end": 4.81
+        },
+        {
+          "text": "14th",
+          "start": 4.81,
+          "end": 5.37
+        },
+        {
+          "text": "at",
+          "start": 5.37,
+          "end": 5.43
+        },
+        {
+          "text": "the",
+          "start": 5.43,
+          "end": 5.55
+        },
+        {
+          "text": "latest,",
+          "start": 5.55,
+          "end": 5.89
+        },
+        {
+          "text": "to",
+          "start": 6.33,
+          "end": 6.51
+        },
+        {
+          "text": "take",
+          "start": 6.51,
+          "end": 6.69
+        },
+        {
+          "text": "the",
+          "start": 6.69,
+          "end": 6.87
+        },
+        {
+          "text": "boat",
+          "start": 6.87,
+          "end": 7.03
+        },
+        {
+          "text": "for",
+          "start": 7.03,
+          "end": 7.29
+        },
+        {
+          "text": "San",
+          "start": 7.29,
+          "end": 7.55
+        },
+        {
+          "text": "Francisco.\"",
+          "start": 7.55,
+          "end": 8.13
+        }
+      ],
+      "stats": {
+        "expected_words": 25,
+        "heard_words": 25,
+        "matched_words": 25
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3644680306315422
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9901c647a8520b1b026e16cd0aa9c5003a8a63a5762700620ba2590f4d8a2ea9",
+  "selected_reasons": []
+}

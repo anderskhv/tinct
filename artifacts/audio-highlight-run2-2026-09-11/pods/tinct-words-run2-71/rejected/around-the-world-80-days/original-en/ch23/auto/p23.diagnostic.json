@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "7b6c4cb38a6277d2261a70b22002c6109837f50af7414d4b5dda52e569c71915",
+  "attempts": [
+    {
+      "asr_seconds": 0.17115604504942894,
+      "alignment_seconds": 0.0003581074997782707,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Yes; a Parisian of Paris.\"",
+        "hotwords": "Yes, Parisian, Paris"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, a Parisian of Paris.",
+          "start": 0.05,
+          "end": 1.89,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.85791015625
+            },
+            {
+              "text": " a",
+              "start": 1.15,
+              "end": 1.15,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " Parisian",
+              "start": 1.15,
+              "end": 1.51,
+              "probability": 0.968994140625
+            },
+            {
+              "text": " of",
+              "start": 1.51,
+              "end": 1.63,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Paris.",
+              "start": 1.63,
+              "end": 1.89,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "a",
+          "start": 1.15,
+          "end": 1.15
+        },
+        {
+          "raw": "Parisian",
+          "start": 1.15,
+          "end": 1.51
+        },
+        {
+          "raw": "of",
+          "start": 1.51,
+          "end": 1.63
+        },
+        {
+          "raw": "Paris.",
+          "start": 1.63,
+          "end": 1.89
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes;",
+        "a",
+        "Parisian",
+        "of",
+        "Paris.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.15,
+          "end": 1.15,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Parisian",
+          "start": 1.15,
+          "end": 1.51,
+          "key": "parisian",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.51,
+          "end": 1.63,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Paris.",
+          "start": 1.63,
+          "end": 1.89,
+          "key": "paris",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Yes;",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "a",
+          "start": 1.15,
+          "end": 1.15
+        },
+        {
+          "text": "Parisian",
+          "start": 1.15,
+          "end": 1.51
+        },
+        {
+          "text": "of",
+          "start": 1.51,
+          "end": 1.63
+        },
+        {
+          "text": "Paris.\"",
+          "start": 1.63,
+          "end": 1.89
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17163709551095963
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3a35913ffc29ffdd8be5b700d0b5305ef80320a16e9cff29a6184078dc6b9e38",
+  "selected_reasons": []
+}

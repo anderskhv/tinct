@@ -1,0 +1,601 @@
+{
+  "complete": true,
+  "signature": "23db16f160a1aec44db35121f614e736e141cb29e43c40a917bcb01d05a5369c",
+  "attempts": [
+    {
+      "asr_seconds": 0.34322947543114424,
+      "alignment_seconds": 0.0005064085125923157,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The sailor leaned on the railing, opened his eyes wide and said,",
+          "start": 0.02,
+          "end": 3.7,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " sailor",
+              "start": 0.5,
+              "end": 0.78,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " leaned",
+              "start": 0.78,
+              "end": 1.14,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " on",
+              "start": 1.14,
+              "end": 1.32,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 1.32,
+              "end": 1.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " railing,",
+              "start": 1.42,
+              "end": 1.74,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " opened",
+              "start": 2.16,
+              "end": 2.38,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 2.38,
+              "end": 2.58,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " eyes",
+              "start": 2.58,
+              "end": 2.86,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " wide",
+              "start": 2.86,
+              "end": 3.22,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 3.22,
+              "end": 3.46,
+              "probability": 0.6142578125
+            },
+            {
+              "text": " said,",
+              "start": 3.46,
+              "end": 3.7,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " Is your honor joking?",
+          "start": 4.28,
+          "end": 5.16,
+          "words": [
+            {
+              "text": " Is",
+              "start": 4.28,
+              "end": 4.36,
+              "probability": 0.01776123046875
+            },
+            {
+              "text": " your",
+              "start": 4.36,
+              "end": 4.5,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " honor",
+              "start": 4.5,
+              "end": 4.74,
+              "probability": 0.8642578125
+            },
+            {
+              "text": " joking?",
+              "start": 4.74,
+              "end": 5.16,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "sailor",
+          "start": 0.5,
+          "end": 0.78
+        },
+        {
+          "raw": "leaned",
+          "start": 0.78,
+          "end": 1.14
+        },
+        {
+          "raw": "on",
+          "start": 1.14,
+          "end": 1.32
+        },
+        {
+          "raw": "the",
+          "start": 1.32,
+          "end": 1.42
+        },
+        {
+          "raw": "railing,",
+          "start": 1.42,
+          "end": 1.74
+        },
+        {
+          "raw": "opened",
+          "start": 2.16,
+          "end": 2.38
+        },
+        {
+          "raw": "his",
+          "start": 2.38,
+          "end": 2.58
+        },
+        {
+          "raw": "eyes",
+          "start": 2.58,
+          "end": 2.86
+        },
+        {
+          "raw": "wide",
+          "start": 2.86,
+          "end": 3.22
+        },
+        {
+          "raw": "and",
+          "start": 3.22,
+          "end": 3.46
+        },
+        {
+          "raw": "said,",
+          "start": 3.46,
+          "end": 3.7
+        },
+        {
+          "raw": "Is",
+          "start": 4.28,
+          "end": 4.36
+        },
+        {
+          "raw": "your",
+          "start": 4.36,
+          "end": 4.5
+        },
+        {
+          "raw": "honor",
+          "start": 4.5,
+          "end": 4.74
+        },
+        {
+          "raw": "joking?",
+          "start": 4.74,
+          "end": 5.16
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "sailor",
+        "leaned",
+        "on",
+        "the",
+        "railing,",
+        "opened",
+        "his",
+        "eyes",
+        "wide,",
+        "and",
+        "said,",
+        "\"Is",
+        "your",
+        "honour",
+        "joking?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          15
+        ],
+        [
+          "equal",
+          15,
+          16,
+          15,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          14,
+          15,
+          14,
+          15
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sailor",
+          "start": 0.5,
+          "end": 0.78,
+          "key": "sailor",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "leaned",
+          "start": 0.78,
+          "end": 1.14,
+          "key": "leaned",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.14,
+          "end": 1.32,
+          "key": "on",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.32,
+          "end": 1.42,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "railing,",
+          "start": 1.42,
+          "end": 1.74,
+          "key": "railing",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "opened",
+          "start": 2.16,
+          "end": 2.38,
+          "key": "opened",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.38,
+          "end": 2.58,
+          "key": "his",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "eyes",
+          "start": 2.58,
+          "end": 2.86,
+          "key": "eyes",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "wide",
+          "start": 2.86,
+          "end": 3.22,
+          "key": "wide",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.22,
+          "end": 3.46,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 3.46,
+          "end": 3.7,
+          "key": "said",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 4.28,
+          "end": 4.36,
+          "key": "is",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 4.36,
+          "end": 4.5,
+          "key": "your",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "honor",
+          "start": 4.5,
+          "end": 4.74,
+          "key": "honor",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "joking?",
+          "start": 4.74,
+          "end": 5.16,
+          "key": "joking",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "sailor",
+          "start": 0.5,
+          "end": 0.78
+        },
+        {
+          "text": "leaned",
+          "start": 0.78,
+          "end": 1.14
+        },
+        {
+          "text": "on",
+          "start": 1.14,
+          "end": 1.32
+        },
+        {
+          "text": "the",
+          "start": 1.32,
+          "end": 1.42
+        },
+        {
+          "text": "railing,",
+          "start": 1.42,
+          "end": 1.74
+        },
+        {
+          "text": "opened",
+          "start": 2.16,
+          "end": 2.38
+        },
+        {
+          "text": "his",
+          "start": 2.38,
+          "end": 2.58
+        },
+        {
+          "text": "eyes",
+          "start": 2.58,
+          "end": 2.86
+        },
+        {
+          "text": "wide,",
+          "start": 2.86,
+          "end": 3.22
+        },
+        {
+          "text": "and",
+          "start": 3.22,
+          "end": 3.46
+        },
+        {
+          "text": "said,",
+          "start": 3.46,
+          "end": 3.7
+        },
+        {
+          "text": "\"Is",
+          "start": 4.28,
+          "end": 4.36
+        },
+        {
+          "text": "your",
+          "start": 4.36,
+          "end": 4.5
+        },
+        {
+          "text": "honour",
+          "start": 4.5,
+          "end": 4.62
+        },
+        {
+          "text": "joking?\"",
+          "start": 4.74,
+          "end": 5.16
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.3439386859536171
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "11baef5b142054e8749a58ca9a7145359f0f49cc559cbe5b623cdae5b28a0d72",
+  "selected_reasons": []
+}

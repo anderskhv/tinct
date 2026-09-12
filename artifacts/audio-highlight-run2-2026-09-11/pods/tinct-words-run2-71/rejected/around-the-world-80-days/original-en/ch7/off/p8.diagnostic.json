@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "3fb20bc86216b6114f4bfdba765d2c6b20d69832a1e8739af15e5243b207495e",
+  "attempts": [
+    {
+      "asr_seconds": 0.17649297043681145,
+      "alignment_seconds": 0.0004281289875507355,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ah, that's your lookout, but I cannot.",
+          "start": 0.18,
+          "end": 2.06,
+          "words": [
+            {
+              "text": " Ah,",
+              "start": 0.18,
+              "end": 0.58,
+              "probability": 0.7109375
+            },
+            {
+              "text": " that's",
+              "start": 0.64,
+              "end": 0.82,
+              "probability": 0.98828125
+            },
+            {
+              "text": " your",
+              "start": 0.82,
+              "end": 0.9,
+              "probability": 0.99609375
+            },
+            {
+              "text": " lookout,",
+              "start": 0.9,
+              "end": 1.18,
+              "probability": 0.76806640625
+            },
+            {
+              "text": " but",
+              "start": 1.58,
+              "end": 1.7,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " I",
+              "start": 1.7,
+              "end": 1.84,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " cannot.",
+              "start": 1.84,
+              "end": 2.06,
+              "probability": 0.9580078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ah,",
+          "start": 0.18,
+          "end": 0.58
+        },
+        {
+          "raw": "that's",
+          "start": 0.64,
+          "end": 0.82
+        },
+        {
+          "raw": "your",
+          "start": 0.82,
+          "end": 0.9
+        },
+        {
+          "raw": "lookout,",
+          "start": 0.9,
+          "end": 1.18
+        },
+        {
+          "raw": "but",
+          "start": 1.58,
+          "end": 1.7
+        },
+        {
+          "raw": "I",
+          "start": 1.7,
+          "end": 1.84
+        },
+        {
+          "raw": "cannot.",
+          "start": 1.84,
+          "end": 2.06
+        }
+      ],
+      "expected_tokens": [
+        "\"Ah,",
+        "that's",
+        "your",
+        "look-out.",
+        "But",
+        "I",
+        "cannot—\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ah,",
+          "start": 0.18,
+          "end": 0.58,
+          "key": "ah",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "that's",
+          "start": 0.64,
+          "end": 0.82,
+          "key": "thats",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 0.82,
+          "end": 0.9,
+          "key": "your",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lookout,",
+          "start": 0.9,
+          "end": 1.18,
+          "key": "lookout",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 1.58,
+          "end": 1.7,
+          "key": "but",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.7,
+          "end": 1.84,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "cannot.",
+          "start": 1.84,
+          "end": 2.06,
+          "key": "cannot",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Ah,",
+          "start": 0.18,
+          "end": 0.58
+        },
+        {
+          "text": "that's",
+          "start": 0.64,
+          "end": 0.82
+        },
+        {
+          "text": "your",
+          "start": 0.82,
+          "end": 0.9
+        },
+        {
+          "text": "look-out.",
+          "start": 0.9,
+          "end": 1.18
+        },
+        {
+          "text": "But",
+          "start": 1.58,
+          "end": 1.7
+        },
+        {
+          "text": "I",
+          "start": 1.7,
+          "end": 1.84
+        },
+        {
+          "text": "cannot—\"",
+          "start": 1.84,
+          "end": 2.06
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1770714307203889
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "079340ab275a215b5571cdbf491756b3f9eef59884e3cb65f7afb768efb20a8b",
+  "selected_reasons": []
+}
