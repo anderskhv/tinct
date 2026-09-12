@@ -1,0 +1,310 @@
+{
+  "complete": true,
+  "signature": "622b7310979dc12c326df3bb094ea24b75ed492f75d276979abc2a3a79479d01",
+  "attempts": [
+    {
+      "asr_seconds": 0.1939808912575245,
+      "alignment_seconds": 0.0005449890159070492,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Then why do they call us charity-children?\"",
+        "hotwords": "Then"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Then why do they call us charity-children?",
+          "start": 0.08,
+          "end": 1.98,
+          "words": [
+            {
+              "text": " Then",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.79052734375
+            },
+            {
+              "text": " why",
+              "start": 0.52,
+              "end": 0.7,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " do",
+              "start": 0.7,
+              "end": 0.8,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " they",
+              "start": 0.8,
+              "end": 0.92,
+              "probability": 0.998046875
+            },
+            {
+              "text": " call",
+              "start": 0.92,
+              "end": 1.12,
+              "probability": 0.99609375
+            },
+            {
+              "text": " us",
+              "start": 1.12,
+              "end": 1.3,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " charity",
+              "start": 1.3,
+              "end": 1.64,
+              "probability": 0.72216796875
+            },
+            {
+              "text": "-children?",
+              "start": 1.64,
+              "end": 1.98,
+              "probability": 0.4947328567504883
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Then",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "why",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "raw": "do",
+          "start": 0.7,
+          "end": 0.8
+        },
+        {
+          "raw": "they",
+          "start": 0.8,
+          "end": 0.92
+        },
+        {
+          "raw": "call",
+          "start": 0.92,
+          "end": 1.12
+        },
+        {
+          "raw": "us",
+          "start": 1.12,
+          "end": 1.3
+        },
+        {
+          "raw": "charity",
+          "start": 1.3,
+          "end": 1.64
+        },
+        {
+          "raw": "-children?",
+          "start": 1.64,
+          "end": 1.98
+        }
+      ],
+      "expected_tokens": [
+        "\"Then",
+        "why",
+        "do",
+        "they",
+        "call",
+        "us",
+        "charity-children?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Then",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "then",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "why",
+          "start": 0.52,
+          "end": 0.7,
+          "key": "why",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 0.7,
+          "end": 0.8,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 0.8,
+          "end": 0.92,
+          "key": "they",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "call",
+          "start": 0.92,
+          "end": 1.12,
+          "key": "call",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 1.12,
+          "end": 1.3,
+          "key": "us",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "charity -children?",
+          "start": 1.3,
+          "end": 1.98,
+          "key": "charitychildren",
+          "pieces": [
+            6,
+            7
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 6,
+          "text": "charity-children?\"",
+          "heard": "charity -children?",
+          "heard_indexes": [
+            6,
+            7
+          ],
+          "start": 1.3,
+          "end": 1.98
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Then",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "why",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "text": "do",
+          "start": 0.7,
+          "end": 0.8
+        },
+        {
+          "text": "they",
+          "start": 0.8,
+          "end": 0.92
+        },
+        {
+          "text": "call",
+          "start": 0.92,
+          "end": 1.12
+        },
+        {
+          "text": "us",
+          "start": 1.12,
+          "end": 1.3
+        },
+        {
+          "text": "charity-children?\"",
+          "start": 1.3,
+          "end": 1.98
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19469428807497025
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2b116eddf90c3ab29e9708f9c12640c9219bbae9d1f17024f4742d27e437e353",
+  "selected_reasons": []
+}

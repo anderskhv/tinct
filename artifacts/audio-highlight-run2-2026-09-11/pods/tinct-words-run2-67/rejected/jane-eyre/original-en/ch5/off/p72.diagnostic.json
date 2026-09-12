@@ -1,0 +1,658 @@
+{
+  "complete": true,
+  "signature": "e9be2587d57114d5155e7c1fdab7e5b3f94388d1a231a8b1f686823d295d61ec",
+  "attempts": [
+    {
+      "asr_seconds": 0.3198716868646443,
+      "alignment_seconds": 0.0005332012660801411,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Can you tell me what the writing on that stone over the door means? What is load institution?",
+          "start": 0.05,
+          "end": 4.83,
+          "words": [
+            {
+              "text": " Can",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " you",
+              "start": 0.51,
+              "end": 0.65,
+              "probability": 0.998046875
+            },
+            {
+              "text": " tell",
+              "start": 0.65,
+              "end": 0.85,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me",
+              "start": 0.85,
+              "end": 0.99,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " what",
+              "start": 0.99,
+              "end": 1.17,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " the",
+              "start": 1.17,
+              "end": 1.31,
+              "probability": 0.990234375
+            },
+            {
+              "text": " writing",
+              "start": 1.31,
+              "end": 1.57,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " on",
+              "start": 1.57,
+              "end": 1.81,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " that",
+              "start": 1.81,
+              "end": 2.01,
+              "probability": 0.98828125
+            },
+            {
+              "text": " stone",
+              "start": 2.01,
+              "end": 2.31,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " over",
+              "start": 2.31,
+              "end": 2.53,
+              "probability": 0.98828125
+            },
+            {
+              "text": " the",
+              "start": 2.53,
+              "end": 2.67,
+              "probability": 0.98828125
+            },
+            {
+              "text": " door",
+              "start": 2.67,
+              "end": 2.85,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " means?",
+              "start": 2.85,
+              "end": 3.23,
+              "probability": 0.99609375
+            },
+            {
+              "text": " What",
+              "start": 3.69,
+              "end": 3.83,
+              "probability": 0.974609375
+            },
+            {
+              "text": " is",
+              "start": 3.83,
+              "end": 3.99,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " load",
+              "start": 3.99,
+              "end": 4.23,
+              "probability": 0.1868896484375
+            },
+            {
+              "text": " institution?",
+              "start": 4.23,
+              "end": 4.83,
+              "probability": 0.955078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Can",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "you",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "raw": "tell",
+          "start": 0.65,
+          "end": 0.85
+        },
+        {
+          "raw": "me",
+          "start": 0.85,
+          "end": 0.99
+        },
+        {
+          "raw": "what",
+          "start": 0.99,
+          "end": 1.17
+        },
+        {
+          "raw": "the",
+          "start": 1.17,
+          "end": 1.31
+        },
+        {
+          "raw": "writing",
+          "start": 1.31,
+          "end": 1.57
+        },
+        {
+          "raw": "on",
+          "start": 1.57,
+          "end": 1.81
+        },
+        {
+          "raw": "that",
+          "start": 1.81,
+          "end": 2.01
+        },
+        {
+          "raw": "stone",
+          "start": 2.01,
+          "end": 2.31
+        },
+        {
+          "raw": "over",
+          "start": 2.31,
+          "end": 2.53
+        },
+        {
+          "raw": "the",
+          "start": 2.53,
+          "end": 2.67
+        },
+        {
+          "raw": "door",
+          "start": 2.67,
+          "end": 2.85
+        },
+        {
+          "raw": "means?",
+          "start": 2.85,
+          "end": 3.23
+        },
+        {
+          "raw": "What",
+          "start": 3.69,
+          "end": 3.83
+        },
+        {
+          "raw": "is",
+          "start": 3.83,
+          "end": 3.99
+        },
+        {
+          "raw": "load",
+          "start": 3.99,
+          "end": 4.23
+        },
+        {
+          "raw": "institution?",
+          "start": 4.23,
+          "end": 4.83
+        }
+      ],
+      "expected_tokens": [
+        "\"Can",
+        "you",
+        "tell",
+        "me",
+        "what",
+        "the",
+        "writing",
+        "on",
+        "that",
+        "stone",
+        "over",
+        "the",
+        "door",
+        "means?",
+        "What",
+        "is",
+        "Lowood",
+        "Institution?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ],
+        [
+          "replace",
+          16,
+          17,
+          16,
+          17
+        ],
+        [
+          "equal",
+          17,
+          18,
+          17,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          16,
+          17,
+          16,
+          17
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Can",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "can",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.51,
+          "end": 0.65,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 0.65,
+          "end": 0.85,
+          "key": "tell",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 0.85,
+          "end": 0.99,
+          "key": "me",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 0.99,
+          "end": 1.17,
+          "key": "what",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.17,
+          "end": 1.31,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "writing",
+          "start": 1.31,
+          "end": 1.57,
+          "key": "writing",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.57,
+          "end": 1.81,
+          "key": "on",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.81,
+          "end": 2.01,
+          "key": "that",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "stone",
+          "start": 2.01,
+          "end": 2.31,
+          "key": "stone",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 2.31,
+          "end": 2.53,
+          "key": "over",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.53,
+          "end": 2.67,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "door",
+          "start": 2.67,
+          "end": 2.85,
+          "key": "door",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "means?",
+          "start": 2.85,
+          "end": 3.23,
+          "key": "means",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 3.69,
+          "end": 3.83,
+          "key": "what",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.83,
+          "end": 3.99,
+          "key": "is",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "load",
+          "start": 3.99,
+          "end": 4.23,
+          "key": "load",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "institution?",
+          "start": 4.23,
+          "end": 4.83,
+          "key": "institution",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Can",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "you",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "text": "tell",
+          "start": 0.65,
+          "end": 0.85
+        },
+        {
+          "text": "me",
+          "start": 0.85,
+          "end": 0.99
+        },
+        {
+          "text": "what",
+          "start": 0.99,
+          "end": 1.17
+        },
+        {
+          "text": "the",
+          "start": 1.17,
+          "end": 1.31
+        },
+        {
+          "text": "writing",
+          "start": 1.31,
+          "end": 1.57
+        },
+        {
+          "text": "on",
+          "start": 1.57,
+          "end": 1.81
+        },
+        {
+          "text": "that",
+          "start": 1.81,
+          "end": 2.01
+        },
+        {
+          "text": "stone",
+          "start": 2.01,
+          "end": 2.31
+        },
+        {
+          "text": "over",
+          "start": 2.31,
+          "end": 2.53
+        },
+        {
+          "text": "the",
+          "start": 2.53,
+          "end": 2.67
+        },
+        {
+          "text": "door",
+          "start": 2.67,
+          "end": 2.85
+        },
+        {
+          "text": "means?",
+          "start": 2.85,
+          "end": 3.23
+        },
+        {
+          "text": "What",
+          "start": 3.69,
+          "end": 3.83
+        },
+        {
+          "text": "is",
+          "start": 3.83,
+          "end": 3.99
+        },
+        {
+          "text": "Lowood",
+          "start": 3.99,
+          "end": 4.11
+        },
+        {
+          "text": "Institution?\"",
+          "start": 4.23,
+          "end": 4.83
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 17
+      },
+      "match_ratio": 0.9444444444444444,
+      "rejection_reasons": [],
+      "seconds": 0.32061042869463563
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "43d0b36d277232d5b5a5dfaf83f6d4b8b11fb473809f47f6b8b731d03461c2e3",
+  "selected_reasons": []
+}

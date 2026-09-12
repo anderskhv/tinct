@@ -1,0 +1,444 @@
+{
+  "complete": true,
+  "signature": "eb34709c099a31360b8b3c5a028e1c38bf25cd0010f9b83406cf8a49c82074c4",
+  "attempts": [
+    {
+      "asr_seconds": 0.22439399315044284,
+      "alignment_seconds": 0.00044614914804697037,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I'll see it carried into your room,\" she said, and bustled out.",
+          "start": 0.05,
+          "end": 3.45,
+          "words": [
+            {
+              "text": " I'll",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.60205078125
+            },
+            {
+              "text": " see",
+              "start": 0.57,
+              "end": 0.71,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " it",
+              "start": 0.71,
+              "end": 0.81,
+              "probability": 0.9921875
+            },
+            {
+              "text": " carried",
+              "start": 0.81,
+              "end": 1.09,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " into",
+              "start": 1.09,
+              "end": 1.27,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " your",
+              "start": 1.27,
+              "end": 1.45,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " room,\"",
+              "start": 1.45,
+              "end": 1.99,
+              "probability": 0.830078125
+            },
+            {
+              "text": " she",
+              "start": 1.99,
+              "end": 2.19,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " said,",
+              "start": 2.19,
+              "end": 2.47,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 2.73,
+              "end": 2.85,
+              "probability": 0.998046875
+            },
+            {
+              "text": " bustled",
+              "start": 2.85,
+              "end": 3.21,
+              "probability": 0.962158203125
+            },
+            {
+              "text": " out.",
+              "start": 3.21,
+              "end": 3.45,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I'll",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "see",
+          "start": 0.57,
+          "end": 0.71
+        },
+        {
+          "raw": "it",
+          "start": 0.71,
+          "end": 0.81
+        },
+        {
+          "raw": "carried",
+          "start": 0.81,
+          "end": 1.09
+        },
+        {
+          "raw": "into",
+          "start": 1.09,
+          "end": 1.27
+        },
+        {
+          "raw": "your",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "raw": "room,\"",
+          "start": 1.45,
+          "end": 1.99
+        },
+        {
+          "raw": "she",
+          "start": 1.99,
+          "end": 2.19
+        },
+        {
+          "raw": "said,",
+          "start": 2.19,
+          "end": 2.47
+        },
+        {
+          "raw": "and",
+          "start": 2.73,
+          "end": 2.85
+        },
+        {
+          "raw": "bustled",
+          "start": 2.85,
+          "end": 3.21
+        },
+        {
+          "raw": "out.",
+          "start": 3.21,
+          "end": 3.45
+        }
+      ],
+      "expected_tokens": [
+        "\"I'll",
+        "see",
+        "it",
+        "carried",
+        "into",
+        "your",
+        "room,\"",
+        "she",
+        "said,",
+        "and",
+        "bustled",
+        "out."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I'll",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "ill",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 0.57,
+          "end": 0.71,
+          "key": "see",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 0.71,
+          "end": 0.81,
+          "key": "it",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "carried",
+          "start": 0.81,
+          "end": 1.09,
+          "key": "carried",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 1.09,
+          "end": 1.27,
+          "key": "into",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.27,
+          "end": 1.45,
+          "key": "your",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "room,\"",
+          "start": 1.45,
+          "end": 1.99,
+          "key": "room",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.99,
+          "end": 2.19,
+          "key": "she",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 2.19,
+          "end": 2.47,
+          "key": "said",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.73,
+          "end": 2.85,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "bustled",
+          "start": 2.85,
+          "end": 3.21,
+          "key": "bustled",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "out.",
+          "start": 3.21,
+          "end": 3.45,
+          "key": "out",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I'll",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "see",
+          "start": 0.57,
+          "end": 0.71
+        },
+        {
+          "text": "it",
+          "start": 0.71,
+          "end": 0.81
+        },
+        {
+          "text": "carried",
+          "start": 0.81,
+          "end": 1.09
+        },
+        {
+          "text": "into",
+          "start": 1.09,
+          "end": 1.27
+        },
+        {
+          "text": "your",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "text": "room,\"",
+          "start": 1.45,
+          "end": 1.99
+        },
+        {
+          "text": "she",
+          "start": 1.99,
+          "end": 2.19
+        },
+        {
+          "text": "said,",
+          "start": 2.19,
+          "end": 2.47
+        },
+        {
+          "text": "and",
+          "start": 2.73,
+          "end": 2.85
+        },
+        {
+          "text": "bustled",
+          "start": 2.85,
+          "end": 3.21
+        },
+        {
+          "text": "out.",
+          "start": 3.21,
+          "end": 3.45
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22502002818509936
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "75f117fb5be4e3c7f5dbc5aa47e69bb3ba317e6cd6a21924778cef4d06b80ac9",
+  "selected_reasons": []
+}

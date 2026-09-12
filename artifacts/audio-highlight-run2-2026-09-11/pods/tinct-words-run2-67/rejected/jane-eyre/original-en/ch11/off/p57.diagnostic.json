@@ -1,0 +1,266 @@
+{
+  "complete": true,
+  "signature": "986d53ca1a3a42e1a00ddae16da06b2b778d9eb5295e6b98a78c992f8f38f39a",
+  "attempts": [
+    {
+      "asr_seconds": 0.15961077343672514,
+      "alignment_seconds": 0.0004205913282930851,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And the little girl, my pupil.",
+          "start": 0.05,
+          "end": 1.93,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.50244140625
+            },
+            {
+              "text": " the",
+              "start": 0.53,
+              "end": 0.63,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " little",
+              "start": 0.63,
+              "end": 0.81,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " girl,",
+              "start": 0.81,
+              "end": 1.11,
+              "probability": 0.998046875
+            },
+            {
+              "text": " my",
+              "start": 1.55,
+              "end": 1.61,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " pupil.",
+              "start": 1.61,
+              "end": 1.93,
+              "probability": 0.9755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "the",
+          "start": 0.53,
+          "end": 0.63
+        },
+        {
+          "raw": "little",
+          "start": 0.63,
+          "end": 0.81
+        },
+        {
+          "raw": "girl,",
+          "start": 0.81,
+          "end": 1.11
+        },
+        {
+          "raw": "my",
+          "start": 1.55,
+          "end": 1.61
+        },
+        {
+          "raw": "pupil.",
+          "start": 1.61,
+          "end": 1.93
+        }
+      ],
+      "expected_tokens": [
+        "\"And",
+        "the",
+        "little",
+        "girl—my",
+        "pupil!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          5,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.53,
+          "end": 0.63,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 0.63,
+          "end": 0.81,
+          "key": "little",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "girl,",
+          "start": 0.81,
+          "end": 1.11,
+          "key": "girl",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.55,
+          "end": 1.61,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "pupil.",
+          "start": 1.61,
+          "end": 1.93,
+          "key": "pupil",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"And",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "the",
+          "start": 0.53,
+          "end": 0.63
+        },
+        {
+          "text": "little",
+          "start": 0.63,
+          "end": 0.81
+        },
+        {
+          "text": "girl—my",
+          "start": 0.81,
+          "end": 1.21
+        },
+        {
+          "text": "pupil!\"",
+          "start": 1.61,
+          "end": 1.93
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1601706901565194
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ba43453e25b605bf41666492a141ebb2ad24e64cbdc734e111aed3611cea8b35",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

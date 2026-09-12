@@ -1,0 +1,214 @@
+{
+  "complete": true,
+  "signature": "e26e2fe2713edb285ad0fca35b26549d9aa1c68ccfa84ff35193e50dbd375f43",
+  "attempts": [
+    {
+      "asr_seconds": 0.18337771203368902,
+      "alignment_seconds": 0.00046297023072838783,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Monitors, fetch the supper-trays!\"",
+        "hotwords": "Monitors"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Monitors, fetch the supper-trays!",
+          "start": 0.02,
+          "end": 2.08,
+          "words": [
+            {
+              "text": " Monitors,",
+              "start": 0.02,
+              "end": 0.98,
+              "probability": 0.779296875
+            },
+            {
+              "text": " fetch",
+              "start": 1.24,
+              "end": 1.34,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " the",
+              "start": 1.34,
+              "end": 1.5,
+              "probability": 0.57080078125
+            },
+            {
+              "text": " supper",
+              "start": 1.5,
+              "end": 1.66,
+              "probability": 0.89501953125
+            },
+            {
+              "text": "-trays!",
+              "start": 1.66,
+              "end": 2.08,
+              "probability": 0.6200955708821615
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Monitors,",
+          "start": 0.02,
+          "end": 0.98
+        },
+        {
+          "raw": "fetch",
+          "start": 1.24,
+          "end": 1.34
+        },
+        {
+          "raw": "the",
+          "start": 1.34,
+          "end": 1.5
+        },
+        {
+          "raw": "supper",
+          "start": 1.5,
+          "end": 1.66
+        },
+        {
+          "raw": "-trays!",
+          "start": 1.66,
+          "end": 2.08
+        }
+      ],
+      "expected_tokens": [
+        "\"Monitors,",
+        "fetch",
+        "the",
+        "supper-trays!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Monitors,",
+          "start": 0.02,
+          "end": 0.98,
+          "key": "monitors",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "fetch",
+          "start": 1.24,
+          "end": 1.34,
+          "key": "fetch",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.34,
+          "end": 1.5,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "supper -trays!",
+          "start": 1.5,
+          "end": 2.08,
+          "key": "suppertrays",
+          "pieces": [
+            3,
+            4
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 3,
+          "text": "supper-trays!\"",
+          "heard": "supper -trays!",
+          "heard_indexes": [
+            3,
+            4
+          ],
+          "start": 1.5,
+          "end": 2.08
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Monitors,",
+          "start": 0.02,
+          "end": 0.98
+        },
+        {
+          "text": "fetch",
+          "start": 1.24,
+          "end": 1.34
+        },
+        {
+          "text": "the",
+          "start": 1.34,
+          "end": 1.5
+        },
+        {
+          "text": "supper-trays!\"",
+          "start": 1.5,
+          "end": 2.08
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18396925879642367
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9013cc415ed865c1103e146e5675062c3ea693e2bffc4b29c5d4cf0b783a9b2d",
+  "selected_reasons": []
+}

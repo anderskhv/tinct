@@ -1,0 +1,1430 @@
+{
+  "complete": true,
+  "signature": "bcbbe2d05957b7bc39141562880f987d91932da99e7d90119714e3f3286ad3ba",
+  "attempts": [
+    {
+      "asr_seconds": 0.560128590092063,
+      "alignment_seconds": 0.0008620647713541985,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Ay, ay!\" was the answer: the door was slapped to, a voice exclaimed \"All right,\" and on we drove. Thus was I severed from Bessie and Gateshead; thus whirled away to unknown, and, as I then deemed, remote and mysterious regions.",
+        "hotwords": "All, I, Bessie, Gateshead"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ay, ay!\" was the answer. The door was slapped to, a voice exclaimed,",
+          "start": 0.02,
+          "end": 4.48,
+          "words": [
+            {
+              "text": " Ay,",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.023223876953125
+            },
+            {
+              "text": " ay",
+              "start": 0.76,
+              "end": 0.92,
+              "probability": 0.81298828125
+            },
+            {
+              "text": "!\"",
+              "start": 0.92,
+              "end": 1.16,
+              "probability": 0.032806396484375
+            },
+            {
+              "text": " was",
+              "start": 1.16,
+              "end": 1.34,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " the",
+              "start": 1.34,
+              "end": 1.5,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " answer.",
+              "start": 1.5,
+              "end": 1.86,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " The",
+              "start": 2.42,
+              "end": 2.52,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " door",
+              "start": 2.52,
+              "end": 2.66,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " was",
+              "start": 2.66,
+              "end": 2.86,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " slapped",
+              "start": 2.86,
+              "end": 3.14,
+              "probability": 0.984375
+            },
+            {
+              "text": " to,",
+              "start": 3.14,
+              "end": 3.46,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " a",
+              "start": 3.68,
+              "end": 3.74,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " voice",
+              "start": 3.74,
+              "end": 3.96,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " exclaimed,",
+              "start": 3.96,
+              "end": 4.48,
+              "probability": 0.9345703125
+            }
+          ]
+        },
+        {
+          "text": " All right, and on we drove. Thus was I severed from Bessie and Gateshead, thus whirled away",
+          "start": 4.74,
+          "end": 10.88,
+          "words": [
+            {
+              "text": " All",
+              "start": 4.74,
+              "end": 4.9,
+              "probability": 0.0228729248046875
+            },
+            {
+              "text": " right,",
+              "start": 4.9,
+              "end": 5.18,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " and",
+              "start": 5.66,
+              "end": 5.88,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " on",
+              "start": 5.88,
+              "end": 6.02,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " we",
+              "start": 6.02,
+              "end": 6.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " drove.",
+              "start": 6.22,
+              "end": 6.5,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Thus",
+              "start": 7.4,
+              "end": 7.58,
+              "probability": 0.98828125
+            },
+            {
+              "text": " was",
+              "start": 7.58,
+              "end": 7.78,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " I",
+              "start": 7.78,
+              "end": 7.94,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " severed",
+              "start": 7.94,
+              "end": 8.24,
+              "probability": 0.9921875
+            },
+            {
+              "text": " from",
+              "start": 8.24,
+              "end": 8.58,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Bessie",
+              "start": 8.58,
+              "end": 8.94,
+              "probability": 0.9573567708333334
+            },
+            {
+              "text": " and",
+              "start": 8.94,
+              "end": 9.14,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " Gateshead,",
+              "start": 9.14,
+              "end": 9.68,
+              "probability": 0.860107421875
+            },
+            {
+              "text": " thus",
+              "start": 10.14,
+              "end": 10.28,
+              "probability": 0.90625
+            },
+            {
+              "text": " whirled",
+              "start": 10.28,
+              "end": 10.6,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " away",
+              "start": 10.6,
+              "end": 10.88,
+              "probability": 0.98779296875
+            }
+          ]
+        },
+        {
+          "text": " to unknown, and, as I then deemed, remote and mysterious regions.",
+          "start": 10.88,
+          "end": 14.64,
+          "words": [
+            {
+              "text": " to",
+              "start": 10.88,
+              "end": 11.06,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " unknown,",
+              "start": 11.06,
+              "end": 11.5,
+              "probability": 0.5576171875
+            },
+            {
+              "text": " and,",
+              "start": 11.84,
+              "end": 11.96,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " as",
+              "start": 12.1,
+              "end": 12.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " I",
+              "start": 12.12,
+              "end": 12.26,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " then",
+              "start": 12.26,
+              "end": 12.46,
+              "probability": 0.994140625
+            },
+            {
+              "text": " deemed,",
+              "start": 12.46,
+              "end": 12.82,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " remote",
+              "start": 13.44,
+              "end": 13.44,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " and",
+              "start": 13.44,
+              "end": 13.7,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " mysterious",
+              "start": 13.7,
+              "end": 14.16,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " regions.",
+              "start": 14.16,
+              "end": 14.64,
+              "probability": 0.96728515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ay,",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "ay",
+          "start": 0.76,
+          "end": 0.92
+        },
+        {
+          "raw": "!\"",
+          "start": 0.92,
+          "end": 1.16
+        },
+        {
+          "raw": "was",
+          "start": 1.16,
+          "end": 1.34
+        },
+        {
+          "raw": "the",
+          "start": 1.34,
+          "end": 1.5
+        },
+        {
+          "raw": "answer.",
+          "start": 1.5,
+          "end": 1.86
+        },
+        {
+          "raw": "The",
+          "start": 2.42,
+          "end": 2.52
+        },
+        {
+          "raw": "door",
+          "start": 2.52,
+          "end": 2.66
+        },
+        {
+          "raw": "was",
+          "start": 2.66,
+          "end": 2.86
+        },
+        {
+          "raw": "slapped",
+          "start": 2.86,
+          "end": 3.14
+        },
+        {
+          "raw": "to,",
+          "start": 3.14,
+          "end": 3.46
+        },
+        {
+          "raw": "a",
+          "start": 3.68,
+          "end": 3.74
+        },
+        {
+          "raw": "voice",
+          "start": 3.74,
+          "end": 3.96
+        },
+        {
+          "raw": "exclaimed,",
+          "start": 3.96,
+          "end": 4.48
+        },
+        {
+          "raw": "All",
+          "start": 4.74,
+          "end": 4.9
+        },
+        {
+          "raw": "right,",
+          "start": 4.9,
+          "end": 5.18
+        },
+        {
+          "raw": "and",
+          "start": 5.66,
+          "end": 5.88
+        },
+        {
+          "raw": "on",
+          "start": 5.88,
+          "end": 6.02
+        },
+        {
+          "raw": "we",
+          "start": 6.02,
+          "end": 6.22
+        },
+        {
+          "raw": "drove.",
+          "start": 6.22,
+          "end": 6.5
+        },
+        {
+          "raw": "Thus",
+          "start": 7.4,
+          "end": 7.58
+        },
+        {
+          "raw": "was",
+          "start": 7.58,
+          "end": 7.78
+        },
+        {
+          "raw": "I",
+          "start": 7.78,
+          "end": 7.94
+        },
+        {
+          "raw": "severed",
+          "start": 7.94,
+          "end": 8.24
+        },
+        {
+          "raw": "from",
+          "start": 8.24,
+          "end": 8.58
+        },
+        {
+          "raw": "Bessie",
+          "start": 8.58,
+          "end": 8.94
+        },
+        {
+          "raw": "and",
+          "start": 8.94,
+          "end": 9.14
+        },
+        {
+          "raw": "Gateshead,",
+          "start": 9.14,
+          "end": 9.68
+        },
+        {
+          "raw": "thus",
+          "start": 10.14,
+          "end": 10.28
+        },
+        {
+          "raw": "whirled",
+          "start": 10.28,
+          "end": 10.6
+        },
+        {
+          "raw": "away",
+          "start": 10.6,
+          "end": 10.88
+        },
+        {
+          "raw": "to",
+          "start": 10.88,
+          "end": 11.06
+        },
+        {
+          "raw": "unknown,",
+          "start": 11.06,
+          "end": 11.5
+        },
+        {
+          "raw": "and,",
+          "start": 11.84,
+          "end": 11.96
+        },
+        {
+          "raw": "as",
+          "start": 12.1,
+          "end": 12.12
+        },
+        {
+          "raw": "I",
+          "start": 12.12,
+          "end": 12.26
+        },
+        {
+          "raw": "then",
+          "start": 12.26,
+          "end": 12.46
+        },
+        {
+          "raw": "deemed,",
+          "start": 12.46,
+          "end": 12.82
+        },
+        {
+          "raw": "remote",
+          "start": 13.44,
+          "end": 13.44
+        },
+        {
+          "raw": "and",
+          "start": 13.44,
+          "end": 13.7
+        },
+        {
+          "raw": "mysterious",
+          "start": 13.7,
+          "end": 14.16
+        },
+        {
+          "raw": "regions.",
+          "start": 14.16,
+          "end": 14.64
+        }
+      ],
+      "expected_tokens": [
+        "\"Ay,",
+        "ay!\"",
+        "was",
+        "the",
+        "answer:",
+        "the",
+        "door",
+        "was",
+        "slapped",
+        "to,",
+        "a",
+        "voice",
+        "exclaimed",
+        "\"All",
+        "right,\"",
+        "and",
+        "on",
+        "we",
+        "drove.",
+        "Thus",
+        "was",
+        "I",
+        "severed",
+        "from",
+        "Bessie",
+        "and",
+        "Gateshead;",
+        "thus",
+        "whirled",
+        "away",
+        "to",
+        "unknown,",
+        "and,",
+        "as",
+        "I",
+        "then",
+        "deemed,",
+        "remote",
+        "and",
+        "mysterious",
+        "regions."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "insert",
+          2,
+          2,
+          2,
+          3
+        ],
+        [
+          "equal",
+          2,
+          41,
+          3,
+          42
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          2,
+          2,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ay,",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "ay",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "ay",
+          "start": 0.76,
+          "end": 0.92,
+          "key": "ay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 0.92,
+          "end": 1.16,
+          "key": "",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 1.16,
+          "end": 1.34,
+          "key": "was",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.34,
+          "end": 1.5,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "answer.",
+          "start": 1.5,
+          "end": 1.86,
+          "key": "answer",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 2.42,
+          "end": 2.52,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "door",
+          "start": 2.52,
+          "end": 2.66,
+          "key": "door",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 2.66,
+          "end": 2.86,
+          "key": "was",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "slapped",
+          "start": 2.86,
+          "end": 3.14,
+          "key": "slapped",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to,",
+          "start": 3.14,
+          "end": 3.46,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.68,
+          "end": 3.74,
+          "key": "a",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "voice",
+          "start": 3.74,
+          "end": 3.96,
+          "key": "voice",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "exclaimed,",
+          "start": 3.96,
+          "end": 4.48,
+          "key": "exclaimed",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "All",
+          "start": 4.74,
+          "end": 4.9,
+          "key": "all",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "right,",
+          "start": 4.9,
+          "end": 5.18,
+          "key": "right",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.66,
+          "end": 5.88,
+          "key": "and",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 5.88,
+          "end": 6.02,
+          "key": "on",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 6.02,
+          "end": 6.22,
+          "key": "we",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "drove.",
+          "start": 6.22,
+          "end": 6.5,
+          "key": "drove",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Thus",
+          "start": 7.4,
+          "end": 7.58,
+          "key": "thus",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 7.58,
+          "end": 7.78,
+          "key": "was",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 7.78,
+          "end": 7.94,
+          "key": "i",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "severed",
+          "start": 7.94,
+          "end": 8.24,
+          "key": "severed",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 8.24,
+          "end": 8.58,
+          "key": "from",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Bessie",
+          "start": 8.58,
+          "end": 8.94,
+          "key": "bessie",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 8.94,
+          "end": 9.14,
+          "key": "and",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "Gateshead,",
+          "start": 9.14,
+          "end": 9.68,
+          "key": "gateshead",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "thus",
+          "start": 10.14,
+          "end": 10.28,
+          "key": "thus",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "whirled",
+          "start": 10.28,
+          "end": 10.6,
+          "key": "whirled",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "away",
+          "start": 10.6,
+          "end": 10.88,
+          "key": "away",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 10.88,
+          "end": 11.06,
+          "key": "to",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "unknown,",
+          "start": 11.06,
+          "end": 11.5,
+          "key": "unknown",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "and,",
+          "start": 11.84,
+          "end": 11.96,
+          "key": "and",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 12.1,
+          "end": 12.12,
+          "key": "as",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 12.12,
+          "end": 12.26,
+          "key": "i",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 12.26,
+          "end": 12.46,
+          "key": "then",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "deemed,",
+          "start": 12.46,
+          "end": 12.82,
+          "key": "deemed",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "remote",
+          "start": 13.44,
+          "end": 13.44,
+          "key": "remote",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 13.44,
+          "end": 13.7,
+          "key": "and",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "mysterious",
+          "start": 13.7,
+          "end": 14.16,
+          "key": "mysterious",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "regions.",
+          "start": 14.16,
+          "end": 14.64,
+          "key": "regions",
+          "pieces": [
+            41
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Ay,",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "ay!\"",
+          "start": 0.76,
+          "end": 0.92
+        },
+        {
+          "text": "was",
+          "start": 1.16,
+          "end": 1.34
+        },
+        {
+          "text": "the",
+          "start": 1.34,
+          "end": 1.5
+        },
+        {
+          "text": "answer:",
+          "start": 1.5,
+          "end": 1.86
+        },
+        {
+          "text": "the",
+          "start": 2.42,
+          "end": 2.52
+        },
+        {
+          "text": "door",
+          "start": 2.52,
+          "end": 2.66
+        },
+        {
+          "text": "was",
+          "start": 2.66,
+          "end": 2.86
+        },
+        {
+          "text": "slapped",
+          "start": 2.86,
+          "end": 3.14
+        },
+        {
+          "text": "to,",
+          "start": 3.14,
+          "end": 3.46
+        },
+        {
+          "text": "a",
+          "start": 3.68,
+          "end": 3.74
+        },
+        {
+          "text": "voice",
+          "start": 3.74,
+          "end": 3.96
+        },
+        {
+          "text": "exclaimed",
+          "start": 3.96,
+          "end": 4.48
+        },
+        {
+          "text": "\"All",
+          "start": 4.74,
+          "end": 4.9
+        },
+        {
+          "text": "right,\"",
+          "start": 4.9,
+          "end": 5.18
+        },
+        {
+          "text": "and",
+          "start": 5.66,
+          "end": 5.88
+        },
+        {
+          "text": "on",
+          "start": 5.88,
+          "end": 6.02
+        },
+        {
+          "text": "we",
+          "start": 6.02,
+          "end": 6.22
+        },
+        {
+          "text": "drove.",
+          "start": 6.22,
+          "end": 6.5
+        },
+        {
+          "text": "Thus",
+          "start": 7.4,
+          "end": 7.58
+        },
+        {
+          "text": "was",
+          "start": 7.58,
+          "end": 7.78
+        },
+        {
+          "text": "I",
+          "start": 7.78,
+          "end": 7.94
+        },
+        {
+          "text": "severed",
+          "start": 7.94,
+          "end": 8.24
+        },
+        {
+          "text": "from",
+          "start": 8.24,
+          "end": 8.58
+        },
+        {
+          "text": "Bessie",
+          "start": 8.58,
+          "end": 8.94
+        },
+        {
+          "text": "and",
+          "start": 8.94,
+          "end": 9.14
+        },
+        {
+          "text": "Gateshead;",
+          "start": 9.14,
+          "end": 9.68
+        },
+        {
+          "text": "thus",
+          "start": 10.14,
+          "end": 10.28
+        },
+        {
+          "text": "whirled",
+          "start": 10.28,
+          "end": 10.6
+        },
+        {
+          "text": "away",
+          "start": 10.6,
+          "end": 10.88
+        },
+        {
+          "text": "to",
+          "start": 10.88,
+          "end": 11.06
+        },
+        {
+          "text": "unknown,",
+          "start": 11.06,
+          "end": 11.5
+        },
+        {
+          "text": "and,",
+          "start": 11.84,
+          "end": 11.96
+        },
+        {
+          "text": "as",
+          "start": 12.1,
+          "end": 12.12
+        },
+        {
+          "text": "I",
+          "start": 12.12,
+          "end": 12.26
+        },
+        {
+          "text": "then",
+          "start": 12.26,
+          "end": 12.46
+        },
+        {
+          "text": "deemed,",
+          "start": 12.46,
+          "end": 12.82
+        },
+        {
+          "text": "remote",
+          "start": 13.44,
+          "end": 13.44
+        },
+        {
+          "text": "and",
+          "start": 13.44,
+          "end": 13.7
+        },
+        {
+          "text": "mysterious",
+          "start": 13.7,
+          "end": 14.16
+        },
+        {
+          "text": "regions.",
+          "start": 14.16,
+          "end": 14.64
+        }
+      ],
+      "stats": {
+        "expected_words": 41,
+        "heard_words": 42,
+        "matched_words": 41
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.561418091878295
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "eca174042d4298e48865d5946f4bb34595e805da198b840bd94653094711b313",
+  "selected_reasons": []
+}

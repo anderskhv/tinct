@@ -1,0 +1,246 @@
+{
+  "complete": true,
+  "signature": "0cbb0b983ab18e46e00b7363202bf0ce8bb79deeb6710b16f8961169d6cb60ed",
+  "attempts": [
+    {
+      "asr_seconds": 0.19982665870338678,
+      "alignment_seconds": 0.0004070349968969822,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " from Load School in Shire.",
+          "start": 0.05,
+          "end": 1.97,
+          "words": [
+            {
+              "text": " from",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.60498046875
+            },
+            {
+              "text": " Load",
+              "start": 0.55,
+              "end": 0.77,
+              "probability": 0.279541015625
+            },
+            {
+              "text": " School",
+              "start": 0.77,
+              "end": 1.13,
+              "probability": 0.85693359375
+            },
+            {
+              "text": " in",
+              "start": 1.13,
+              "end": 1.51,
+              "probability": 0.9375
+            },
+            {
+              "text": " Shire.",
+              "start": 1.51,
+              "end": 1.97,
+              "probability": 0.850830078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "from",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "Load",
+          "start": 0.55,
+          "end": 0.77
+        },
+        {
+          "raw": "School",
+          "start": 0.77,
+          "end": 1.13
+        },
+        {
+          "raw": "in",
+          "start": 1.13,
+          "end": 1.51
+        },
+        {
+          "raw": "Shire.",
+          "start": 1.51,
+          "end": 1.97
+        }
+      ],
+      "expected_tokens": [
+        "\"From",
+        "Lowood",
+        "school,",
+        "in",
+        "——shire.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          5,
+          2,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "from",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "from",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Load",
+          "start": 0.55,
+          "end": 0.77,
+          "key": "load",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "School",
+          "start": 0.77,
+          "end": 1.13,
+          "key": "school",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.13,
+          "end": 1.51,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Shire.",
+          "start": 1.51,
+          "end": 1.97,
+          "key": "shire",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"From",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "Lowood",
+          "start": 0.55,
+          "end": 0.66
+        },
+        {
+          "text": "school,",
+          "start": 0.77,
+          "end": 1.13
+        },
+        {
+          "text": "in",
+          "start": 1.13,
+          "end": 1.51
+        },
+        {
+          "text": "——shire.\"",
+          "start": 1.51,
+          "end": 1.97
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2003579819574952
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6d20fdb3685d70cb9a1bdbb6d450310fae556f24b353c5c441135e348b38eee8",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

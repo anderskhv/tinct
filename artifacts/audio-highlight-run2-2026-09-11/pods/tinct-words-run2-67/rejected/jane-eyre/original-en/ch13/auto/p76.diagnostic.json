@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "8a201427433aa34b7e252bf1280d87febf5d822cf01109f4a1492d35dbe18b55",
+  "attempts": [
+    {
+      "asr_seconds": 0.19820714369416237,
+      "alignment_seconds": 0.0004711919464170933,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"What age were you when you went to Lowood?\"",
+        "hotwords": "What, Lowood"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " What age were you when you went to Lowood?",
+          "start": 0.05,
+          "end": 2.01,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " age",
+              "start": 0.53,
+              "end": 0.75,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " were",
+              "start": 0.75,
+              "end": 0.93,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " you",
+              "start": 0.93,
+              "end": 1.07,
+              "probability": 0.998046875
+            },
+            {
+              "text": " when",
+              "start": 1.07,
+              "end": 1.21,
+              "probability": 0.986328125
+            },
+            {
+              "text": " you",
+              "start": 1.21,
+              "end": 1.31,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " went",
+              "start": 1.31,
+              "end": 1.43,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 1.43,
+              "end": 1.55,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Lowood?",
+              "start": 1.55,
+              "end": 2.01,
+              "probability": 0.0047005414962768555
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "age",
+          "start": 0.53,
+          "end": 0.75
+        },
+        {
+          "raw": "were",
+          "start": 0.75,
+          "end": 0.93
+        },
+        {
+          "raw": "you",
+          "start": 0.93,
+          "end": 1.07
+        },
+        {
+          "raw": "when",
+          "start": 1.07,
+          "end": 1.21
+        },
+        {
+          "raw": "you",
+          "start": 1.21,
+          "end": 1.31
+        },
+        {
+          "raw": "went",
+          "start": 1.31,
+          "end": 1.43
+        },
+        {
+          "raw": "to",
+          "start": 1.43,
+          "end": 1.55
+        },
+        {
+          "raw": "Lowood?",
+          "start": 1.55,
+          "end": 2.01
+        }
+      ],
+      "expected_tokens": [
+        "\"What",
+        "age",
+        "were",
+        "you",
+        "when",
+        "you",
+        "went",
+        "to",
+        "Lowood?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "age",
+          "start": 0.53,
+          "end": 0.75,
+          "key": "age",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 0.75,
+          "end": 0.93,
+          "key": "were",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.93,
+          "end": 1.07,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 1.07,
+          "end": 1.21,
+          "key": "when",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.21,
+          "end": 1.31,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "went",
+          "start": 1.31,
+          "end": 1.43,
+          "key": "went",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.43,
+          "end": 1.55,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Lowood?",
+          "start": 1.55,
+          "end": 2.01,
+          "key": "lowood",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"What",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "age",
+          "start": 0.53,
+          "end": 0.75
+        },
+        {
+          "text": "were",
+          "start": 0.75,
+          "end": 0.93
+        },
+        {
+          "text": "you",
+          "start": 0.93,
+          "end": 1.07
+        },
+        {
+          "text": "when",
+          "start": 1.07,
+          "end": 1.21
+        },
+        {
+          "text": "you",
+          "start": 1.21,
+          "end": 1.31
+        },
+        {
+          "text": "went",
+          "start": 1.31,
+          "end": 1.43
+        },
+        {
+          "text": "to",
+          "start": 1.43,
+          "end": 1.55
+        },
+        {
+          "text": "Lowood?\"",
+          "start": 1.55,
+          "end": 2.01
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1988732097670436
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "82749a89b5a958b58bc6387bf2a08b25b8a32435cdd1c2578bdac803907a39f9",
+  "selected_reasons": []
+}

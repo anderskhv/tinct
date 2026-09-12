@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "a5b5acf9ad709408ac76d8f8ba0ecf8e4c6a001d331fb41fca96a56a5a276826",
+  "attempts": [
+    {
+      "asr_seconds": 0.12544521875679493,
+      "alignment_seconds": 0.00023892801254987717,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " sir",
+          "start": 0.11,
+          "end": 0.63,
+          "words": [
+            {
+              "text": " sir",
+              "start": 0.11,
+              "end": 0.63,
+              "probability": 0.114990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "sir",
+          "start": 0.11,
+          "end": 0.63
+        }
+      ],
+      "expected_tokens": [
+        "\"Sir?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "sir",
+          "start": 0.11,
+          "end": 0.63,
+          "key": "sir",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Sir?\"",
+          "start": 0.11,
+          "end": 0.63
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12575653800740838
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d44aab51a5325b1325f0ca1e4eb081427ab4f96db98912704df729e9fa035539",
+  "selected_reasons": []
+}

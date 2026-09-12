@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "47b18f2b2cb4536e3820692500d50d68766d3a95767984da26a137958b7852cf",
+  "attempts": [
+    {
+      "asr_seconds": 0.18166405195370317,
+      "alignment_seconds": 0.00030014198273420334,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Abominable stuff. How shameful.",
+          "start": 0.05,
+          "end": 2.03,
+          "words": [
+            {
+              "text": " Abominable",
+              "start": 0.05,
+              "end": 0.99,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " stuff.",
+              "start": 0.99,
+              "end": 1.25,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " How",
+              "start": 1.65,
+              "end": 1.69,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " shameful.",
+              "start": 1.69,
+              "end": 2.03,
+              "probability": 0.98876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Abominable",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "raw": "stuff.",
+          "start": 0.99,
+          "end": 1.25
+        },
+        {
+          "raw": "How",
+          "start": 1.65,
+          "end": 1.69
+        },
+        {
+          "raw": "shameful.",
+          "start": 1.69,
+          "end": 2.03
+        }
+      ],
+      "expected_tokens": [
+        "\"Abominable",
+        "stuff!",
+        "How",
+        "shameful!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Abominable",
+          "start": 0.05,
+          "end": 0.99,
+          "key": "abominable",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "stuff.",
+          "start": 0.99,
+          "end": 1.25,
+          "key": "stuff",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 1.65,
+          "end": 1.69,
+          "key": "how",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "shameful.",
+          "start": 1.69,
+          "end": 2.03,
+          "key": "shameful",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Abominable",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "text": "stuff!",
+          "start": 0.99,
+          "end": 1.25
+        },
+        {
+          "text": "How",
+          "start": 1.65,
+          "end": 1.69
+        },
+        {
+          "text": "shameful!\"",
+          "start": 1.69,
+          "end": 2.03
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.182074423879385
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "805c83ee6ed48b6879765f7bbf08afea3a0b612a6a75218fd62ef60655c73d98",
+  "selected_reasons": []
+}

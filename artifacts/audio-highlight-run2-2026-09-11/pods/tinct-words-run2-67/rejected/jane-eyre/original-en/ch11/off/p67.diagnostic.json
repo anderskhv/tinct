@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "0aaf4a9d6eb0e0c0369038e271911b9086d2ba057c59c9ee4f06cd03fb60e081",
+  "attempts": [
+    {
+      "asr_seconds": 0.11920131603255868,
+      "alignment_seconds": 0.0003956393338739872,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Air Jane Air.",
+          "start": 0.21,
+          "end": 1.13,
+          "words": [
+            {
+              "text": " Air",
+              "start": 0.21,
+              "end": 0.57,
+              "probability": 0.916015625
+            },
+            {
+              "text": " Jane",
+              "start": 0.57,
+              "end": 0.85,
+              "probability": 0.609375
+            },
+            {
+              "text": " Air.",
+              "start": 0.85,
+              "end": 1.13,
+              "probability": 0.73974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Air",
+          "start": 0.21,
+          "end": 0.57
+        },
+        {
+          "raw": "Jane",
+          "start": 0.57,
+          "end": 0.85
+        },
+        {
+          "raw": "Air.",
+          "start": 0.85,
+          "end": 1.13
+        }
+      ],
+      "expected_tokens": [
+        "\"Eyre—Jane",
+        "Eyre.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Air",
+          "start": 0.21,
+          "end": 0.57,
+          "key": "air",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Jane",
+          "start": 0.57,
+          "end": 0.85,
+          "key": "jane",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Air.",
+          "start": 0.85,
+          "end": 1.13,
+          "key": "air",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Eyre—Jane",
+          "start": 0.0,
+          "end": 0.565
+        },
+        {
+          "text": "Eyre.\"",
+          "start": 0.565,
+          "end": 0.847
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 3,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11971070012077689
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5e5c8f87ee455bad41c6d5e9ec08dba5ec7d5525e88511b97c44c442171f0141",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

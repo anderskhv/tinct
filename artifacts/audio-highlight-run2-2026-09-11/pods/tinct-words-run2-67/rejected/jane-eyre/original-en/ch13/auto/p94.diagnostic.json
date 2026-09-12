@@ -1,0 +1,4167 @@
+{
+  "complete": true,
+  "signature": "20a1ecfbd6ab54208e31d603a7c41e078af12b92778f0e304ff5feecac69ef69",
+  "attempts": [
+    {
+      "asr_seconds": 0.4945856733247638,
+      "alignment_seconds": 0.0008455929346382618,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Take them off to the other table, Mrs. Fairfax,\" said he, \"and look at them with Adèle;—you\" (glancing at me) \"resume your seat, and answer my questions. I perceive those pictures were done by one hand: was that hand yours?\"",
+        "hotwords": "Take, Mrs, Fairfax, Adèle;—you, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Take them off to the other table, Mrs. Fairfax,\" said he, \"'and look at them with Adèle. You\"—glancing at me—\"resume your seat, and answer my questions. I perceive those pictures were done by one hand, was that hand yours?\"",
+          "start": 0.02,
+          "end": 14.04,
+          "words": [
+            {
+              "text": " Take",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.0238494873046875
+            },
+            {
+              "text": " them",
+              "start": 0.52,
+              "end": 0.68,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " off",
+              "start": 0.68,
+              "end": 0.88,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 0.88,
+              "end": 1.04,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 1.04,
+              "end": 1.14,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " other",
+              "start": 1.14,
+              "end": 1.38,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " table,",
+              "start": 1.38,
+              "end": 1.76,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Mrs.",
+              "start": 1.92,
+              "end": 2.06,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " Fairfax,\"",
+              "start": 2.58,
+              "end": 2.98,
+              "probability": 0.88525390625
+            },
+            {
+              "text": " said",
+              "start": 2.98,
+              "end": 3.22,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " he,",
+              "start": 3.22,
+              "end": 3.48,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " \"'and",
+              "start": 3.7,
+              "end": 3.92,
+              "probability": 0.449491024017334
+            },
+            {
+              "text": " look",
+              "start": 3.92,
+              "end": 4.08,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " at",
+              "start": 4.08,
+              "end": 4.22,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " them",
+              "start": 4.22,
+              "end": 4.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 4.4,
+              "end": 4.54,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Adèle.",
+              "start": 4.54,
+              "end": 5.04,
+              "probability": 0.5940704345703125
+            },
+            {
+              "text": " You\"—glancing",
+              "start": 6.08,
+              "end": 6.56,
+              "probability": 0.7257071733474731
+            },
+            {
+              "text": " at",
+              "start": 6.56,
+              "end": 6.8,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me—\"resume",
+              "start": 6.8,
+              "end": 7.74,
+              "probability": 0.9693603515625
+            },
+            {
+              "text": " your",
+              "start": 7.74,
+              "end": 7.94,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " seat,",
+              "start": 7.94,
+              "end": 8.26,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 8.32,
+              "end": 8.5,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " answer",
+              "start": 8.5,
+              "end": 8.82,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " my",
+              "start": 8.82,
+              "end": 9.02,
+              "probability": 0.998046875
+            },
+            {
+              "text": " questions.",
+              "start": 9.02,
+              "end": 9.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " I",
+              "start": 9.9,
+              "end": 10.26,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " perceive",
+              "start": 10.26,
+              "end": 10.56,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " those",
+              "start": 10.56,
+              "end": 10.82,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " pictures",
+              "start": 10.82,
+              "end": 11.16,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " were",
+              "start": 11.16,
+              "end": 11.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " done",
+              "start": 11.4,
+              "end": 11.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " by",
+              "start": 11.58,
+              "end": 11.78,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " one",
+              "start": 11.78,
+              "end": 12.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " hand,",
+              "start": 12.0,
+              "end": 12.4,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " was",
+              "start": 12.6,
+              "end": 12.76,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " that",
+              "start": 12.76,
+              "end": 13.0,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " hand",
+              "start": 13.0,
+              "end": 13.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " yours?\"",
+              "start": 13.28,
+              "end": 14.04,
+              "probability": 0.86376953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Take",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "them",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "raw": "off",
+          "start": 0.68,
+          "end": 0.88
+        },
+        {
+          "raw": "to",
+          "start": 0.88,
+          "end": 1.04
+        },
+        {
+          "raw": "the",
+          "start": 1.04,
+          "end": 1.14
+        },
+        {
+          "raw": "other",
+          "start": 1.14,
+          "end": 1.38
+        },
+        {
+          "raw": "table,",
+          "start": 1.38,
+          "end": 1.76
+        },
+        {
+          "raw": "Mrs.",
+          "start": 1.92,
+          "end": 2.06
+        },
+        {
+          "raw": "Fairfax,\"",
+          "start": 2.58,
+          "end": 2.98
+        },
+        {
+          "raw": "said",
+          "start": 2.98,
+          "end": 3.22
+        },
+        {
+          "raw": "he,",
+          "start": 3.22,
+          "end": 3.48
+        },
+        {
+          "raw": "\"'and",
+          "start": 3.7,
+          "end": 3.92
+        },
+        {
+          "raw": "look",
+          "start": 3.92,
+          "end": 4.08
+        },
+        {
+          "raw": "at",
+          "start": 4.08,
+          "end": 4.22
+        },
+        {
+          "raw": "them",
+          "start": 4.22,
+          "end": 4.4
+        },
+        {
+          "raw": "with",
+          "start": 4.4,
+          "end": 4.54
+        },
+        {
+          "raw": "Adèle.",
+          "start": 4.54,
+          "end": 5.04
+        },
+        {
+          "raw": "You\"—glancing",
+          "start": 6.08,
+          "end": 6.56
+        },
+        {
+          "raw": "at",
+          "start": 6.56,
+          "end": 6.8
+        },
+        {
+          "raw": "me—\"resume",
+          "start": 6.8,
+          "end": 7.74
+        },
+        {
+          "raw": "your",
+          "start": 7.74,
+          "end": 7.94
+        },
+        {
+          "raw": "seat,",
+          "start": 7.94,
+          "end": 8.26
+        },
+        {
+          "raw": "and",
+          "start": 8.32,
+          "end": 8.5
+        },
+        {
+          "raw": "answer",
+          "start": 8.5,
+          "end": 8.82
+        },
+        {
+          "raw": "my",
+          "start": 8.82,
+          "end": 9.02
+        },
+        {
+          "raw": "questions.",
+          "start": 9.02,
+          "end": 9.42
+        },
+        {
+          "raw": "I",
+          "start": 9.9,
+          "end": 10.26
+        },
+        {
+          "raw": "perceive",
+          "start": 10.26,
+          "end": 10.56
+        },
+        {
+          "raw": "those",
+          "start": 10.56,
+          "end": 10.82
+        },
+        {
+          "raw": "pictures",
+          "start": 10.82,
+          "end": 11.16
+        },
+        {
+          "raw": "were",
+          "start": 11.16,
+          "end": 11.4
+        },
+        {
+          "raw": "done",
+          "start": 11.4,
+          "end": 11.58
+        },
+        {
+          "raw": "by",
+          "start": 11.58,
+          "end": 11.78
+        },
+        {
+          "raw": "one",
+          "start": 11.78,
+          "end": 12.0
+        },
+        {
+          "raw": "hand,",
+          "start": 12.0,
+          "end": 12.4
+        },
+        {
+          "raw": "was",
+          "start": 12.6,
+          "end": 12.76
+        },
+        {
+          "raw": "that",
+          "start": 12.76,
+          "end": 13.0
+        },
+        {
+          "raw": "hand",
+          "start": 13.0,
+          "end": 13.28
+        },
+        {
+          "raw": "yours?\"",
+          "start": 13.28,
+          "end": 14.04
+        }
+      ],
+      "expected_tokens": [
+        "\"Take",
+        "them",
+        "off",
+        "to",
+        "the",
+        "other",
+        "table,",
+        "Mrs.",
+        "Fairfax,\"",
+        "said",
+        "he,",
+        "\"and",
+        "look",
+        "at",
+        "them",
+        "with",
+        "Adèle;—you\"",
+        "(glancing",
+        "at",
+        "me)",
+        "\"resume",
+        "your",
+        "seat,",
+        "and",
+        "answer",
+        "my",
+        "questions.",
+        "I",
+        "perceive",
+        "those",
+        "pictures",
+        "were",
+        "done",
+        "by",
+        "one",
+        "hand:",
+        "was",
+        "that",
+        "hand",
+        "yours?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ],
+        [
+          "replace",
+          16,
+          18,
+          16,
+          18
+        ],
+        [
+          "equal",
+          18,
+          19,
+          18,
+          19
+        ],
+        [
+          "replace",
+          19,
+          21,
+          19,
+          20
+        ],
+        [
+          "equal",
+          21,
+          40,
+          20,
+          39
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 38
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          16,
+          18,
+          16,
+          18
+        ],
+        [
+          "replace",
+          19,
+          21,
+          19,
+          20
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Take",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "take",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 0.52,
+          "end": 0.68,
+          "key": "them",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "off",
+          "start": 0.68,
+          "end": 0.88,
+          "key": "off",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.88,
+          "end": 1.04,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.04,
+          "end": 1.14,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 1.14,
+          "end": 1.38,
+          "key": "other",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "table,",
+          "start": 1.38,
+          "end": 1.76,
+          "key": "table",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Mrs.",
+          "start": 1.92,
+          "end": 2.06,
+          "key": "mrs",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Fairfax,\"",
+          "start": 2.58,
+          "end": 2.98,
+          "key": "fairfax",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.98,
+          "end": 3.22,
+          "key": "said",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "he,",
+          "start": 3.22,
+          "end": 3.48,
+          "key": "he",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "\"'and",
+          "start": 3.7,
+          "end": 3.92,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 3.92,
+          "end": 4.08,
+          "key": "look",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 4.08,
+          "end": 4.22,
+          "key": "at",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 4.22,
+          "end": 4.4,
+          "key": "them",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.4,
+          "end": 4.54,
+          "key": "with",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Adèle.",
+          "start": 4.54,
+          "end": 5.04,
+          "key": "adèle",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "You\"—glancing",
+          "start": 6.08,
+          "end": 6.56,
+          "key": "youglancing",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 6.56,
+          "end": 6.8,
+          "key": "at",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "me—\"resume",
+          "start": 6.8,
+          "end": 7.74,
+          "key": "meresume",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 7.74,
+          "end": 7.94,
+          "key": "your",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "seat,",
+          "start": 7.94,
+          "end": 8.26,
+          "key": "seat",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 8.32,
+          "end": 8.5,
+          "key": "and",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "answer",
+          "start": 8.5,
+          "end": 8.82,
+          "key": "answer",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 8.82,
+          "end": 9.02,
+          "key": "my",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "questions.",
+          "start": 9.02,
+          "end": 9.42,
+          "key": "questions",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 9.9,
+          "end": 10.26,
+          "key": "i",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "perceive",
+          "start": 10.26,
+          "end": 10.56,
+          "key": "perceive",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "those",
+          "start": 10.56,
+          "end": 10.82,
+          "key": "those",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "pictures",
+          "start": 10.82,
+          "end": 11.16,
+          "key": "pictures",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 11.16,
+          "end": 11.4,
+          "key": "were",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "done",
+          "start": 11.4,
+          "end": 11.58,
+          "key": "done",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 11.58,
+          "end": 11.78,
+          "key": "by",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 11.78,
+          "end": 12.0,
+          "key": "one",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "hand,",
+          "start": 12.0,
+          "end": 12.4,
+          "key": "hand",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 12.6,
+          "end": 12.76,
+          "key": "was",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 12.76,
+          "end": 13.0,
+          "key": "that",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "hand",
+          "start": 13.0,
+          "end": 13.28,
+          "key": "hand",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "yours?\"",
+          "start": 13.28,
+          "end": 14.04,
+          "key": "yours",
+          "pieces": [
+            38
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Take",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "them",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "text": "off",
+          "start": 0.68,
+          "end": 0.88
+        },
+        {
+          "text": "to",
+          "start": 0.88,
+          "end": 1.04
+        },
+        {
+          "text": "the",
+          "start": 1.04,
+          "end": 1.14
+        },
+        {
+          "text": "other",
+          "start": 1.14,
+          "end": 1.38
+        },
+        {
+          "text": "table,",
+          "start": 1.38,
+          "end": 1.76
+        },
+        {
+          "text": "Mrs.",
+          "start": 1.92,
+          "end": 2.06
+        },
+        {
+          "text": "Fairfax,\"",
+          "start": 2.58,
+          "end": 2.98
+        },
+        {
+          "text": "said",
+          "start": 2.98,
+          "end": 3.22
+        },
+        {
+          "text": "he,",
+          "start": 3.22,
+          "end": 3.48
+        },
+        {
+          "text": "\"and",
+          "start": 3.7,
+          "end": 3.92
+        },
+        {
+          "text": "look",
+          "start": 3.92,
+          "end": 4.08
+        },
+        {
+          "text": "at",
+          "start": 4.08,
+          "end": 4.22
+        },
+        {
+          "text": "them",
+          "start": 4.22,
+          "end": 4.4
+        },
+        {
+          "text": "with",
+          "start": 4.4,
+          "end": 4.54
+        },
+        {
+          "text": "Adèle;—you\"",
+          "start": 4.54,
+          "end": 5.55
+        },
+        {
+          "text": "(glancing",
+          "start": 5.55,
+          "end": 6.055
+        },
+        {
+          "text": "at",
+          "start": 6.56,
+          "end": 6.8
+        },
+        {
+          "text": "me)",
+          "start": 6.8,
+          "end": 7.27
+        },
+        {
+          "text": "\"resume",
+          "start": 7.27,
+          "end": 7.505
+        },
+        {
+          "text": "your",
+          "start": 7.74,
+          "end": 7.94
+        },
+        {
+          "text": "seat,",
+          "start": 7.94,
+          "end": 8.26
+        },
+        {
+          "text": "and",
+          "start": 8.32,
+          "end": 8.5
+        },
+        {
+          "text": "answer",
+          "start": 8.5,
+          "end": 8.82
+        },
+        {
+          "text": "my",
+          "start": 8.82,
+          "end": 9.02
+        },
+        {
+          "text": "questions.",
+          "start": 9.02,
+          "end": 9.42
+        },
+        {
+          "text": "I",
+          "start": 9.9,
+          "end": 10.26
+        },
+        {
+          "text": "perceive",
+          "start": 10.26,
+          "end": 10.56
+        },
+        {
+          "text": "those",
+          "start": 10.56,
+          "end": 10.82
+        },
+        {
+          "text": "pictures",
+          "start": 10.82,
+          "end": 11.16
+        },
+        {
+          "text": "were",
+          "start": 11.16,
+          "end": 11.4
+        },
+        {
+          "text": "done",
+          "start": 11.4,
+          "end": 11.58
+        },
+        {
+          "text": "by",
+          "start": 11.58,
+          "end": 11.78
+        },
+        {
+          "text": "one",
+          "start": 11.78,
+          "end": 12.0
+        },
+        {
+          "text": "hand:",
+          "start": 12.0,
+          "end": 12.4
+        },
+        {
+          "text": "was",
+          "start": 12.6,
+          "end": 12.76
+        },
+        {
+          "text": "that",
+          "start": 12.76,
+          "end": 13.0
+        },
+        {
+          "text": "hand",
+          "start": 13.0,
+          "end": 13.28
+        },
+        {
+          "text": "yours?\"",
+          "start": 13.28,
+          "end": 14.04
+        }
+      ],
+      "stats": {
+        "expected_words": 40,
+        "heard_words": 39,
+        "matched_words": 36
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.49577011819928885
+    },
+    {
+      "asr_seconds": 0.530365152284503,
+      "alignment_seconds": 0.0008283150382339954,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Take, Mrs, Fairfax, Adèle;—you, I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " take them off to the other table, Mrs. Fairfax, said he, and look at them with Adèle. You,",
+          "start": 0.02,
+          "end": 5.76,
+          "words": [
+            {
+              "text": " take",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.0011968612670898438
+            },
+            {
+              "text": " them",
+              "start": 0.52,
+              "end": 0.68,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " off",
+              "start": 0.68,
+              "end": 0.88,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 0.88,
+              "end": 1.04,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 1.04,
+              "end": 1.14,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " other",
+              "start": 1.14,
+              "end": 1.38,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " table,",
+              "start": 1.38,
+              "end": 1.78,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " Mrs.",
+              "start": 1.94,
+              "end": 2.04,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " Fairfax,",
+              "start": 2.58,
+              "end": 2.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " said",
+              "start": 3.0,
+              "end": 3.22,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " he,",
+              "start": 3.22,
+              "end": 3.48,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 3.74,
+              "end": 3.92,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " look",
+              "start": 3.92,
+              "end": 4.08,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " at",
+              "start": 4.08,
+              "end": 4.22,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " them",
+              "start": 4.22,
+              "end": 4.4,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " with",
+              "start": 4.4,
+              "end": 4.54,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Adèle.",
+              "start": 4.54,
+              "end": 5.04,
+              "probability": 0.5750071207682291
+            },
+            {
+              "text": " You,",
+              "start": 5.48,
+              "end": 5.76,
+              "probability": 0.92431640625
+            }
+          ]
+        },
+        {
+          "text": " glancing at me, resume your seat and answer my questions. I perceive those pictures were",
+          "start": 6.12,
+          "end": 11.4,
+          "words": [
+            {
+              "text": " glancing",
+              "start": 6.12,
+              "end": 6.56,
+              "probability": 0.997314453125
+            },
+            {
+              "text": " at",
+              "start": 6.56,
+              "end": 6.8,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me,",
+              "start": 6.8,
+              "end": 7.04,
+              "probability": 0.998046875
+            },
+            {
+              "text": " resume",
+              "start": 7.4,
+              "end": 7.68,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " your",
+              "start": 7.68,
+              "end": 7.94,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " seat",
+              "start": 7.94,
+              "end": 8.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 8.26,
+              "end": 8.5,
+              "probability": 0.97265625
+            },
+            {
+              "text": " answer",
+              "start": 8.5,
+              "end": 8.82,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " my",
+              "start": 8.82,
+              "end": 9.02,
+              "probability": 0.998046875
+            },
+            {
+              "text": " questions.",
+              "start": 9.02,
+              "end": 9.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " I",
+              "start": 10.06,
+              "end": 10.26,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " perceive",
+              "start": 10.26,
+              "end": 10.56,
+              "probability": 0.994140625
+            },
+            {
+              "text": " those",
+              "start": 10.56,
+              "end": 10.84,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " pictures",
+              "start": 10.84,
+              "end": 11.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " were",
+              "start": 11.18,
+              "end": 11.4,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " done by one hand. Was that hand yours?",
+          "start": 11.4,
+          "end": 13.54,
+          "words": [
+            {
+              "text": " done",
+              "start": 11.4,
+              "end": 11.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " by",
+              "start": 11.58,
+              "end": 11.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " one",
+              "start": 11.78,
+              "end": 12.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " hand.",
+              "start": 12.0,
+              "end": 12.4,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Was",
+              "start": 12.66,
+              "end": 12.76,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " that",
+              "start": 12.76,
+              "end": 13.0,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " hand",
+              "start": 13.0,
+              "end": 13.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " yours?",
+              "start": 13.28,
+              "end": 13.54,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "take",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "them",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "raw": "off",
+          "start": 0.68,
+          "end": 0.88
+        },
+        {
+          "raw": "to",
+          "start": 0.88,
+          "end": 1.04
+        },
+        {
+          "raw": "the",
+          "start": 1.04,
+          "end": 1.14
+        },
+        {
+          "raw": "other",
+          "start": 1.14,
+          "end": 1.38
+        },
+        {
+          "raw": "table,",
+          "start": 1.38,
+          "end": 1.78
+        },
+        {
+          "raw": "Mrs.",
+          "start": 1.94,
+          "end": 2.04
+        },
+        {
+          "raw": "Fairfax,",
+          "start": 2.58,
+          "end": 2.58
+        },
+        {
+          "raw": "said",
+          "start": 3.0,
+          "end": 3.22
+        },
+        {
+          "raw": "he,",
+          "start": 3.22,
+          "end": 3.48
+        },
+        {
+          "raw": "and",
+          "start": 3.74,
+          "end": 3.92
+        },
+        {
+          "raw": "look",
+          "start": 3.92,
+          "end": 4.08
+        },
+        {
+          "raw": "at",
+          "start": 4.08,
+          "end": 4.22
+        },
+        {
+          "raw": "them",
+          "start": 4.22,
+          "end": 4.4
+        },
+        {
+          "raw": "with",
+          "start": 4.4,
+          "end": 4.54
+        },
+        {
+          "raw": "Adèle.",
+          "start": 4.54,
+          "end": 5.04
+        },
+        {
+          "raw": "You,",
+          "start": 5.48,
+          "end": 5.76
+        },
+        {
+          "raw": "glancing",
+          "start": 6.12,
+          "end": 6.56
+        },
+        {
+          "raw": "at",
+          "start": 6.56,
+          "end": 6.8
+        },
+        {
+          "raw": "me,",
+          "start": 6.8,
+          "end": 7.04
+        },
+        {
+          "raw": "resume",
+          "start": 7.4,
+          "end": 7.68
+        },
+        {
+          "raw": "your",
+          "start": 7.68,
+          "end": 7.94
+        },
+        {
+          "raw": "seat",
+          "start": 7.94,
+          "end": 8.26
+        },
+        {
+          "raw": "and",
+          "start": 8.26,
+          "end": 8.5
+        },
+        {
+          "raw": "answer",
+          "start": 8.5,
+          "end": 8.82
+        },
+        {
+          "raw": "my",
+          "start": 8.82,
+          "end": 9.02
+        },
+        {
+          "raw": "questions.",
+          "start": 9.02,
+          "end": 9.44
+        },
+        {
+          "raw": "I",
+          "start": 10.06,
+          "end": 10.26
+        },
+        {
+          "raw": "perceive",
+          "start": 10.26,
+          "end": 10.56
+        },
+        {
+          "raw": "those",
+          "start": 10.56,
+          "end": 10.84
+        },
+        {
+          "raw": "pictures",
+          "start": 10.84,
+          "end": 11.18
+        },
+        {
+          "raw": "were",
+          "start": 11.18,
+          "end": 11.4
+        },
+        {
+          "raw": "done",
+          "start": 11.4,
+          "end": 11.58
+        },
+        {
+          "raw": "by",
+          "start": 11.58,
+          "end": 11.78
+        },
+        {
+          "raw": "one",
+          "start": 11.78,
+          "end": 12.0
+        },
+        {
+          "raw": "hand.",
+          "start": 12.0,
+          "end": 12.4
+        },
+        {
+          "raw": "Was",
+          "start": 12.66,
+          "end": 12.76
+        },
+        {
+          "raw": "that",
+          "start": 12.76,
+          "end": 13.0
+        },
+        {
+          "raw": "hand",
+          "start": 13.0,
+          "end": 13.28
+        },
+        {
+          "raw": "yours?",
+          "start": 13.28,
+          "end": 13.54
+        }
+      ],
+      "expected_tokens": [
+        "\"Take",
+        "them",
+        "off",
+        "to",
+        "the",
+        "other",
+        "table,",
+        "Mrs.",
+        "Fairfax,\"",
+        "said",
+        "he,",
+        "\"and",
+        "look",
+        "at",
+        "them",
+        "with",
+        "Adèle;—you\"",
+        "(glancing",
+        "at",
+        "me)",
+        "\"resume",
+        "your",
+        "seat,",
+        "and",
+        "answer",
+        "my",
+        "questions.",
+        "I",
+        "perceive",
+        "those",
+        "pictures",
+        "were",
+        "done",
+        "by",
+        "one",
+        "hand:",
+        "was",
+        "that",
+        "hand",
+        "yours?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ],
+        [
+          "replace",
+          16,
+          17,
+          16,
+          18
+        ],
+        [
+          "equal",
+          17,
+          40,
+          18,
+          41
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          16,
+          17,
+          16,
+          18
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "take",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "take",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 0.52,
+          "end": 0.68,
+          "key": "them",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "off",
+          "start": 0.68,
+          "end": 0.88,
+          "key": "off",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.88,
+          "end": 1.04,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.04,
+          "end": 1.14,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 1.14,
+          "end": 1.38,
+          "key": "other",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "table,",
+          "start": 1.38,
+          "end": 1.78,
+          "key": "table",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Mrs.",
+          "start": 1.94,
+          "end": 2.04,
+          "key": "mrs",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Fairfax,",
+          "start": 2.58,
+          "end": 2.58,
+          "key": "fairfax",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 3.0,
+          "end": 3.22,
+          "key": "said",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "he,",
+          "start": 3.22,
+          "end": 3.48,
+          "key": "he",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.74,
+          "end": 3.92,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 3.92,
+          "end": 4.08,
+          "key": "look",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 4.08,
+          "end": 4.22,
+          "key": "at",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 4.22,
+          "end": 4.4,
+          "key": "them",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.4,
+          "end": 4.54,
+          "key": "with",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Adèle.",
+          "start": 4.54,
+          "end": 5.04,
+          "key": "adèle",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "You,",
+          "start": 5.48,
+          "end": 5.76,
+          "key": "you",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "glancing",
+          "start": 6.12,
+          "end": 6.56,
+          "key": "glancing",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 6.56,
+          "end": 6.8,
+          "key": "at",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 6.8,
+          "end": 7.04,
+          "key": "me",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "resume",
+          "start": 7.4,
+          "end": 7.68,
+          "key": "resume",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 7.68,
+          "end": 7.94,
+          "key": "your",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "seat",
+          "start": 7.94,
+          "end": 8.26,
+          "key": "seat",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 8.26,
+          "end": 8.5,
+          "key": "and",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "answer",
+          "start": 8.5,
+          "end": 8.82,
+          "key": "answer",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 8.82,
+          "end": 9.02,
+          "key": "my",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "questions.",
+          "start": 9.02,
+          "end": 9.44,
+          "key": "questions",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 10.06,
+          "end": 10.26,
+          "key": "i",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "perceive",
+          "start": 10.26,
+          "end": 10.56,
+          "key": "perceive",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "those",
+          "start": 10.56,
+          "end": 10.84,
+          "key": "those",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "pictures",
+          "start": 10.84,
+          "end": 11.18,
+          "key": "pictures",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 11.18,
+          "end": 11.4,
+          "key": "were",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "done",
+          "start": 11.4,
+          "end": 11.58,
+          "key": "done",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 11.58,
+          "end": 11.78,
+          "key": "by",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 11.78,
+          "end": 12.0,
+          "key": "one",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "hand.",
+          "start": 12.0,
+          "end": 12.4,
+          "key": "hand",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "Was",
+          "start": 12.66,
+          "end": 12.76,
+          "key": "was",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 12.76,
+          "end": 13.0,
+          "key": "that",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "hand",
+          "start": 13.0,
+          "end": 13.28,
+          "key": "hand",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "yours?",
+          "start": 13.28,
+          "end": 13.54,
+          "key": "yours",
+          "pieces": [
+            40
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Take",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "them",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "text": "off",
+          "start": 0.68,
+          "end": 0.88
+        },
+        {
+          "text": "to",
+          "start": 0.88,
+          "end": 1.04
+        },
+        {
+          "text": "the",
+          "start": 1.04,
+          "end": 1.14
+        },
+        {
+          "text": "other",
+          "start": 1.14,
+          "end": 1.38
+        },
+        {
+          "text": "table,",
+          "start": 1.38,
+          "end": 1.78
+        },
+        {
+          "text": "Mrs.",
+          "start": 1.94,
+          "end": 2.04
+        },
+        {
+          "text": "Fairfax,\"",
+          "start": 2.58,
+          "end": 2.58
+        },
+        {
+          "text": "said",
+          "start": 3.0,
+          "end": 3.22
+        },
+        {
+          "text": "he,",
+          "start": 3.22,
+          "end": 3.48
+        },
+        {
+          "text": "\"and",
+          "start": 3.74,
+          "end": 3.92
+        },
+        {
+          "text": "look",
+          "start": 3.92,
+          "end": 4.08
+        },
+        {
+          "text": "at",
+          "start": 4.08,
+          "end": 4.22
+        },
+        {
+          "text": "them",
+          "start": 4.22,
+          "end": 4.4
+        },
+        {
+          "text": "with",
+          "start": 4.4,
+          "end": 4.54
+        },
+        {
+          "text": "Adèle;—you\"",
+          "start": 4.54,
+          "end": 5.33
+        },
+        {
+          "text": "(glancing",
+          "start": 6.12,
+          "end": 6.56
+        },
+        {
+          "text": "at",
+          "start": 6.56,
+          "end": 6.8
+        },
+        {
+          "text": "me)",
+          "start": 6.8,
+          "end": 7.04
+        },
+        {
+          "text": "\"resume",
+          "start": 7.4,
+          "end": 7.68
+        },
+        {
+          "text": "your",
+          "start": 7.68,
+          "end": 7.94
+        },
+        {
+          "text": "seat,",
+          "start": 7.94,
+          "end": 8.26
+        },
+        {
+          "text": "and",
+          "start": 8.26,
+          "end": 8.5
+        },
+        {
+          "text": "answer",
+          "start": 8.5,
+          "end": 8.82
+        },
+        {
+          "text": "my",
+          "start": 8.82,
+          "end": 9.02
+        },
+        {
+          "text": "questions.",
+          "start": 9.02,
+          "end": 9.44
+        },
+        {
+          "text": "I",
+          "start": 10.06,
+          "end": 10.26
+        },
+        {
+          "text": "perceive",
+          "start": 10.26,
+          "end": 10.56
+        },
+        {
+          "text": "those",
+          "start": 10.56,
+          "end": 10.84
+        },
+        {
+          "text": "pictures",
+          "start": 10.84,
+          "end": 11.18
+        },
+        {
+          "text": "were",
+          "start": 11.18,
+          "end": 11.4
+        },
+        {
+          "text": "done",
+          "start": 11.4,
+          "end": 11.58
+        },
+        {
+          "text": "by",
+          "start": 11.58,
+          "end": 11.78
+        },
+        {
+          "text": "one",
+          "start": 11.78,
+          "end": 12.0
+        },
+        {
+          "text": "hand:",
+          "start": 12.0,
+          "end": 12.4
+        },
+        {
+          "text": "was",
+          "start": 12.66,
+          "end": 12.76
+        },
+        {
+          "text": "that",
+          "start": 12.76,
+          "end": 13.0
+        },
+        {
+          "text": "hand",
+          "start": 13.0,
+          "end": 13.28
+        },
+        {
+          "text": "yours?\"",
+          "start": 13.28,
+          "end": 13.54
+        }
+      ],
+      "stats": {
+        "expected_words": 40,
+        "heard_words": 41,
+        "matched_words": 39
+      },
+      "match_ratio": 0.975,
+      "rejection_reasons": [],
+      "seconds": 0.5315468572080135
+    },
+    {
+      "asr_seconds": 0.5240322663448751,
+      "alignment_seconds": 0.000825095921754837,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Take them off to the other table, Mrs. Fairfax,\" said he, and look at them with a dell.",
+          "start": 0.02,
+          "end": 4.96,
+          "words": [
+            {
+              "text": " Take",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.0238494873046875
+            },
+            {
+              "text": " them",
+              "start": 0.52,
+              "end": 0.68,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " off",
+              "start": 0.68,
+              "end": 0.88,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 0.88,
+              "end": 1.04,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 1.04,
+              "end": 1.14,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " other",
+              "start": 1.14,
+              "end": 1.38,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " table,",
+              "start": 1.38,
+              "end": 1.76,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Mrs.",
+              "start": 1.92,
+              "end": 2.06,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " Fairfax,\"",
+              "start": 2.58,
+              "end": 2.98,
+              "probability": 0.88525390625
+            },
+            {
+              "text": " said",
+              "start": 2.98,
+              "end": 3.22,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " he,",
+              "start": 3.22,
+              "end": 3.48,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " and",
+              "start": 3.7,
+              "end": 3.92,
+              "probability": 0.04327392578125
+            },
+            {
+              "text": " look",
+              "start": 3.92,
+              "end": 4.08,
+              "probability": 0.7275390625
+            },
+            {
+              "text": " at",
+              "start": 4.08,
+              "end": 4.22,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " them",
+              "start": 4.22,
+              "end": 4.4,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " with",
+              "start": 4.4,
+              "end": 4.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 4.54,
+              "end": 4.66,
+              "probability": 0.38330078125
+            },
+            {
+              "text": " dell.",
+              "start": 4.66,
+              "end": 4.96,
+              "probability": 0.73095703125
+            }
+          ]
+        },
+        {
+          "text": " You, glancing at me, resume your seat and answer my questions.",
+          "start": 5.46,
+          "end": 9.42,
+          "words": [
+            {
+              "text": " You,",
+              "start": 5.46,
+              "end": 5.76,
+              "probability": 0.126220703125
+            },
+            {
+              "text": " glancing",
+              "start": 6.12,
+              "end": 6.56,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " at",
+              "start": 6.56,
+              "end": 6.8,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " me,",
+              "start": 6.8,
+              "end": 7.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " resume",
+              "start": 7.46,
+              "end": 7.68,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " your",
+              "start": 7.68,
+              "end": 7.94,
+              "probability": 0.998046875
+            },
+            {
+              "text": " seat",
+              "start": 7.94,
+              "end": 8.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 8.28,
+              "end": 8.5,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " answer",
+              "start": 8.5,
+              "end": 8.82,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " my",
+              "start": 8.82,
+              "end": 9.02,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " questions.",
+              "start": 9.02,
+              "end": 9.42,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " I perceive those pictures were done by one hand.",
+          "start": 10.06,
+          "end": 12.4,
+          "words": [
+            {
+              "text": " I",
+              "start": 10.06,
+              "end": 10.26,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " perceive",
+              "start": 10.26,
+              "end": 10.56,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " those",
+              "start": 10.56,
+              "end": 10.84,
+              "probability": 0.99609375
+            },
+            {
+              "text": " pictures",
+              "start": 10.84,
+              "end": 11.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " were",
+              "start": 11.18,
+              "end": 11.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " done",
+              "start": 11.4,
+              "end": 11.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " by",
+              "start": 11.58,
+              "end": 11.78,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " one",
+              "start": 11.78,
+              "end": 12.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " hand.",
+              "start": 12.0,
+              "end": 12.4,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " Was that hand yours?",
+          "start": 12.66,
+          "end": 13.54,
+          "words": [
+            {
+              "text": " Was",
+              "start": 12.66,
+              "end": 12.76,
+              "probability": 0.990234375
+            },
+            {
+              "text": " that",
+              "start": 12.76,
+              "end": 13.0,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " hand",
+              "start": 13.0,
+              "end": 13.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " yours?",
+              "start": 13.28,
+              "end": 13.54,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Take",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "them",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "raw": "off",
+          "start": 0.68,
+          "end": 0.88
+        },
+        {
+          "raw": "to",
+          "start": 0.88,
+          "end": 1.04
+        },
+        {
+          "raw": "the",
+          "start": 1.04,
+          "end": 1.14
+        },
+        {
+          "raw": "other",
+          "start": 1.14,
+          "end": 1.38
+        },
+        {
+          "raw": "table,",
+          "start": 1.38,
+          "end": 1.76
+        },
+        {
+          "raw": "Mrs.",
+          "start": 1.92,
+          "end": 2.06
+        },
+        {
+          "raw": "Fairfax,\"",
+          "start": 2.58,
+          "end": 2.98
+        },
+        {
+          "raw": "said",
+          "start": 2.98,
+          "end": 3.22
+        },
+        {
+          "raw": "he,",
+          "start": 3.22,
+          "end": 3.48
+        },
+        {
+          "raw": "and",
+          "start": 3.7,
+          "end": 3.92
+        },
+        {
+          "raw": "look",
+          "start": 3.92,
+          "end": 4.08
+        },
+        {
+          "raw": "at",
+          "start": 4.08,
+          "end": 4.22
+        },
+        {
+          "raw": "them",
+          "start": 4.22,
+          "end": 4.4
+        },
+        {
+          "raw": "with",
+          "start": 4.4,
+          "end": 4.54
+        },
+        {
+          "raw": "a",
+          "start": 4.54,
+          "end": 4.66
+        },
+        {
+          "raw": "dell.",
+          "start": 4.66,
+          "end": 4.96
+        },
+        {
+          "raw": "You,",
+          "start": 5.46,
+          "end": 5.76
+        },
+        {
+          "raw": "glancing",
+          "start": 6.12,
+          "end": 6.56
+        },
+        {
+          "raw": "at",
+          "start": 6.56,
+          "end": 6.8
+        },
+        {
+          "raw": "me,",
+          "start": 6.8,
+          "end": 7.04
+        },
+        {
+          "raw": "resume",
+          "start": 7.46,
+          "end": 7.68
+        },
+        {
+          "raw": "your",
+          "start": 7.68,
+          "end": 7.94
+        },
+        {
+          "raw": "seat",
+          "start": 7.94,
+          "end": 8.28
+        },
+        {
+          "raw": "and",
+          "start": 8.28,
+          "end": 8.5
+        },
+        {
+          "raw": "answer",
+          "start": 8.5,
+          "end": 8.82
+        },
+        {
+          "raw": "my",
+          "start": 8.82,
+          "end": 9.02
+        },
+        {
+          "raw": "questions.",
+          "start": 9.02,
+          "end": 9.42
+        },
+        {
+          "raw": "I",
+          "start": 10.06,
+          "end": 10.26
+        },
+        {
+          "raw": "perceive",
+          "start": 10.26,
+          "end": 10.56
+        },
+        {
+          "raw": "those",
+          "start": 10.56,
+          "end": 10.84
+        },
+        {
+          "raw": "pictures",
+          "start": 10.84,
+          "end": 11.18
+        },
+        {
+          "raw": "were",
+          "start": 11.18,
+          "end": 11.4
+        },
+        {
+          "raw": "done",
+          "start": 11.4,
+          "end": 11.58
+        },
+        {
+          "raw": "by",
+          "start": 11.58,
+          "end": 11.78
+        },
+        {
+          "raw": "one",
+          "start": 11.78,
+          "end": 12.0
+        },
+        {
+          "raw": "hand.",
+          "start": 12.0,
+          "end": 12.4
+        },
+        {
+          "raw": "Was",
+          "start": 12.66,
+          "end": 12.76
+        },
+        {
+          "raw": "that",
+          "start": 12.76,
+          "end": 13.0
+        },
+        {
+          "raw": "hand",
+          "start": 13.0,
+          "end": 13.28
+        },
+        {
+          "raw": "yours?",
+          "start": 13.28,
+          "end": 13.54
+        }
+      ],
+      "expected_tokens": [
+        "\"Take",
+        "them",
+        "off",
+        "to",
+        "the",
+        "other",
+        "table,",
+        "Mrs.",
+        "Fairfax,\"",
+        "said",
+        "he,",
+        "\"and",
+        "look",
+        "at",
+        "them",
+        "with",
+        "Adèle;—you\"",
+        "(glancing",
+        "at",
+        "me)",
+        "\"resume",
+        "your",
+        "seat,",
+        "and",
+        "answer",
+        "my",
+        "questions.",
+        "I",
+        "perceive",
+        "those",
+        "pictures",
+        "were",
+        "done",
+        "by",
+        "one",
+        "hand:",
+        "was",
+        "that",
+        "hand",
+        "yours?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ],
+        [
+          "replace",
+          16,
+          17,
+          16,
+          19
+        ],
+        [
+          "equal",
+          17,
+          40,
+          19,
+          42
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 41
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          16,
+          17,
+          16,
+          19
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Take",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "take",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 0.52,
+          "end": 0.68,
+          "key": "them",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "off",
+          "start": 0.68,
+          "end": 0.88,
+          "key": "off",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.88,
+          "end": 1.04,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.04,
+          "end": 1.14,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 1.14,
+          "end": 1.38,
+          "key": "other",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "table,",
+          "start": 1.38,
+          "end": 1.76,
+          "key": "table",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Mrs.",
+          "start": 1.92,
+          "end": 2.06,
+          "key": "mrs",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Fairfax,\"",
+          "start": 2.58,
+          "end": 2.98,
+          "key": "fairfax",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.98,
+          "end": 3.22,
+          "key": "said",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "he,",
+          "start": 3.22,
+          "end": 3.48,
+          "key": "he",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.7,
+          "end": 3.92,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 3.92,
+          "end": 4.08,
+          "key": "look",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 4.08,
+          "end": 4.22,
+          "key": "at",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 4.22,
+          "end": 4.4,
+          "key": "them",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.4,
+          "end": 4.54,
+          "key": "with",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.54,
+          "end": 4.66,
+          "key": "a",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "dell.",
+          "start": 4.66,
+          "end": 4.96,
+          "key": "dell",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "You,",
+          "start": 5.46,
+          "end": 5.76,
+          "key": "you",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "glancing",
+          "start": 6.12,
+          "end": 6.56,
+          "key": "glancing",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 6.56,
+          "end": 6.8,
+          "key": "at",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 6.8,
+          "end": 7.04,
+          "key": "me",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "resume",
+          "start": 7.46,
+          "end": 7.68,
+          "key": "resume",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 7.68,
+          "end": 7.94,
+          "key": "your",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "seat",
+          "start": 7.94,
+          "end": 8.28,
+          "key": "seat",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 8.28,
+          "end": 8.5,
+          "key": "and",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "answer",
+          "start": 8.5,
+          "end": 8.82,
+          "key": "answer",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 8.82,
+          "end": 9.02,
+          "key": "my",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "questions.",
+          "start": 9.02,
+          "end": 9.42,
+          "key": "questions",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 10.06,
+          "end": 10.26,
+          "key": "i",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "perceive",
+          "start": 10.26,
+          "end": 10.56,
+          "key": "perceive",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "those",
+          "start": 10.56,
+          "end": 10.84,
+          "key": "those",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "pictures",
+          "start": 10.84,
+          "end": 11.18,
+          "key": "pictures",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 11.18,
+          "end": 11.4,
+          "key": "were",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "done",
+          "start": 11.4,
+          "end": 11.58,
+          "key": "done",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 11.58,
+          "end": 11.78,
+          "key": "by",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 11.78,
+          "end": 12.0,
+          "key": "one",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "hand.",
+          "start": 12.0,
+          "end": 12.4,
+          "key": "hand",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "Was",
+          "start": 12.66,
+          "end": 12.76,
+          "key": "was",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 12.76,
+          "end": 13.0,
+          "key": "that",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "hand",
+          "start": 13.0,
+          "end": 13.28,
+          "key": "hand",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "yours?",
+          "start": 13.28,
+          "end": 13.54,
+          "key": "yours",
+          "pieces": [
+            41
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Take",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "them",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "text": "off",
+          "start": 0.68,
+          "end": 0.88
+        },
+        {
+          "text": "to",
+          "start": 0.88,
+          "end": 1.04
+        },
+        {
+          "text": "the",
+          "start": 1.04,
+          "end": 1.14
+        },
+        {
+          "text": "other",
+          "start": 1.14,
+          "end": 1.38
+        },
+        {
+          "text": "table,",
+          "start": 1.38,
+          "end": 1.76
+        },
+        {
+          "text": "Mrs.",
+          "start": 1.92,
+          "end": 2.06
+        },
+        {
+          "text": "Fairfax,\"",
+          "start": 2.58,
+          "end": 2.98
+        },
+        {
+          "text": "said",
+          "start": 2.98,
+          "end": 3.22
+        },
+        {
+          "text": "he,",
+          "start": 3.22,
+          "end": 3.48
+        },
+        {
+          "text": "\"and",
+          "start": 3.7,
+          "end": 3.92
+        },
+        {
+          "text": "look",
+          "start": 3.92,
+          "end": 4.08
+        },
+        {
+          "text": "at",
+          "start": 4.08,
+          "end": 4.22
+        },
+        {
+          "text": "them",
+          "start": 4.22,
+          "end": 4.4
+        },
+        {
+          "text": "with",
+          "start": 4.4,
+          "end": 4.54
+        },
+        {
+          "text": "Adèle;—you\"",
+          "start": 4.54,
+          "end": 5.33
+        },
+        {
+          "text": "(glancing",
+          "start": 6.12,
+          "end": 6.56
+        },
+        {
+          "text": "at",
+          "start": 6.56,
+          "end": 6.8
+        },
+        {
+          "text": "me)",
+          "start": 6.8,
+          "end": 7.04
+        },
+        {
+          "text": "\"resume",
+          "start": 7.46,
+          "end": 7.68
+        },
+        {
+          "text": "your",
+          "start": 7.68,
+          "end": 7.94
+        },
+        {
+          "text": "seat,",
+          "start": 7.94,
+          "end": 8.28
+        },
+        {
+          "text": "and",
+          "start": 8.28,
+          "end": 8.5
+        },
+        {
+          "text": "answer",
+          "start": 8.5,
+          "end": 8.82
+        },
+        {
+          "text": "my",
+          "start": 8.82,
+          "end": 9.02
+        },
+        {
+          "text": "questions.",
+          "start": 9.02,
+          "end": 9.42
+        },
+        {
+          "text": "I",
+          "start": 10.06,
+          "end": 10.26
+        },
+        {
+          "text": "perceive",
+          "start": 10.26,
+          "end": 10.56
+        },
+        {
+          "text": "those",
+          "start": 10.56,
+          "end": 10.84
+        },
+        {
+          "text": "pictures",
+          "start": 10.84,
+          "end": 11.18
+        },
+        {
+          "text": "were",
+          "start": 11.18,
+          "end": 11.4
+        },
+        {
+          "text": "done",
+          "start": 11.4,
+          "end": 11.58
+        },
+        {
+          "text": "by",
+          "start": 11.58,
+          "end": 11.78
+        },
+        {
+          "text": "one",
+          "start": 11.78,
+          "end": 12.0
+        },
+        {
+          "text": "hand:",
+          "start": 12.0,
+          "end": 12.4
+        },
+        {
+          "text": "was",
+          "start": 12.66,
+          "end": 12.76
+        },
+        {
+          "text": "that",
+          "start": 12.76,
+          "end": 13.0
+        },
+        {
+          "text": "hand",
+          "start": 13.0,
+          "end": 13.28
+        },
+        {
+          "text": "yours?\"",
+          "start": 13.28,
+          "end": 13.54
+        }
+      ],
+      "stats": {
+        "expected_words": 40,
+        "heard_words": 42,
+        "matched_words": 39
+      },
+      "match_ratio": 0.975,
+      "rejection_reasons": [],
+      "seconds": 0.525227861944586
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "a31388090508cc212d7154f9618d3929fb94e8ec725352dc8146880cbeb78f8b",
+  "selected_reasons": []
+}

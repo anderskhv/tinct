@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "019f324b55d902a032a5f8bf6611c0931cf8c83270e5c4c07c8c44ef2fa77861",
+  "attempts": [
+    {
+      "asr_seconds": 0.17394227301701903,
+      "alignment_seconds": 0.0003081308677792549,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Both died before I can remember.",
+          "start": 0.05,
+          "end": 1.93,
+          "words": [
+            {
+              "text": " Both",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.7783203125
+            },
+            {
+              "text": " died",
+              "start": 0.63,
+              "end": 1.03,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " before",
+              "start": 1.03,
+              "end": 1.33,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " I",
+              "start": 1.33,
+              "end": 1.47,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " can",
+              "start": 1.47,
+              "end": 1.57,
+              "probability": 0.998046875
+            },
+            {
+              "text": " remember.",
+              "start": 1.57,
+              "end": 1.93,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Both",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "died",
+          "start": 0.63,
+          "end": 1.03
+        },
+        {
+          "raw": "before",
+          "start": 1.03,
+          "end": 1.33
+        },
+        {
+          "raw": "I",
+          "start": 1.33,
+          "end": 1.47
+        },
+        {
+          "raw": "can",
+          "start": 1.47,
+          "end": 1.57
+        },
+        {
+          "raw": "remember.",
+          "start": 1.57,
+          "end": 1.93
+        }
+      ],
+      "expected_tokens": [
+        "\"Both",
+        "died",
+        "before",
+        "I",
+        "can",
+        "remember.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Both",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "both",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "died",
+          "start": 0.63,
+          "end": 1.03,
+          "key": "died",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 1.03,
+          "end": 1.33,
+          "key": "before",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.33,
+          "end": 1.47,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 1.47,
+          "end": 1.57,
+          "key": "can",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "remember.",
+          "start": 1.57,
+          "end": 1.93,
+          "key": "remember",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Both",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "died",
+          "start": 0.63,
+          "end": 1.03
+        },
+        {
+          "text": "before",
+          "start": 1.03,
+          "end": 1.33
+        },
+        {
+          "text": "I",
+          "start": 1.33,
+          "end": 1.47
+        },
+        {
+          "text": "can",
+          "start": 1.47,
+          "end": 1.57
+        },
+        {
+          "text": "remember.\"",
+          "start": 1.57,
+          "end": 1.93
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17438176972791553
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1d2e634475bee17a512426a61e0c4b07e7ad3063ced6d799b909acffc25b5281",
+  "selected_reasons": []
+}

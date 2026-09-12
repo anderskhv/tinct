@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "902c5184ce6b9ddcc2c5d548458de835eb701b0a2cdf59a6e2d9e14ebb4a2f85",
+  "attempts": [
+    {
+      "asr_seconds": 0.194873608648777,
+      "alignment_seconds": 0.00041789188981056213,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Where do your brothers and sisters live?\"",
+        "hotwords": "Where"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Where do your brothers and sisters live?",
+          "start": 0.02,
+          "end": 1.94,
+          "words": [
+            {
+              "text": " Where",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.9052734375
+            },
+            {
+              "text": " do",
+              "start": 0.52,
+              "end": 0.62,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " your",
+              "start": 0.62,
+              "end": 0.74,
+              "probability": 0.990234375
+            },
+            {
+              "text": " brothers",
+              "start": 0.74,
+              "end": 1.04,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " and",
+              "start": 1.04,
+              "end": 1.28,
+              "probability": 0.9921875
+            },
+            {
+              "text": " sisters",
+              "start": 1.28,
+              "end": 1.62,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " live?",
+              "start": 1.62,
+              "end": 1.94,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Where",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "do",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "raw": "your",
+          "start": 0.62,
+          "end": 0.74
+        },
+        {
+          "raw": "brothers",
+          "start": 0.74,
+          "end": 1.04
+        },
+        {
+          "raw": "and",
+          "start": 1.04,
+          "end": 1.28
+        },
+        {
+          "raw": "sisters",
+          "start": 1.28,
+          "end": 1.62
+        },
+        {
+          "raw": "live?",
+          "start": 1.62,
+          "end": 1.94
+        }
+      ],
+      "expected_tokens": [
+        "\"Where",
+        "do",
+        "your",
+        "brothers",
+        "and",
+        "sisters",
+        "live?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Where",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "where",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 0.52,
+          "end": 0.62,
+          "key": "do",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 0.62,
+          "end": 0.74,
+          "key": "your",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "brothers",
+          "start": 0.74,
+          "end": 1.04,
+          "key": "brothers",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.04,
+          "end": 1.28,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sisters",
+          "start": 1.28,
+          "end": 1.62,
+          "key": "sisters",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "live?",
+          "start": 1.62,
+          "end": 1.94,
+          "key": "live",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Where",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "do",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "text": "your",
+          "start": 0.62,
+          "end": 0.74
+        },
+        {
+          "text": "brothers",
+          "start": 0.74,
+          "end": 1.04
+        },
+        {
+          "text": "and",
+          "start": 1.04,
+          "end": 1.28
+        },
+        {
+          "text": "sisters",
+          "start": 1.28,
+          "end": 1.62
+        },
+        {
+          "text": "live?\"",
+          "start": 1.62,
+          "end": 1.94
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19544171169400215
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9988a9f9e1c1f9b89b8197b84e97c7bca6476efe36ba3d05d93e5aa21f752af1",
+  "selected_reasons": []
+}

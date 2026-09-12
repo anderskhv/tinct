@@ -1,0 +1,3881 @@
+{
+  "complete": true,
+  "signature": "027458c7f9c1ce57a311dd8e1629779fcedffcae447d799ee6c91e7ea37197d5",
+  "attempts": [
+    {
+      "asr_seconds": 0.6143290628679097,
+      "alignment_seconds": 0.0010686381720006466,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "I shook my head. \"The men in green all forsook England a hundred years ago,\" said I, speaking as seriously as he had done. \"And not even in Hay Lane, or the fields about it, could you find a trace of them. I don't think either summer or harvest, or winter moon, will ever shine on their revels more.\"",
+        "hotwords": "I, England, And, Hay, Lane"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The men in green all forsook England a hundred years ago, said I, speaking as seriously as",
+          "start": 1.17,
+          "end": 7.15,
+          "words": [
+            {
+              "text": " The",
+              "start": 1.17,
+              "end": 1.65,
+              "probability": 0.020050048828125
+            },
+            {
+              "text": " men",
+              "start": 1.65,
+              "end": 2.13,
+              "probability": 0.8271484375
+            },
+            {
+              "text": " in",
+              "start": 2.13,
+              "end": 2.31,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " green",
+              "start": 2.31,
+              "end": 2.59,
+              "probability": 0.921875
+            },
+            {
+              "text": " all",
+              "start": 2.59,
+              "end": 2.91,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " forsook",
+              "start": 2.91,
+              "end": 3.29,
+              "probability": 0.996826171875
+            },
+            {
+              "text": " England",
+              "start": 3.29,
+              "end": 3.63,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 3.63,
+              "end": 3.77,
+              "probability": 0.90673828125
+            },
+            {
+              "text": " hundred",
+              "start": 3.77,
+              "end": 4.03,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " years",
+              "start": 4.03,
+              "end": 4.31,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " ago,",
+              "start": 4.31,
+              "end": 4.69,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " said",
+              "start": 4.91,
+              "end": 5.19,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " I,",
+              "start": 5.19,
+              "end": 5.45,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " speaking",
+              "start": 5.81,
+              "end": 6.01,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " as",
+              "start": 6.01,
+              "end": 6.31,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " seriously",
+              "start": 6.31,
+              "end": 6.73,
+              "probability": 0.994140625
+            },
+            {
+              "text": " as",
+              "start": 6.73,
+              "end": 7.15,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " he had done. And not even in Hay Lane, or the fields about it, could you find a trace",
+          "start": 7.15,
+          "end": 12.01,
+          "words": [
+            {
+              "text": " he",
+              "start": 7.15,
+              "end": 7.27,
+              "probability": 0.994140625
+            },
+            {
+              "text": " had",
+              "start": 7.27,
+              "end": 7.37,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " done.",
+              "start": 7.37,
+              "end": 7.69,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " And",
+              "start": 8.35,
+              "end": 8.47,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " not",
+              "start": 8.47,
+              "end": 8.65,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " even",
+              "start": 8.65,
+              "end": 8.91,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " in",
+              "start": 8.91,
+              "end": 9.11,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Hay",
+              "start": 9.11,
+              "end": 9.35,
+              "probability": 0.85302734375
+            },
+            {
+              "text": " Lane,",
+              "start": 9.35,
+              "end": 9.73,
+              "probability": 0.95703125
+            },
+            {
+              "text": " or",
+              "start": 9.89,
+              "end": 10.03,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 10.03,
+              "end": 10.19,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " fields",
+              "start": 10.19,
+              "end": 10.41,
+              "probability": 0.91748046875
+            },
+            {
+              "text": " about",
+              "start": 10.41,
+              "end": 10.71,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " it,",
+              "start": 10.71,
+              "end": 10.93,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " could",
+              "start": 11.13,
+              "end": 11.23,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " you",
+              "start": 11.23,
+              "end": 11.39,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " find",
+              "start": 11.39,
+              "end": 11.63,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 11.63,
+              "end": 11.79,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " trace",
+              "start": 11.79,
+              "end": 12.01,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " of them. I don't think either summer or harvest, or winter moon, will ever shine on their revels",
+          "start": 12.01,
+          "end": 17.55,
+          "words": [
+            {
+              "text": " of",
+              "start": 12.01,
+              "end": 12.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " them.",
+              "start": 12.23,
+              "end": 12.45,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " I",
+              "start": 12.91,
+              "end": 13.03,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " don't",
+              "start": 13.03,
+              "end": 13.21,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " think",
+              "start": 13.21,
+              "end": 13.37,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " either",
+              "start": 13.37,
+              "end": 13.59,
+              "probability": 0.998046875
+            },
+            {
+              "text": " summer",
+              "start": 13.59,
+              "end": 13.93,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " or",
+              "start": 13.93,
+              "end": 14.25,
+              "probability": 0.869140625
+            },
+            {
+              "text": " harvest,",
+              "start": 14.25,
+              "end": 14.65,
+              "probability": 0.9921875
+            },
+            {
+              "text": " or",
+              "start": 14.97,
+              "end": 15.05,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " winter",
+              "start": 15.05,
+              "end": 15.33,
+              "probability": 0.984375
+            },
+            {
+              "text": " moon,",
+              "start": 15.33,
+              "end": 15.75,
+              "probability": 0.921875
+            },
+            {
+              "text": " will",
+              "start": 15.99,
+              "end": 16.15,
+              "probability": 0.986328125
+            },
+            {
+              "text": " ever",
+              "start": 16.15,
+              "end": 16.41,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " shine",
+              "start": 16.41,
+              "end": 16.75,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " on",
+              "start": 16.75,
+              "end": 16.95,
+              "probability": 0.998046875
+            },
+            {
+              "text": " their",
+              "start": 16.95,
+              "end": 17.09,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " revels",
+              "start": 17.09,
+              "end": 17.55,
+              "probability": 0.968017578125
+            }
+          ]
+        },
+        {
+          "text": " more.\"",
+          "start": 17.55,
+          "end": 17.87,
+          "words": [
+            {
+              "text": " more.\"",
+              "start": 17.55,
+              "end": 17.87,
+              "probability": 0.5147857666015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 1.17,
+          "end": 1.65
+        },
+        {
+          "raw": "men",
+          "start": 1.65,
+          "end": 2.13
+        },
+        {
+          "raw": "in",
+          "start": 2.13,
+          "end": 2.31
+        },
+        {
+          "raw": "green",
+          "start": 2.31,
+          "end": 2.59
+        },
+        {
+          "raw": "all",
+          "start": 2.59,
+          "end": 2.91
+        },
+        {
+          "raw": "forsook",
+          "start": 2.91,
+          "end": 3.29
+        },
+        {
+          "raw": "England",
+          "start": 3.29,
+          "end": 3.63
+        },
+        {
+          "raw": "a",
+          "start": 3.63,
+          "end": 3.77
+        },
+        {
+          "raw": "hundred",
+          "start": 3.77,
+          "end": 4.03
+        },
+        {
+          "raw": "years",
+          "start": 4.03,
+          "end": 4.31
+        },
+        {
+          "raw": "ago,",
+          "start": 4.31,
+          "end": 4.69
+        },
+        {
+          "raw": "said",
+          "start": 4.91,
+          "end": 5.19
+        },
+        {
+          "raw": "I,",
+          "start": 5.19,
+          "end": 5.45
+        },
+        {
+          "raw": "speaking",
+          "start": 5.81,
+          "end": 6.01
+        },
+        {
+          "raw": "as",
+          "start": 6.01,
+          "end": 6.31
+        },
+        {
+          "raw": "seriously",
+          "start": 6.31,
+          "end": 6.73
+        },
+        {
+          "raw": "as",
+          "start": 6.73,
+          "end": 7.15
+        },
+        {
+          "raw": "he",
+          "start": 7.15,
+          "end": 7.27
+        },
+        {
+          "raw": "had",
+          "start": 7.27,
+          "end": 7.37
+        },
+        {
+          "raw": "done.",
+          "start": 7.37,
+          "end": 7.69
+        },
+        {
+          "raw": "And",
+          "start": 8.35,
+          "end": 8.47
+        },
+        {
+          "raw": "not",
+          "start": 8.47,
+          "end": 8.65
+        },
+        {
+          "raw": "even",
+          "start": 8.65,
+          "end": 8.91
+        },
+        {
+          "raw": "in",
+          "start": 8.91,
+          "end": 9.11
+        },
+        {
+          "raw": "Hay",
+          "start": 9.11,
+          "end": 9.35
+        },
+        {
+          "raw": "Lane,",
+          "start": 9.35,
+          "end": 9.73
+        },
+        {
+          "raw": "or",
+          "start": 9.89,
+          "end": 10.03
+        },
+        {
+          "raw": "the",
+          "start": 10.03,
+          "end": 10.19
+        },
+        {
+          "raw": "fields",
+          "start": 10.19,
+          "end": 10.41
+        },
+        {
+          "raw": "about",
+          "start": 10.41,
+          "end": 10.71
+        },
+        {
+          "raw": "it,",
+          "start": 10.71,
+          "end": 10.93
+        },
+        {
+          "raw": "could",
+          "start": 11.13,
+          "end": 11.23
+        },
+        {
+          "raw": "you",
+          "start": 11.23,
+          "end": 11.39
+        },
+        {
+          "raw": "find",
+          "start": 11.39,
+          "end": 11.63
+        },
+        {
+          "raw": "a",
+          "start": 11.63,
+          "end": 11.79
+        },
+        {
+          "raw": "trace",
+          "start": 11.79,
+          "end": 12.01
+        },
+        {
+          "raw": "of",
+          "start": 12.01,
+          "end": 12.23
+        },
+        {
+          "raw": "them.",
+          "start": 12.23,
+          "end": 12.45
+        },
+        {
+          "raw": "I",
+          "start": 12.91,
+          "end": 13.03
+        },
+        {
+          "raw": "don't",
+          "start": 13.03,
+          "end": 13.21
+        },
+        {
+          "raw": "think",
+          "start": 13.21,
+          "end": 13.37
+        },
+        {
+          "raw": "either",
+          "start": 13.37,
+          "end": 13.59
+        },
+        {
+          "raw": "summer",
+          "start": 13.59,
+          "end": 13.93
+        },
+        {
+          "raw": "or",
+          "start": 13.93,
+          "end": 14.25
+        },
+        {
+          "raw": "harvest,",
+          "start": 14.25,
+          "end": 14.65
+        },
+        {
+          "raw": "or",
+          "start": 14.97,
+          "end": 15.05
+        },
+        {
+          "raw": "winter",
+          "start": 15.05,
+          "end": 15.33
+        },
+        {
+          "raw": "moon,",
+          "start": 15.33,
+          "end": 15.75
+        },
+        {
+          "raw": "will",
+          "start": 15.99,
+          "end": 16.15
+        },
+        {
+          "raw": "ever",
+          "start": 16.15,
+          "end": 16.41
+        },
+        {
+          "raw": "shine",
+          "start": 16.41,
+          "end": 16.75
+        },
+        {
+          "raw": "on",
+          "start": 16.75,
+          "end": 16.95
+        },
+        {
+          "raw": "their",
+          "start": 16.95,
+          "end": 17.09
+        },
+        {
+          "raw": "revels",
+          "start": 17.09,
+          "end": 17.55
+        },
+        {
+          "raw": "more.\"",
+          "start": 17.55,
+          "end": 17.87
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "shook",
+        "my",
+        "head.",
+        "\"The",
+        "men",
+        "in",
+        "green",
+        "all",
+        "forsook",
+        "England",
+        "a",
+        "hundred",
+        "years",
+        "ago,\"",
+        "said",
+        "I,",
+        "speaking",
+        "as",
+        "seriously",
+        "as",
+        "he",
+        "had",
+        "done.",
+        "\"And",
+        "not",
+        "even",
+        "in",
+        "Hay",
+        "Lane,",
+        "or",
+        "the",
+        "fields",
+        "about",
+        "it,",
+        "could",
+        "you",
+        "find",
+        "a",
+        "trace",
+        "of",
+        "them.",
+        "I",
+        "don't",
+        "think",
+        "either",
+        "summer",
+        "or",
+        "harvest,",
+        "or",
+        "winter",
+        "moon,",
+        "will",
+        "ever",
+        "shine",
+        "on",
+        "their",
+        "revels",
+        "more.\""
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          4,
+          0,
+          0
+        ],
+        [
+          "equal",
+          4,
+          59,
+          0,
+          55
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 54
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          4,
+          0,
+          0
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 1.17,
+          "end": 1.65,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "men",
+          "start": 1.65,
+          "end": 2.13,
+          "key": "men",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.13,
+          "end": 2.31,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "green",
+          "start": 2.31,
+          "end": 2.59,
+          "key": "green",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 2.59,
+          "end": 2.91,
+          "key": "all",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "forsook",
+          "start": 2.91,
+          "end": 3.29,
+          "key": "forsook",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "England",
+          "start": 3.29,
+          "end": 3.63,
+          "key": "england",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.63,
+          "end": 3.77,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hundred",
+          "start": 3.77,
+          "end": 4.03,
+          "key": "hundred",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "years",
+          "start": 4.03,
+          "end": 4.31,
+          "key": "years",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "ago,",
+          "start": 4.31,
+          "end": 4.69,
+          "key": "ago",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 4.91,
+          "end": 5.19,
+          "key": "said",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 5.19,
+          "end": 5.45,
+          "key": "i",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "speaking",
+          "start": 5.81,
+          "end": 6.01,
+          "key": "speaking",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 6.01,
+          "end": 6.31,
+          "key": "as",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "seriously",
+          "start": 6.31,
+          "end": 6.73,
+          "key": "seriously",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 6.73,
+          "end": 7.15,
+          "key": "as",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 7.15,
+          "end": 7.27,
+          "key": "he",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 7.27,
+          "end": 7.37,
+          "key": "had",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "done.",
+          "start": 7.37,
+          "end": 7.69,
+          "key": "done",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 8.35,
+          "end": 8.47,
+          "key": "and",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 8.47,
+          "end": 8.65,
+          "key": "not",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "even",
+          "start": 8.65,
+          "end": 8.91,
+          "key": "even",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 8.91,
+          "end": 9.11,
+          "key": "in",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Hay",
+          "start": 9.11,
+          "end": 9.35,
+          "key": "hay",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Lane,",
+          "start": 9.35,
+          "end": 9.73,
+          "key": "lane",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 9.89,
+          "end": 10.03,
+          "key": "or",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.03,
+          "end": 10.19,
+          "key": "the",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "fields",
+          "start": 10.19,
+          "end": 10.41,
+          "key": "fields",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 10.41,
+          "end": 10.71,
+          "key": "about",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "it,",
+          "start": 10.71,
+          "end": 10.93,
+          "key": "it",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 11.13,
+          "end": 11.23,
+          "key": "could",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 11.23,
+          "end": 11.39,
+          "key": "you",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "find",
+          "start": 11.39,
+          "end": 11.63,
+          "key": "find",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 11.63,
+          "end": 11.79,
+          "key": "a",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "trace",
+          "start": 11.79,
+          "end": 12.01,
+          "key": "trace",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 12.01,
+          "end": 12.23,
+          "key": "of",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 12.23,
+          "end": 12.45,
+          "key": "them",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 12.91,
+          "end": 13.03,
+          "key": "i",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 13.03,
+          "end": 13.21,
+          "key": "dont",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 13.21,
+          "end": 13.37,
+          "key": "think",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "either",
+          "start": 13.37,
+          "end": 13.59,
+          "key": "either",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "summer",
+          "start": 13.59,
+          "end": 13.93,
+          "key": "summer",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 13.93,
+          "end": 14.25,
+          "key": "or",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "harvest,",
+          "start": 14.25,
+          "end": 14.65,
+          "key": "harvest",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 14.97,
+          "end": 15.05,
+          "key": "or",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "winter",
+          "start": 15.05,
+          "end": 15.33,
+          "key": "winter",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "moon,",
+          "start": 15.33,
+          "end": 15.75,
+          "key": "moon",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 15.99,
+          "end": 16.15,
+          "key": "will",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "ever",
+          "start": 16.15,
+          "end": 16.41,
+          "key": "ever",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "shine",
+          "start": 16.41,
+          "end": 16.75,
+          "key": "shine",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 16.75,
+          "end": 16.95,
+          "key": "on",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 16.95,
+          "end": 17.09,
+          "key": "their",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "revels",
+          "start": 17.09,
+          "end": 17.55,
+          "key": "revels",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "more.\"",
+          "start": 17.55,
+          "end": 17.87,
+          "key": "more",
+          "pieces": [
+            54
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.0,
+          "end": 0.585
+        },
+        {
+          "text": "shook",
+          "start": 0.585,
+          "end": 0.877
+        },
+        {
+          "text": "my",
+          "start": 0.877,
+          "end": 1.023
+        },
+        {
+          "text": "head.",
+          "start": 1.023,
+          "end": 1.096
+        },
+        {
+          "text": "\"The",
+          "start": 1.17,
+          "end": 1.65
+        },
+        {
+          "text": "men",
+          "start": 1.65,
+          "end": 2.13
+        },
+        {
+          "text": "in",
+          "start": 2.13,
+          "end": 2.31
+        },
+        {
+          "text": "green",
+          "start": 2.31,
+          "end": 2.59
+        },
+        {
+          "text": "all",
+          "start": 2.59,
+          "end": 2.91
+        },
+        {
+          "text": "forsook",
+          "start": 2.91,
+          "end": 3.29
+        },
+        {
+          "text": "England",
+          "start": 3.29,
+          "end": 3.63
+        },
+        {
+          "text": "a",
+          "start": 3.63,
+          "end": 3.77
+        },
+        {
+          "text": "hundred",
+          "start": 3.77,
+          "end": 4.03
+        },
+        {
+          "text": "years",
+          "start": 4.03,
+          "end": 4.31
+        },
+        {
+          "text": "ago,\"",
+          "start": 4.31,
+          "end": 4.69
+        },
+        {
+          "text": "said",
+          "start": 4.91,
+          "end": 5.19
+        },
+        {
+          "text": "I,",
+          "start": 5.19,
+          "end": 5.45
+        },
+        {
+          "text": "speaking",
+          "start": 5.81,
+          "end": 6.01
+        },
+        {
+          "text": "as",
+          "start": 6.01,
+          "end": 6.31
+        },
+        {
+          "text": "seriously",
+          "start": 6.31,
+          "end": 6.73
+        },
+        {
+          "text": "as",
+          "start": 6.73,
+          "end": 7.15
+        },
+        {
+          "text": "he",
+          "start": 7.15,
+          "end": 7.27
+        },
+        {
+          "text": "had",
+          "start": 7.27,
+          "end": 7.37
+        },
+        {
+          "text": "done.",
+          "start": 7.37,
+          "end": 7.69
+        },
+        {
+          "text": "\"And",
+          "start": 8.35,
+          "end": 8.47
+        },
+        {
+          "text": "not",
+          "start": 8.47,
+          "end": 8.65
+        },
+        {
+          "text": "even",
+          "start": 8.65,
+          "end": 8.91
+        },
+        {
+          "text": "in",
+          "start": 8.91,
+          "end": 9.11
+        },
+        {
+          "text": "Hay",
+          "start": 9.11,
+          "end": 9.35
+        },
+        {
+          "text": "Lane,",
+          "start": 9.35,
+          "end": 9.73
+        },
+        {
+          "text": "or",
+          "start": 9.89,
+          "end": 10.03
+        },
+        {
+          "text": "the",
+          "start": 10.03,
+          "end": 10.19
+        },
+        {
+          "text": "fields",
+          "start": 10.19,
+          "end": 10.41
+        },
+        {
+          "text": "about",
+          "start": 10.41,
+          "end": 10.71
+        },
+        {
+          "text": "it,",
+          "start": 10.71,
+          "end": 10.93
+        },
+        {
+          "text": "could",
+          "start": 11.13,
+          "end": 11.23
+        },
+        {
+          "text": "you",
+          "start": 11.23,
+          "end": 11.39
+        },
+        {
+          "text": "find",
+          "start": 11.39,
+          "end": 11.63
+        },
+        {
+          "text": "a",
+          "start": 11.63,
+          "end": 11.79
+        },
+        {
+          "text": "trace",
+          "start": 11.79,
+          "end": 12.01
+        },
+        {
+          "text": "of",
+          "start": 12.01,
+          "end": 12.23
+        },
+        {
+          "text": "them.",
+          "start": 12.23,
+          "end": 12.45
+        },
+        {
+          "text": "I",
+          "start": 12.91,
+          "end": 13.03
+        },
+        {
+          "text": "don't",
+          "start": 13.03,
+          "end": 13.21
+        },
+        {
+          "text": "think",
+          "start": 13.21,
+          "end": 13.37
+        },
+        {
+          "text": "either",
+          "start": 13.37,
+          "end": 13.59
+        },
+        {
+          "text": "summer",
+          "start": 13.59,
+          "end": 13.93
+        },
+        {
+          "text": "or",
+          "start": 13.93,
+          "end": 14.25
+        },
+        {
+          "text": "harvest,",
+          "start": 14.25,
+          "end": 14.65
+        },
+        {
+          "text": "or",
+          "start": 14.97,
+          "end": 15.05
+        },
+        {
+          "text": "winter",
+          "start": 15.05,
+          "end": 15.33
+        },
+        {
+          "text": "moon,",
+          "start": 15.33,
+          "end": 15.75
+        },
+        {
+          "text": "will",
+          "start": 15.99,
+          "end": 16.15
+        },
+        {
+          "text": "ever",
+          "start": 16.15,
+          "end": 16.41
+        },
+        {
+          "text": "shine",
+          "start": 16.41,
+          "end": 16.75
+        },
+        {
+          "text": "on",
+          "start": 16.75,
+          "end": 16.95
+        },
+        {
+          "text": "their",
+          "start": 16.95,
+          "end": 17.09
+        },
+        {
+          "text": "revels",
+          "start": 17.09,
+          "end": 17.55
+        },
+        {
+          "text": "more.\"",
+          "start": 17.55,
+          "end": 17.87
+        }
+      ],
+      "stats": {
+        "expected_words": 59,
+        "heard_words": 55,
+        "matched_words": 55
+      },
+      "match_ratio": 0.9322033898305084,
+      "rejection_reasons": [],
+      "seconds": 0.6158650759607553
+    },
+    {
+      "asr_seconds": 0.7526617739349604,
+      "alignment_seconds": 0.0018703700043261051,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "I, England, And, Hay, Lane"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " I shook my head.",
+          "start": 0.11,
+          "end": 1.25,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.11,
+              "end": 0.53,
+              "probability": 0.76416015625
+            },
+            {
+              "text": " shook",
+              "start": 0.53,
+              "end": 0.73,
+              "probability": 0.994140625
+            },
+            {
+              "text": " my",
+              "start": 0.73,
+              "end": 0.95,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " head.",
+              "start": 0.95,
+              "end": 1.25,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " The men in green all forsook England a hundred years ago, said I, speaking as seriously as",
+          "start": 1.89,
+          "end": 7.15,
+          "words": [
+            {
+              "text": " The",
+              "start": 1.89,
+              "end": 1.99,
+              "probability": 0.44091796875
+            },
+            {
+              "text": " men",
+              "start": 1.99,
+              "end": 2.13,
+              "probability": 0.80810546875
+            },
+            {
+              "text": " in",
+              "start": 2.13,
+              "end": 2.33,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " green",
+              "start": 2.33,
+              "end": 2.59,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " all",
+              "start": 2.59,
+              "end": 2.91,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " forsook",
+              "start": 2.91,
+              "end": 3.29,
+              "probability": 0.996337890625
+            },
+            {
+              "text": " England",
+              "start": 3.29,
+              "end": 3.63,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " a",
+              "start": 3.63,
+              "end": 3.77,
+              "probability": 0.8857421875
+            },
+            {
+              "text": " hundred",
+              "start": 3.77,
+              "end": 4.03,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " years",
+              "start": 4.03,
+              "end": 4.31,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " ago,",
+              "start": 4.31,
+              "end": 4.67,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " said",
+              "start": 4.89,
+              "end": 5.19,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " I,",
+              "start": 5.19,
+              "end": 5.45,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " speaking",
+              "start": 5.79,
+              "end": 6.03,
+              "probability": 0.99609375
+            },
+            {
+              "text": " as",
+              "start": 6.03,
+              "end": 6.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " seriously",
+              "start": 6.31,
+              "end": 6.71,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " as",
+              "start": 6.71,
+              "end": 7.15,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " he had done.",
+          "start": 7.15,
+          "end": 7.65,
+          "words": [
+            {
+              "text": " he",
+              "start": 7.15,
+              "end": 7.27,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " had",
+              "start": 7.27,
+              "end": 7.37,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " done.",
+              "start": 7.37,
+              "end": 7.65,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " And not even in Hay Lane or the fields about it could you find a trace of them.",
+          "start": 8.35,
+          "end": 12.45,
+          "words": [
+            {
+              "text": " And",
+              "start": 8.35,
+              "end": 8.47,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " not",
+              "start": 8.47,
+              "end": 8.67,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " even",
+              "start": 8.67,
+              "end": 8.91,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " in",
+              "start": 8.91,
+              "end": 9.11,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Hay",
+              "start": 9.11,
+              "end": 9.35,
+              "probability": 0.85009765625
+            },
+            {
+              "text": " Lane",
+              "start": 9.35,
+              "end": 9.71,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " or",
+              "start": 9.71,
+              "end": 10.03,
+              "probability": 0.84521484375
+            },
+            {
+              "text": " the",
+              "start": 10.03,
+              "end": 10.19,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " fields",
+              "start": 10.19,
+              "end": 10.41,
+              "probability": 0.87255859375
+            },
+            {
+              "text": " about",
+              "start": 10.41,
+              "end": 10.71,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " it",
+              "start": 10.71,
+              "end": 10.95,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " could",
+              "start": 10.95,
+              "end": 11.21,
+              "probability": 0.8134765625
+            },
+            {
+              "text": " you",
+              "start": 11.21,
+              "end": 11.39,
+              "probability": 0.998046875
+            },
+            {
+              "text": " find",
+              "start": 11.39,
+              "end": 11.63,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 11.63,
+              "end": 11.79,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " trace",
+              "start": 11.79,
+              "end": 12.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 12.01,
+              "end": 12.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " them.",
+              "start": 12.23,
+              "end": 12.45,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " I don't think either summer or harvest or winter moon will ever shine on their revels",
+          "start": 12.93,
+          "end": 17.55,
+          "words": [
+            {
+              "text": " I",
+              "start": 12.93,
+              "end": 13.03,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " don't",
+              "start": 13.03,
+              "end": 13.21,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " think",
+              "start": 13.21,
+              "end": 13.37,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " either",
+              "start": 13.37,
+              "end": 13.59,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " summer",
+              "start": 13.59,
+              "end": 13.93,
+              "probability": 0.919921875
+            },
+            {
+              "text": " or",
+              "start": 13.93,
+              "end": 14.25,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " harvest",
+              "start": 14.25,
+              "end": 14.65,
+              "probability": 0.9921875
+            },
+            {
+              "text": " or",
+              "start": 14.65,
+              "end": 15.05,
+              "probability": 0.85595703125
+            },
+            {
+              "text": " winter",
+              "start": 15.05,
+              "end": 15.35,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " moon",
+              "start": 15.35,
+              "end": 15.77,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " will",
+              "start": 15.77,
+              "end": 16.15,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " ever",
+              "start": 16.15,
+              "end": 16.39,
+              "probability": 0.998046875
+            },
+            {
+              "text": " shine",
+              "start": 16.39,
+              "end": 16.75,
+              "probability": 0.998046875
+            },
+            {
+              "text": " on",
+              "start": 16.75,
+              "end": 16.95,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " their",
+              "start": 16.95,
+              "end": 17.09,
+              "probability": 0.998046875
+            },
+            {
+              "text": " revels",
+              "start": 17.09,
+              "end": 17.55,
+              "probability": 0.962890625
+            }
+          ]
+        },
+        {
+          "text": " more.",
+          "start": 17.55,
+          "end": 17.77,
+          "words": [
+            {
+              "text": " more.",
+              "start": 17.55,
+              "end": 17.77,
+              "probability": 0.693359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.11,
+          "end": 0.53
+        },
+        {
+          "raw": "shook",
+          "start": 0.53,
+          "end": 0.73
+        },
+        {
+          "raw": "my",
+          "start": 0.73,
+          "end": 0.95
+        },
+        {
+          "raw": "head.",
+          "start": 0.95,
+          "end": 1.25
+        },
+        {
+          "raw": "The",
+          "start": 1.89,
+          "end": 1.99
+        },
+        {
+          "raw": "men",
+          "start": 1.99,
+          "end": 2.13
+        },
+        {
+          "raw": "in",
+          "start": 2.13,
+          "end": 2.33
+        },
+        {
+          "raw": "green",
+          "start": 2.33,
+          "end": 2.59
+        },
+        {
+          "raw": "all",
+          "start": 2.59,
+          "end": 2.91
+        },
+        {
+          "raw": "forsook",
+          "start": 2.91,
+          "end": 3.29
+        },
+        {
+          "raw": "England",
+          "start": 3.29,
+          "end": 3.63
+        },
+        {
+          "raw": "a",
+          "start": 3.63,
+          "end": 3.77
+        },
+        {
+          "raw": "hundred",
+          "start": 3.77,
+          "end": 4.03
+        },
+        {
+          "raw": "years",
+          "start": 4.03,
+          "end": 4.31
+        },
+        {
+          "raw": "ago,",
+          "start": 4.31,
+          "end": 4.67
+        },
+        {
+          "raw": "said",
+          "start": 4.89,
+          "end": 5.19
+        },
+        {
+          "raw": "I,",
+          "start": 5.19,
+          "end": 5.45
+        },
+        {
+          "raw": "speaking",
+          "start": 5.79,
+          "end": 6.03
+        },
+        {
+          "raw": "as",
+          "start": 6.03,
+          "end": 6.31
+        },
+        {
+          "raw": "seriously",
+          "start": 6.31,
+          "end": 6.71
+        },
+        {
+          "raw": "as",
+          "start": 6.71,
+          "end": 7.15
+        },
+        {
+          "raw": "he",
+          "start": 7.15,
+          "end": 7.27
+        },
+        {
+          "raw": "had",
+          "start": 7.27,
+          "end": 7.37
+        },
+        {
+          "raw": "done.",
+          "start": 7.37,
+          "end": 7.65
+        },
+        {
+          "raw": "And",
+          "start": 8.35,
+          "end": 8.47
+        },
+        {
+          "raw": "not",
+          "start": 8.47,
+          "end": 8.67
+        },
+        {
+          "raw": "even",
+          "start": 8.67,
+          "end": 8.91
+        },
+        {
+          "raw": "in",
+          "start": 8.91,
+          "end": 9.11
+        },
+        {
+          "raw": "Hay",
+          "start": 9.11,
+          "end": 9.35
+        },
+        {
+          "raw": "Lane",
+          "start": 9.35,
+          "end": 9.71
+        },
+        {
+          "raw": "or",
+          "start": 9.71,
+          "end": 10.03
+        },
+        {
+          "raw": "the",
+          "start": 10.03,
+          "end": 10.19
+        },
+        {
+          "raw": "fields",
+          "start": 10.19,
+          "end": 10.41
+        },
+        {
+          "raw": "about",
+          "start": 10.41,
+          "end": 10.71
+        },
+        {
+          "raw": "it",
+          "start": 10.71,
+          "end": 10.95
+        },
+        {
+          "raw": "could",
+          "start": 10.95,
+          "end": 11.21
+        },
+        {
+          "raw": "you",
+          "start": 11.21,
+          "end": 11.39
+        },
+        {
+          "raw": "find",
+          "start": 11.39,
+          "end": 11.63
+        },
+        {
+          "raw": "a",
+          "start": 11.63,
+          "end": 11.79
+        },
+        {
+          "raw": "trace",
+          "start": 11.79,
+          "end": 12.01
+        },
+        {
+          "raw": "of",
+          "start": 12.01,
+          "end": 12.23
+        },
+        {
+          "raw": "them.",
+          "start": 12.23,
+          "end": 12.45
+        },
+        {
+          "raw": "I",
+          "start": 12.93,
+          "end": 13.03
+        },
+        {
+          "raw": "don't",
+          "start": 13.03,
+          "end": 13.21
+        },
+        {
+          "raw": "think",
+          "start": 13.21,
+          "end": 13.37
+        },
+        {
+          "raw": "either",
+          "start": 13.37,
+          "end": 13.59
+        },
+        {
+          "raw": "summer",
+          "start": 13.59,
+          "end": 13.93
+        },
+        {
+          "raw": "or",
+          "start": 13.93,
+          "end": 14.25
+        },
+        {
+          "raw": "harvest",
+          "start": 14.25,
+          "end": 14.65
+        },
+        {
+          "raw": "or",
+          "start": 14.65,
+          "end": 15.05
+        },
+        {
+          "raw": "winter",
+          "start": 15.05,
+          "end": 15.35
+        },
+        {
+          "raw": "moon",
+          "start": 15.35,
+          "end": 15.77
+        },
+        {
+          "raw": "will",
+          "start": 15.77,
+          "end": 16.15
+        },
+        {
+          "raw": "ever",
+          "start": 16.15,
+          "end": 16.39
+        },
+        {
+          "raw": "shine",
+          "start": 16.39,
+          "end": 16.75
+        },
+        {
+          "raw": "on",
+          "start": 16.75,
+          "end": 16.95
+        },
+        {
+          "raw": "their",
+          "start": 16.95,
+          "end": 17.09
+        },
+        {
+          "raw": "revels",
+          "start": 17.09,
+          "end": 17.55
+        },
+        {
+          "raw": "more.",
+          "start": 17.55,
+          "end": 17.77
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "shook",
+        "my",
+        "head.",
+        "\"The",
+        "men",
+        "in",
+        "green",
+        "all",
+        "forsook",
+        "England",
+        "a",
+        "hundred",
+        "years",
+        "ago,\"",
+        "said",
+        "I,",
+        "speaking",
+        "as",
+        "seriously",
+        "as",
+        "he",
+        "had",
+        "done.",
+        "\"And",
+        "not",
+        "even",
+        "in",
+        "Hay",
+        "Lane,",
+        "or",
+        "the",
+        "fields",
+        "about",
+        "it,",
+        "could",
+        "you",
+        "find",
+        "a",
+        "trace",
+        "of",
+        "them.",
+        "I",
+        "don't",
+        "think",
+        "either",
+        "summer",
+        "or",
+        "harvest,",
+        "or",
+        "winter",
+        "moon,",
+        "will",
+        "ever",
+        "shine",
+        "on",
+        "their",
+        "revels",
+        "more.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          59,
+          0,
+          59
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.11,
+          "end": 0.53,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "shook",
+          "start": 0.53,
+          "end": 0.73,
+          "key": "shook",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 0.73,
+          "end": 0.95,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "head.",
+          "start": 0.95,
+          "end": 1.25,
+          "key": "head",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.89,
+          "end": 1.99,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "men",
+          "start": 1.99,
+          "end": 2.13,
+          "key": "men",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.13,
+          "end": 2.33,
+          "key": "in",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "green",
+          "start": 2.33,
+          "end": 2.59,
+          "key": "green",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 2.59,
+          "end": 2.91,
+          "key": "all",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "forsook",
+          "start": 2.91,
+          "end": 3.29,
+          "key": "forsook",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "England",
+          "start": 3.29,
+          "end": 3.63,
+          "key": "england",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.63,
+          "end": 3.77,
+          "key": "a",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "hundred",
+          "start": 3.77,
+          "end": 4.03,
+          "key": "hundred",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "years",
+          "start": 4.03,
+          "end": 4.31,
+          "key": "years",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "ago,",
+          "start": 4.31,
+          "end": 4.67,
+          "key": "ago",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 4.89,
+          "end": 5.19,
+          "key": "said",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 5.19,
+          "end": 5.45,
+          "key": "i",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "speaking",
+          "start": 5.79,
+          "end": 6.03,
+          "key": "speaking",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 6.03,
+          "end": 6.31,
+          "key": "as",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "seriously",
+          "start": 6.31,
+          "end": 6.71,
+          "key": "seriously",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 6.71,
+          "end": 7.15,
+          "key": "as",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 7.15,
+          "end": 7.27,
+          "key": "he",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 7.27,
+          "end": 7.37,
+          "key": "had",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "done.",
+          "start": 7.37,
+          "end": 7.65,
+          "key": "done",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 8.35,
+          "end": 8.47,
+          "key": "and",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 8.47,
+          "end": 8.67,
+          "key": "not",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "even",
+          "start": 8.67,
+          "end": 8.91,
+          "key": "even",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 8.91,
+          "end": 9.11,
+          "key": "in",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "Hay",
+          "start": 9.11,
+          "end": 9.35,
+          "key": "hay",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "Lane",
+          "start": 9.35,
+          "end": 9.71,
+          "key": "lane",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 9.71,
+          "end": 10.03,
+          "key": "or",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.03,
+          "end": 10.19,
+          "key": "the",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "fields",
+          "start": 10.19,
+          "end": 10.41,
+          "key": "fields",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 10.41,
+          "end": 10.71,
+          "key": "about",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 10.71,
+          "end": 10.95,
+          "key": "it",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 10.95,
+          "end": 11.21,
+          "key": "could",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 11.21,
+          "end": 11.39,
+          "key": "you",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "find",
+          "start": 11.39,
+          "end": 11.63,
+          "key": "find",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 11.63,
+          "end": 11.79,
+          "key": "a",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "trace",
+          "start": 11.79,
+          "end": 12.01,
+          "key": "trace",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 12.01,
+          "end": 12.23,
+          "key": "of",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 12.23,
+          "end": 12.45,
+          "key": "them",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 12.93,
+          "end": 13.03,
+          "key": "i",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 13.03,
+          "end": 13.21,
+          "key": "dont",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 13.21,
+          "end": 13.37,
+          "key": "think",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "either",
+          "start": 13.37,
+          "end": 13.59,
+          "key": "either",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "summer",
+          "start": 13.59,
+          "end": 13.93,
+          "key": "summer",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 13.93,
+          "end": 14.25,
+          "key": "or",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "harvest",
+          "start": 14.25,
+          "end": 14.65,
+          "key": "harvest",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 14.65,
+          "end": 15.05,
+          "key": "or",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "winter",
+          "start": 15.05,
+          "end": 15.35,
+          "key": "winter",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "moon",
+          "start": 15.35,
+          "end": 15.77,
+          "key": "moon",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 15.77,
+          "end": 16.15,
+          "key": "will",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "ever",
+          "start": 16.15,
+          "end": 16.39,
+          "key": "ever",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "shine",
+          "start": 16.39,
+          "end": 16.75,
+          "key": "shine",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 16.75,
+          "end": 16.95,
+          "key": "on",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 16.95,
+          "end": 17.09,
+          "key": "their",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "revels",
+          "start": 17.09,
+          "end": 17.55,
+          "key": "revels",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "more.",
+          "start": 17.55,
+          "end": 17.77,
+          "key": "more",
+          "pieces": [
+            58
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.11,
+          "end": 0.53
+        },
+        {
+          "text": "shook",
+          "start": 0.53,
+          "end": 0.73
+        },
+        {
+          "text": "my",
+          "start": 0.73,
+          "end": 0.95
+        },
+        {
+          "text": "head.",
+          "start": 0.95,
+          "end": 1.25
+        },
+        {
+          "text": "\"The",
+          "start": 1.89,
+          "end": 1.99
+        },
+        {
+          "text": "men",
+          "start": 1.99,
+          "end": 2.13
+        },
+        {
+          "text": "in",
+          "start": 2.13,
+          "end": 2.33
+        },
+        {
+          "text": "green",
+          "start": 2.33,
+          "end": 2.59
+        },
+        {
+          "text": "all",
+          "start": 2.59,
+          "end": 2.91
+        },
+        {
+          "text": "forsook",
+          "start": 2.91,
+          "end": 3.29
+        },
+        {
+          "text": "England",
+          "start": 3.29,
+          "end": 3.63
+        },
+        {
+          "text": "a",
+          "start": 3.63,
+          "end": 3.77
+        },
+        {
+          "text": "hundred",
+          "start": 3.77,
+          "end": 4.03
+        },
+        {
+          "text": "years",
+          "start": 4.03,
+          "end": 4.31
+        },
+        {
+          "text": "ago,\"",
+          "start": 4.31,
+          "end": 4.67
+        },
+        {
+          "text": "said",
+          "start": 4.89,
+          "end": 5.19
+        },
+        {
+          "text": "I,",
+          "start": 5.19,
+          "end": 5.45
+        },
+        {
+          "text": "speaking",
+          "start": 5.79,
+          "end": 6.03
+        },
+        {
+          "text": "as",
+          "start": 6.03,
+          "end": 6.31
+        },
+        {
+          "text": "seriously",
+          "start": 6.31,
+          "end": 6.71
+        },
+        {
+          "text": "as",
+          "start": 6.71,
+          "end": 7.15
+        },
+        {
+          "text": "he",
+          "start": 7.15,
+          "end": 7.27
+        },
+        {
+          "text": "had",
+          "start": 7.27,
+          "end": 7.37
+        },
+        {
+          "text": "done.",
+          "start": 7.37,
+          "end": 7.65
+        },
+        {
+          "text": "\"And",
+          "start": 8.35,
+          "end": 8.47
+        },
+        {
+          "text": "not",
+          "start": 8.47,
+          "end": 8.67
+        },
+        {
+          "text": "even",
+          "start": 8.67,
+          "end": 8.91
+        },
+        {
+          "text": "in",
+          "start": 8.91,
+          "end": 9.11
+        },
+        {
+          "text": "Hay",
+          "start": 9.11,
+          "end": 9.35
+        },
+        {
+          "text": "Lane,",
+          "start": 9.35,
+          "end": 9.71
+        },
+        {
+          "text": "or",
+          "start": 9.71,
+          "end": 10.03
+        },
+        {
+          "text": "the",
+          "start": 10.03,
+          "end": 10.19
+        },
+        {
+          "text": "fields",
+          "start": 10.19,
+          "end": 10.41
+        },
+        {
+          "text": "about",
+          "start": 10.41,
+          "end": 10.71
+        },
+        {
+          "text": "it,",
+          "start": 10.71,
+          "end": 10.95
+        },
+        {
+          "text": "could",
+          "start": 10.95,
+          "end": 11.21
+        },
+        {
+          "text": "you",
+          "start": 11.21,
+          "end": 11.39
+        },
+        {
+          "text": "find",
+          "start": 11.39,
+          "end": 11.63
+        },
+        {
+          "text": "a",
+          "start": 11.63,
+          "end": 11.79
+        },
+        {
+          "text": "trace",
+          "start": 11.79,
+          "end": 12.01
+        },
+        {
+          "text": "of",
+          "start": 12.01,
+          "end": 12.23
+        },
+        {
+          "text": "them.",
+          "start": 12.23,
+          "end": 12.45
+        },
+        {
+          "text": "I",
+          "start": 12.93,
+          "end": 13.03
+        },
+        {
+          "text": "don't",
+          "start": 13.03,
+          "end": 13.21
+        },
+        {
+          "text": "think",
+          "start": 13.21,
+          "end": 13.37
+        },
+        {
+          "text": "either",
+          "start": 13.37,
+          "end": 13.59
+        },
+        {
+          "text": "summer",
+          "start": 13.59,
+          "end": 13.93
+        },
+        {
+          "text": "or",
+          "start": 13.93,
+          "end": 14.25
+        },
+        {
+          "text": "harvest,",
+          "start": 14.25,
+          "end": 14.65
+        },
+        {
+          "text": "or",
+          "start": 14.65,
+          "end": 15.05
+        },
+        {
+          "text": "winter",
+          "start": 15.05,
+          "end": 15.35
+        },
+        {
+          "text": "moon,",
+          "start": 15.35,
+          "end": 15.77
+        },
+        {
+          "text": "will",
+          "start": 15.77,
+          "end": 16.15
+        },
+        {
+          "text": "ever",
+          "start": 16.15,
+          "end": 16.39
+        },
+        {
+          "text": "shine",
+          "start": 16.39,
+          "end": 16.75
+        },
+        {
+          "text": "on",
+          "start": 16.75,
+          "end": 16.95
+        },
+        {
+          "text": "their",
+          "start": 16.95,
+          "end": 17.09
+        },
+        {
+          "text": "revels",
+          "start": 17.09,
+          "end": 17.55
+        },
+        {
+          "text": "more.\"",
+          "start": 17.55,
+          "end": 17.77
+        }
+      ],
+      "stats": {
+        "expected_words": 59,
+        "heard_words": 59,
+        "matched_words": 59
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.7553779650479555
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "4699a0b55f27e1df4ecde30bc654ba23eda993f4820a8a2ae15863ec23d05e4e",
+  "selected_reasons": []
+}

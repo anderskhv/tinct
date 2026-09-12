@@ -1,0 +1,821 @@
+{
+  "complete": true,
+  "signature": "47a703e329da1f76d0b9e50c789180cf85437a938b7e6c262759b08d161def0c",
+  "attempts": [
+    {
+      "asr_seconds": 0.3773602112196386,
+      "alignment_seconds": 0.0004781116731464863,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "He had deigned an explanation, almost an apology, and I did not feel insensible to his condescension, and would not seem so.",
+        "hotwords": "He, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " He, I He had deigned an explanation, almost an apology, and I did not feel insensible to his condescension, and would not seem so.",
+          "start": 0.05,
+          "end": 7.87,
+          "words": [
+            {
+              "text": " He,",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.8525390625
+            },
+            {
+              "text": " I",
+              "start": 0.51,
+              "end": 0.57,
+              "probability": 0.004207611083984375
+            },
+            {
+              "text": " He",
+              "start": 0.57,
+              "end": 0.57,
+              "probability": 0.0002727508544921875
+            },
+            {
+              "text": " had",
+              "start": 0.57,
+              "end": 0.65,
+              "probability": 0.658203125
+            },
+            {
+              "text": " deigned",
+              "start": 0.65,
+              "end": 1.03,
+              "probability": 0.8154296875
+            },
+            {
+              "text": " an",
+              "start": 1.03,
+              "end": 1.15,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " explanation,",
+              "start": 1.15,
+              "end": 1.73,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " almost",
+              "start": 2.35,
+              "end": 2.57,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " an",
+              "start": 2.57,
+              "end": 2.79,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " apology,",
+              "start": 2.79,
+              "end": 3.27,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " and",
+              "start": 3.83,
+              "end": 3.93,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " I",
+              "start": 3.93,
+              "end": 4.03,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " did",
+              "start": 4.03,
+              "end": 4.13,
+              "probability": 0.978515625
+            },
+            {
+              "text": " not",
+              "start": 4.13,
+              "end": 4.33,
+              "probability": 0.9921875
+            },
+            {
+              "text": " feel",
+              "start": 4.33,
+              "end": 4.59,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " insensible",
+              "start": 4.59,
+              "end": 5.21,
+              "probability": 0.970947265625
+            },
+            {
+              "text": " to",
+              "start": 5.21,
+              "end": 5.45,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " his",
+              "start": 5.45,
+              "end": 5.63,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " condescension,",
+              "start": 5.63,
+              "end": 6.39,
+              "probability": 0.962890625
+            },
+            {
+              "text": " and",
+              "start": 6.71,
+              "end": 6.91,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " would",
+              "start": 6.91,
+              "end": 6.99,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " not",
+              "start": 6.99,
+              "end": 7.19,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " seem",
+              "start": 7.19,
+              "end": 7.51,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " so.",
+              "start": 7.51,
+              "end": 7.87,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He,",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "I",
+          "start": 0.51,
+          "end": 0.57
+        },
+        {
+          "raw": "He",
+          "start": 0.57,
+          "end": 0.57
+        },
+        {
+          "raw": "had",
+          "start": 0.57,
+          "end": 0.65
+        },
+        {
+          "raw": "deigned",
+          "start": 0.65,
+          "end": 1.03
+        },
+        {
+          "raw": "an",
+          "start": 1.03,
+          "end": 1.15
+        },
+        {
+          "raw": "explanation,",
+          "start": 1.15,
+          "end": 1.73
+        },
+        {
+          "raw": "almost",
+          "start": 2.35,
+          "end": 2.57
+        },
+        {
+          "raw": "an",
+          "start": 2.57,
+          "end": 2.79
+        },
+        {
+          "raw": "apology,",
+          "start": 2.79,
+          "end": 3.27
+        },
+        {
+          "raw": "and",
+          "start": 3.83,
+          "end": 3.93
+        },
+        {
+          "raw": "I",
+          "start": 3.93,
+          "end": 4.03
+        },
+        {
+          "raw": "did",
+          "start": 4.03,
+          "end": 4.13
+        },
+        {
+          "raw": "not",
+          "start": 4.13,
+          "end": 4.33
+        },
+        {
+          "raw": "feel",
+          "start": 4.33,
+          "end": 4.59
+        },
+        {
+          "raw": "insensible",
+          "start": 4.59,
+          "end": 5.21
+        },
+        {
+          "raw": "to",
+          "start": 5.21,
+          "end": 5.45
+        },
+        {
+          "raw": "his",
+          "start": 5.45,
+          "end": 5.63
+        },
+        {
+          "raw": "condescension,",
+          "start": 5.63,
+          "end": 6.39
+        },
+        {
+          "raw": "and",
+          "start": 6.71,
+          "end": 6.91
+        },
+        {
+          "raw": "would",
+          "start": 6.91,
+          "end": 6.99
+        },
+        {
+          "raw": "not",
+          "start": 6.99,
+          "end": 7.19
+        },
+        {
+          "raw": "seem",
+          "start": 7.19,
+          "end": 7.51
+        },
+        {
+          "raw": "so.",
+          "start": 7.51,
+          "end": 7.87
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "had",
+        "deigned",
+        "an",
+        "explanation,",
+        "almost",
+        "an",
+        "apology,",
+        "and",
+        "I",
+        "did",
+        "not",
+        "feel",
+        "insensible",
+        "to",
+        "his",
+        "condescension,",
+        "and",
+        "would",
+        "not",
+        "seem",
+        "so."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          "equal",
+          0,
+          22,
+          2,
+          24
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 23
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He,",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.51,
+          "end": 0.57,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 0.57,
+          "end": 0.57,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 0.57,
+          "end": 0.65,
+          "key": "had",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "deigned",
+          "start": 0.65,
+          "end": 1.03,
+          "key": "deigned",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 1.03,
+          "end": 1.15,
+          "key": "an",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "explanation,",
+          "start": 1.15,
+          "end": 1.73,
+          "key": "explanation",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "almost",
+          "start": 2.35,
+          "end": 2.57,
+          "key": "almost",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 2.57,
+          "end": 2.79,
+          "key": "an",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "apology,",
+          "start": 2.79,
+          "end": 3.27,
+          "key": "apology",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.83,
+          "end": 3.93,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.93,
+          "end": 4.03,
+          "key": "i",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 4.03,
+          "end": 4.13,
+          "key": "did",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 4.13,
+          "end": 4.33,
+          "key": "not",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "feel",
+          "start": 4.33,
+          "end": 4.59,
+          "key": "feel",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "insensible",
+          "start": 4.59,
+          "end": 5.21,
+          "key": "insensible",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.21,
+          "end": 5.45,
+          "key": "to",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 5.45,
+          "end": 5.63,
+          "key": "his",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "condescension,",
+          "start": 5.63,
+          "end": 6.39,
+          "key": "condescension",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.71,
+          "end": 6.91,
+          "key": "and",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 6.91,
+          "end": 6.99,
+          "key": "would",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 6.99,
+          "end": 7.19,
+          "key": "not",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "seem",
+          "start": 7.19,
+          "end": 7.51,
+          "key": "seem",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "so.",
+          "start": 7.51,
+          "end": 7.87,
+          "key": "so",
+          "pieces": [
+            23
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.57,
+          "end": 0.57
+        },
+        {
+          "text": "had",
+          "start": 0.57,
+          "end": 0.65
+        },
+        {
+          "text": "deigned",
+          "start": 0.65,
+          "end": 1.03
+        },
+        {
+          "text": "an",
+          "start": 1.03,
+          "end": 1.15
+        },
+        {
+          "text": "explanation,",
+          "start": 1.15,
+          "end": 1.73
+        },
+        {
+          "text": "almost",
+          "start": 2.35,
+          "end": 2.57
+        },
+        {
+          "text": "an",
+          "start": 2.57,
+          "end": 2.79
+        },
+        {
+          "text": "apology,",
+          "start": 2.79,
+          "end": 3.27
+        },
+        {
+          "text": "and",
+          "start": 3.83,
+          "end": 3.93
+        },
+        {
+          "text": "I",
+          "start": 3.93,
+          "end": 4.03
+        },
+        {
+          "text": "did",
+          "start": 4.03,
+          "end": 4.13
+        },
+        {
+          "text": "not",
+          "start": 4.13,
+          "end": 4.33
+        },
+        {
+          "text": "feel",
+          "start": 4.33,
+          "end": 4.59
+        },
+        {
+          "text": "insensible",
+          "start": 4.59,
+          "end": 5.21
+        },
+        {
+          "text": "to",
+          "start": 5.21,
+          "end": 5.45
+        },
+        {
+          "text": "his",
+          "start": 5.45,
+          "end": 5.63
+        },
+        {
+          "text": "condescension,",
+          "start": 5.63,
+          "end": 6.39
+        },
+        {
+          "text": "and",
+          "start": 6.71,
+          "end": 6.91
+        },
+        {
+          "text": "would",
+          "start": 6.91,
+          "end": 6.99
+        },
+        {
+          "text": "not",
+          "start": 6.99,
+          "end": 7.19
+        },
+        {
+          "text": "seem",
+          "start": 7.19,
+          "end": 7.51
+        },
+        {
+          "text": "so.",
+          "start": 7.51,
+          "end": 7.87
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 24,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.37804386112838984
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d844012b8a2f881d708a361526baff4aea3476347d3a5ea5c6c6fa987b8ac6b5",
+  "selected_reasons": []
+}

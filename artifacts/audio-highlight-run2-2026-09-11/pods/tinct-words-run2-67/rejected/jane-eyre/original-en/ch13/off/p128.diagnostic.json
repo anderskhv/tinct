@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "562ac68b977abbbce6f6e9e0db6108a8ac6c7c62b02cff752ac9efff6d8481b4",
+  "attempts": [
+    {
+      "asr_seconds": 0.10983481397852302,
+      "alignment_seconds": 0.00024134712293744087,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " But he has no family.",
+          "start": 0.02,
+          "end": 1.28,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.72509765625
+            },
+            {
+              "text": " he",
+              "start": 0.5,
+              "end": 0.6,
+              "probability": 0.990234375
+            },
+            {
+              "text": " has",
+              "start": 0.6,
+              "end": 0.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " no",
+              "start": 0.76,
+              "end": 0.96,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " family.",
+              "start": 0.96,
+              "end": 1.28,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "he",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "raw": "has",
+          "start": 0.6,
+          "end": 0.76
+        },
+        {
+          "raw": "no",
+          "start": 0.76,
+          "end": 0.96
+        },
+        {
+          "raw": "family.",
+          "start": 0.96,
+          "end": 1.28
+        }
+      ],
+      "expected_tokens": [
+        "\"But",
+        "he",
+        "has",
+        "no",
+        "family.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.5,
+          "end": 0.6,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 0.6,
+          "end": 0.76,
+          "key": "has",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 0.76,
+          "end": 0.96,
+          "key": "no",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "family.",
+          "start": 0.96,
+          "end": 1.28,
+          "key": "family",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"But",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "he",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "text": "has",
+          "start": 0.6,
+          "end": 0.76
+        },
+        {
+          "text": "no",
+          "start": 0.76,
+          "end": 0.96
+        },
+        {
+          "text": "family.\"",
+          "start": 0.96,
+          "end": 1.28
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11016397690400481
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1507b4df8196f768961e41e626a74e25082eb21ee189aeab23660a0202d3fad9",
+  "selected_reasons": []
+}

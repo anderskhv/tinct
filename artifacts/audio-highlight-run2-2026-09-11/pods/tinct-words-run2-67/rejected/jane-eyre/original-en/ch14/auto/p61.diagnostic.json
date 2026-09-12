@@ -1,0 +1,1251 @@
+{
+  "complete": true,
+  "signature": "ab1f4048714b22f96be653bcbc21acc32650e53ca345af130d452218d17285c5",
+  "attempts": [
+    {
+      "asr_seconds": 0.19681293983012438,
+      "alignment_seconds": 0.00047768186777830124,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"How do you know?—how can you guess all this, sir?\"",
+        "hotwords": "How"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " How do you know?—how can you guess all this, sir?\"",
+          "start": 0.05,
+          "end": 2.62,
+          "words": [
+            {
+              "text": " How",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.8251953125
+            },
+            {
+              "text": " do",
+              "start": 0.53,
+              "end": 0.61,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " you",
+              "start": 0.61,
+              "end": 0.71,
+              "probability": 0.99609375
+            },
+            {
+              "text": " know",
+              "start": 0.71,
+              "end": 0.95,
+              "probability": 0.99951171875
+            },
+            {
+              "text": "?—how",
+              "start": 0.95,
+              "end": 1.45,
+              "probability": 0.39870506525039673
+            },
+            {
+              "text": " can",
+              "start": 1.45,
+              "end": 1.59,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you",
+              "start": 1.59,
+              "end": 1.69,
+              "probability": 0.998046875
+            },
+            {
+              "text": " guess",
+              "start": 1.69,
+              "end": 1.85,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " all",
+              "start": 1.85,
+              "end": 2.03,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " this,",
+              "start": 2.03,
+              "end": 2.23,
+              "probability": 0.98046875
+            },
+            {
+              "text": " sir?\"",
+              "start": 2.43,
+              "end": 2.62,
+              "probability": 0.45892333984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "How",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "do",
+          "start": 0.53,
+          "end": 0.61
+        },
+        {
+          "raw": "you",
+          "start": 0.61,
+          "end": 0.71
+        },
+        {
+          "raw": "know",
+          "start": 0.71,
+          "end": 0.95
+        },
+        {
+          "raw": "?—how",
+          "start": 0.95,
+          "end": 1.45
+        },
+        {
+          "raw": "can",
+          "start": 1.45,
+          "end": 1.59
+        },
+        {
+          "raw": "you",
+          "start": 1.59,
+          "end": 1.69
+        },
+        {
+          "raw": "guess",
+          "start": 1.69,
+          "end": 1.85
+        },
+        {
+          "raw": "all",
+          "start": 1.85,
+          "end": 2.03
+        },
+        {
+          "raw": "this,",
+          "start": 2.03,
+          "end": 2.23
+        },
+        {
+          "raw": "sir?\"",
+          "start": 2.43,
+          "end": 2.62
+        }
+      ],
+      "expected_tokens": [
+        "\"How",
+        "do",
+        "you",
+        "know?—how",
+        "can",
+        "you",
+        "guess",
+        "all",
+        "this,",
+        "sir?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          10,
+          5,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "How",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "how",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 0.53,
+          "end": 0.61,
+          "key": "do",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.61,
+          "end": 0.71,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 0.71,
+          "end": 0.95,
+          "key": "know",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "?—how",
+          "start": 0.95,
+          "end": 1.45,
+          "key": "how",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 1.45,
+          "end": 1.59,
+          "key": "can",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.59,
+          "end": 1.69,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "guess",
+          "start": 1.69,
+          "end": 1.85,
+          "key": "guess",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.85,
+          "end": 2.03,
+          "key": "all",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "this,",
+          "start": 2.03,
+          "end": 2.23,
+          "key": "this",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "sir?\"",
+          "start": 2.43,
+          "end": 2.62,
+          "key": "sir",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"How",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "do",
+          "start": 0.53,
+          "end": 0.61
+        },
+        {
+          "text": "you",
+          "start": 0.61,
+          "end": 0.71
+        },
+        {
+          "text": "know?—how",
+          "start": 0.71,
+          "end": 1.08
+        },
+        {
+          "text": "can",
+          "start": 1.45,
+          "end": 1.59
+        },
+        {
+          "text": "you",
+          "start": 1.59,
+          "end": 1.69
+        },
+        {
+          "text": "guess",
+          "start": 1.69,
+          "end": 1.85
+        },
+        {
+          "text": "all",
+          "start": 1.85,
+          "end": 2.03
+        },
+        {
+          "text": "this,",
+          "start": 2.03,
+          "end": 2.23
+        },
+        {
+          "text": "sir?\"",
+          "start": 2.43,
+          "end": 2.62
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 11,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.1974576418288052
+    },
+    {
+      "asr_seconds": 0.2106321440078318,
+      "alignment_seconds": 0.0005031167529523373,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "How"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " How do you know how can you guess all this sir?",
+          "start": 0.05,
+          "end": 2.45,
+          "words": [
+            {
+              "text": " How",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.826171875
+            },
+            {
+              "text": " do",
+              "start": 0.53,
+              "end": 0.61,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " you",
+              "start": 0.61,
+              "end": 0.71,
+              "probability": 0.99609375
+            },
+            {
+              "text": " know",
+              "start": 0.71,
+              "end": 0.95,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " how",
+              "start": 0.95,
+              "end": 1.45,
+              "probability": 0.037445068359375
+            },
+            {
+              "text": " can",
+              "start": 1.45,
+              "end": 1.59,
+              "probability": 0.970703125
+            },
+            {
+              "text": " you",
+              "start": 1.59,
+              "end": 1.69,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " guess",
+              "start": 1.69,
+              "end": 1.85,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " all",
+              "start": 1.85,
+              "end": 2.03,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " this",
+              "start": 2.03,
+              "end": 2.21,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " sir?",
+              "start": 2.21,
+              "end": 2.45,
+              "probability": 0.6015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "How",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "do",
+          "start": 0.53,
+          "end": 0.61
+        },
+        {
+          "raw": "you",
+          "start": 0.61,
+          "end": 0.71
+        },
+        {
+          "raw": "know",
+          "start": 0.71,
+          "end": 0.95
+        },
+        {
+          "raw": "how",
+          "start": 0.95,
+          "end": 1.45
+        },
+        {
+          "raw": "can",
+          "start": 1.45,
+          "end": 1.59
+        },
+        {
+          "raw": "you",
+          "start": 1.59,
+          "end": 1.69
+        },
+        {
+          "raw": "guess",
+          "start": 1.69,
+          "end": 1.85
+        },
+        {
+          "raw": "all",
+          "start": 1.85,
+          "end": 2.03
+        },
+        {
+          "raw": "this",
+          "start": 2.03,
+          "end": 2.21
+        },
+        {
+          "raw": "sir?",
+          "start": 2.21,
+          "end": 2.45
+        }
+      ],
+      "expected_tokens": [
+        "\"How",
+        "do",
+        "you",
+        "know?—how",
+        "can",
+        "you",
+        "guess",
+        "all",
+        "this,",
+        "sir?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          10,
+          5,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "How",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "how",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 0.53,
+          "end": 0.61,
+          "key": "do",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.61,
+          "end": 0.71,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 0.71,
+          "end": 0.95,
+          "key": "know",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 0.95,
+          "end": 1.45,
+          "key": "how",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 1.45,
+          "end": 1.59,
+          "key": "can",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.59,
+          "end": 1.69,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "guess",
+          "start": 1.69,
+          "end": 1.85,
+          "key": "guess",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.85,
+          "end": 2.03,
+          "key": "all",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 2.03,
+          "end": 2.21,
+          "key": "this",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "sir?",
+          "start": 2.21,
+          "end": 2.45,
+          "key": "sir",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"How",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "do",
+          "start": 0.53,
+          "end": 0.61
+        },
+        {
+          "text": "you",
+          "start": 0.61,
+          "end": 0.71
+        },
+        {
+          "text": "know?—how",
+          "start": 0.71,
+          "end": 1.08
+        },
+        {
+          "text": "can",
+          "start": 1.45,
+          "end": 1.59
+        },
+        {
+          "text": "you",
+          "start": 1.59,
+          "end": 1.69
+        },
+        {
+          "text": "guess",
+          "start": 1.69,
+          "end": 1.85
+        },
+        {
+          "text": "all",
+          "start": 1.85,
+          "end": 2.03
+        },
+        {
+          "text": "this,",
+          "start": 2.03,
+          "end": 2.21
+        },
+        {
+          "text": "sir?\"",
+          "start": 2.21,
+          "end": 2.45
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 11,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.2113250968977809
+    },
+    {
+      "asr_seconds": 0.20987619273364544,
+      "alignment_seconds": 0.0005471939221024513,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " How do you know? How can you guess all this, sir?",
+          "start": 0.05,
+          "end": 2.43,
+          "words": [
+            {
+              "text": " How",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.8251953125
+            },
+            {
+              "text": " do",
+              "start": 0.53,
+              "end": 0.61,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " you",
+              "start": 0.61,
+              "end": 0.71,
+              "probability": 0.99609375
+            },
+            {
+              "text": " know?",
+              "start": 0.71,
+              "end": 0.95,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " How",
+              "start": 1.37,
+              "end": 1.47,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " can",
+              "start": 1.47,
+              "end": 1.59,
+              "probability": 0.99609375
+            },
+            {
+              "text": " you",
+              "start": 1.59,
+              "end": 1.69,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " guess",
+              "start": 1.69,
+              "end": 1.85,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " all",
+              "start": 1.85,
+              "end": 2.03,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " this,",
+              "start": 2.03,
+              "end": 2.23,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " sir?",
+              "start": 2.43,
+              "end": 2.43,
+              "probability": 0.8486328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "How",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "do",
+          "start": 0.53,
+          "end": 0.61
+        },
+        {
+          "raw": "you",
+          "start": 0.61,
+          "end": 0.71
+        },
+        {
+          "raw": "know?",
+          "start": 0.71,
+          "end": 0.95
+        },
+        {
+          "raw": "How",
+          "start": 1.37,
+          "end": 1.47
+        },
+        {
+          "raw": "can",
+          "start": 1.47,
+          "end": 1.59
+        },
+        {
+          "raw": "you",
+          "start": 1.59,
+          "end": 1.69
+        },
+        {
+          "raw": "guess",
+          "start": 1.69,
+          "end": 1.85
+        },
+        {
+          "raw": "all",
+          "start": 1.85,
+          "end": 2.03
+        },
+        {
+          "raw": "this,",
+          "start": 2.03,
+          "end": 2.23
+        },
+        {
+          "raw": "sir?",
+          "start": 2.43,
+          "end": 2.43
+        }
+      ],
+      "expected_tokens": [
+        "\"How",
+        "do",
+        "you",
+        "know?—how",
+        "can",
+        "you",
+        "guess",
+        "all",
+        "this,",
+        "sir?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          10,
+          5,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "How",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "how",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 0.53,
+          "end": 0.61,
+          "key": "do",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.61,
+          "end": 0.71,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "know?",
+          "start": 0.71,
+          "end": 0.95,
+          "key": "know",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 1.37,
+          "end": 1.47,
+          "key": "how",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 1.47,
+          "end": 1.59,
+          "key": "can",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.59,
+          "end": 1.69,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "guess",
+          "start": 1.69,
+          "end": 1.85,
+          "key": "guess",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.85,
+          "end": 2.03,
+          "key": "all",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "this,",
+          "start": 2.03,
+          "end": 2.23,
+          "key": "this",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "sir?",
+          "start": 2.43,
+          "end": 2.43,
+          "key": "sir",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"How",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "do",
+          "start": 0.53,
+          "end": 0.61
+        },
+        {
+          "text": "you",
+          "start": 0.61,
+          "end": 0.71
+        },
+        {
+          "text": "know?—how",
+          "start": 0.71,
+          "end": 1.09
+        },
+        {
+          "text": "can",
+          "start": 1.47,
+          "end": 1.59
+        },
+        {
+          "text": "you",
+          "start": 1.59,
+          "end": 1.69
+        },
+        {
+          "text": "guess",
+          "start": 1.69,
+          "end": 1.85
+        },
+        {
+          "text": "all",
+          "start": 1.85,
+          "end": 2.03
+        },
+        {
+          "text": "this,",
+          "start": 2.03,
+          "end": 2.23
+        },
+        {
+          "text": "sir?\"",
+          "start": 2.43,
+          "end": 2.43
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 11,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.21063573705032468
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e23336f9f86b220a7f4cfcec2b5aba70fb1c726c02d8ffec498c79bc75172833",
+  "selected_reasons": []
+}

@@ -1,0 +1,2290 @@
+{
+  "complete": true,
+  "signature": "da529dd7ddada86bd177171beddca36184cf08b1806a79c1dd4a7b8ae8414d5f",
+  "attempts": [
+    {
+      "asr_seconds": 0.6808045557700098,
+      "alignment_seconds": 0.001312879379838705,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "I was still looking at them, and also at intervals examining the teachers—none of whom precisely pleased me; for the stout one was a little coarse, the dark one not a little fierce, the foreigner harsh and grotesque, and Miss Miller, poor thing! looked purple, weather-beaten, and over-worked—when, as my eye wandered from face to face, the whole school rose simultaneously, as if moved by a common spring.",
+        "hotwords": "I, Miss, Miller"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I was still looking at them, and also at intervals examining the teachers—none of whom precisely",
+          "start": 0.08,
+          "end": 5.26,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.5,
+              "probability": 0.79345703125
+            },
+            {
+              "text": " was",
+              "start": 0.5,
+              "end": 0.6,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " still",
+              "start": 0.6,
+              "end": 0.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " looking",
+              "start": 0.82,
+              "end": 1.08,
+              "probability": 0.998046875
+            },
+            {
+              "text": " at",
+              "start": 1.08,
+              "end": 1.26,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " them,",
+              "start": 1.26,
+              "end": 1.46,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 1.7,
+              "end": 1.88,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " also",
+              "start": 1.88,
+              "end": 2.12,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " at",
+              "start": 2.12,
+              "end": 2.32,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " intervals",
+              "start": 2.32,
+              "end": 2.68,
+              "probability": 0.998046875
+            },
+            {
+              "text": " examining",
+              "start": 2.68,
+              "end": 3.16,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 3.16,
+              "end": 3.44,
+              "probability": 0.998046875
+            },
+            {
+              "text": " teachers—none",
+              "start": 3.44,
+              "end": 4.54,
+              "probability": 0.6785074869791666
+            },
+            {
+              "text": " of",
+              "start": 4.54,
+              "end": 4.68,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " whom",
+              "start": 4.68,
+              "end": 4.82,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " precisely",
+              "start": 4.82,
+              "end": 5.26,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " pleased me, for the stout one was a little coarse, the dark one not a little fierce, the",
+          "start": 5.26,
+          "end": 10.04,
+          "words": [
+            {
+              "text": " pleased",
+              "start": 5.26,
+              "end": 5.74,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " me,",
+              "start": 5.74,
+              "end": 6.1,
+              "probability": 0.99609375
+            },
+            {
+              "text": " for",
+              "start": 6.32,
+              "end": 6.62,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " the",
+              "start": 6.62,
+              "end": 6.78,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " stout",
+              "start": 6.78,
+              "end": 6.92,
+              "probability": 0.982421875
+            },
+            {
+              "text": " one",
+              "start": 6.92,
+              "end": 7.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " was",
+              "start": 7.16,
+              "end": 7.28,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 7.28,
+              "end": 7.4,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " little",
+              "start": 7.4,
+              "end": 7.54,
+              "probability": 0.998046875
+            },
+            {
+              "text": " coarse,",
+              "start": 7.54,
+              "end": 7.86,
+              "probability": 0.931640625
+            },
+            {
+              "text": " the",
+              "start": 8.14,
+              "end": 8.3,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " dark",
+              "start": 8.3,
+              "end": 8.48,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " one",
+              "start": 8.48,
+              "end": 8.66,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " not",
+              "start": 8.66,
+              "end": 8.84,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 8.84,
+              "end": 8.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " little",
+              "start": 8.94,
+              "end": 9.08,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " fierce,",
+              "start": 9.08,
+              "end": 9.46,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 9.86,
+              "end": 10.04,
+              "probability": 0.9951171875
+            }
+          ]
+        },
+        {
+          "text": " foreigner harsh and grotesque, and Miss Miller, poor thing! looked purple, weather-beaten,",
+          "start": 10.04,
+          "end": 15.26,
+          "words": [
+            {
+              "text": " foreigner",
+              "start": 10.04,
+              "end": 10.36,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " harsh",
+              "start": 10.36,
+              "end": 10.72,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " and",
+              "start": 10.72,
+              "end": 10.98,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " grotesque,",
+              "start": 10.98,
+              "end": 11.38,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " and",
+              "start": 11.7,
+              "end": 11.78,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Miss",
+              "start": 11.78,
+              "end": 11.98,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " Miller,",
+              "start": 11.98,
+              "end": 12.28,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " poor",
+              "start": 12.6,
+              "end": 12.7,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " thing!",
+              "start": 12.7,
+              "end": 13.04,
+              "probability": 0.99609375
+            },
+            {
+              "text": " looked",
+              "start": 13.72,
+              "end": 13.92,
+              "probability": 0.28466796875
+            },
+            {
+              "text": " purple,",
+              "start": 13.92,
+              "end": 14.38,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " weather",
+              "start": 14.68,
+              "end": 14.86,
+              "probability": 0.9873046875
+            },
+            {
+              "text": "-beaten,",
+              "start": 14.86,
+              "end": 15.26,
+              "probability": 0.8004557291666666
+            }
+          ]
+        },
+        {
+          "text": " and overworked—when, as my eye wandered from face to face, the whole school rose simultaneously,",
+          "start": 15.3,
+          "end": 20.78,
+          "words": [
+            {
+              "text": " and",
+              "start": 15.3,
+              "end": 15.44,
+              "probability": 0.998046875
+            },
+            {
+              "text": " overworked—when,",
+              "start": 15.44,
+              "end": 16.76,
+              "probability": 0.7491226196289062
+            },
+            {
+              "text": " as",
+              "start": 16.86,
+              "end": 16.96,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " my",
+              "start": 16.96,
+              "end": 17.16,
+              "probability": 0.998046875
+            },
+            {
+              "text": " eye",
+              "start": 17.16,
+              "end": 17.36,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " wandered",
+              "start": 17.36,
+              "end": 17.72,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " from",
+              "start": 17.72,
+              "end": 17.98,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " face",
+              "start": 17.98,
+              "end": 18.26,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 18.26,
+              "end": 18.48,
+              "probability": 0.994140625
+            },
+            {
+              "text": " face,",
+              "start": 18.48,
+              "end": 18.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 19.04,
+              "end": 19.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " whole",
+              "start": 19.18,
+              "end": 19.38,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " school",
+              "start": 19.38,
+              "end": 19.72,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " rose",
+              "start": 19.72,
+              "end": 20.1,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " simultaneously,",
+              "start": 20.1,
+              "end": 20.78,
+              "probability": 0.98046875
+            }
+          ]
+        },
+        {
+          "text": " as if moved by a common spring.",
+          "start": 21.48,
+          "end": 23.24,
+          "words": [
+            {
+              "text": " as",
+              "start": 21.48,
+              "end": 21.66,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " if",
+              "start": 21.66,
+              "end": 21.78,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " moved",
+              "start": 21.78,
+              "end": 22.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " by",
+              "start": 22.14,
+              "end": 22.4,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 22.4,
+              "end": 22.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " common",
+              "start": 22.58,
+              "end": 22.82,
+              "probability": 0.99609375
+            },
+            {
+              "text": " spring.",
+              "start": 22.82,
+              "end": 23.24,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "raw": "was",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "raw": "still",
+          "start": 0.6,
+          "end": 0.82
+        },
+        {
+          "raw": "looking",
+          "start": 0.82,
+          "end": 1.08
+        },
+        {
+          "raw": "at",
+          "start": 1.08,
+          "end": 1.26
+        },
+        {
+          "raw": "them,",
+          "start": 1.26,
+          "end": 1.46
+        },
+        {
+          "raw": "and",
+          "start": 1.7,
+          "end": 1.88
+        },
+        {
+          "raw": "also",
+          "start": 1.88,
+          "end": 2.12
+        },
+        {
+          "raw": "at",
+          "start": 2.12,
+          "end": 2.32
+        },
+        {
+          "raw": "intervals",
+          "start": 2.32,
+          "end": 2.68
+        },
+        {
+          "raw": "examining",
+          "start": 2.68,
+          "end": 3.16
+        },
+        {
+          "raw": "the",
+          "start": 3.16,
+          "end": 3.44
+        },
+        {
+          "raw": "teachers—none",
+          "start": 3.44,
+          "end": 4.54
+        },
+        {
+          "raw": "of",
+          "start": 4.54,
+          "end": 4.68
+        },
+        {
+          "raw": "whom",
+          "start": 4.68,
+          "end": 4.82
+        },
+        {
+          "raw": "precisely",
+          "start": 4.82,
+          "end": 5.26
+        },
+        {
+          "raw": "pleased",
+          "start": 5.26,
+          "end": 5.74
+        },
+        {
+          "raw": "me,",
+          "start": 5.74,
+          "end": 6.1
+        },
+        {
+          "raw": "for",
+          "start": 6.32,
+          "end": 6.62
+        },
+        {
+          "raw": "the",
+          "start": 6.62,
+          "end": 6.78
+        },
+        {
+          "raw": "stout",
+          "start": 6.78,
+          "end": 6.92
+        },
+        {
+          "raw": "one",
+          "start": 6.92,
+          "end": 7.16
+        },
+        {
+          "raw": "was",
+          "start": 7.16,
+          "end": 7.28
+        },
+        {
+          "raw": "a",
+          "start": 7.28,
+          "end": 7.4
+        },
+        {
+          "raw": "little",
+          "start": 7.4,
+          "end": 7.54
+        },
+        {
+          "raw": "coarse,",
+          "start": 7.54,
+          "end": 7.86
+        },
+        {
+          "raw": "the",
+          "start": 8.14,
+          "end": 8.3
+        },
+        {
+          "raw": "dark",
+          "start": 8.3,
+          "end": 8.48
+        },
+        {
+          "raw": "one",
+          "start": 8.48,
+          "end": 8.66
+        },
+        {
+          "raw": "not",
+          "start": 8.66,
+          "end": 8.84
+        },
+        {
+          "raw": "a",
+          "start": 8.84,
+          "end": 8.94
+        },
+        {
+          "raw": "little",
+          "start": 8.94,
+          "end": 9.08
+        },
+        {
+          "raw": "fierce,",
+          "start": 9.08,
+          "end": 9.46
+        },
+        {
+          "raw": "the",
+          "start": 9.86,
+          "end": 10.04
+        },
+        {
+          "raw": "foreigner",
+          "start": 10.04,
+          "end": 10.36
+        },
+        {
+          "raw": "harsh",
+          "start": 10.36,
+          "end": 10.72
+        },
+        {
+          "raw": "and",
+          "start": 10.72,
+          "end": 10.98
+        },
+        {
+          "raw": "grotesque,",
+          "start": 10.98,
+          "end": 11.38
+        },
+        {
+          "raw": "and",
+          "start": 11.7,
+          "end": 11.78
+        },
+        {
+          "raw": "Miss",
+          "start": 11.78,
+          "end": 11.98
+        },
+        {
+          "raw": "Miller,",
+          "start": 11.98,
+          "end": 12.28
+        },
+        {
+          "raw": "poor",
+          "start": 12.6,
+          "end": 12.7
+        },
+        {
+          "raw": "thing!",
+          "start": 12.7,
+          "end": 13.04
+        },
+        {
+          "raw": "looked",
+          "start": 13.72,
+          "end": 13.92
+        },
+        {
+          "raw": "purple,",
+          "start": 13.92,
+          "end": 14.38
+        },
+        {
+          "raw": "weather",
+          "start": 14.68,
+          "end": 14.86
+        },
+        {
+          "raw": "-beaten,",
+          "start": 14.86,
+          "end": 15.26
+        },
+        {
+          "raw": "and",
+          "start": 15.3,
+          "end": 15.44
+        },
+        {
+          "raw": "overworked—when,",
+          "start": 15.44,
+          "end": 16.76
+        },
+        {
+          "raw": "as",
+          "start": 16.86,
+          "end": 16.96
+        },
+        {
+          "raw": "my",
+          "start": 16.96,
+          "end": 17.16
+        },
+        {
+          "raw": "eye",
+          "start": 17.16,
+          "end": 17.36
+        },
+        {
+          "raw": "wandered",
+          "start": 17.36,
+          "end": 17.72
+        },
+        {
+          "raw": "from",
+          "start": 17.72,
+          "end": 17.98
+        },
+        {
+          "raw": "face",
+          "start": 17.98,
+          "end": 18.26
+        },
+        {
+          "raw": "to",
+          "start": 18.26,
+          "end": 18.48
+        },
+        {
+          "raw": "face,",
+          "start": 18.48,
+          "end": 18.78
+        },
+        {
+          "raw": "the",
+          "start": 19.04,
+          "end": 19.18
+        },
+        {
+          "raw": "whole",
+          "start": 19.18,
+          "end": 19.38
+        },
+        {
+          "raw": "school",
+          "start": 19.38,
+          "end": 19.72
+        },
+        {
+          "raw": "rose",
+          "start": 19.72,
+          "end": 20.1
+        },
+        {
+          "raw": "simultaneously,",
+          "start": 20.1,
+          "end": 20.78
+        },
+        {
+          "raw": "as",
+          "start": 21.48,
+          "end": 21.66
+        },
+        {
+          "raw": "if",
+          "start": 21.66,
+          "end": 21.78
+        },
+        {
+          "raw": "moved",
+          "start": 21.78,
+          "end": 22.14
+        },
+        {
+          "raw": "by",
+          "start": 22.14,
+          "end": 22.4
+        },
+        {
+          "raw": "a",
+          "start": 22.4,
+          "end": 22.58
+        },
+        {
+          "raw": "common",
+          "start": 22.58,
+          "end": 22.82
+        },
+        {
+          "raw": "spring.",
+          "start": 22.82,
+          "end": 23.24
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "was",
+        "still",
+        "looking",
+        "at",
+        "them,",
+        "and",
+        "also",
+        "at",
+        "intervals",
+        "examining",
+        "the",
+        "teachers—none",
+        "of",
+        "whom",
+        "precisely",
+        "pleased",
+        "me;",
+        "for",
+        "the",
+        "stout",
+        "one",
+        "was",
+        "a",
+        "little",
+        "coarse,",
+        "the",
+        "dark",
+        "one",
+        "not",
+        "a",
+        "little",
+        "fierce,",
+        "the",
+        "foreigner",
+        "harsh",
+        "and",
+        "grotesque,",
+        "and",
+        "Miss",
+        "Miller,",
+        "poor",
+        "thing!",
+        "looked",
+        "purple,",
+        "weather-beaten,",
+        "and",
+        "over-worked—when,",
+        "as",
+        "my",
+        "eye",
+        "wandered",
+        "from",
+        "face",
+        "to",
+        "face,",
+        "the",
+        "whole",
+        "school",
+        "rose",
+        "simultaneously,",
+        "as",
+        "if",
+        "moved",
+        "by",
+        "a",
+        "common",
+        "spring."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          68,
+          0,
+          68
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.5,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.5,
+          "end": 0.6,
+          "key": "was",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "still",
+          "start": 0.6,
+          "end": 0.82,
+          "key": "still",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "looking",
+          "start": 0.82,
+          "end": 1.08,
+          "key": "looking",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.08,
+          "end": 1.26,
+          "key": "at",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "them,",
+          "start": 1.26,
+          "end": 1.46,
+          "key": "them",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.7,
+          "end": 1.88,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "also",
+          "start": 1.88,
+          "end": 2.12,
+          "key": "also",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.12,
+          "end": 2.32,
+          "key": "at",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "intervals",
+          "start": 2.32,
+          "end": 2.68,
+          "key": "intervals",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "examining",
+          "start": 2.68,
+          "end": 3.16,
+          "key": "examining",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.16,
+          "end": 3.44,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "teachers—none",
+          "start": 3.44,
+          "end": 4.54,
+          "key": "teachersnone",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.54,
+          "end": 4.68,
+          "key": "of",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "whom",
+          "start": 4.68,
+          "end": 4.82,
+          "key": "whom",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "precisely",
+          "start": 4.82,
+          "end": 5.26,
+          "key": "precisely",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "pleased",
+          "start": 5.26,
+          "end": 5.74,
+          "key": "pleased",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 5.74,
+          "end": 6.1,
+          "key": "me",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 6.32,
+          "end": 6.62,
+          "key": "for",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.62,
+          "end": 6.78,
+          "key": "the",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "stout",
+          "start": 6.78,
+          "end": 6.92,
+          "key": "stout",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 6.92,
+          "end": 7.16,
+          "key": "one",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 7.16,
+          "end": 7.28,
+          "key": "was",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 7.28,
+          "end": 7.4,
+          "key": "a",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 7.4,
+          "end": 7.54,
+          "key": "little",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "coarse,",
+          "start": 7.54,
+          "end": 7.86,
+          "key": "coarse",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.14,
+          "end": 8.3,
+          "key": "the",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "dark",
+          "start": 8.3,
+          "end": 8.48,
+          "key": "dark",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 8.48,
+          "end": 8.66,
+          "key": "one",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 8.66,
+          "end": 8.84,
+          "key": "not",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 8.84,
+          "end": 8.94,
+          "key": "a",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 8.94,
+          "end": 9.08,
+          "key": "little",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "fierce,",
+          "start": 9.08,
+          "end": 9.46,
+          "key": "fierce",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.86,
+          "end": 10.04,
+          "key": "the",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "foreigner",
+          "start": 10.04,
+          "end": 10.36,
+          "key": "foreigner",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "harsh",
+          "start": 10.36,
+          "end": 10.72,
+          "key": "harsh",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 10.72,
+          "end": 10.98,
+          "key": "and",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "grotesque,",
+          "start": 10.98,
+          "end": 11.38,
+          "key": "grotesque",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 11.7,
+          "end": 11.78,
+          "key": "and",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "Miss",
+          "start": 11.78,
+          "end": 11.98,
+          "key": "miss",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "Miller,",
+          "start": 11.98,
+          "end": 12.28,
+          "key": "miller",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "poor",
+          "start": 12.6,
+          "end": 12.7,
+          "key": "poor",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "thing!",
+          "start": 12.7,
+          "end": 13.04,
+          "key": "thing",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 13.72,
+          "end": 13.92,
+          "key": "looked",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "purple,",
+          "start": 13.92,
+          "end": 14.38,
+          "key": "purple",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "weather -beaten,",
+          "start": 14.68,
+          "end": 15.26,
+          "key": "weatherbeaten",
+          "pieces": [
+            45,
+            46
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 15.3,
+          "end": 15.44,
+          "key": "and",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "overworked—when,",
+          "start": 15.44,
+          "end": 16.76,
+          "key": "overworkedwhen",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 16.86,
+          "end": 16.96,
+          "key": "as",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 16.96,
+          "end": 17.16,
+          "key": "my",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "eye",
+          "start": 17.16,
+          "end": 17.36,
+          "key": "eye",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "wandered",
+          "start": 17.36,
+          "end": 17.72,
+          "key": "wandered",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 17.72,
+          "end": 17.98,
+          "key": "from",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "face",
+          "start": 17.98,
+          "end": 18.26,
+          "key": "face",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 18.26,
+          "end": 18.48,
+          "key": "to",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "face,",
+          "start": 18.48,
+          "end": 18.78,
+          "key": "face",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 19.04,
+          "end": 19.18,
+          "key": "the",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "whole",
+          "start": 19.18,
+          "end": 19.38,
+          "key": "whole",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "school",
+          "start": 19.38,
+          "end": 19.72,
+          "key": "school",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "rose",
+          "start": 19.72,
+          "end": 20.1,
+          "key": "rose",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "simultaneously,",
+          "start": 20.1,
+          "end": 20.78,
+          "key": "simultaneously",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 21.48,
+          "end": 21.66,
+          "key": "as",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 21.66,
+          "end": 21.78,
+          "key": "if",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "moved",
+          "start": 21.78,
+          "end": 22.14,
+          "key": "moved",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 22.14,
+          "end": 22.4,
+          "key": "by",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 22.4,
+          "end": 22.58,
+          "key": "a",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "common",
+          "start": 22.58,
+          "end": 22.82,
+          "key": "common",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "spring.",
+          "start": 22.82,
+          "end": 23.24,
+          "key": "spring",
+          "pieces": [
+            68
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 45,
+          "text": "weather-beaten,",
+          "heard": "weather -beaten,",
+          "heard_indexes": [
+            45,
+            46
+          ],
+          "start": 14.68,
+          "end": 15.26
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "text": "was",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "text": "still",
+          "start": 0.6,
+          "end": 0.82
+        },
+        {
+          "text": "looking",
+          "start": 0.82,
+          "end": 1.08
+        },
+        {
+          "text": "at",
+          "start": 1.08,
+          "end": 1.26
+        },
+        {
+          "text": "them,",
+          "start": 1.26,
+          "end": 1.46
+        },
+        {
+          "text": "and",
+          "start": 1.7,
+          "end": 1.88
+        },
+        {
+          "text": "also",
+          "start": 1.88,
+          "end": 2.12
+        },
+        {
+          "text": "at",
+          "start": 2.12,
+          "end": 2.32
+        },
+        {
+          "text": "intervals",
+          "start": 2.32,
+          "end": 2.68
+        },
+        {
+          "text": "examining",
+          "start": 2.68,
+          "end": 3.16
+        },
+        {
+          "text": "the",
+          "start": 3.16,
+          "end": 3.44
+        },
+        {
+          "text": "teachers—none",
+          "start": 3.44,
+          "end": 4.54
+        },
+        {
+          "text": "of",
+          "start": 4.54,
+          "end": 4.68
+        },
+        {
+          "text": "whom",
+          "start": 4.68,
+          "end": 4.82
+        },
+        {
+          "text": "precisely",
+          "start": 4.82,
+          "end": 5.26
+        },
+        {
+          "text": "pleased",
+          "start": 5.26,
+          "end": 5.74
+        },
+        {
+          "text": "me;",
+          "start": 5.74,
+          "end": 6.1
+        },
+        {
+          "text": "for",
+          "start": 6.32,
+          "end": 6.62
+        },
+        {
+          "text": "the",
+          "start": 6.62,
+          "end": 6.78
+        },
+        {
+          "text": "stout",
+          "start": 6.78,
+          "end": 6.92
+        },
+        {
+          "text": "one",
+          "start": 6.92,
+          "end": 7.16
+        },
+        {
+          "text": "was",
+          "start": 7.16,
+          "end": 7.28
+        },
+        {
+          "text": "a",
+          "start": 7.28,
+          "end": 7.4
+        },
+        {
+          "text": "little",
+          "start": 7.4,
+          "end": 7.54
+        },
+        {
+          "text": "coarse,",
+          "start": 7.54,
+          "end": 7.86
+        },
+        {
+          "text": "the",
+          "start": 8.14,
+          "end": 8.3
+        },
+        {
+          "text": "dark",
+          "start": 8.3,
+          "end": 8.48
+        },
+        {
+          "text": "one",
+          "start": 8.48,
+          "end": 8.66
+        },
+        {
+          "text": "not",
+          "start": 8.66,
+          "end": 8.84
+        },
+        {
+          "text": "a",
+          "start": 8.84,
+          "end": 8.94
+        },
+        {
+          "text": "little",
+          "start": 8.94,
+          "end": 9.08
+        },
+        {
+          "text": "fierce,",
+          "start": 9.08,
+          "end": 9.46
+        },
+        {
+          "text": "the",
+          "start": 9.86,
+          "end": 10.04
+        },
+        {
+          "text": "foreigner",
+          "start": 10.04,
+          "end": 10.36
+        },
+        {
+          "text": "harsh",
+          "start": 10.36,
+          "end": 10.72
+        },
+        {
+          "text": "and",
+          "start": 10.72,
+          "end": 10.98
+        },
+        {
+          "text": "grotesque,",
+          "start": 10.98,
+          "end": 11.38
+        },
+        {
+          "text": "and",
+          "start": 11.7,
+          "end": 11.78
+        },
+        {
+          "text": "Miss",
+          "start": 11.78,
+          "end": 11.98
+        },
+        {
+          "text": "Miller,",
+          "start": 11.98,
+          "end": 12.28
+        },
+        {
+          "text": "poor",
+          "start": 12.6,
+          "end": 12.7
+        },
+        {
+          "text": "thing!",
+          "start": 12.7,
+          "end": 13.04
+        },
+        {
+          "text": "looked",
+          "start": 13.72,
+          "end": 13.92
+        },
+        {
+          "text": "purple,",
+          "start": 13.92,
+          "end": 14.38
+        },
+        {
+          "text": "weather-beaten,",
+          "start": 14.68,
+          "end": 15.26
+        },
+        {
+          "text": "and",
+          "start": 15.3,
+          "end": 15.44
+        },
+        {
+          "text": "over-worked—when,",
+          "start": 15.44,
+          "end": 16.76
+        },
+        {
+          "text": "as",
+          "start": 16.86,
+          "end": 16.96
+        },
+        {
+          "text": "my",
+          "start": 16.96,
+          "end": 17.16
+        },
+        {
+          "text": "eye",
+          "start": 17.16,
+          "end": 17.36
+        },
+        {
+          "text": "wandered",
+          "start": 17.36,
+          "end": 17.72
+        },
+        {
+          "text": "from",
+          "start": 17.72,
+          "end": 17.98
+        },
+        {
+          "text": "face",
+          "start": 17.98,
+          "end": 18.26
+        },
+        {
+          "text": "to",
+          "start": 18.26,
+          "end": 18.48
+        },
+        {
+          "text": "face,",
+          "start": 18.48,
+          "end": 18.78
+        },
+        {
+          "text": "the",
+          "start": 19.04,
+          "end": 19.18
+        },
+        {
+          "text": "whole",
+          "start": 19.18,
+          "end": 19.38
+        },
+        {
+          "text": "school",
+          "start": 19.38,
+          "end": 19.72
+        },
+        {
+          "text": "rose",
+          "start": 19.72,
+          "end": 20.1
+        },
+        {
+          "text": "simultaneously,",
+          "start": 20.1,
+          "end": 20.78
+        },
+        {
+          "text": "as",
+          "start": 21.48,
+          "end": 21.66
+        },
+        {
+          "text": "if",
+          "start": 21.66,
+          "end": 21.78
+        },
+        {
+          "text": "moved",
+          "start": 21.78,
+          "end": 22.14
+        },
+        {
+          "text": "by",
+          "start": 22.14,
+          "end": 22.4
+        },
+        {
+          "text": "a",
+          "start": 22.4,
+          "end": 22.58
+        },
+        {
+          "text": "common",
+          "start": 22.58,
+          "end": 22.82
+        },
+        {
+          "text": "spring.",
+          "start": 22.82,
+          "end": 23.24
+        }
+      ],
+      "stats": {
+        "expected_words": 68,
+        "heard_words": 68,
+        "matched_words": 68
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.6827026880346239
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f8f77a2cd918b8a02ca838395a827bd5fd204f2895115f9352cb6d0b7ff25297",
+  "selected_reasons": []
+}

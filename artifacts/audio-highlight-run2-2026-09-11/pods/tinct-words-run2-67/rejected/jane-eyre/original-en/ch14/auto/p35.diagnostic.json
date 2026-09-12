@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "4a95a729c59dcfa18f54014e11d80b3b24e48de89fd9cb35dbbf785c20a2d2ef",
+  "attempts": [
+    {
+      "asr_seconds": 0.13224334409460425,
+      "alignment_seconds": 0.00029277103021740913,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Speak,\" he urged.",
+        "hotwords": "Speak"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Speak, he urged.",
+          "start": 0.18,
+          "end": 1.5,
+          "words": [
+            {
+              "text": " Speak,",
+              "start": 0.18,
+              "end": 0.74,
+              "probability": 0.266845703125
+            },
+            {
+              "text": " he",
+              "start": 1.18,
+              "end": 1.18,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " urged.",
+              "start": 1.18,
+              "end": 1.5,
+              "probability": 0.97412109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Speak,",
+          "start": 0.18,
+          "end": 0.74
+        },
+        {
+          "raw": "he",
+          "start": 1.18,
+          "end": 1.18
+        },
+        {
+          "raw": "urged.",
+          "start": 1.18,
+          "end": 1.5
+        }
+      ],
+      "expected_tokens": [
+        "\"Speak,\"",
+        "he",
+        "urged."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Speak,",
+          "start": 0.18,
+          "end": 0.74,
+          "key": "speak",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.18,
+          "end": 1.18,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "urged.",
+          "start": 1.18,
+          "end": 1.5,
+          "key": "urged",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Speak,\"",
+          "start": 0.18,
+          "end": 0.74
+        },
+        {
+          "text": "he",
+          "start": 1.18,
+          "end": 1.18
+        },
+        {
+          "text": "urged.",
+          "start": 1.18,
+          "end": 1.5
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13263454614207149
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4d9540abc41d1d9e96052eb19e2f668e0f10d4433290baf77d76c396d972753e",
+  "selected_reasons": []
+}

@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "1605d88c2b7f74b0532a903842a71a3a5d204f45e796e09894fea6f15e464890",
+  "attempts": [
+    {
+      "asr_seconds": 0.11437616869807243,
+      "alignment_seconds": 0.00020385487005114555,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Does he live here?",
+          "start": 0.02,
+          "end": 1.06,
+          "words": [
+            {
+              "text": " Does",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " he",
+              "start": 0.52,
+              "end": 0.64,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " live",
+              "start": 0.64,
+              "end": 0.8,
+              "probability": 0.998046875
+            },
+            {
+              "text": " here?",
+              "start": 0.8,
+              "end": 1.06,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Does",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "he",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "raw": "live",
+          "start": 0.64,
+          "end": 0.8
+        },
+        {
+          "raw": "here?",
+          "start": 0.8,
+          "end": 1.06
+        }
+      ],
+      "expected_tokens": [
+        "\"Does",
+        "he",
+        "live",
+        "here?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Does",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "does",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.52,
+          "end": 0.64,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "live",
+          "start": 0.64,
+          "end": 0.8,
+          "key": "live",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "here?",
+          "start": 0.8,
+          "end": 1.06,
+          "key": "here",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Does",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "he",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "text": "live",
+          "start": 0.64,
+          "end": 0.8
+        },
+        {
+          "text": "here?\"",
+          "start": 0.8,
+          "end": 1.06
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11469700885936618
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "94f8a22f75aad3199b932d06fe294494b005124c1a4ed5d4f7ae16663b85ad15",
+  "selected_reasons": []
+}

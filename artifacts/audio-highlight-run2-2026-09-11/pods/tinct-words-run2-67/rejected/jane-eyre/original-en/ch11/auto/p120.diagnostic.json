@@ -1,0 +1,542 @@
+{
+  "complete": true,
+  "signature": "91a73229a52899ce573696f70169fcf640c77b3204be3f2bbafeb7c2014f5b44",
+  "attempts": [
+    {
+      "asr_seconds": 0.3022710387594998,
+      "alignment_seconds": 0.0004578041844069958,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Too much noise, Grace,\" said Mrs. Fairfax. \"Remember directions!\" Grace curtseyed silently and went in.",
+        "hotwords": "Too, Grace, Mrs, Fairfax, Remember"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Too much noise, Grace, said Mrs. Fairfax. Remember directions! Grace curtseyed silently and went in.",
+          "start": 0.05,
+          "end": 6.77,
+          "words": [
+            {
+              "text": " Too",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.08587646484375
+            },
+            {
+              "text": " much",
+              "start": 0.53,
+              "end": 0.73,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " noise,",
+              "start": 0.73,
+              "end": 1.17,
+              "probability": 0.982421875
+            },
+            {
+              "text": " Grace,",
+              "start": 1.37,
+              "end": 1.57,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " said",
+              "start": 1.93,
+              "end": 2.07,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Mrs.",
+              "start": 2.07,
+              "end": 2.33,
+              "probability": 0.9765625
+            },
+            {
+              "text": " Fairfax.",
+              "start": 2.75,
+              "end": 2.75,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Remember",
+              "start": 3.43,
+              "end": 3.73,
+              "probability": 0.8955078125
+            },
+            {
+              "text": " directions!",
+              "start": 3.73,
+              "end": 4.23,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " Grace",
+              "start": 5.01,
+              "end": 5.15,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " curtseyed",
+              "start": 5.15,
+              "end": 5.75,
+              "probability": 0.46038818359375
+            },
+            {
+              "text": " silently",
+              "start": 5.75,
+              "end": 6.09,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 6.09,
+              "end": 6.37,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " went",
+              "start": 6.37,
+              "end": 6.51,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in.",
+              "start": 6.51,
+              "end": 6.77,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Too",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "much",
+          "start": 0.53,
+          "end": 0.73
+        },
+        {
+          "raw": "noise,",
+          "start": 0.73,
+          "end": 1.17
+        },
+        {
+          "raw": "Grace,",
+          "start": 1.37,
+          "end": 1.57
+        },
+        {
+          "raw": "said",
+          "start": 1.93,
+          "end": 2.07
+        },
+        {
+          "raw": "Mrs.",
+          "start": 2.07,
+          "end": 2.33
+        },
+        {
+          "raw": "Fairfax.",
+          "start": 2.75,
+          "end": 2.75
+        },
+        {
+          "raw": "Remember",
+          "start": 3.43,
+          "end": 3.73
+        },
+        {
+          "raw": "directions!",
+          "start": 3.73,
+          "end": 4.23
+        },
+        {
+          "raw": "Grace",
+          "start": 5.01,
+          "end": 5.15
+        },
+        {
+          "raw": "curtseyed",
+          "start": 5.15,
+          "end": 5.75
+        },
+        {
+          "raw": "silently",
+          "start": 5.75,
+          "end": 6.09
+        },
+        {
+          "raw": "and",
+          "start": 6.09,
+          "end": 6.37
+        },
+        {
+          "raw": "went",
+          "start": 6.37,
+          "end": 6.51
+        },
+        {
+          "raw": "in.",
+          "start": 6.51,
+          "end": 6.77
+        }
+      ],
+      "expected_tokens": [
+        "\"Too",
+        "much",
+        "noise,",
+        "Grace,\"",
+        "said",
+        "Mrs.",
+        "Fairfax.",
+        "\"Remember",
+        "directions!\"",
+        "Grace",
+        "curtseyed",
+        "silently",
+        "and",
+        "went",
+        "in."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Too",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "too",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 0.53,
+          "end": 0.73,
+          "key": "much",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "noise,",
+          "start": 0.73,
+          "end": 1.17,
+          "key": "noise",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Grace,",
+          "start": 1.37,
+          "end": 1.57,
+          "key": "grace",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.93,
+          "end": 2.07,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Mrs.",
+          "start": 2.07,
+          "end": 2.33,
+          "key": "mrs",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Fairfax.",
+          "start": 2.75,
+          "end": 2.75,
+          "key": "fairfax",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Remember",
+          "start": 3.43,
+          "end": 3.73,
+          "key": "remember",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "directions!",
+          "start": 3.73,
+          "end": 4.23,
+          "key": "directions",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Grace",
+          "start": 5.01,
+          "end": 5.15,
+          "key": "grace",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "curtseyed",
+          "start": 5.15,
+          "end": 5.75,
+          "key": "curtseyed",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "silently",
+          "start": 5.75,
+          "end": 6.09,
+          "key": "silently",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.09,
+          "end": 6.37,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "went",
+          "start": 6.37,
+          "end": 6.51,
+          "key": "went",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "in.",
+          "start": 6.51,
+          "end": 6.77,
+          "key": "in",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Too",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "much",
+          "start": 0.53,
+          "end": 0.73
+        },
+        {
+          "text": "noise,",
+          "start": 0.73,
+          "end": 1.17
+        },
+        {
+          "text": "Grace,\"",
+          "start": 1.37,
+          "end": 1.57
+        },
+        {
+          "text": "said",
+          "start": 1.93,
+          "end": 2.07
+        },
+        {
+          "text": "Mrs.",
+          "start": 2.07,
+          "end": 2.33
+        },
+        {
+          "text": "Fairfax.",
+          "start": 2.75,
+          "end": 2.75
+        },
+        {
+          "text": "\"Remember",
+          "start": 3.43,
+          "end": 3.73
+        },
+        {
+          "text": "directions!\"",
+          "start": 3.73,
+          "end": 4.23
+        },
+        {
+          "text": "Grace",
+          "start": 5.01,
+          "end": 5.15
+        },
+        {
+          "text": "curtseyed",
+          "start": 5.15,
+          "end": 5.75
+        },
+        {
+          "text": "silently",
+          "start": 5.75,
+          "end": 6.09
+        },
+        {
+          "text": "and",
+          "start": 6.09,
+          "end": 6.37
+        },
+        {
+          "text": "went",
+          "start": 6.37,
+          "end": 6.51
+        },
+        {
+          "text": "in.",
+          "start": 6.51,
+          "end": 6.77
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.30290464870631695
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6e438db0ad8d5fbff2d63b155847724ee6591f70264647d99f82ff280e46a396",
+  "selected_reasons": []
+}
