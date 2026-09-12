@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "433b7a923990516813ec4c8591ec24af4bc06807e63950b7fabfa3367220a6ee",
+  "attempts": [
+    {
+      "asr_seconds": 0.11228007730096579,
+      "alignment_seconds": 0.00029890798032283783,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Did you speak?",
+          "start": 0.02,
+          "end": 0.98,
+          "words": [
+            {
+              "text": " Did",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.921875
+            },
+            {
+              "text": " you",
+              "start": 0.52,
+              "end": 0.66,
+              "probability": 0.9921875
+            },
+            {
+              "text": " speak?",
+              "start": 0.66,
+              "end": 0.98,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Did",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "you",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "raw": "speak?",
+          "start": 0.66,
+          "end": 0.98
+        }
+      ],
+      "expected_tokens": [
+        "\"Did",
+        "you",
+        "speak?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Did",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "did",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.52,
+          "end": 0.66,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "speak?",
+          "start": 0.66,
+          "end": 0.98,
+          "key": "speak",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Did",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "you",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "text": "speak?\"",
+          "start": 0.66,
+          "end": 0.98
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11267826613038778
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "33f717b667a871394afcc6ed2565b04f5a72c1b51017285e0d006b1ebaa241fd",
+  "selected_reasons": []
+}

@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "2796c01c1a4b2283e15ea016d4151aaf01e5c1bfe12acdc4354d8847457b7d45",
+  "attempts": [
+    {
+      "asr_seconds": 0.32522108778357506,
+      "alignment_seconds": 0.0004356503486633301,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Proculeius. So, Dolabella, It shall content me best. Be gentle to her.",
+        "hotwords": "Proculeius, So, Dolabella, It, Be"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Proculeius, So, Dolabella, It shall content me best. Be gentle to her.",
+          "start": 0.66,
+          "end": 4.66,
+          "words": [
+            {
+              "text": " Proculeius,",
+              "start": 0.66,
+              "end": 1.14,
+              "probability": 0.1736170450846354
+            },
+            {
+              "text": " So,",
+              "start": 1.48,
+              "end": 1.7,
+              "probability": 0.023834228515625
+            },
+            {
+              "text": " Dolabella,",
+              "start": 1.86,
+              "end": 2.14,
+              "probability": 0.03882026672363281
+            },
+            {
+              "text": " It",
+              "start": 2.34,
+              "end": 2.42,
+              "probability": 0.1512451171875
+            },
+            {
+              "text": " shall",
+              "start": 2.42,
+              "end": 2.58,
+              "probability": 0.88427734375
+            },
+            {
+              "text": " content",
+              "start": 2.58,
+              "end": 2.86,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " me",
+              "start": 2.86,
+              "end": 3.08,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " best.",
+              "start": 3.08,
+              "end": 3.38,
+              "probability": 0.984375
+            },
+            {
+              "text": " Be",
+              "start": 3.8,
+              "end": 3.9,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " gentle",
+              "start": 3.9,
+              "end": 4.14,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " to",
+              "start": 4.14,
+              "end": 4.46,
+              "probability": 0.994140625
+            },
+            {
+              "text": " her.",
+              "start": 4.46,
+              "end": 4.66,
+              "probability": 0.98681640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Proculeius,",
+          "start": 0.66,
+          "end": 1.14
+        },
+        {
+          "raw": "So,",
+          "start": 1.48,
+          "end": 1.7
+        },
+        {
+          "raw": "Dolabella,",
+          "start": 1.86,
+          "end": 2.14
+        },
+        {
+          "raw": "It",
+          "start": 2.34,
+          "end": 2.42
+        },
+        {
+          "raw": "shall",
+          "start": 2.42,
+          "end": 2.58
+        },
+        {
+          "raw": "content",
+          "start": 2.58,
+          "end": 2.86
+        },
+        {
+          "raw": "me",
+          "start": 2.86,
+          "end": 3.08
+        },
+        {
+          "raw": "best.",
+          "start": 3.08,
+          "end": 3.38
+        },
+        {
+          "raw": "Be",
+          "start": 3.8,
+          "end": 3.9
+        },
+        {
+          "raw": "gentle",
+          "start": 3.9,
+          "end": 4.14
+        },
+        {
+          "raw": "to",
+          "start": 4.14,
+          "end": 4.46
+        },
+        {
+          "raw": "her.",
+          "start": 4.46,
+          "end": 4.66
+        }
+      ],
+      "expected_tokens": [
+        "Proculeius.",
+        "So,",
+        "Dolabella,",
+        "It",
+        "shall",
+        "content",
+        "me",
+        "best.",
+        "Be",
+        "gentle",
+        "to",
+        "her."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Proculeius,",
+          "start": 0.66,
+          "end": 1.14,
+          "key": "proculeius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "So,",
+          "start": 1.48,
+          "end": 1.7,
+          "key": "so",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Dolabella,",
+          "start": 1.86,
+          "end": 2.14,
+          "key": "dolabella",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 2.34,
+          "end": 2.42,
+          "key": "it",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 2.42,
+          "end": 2.58,
+          "key": "shall",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "content",
+          "start": 2.58,
+          "end": 2.86,
+          "key": "content",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.86,
+          "end": 3.08,
+          "key": "me",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "best.",
+          "start": 3.08,
+          "end": 3.38,
+          "key": "best",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Be",
+          "start": 3.8,
+          "end": 3.9,
+          "key": "be",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "gentle",
+          "start": 3.9,
+          "end": 4.14,
+          "key": "gentle",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.14,
+          "end": 4.46,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 4.46,
+          "end": 4.66,
+          "key": "her",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Proculeius.",
+          "start": 0.66,
+          "end": 1.14
+        },
+        {
+          "text": "So,",
+          "start": 1.48,
+          "end": 1.7
+        },
+        {
+          "text": "Dolabella,",
+          "start": 1.86,
+          "end": 2.14
+        },
+        {
+          "text": "It",
+          "start": 2.34,
+          "end": 2.42
+        },
+        {
+          "text": "shall",
+          "start": 2.42,
+          "end": 2.58
+        },
+        {
+          "text": "content",
+          "start": 2.58,
+          "end": 2.86
+        },
+        {
+          "text": "me",
+          "start": 2.86,
+          "end": 3.08
+        },
+        {
+          "text": "best.",
+          "start": 3.08,
+          "end": 3.38
+        },
+        {
+          "text": "Be",
+          "start": 3.8,
+          "end": 3.9
+        },
+        {
+          "text": "gentle",
+          "start": 3.9,
+          "end": 4.14
+        },
+        {
+          "text": "to",
+          "start": 4.14,
+          "end": 4.46
+        },
+        {
+          "text": "her.",
+          "start": 4.46,
+          "end": 4.66
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3258236004039645
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1ccacbacbef915477791c3fc2f39b89f0a2a5a410b901374b7889c5b5e40bf41",
+  "selected_reasons": []
+}

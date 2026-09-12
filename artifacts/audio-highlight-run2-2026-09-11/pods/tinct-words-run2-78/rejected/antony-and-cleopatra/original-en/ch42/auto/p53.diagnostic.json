@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "c36f680ac527b3e5239b8e6c1c4729702125a016d27bfa54c206019c72768e5e",
+  "attempts": [
+    {
+      "asr_seconds": 0.32477290090173483,
+      "alignment_seconds": 0.00048222579061985016,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Flourish. Enter Caesar, Proculeius, Gallus, Maecenas and others of his train.",
+        "hotwords": "Flourish, Enter, Caesar, Proculeius, Gallus, Maecenas"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Flourish, Enter, Caesar, Proculeius, Gallus, Maecenas and others of his train.",
+          "start": 0.05,
+          "end": 5.15,
+          "words": [
+            {
+              "text": " Flourish,",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.9524739583333334
+            },
+            {
+              "text": " Enter,",
+              "start": 1.31,
+              "end": 1.65,
+              "probability": 0.03997802734375
+            },
+            {
+              "text": " Caesar,",
+              "start": 1.89,
+              "end": 2.03,
+              "probability": 0.966796875
+            },
+            {
+              "text": " Proculeius,",
+              "start": 2.43,
+              "end": 2.95,
+              "probability": 0.3317769368489583
+            },
+            {
+              "text": " Gallus,",
+              "start": 3.21,
+              "end": 3.47,
+              "probability": 0.851318359375
+            },
+            {
+              "text": " Maecenas",
+              "start": 3.69,
+              "end": 4.11,
+              "probability": 0.6262869834899902
+            },
+            {
+              "text": " and",
+              "start": 4.11,
+              "end": 4.29,
+              "probability": 0.495361328125
+            },
+            {
+              "text": " others",
+              "start": 4.29,
+              "end": 4.53,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " of",
+              "start": 4.53,
+              "end": 4.71,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " his",
+              "start": 4.71,
+              "end": 4.83,
+              "probability": 0.990234375
+            },
+            {
+              "text": " train.",
+              "start": 4.83,
+              "end": 5.15,
+              "probability": 0.94287109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Flourish,",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "raw": "Enter,",
+          "start": 1.31,
+          "end": 1.65
+        },
+        {
+          "raw": "Caesar,",
+          "start": 1.89,
+          "end": 2.03
+        },
+        {
+          "raw": "Proculeius,",
+          "start": 2.43,
+          "end": 2.95
+        },
+        {
+          "raw": "Gallus,",
+          "start": 3.21,
+          "end": 3.47
+        },
+        {
+          "raw": "Maecenas",
+          "start": 3.69,
+          "end": 4.11
+        },
+        {
+          "raw": "and",
+          "start": 4.11,
+          "end": 4.29
+        },
+        {
+          "raw": "others",
+          "start": 4.29,
+          "end": 4.53
+        },
+        {
+          "raw": "of",
+          "start": 4.53,
+          "end": 4.71
+        },
+        {
+          "raw": "his",
+          "start": 4.71,
+          "end": 4.83
+        },
+        {
+          "raw": "train.",
+          "start": 4.83,
+          "end": 5.15
+        }
+      ],
+      "expected_tokens": [
+        "Flourish.",
+        "Enter",
+        "Caesar,",
+        "Proculeius,",
+        "Gallus,",
+        "Maecenas",
+        "and",
+        "others",
+        "of",
+        "his",
+        "train."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Flourish,",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "flourish",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Enter,",
+          "start": 1.31,
+          "end": 1.65,
+          "key": "enter",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Caesar,",
+          "start": 1.89,
+          "end": 2.03,
+          "key": "caesar",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Proculeius,",
+          "start": 2.43,
+          "end": 2.95,
+          "key": "proculeius",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Gallus,",
+          "start": 3.21,
+          "end": 3.47,
+          "key": "gallus",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Maecenas",
+          "start": 3.69,
+          "end": 4.11,
+          "key": "maecenas",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.11,
+          "end": 4.29,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "others",
+          "start": 4.29,
+          "end": 4.53,
+          "key": "others",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.53,
+          "end": 4.71,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.71,
+          "end": 4.83,
+          "key": "his",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "train.",
+          "start": 4.83,
+          "end": 5.15,
+          "key": "train",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Flourish.",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "text": "Enter",
+          "start": 1.31,
+          "end": 1.65
+        },
+        {
+          "text": "Caesar,",
+          "start": 1.89,
+          "end": 2.03
+        },
+        {
+          "text": "Proculeius,",
+          "start": 2.43,
+          "end": 2.95
+        },
+        {
+          "text": "Gallus,",
+          "start": 3.21,
+          "end": 3.47
+        },
+        {
+          "text": "Maecenas",
+          "start": 3.69,
+          "end": 4.11
+        },
+        {
+          "text": "and",
+          "start": 4.11,
+          "end": 4.29
+        },
+        {
+          "text": "others",
+          "start": 4.29,
+          "end": 4.53
+        },
+        {
+          "text": "of",
+          "start": 4.53,
+          "end": 4.71
+        },
+        {
+          "text": "his",
+          "start": 4.71,
+          "end": 4.83
+        },
+        {
+          "text": "train.",
+          "start": 4.83,
+          "end": 5.15
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.32546897791326046
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "76bc9e130fe85c9f91fffbbed50d45b3476f6d61f5c13b18a10794abd9180a31",
+  "selected_reasons": []
+}

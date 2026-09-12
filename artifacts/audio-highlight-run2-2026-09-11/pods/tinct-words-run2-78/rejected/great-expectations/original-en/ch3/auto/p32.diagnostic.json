@@ -1,0 +1,168 @@
+{
+  "complete": true,
+  "signature": "3c19369515fcaff2b238aca0bf4c3ce095d82779bf624b2eaf384433c27a42bc",
+  "attempts": [
+    {
+      "asr_seconds": 0.21356644947081804,
+      "alignment_seconds": 0.00028375908732414246,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Looked? When?\"",
+        "hotwords": "Looked, When"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Looked, When",
+          "start": 0.02,
+          "end": 1.08,
+          "words": [
+            {
+              "text": " Looked,",
+              "start": 0.02,
+              "end": 0.82,
+              "probability": 0.73095703125
+            },
+            {
+              "text": " When",
+              "start": 0.82,
+              "end": 1.08,
+              "probability": 0.09515380859375
+            }
+          ]
+        },
+        {
+          "text": " When?",
+          "start": 1.08,
+          "end": 1.2,
+          "words": [
+            {
+              "text": " When?",
+              "start": 1.08,
+              "end": 1.2,
+              "probability": 0.00040459632873535156
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Looked,",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "raw": "When",
+          "start": 0.82,
+          "end": 1.08
+        },
+        {
+          "raw": "When?",
+          "start": 1.08,
+          "end": 1.2
+        }
+      ],
+      "expected_tokens": [
+        "\"Looked?",
+        "When?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "insert",
+          2,
+          2,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          2,
+          2,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Looked,",
+          "start": 0.02,
+          "end": 0.82,
+          "key": "looked",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "When",
+          "start": 0.82,
+          "end": 1.08,
+          "key": "when",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "When?",
+          "start": 1.08,
+          "end": 1.2,
+          "key": "when",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Looked?",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "text": "When?\"",
+          "start": 0.82,
+          "end": 1.08
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21398312225937843
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a4fb34a0bd044839a164f369dcb59f390f7fe4c4cef1ac7462283558a2b7eebf",
+  "selected_reasons": []
+}

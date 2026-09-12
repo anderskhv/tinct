@@ -1,0 +1,412 @@
+{
+  "complete": true,
+  "signature": "6e913290d670460cbff9cb51f2694adea0d671fee50b31668a104080d67021f6",
+  "attempts": [
+    {
+      "asr_seconds": 0.2268726723268628,
+      "alignment_seconds": 0.0004615364596247673,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cleopatra, what of death, too, that rids our dogs of languish?",
+          "start": 0.67,
+          "end": 4.03,
+          "words": [
+            {
+              "text": " Cleopatra,",
+              "start": 0.67,
+              "end": 1.03,
+              "probability": 0.9044596354166666
+            },
+            {
+              "text": " what",
+              "start": 1.55,
+              "end": 1.71,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " of",
+              "start": 1.71,
+              "end": 1.89,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " death,",
+              "start": 1.89,
+              "end": 2.07,
+              "probability": 0.490966796875
+            },
+            {
+              "text": " too,",
+              "start": 2.09,
+              "end": 2.41,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " that",
+              "start": 2.59,
+              "end": 2.71,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " rids",
+              "start": 2.71,
+              "end": 2.93,
+              "probability": 0.970703125
+            },
+            {
+              "text": " our",
+              "start": 2.93,
+              "end": 3.09,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " dogs",
+              "start": 3.09,
+              "end": 3.35,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " of",
+              "start": 3.35,
+              "end": 3.53,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " languish?",
+              "start": 3.53,
+              "end": 4.03,
+              "probability": 0.890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.67,
+          "end": 1.03
+        },
+        {
+          "raw": "what",
+          "start": 1.55,
+          "end": 1.71
+        },
+        {
+          "raw": "of",
+          "start": 1.71,
+          "end": 1.89
+        },
+        {
+          "raw": "death,",
+          "start": 1.89,
+          "end": 2.07
+        },
+        {
+          "raw": "too,",
+          "start": 2.09,
+          "end": 2.41
+        },
+        {
+          "raw": "that",
+          "start": 2.59,
+          "end": 2.71
+        },
+        {
+          "raw": "rids",
+          "start": 2.71,
+          "end": 2.93
+        },
+        {
+          "raw": "our",
+          "start": 2.93,
+          "end": 3.09
+        },
+        {
+          "raw": "dogs",
+          "start": 3.09,
+          "end": 3.35
+        },
+        {
+          "raw": "of",
+          "start": 3.35,
+          "end": 3.53
+        },
+        {
+          "raw": "languish?",
+          "start": 3.53,
+          "end": 4.03
+        }
+      ],
+      "expected_tokens": [
+        "Cleopatra.",
+        "What,",
+        "of",
+        "death",
+        "too,",
+        "That",
+        "rids",
+        "our",
+        "dogs",
+        "of",
+        "languish?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.67,
+          "end": 1.03,
+          "key": "cleopatra",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.55,
+          "end": 1.71,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.71,
+          "end": 1.89,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "death,",
+          "start": 1.89,
+          "end": 2.07,
+          "key": "death",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "too,",
+          "start": 2.09,
+          "end": 2.41,
+          "key": "too",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.59,
+          "end": 2.71,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "rids",
+          "start": 2.71,
+          "end": 2.93,
+          "key": "rids",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 2.93,
+          "end": 3.09,
+          "key": "our",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "dogs",
+          "start": 3.09,
+          "end": 3.35,
+          "key": "dogs",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.35,
+          "end": 3.53,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "languish?",
+          "start": 3.53,
+          "end": 4.03,
+          "key": "languish",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cleopatra.",
+          "start": 0.67,
+          "end": 1.03
+        },
+        {
+          "text": "What,",
+          "start": 1.55,
+          "end": 1.71
+        },
+        {
+          "text": "of",
+          "start": 1.71,
+          "end": 1.89
+        },
+        {
+          "text": "death",
+          "start": 1.89,
+          "end": 2.07
+        },
+        {
+          "text": "too,",
+          "start": 2.09,
+          "end": 2.41
+        },
+        {
+          "text": "That",
+          "start": 2.59,
+          "end": 2.71
+        },
+        {
+          "text": "rids",
+          "start": 2.71,
+          "end": 2.93
+        },
+        {
+          "text": "our",
+          "start": 2.93,
+          "end": 3.09
+        },
+        {
+          "text": "dogs",
+          "start": 3.09,
+          "end": 3.35
+        },
+        {
+          "text": "of",
+          "start": 3.35,
+          "end": 3.53
+        },
+        {
+          "text": "languish?",
+          "start": 3.53,
+          "end": 4.03
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2275426797568798
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "39ba803ac810e9c53667447ee486e041c34ac179edf36b520cfb987a39a42151",
+  "selected_reasons": []
+}

@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "14654c9c95ebb7e3837dd4bba7b65d86606e6998f7eaa59f96723b9eb0c93b9a",
+  "attempts": [
+    {
+      "asr_seconds": 0.138650830835104,
+      "alignment_seconds": 0.0003177160397171974,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Wherefores this noise?",
+          "start": 0.05,
+          "end": 1.33,
+          "words": [
+            {
+              "text": " Wherefores",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.6678059895833334
+            },
+            {
+              "text": " this",
+              "start": 0.95,
+              "end": 1.05,
+              "probability": 0.98828125
+            },
+            {
+              "text": " noise?",
+              "start": 1.05,
+              "end": 1.33,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Wherefores",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "this",
+          "start": 0.95,
+          "end": 1.05
+        },
+        {
+          "raw": "noise?",
+          "start": 1.05,
+          "end": 1.33
+        }
+      ],
+      "expected_tokens": [
+        "Wherefore's",
+        "this",
+        "noise?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Wherefores",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "wherefores",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 0.95,
+          "end": 1.05,
+          "key": "this",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "noise?",
+          "start": 1.05,
+          "end": 1.33,
+          "key": "noise",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Wherefore's",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "text": "this",
+          "start": 0.95,
+          "end": 1.05
+        },
+        {
+          "text": "noise?",
+          "start": 1.05,
+          "end": 1.33
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13907466549426317
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cf481c31ffe355b35fe17471eb391cb00f6e7f6e7a6859e915a7133417b83955",
+  "selected_reasons": []
+}

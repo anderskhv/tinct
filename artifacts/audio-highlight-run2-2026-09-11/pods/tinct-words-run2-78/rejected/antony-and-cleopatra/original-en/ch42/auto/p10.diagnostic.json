@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "d5701dd6a60c7400102bbb96a4a35f2b64f641af4868f3e435ef53257ad3efd9",
+  "attempts": [
+    {
+      "asr_seconds": 0.20977066364139318,
+      "alignment_seconds": 0.000368606299161911,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Gallus and Roman Soldiers.",
+        "hotwords": "Enter, Gallus, Roman, Soldiers"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter, Gallus and Roman Soldiers.",
+          "start": 0.11,
+          "end": 2.05,
+          "words": [
+            {
+              "text": " Enter,",
+              "start": 0.11,
+              "end": 0.65,
+              "probability": 0.89208984375
+            },
+            {
+              "text": " Gallus",
+              "start": 0.69,
+              "end": 1.13,
+              "probability": 0.71337890625
+            },
+            {
+              "text": " and",
+              "start": 1.13,
+              "end": 1.33,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " Roman",
+              "start": 1.33,
+              "end": 1.61,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " Soldiers.",
+              "start": 1.61,
+              "end": 2.05,
+              "probability": 0.045013427734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter,",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "raw": "Gallus",
+          "start": 0.69,
+          "end": 1.13
+        },
+        {
+          "raw": "and",
+          "start": 1.13,
+          "end": 1.33
+        },
+        {
+          "raw": "Roman",
+          "start": 1.33,
+          "end": 1.61
+        },
+        {
+          "raw": "Soldiers.",
+          "start": 1.61,
+          "end": 2.05
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Gallus",
+        "and",
+        "Roman",
+        "Soldiers."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter,",
+          "start": 0.11,
+          "end": 0.65,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Gallus",
+          "start": 0.69,
+          "end": 1.13,
+          "key": "gallus",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.13,
+          "end": 1.33,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Roman",
+          "start": 1.33,
+          "end": 1.61,
+          "key": "roman",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Soldiers.",
+          "start": 1.61,
+          "end": 2.05,
+          "key": "soldiers",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "text": "Gallus",
+          "start": 0.69,
+          "end": 1.13
+        },
+        {
+          "text": "and",
+          "start": 1.13,
+          "end": 1.33
+        },
+        {
+          "text": "Roman",
+          "start": 1.33,
+          "end": 1.61
+        },
+        {
+          "text": "Soldiers.",
+          "start": 1.61,
+          "end": 2.05
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2102802526205778
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "74335b86297b954b4d394459405845ccfe1a7b7f13ddbdcc00b95078f9add54d",
+  "selected_reasons": []
+}

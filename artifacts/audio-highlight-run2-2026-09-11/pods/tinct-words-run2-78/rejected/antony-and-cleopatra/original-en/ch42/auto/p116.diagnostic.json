@@ -1,0 +1,361 @@
+{
+  "complete": true,
+  "signature": "c098798c3d02f56c5b12682c46e9f2c9b09e65811d0d7c7c3d7968d1fd13d168",
+  "attempts": [
+    {
+      "asr_seconds": 0.2561752237379551,
+      "alignment_seconds": 0.00030971504747867584,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Guardsman and Clown with a basket.",
+        "hotwords": "Enter, Guardsman, Clown"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter, Guardsman, Clown Enter, Guardsman and Clown with a basket.",
+          "start": 0.08,
+          "end": 2.4,
+          "words": [
+            {
+              "text": " Enter,",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.921875
+            },
+            {
+              "text": " Guardsman,",
+              "start": 0.8,
+              "end": 1.1,
+              "probability": 0.693115234375
+            },
+            {
+              "text": " Clown",
+              "start": 1.42,
+              "end": 1.52,
+              "probability": 1.3768672943115234e-05
+            },
+            {
+              "text": " Enter,",
+              "start": 1.52,
+              "end": 1.52,
+              "probability": 2.980232238769531e-07
+            },
+            {
+              "text": " Guardsman",
+              "start": 1.52,
+              "end": 1.52,
+              "probability": 0.967529296875
+            },
+            {
+              "text": " and",
+              "start": 1.52,
+              "end": 1.52,
+              "probability": 0.0200347900390625
+            },
+            {
+              "text": " Clown",
+              "start": 1.52,
+              "end": 1.76,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " with",
+              "start": 1.76,
+              "end": 1.96,
+              "probability": 0.953125
+            },
+            {
+              "text": " a",
+              "start": 1.96,
+              "end": 2.06,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " basket.",
+              "start": 2.06,
+              "end": 2.4,
+              "probability": 0.1859130859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter,",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "Guardsman,",
+          "start": 0.8,
+          "end": 1.1
+        },
+        {
+          "raw": "Clown",
+          "start": 1.42,
+          "end": 1.52
+        },
+        {
+          "raw": "Enter,",
+          "start": 1.52,
+          "end": 1.52
+        },
+        {
+          "raw": "Guardsman",
+          "start": 1.52,
+          "end": 1.52
+        },
+        {
+          "raw": "and",
+          "start": 1.52,
+          "end": 1.52
+        },
+        {
+          "raw": "Clown",
+          "start": 1.52,
+          "end": 1.76
+        },
+        {
+          "raw": "with",
+          "start": 1.76,
+          "end": 1.96
+        },
+        {
+          "raw": "a",
+          "start": 1.96,
+          "end": 2.06
+        },
+        {
+          "raw": "basket.",
+          "start": 2.06,
+          "end": 2.4
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Guardsman",
+        "and",
+        "Clown",
+        "with",
+        "a",
+        "basket."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          3
+        ],
+        [
+          "equal",
+          0,
+          7,
+          3,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter,",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Guardsman,",
+          "start": 0.8,
+          "end": 1.1,
+          "key": "guardsman",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Clown",
+          "start": 1.42,
+          "end": 1.52,
+          "key": "clown",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Enter,",
+          "start": 1.52,
+          "end": 1.52,
+          "key": "enter",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Guardsman",
+          "start": 1.52,
+          "end": 1.52,
+          "key": "guardsman",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.52,
+          "end": 1.52,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Clown",
+          "start": 1.52,
+          "end": 1.76,
+          "key": "clown",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.76,
+          "end": 1.96,
+          "key": "with",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.96,
+          "end": 2.06,
+          "key": "a",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "basket.",
+          "start": 2.06,
+          "end": 2.4,
+          "key": "basket",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 1.52,
+          "end": 1.52
+        },
+        {
+          "text": "Guardsman",
+          "start": 1.52,
+          "end": 1.52
+        },
+        {
+          "text": "and",
+          "start": 1.52,
+          "end": 1.52
+        },
+        {
+          "text": "Clown",
+          "start": 1.52,
+          "end": 1.76
+        },
+        {
+          "text": "with",
+          "start": 1.76,
+          "end": 1.96
+        },
+        {
+          "text": "a",
+          "start": 1.96,
+          "end": 2.06
+        },
+        {
+          "text": "basket.",
+          "start": 2.06,
+          "end": 2.4
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 10,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.25661168713122606
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "12cb03a5af3328b43af7d4cf2f61423bd4befdf77754243788711e8b5ed3e59a",
+  "selected_reasons": []
+}

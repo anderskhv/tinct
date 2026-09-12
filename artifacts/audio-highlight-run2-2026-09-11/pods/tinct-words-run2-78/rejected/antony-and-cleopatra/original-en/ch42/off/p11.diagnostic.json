@@ -1,0 +1,483 @@
+{
+  "complete": true,
+  "signature": "0403860dacbf8e5a41a649497e7d2fb7e96c9c88a7d339d530f866f2ef000daa",
+  "attempts": [
+    {
+      "asr_seconds": 0.23023165948688984,
+      "alignment_seconds": 0.000576225109398365,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " You see how easily she may be surprised.",
+          "start": 0.05,
+          "end": 2.27,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " see",
+              "start": 0.51,
+              "end": 0.67,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " how",
+              "start": 0.67,
+              "end": 0.89,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " easily",
+              "start": 0.89,
+              "end": 1.23,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " she",
+              "start": 1.23,
+              "end": 1.51,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " may",
+              "start": 1.51,
+              "end": 1.67,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " be",
+              "start": 1.67,
+              "end": 1.83,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " surprised.",
+              "start": 1.83,
+              "end": 2.27,
+              "probability": 0.99560546875
+            }
+          ]
+        },
+        {
+          "text": " Guard her till Caesar come.",
+          "start": 3.11,
+          "end": 4.13,
+          "words": [
+            {
+              "text": " Guard",
+              "start": 3.11,
+              "end": 3.11,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " her",
+              "start": 3.11,
+              "end": 3.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " till",
+              "start": 3.31,
+              "end": 3.47,
+              "probability": 0.68212890625
+            },
+            {
+              "text": " Caesar",
+              "start": 3.47,
+              "end": 3.73,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " come.",
+              "start": 3.73,
+              "end": 4.13,
+              "probability": 0.97119140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "see",
+          "start": 0.51,
+          "end": 0.67
+        },
+        {
+          "raw": "how",
+          "start": 0.67,
+          "end": 0.89
+        },
+        {
+          "raw": "easily",
+          "start": 0.89,
+          "end": 1.23
+        },
+        {
+          "raw": "she",
+          "start": 1.23,
+          "end": 1.51
+        },
+        {
+          "raw": "may",
+          "start": 1.51,
+          "end": 1.67
+        },
+        {
+          "raw": "be",
+          "start": 1.67,
+          "end": 1.83
+        },
+        {
+          "raw": "surprised.",
+          "start": 1.83,
+          "end": 2.27
+        },
+        {
+          "raw": "Guard",
+          "start": 3.11,
+          "end": 3.11
+        },
+        {
+          "raw": "her",
+          "start": 3.11,
+          "end": 3.31
+        },
+        {
+          "raw": "till",
+          "start": 3.31,
+          "end": 3.47
+        },
+        {
+          "raw": "Caesar",
+          "start": 3.47,
+          "end": 3.73
+        },
+        {
+          "raw": "come.",
+          "start": 3.73,
+          "end": 4.13
+        }
+      ],
+      "expected_tokens": [
+        "You",
+        "see",
+        "how",
+        "easily",
+        "she",
+        "may",
+        "be",
+        "surprised.",
+        "Guard",
+        "her",
+        "till",
+        "Caesar",
+        "come."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 0.51,
+          "end": 0.67,
+          "key": "see",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 0.67,
+          "end": 0.89,
+          "key": "how",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "easily",
+          "start": 0.89,
+          "end": 1.23,
+          "key": "easily",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.23,
+          "end": 1.51,
+          "key": "she",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 1.51,
+          "end": 1.67,
+          "key": "may",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.67,
+          "end": 1.83,
+          "key": "be",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "surprised.",
+          "start": 1.83,
+          "end": 2.27,
+          "key": "surprised",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Guard",
+          "start": 3.11,
+          "end": 3.11,
+          "key": "guard",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.11,
+          "end": 3.31,
+          "key": "her",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "till",
+          "start": 3.31,
+          "end": 3.47,
+          "key": "till",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Caesar",
+          "start": 3.47,
+          "end": 3.73,
+          "key": "caesar",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "come.",
+          "start": 3.73,
+          "end": 4.13,
+          "key": "come",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "You",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "see",
+          "start": 0.51,
+          "end": 0.67
+        },
+        {
+          "text": "how",
+          "start": 0.67,
+          "end": 0.89
+        },
+        {
+          "text": "easily",
+          "start": 0.89,
+          "end": 1.23
+        },
+        {
+          "text": "she",
+          "start": 1.23,
+          "end": 1.51
+        },
+        {
+          "text": "may",
+          "start": 1.51,
+          "end": 1.67
+        },
+        {
+          "text": "be",
+          "start": 1.67,
+          "end": 1.83
+        },
+        {
+          "text": "surprised.",
+          "start": 1.83,
+          "end": 2.27
+        },
+        {
+          "text": "Guard",
+          "start": 3.11,
+          "end": 3.11
+        },
+        {
+          "text": "her",
+          "start": 3.11,
+          "end": 3.31
+        },
+        {
+          "text": "till",
+          "start": 3.31,
+          "end": 3.47
+        },
+        {
+          "text": "Caesar",
+          "start": 3.47,
+          "end": 3.73
+        },
+        {
+          "text": "come.",
+          "start": 3.73,
+          "end": 4.13
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23104349803179502
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ca872984eaf442a8e4f003f52f4763613fc3e88a3ebf1e6da734efe08424113d",
+  "selected_reasons": []
+}

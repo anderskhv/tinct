@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "1f7ec7563b864317ff29bfca0d6ffd69d410688983b640e11a74b85c4aba3d5e",
+  "attempts": [
+    {
+      "asr_seconds": 0.1828672019764781,
+      "alignment_seconds": 0.0003612423315644264,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cleopatra, nay pray you, sir.",
+          "start": 0.65,
+          "end": 2.17,
+          "words": [
+            {
+              "text": " Cleopatra,",
+              "start": 0.65,
+              "end": 1.03,
+              "probability": 0.9581705729166666
+            },
+            {
+              "text": " nay",
+              "start": 1.47,
+              "end": 1.57,
+              "probability": 0.6324462890625
+            },
+            {
+              "text": " pray",
+              "start": 1.57,
+              "end": 1.75,
+              "probability": 0.67919921875
+            },
+            {
+              "text": " you,",
+              "start": 1.75,
+              "end": 1.95,
+              "probability": 0.986328125
+            },
+            {
+              "text": " sir.",
+              "start": 2.03,
+              "end": 2.17,
+              "probability": 0.92578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.65,
+          "end": 1.03
+        },
+        {
+          "raw": "nay",
+          "start": 1.47,
+          "end": 1.57
+        },
+        {
+          "raw": "pray",
+          "start": 1.57,
+          "end": 1.75
+        },
+        {
+          "raw": "you,",
+          "start": 1.75,
+          "end": 1.95
+        },
+        {
+          "raw": "sir.",
+          "start": 2.03,
+          "end": 2.17
+        }
+      ],
+      "expected_tokens": [
+        "Cleopatra.",
+        "Nay,",
+        "pray",
+        "you,",
+        "sir."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.65,
+          "end": 1.03,
+          "key": "cleopatra",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "nay",
+          "start": 1.47,
+          "end": 1.57,
+          "key": "nay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "pray",
+          "start": 1.57,
+          "end": 1.75,
+          "key": "pray",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 1.75,
+          "end": 1.95,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 2.03,
+          "end": 2.17,
+          "key": "sir",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cleopatra.",
+          "start": 0.65,
+          "end": 1.03
+        },
+        {
+          "text": "Nay,",
+          "start": 1.47,
+          "end": 1.57
+        },
+        {
+          "text": "pray",
+          "start": 1.57,
+          "end": 1.75
+        },
+        {
+          "text": "you,",
+          "start": 1.75,
+          "end": 1.95
+        },
+        {
+          "text": "sir.",
+          "start": 2.03,
+          "end": 2.17
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18335202801972628
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7d1f64c447f240b516b1d06b66edd327a76df3816efad16baee0f409f22f8ba0",
+  "selected_reasons": []
+}

@@ -1,0 +1,702 @@
+{
+  "complete": true,
+  "signature": "5cacec7f28c8dfada9dc7816fb190bde3497ba19d53778d9e24e847b561c8702",
+  "attempts": [
+    {
+      "asr_seconds": 0.323321083560586,
+      "alignment_seconds": 0.0006309952586889267,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Dolabella. Here on her breast There is a vent of blood, and something blown. The like is on her arm.",
+        "hotwords": "Dolabella, Here, There, The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Dolabella, Here on her breast There is a vent of blood, and something blown. The like is on her arm.",
+          "start": 0.53,
+          "end": 5.93,
+          "words": [
+            {
+              "text": " Dolabella,",
+              "start": 0.53,
+              "end": 0.95,
+              "probability": 0.006044179201126099
+            },
+            {
+              "text": " Here",
+              "start": 1.43,
+              "end": 1.71,
+              "probability": 0.014373779296875
+            },
+            {
+              "text": " on",
+              "start": 1.71,
+              "end": 1.85,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " her",
+              "start": 1.85,
+              "end": 1.97,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " breast",
+              "start": 1.97,
+              "end": 2.27,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " There",
+              "start": 2.27,
+              "end": 2.53,
+              "probability": 0.012542724609375
+            },
+            {
+              "text": " is",
+              "start": 2.53,
+              "end": 2.63,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " a",
+              "start": 2.63,
+              "end": 2.75,
+              "probability": 0.97265625
+            },
+            {
+              "text": " vent",
+              "start": 2.75,
+              "end": 2.93,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " of",
+              "start": 2.93,
+              "end": 3.15,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " blood,",
+              "start": 3.15,
+              "end": 3.45,
+              "probability": 0.978515625
+            },
+            {
+              "text": " and",
+              "start": 3.63,
+              "end": 3.71,
+              "probability": 0.71240234375
+            },
+            {
+              "text": " something",
+              "start": 3.71,
+              "end": 3.97,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " blown.",
+              "start": 3.97,
+              "end": 4.35,
+              "probability": 0.8359375
+            },
+            {
+              "text": " The",
+              "start": 4.93,
+              "end": 5.01,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " like",
+              "start": 5.01,
+              "end": 5.21,
+              "probability": 0.791015625
+            },
+            {
+              "text": " is",
+              "start": 5.21,
+              "end": 5.39,
+              "probability": 0.990234375
+            },
+            {
+              "text": " on",
+              "start": 5.39,
+              "end": 5.53,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " her",
+              "start": 5.53,
+              "end": 5.65,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " arm.",
+              "start": 5.65,
+              "end": 5.93,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dolabella,",
+          "start": 0.53,
+          "end": 0.95
+        },
+        {
+          "raw": "Here",
+          "start": 1.43,
+          "end": 1.71
+        },
+        {
+          "raw": "on",
+          "start": 1.71,
+          "end": 1.85
+        },
+        {
+          "raw": "her",
+          "start": 1.85,
+          "end": 1.97
+        },
+        {
+          "raw": "breast",
+          "start": 1.97,
+          "end": 2.27
+        },
+        {
+          "raw": "There",
+          "start": 2.27,
+          "end": 2.53
+        },
+        {
+          "raw": "is",
+          "start": 2.53,
+          "end": 2.63
+        },
+        {
+          "raw": "a",
+          "start": 2.63,
+          "end": 2.75
+        },
+        {
+          "raw": "vent",
+          "start": 2.75,
+          "end": 2.93
+        },
+        {
+          "raw": "of",
+          "start": 2.93,
+          "end": 3.15
+        },
+        {
+          "raw": "blood,",
+          "start": 3.15,
+          "end": 3.45
+        },
+        {
+          "raw": "and",
+          "start": 3.63,
+          "end": 3.71
+        },
+        {
+          "raw": "something",
+          "start": 3.71,
+          "end": 3.97
+        },
+        {
+          "raw": "blown.",
+          "start": 3.97,
+          "end": 4.35
+        },
+        {
+          "raw": "The",
+          "start": 4.93,
+          "end": 5.01
+        },
+        {
+          "raw": "like",
+          "start": 5.01,
+          "end": 5.21
+        },
+        {
+          "raw": "is",
+          "start": 5.21,
+          "end": 5.39
+        },
+        {
+          "raw": "on",
+          "start": 5.39,
+          "end": 5.53
+        },
+        {
+          "raw": "her",
+          "start": 5.53,
+          "end": 5.65
+        },
+        {
+          "raw": "arm.",
+          "start": 5.65,
+          "end": 5.93
+        }
+      ],
+      "expected_tokens": [
+        "Dolabella.",
+        "Here",
+        "on",
+        "her",
+        "breast",
+        "There",
+        "is",
+        "a",
+        "vent",
+        "of",
+        "blood,",
+        "and",
+        "something",
+        "blown.",
+        "The",
+        "like",
+        "is",
+        "on",
+        "her",
+        "arm."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dolabella,",
+          "start": 0.53,
+          "end": 0.95,
+          "key": "dolabella",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Here",
+          "start": 1.43,
+          "end": 1.71,
+          "key": "here",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.71,
+          "end": 1.85,
+          "key": "on",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 1.85,
+          "end": 1.97,
+          "key": "her",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "breast",
+          "start": 1.97,
+          "end": 2.27,
+          "key": "breast",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "There",
+          "start": 2.27,
+          "end": 2.53,
+          "key": "there",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.53,
+          "end": 2.63,
+          "key": "is",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.63,
+          "end": 2.75,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "vent",
+          "start": 2.75,
+          "end": 2.93,
+          "key": "vent",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.93,
+          "end": 3.15,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "blood,",
+          "start": 3.15,
+          "end": 3.45,
+          "key": "blood",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.63,
+          "end": 3.71,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "something",
+          "start": 3.71,
+          "end": 3.97,
+          "key": "something",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "blown.",
+          "start": 3.97,
+          "end": 4.35,
+          "key": "blown",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 4.93,
+          "end": 5.01,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 5.01,
+          "end": 5.21,
+          "key": "like",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 5.21,
+          "end": 5.39,
+          "key": "is",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 5.39,
+          "end": 5.53,
+          "key": "on",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 5.53,
+          "end": 5.65,
+          "key": "her",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "arm.",
+          "start": 5.65,
+          "end": 5.93,
+          "key": "arm",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Dolabella.",
+          "start": 0.53,
+          "end": 0.95
+        },
+        {
+          "text": "Here",
+          "start": 1.43,
+          "end": 1.71
+        },
+        {
+          "text": "on",
+          "start": 1.71,
+          "end": 1.85
+        },
+        {
+          "text": "her",
+          "start": 1.85,
+          "end": 1.97
+        },
+        {
+          "text": "breast",
+          "start": 1.97,
+          "end": 2.27
+        },
+        {
+          "text": "There",
+          "start": 2.27,
+          "end": 2.53
+        },
+        {
+          "text": "is",
+          "start": 2.53,
+          "end": 2.63
+        },
+        {
+          "text": "a",
+          "start": 2.63,
+          "end": 2.75
+        },
+        {
+          "text": "vent",
+          "start": 2.75,
+          "end": 2.93
+        },
+        {
+          "text": "of",
+          "start": 2.93,
+          "end": 3.15
+        },
+        {
+          "text": "blood,",
+          "start": 3.15,
+          "end": 3.45
+        },
+        {
+          "text": "and",
+          "start": 3.63,
+          "end": 3.71
+        },
+        {
+          "text": "something",
+          "start": 3.71,
+          "end": 3.97
+        },
+        {
+          "text": "blown.",
+          "start": 3.97,
+          "end": 4.35
+        },
+        {
+          "text": "The",
+          "start": 4.93,
+          "end": 5.01
+        },
+        {
+          "text": "like",
+          "start": 5.01,
+          "end": 5.21
+        },
+        {
+          "text": "is",
+          "start": 5.21,
+          "end": 5.39
+        },
+        {
+          "text": "on",
+          "start": 5.39,
+          "end": 5.53
+        },
+        {
+          "text": "her",
+          "start": 5.53,
+          "end": 5.65
+        },
+        {
+          "text": "arm.",
+          "start": 5.65,
+          "end": 5.93
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.32421735767275095
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a6dde3fae0fff75250a1290bba9511401309483d4f7b3658ea1414807091aaef",
+  "selected_reasons": []
+}

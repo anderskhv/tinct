@@ -1,0 +1,259 @@
+{
+  "complete": true,
+  "signature": "c7df4c0bce2455c447afa417015e129bed2205b0718a86be60f3dcf921ca0ff5",
+  "attempts": [
+    {
+      "asr_seconds": 0.1983230235055089,
+      "alignment_seconds": 0.00028175022453069687,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Dolly Bella assuredly, you know me",
+          "start": 0.05,
+          "end": 2.33,
+          "words": [
+            {
+              "text": " Dolly",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.857666015625
+            },
+            {
+              "text": " Bella",
+              "start": 0.69,
+              "end": 1.01,
+              "probability": 0.88525390625
+            },
+            {
+              "text": " assuredly,",
+              "start": 1.01,
+              "end": 1.83,
+              "probability": 0.63427734375
+            },
+            {
+              "text": " you",
+              "start": 1.83,
+              "end": 1.97,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " know",
+              "start": 1.97,
+              "end": 2.09,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " me",
+              "start": 2.09,
+              "end": 2.33,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dolly",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "Bella",
+          "start": 0.69,
+          "end": 1.01
+        },
+        {
+          "raw": "assuredly,",
+          "start": 1.01,
+          "end": 1.83
+        },
+        {
+          "raw": "you",
+          "start": 1.83,
+          "end": 1.97
+        },
+        {
+          "raw": "know",
+          "start": 1.97,
+          "end": 2.09
+        },
+        {
+          "raw": "me",
+          "start": 2.09,
+          "end": 2.33
+        }
+      ],
+      "expected_tokens": [
+        "Dolabella.",
+        "Assuredly",
+        "you",
+        "know",
+        "me."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          5,
+          2,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dolly",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "dolly",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Bella",
+          "start": 0.69,
+          "end": 1.01,
+          "key": "bella",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "assuredly,",
+          "start": 1.01,
+          "end": 1.83,
+          "key": "assuredly",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.83,
+          "end": 1.97,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 1.97,
+          "end": 2.09,
+          "key": "know",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.09,
+          "end": 2.33,
+          "key": "me",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Dolabella.",
+          "start": 0.0,
+          "end": 0.505
+        },
+        {
+          "text": "Assuredly",
+          "start": 1.01,
+          "end": 1.83
+        },
+        {
+          "text": "you",
+          "start": 1.83,
+          "end": 1.97
+        },
+        {
+          "text": "know",
+          "start": 1.97,
+          "end": 2.09
+        },
+        {
+          "text": "me.",
+          "start": 2.09,
+          "end": 2.33
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19872205331921577
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "52821420b845018b7cd5ab36fe0e1dd685d0bcafa28b513a42d32a326be849ee",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

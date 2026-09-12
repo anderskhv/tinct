@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "dc053feeee8ff20e028764961464304f9c6b1f4e5731121d5d1fd358e7614ac4",
+  "attempts": [
+    {
+      "asr_seconds": 0.1831508381292224,
+      "alignment_seconds": 0.0003377106040716171,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Caesar. Not so. Adieu.",
+        "hotwords": "Caesar, Not, Adieu"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Caesar. Not so. Adieu.",
+          "start": 0.11,
+          "end": 1.85,
+          "words": [
+            {
+              "text": " Caesar.",
+              "start": 0.11,
+              "end": 0.77,
+              "probability": 0.904296875
+            },
+            {
+              "text": " Not",
+              "start": 1.13,
+              "end": 1.21,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " so.",
+              "start": 1.21,
+              "end": 1.47,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " Adieu.",
+              "start": 1.59,
+              "end": 1.85,
+              "probability": 0.50830078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Caesar.",
+          "start": 0.11,
+          "end": 0.77
+        },
+        {
+          "raw": "Not",
+          "start": 1.13,
+          "end": 1.21
+        },
+        {
+          "raw": "so.",
+          "start": 1.21,
+          "end": 1.47
+        },
+        {
+          "raw": "Adieu.",
+          "start": 1.59,
+          "end": 1.85
+        }
+      ],
+      "expected_tokens": [
+        "Caesar.",
+        "Not",
+        "so.",
+        "Adieu."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Caesar.",
+          "start": 0.11,
+          "end": 0.77,
+          "key": "caesar",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Not",
+          "start": 1.13,
+          "end": 1.21,
+          "key": "not",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "so.",
+          "start": 1.21,
+          "end": 1.47,
+          "key": "so",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Adieu.",
+          "start": 1.59,
+          "end": 1.85,
+          "key": "adieu",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Caesar.",
+          "start": 0.11,
+          "end": 0.77
+        },
+        {
+          "text": "Not",
+          "start": 1.13,
+          "end": 1.21
+        },
+        {
+          "text": "so.",
+          "start": 1.21,
+          "end": 1.47
+        },
+        {
+          "text": "Adieu.",
+          "start": 1.59,
+          "end": 1.85
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18360294960439205
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f92ac91e726e21eaa0433c1034899c85fb5abdb4c9c5d22a947ddb6074b6eca4",
+  "selected_reasons": []
+}

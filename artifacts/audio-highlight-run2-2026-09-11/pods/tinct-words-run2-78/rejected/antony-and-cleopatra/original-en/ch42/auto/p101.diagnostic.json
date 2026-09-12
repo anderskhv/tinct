@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "f3be81acaa8f0ea5ad92d72d2ac6e0028c680787266e17dd2baf22955b81eb90",
+  "attempts": [
+    {
+      "asr_seconds": 0.13347690925002098,
+      "alignment_seconds": 0.00034235697239637375,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Iras. The gods forbid!",
+        "hotwords": "Iras, The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Iras, The gods forbid!",
+          "start": 0.05,
+          "end": 1.83,
+          "words": [
+            {
+              "text": " Iras,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.4324836730957031
+            },
+            {
+              "text": " The",
+              "start": 1.17,
+              "end": 1.27,
+              "probability": 0.1107177734375
+            },
+            {
+              "text": " gods",
+              "start": 1.27,
+              "end": 1.53,
+              "probability": 0.06365966796875
+            },
+            {
+              "text": " forbid!",
+              "start": 1.53,
+              "end": 1.83,
+              "probability": 0.9775390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Iras,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "The",
+          "start": 1.17,
+          "end": 1.27
+        },
+        {
+          "raw": "gods",
+          "start": 1.27,
+          "end": 1.53
+        },
+        {
+          "raw": "forbid!",
+          "start": 1.53,
+          "end": 1.83
+        }
+      ],
+      "expected_tokens": [
+        "Iras.",
+        "The",
+        "gods",
+        "forbid!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Iras,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "iras",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.17,
+          "end": 1.27,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "gods",
+          "start": 1.27,
+          "end": 1.53,
+          "key": "gods",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "forbid!",
+          "start": 1.53,
+          "end": 1.83,
+          "key": "forbid",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iras.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "The",
+          "start": 1.17,
+          "end": 1.27
+        },
+        {
+          "text": "gods",
+          "start": 1.27,
+          "end": 1.53
+        },
+        {
+          "text": "forbid!",
+          "start": 1.53,
+          "end": 1.83
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13394265808165073
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e03a08157a148e819e74053b201514d5ef998a03732d0d7c93d662169b2516cf",
+  "selected_reasons": []
+}

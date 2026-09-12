@@ -1,0 +1,239 @@
+{
+  "complete": true,
+  "signature": "5c5303eee049cebd563458183c7bf541352809c4c0b8bd05b9935178e3c6b4c1",
+  "attempts": [
+    {
+      "asr_seconds": 0.1768306065350771,
+      "alignment_seconds": 0.0004568416625261307,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Guardsmen, this is the man.",
+          "start": 0.05,
+          "end": 1.91,
+          "words": [
+            {
+              "text": " Guardsmen,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.84912109375
+            },
+            {
+              "text": " this",
+              "start": 1.29,
+              "end": 1.39,
+              "probability": 0.97265625
+            },
+            {
+              "text": " is",
+              "start": 1.39,
+              "end": 1.55,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 1.55,
+              "end": 1.67,
+              "probability": 0.85693359375
+            },
+            {
+              "text": " man.",
+              "start": 1.67,
+              "end": 1.91,
+              "probability": 0.9013671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Guardsmen,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "this",
+          "start": 1.29,
+          "end": 1.39
+        },
+        {
+          "raw": "is",
+          "start": 1.39,
+          "end": 1.55
+        },
+        {
+          "raw": "the",
+          "start": 1.55,
+          "end": 1.67
+        },
+        {
+          "raw": "man.",
+          "start": 1.67,
+          "end": 1.91
+        }
+      ],
+      "expected_tokens": [
+        "Guardsman.",
+        "This",
+        "is",
+        "the",
+        "man."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Guardsmen,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "guardsmen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.29,
+          "end": 1.39,
+          "key": "this",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.39,
+          "end": 1.55,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.55,
+          "end": 1.67,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "man.",
+          "start": 1.67,
+          "end": 1.91,
+          "key": "man",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Guardsman.",
+          "start": 0.0,
+          "end": 0.645
+        },
+        {
+          "text": "This",
+          "start": 1.29,
+          "end": 1.39
+        },
+        {
+          "text": "is",
+          "start": 1.39,
+          "end": 1.55
+        },
+        {
+          "text": "the",
+          "start": 1.55,
+          "end": 1.67
+        },
+        {
+          "text": "man.",
+          "start": 1.67,
+          "end": 1.91
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.17744293995201588
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "34f40af0a0c1029e95ff734a37d6dafe453cff22ef004447095764ed3153d044",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

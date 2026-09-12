@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "6a35bba061c378f1154e2a9526732a48f0b9523572edbdce00e445ab59a575c2",
+  "attempts": [
+    {
+      "asr_seconds": 0.16110953874886036,
+      "alignment_seconds": 0.00025701429694890976,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cleopatra. Dolabella!",
+        "hotwords": "Cleopatra, Dolabella"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cleopatra, Dolabella!",
+          "start": 0.05,
+          "end": 1.75,
+          "words": [
+            {
+              "text": " Cleopatra,",
+              "start": 0.05,
+              "end": 1.01,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " Dolabella!",
+              "start": 1.41,
+              "end": 1.75,
+              "probability": 0.023398399353027344
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "raw": "Dolabella!",
+          "start": 1.41,
+          "end": 1.75
+        }
+      ],
+      "expected_tokens": [
+        "Cleopatra.",
+        "Dolabella!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.05,
+          "end": 1.01,
+          "key": "cleopatra",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Dolabella!",
+          "start": 1.41,
+          "end": 1.75,
+          "key": "dolabella",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cleopatra.",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "text": "Dolabella!",
+          "start": 1.41,
+          "end": 1.75
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.161456442438066
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "96eb426f8a447ae5e6dc18bf3b31ff0d09b2287205ebe60ec37e8fbbdde857c3",
+  "selected_reasons": []
+}

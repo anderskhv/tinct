@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "0aebe09cafd1357feeee5eea6dc8ec8a3f1230bf9e240684fcf32f0b557a936b",
+  "attempts": [
+    {
+      "asr_seconds": 0.14491756446659565,
+      "alignment_seconds": 0.0002910718321800232,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Charmian. Behold, sir.",
+        "hotwords": "Charmian, Behold"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Charmian, Behold, sir.",
+          "start": 0.05,
+          "end": 1.69,
+          "words": [
+            {
+              "text": " Charmian,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.7353515625
+            },
+            {
+              "text": " Behold,",
+              "start": 1.11,
+              "end": 1.41,
+              "probability": 0.5049285888671875
+            },
+            {
+              "text": " sir.",
+              "start": 1.55,
+              "end": 1.69,
+              "probability": 0.445068359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Charmian,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "Behold,",
+          "start": 1.11,
+          "end": 1.41
+        },
+        {
+          "raw": "sir.",
+          "start": 1.55,
+          "end": 1.69
+        }
+      ],
+      "expected_tokens": [
+        "Charmian.",
+        "Behold,",
+        "sir."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Charmian,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "charmian",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Behold,",
+          "start": 1.11,
+          "end": 1.41,
+          "key": "behold",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 1.55,
+          "end": 1.69,
+          "key": "sir",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Charmian.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "Behold,",
+          "start": 1.11,
+          "end": 1.41
+        },
+        {
+          "text": "sir.",
+          "start": 1.55,
+          "end": 1.69
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14531362149864435
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "faf4073babaaab063b8afaf34538cb3620e11f245ed6d263a1da45c4d6f92987",
+  "selected_reasons": []
+}

@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "ac16ca6abdfdd8c8f6652131fc77f8773649cff464ba2fee7a63b27a52bf5f6a",
+  "attempts": [
+    {
+      "asr_seconds": 0.20550851710140705,
+      "alignment_seconds": 0.0004980117082595825,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Clown. Yes, forsooth. I wish you joy o' th' worm.",
+        "hotwords": "Clown, Yes, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Clown, Yes, forsooth. I wish you joy o' th' worm.",
+          "start": 0.08,
+          "end": 3.54,
+          "words": [
+            {
+              "text": " Clown,",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.70751953125
+            },
+            {
+              "text": " Yes,",
+              "start": 1.08,
+              "end": 1.18,
+              "probability": 0.051849365234375
+            },
+            {
+              "text": " forsooth.",
+              "start": 1.36,
+              "end": 1.78,
+              "probability": 0.5656750996907552
+            },
+            {
+              "text": " I",
+              "start": 2.14,
+              "end": 2.18,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " wish",
+              "start": 2.18,
+              "end": 2.3,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " you",
+              "start": 2.3,
+              "end": 2.46,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " joy",
+              "start": 2.46,
+              "end": 2.62,
+              "probability": 0.857421875
+            },
+            {
+              "text": " o'",
+              "start": 2.62,
+              "end": 2.84,
+              "probability": 0.040557861328125
+            },
+            {
+              "text": " th'",
+              "start": 2.98,
+              "end": 3.16,
+              "probability": 0.5810546875
+            },
+            {
+              "text": " worm.",
+              "start": 3.16,
+              "end": 3.54,
+              "probability": 0.91064453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clown,",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "Yes,",
+          "start": 1.08,
+          "end": 1.18
+        },
+        {
+          "raw": "forsooth.",
+          "start": 1.36,
+          "end": 1.78
+        },
+        {
+          "raw": "I",
+          "start": 2.14,
+          "end": 2.18
+        },
+        {
+          "raw": "wish",
+          "start": 2.18,
+          "end": 2.3
+        },
+        {
+          "raw": "you",
+          "start": 2.3,
+          "end": 2.46
+        },
+        {
+          "raw": "joy",
+          "start": 2.46,
+          "end": 2.62
+        },
+        {
+          "raw": "o'",
+          "start": 2.62,
+          "end": 2.84
+        },
+        {
+          "raw": "th'",
+          "start": 2.98,
+          "end": 3.16
+        },
+        {
+          "raw": "worm.",
+          "start": 3.16,
+          "end": 3.54
+        }
+      ],
+      "expected_tokens": [
+        "Clown.",
+        "Yes,",
+        "forsooth.",
+        "I",
+        "wish",
+        "you",
+        "joy",
+        "o'",
+        "th'",
+        "worm."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clown,",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "clown",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Yes,",
+          "start": 1.08,
+          "end": 1.18,
+          "key": "yes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "forsooth.",
+          "start": 1.36,
+          "end": 1.78,
+          "key": "forsooth",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.14,
+          "end": 2.18,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "wish",
+          "start": 2.18,
+          "end": 2.3,
+          "key": "wish",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.3,
+          "end": 2.46,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "joy",
+          "start": 2.46,
+          "end": 2.62,
+          "key": "joy",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "o'",
+          "start": 2.62,
+          "end": 2.84,
+          "key": "o",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "th'",
+          "start": 2.98,
+          "end": 3.16,
+          "key": "th",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "worm.",
+          "start": 3.16,
+          "end": 3.54,
+          "key": "worm",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clown.",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "Yes,",
+          "start": 1.08,
+          "end": 1.18
+        },
+        {
+          "text": "forsooth.",
+          "start": 1.36,
+          "end": 1.78
+        },
+        {
+          "text": "I",
+          "start": 2.14,
+          "end": 2.18
+        },
+        {
+          "text": "wish",
+          "start": 2.18,
+          "end": 2.3
+        },
+        {
+          "text": "you",
+          "start": 2.3,
+          "end": 2.46
+        },
+        {
+          "text": "joy",
+          "start": 2.46,
+          "end": 2.62
+        },
+        {
+          "text": "o'",
+          "start": 2.62,
+          "end": 2.84
+        },
+        {
+          "text": "th'",
+          "start": 2.98,
+          "end": 3.16
+        },
+        {
+          "text": "worm.",
+          "start": 3.16,
+          "end": 3.54
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20620644185692072
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "081cd52975193c6b80f2b994b65fd9bfd1265aa42567b733a82bdeb7d258f6d0",
+  "selected_reasons": []
+}
