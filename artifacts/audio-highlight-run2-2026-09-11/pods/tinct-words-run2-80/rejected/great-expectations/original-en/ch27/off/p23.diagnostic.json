@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "634c60e3d17aee228197131a2800e6a3aa5ecac0a654482ef58389b1caa0fee5",
+  "attempts": [
+    {
+      "asr_seconds": 0.22457951866090298,
+      "alignment_seconds": 0.00047140754759311676,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I were,\" said Joe, with emphasis and solemnity.",
+          "start": 0.08,
+          "end": 3.18,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.10894775390625
+            },
+            {
+              "text": " were,\"",
+              "start": 0.52,
+              "end": 1.1,
+              "probability": 0.7021484375
+            },
+            {
+              "text": " said",
+              "start": 1.1,
+              "end": 1.36,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Joe,",
+              "start": 1.36,
+              "end": 1.62,
+              "probability": 0.720703125
+            },
+            {
+              "text": " with",
+              "start": 1.8,
+              "end": 1.9,
+              "probability": 0.98828125
+            },
+            {
+              "text": " emphasis",
+              "start": 1.9,
+              "end": 2.32,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 2.32,
+              "end": 2.62,
+              "probability": 0.79443359375
+            },
+            {
+              "text": " solemnity.",
+              "start": 2.62,
+              "end": 3.18,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "were,\"",
+          "start": 0.52,
+          "end": 1.1
+        },
+        {
+          "raw": "said",
+          "start": 1.1,
+          "end": 1.36
+        },
+        {
+          "raw": "Joe,",
+          "start": 1.36,
+          "end": 1.62
+        },
+        {
+          "raw": "with",
+          "start": 1.8,
+          "end": 1.9
+        },
+        {
+          "raw": "emphasis",
+          "start": 1.9,
+          "end": 2.32
+        },
+        {
+          "raw": "and",
+          "start": 2.32,
+          "end": 2.62
+        },
+        {
+          "raw": "solemnity.",
+          "start": 2.62,
+          "end": 3.18
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "_were_,\"",
+        "said",
+        "Joe,",
+        "with",
+        "emphasis",
+        "and",
+        "solemnity."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "were,\"",
+          "start": 0.52,
+          "end": 1.1,
+          "key": "were",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.1,
+          "end": 1.36,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Joe,",
+          "start": 1.36,
+          "end": 1.62,
+          "key": "joe",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.8,
+          "end": 1.9,
+          "key": "with",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "emphasis",
+          "start": 1.9,
+          "end": 2.32,
+          "key": "emphasis",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.32,
+          "end": 2.62,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "solemnity.",
+          "start": 2.62,
+          "end": 3.18,
+          "key": "solemnity",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "_were_,\"",
+          "start": 0.52,
+          "end": 1.1
+        },
+        {
+          "text": "said",
+          "start": 1.1,
+          "end": 1.36
+        },
+        {
+          "text": "Joe,",
+          "start": 1.36,
+          "end": 1.62
+        },
+        {
+          "text": "with",
+          "start": 1.8,
+          "end": 1.9
+        },
+        {
+          "text": "emphasis",
+          "start": 1.9,
+          "end": 2.32
+        },
+        {
+          "text": "and",
+          "start": 2.32,
+          "end": 2.62
+        },
+        {
+          "text": "solemnity.",
+          "start": 2.62,
+          "end": 3.18
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22521883435547352
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "db9a4cdd93a9f99e52cae78023ff3cd1e3347e55feea3ccbf291facd2289da97",
+  "selected_reasons": []
+}

@@ -1,0 +1,700 @@
+{
+  "complete": true,
+  "signature": "6527454540428ca2ecaede311a949b4a0acb8e2da1b5da8946ad1d89089dfcfc",
+  "attempts": [
+    {
+      "asr_seconds": 0.3809818811714649,
+      "alignment_seconds": 0.0003721434623003006,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "He offered these friendly suggestions in such a lively way, that we both laughed and I scarcely blushed.",
+        "hotwords": "He, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " He, I He offered these friendly suggestions in such a lively way, that we both laughed",
+          "start": 0.05,
+          "end": 4.79,
+          "words": [
+            {
+              "text": " He,",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.8564453125
+            },
+            {
+              "text": " I",
+              "start": 0.69,
+              "end": 0.69,
+              "probability": 0.0014295578002929688
+            },
+            {
+              "text": " He",
+              "start": 0.69,
+              "end": 0.79,
+              "probability": 0.0004935264587402344
+            },
+            {
+              "text": " offered",
+              "start": 0.79,
+              "end": 0.81,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " these",
+              "start": 0.81,
+              "end": 1.07,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " friendly",
+              "start": 1.07,
+              "end": 1.49,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " suggestions",
+              "start": 1.49,
+              "end": 1.95,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " in",
+              "start": 1.95,
+              "end": 2.35,
+              "probability": 0.9140625
+            },
+            {
+              "text": " such",
+              "start": 2.35,
+              "end": 2.51,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " a",
+              "start": 2.51,
+              "end": 2.67,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " lively",
+              "start": 2.67,
+              "end": 2.93,
+              "probability": 0.99609375
+            },
+            {
+              "text": " way,",
+              "start": 2.93,
+              "end": 3.45,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " that",
+              "start": 3.87,
+              "end": 3.99,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " we",
+              "start": 3.99,
+              "end": 4.11,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " both",
+              "start": 4.11,
+              "end": 4.35,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " laughed",
+              "start": 4.35,
+              "end": 4.79,
+              "probability": 0.99462890625
+            }
+          ]
+        },
+        {
+          "text": " and I scarcely blushed.",
+          "start": 4.79,
+          "end": 6.43,
+          "words": [
+            {
+              "text": " and",
+              "start": 4.79,
+              "end": 5.17,
+              "probability": 0.72802734375
+            },
+            {
+              "text": " I",
+              "start": 5.17,
+              "end": 5.43,
+              "probability": 0.951171875
+            },
+            {
+              "text": " scarcely",
+              "start": 5.43,
+              "end": 5.91,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " blushed.",
+              "start": 5.91,
+              "end": 6.43,
+              "probability": 0.993896484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He,",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "I",
+          "start": 0.69,
+          "end": 0.69
+        },
+        {
+          "raw": "He",
+          "start": 0.69,
+          "end": 0.79
+        },
+        {
+          "raw": "offered",
+          "start": 0.79,
+          "end": 0.81
+        },
+        {
+          "raw": "these",
+          "start": 0.81,
+          "end": 1.07
+        },
+        {
+          "raw": "friendly",
+          "start": 1.07,
+          "end": 1.49
+        },
+        {
+          "raw": "suggestions",
+          "start": 1.49,
+          "end": 1.95
+        },
+        {
+          "raw": "in",
+          "start": 1.95,
+          "end": 2.35
+        },
+        {
+          "raw": "such",
+          "start": 2.35,
+          "end": 2.51
+        },
+        {
+          "raw": "a",
+          "start": 2.51,
+          "end": 2.67
+        },
+        {
+          "raw": "lively",
+          "start": 2.67,
+          "end": 2.93
+        },
+        {
+          "raw": "way,",
+          "start": 2.93,
+          "end": 3.45
+        },
+        {
+          "raw": "that",
+          "start": 3.87,
+          "end": 3.99
+        },
+        {
+          "raw": "we",
+          "start": 3.99,
+          "end": 4.11
+        },
+        {
+          "raw": "both",
+          "start": 4.11,
+          "end": 4.35
+        },
+        {
+          "raw": "laughed",
+          "start": 4.35,
+          "end": 4.79
+        },
+        {
+          "raw": "and",
+          "start": 4.79,
+          "end": 5.17
+        },
+        {
+          "raw": "I",
+          "start": 5.17,
+          "end": 5.43
+        },
+        {
+          "raw": "scarcely",
+          "start": 5.43,
+          "end": 5.91
+        },
+        {
+          "raw": "blushed.",
+          "start": 5.91,
+          "end": 6.43
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "offered",
+        "these",
+        "friendly",
+        "suggestions",
+        "in",
+        "such",
+        "a",
+        "lively",
+        "way,",
+        "that",
+        "we",
+        "both",
+        "laughed",
+        "and",
+        "I",
+        "scarcely",
+        "blushed."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          "equal",
+          0,
+          18,
+          2,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He,",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.69,
+          "end": 0.69,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 0.69,
+          "end": 0.79,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "offered",
+          "start": 0.79,
+          "end": 0.81,
+          "key": "offered",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 0.81,
+          "end": 1.07,
+          "key": "these",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "friendly",
+          "start": 1.07,
+          "end": 1.49,
+          "key": "friendly",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "suggestions",
+          "start": 1.49,
+          "end": 1.95,
+          "key": "suggestions",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.95,
+          "end": 2.35,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 2.35,
+          "end": 2.51,
+          "key": "such",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.51,
+          "end": 2.67,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "lively",
+          "start": 2.67,
+          "end": 2.93,
+          "key": "lively",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "way,",
+          "start": 2.93,
+          "end": 3.45,
+          "key": "way",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.87,
+          "end": 3.99,
+          "key": "that",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 3.99,
+          "end": 4.11,
+          "key": "we",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "both",
+          "start": 4.11,
+          "end": 4.35,
+          "key": "both",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "laughed",
+          "start": 4.35,
+          "end": 4.79,
+          "key": "laughed",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.79,
+          "end": 5.17,
+          "key": "and",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.17,
+          "end": 5.43,
+          "key": "i",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "scarcely",
+          "start": 5.43,
+          "end": 5.91,
+          "key": "scarcely",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "blushed.",
+          "start": 5.91,
+          "end": 6.43,
+          "key": "blushed",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.69,
+          "end": 0.79
+        },
+        {
+          "text": "offered",
+          "start": 0.79,
+          "end": 0.81
+        },
+        {
+          "text": "these",
+          "start": 0.81,
+          "end": 1.07
+        },
+        {
+          "text": "friendly",
+          "start": 1.07,
+          "end": 1.49
+        },
+        {
+          "text": "suggestions",
+          "start": 1.49,
+          "end": 1.95
+        },
+        {
+          "text": "in",
+          "start": 1.95,
+          "end": 2.35
+        },
+        {
+          "text": "such",
+          "start": 2.35,
+          "end": 2.51
+        },
+        {
+          "text": "a",
+          "start": 2.51,
+          "end": 2.67
+        },
+        {
+          "text": "lively",
+          "start": 2.67,
+          "end": 2.93
+        },
+        {
+          "text": "way,",
+          "start": 2.93,
+          "end": 3.45
+        },
+        {
+          "text": "that",
+          "start": 3.87,
+          "end": 3.99
+        },
+        {
+          "text": "we",
+          "start": 3.99,
+          "end": 4.11
+        },
+        {
+          "text": "both",
+          "start": 4.11,
+          "end": 4.35
+        },
+        {
+          "text": "laughed",
+          "start": 4.35,
+          "end": 4.79
+        },
+        {
+          "text": "and",
+          "start": 4.79,
+          "end": 5.17
+        },
+        {
+          "text": "I",
+          "start": 5.17,
+          "end": 5.43
+        },
+        {
+          "text": "scarcely",
+          "start": 5.43,
+          "end": 5.91
+        },
+        {
+          "text": "blushed.",
+          "start": 5.91,
+          "end": 6.43
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 20,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.38150762394070625
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6951f85cb72dca100c643f1186f7b829e3d535477f963df48c04a9808ec31e73",
+  "selected_reasons": []
+}

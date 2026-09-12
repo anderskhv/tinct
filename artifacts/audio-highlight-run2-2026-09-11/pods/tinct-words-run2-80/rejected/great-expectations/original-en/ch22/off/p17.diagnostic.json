@@ -1,0 +1,444 @@
+{
+  "complete": true,
+  "signature": "a9de8700fd4e79d851691b9193d629fdf72e8068b95e70d984fd9a77c633aff1",
+  "attempts": [
+    {
+      "asr_seconds": 0.216311139985919,
+      "alignment_seconds": 0.0006412677466869354,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Why should she wreak revenge on all the male sex? What revenge?",
+          "start": 0.02,
+          "end": 3.34,
+          "words": [
+            {
+              "text": " Why",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.9375
+            },
+            {
+              "text": " should",
+              "start": 0.56,
+              "end": 0.72,
+              "probability": 0.99609375
+            },
+            {
+              "text": " she",
+              "start": 0.72,
+              "end": 0.9,
+              "probability": 0.98828125
+            },
+            {
+              "text": " wreak",
+              "start": 0.9,
+              "end": 1.12,
+              "probability": 0.89599609375
+            },
+            {
+              "text": " revenge",
+              "start": 1.12,
+              "end": 1.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " on",
+              "start": 1.42,
+              "end": 1.6,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " all",
+              "start": 1.6,
+              "end": 1.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 1.74,
+              "end": 1.86,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " male",
+              "start": 1.86,
+              "end": 2.04,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " sex?",
+              "start": 2.04,
+              "end": 2.44,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " What",
+              "start": 2.94,
+              "end": 3.02,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " revenge?",
+              "start": 3.02,
+              "end": 3.34,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Why",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "should",
+          "start": 0.56,
+          "end": 0.72
+        },
+        {
+          "raw": "she",
+          "start": 0.72,
+          "end": 0.9
+        },
+        {
+          "raw": "wreak",
+          "start": 0.9,
+          "end": 1.12
+        },
+        {
+          "raw": "revenge",
+          "start": 1.12,
+          "end": 1.42
+        },
+        {
+          "raw": "on",
+          "start": 1.42,
+          "end": 1.6
+        },
+        {
+          "raw": "all",
+          "start": 1.6,
+          "end": 1.74
+        },
+        {
+          "raw": "the",
+          "start": 1.74,
+          "end": 1.86
+        },
+        {
+          "raw": "male",
+          "start": 1.86,
+          "end": 2.04
+        },
+        {
+          "raw": "sex?",
+          "start": 2.04,
+          "end": 2.44
+        },
+        {
+          "raw": "What",
+          "start": 2.94,
+          "end": 3.02
+        },
+        {
+          "raw": "revenge?",
+          "start": 3.02,
+          "end": 3.34
+        }
+      ],
+      "expected_tokens": [
+        "\"Why",
+        "should",
+        "she",
+        "wreak",
+        "revenge",
+        "on",
+        "all",
+        "the",
+        "male",
+        "sex?",
+        "What",
+        "revenge?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Why",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "why",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 0.56,
+          "end": 0.72,
+          "key": "should",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 0.72,
+          "end": 0.9,
+          "key": "she",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "wreak",
+          "start": 0.9,
+          "end": 1.12,
+          "key": "wreak",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "revenge",
+          "start": 1.12,
+          "end": 1.42,
+          "key": "revenge",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.42,
+          "end": 1.6,
+          "key": "on",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.6,
+          "end": 1.74,
+          "key": "all",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.74,
+          "end": 1.86,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "male",
+          "start": 1.86,
+          "end": 2.04,
+          "key": "male",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "sex?",
+          "start": 2.04,
+          "end": 2.44,
+          "key": "sex",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 2.94,
+          "end": 3.02,
+          "key": "what",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "revenge?",
+          "start": 3.02,
+          "end": 3.34,
+          "key": "revenge",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Why",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "should",
+          "start": 0.56,
+          "end": 0.72
+        },
+        {
+          "text": "she",
+          "start": 0.72,
+          "end": 0.9
+        },
+        {
+          "text": "wreak",
+          "start": 0.9,
+          "end": 1.12
+        },
+        {
+          "text": "revenge",
+          "start": 1.12,
+          "end": 1.42
+        },
+        {
+          "text": "on",
+          "start": 1.42,
+          "end": 1.6
+        },
+        {
+          "text": "all",
+          "start": 1.6,
+          "end": 1.74
+        },
+        {
+          "text": "the",
+          "start": 1.74,
+          "end": 1.86
+        },
+        {
+          "text": "male",
+          "start": 1.86,
+          "end": 2.04
+        },
+        {
+          "text": "sex?",
+          "start": 2.04,
+          "end": 2.44
+        },
+        {
+          "text": "What",
+          "start": 2.94,
+          "end": 3.02
+        },
+        {
+          "text": "revenge?\"",
+          "start": 3.02,
+          "end": 3.34
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.217182494699955
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d0c6a58fdc0807132fa5586034f5fd10146520f4d44599361fc06bc36a650637",
+  "selected_reasons": []
+}

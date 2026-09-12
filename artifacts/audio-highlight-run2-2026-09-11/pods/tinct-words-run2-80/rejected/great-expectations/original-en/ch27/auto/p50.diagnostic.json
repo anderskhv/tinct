@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "6313d3fc9faf33c585d344cfa12c0fb111045751511434781f7310130c255bc9",
+  "attempts": [
+    {
+      "asr_seconds": 0.13921013288199902,
+      "alignment_seconds": 0.0002934057265520096,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Miss Havisham, Joe?\"",
+        "hotwords": "Miss, Havisham, Joe"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Miss Havisham, Joe?",
+          "start": 0.02,
+          "end": 1.34,
+          "words": [
+            {
+              "text": " Miss",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.73974609375
+            },
+            {
+              "text": " Havisham,",
+              "start": 0.56,
+              "end": 1.08,
+              "probability": 0.9630533854166666
+            },
+            {
+              "text": " Joe?",
+              "start": 1.1,
+              "end": 1.34,
+              "probability": 0.77197265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Miss",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "Havisham,",
+          "start": 0.56,
+          "end": 1.08
+        },
+        {
+          "raw": "Joe?",
+          "start": 1.1,
+          "end": 1.34
+        }
+      ],
+      "expected_tokens": [
+        "\"Miss",
+        "Havisham,",
+        "Joe?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Miss",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "miss",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Havisham,",
+          "start": 0.56,
+          "end": 1.08,
+          "key": "havisham",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Joe?",
+          "start": 1.1,
+          "end": 1.34,
+          "key": "joe",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Miss",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "Havisham,",
+          "start": 0.56,
+          "end": 1.08
+        },
+        {
+          "text": "Joe?\"",
+          "start": 1.1,
+          "end": 1.34
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13960389606654644
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4557121af52fa633581b790605494f90273a5bdc875711933e8ee699cb63230b",
+  "selected_reasons": []
+}

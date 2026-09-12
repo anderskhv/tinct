@@ -1,0 +1,604 @@
+{
+  "complete": true,
+  "signature": "af3eb18db77d7cb9a5cccb641fbf61d68733f85b77f7c85b56e7c69424734c02",
+  "attempts": [
+    {
+      "asr_seconds": 0.28793249651789665,
+      "alignment_seconds": 0.000629836693406105,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Well, said she again, and each time she said it she opened her lovely eyes the wider",
+          "start": 0.05,
+          "end": 5.09,
+          "words": [
+            {
+              "text": " Well,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.07666015625
+            },
+            {
+              "text": " said",
+              "start": 1.03,
+              "end": 1.33,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " she",
+              "start": 1.33,
+              "end": 1.53,
+              "probability": 0.99609375
+            },
+            {
+              "text": " again,",
+              "start": 1.53,
+              "end": 1.81,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " and",
+              "start": 2.29,
+              "end": 2.41,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " each",
+              "start": 2.41,
+              "end": 2.59,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " time",
+              "start": 2.59,
+              "end": 2.81,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " she",
+              "start": 2.81,
+              "end": 3.03,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " said",
+              "start": 3.03,
+              "end": 3.27,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " it",
+              "start": 3.27,
+              "end": 3.43,
+              "probability": 0.994140625
+            },
+            {
+              "text": " she",
+              "start": 3.43,
+              "end": 3.61,
+              "probability": 0.457763671875
+            },
+            {
+              "text": " opened",
+              "start": 3.61,
+              "end": 3.85,
+              "probability": 0.994140625
+            },
+            {
+              "text": " her",
+              "start": 3.85,
+              "end": 4.03,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " lovely",
+              "start": 4.03,
+              "end": 4.35,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " eyes",
+              "start": 4.35,
+              "end": 4.67,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 4.67,
+              "end": 4.85,
+              "probability": 0.9921875
+            },
+            {
+              "text": " wider",
+              "start": 4.85,
+              "end": 5.09,
+              "probability": 0.92431640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Well,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "said",
+          "start": 1.03,
+          "end": 1.33
+        },
+        {
+          "raw": "she",
+          "start": 1.33,
+          "end": 1.53
+        },
+        {
+          "raw": "again,",
+          "start": 1.53,
+          "end": 1.81
+        },
+        {
+          "raw": "and",
+          "start": 2.29,
+          "end": 2.41
+        },
+        {
+          "raw": "each",
+          "start": 2.41,
+          "end": 2.59
+        },
+        {
+          "raw": "time",
+          "start": 2.59,
+          "end": 2.81
+        },
+        {
+          "raw": "she",
+          "start": 2.81,
+          "end": 3.03
+        },
+        {
+          "raw": "said",
+          "start": 3.03,
+          "end": 3.27
+        },
+        {
+          "raw": "it",
+          "start": 3.27,
+          "end": 3.43
+        },
+        {
+          "raw": "she",
+          "start": 3.43,
+          "end": 3.61
+        },
+        {
+          "raw": "opened",
+          "start": 3.61,
+          "end": 3.85
+        },
+        {
+          "raw": "her",
+          "start": 3.85,
+          "end": 4.03
+        },
+        {
+          "raw": "lovely",
+          "start": 4.03,
+          "end": 4.35
+        },
+        {
+          "raw": "eyes",
+          "start": 4.35,
+          "end": 4.67
+        },
+        {
+          "raw": "the",
+          "start": 4.67,
+          "end": 4.85
+        },
+        {
+          "raw": "wider",
+          "start": 4.85,
+          "end": 5.09
+        }
+      ],
+      "expected_tokens": [
+        "\"Well?\"",
+        "said",
+        "she",
+        "again;",
+        "and",
+        "each",
+        "time",
+        "she",
+        "said",
+        "it,",
+        "she",
+        "opened",
+        "her",
+        "lovely",
+        "eyes",
+        "the",
+        "wider."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Well,",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "well",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.03,
+          "end": 1.33,
+          "key": "said",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.33,
+          "end": 1.53,
+          "key": "she",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "again,",
+          "start": 1.53,
+          "end": 1.81,
+          "key": "again",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.29,
+          "end": 2.41,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "each",
+          "start": 2.41,
+          "end": 2.59,
+          "key": "each",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 2.59,
+          "end": 2.81,
+          "key": "time",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 2.81,
+          "end": 3.03,
+          "key": "she",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 3.03,
+          "end": 3.27,
+          "key": "said",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 3.27,
+          "end": 3.43,
+          "key": "it",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 3.43,
+          "end": 3.61,
+          "key": "she",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "opened",
+          "start": 3.61,
+          "end": 3.85,
+          "key": "opened",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.85,
+          "end": 4.03,
+          "key": "her",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "lovely",
+          "start": 4.03,
+          "end": 4.35,
+          "key": "lovely",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "eyes",
+          "start": 4.35,
+          "end": 4.67,
+          "key": "eyes",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.67,
+          "end": 4.85,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "wider",
+          "start": 4.85,
+          "end": 5.09,
+          "key": "wider",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Well?\"",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "said",
+          "start": 1.03,
+          "end": 1.33
+        },
+        {
+          "text": "she",
+          "start": 1.33,
+          "end": 1.53
+        },
+        {
+          "text": "again;",
+          "start": 1.53,
+          "end": 1.81
+        },
+        {
+          "text": "and",
+          "start": 2.29,
+          "end": 2.41
+        },
+        {
+          "text": "each",
+          "start": 2.41,
+          "end": 2.59
+        },
+        {
+          "text": "time",
+          "start": 2.59,
+          "end": 2.81
+        },
+        {
+          "text": "she",
+          "start": 2.81,
+          "end": 3.03
+        },
+        {
+          "text": "said",
+          "start": 3.03,
+          "end": 3.27
+        },
+        {
+          "text": "it,",
+          "start": 3.27,
+          "end": 3.43
+        },
+        {
+          "text": "she",
+          "start": 3.43,
+          "end": 3.61
+        },
+        {
+          "text": "opened",
+          "start": 3.61,
+          "end": 3.85
+        },
+        {
+          "text": "her",
+          "start": 3.85,
+          "end": 4.03
+        },
+        {
+          "text": "lovely",
+          "start": 4.03,
+          "end": 4.35
+        },
+        {
+          "text": "eyes",
+          "start": 4.35,
+          "end": 4.67
+        },
+        {
+          "text": "the",
+          "start": 4.67,
+          "end": 4.85
+        },
+        {
+          "text": "wider.",
+          "start": 4.85,
+          "end": 5.09
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.28881822153925896
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9227ddff9af059a6ef2b88c6e5a23950af9a9bbe8b057ab8e787adf5e9bfb7e4",
+  "selected_reasons": []
+}

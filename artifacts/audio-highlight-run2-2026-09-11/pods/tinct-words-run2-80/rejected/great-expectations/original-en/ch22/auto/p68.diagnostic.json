@@ -1,0 +1,1971 @@
+{
+  "complete": true,
+  "signature": "2ef6272f6befa972c455e1cb6d5d18c0a7e9bb1c169a66010a0034f98a78ca38",
+  "attempts": [
+    {
+      "asr_seconds": 0.6570187266916037,
+      "alignment_seconds": 0.0009146984666585922,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "In truth, he said this with so much delicacy, that I felt the subject done with, even though I should be under his father's roof for years and years to come. Yet he said it with so much meaning, too, that I felt he as perfectly understood Miss Havisham to be my benefactress, as I understood the fact myself.",
+        "hotwords": "In, I, Yet, Miss, Havisham"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " In truth, he said this with so much delicacy, that I felt the subject done with, even though",
+          "start": 0.05,
+          "end": 5.91,
+          "words": [
+            {
+              "text": " In",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.6708984375
+            },
+            {
+              "text": " truth,",
+              "start": 0.55,
+              "end": 0.87,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " he",
+              "start": 1.17,
+              "end": 1.29,
+              "probability": 0.951171875
+            },
+            {
+              "text": " said",
+              "start": 1.29,
+              "end": 1.51,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " this",
+              "start": 1.51,
+              "end": 1.71,
+              "probability": 0.99609375
+            },
+            {
+              "text": " with",
+              "start": 1.71,
+              "end": 1.93,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " so",
+              "start": 1.93,
+              "end": 2.17,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " much",
+              "start": 2.17,
+              "end": 2.43,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " delicacy,",
+              "start": 2.43,
+              "end": 3.09,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " that",
+              "start": 3.55,
+              "end": 3.65,
+              "probability": 0.9921875
+            },
+            {
+              "text": " I",
+              "start": 3.65,
+              "end": 3.79,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " felt",
+              "start": 3.79,
+              "end": 3.93,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 3.93,
+              "end": 4.13,
+              "probability": 0.99609375
+            },
+            {
+              "text": " subject",
+              "start": 4.13,
+              "end": 4.47,
+              "probability": 0.99609375
+            },
+            {
+              "text": " done",
+              "start": 4.47,
+              "end": 4.73,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " with,",
+              "start": 4.73,
+              "end": 5.03,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " even",
+              "start": 5.55,
+              "end": 5.73,
+              "probability": 0.9921875
+            },
+            {
+              "text": " though",
+              "start": 5.73,
+              "end": 5.91,
+              "probability": 0.99609375
+            }
+          ]
+        },
+        {
+          "text": " I should be under his father's roof for years and years to come. Yet he said it with so",
+          "start": 5.91,
+          "end": 10.93,
+          "words": [
+            {
+              "text": " I",
+              "start": 5.91,
+              "end": 6.11,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " should",
+              "start": 6.11,
+              "end": 6.23,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " be",
+              "start": 6.23,
+              "end": 6.41,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " under",
+              "start": 6.41,
+              "end": 6.59,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 6.59,
+              "end": 6.81,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " father's",
+              "start": 6.81,
+              "end": 7.25,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " roof",
+              "start": 7.25,
+              "end": 7.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " for",
+              "start": 7.49,
+              "end": 7.77,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " years",
+              "start": 7.77,
+              "end": 8.09,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 8.09,
+              "end": 8.39,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " years",
+              "start": 8.39,
+              "end": 8.67,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 8.67,
+              "end": 8.91,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " come.",
+              "start": 8.91,
+              "end": 9.25,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Yet",
+              "start": 9.95,
+              "end": 10.11,
+              "probability": 0.994140625
+            },
+            {
+              "text": " he",
+              "start": 10.11,
+              "end": 10.25,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " said",
+              "start": 10.25,
+              "end": 10.43,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " it",
+              "start": 10.43,
+              "end": 10.55,
+              "probability": 0.99609375
+            },
+            {
+              "text": " with",
+              "start": 10.55,
+              "end": 10.67,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " so",
+              "start": 10.67,
+              "end": 10.93,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " much meaning, too, that I felt he as perfectly understood Miss Havisham to be my benefactress,",
+          "start": 10.93,
+          "end": 16.63,
+          "words": [
+            {
+              "text": " much",
+              "start": 10.93,
+              "end": 11.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " meaning,",
+              "start": 11.17,
+              "end": 11.47,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " too,",
+              "start": 11.87,
+              "end": 12.15,
+              "probability": 0.994140625
+            },
+            {
+              "text": " that",
+              "start": 12.69,
+              "end": 12.79,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " I",
+              "start": 12.79,
+              "end": 12.95,
+              "probability": 0.99609375
+            },
+            {
+              "text": " felt",
+              "start": 12.95,
+              "end": 13.11,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " he",
+              "start": 13.11,
+              "end": 13.33,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " as",
+              "start": 13.33,
+              "end": 13.47,
+              "probability": 0.2529296875
+            },
+            {
+              "text": " perfectly",
+              "start": 13.47,
+              "end": 13.89,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " understood",
+              "start": 13.89,
+              "end": 14.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Miss",
+              "start": 14.55,
+              "end": 14.83,
+              "probability": 0.81103515625
+            },
+            {
+              "text": " Havisham",
+              "start": 14.83,
+              "end": 15.39,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " to",
+              "start": 15.39,
+              "end": 15.57,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " be",
+              "start": 15.57,
+              "end": 15.69,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " my",
+              "start": 15.69,
+              "end": 15.89,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " benefactress,",
+              "start": 15.89,
+              "end": 16.63,
+              "probability": 0.9469401041666666
+            }
+          ]
+        },
+        {
+          "text": " as I understood the fact myself.",
+          "start": 17.11,
+          "end": 18.73,
+          "words": [
+            {
+              "text": " as",
+              "start": 17.11,
+              "end": 17.21,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 17.21,
+              "end": 17.37,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " understood",
+              "start": 17.37,
+              "end": 17.79,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 17.79,
+              "end": 17.99,
+              "probability": 0.998046875
+            },
+            {
+              "text": " fact",
+              "start": 17.99,
+              "end": 18.23,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " myself.",
+              "start": 18.23,
+              "end": 18.73,
+              "probability": 0.98876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "In",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "truth,",
+          "start": 0.55,
+          "end": 0.87
+        },
+        {
+          "raw": "he",
+          "start": 1.17,
+          "end": 1.29
+        },
+        {
+          "raw": "said",
+          "start": 1.29,
+          "end": 1.51
+        },
+        {
+          "raw": "this",
+          "start": 1.51,
+          "end": 1.71
+        },
+        {
+          "raw": "with",
+          "start": 1.71,
+          "end": 1.93
+        },
+        {
+          "raw": "so",
+          "start": 1.93,
+          "end": 2.17
+        },
+        {
+          "raw": "much",
+          "start": 2.17,
+          "end": 2.43
+        },
+        {
+          "raw": "delicacy,",
+          "start": 2.43,
+          "end": 3.09
+        },
+        {
+          "raw": "that",
+          "start": 3.55,
+          "end": 3.65
+        },
+        {
+          "raw": "I",
+          "start": 3.65,
+          "end": 3.79
+        },
+        {
+          "raw": "felt",
+          "start": 3.79,
+          "end": 3.93
+        },
+        {
+          "raw": "the",
+          "start": 3.93,
+          "end": 4.13
+        },
+        {
+          "raw": "subject",
+          "start": 4.13,
+          "end": 4.47
+        },
+        {
+          "raw": "done",
+          "start": 4.47,
+          "end": 4.73
+        },
+        {
+          "raw": "with,",
+          "start": 4.73,
+          "end": 5.03
+        },
+        {
+          "raw": "even",
+          "start": 5.55,
+          "end": 5.73
+        },
+        {
+          "raw": "though",
+          "start": 5.73,
+          "end": 5.91
+        },
+        {
+          "raw": "I",
+          "start": 5.91,
+          "end": 6.11
+        },
+        {
+          "raw": "should",
+          "start": 6.11,
+          "end": 6.23
+        },
+        {
+          "raw": "be",
+          "start": 6.23,
+          "end": 6.41
+        },
+        {
+          "raw": "under",
+          "start": 6.41,
+          "end": 6.59
+        },
+        {
+          "raw": "his",
+          "start": 6.59,
+          "end": 6.81
+        },
+        {
+          "raw": "father's",
+          "start": 6.81,
+          "end": 7.25
+        },
+        {
+          "raw": "roof",
+          "start": 7.25,
+          "end": 7.49
+        },
+        {
+          "raw": "for",
+          "start": 7.49,
+          "end": 7.77
+        },
+        {
+          "raw": "years",
+          "start": 7.77,
+          "end": 8.09
+        },
+        {
+          "raw": "and",
+          "start": 8.09,
+          "end": 8.39
+        },
+        {
+          "raw": "years",
+          "start": 8.39,
+          "end": 8.67
+        },
+        {
+          "raw": "to",
+          "start": 8.67,
+          "end": 8.91
+        },
+        {
+          "raw": "come.",
+          "start": 8.91,
+          "end": 9.25
+        },
+        {
+          "raw": "Yet",
+          "start": 9.95,
+          "end": 10.11
+        },
+        {
+          "raw": "he",
+          "start": 10.11,
+          "end": 10.25
+        },
+        {
+          "raw": "said",
+          "start": 10.25,
+          "end": 10.43
+        },
+        {
+          "raw": "it",
+          "start": 10.43,
+          "end": 10.55
+        },
+        {
+          "raw": "with",
+          "start": 10.55,
+          "end": 10.67
+        },
+        {
+          "raw": "so",
+          "start": 10.67,
+          "end": 10.93
+        },
+        {
+          "raw": "much",
+          "start": 10.93,
+          "end": 11.17
+        },
+        {
+          "raw": "meaning,",
+          "start": 11.17,
+          "end": 11.47
+        },
+        {
+          "raw": "too,",
+          "start": 11.87,
+          "end": 12.15
+        },
+        {
+          "raw": "that",
+          "start": 12.69,
+          "end": 12.79
+        },
+        {
+          "raw": "I",
+          "start": 12.79,
+          "end": 12.95
+        },
+        {
+          "raw": "felt",
+          "start": 12.95,
+          "end": 13.11
+        },
+        {
+          "raw": "he",
+          "start": 13.11,
+          "end": 13.33
+        },
+        {
+          "raw": "as",
+          "start": 13.33,
+          "end": 13.47
+        },
+        {
+          "raw": "perfectly",
+          "start": 13.47,
+          "end": 13.89
+        },
+        {
+          "raw": "understood",
+          "start": 13.89,
+          "end": 14.55
+        },
+        {
+          "raw": "Miss",
+          "start": 14.55,
+          "end": 14.83
+        },
+        {
+          "raw": "Havisham",
+          "start": 14.83,
+          "end": 15.39
+        },
+        {
+          "raw": "to",
+          "start": 15.39,
+          "end": 15.57
+        },
+        {
+          "raw": "be",
+          "start": 15.57,
+          "end": 15.69
+        },
+        {
+          "raw": "my",
+          "start": 15.69,
+          "end": 15.89
+        },
+        {
+          "raw": "benefactress,",
+          "start": 15.89,
+          "end": 16.63
+        },
+        {
+          "raw": "as",
+          "start": 17.11,
+          "end": 17.21
+        },
+        {
+          "raw": "I",
+          "start": 17.21,
+          "end": 17.37
+        },
+        {
+          "raw": "understood",
+          "start": 17.37,
+          "end": 17.79
+        },
+        {
+          "raw": "the",
+          "start": 17.79,
+          "end": 17.99
+        },
+        {
+          "raw": "fact",
+          "start": 17.99,
+          "end": 18.23
+        },
+        {
+          "raw": "myself.",
+          "start": 18.23,
+          "end": 18.73
+        }
+      ],
+      "expected_tokens": [
+        "In",
+        "truth,",
+        "he",
+        "said",
+        "this",
+        "with",
+        "so",
+        "much",
+        "delicacy,",
+        "that",
+        "I",
+        "felt",
+        "the",
+        "subject",
+        "done",
+        "with,",
+        "even",
+        "though",
+        "I",
+        "should",
+        "be",
+        "under",
+        "his",
+        "father's",
+        "roof",
+        "for",
+        "years",
+        "and",
+        "years",
+        "to",
+        "come.",
+        "Yet",
+        "he",
+        "said",
+        "it",
+        "with",
+        "so",
+        "much",
+        "meaning,",
+        "too,",
+        "that",
+        "I",
+        "felt",
+        "he",
+        "as",
+        "perfectly",
+        "understood",
+        "Miss",
+        "Havisham",
+        "to",
+        "be",
+        "my",
+        "benefactress,",
+        "as",
+        "I",
+        "understood",
+        "the",
+        "fact",
+        "myself."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          59,
+          0,
+          59
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "In",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "in",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "truth,",
+          "start": 0.55,
+          "end": 0.87,
+          "key": "truth",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.17,
+          "end": 1.29,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.29,
+          "end": 1.51,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.51,
+          "end": 1.71,
+          "key": "this",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.71,
+          "end": 1.93,
+          "key": "with",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 1.93,
+          "end": 2.17,
+          "key": "so",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 2.17,
+          "end": 2.43,
+          "key": "much",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "delicacy,",
+          "start": 2.43,
+          "end": 3.09,
+          "key": "delicacy",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.55,
+          "end": 3.65,
+          "key": "that",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.65,
+          "end": 3.79,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "felt",
+          "start": 3.79,
+          "end": 3.93,
+          "key": "felt",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.93,
+          "end": 4.13,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "subject",
+          "start": 4.13,
+          "end": 4.47,
+          "key": "subject",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "done",
+          "start": 4.47,
+          "end": 4.73,
+          "key": "done",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "with,",
+          "start": 4.73,
+          "end": 5.03,
+          "key": "with",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "even",
+          "start": 5.55,
+          "end": 5.73,
+          "key": "even",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "though",
+          "start": 5.73,
+          "end": 5.91,
+          "key": "though",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.91,
+          "end": 6.11,
+          "key": "i",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 6.11,
+          "end": 6.23,
+          "key": "should",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 6.23,
+          "end": 6.41,
+          "key": "be",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "under",
+          "start": 6.41,
+          "end": 6.59,
+          "key": "under",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 6.59,
+          "end": 6.81,
+          "key": "his",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "father's",
+          "start": 6.81,
+          "end": 7.25,
+          "key": "fathers",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "roof",
+          "start": 7.25,
+          "end": 7.49,
+          "key": "roof",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 7.49,
+          "end": 7.77,
+          "key": "for",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "years",
+          "start": 7.77,
+          "end": 8.09,
+          "key": "years",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 8.09,
+          "end": 8.39,
+          "key": "and",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "years",
+          "start": 8.39,
+          "end": 8.67,
+          "key": "years",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 8.67,
+          "end": 8.91,
+          "key": "to",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "come.",
+          "start": 8.91,
+          "end": 9.25,
+          "key": "come",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "Yet",
+          "start": 9.95,
+          "end": 10.11,
+          "key": "yet",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 10.11,
+          "end": 10.25,
+          "key": "he",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 10.25,
+          "end": 10.43,
+          "key": "said",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 10.43,
+          "end": 10.55,
+          "key": "it",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 10.55,
+          "end": 10.67,
+          "key": "with",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 10.67,
+          "end": 10.93,
+          "key": "so",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 10.93,
+          "end": 11.17,
+          "key": "much",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "meaning,",
+          "start": 11.17,
+          "end": 11.47,
+          "key": "meaning",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "too,",
+          "start": 11.87,
+          "end": 12.15,
+          "key": "too",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 12.69,
+          "end": 12.79,
+          "key": "that",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 12.79,
+          "end": 12.95,
+          "key": "i",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "felt",
+          "start": 12.95,
+          "end": 13.11,
+          "key": "felt",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 13.11,
+          "end": 13.33,
+          "key": "he",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 13.33,
+          "end": 13.47,
+          "key": "as",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "perfectly",
+          "start": 13.47,
+          "end": 13.89,
+          "key": "perfectly",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "understood",
+          "start": 13.89,
+          "end": 14.55,
+          "key": "understood",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "Miss",
+          "start": 14.55,
+          "end": 14.83,
+          "key": "miss",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "Havisham",
+          "start": 14.83,
+          "end": 15.39,
+          "key": "havisham",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 15.39,
+          "end": 15.57,
+          "key": "to",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 15.57,
+          "end": 15.69,
+          "key": "be",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 15.69,
+          "end": 15.89,
+          "key": "my",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "benefactress,",
+          "start": 15.89,
+          "end": 16.63,
+          "key": "benefactress",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 17.11,
+          "end": 17.21,
+          "key": "as",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 17.21,
+          "end": 17.37,
+          "key": "i",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "understood",
+          "start": 17.37,
+          "end": 17.79,
+          "key": "understood",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 17.79,
+          "end": 17.99,
+          "key": "the",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "fact",
+          "start": 17.99,
+          "end": 18.23,
+          "key": "fact",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "myself.",
+          "start": 18.23,
+          "end": 18.73,
+          "key": "myself",
+          "pieces": [
+            58
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "In",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "truth,",
+          "start": 0.55,
+          "end": 0.87
+        },
+        {
+          "text": "he",
+          "start": 1.17,
+          "end": 1.29
+        },
+        {
+          "text": "said",
+          "start": 1.29,
+          "end": 1.51
+        },
+        {
+          "text": "this",
+          "start": 1.51,
+          "end": 1.71
+        },
+        {
+          "text": "with",
+          "start": 1.71,
+          "end": 1.93
+        },
+        {
+          "text": "so",
+          "start": 1.93,
+          "end": 2.17
+        },
+        {
+          "text": "much",
+          "start": 2.17,
+          "end": 2.43
+        },
+        {
+          "text": "delicacy,",
+          "start": 2.43,
+          "end": 3.09
+        },
+        {
+          "text": "that",
+          "start": 3.55,
+          "end": 3.65
+        },
+        {
+          "text": "I",
+          "start": 3.65,
+          "end": 3.79
+        },
+        {
+          "text": "felt",
+          "start": 3.79,
+          "end": 3.93
+        },
+        {
+          "text": "the",
+          "start": 3.93,
+          "end": 4.13
+        },
+        {
+          "text": "subject",
+          "start": 4.13,
+          "end": 4.47
+        },
+        {
+          "text": "done",
+          "start": 4.47,
+          "end": 4.73
+        },
+        {
+          "text": "with,",
+          "start": 4.73,
+          "end": 5.03
+        },
+        {
+          "text": "even",
+          "start": 5.55,
+          "end": 5.73
+        },
+        {
+          "text": "though",
+          "start": 5.73,
+          "end": 5.91
+        },
+        {
+          "text": "I",
+          "start": 5.91,
+          "end": 6.11
+        },
+        {
+          "text": "should",
+          "start": 6.11,
+          "end": 6.23
+        },
+        {
+          "text": "be",
+          "start": 6.23,
+          "end": 6.41
+        },
+        {
+          "text": "under",
+          "start": 6.41,
+          "end": 6.59
+        },
+        {
+          "text": "his",
+          "start": 6.59,
+          "end": 6.81
+        },
+        {
+          "text": "father's",
+          "start": 6.81,
+          "end": 7.25
+        },
+        {
+          "text": "roof",
+          "start": 7.25,
+          "end": 7.49
+        },
+        {
+          "text": "for",
+          "start": 7.49,
+          "end": 7.77
+        },
+        {
+          "text": "years",
+          "start": 7.77,
+          "end": 8.09
+        },
+        {
+          "text": "and",
+          "start": 8.09,
+          "end": 8.39
+        },
+        {
+          "text": "years",
+          "start": 8.39,
+          "end": 8.67
+        },
+        {
+          "text": "to",
+          "start": 8.67,
+          "end": 8.91
+        },
+        {
+          "text": "come.",
+          "start": 8.91,
+          "end": 9.25
+        },
+        {
+          "text": "Yet",
+          "start": 9.95,
+          "end": 10.11
+        },
+        {
+          "text": "he",
+          "start": 10.11,
+          "end": 10.25
+        },
+        {
+          "text": "said",
+          "start": 10.25,
+          "end": 10.43
+        },
+        {
+          "text": "it",
+          "start": 10.43,
+          "end": 10.55
+        },
+        {
+          "text": "with",
+          "start": 10.55,
+          "end": 10.67
+        },
+        {
+          "text": "so",
+          "start": 10.67,
+          "end": 10.93
+        },
+        {
+          "text": "much",
+          "start": 10.93,
+          "end": 11.17
+        },
+        {
+          "text": "meaning,",
+          "start": 11.17,
+          "end": 11.47
+        },
+        {
+          "text": "too,",
+          "start": 11.87,
+          "end": 12.15
+        },
+        {
+          "text": "that",
+          "start": 12.69,
+          "end": 12.79
+        },
+        {
+          "text": "I",
+          "start": 12.79,
+          "end": 12.95
+        },
+        {
+          "text": "felt",
+          "start": 12.95,
+          "end": 13.11
+        },
+        {
+          "text": "he",
+          "start": 13.11,
+          "end": 13.33
+        },
+        {
+          "text": "as",
+          "start": 13.33,
+          "end": 13.47
+        },
+        {
+          "text": "perfectly",
+          "start": 13.47,
+          "end": 13.89
+        },
+        {
+          "text": "understood",
+          "start": 13.89,
+          "end": 14.55
+        },
+        {
+          "text": "Miss",
+          "start": 14.55,
+          "end": 14.83
+        },
+        {
+          "text": "Havisham",
+          "start": 14.83,
+          "end": 15.39
+        },
+        {
+          "text": "to",
+          "start": 15.39,
+          "end": 15.57
+        },
+        {
+          "text": "be",
+          "start": 15.57,
+          "end": 15.69
+        },
+        {
+          "text": "my",
+          "start": 15.69,
+          "end": 15.89
+        },
+        {
+          "text": "benefactress,",
+          "start": 15.89,
+          "end": 16.63
+        },
+        {
+          "text": "as",
+          "start": 17.11,
+          "end": 17.21
+        },
+        {
+          "text": "I",
+          "start": 17.21,
+          "end": 17.37
+        },
+        {
+          "text": "understood",
+          "start": 17.37,
+          "end": 17.79
+        },
+        {
+          "text": "the",
+          "start": 17.79,
+          "end": 17.99
+        },
+        {
+          "text": "fact",
+          "start": 17.99,
+          "end": 18.23
+        },
+        {
+          "text": "myself.",
+          "start": 18.23,
+          "end": 18.73
+        }
+      ],
+      "stats": {
+        "expected_words": 59,
+        "heard_words": 59,
+        "matched_words": 59
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.6583478860557079
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "eafdc1564eba4812fbf2f7acf3ee11085625d3654fdd66b8cda613cef635d88c",
+  "selected_reasons": []
+}

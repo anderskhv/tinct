@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "6c991f37ce74043253faa7629e1e06e71cb470d736cafd8ff5c5e46642b8bc00",
+  "attempts": [
+    {
+      "asr_seconds": 0.20371440425515175,
+      "alignment_seconds": 0.00035374611616134644,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"And the profits are large?\" said I.",
+        "hotwords": "And, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And the profits are large?\" said I.",
+          "start": 0.02,
+          "end": 2.2,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.414306640625
+            },
+            {
+              "text": " the",
+              "start": 0.52,
+              "end": 0.62,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " profits",
+              "start": 0.62,
+              "end": 0.92,
+              "probability": 0.0214385986328125
+            },
+            {
+              "text": " are",
+              "start": 0.92,
+              "end": 1.12,
+              "probability": 0.998046875
+            },
+            {
+              "text": " large?\"",
+              "start": 1.12,
+              "end": 1.74,
+              "probability": 0.49956512451171875
+            },
+            {
+              "text": " said",
+              "start": 1.74,
+              "end": 1.96,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " I.",
+              "start": 1.96,
+              "end": 2.2,
+              "probability": 0.9794921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "the",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "raw": "profits",
+          "start": 0.62,
+          "end": 0.92
+        },
+        {
+          "raw": "are",
+          "start": 0.92,
+          "end": 1.12
+        },
+        {
+          "raw": "large?\"",
+          "start": 1.12,
+          "end": 1.74
+        },
+        {
+          "raw": "said",
+          "start": 1.74,
+          "end": 1.96
+        },
+        {
+          "raw": "I.",
+          "start": 1.96,
+          "end": 2.2
+        }
+      ],
+      "expected_tokens": [
+        "\"And",
+        "the",
+        "profits",
+        "are",
+        "large?\"",
+        "said",
+        "I."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.52,
+          "end": 0.62,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "profits",
+          "start": 0.62,
+          "end": 0.92,
+          "key": "profits",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 0.92,
+          "end": 1.12,
+          "key": "are",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "large?\"",
+          "start": 1.12,
+          "end": 1.74,
+          "key": "large",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.74,
+          "end": 1.96,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I.",
+          "start": 1.96,
+          "end": 2.2,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"And",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "the",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "text": "profits",
+          "start": 0.62,
+          "end": 0.92
+        },
+        {
+          "text": "are",
+          "start": 0.92,
+          "end": 1.12
+        },
+        {
+          "text": "large?\"",
+          "start": 1.12,
+          "end": 1.74
+        },
+        {
+          "text": "said",
+          "start": 1.74,
+          "end": 1.96
+        },
+        {
+          "text": "I.",
+          "start": 1.96,
+          "end": 2.2
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2042060885578394
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0677d42c0d1fee1729d028d1970ffa512708095c0cff3d824e059fec53add58f",
+  "selected_reasons": []
+}

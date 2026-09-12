@@ -1,0 +1,116 @@
+{
+  "complete": true,
+  "signature": "29ca1733b2227a4648e182e8ad180b3e5da932d1a72d38e14c592603d5c15b5e",
+  "attempts": [
+    {
+      "asr_seconds": 0.12468454614281654,
+      "alignment_seconds": 0.00026341527700424194,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " RatherPip",
+          "start": 0.02,
+          "end": 1.08,
+          "words": [
+            {
+              "text": " RatherPip",
+              "start": 0.02,
+              "end": 1.08,
+              "probability": 0.5980631510416666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "RatherPip",
+          "start": 0.02,
+          "end": 1.08
+        }
+      ],
+      "expected_tokens": [
+        "\"Rather,",
+        "Pip.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "RatherPip",
+          "start": 0.02,
+          "end": 1.08,
+          "key": "ratherpip",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Rather,",
+          "start": 0.0,
+          "end": 0.54
+        },
+        {
+          "text": "Pip.\"",
+          "start": 0.54,
+          "end": 0.81
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12502463720738888
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a16beeefc1c5958873bce926e52eb9de7421347f6a11153cb4d320ebf767ea45",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

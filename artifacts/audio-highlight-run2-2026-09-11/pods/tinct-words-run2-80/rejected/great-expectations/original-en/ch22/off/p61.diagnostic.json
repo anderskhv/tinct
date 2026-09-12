@@ -1,0 +1,531 @@
+{
+  "complete": true,
+  "signature": "0fddb5ce7a9c44995df66801227d3dc8fb833fa1426b3138e956d3f7961afd42",
+  "attempts": [
+    {
+      "asr_seconds": 0.3044566363096237,
+      "alignment_seconds": 0.00054188072681427,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " They fell into deeper shame and degradation, if there can be deeper and ruin.",
+          "start": 0.08,
+          "end": 5.02,
+          "words": [
+            {
+              "text": " They",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.83154296875
+            },
+            {
+              "text": " fell",
+              "start": 0.54,
+              "end": 0.76,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " into",
+              "start": 0.76,
+              "end": 1.0,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " deeper",
+              "start": 1.0,
+              "end": 1.3,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " shame",
+              "start": 1.3,
+              "end": 1.72,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 1.72,
+              "end": 1.96,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " degradation,",
+              "start": 1.96,
+              "end": 2.52,
+              "probability": 0.994140625
+            },
+            {
+              "text": " if",
+              "start": 3.04,
+              "end": 3.22,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " there",
+              "start": 3.22,
+              "end": 3.4,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " can",
+              "start": 3.4,
+              "end": 3.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " be",
+              "start": 3.6,
+              "end": 3.74,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " deeper",
+              "start": 3.74,
+              "end": 4.18,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " and",
+              "start": 4.18,
+              "end": 4.72,
+              "probability": 0.67919921875
+            },
+            {
+              "text": " ruin.",
+              "start": 4.72,
+              "end": 5.02,
+              "probability": 0.98779296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "They",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "fell",
+          "start": 0.54,
+          "end": 0.76
+        },
+        {
+          "raw": "into",
+          "start": 0.76,
+          "end": 1.0
+        },
+        {
+          "raw": "deeper",
+          "start": 1.0,
+          "end": 1.3
+        },
+        {
+          "raw": "shame",
+          "start": 1.3,
+          "end": 1.72
+        },
+        {
+          "raw": "and",
+          "start": 1.72,
+          "end": 1.96
+        },
+        {
+          "raw": "degradation,",
+          "start": 1.96,
+          "end": 2.52
+        },
+        {
+          "raw": "if",
+          "start": 3.04,
+          "end": 3.22
+        },
+        {
+          "raw": "there",
+          "start": 3.22,
+          "end": 3.4
+        },
+        {
+          "raw": "can",
+          "start": 3.4,
+          "end": 3.6
+        },
+        {
+          "raw": "be",
+          "start": 3.6,
+          "end": 3.74
+        },
+        {
+          "raw": "deeper",
+          "start": 3.74,
+          "end": 4.18
+        },
+        {
+          "raw": "and",
+          "start": 4.18,
+          "end": 4.72
+        },
+        {
+          "raw": "ruin.",
+          "start": 4.72,
+          "end": 5.02
+        }
+      ],
+      "expected_tokens": [
+        "\"They",
+        "fell",
+        "into",
+        "deeper",
+        "shame",
+        "and",
+        "degradation—if",
+        "there",
+        "can",
+        "be",
+        "deeper—and",
+        "ruin.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ],
+        [
+          "equal",
+          7,
+          10,
+          8,
+          11
+        ],
+        [
+          "replace",
+          10,
+          11,
+          11,
+          13
+        ],
+        [
+          "equal",
+          11,
+          12,
+          13,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ],
+        [
+          "replace",
+          10,
+          11,
+          11,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "They",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "they",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "fell",
+          "start": 0.54,
+          "end": 0.76,
+          "key": "fell",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 0.76,
+          "end": 1.0,
+          "key": "into",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "deeper",
+          "start": 1.0,
+          "end": 1.3,
+          "key": "deeper",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "shame",
+          "start": 1.3,
+          "end": 1.72,
+          "key": "shame",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.72,
+          "end": 1.96,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "degradation,",
+          "start": 1.96,
+          "end": 2.52,
+          "key": "degradation",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 3.04,
+          "end": 3.22,
+          "key": "if",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 3.22,
+          "end": 3.4,
+          "key": "there",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 3.4,
+          "end": 3.6,
+          "key": "can",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.6,
+          "end": 3.74,
+          "key": "be",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "deeper",
+          "start": 3.74,
+          "end": 4.18,
+          "key": "deeper",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.18,
+          "end": 4.72,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "ruin.",
+          "start": 4.72,
+          "end": 5.02,
+          "key": "ruin",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"They",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "fell",
+          "start": 0.54,
+          "end": 0.76
+        },
+        {
+          "text": "into",
+          "start": 0.76,
+          "end": 1.0
+        },
+        {
+          "text": "deeper",
+          "start": 1.0,
+          "end": 1.3
+        },
+        {
+          "text": "shame",
+          "start": 1.3,
+          "end": 1.72
+        },
+        {
+          "text": "and",
+          "start": 1.72,
+          "end": 1.96
+        },
+        {
+          "text": "degradation—if",
+          "start": 1.96,
+          "end": 2.59
+        },
+        {
+          "text": "there",
+          "start": 3.22,
+          "end": 3.4
+        },
+        {
+          "text": "can",
+          "start": 3.4,
+          "end": 3.6
+        },
+        {
+          "text": "be",
+          "start": 3.6,
+          "end": 3.74
+        },
+        {
+          "text": "deeper—and",
+          "start": 3.74,
+          "end": 4.23
+        },
+        {
+          "text": "ruin.\"",
+          "start": 4.72,
+          "end": 5.02
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 14,
+        "matched_words": 10
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.30523065105080605
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "42707a1b77a0bebf095ce2bb98c11b98fafd8b63673f8521c9575ca8d925b0f5",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

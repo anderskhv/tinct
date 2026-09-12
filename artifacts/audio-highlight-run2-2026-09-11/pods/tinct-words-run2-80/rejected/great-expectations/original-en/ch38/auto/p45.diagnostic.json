@@ -1,0 +1,581 @@
+{
+  "complete": true,
+  "signature": "7919ad6c5cad0ce817579517d0a9b5c99e22beeffbf9adc631c3b3edaadf34c9",
+  "attempts": [
+    {
+      "asr_seconds": 0.3138774447143078,
+      "alignment_seconds": 0.0006215628236532211,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Who taught me to be proud?\" returned Estella. \"Who praised me when I learnt my lesson?\"",
+        "hotwords": "Who, Estella, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Who taught me to be proud? returned Estella.",
+          "start": 0.05,
+          "end": 2.75,
+          "words": [
+            {
+              "text": " Who",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.389404296875
+            },
+            {
+              "text": " taught",
+              "start": 0.53,
+              "end": 0.71,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " me",
+              "start": 0.71,
+              "end": 0.87,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 0.87,
+              "end": 0.97,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " be",
+              "start": 0.97,
+              "end": 1.11,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " proud?",
+              "start": 1.11,
+              "end": 1.51,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " returned",
+              "start": 2.19,
+              "end": 2.23,
+              "probability": 0.46923828125
+            },
+            {
+              "text": " Estella.",
+              "start": 2.23,
+              "end": 2.75,
+              "probability": 0.890869140625
+            }
+          ]
+        },
+        {
+          "text": " Who praised me when I learnt my lesson?",
+          "start": 3.41,
+          "end": 4.87,
+          "words": [
+            {
+              "text": " Who",
+              "start": 3.41,
+              "end": 3.45,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " praised",
+              "start": 3.45,
+              "end": 3.75,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " me",
+              "start": 3.75,
+              "end": 3.99,
+              "probability": 0.99609375
+            },
+            {
+              "text": " when",
+              "start": 3.99,
+              "end": 4.11,
+              "probability": 0.9921875
+            },
+            {
+              "text": " I",
+              "start": 4.11,
+              "end": 4.25,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " learnt",
+              "start": 4.25,
+              "end": 4.41,
+              "probability": 0.6953125
+            },
+            {
+              "text": " my",
+              "start": 4.41,
+              "end": 4.57,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " lesson?",
+              "start": 4.57,
+              "end": 4.87,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Who",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "taught",
+          "start": 0.53,
+          "end": 0.71
+        },
+        {
+          "raw": "me",
+          "start": 0.71,
+          "end": 0.87
+        },
+        {
+          "raw": "to",
+          "start": 0.87,
+          "end": 0.97
+        },
+        {
+          "raw": "be",
+          "start": 0.97,
+          "end": 1.11
+        },
+        {
+          "raw": "proud?",
+          "start": 1.11,
+          "end": 1.51
+        },
+        {
+          "raw": "returned",
+          "start": 2.19,
+          "end": 2.23
+        },
+        {
+          "raw": "Estella.",
+          "start": 2.23,
+          "end": 2.75
+        },
+        {
+          "raw": "Who",
+          "start": 3.41,
+          "end": 3.45
+        },
+        {
+          "raw": "praised",
+          "start": 3.45,
+          "end": 3.75
+        },
+        {
+          "raw": "me",
+          "start": 3.75,
+          "end": 3.99
+        },
+        {
+          "raw": "when",
+          "start": 3.99,
+          "end": 4.11
+        },
+        {
+          "raw": "I",
+          "start": 4.11,
+          "end": 4.25
+        },
+        {
+          "raw": "learnt",
+          "start": 4.25,
+          "end": 4.41
+        },
+        {
+          "raw": "my",
+          "start": 4.41,
+          "end": 4.57
+        },
+        {
+          "raw": "lesson?",
+          "start": 4.57,
+          "end": 4.87
+        }
+      ],
+      "expected_tokens": [
+        "\"Who",
+        "taught",
+        "me",
+        "to",
+        "be",
+        "proud?\"",
+        "returned",
+        "Estella.",
+        "\"Who",
+        "praised",
+        "me",
+        "when",
+        "I",
+        "learnt",
+        "my",
+        "lesson?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Who",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "who",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "taught",
+          "start": 0.53,
+          "end": 0.71,
+          "key": "taught",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 0.71,
+          "end": 0.87,
+          "key": "me",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.87,
+          "end": 0.97,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 0.97,
+          "end": 1.11,
+          "key": "be",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "proud?",
+          "start": 1.11,
+          "end": 1.51,
+          "key": "proud",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "returned",
+          "start": 2.19,
+          "end": 2.23,
+          "key": "returned",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Estella.",
+          "start": 2.23,
+          "end": 2.75,
+          "key": "estella",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Who",
+          "start": 3.41,
+          "end": 3.45,
+          "key": "who",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "praised",
+          "start": 3.45,
+          "end": 3.75,
+          "key": "praised",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 3.75,
+          "end": 3.99,
+          "key": "me",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 3.99,
+          "end": 4.11,
+          "key": "when",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.11,
+          "end": 4.25,
+          "key": "i",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "learnt",
+          "start": 4.25,
+          "end": 4.41,
+          "key": "learnt",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 4.41,
+          "end": 4.57,
+          "key": "my",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "lesson?",
+          "start": 4.57,
+          "end": 4.87,
+          "key": "lesson",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Who",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "taught",
+          "start": 0.53,
+          "end": 0.71
+        },
+        {
+          "text": "me",
+          "start": 0.71,
+          "end": 0.87
+        },
+        {
+          "text": "to",
+          "start": 0.87,
+          "end": 0.97
+        },
+        {
+          "text": "be",
+          "start": 0.97,
+          "end": 1.11
+        },
+        {
+          "text": "proud?\"",
+          "start": 1.11,
+          "end": 1.51
+        },
+        {
+          "text": "returned",
+          "start": 2.19,
+          "end": 2.23
+        },
+        {
+          "text": "Estella.",
+          "start": 2.23,
+          "end": 2.75
+        },
+        {
+          "text": "\"Who",
+          "start": 3.41,
+          "end": 3.45
+        },
+        {
+          "text": "praised",
+          "start": 3.45,
+          "end": 3.75
+        },
+        {
+          "text": "me",
+          "start": 3.75,
+          "end": 3.99
+        },
+        {
+          "text": "when",
+          "start": 3.99,
+          "end": 4.11
+        },
+        {
+          "text": "I",
+          "start": 4.11,
+          "end": 4.25
+        },
+        {
+          "text": "learnt",
+          "start": 4.25,
+          "end": 4.41
+        },
+        {
+          "text": "my",
+          "start": 4.41,
+          "end": 4.57
+        },
+        {
+          "text": "lesson?\"",
+          "start": 4.57,
+          "end": 4.87
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.31474800780415535
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "796e9d618f20c7b4bd66ce70e7654d04e8dc1941345fa9864aad8a2eb914efa8",
+  "selected_reasons": []
+}

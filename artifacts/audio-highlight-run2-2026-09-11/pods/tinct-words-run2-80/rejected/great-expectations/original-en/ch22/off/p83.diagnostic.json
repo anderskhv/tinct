@@ -1,0 +1,543 @@
+{
+  "complete": true,
+  "signature": "87447765471f14eb5ac564dc1f93b673a0790d25d341f6033889dfdd4dfc9f56",
+  "attempts": [
+    {
+      "asr_seconds": 0.25880630873143673,
+      "alignment_seconds": 0.000675685703754425,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Too, do you mean to the young fellow who's in it?\" he asked in reply.",
+          "start": 0.05,
+          "end": 3.75,
+          "words": [
+            {
+              "text": " Too,",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.033843994140625
+            },
+            {
+              "text": " do",
+              "start": 0.69,
+              "end": 0.73,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " you",
+              "start": 0.73,
+              "end": 0.81,
+              "probability": 0.99609375
+            },
+            {
+              "text": " mean",
+              "start": 0.81,
+              "end": 0.93,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 0.93,
+              "end": 1.07,
+              "probability": 0.86767578125
+            },
+            {
+              "text": " the",
+              "start": 1.07,
+              "end": 1.17,
+              "probability": 0.994140625
+            },
+            {
+              "text": " young",
+              "start": 1.17,
+              "end": 1.33,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " fellow",
+              "start": 1.33,
+              "end": 1.65,
+              "probability": 0.99609375
+            },
+            {
+              "text": " who's",
+              "start": 1.65,
+              "end": 1.93,
+              "probability": 0.960205078125
+            },
+            {
+              "text": " in",
+              "start": 1.93,
+              "end": 2.03,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it?\"",
+              "start": 2.03,
+              "end": 2.59,
+              "probability": 0.7626953125
+            },
+            {
+              "text": " he",
+              "start": 2.59,
+              "end": 2.75,
+              "probability": 0.7978515625
+            },
+            {
+              "text": " asked",
+              "start": 2.75,
+              "end": 3.13,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " in",
+              "start": 3.13,
+              "end": 3.39,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " reply.",
+              "start": 3.39,
+              "end": 3.75,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Too,",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "do",
+          "start": 0.69,
+          "end": 0.73
+        },
+        {
+          "raw": "you",
+          "start": 0.73,
+          "end": 0.81
+        },
+        {
+          "raw": "mean",
+          "start": 0.81,
+          "end": 0.93
+        },
+        {
+          "raw": "to",
+          "start": 0.93,
+          "end": 1.07
+        },
+        {
+          "raw": "the",
+          "start": 1.07,
+          "end": 1.17
+        },
+        {
+          "raw": "young",
+          "start": 1.17,
+          "end": 1.33
+        },
+        {
+          "raw": "fellow",
+          "start": 1.33,
+          "end": 1.65
+        },
+        {
+          "raw": "who's",
+          "start": 1.65,
+          "end": 1.93
+        },
+        {
+          "raw": "in",
+          "start": 1.93,
+          "end": 2.03
+        },
+        {
+          "raw": "it?\"",
+          "start": 2.03,
+          "end": 2.59
+        },
+        {
+          "raw": "he",
+          "start": 2.59,
+          "end": 2.75
+        },
+        {
+          "raw": "asked",
+          "start": 2.75,
+          "end": 3.13
+        },
+        {
+          "raw": "in",
+          "start": 3.13,
+          "end": 3.39
+        },
+        {
+          "raw": "reply.",
+          "start": 3.39,
+          "end": 3.75
+        }
+      ],
+      "expected_tokens": [
+        "\"To—do",
+        "you",
+        "mean",
+        "to",
+        "the",
+        "young",
+        "fellow",
+        "who's",
+        "in",
+        "it?\"",
+        "he",
+        "asked,",
+        "in",
+        "reply."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          14,
+          2,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Too,",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "too",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 0.69,
+          "end": 0.73,
+          "key": "do",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.73,
+          "end": 0.81,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "mean",
+          "start": 0.81,
+          "end": 0.93,
+          "key": "mean",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.93,
+          "end": 1.07,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.07,
+          "end": 1.17,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "young",
+          "start": 1.17,
+          "end": 1.33,
+          "key": "young",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "fellow",
+          "start": 1.33,
+          "end": 1.65,
+          "key": "fellow",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "who's",
+          "start": 1.65,
+          "end": 1.93,
+          "key": "whos",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.93,
+          "end": 2.03,
+          "key": "in",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "it?\"",
+          "start": 2.03,
+          "end": 2.59,
+          "key": "it",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.59,
+          "end": 2.75,
+          "key": "he",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 2.75,
+          "end": 3.13,
+          "key": "asked",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.13,
+          "end": 3.39,
+          "key": "in",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "reply.",
+          "start": 3.39,
+          "end": 3.75,
+          "key": "reply",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"To—do",
+          "start": 0.0,
+          "end": 0.365
+        },
+        {
+          "text": "you",
+          "start": 0.73,
+          "end": 0.81
+        },
+        {
+          "text": "mean",
+          "start": 0.81,
+          "end": 0.93
+        },
+        {
+          "text": "to",
+          "start": 0.93,
+          "end": 1.07
+        },
+        {
+          "text": "the",
+          "start": 1.07,
+          "end": 1.17
+        },
+        {
+          "text": "young",
+          "start": 1.17,
+          "end": 1.33
+        },
+        {
+          "text": "fellow",
+          "start": 1.33,
+          "end": 1.65
+        },
+        {
+          "text": "who's",
+          "start": 1.65,
+          "end": 1.93
+        },
+        {
+          "text": "in",
+          "start": 1.93,
+          "end": 2.03
+        },
+        {
+          "text": "it?\"",
+          "start": 2.03,
+          "end": 2.59
+        },
+        {
+          "text": "he",
+          "start": 2.59,
+          "end": 2.75
+        },
+        {
+          "text": "asked,",
+          "start": 2.75,
+          "end": 3.13
+        },
+        {
+          "text": "in",
+          "start": 3.13,
+          "end": 3.39
+        },
+        {
+          "text": "reply.",
+          "start": 3.39,
+          "end": 3.75
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 15,
+        "matched_words": 13
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.2598777301609516
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b0af0ec0f59dc71dc136a330b681e9112bd87e89c005f90d5bbf9e54d1e5fd39",
+  "selected_reasons": []
+}

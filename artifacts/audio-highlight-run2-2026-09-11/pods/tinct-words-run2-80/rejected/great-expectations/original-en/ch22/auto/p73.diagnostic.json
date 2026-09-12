@@ -1,0 +1,200 @@
+{
+  "complete": true,
+  "signature": "4771d28f514344e4c8382defa3f47b01023c86b36045fb1c2f9a49878f914573",
+  "attempts": [
+    {
+      "asr_seconds": 1.4416985530406237,
+      "alignment_seconds": 0.0003804769366979599,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Tremendous!\" said he.",
+        "hotwords": "Tremendous"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Tremendous said he.",
+          "start": 0.08,
+          "end": 1.72,
+          "words": [
+            {
+              "text": " Tremendous",
+              "start": 0.08,
+              "end": 1.26,
+              "probability": 0.8720703125
+            },
+            {
+              "text": " said",
+              "start": 1.26,
+              "end": 1.44,
+              "probability": 0.1168212890625
+            },
+            {
+              "text": " he.",
+              "start": 1.44,
+              "end": 1.72,
+              "probability": 0.9951171875
+            }
+          ]
+        },
+        {
+          "text": " Tremendous!",
+          "start": 1.72,
+          "end": 2.18,
+          "words": [
+            {
+              "text": " Tremendous!",
+              "start": 1.72,
+              "end": 2.18,
+              "probability": 0.40905805428822833
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Tremendous",
+          "start": 0.08,
+          "end": 1.26
+        },
+        {
+          "raw": "said",
+          "start": 1.26,
+          "end": 1.44
+        },
+        {
+          "raw": "he.",
+          "start": 1.44,
+          "end": 1.72
+        },
+        {
+          "raw": "Tremendous!",
+          "start": 1.72,
+          "end": 2.18
+        }
+      ],
+      "expected_tokens": [
+        "\"Tremendous!\"",
+        "said",
+        "he."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "insert",
+          3,
+          3,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          3,
+          3,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Tremendous",
+          "start": 0.08,
+          "end": 1.26,
+          "key": "tremendous",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.26,
+          "end": 1.44,
+          "key": "said",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he.",
+          "start": 1.44,
+          "end": 1.72,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Tremendous!",
+          "start": 1.72,
+          "end": 2.18,
+          "key": "tremendous",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Tremendous!\"",
+          "start": 0.08,
+          "end": 1.26
+        },
+        {
+          "text": "said",
+          "start": 1.26,
+          "end": 1.44
+        },
+        {
+          "text": "he.",
+          "start": 1.44,
+          "end": 1.72
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 1.4421946853399277
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cee47929df0f1089552a1566e4b91081281a7dbab8b3382c38193a40dad741f6",
+  "selected_reasons": []
+}

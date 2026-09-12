@@ -1,0 +1,564 @@
+{
+  "complete": true,
+  "signature": "bb36674e67536fcce1b9eed2295990e5b3fe1ad3cf0851fe8d4981b1c5fc2ecc",
+  "attempts": [
+    {
+      "asr_seconds": 0.36794549971818924,
+      "alignment_seconds": 0.0007333233952522278,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " You know he is as ungainly within as without a deficient ill-tempered lowering stupid fellow",
+          "start": 0.02,
+          "end": 5.98,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.89501953125
+            },
+            {
+              "text": " know",
+              "start": 0.52,
+              "end": 0.66,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " he",
+              "start": 0.66,
+              "end": 0.84,
+              "probability": 0.72265625
+            },
+            {
+              "text": " is",
+              "start": 0.84,
+              "end": 1.0,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " as",
+              "start": 1.0,
+              "end": 1.1,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " ungainly",
+              "start": 1.1,
+              "end": 1.7,
+              "probability": 0.9915364583333334
+            },
+            {
+              "text": " within",
+              "start": 1.7,
+              "end": 1.94,
+              "probability": 0.984375
+            },
+            {
+              "text": " as",
+              "start": 1.94,
+              "end": 2.08,
+              "probability": 0.8955078125
+            },
+            {
+              "text": " without",
+              "start": 2.08,
+              "end": 2.38,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " a",
+              "start": 2.38,
+              "end": 3.08,
+              "probability": 0.370849609375
+            },
+            {
+              "text": " deficient",
+              "start": 3.08,
+              "end": 3.54,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " ill",
+              "start": 3.54,
+              "end": 4.14,
+              "probability": 0.97314453125
+            },
+            {
+              "text": "-tempered",
+              "start": 4.14,
+              "end": 4.62,
+              "probability": 0.9646809895833334
+            },
+            {
+              "text": " lowering",
+              "start": 4.62,
+              "end": 5.1,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " stupid",
+              "start": 5.1,
+              "end": 5.6,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " fellow",
+              "start": 5.6,
+              "end": 5.98,
+              "probability": 0.970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "know",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "raw": "he",
+          "start": 0.66,
+          "end": 0.84
+        },
+        {
+          "raw": "is",
+          "start": 0.84,
+          "end": 1.0
+        },
+        {
+          "raw": "as",
+          "start": 1.0,
+          "end": 1.1
+        },
+        {
+          "raw": "ungainly",
+          "start": 1.1,
+          "end": 1.7
+        },
+        {
+          "raw": "within",
+          "start": 1.7,
+          "end": 1.94
+        },
+        {
+          "raw": "as",
+          "start": 1.94,
+          "end": 2.08
+        },
+        {
+          "raw": "without",
+          "start": 2.08,
+          "end": 2.38
+        },
+        {
+          "raw": "a",
+          "start": 2.38,
+          "end": 3.08
+        },
+        {
+          "raw": "deficient",
+          "start": 3.08,
+          "end": 3.54
+        },
+        {
+          "raw": "ill",
+          "start": 3.54,
+          "end": 4.14
+        },
+        {
+          "raw": "-tempered",
+          "start": 4.14,
+          "end": 4.62
+        },
+        {
+          "raw": "lowering",
+          "start": 4.62,
+          "end": 5.1
+        },
+        {
+          "raw": "stupid",
+          "start": 5.1,
+          "end": 5.6
+        },
+        {
+          "raw": "fellow",
+          "start": 5.6,
+          "end": 5.98
+        }
+      ],
+      "expected_tokens": [
+        "\"You",
+        "know",
+        "he",
+        "is",
+        "as",
+        "ungainly",
+        "within",
+        "as",
+        "without.",
+        "A",
+        "deficient,",
+        "ill-tempered,",
+        "lowering,",
+        "stupid",
+        "fellow.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 0.52,
+          "end": 0.66,
+          "key": "know",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.66,
+          "end": 0.84,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.84,
+          "end": 1.0,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.0,
+          "end": 1.1,
+          "key": "as",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "ungainly",
+          "start": 1.1,
+          "end": 1.7,
+          "key": "ungainly",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "within",
+          "start": 1.7,
+          "end": 1.94,
+          "key": "within",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.94,
+          "end": 2.08,
+          "key": "as",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "without",
+          "start": 2.08,
+          "end": 2.38,
+          "key": "without",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.38,
+          "end": 3.08,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "deficient",
+          "start": 3.08,
+          "end": 3.54,
+          "key": "deficient",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "ill -tempered",
+          "start": 3.54,
+          "end": 4.62,
+          "key": "illtempered",
+          "pieces": [
+            11,
+            12
+          ]
+        },
+        {
+          "raw": "lowering",
+          "start": 4.62,
+          "end": 5.1,
+          "key": "lowering",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "stupid",
+          "start": 5.1,
+          "end": 5.6,
+          "key": "stupid",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "fellow",
+          "start": 5.6,
+          "end": 5.98,
+          "key": "fellow",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 11,
+          "text": "ill-tempered,",
+          "heard": "ill -tempered",
+          "heard_indexes": [
+            11,
+            12
+          ],
+          "start": 3.54,
+          "end": 4.62
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"You",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "know",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "text": "he",
+          "start": 0.66,
+          "end": 0.84
+        },
+        {
+          "text": "is",
+          "start": 0.84,
+          "end": 1.0
+        },
+        {
+          "text": "as",
+          "start": 1.0,
+          "end": 1.1
+        },
+        {
+          "text": "ungainly",
+          "start": 1.1,
+          "end": 1.7
+        },
+        {
+          "text": "within",
+          "start": 1.7,
+          "end": 1.94
+        },
+        {
+          "text": "as",
+          "start": 1.94,
+          "end": 2.08
+        },
+        {
+          "text": "without.",
+          "start": 2.08,
+          "end": 2.38
+        },
+        {
+          "text": "A",
+          "start": 2.38,
+          "end": 3.08
+        },
+        {
+          "text": "deficient,",
+          "start": 3.08,
+          "end": 3.54
+        },
+        {
+          "text": "ill-tempered,",
+          "start": 3.54,
+          "end": 4.62
+        },
+        {
+          "text": "lowering,",
+          "start": 4.62,
+          "end": 5.1
+        },
+        {
+          "text": "stupid",
+          "start": 5.1,
+          "end": 5.6
+        },
+        {
+          "text": "fellow.\"",
+          "start": 5.6,
+          "end": 5.98
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3689385913312435
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9a14edd24d673d0c93e37b1c3ee09b44b3f1fb8d17e6e9b6a1887f7e926c5d30",
+  "selected_reasons": []
+}

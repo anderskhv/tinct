@@ -1,0 +1,412 @@
+{
+  "complete": true,
+  "signature": "08005e2ee2fa65c7371ac63183dee6e4dca4919177ab3a5e9d456a4d4ad8b6b2",
+  "attempts": [
+    {
+      "asr_seconds": 0.2934256959706545,
+      "alignment_seconds": 0.0004958231002092361,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " You stock and stone exclaimed Miss Havisham. You cold cold heart",
+          "start": 0.02,
+          "end": 4.72,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.0799560546875
+            },
+            {
+              "text": " stock",
+              "start": 0.52,
+              "end": 0.84,
+              "probability": 0.82666015625
+            },
+            {
+              "text": " and",
+              "start": 0.84,
+              "end": 1.02,
+              "probability": 0.67041015625
+            },
+            {
+              "text": " stone",
+              "start": 1.02,
+              "end": 1.42,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " exclaimed",
+              "start": 1.42,
+              "end": 2.24,
+              "probability": 0.26806640625
+            },
+            {
+              "text": " Miss",
+              "start": 2.24,
+              "end": 2.5,
+              "probability": 0.52197265625
+            },
+            {
+              "text": " Havisham.",
+              "start": 2.5,
+              "end": 3.1,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " You",
+              "start": 3.4,
+              "end": 3.66,
+              "probability": 0.984375
+            },
+            {
+              "text": " cold",
+              "start": 3.66,
+              "end": 4.06,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " cold",
+              "start": 4.06,
+              "end": 4.36,
+              "probability": 0.85107421875
+            },
+            {
+              "text": " heart",
+              "start": 4.36,
+              "end": 4.72,
+              "probability": 0.96337890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "stock",
+          "start": 0.52,
+          "end": 0.84
+        },
+        {
+          "raw": "and",
+          "start": 0.84,
+          "end": 1.02
+        },
+        {
+          "raw": "stone",
+          "start": 1.02,
+          "end": 1.42
+        },
+        {
+          "raw": "exclaimed",
+          "start": 1.42,
+          "end": 2.24
+        },
+        {
+          "raw": "Miss",
+          "start": 2.24,
+          "end": 2.5
+        },
+        {
+          "raw": "Havisham.",
+          "start": 2.5,
+          "end": 3.1
+        },
+        {
+          "raw": "You",
+          "start": 3.4,
+          "end": 3.66
+        },
+        {
+          "raw": "cold",
+          "start": 3.66,
+          "end": 4.06
+        },
+        {
+          "raw": "cold",
+          "start": 4.06,
+          "end": 4.36
+        },
+        {
+          "raw": "heart",
+          "start": 4.36,
+          "end": 4.72
+        }
+      ],
+      "expected_tokens": [
+        "\"You",
+        "stock",
+        "and",
+        "stone!\"",
+        "exclaimed",
+        "Miss",
+        "Havisham.",
+        "\"You",
+        "cold,",
+        "cold",
+        "heart!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "stock",
+          "start": 0.52,
+          "end": 0.84,
+          "key": "stock",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.84,
+          "end": 1.02,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "stone",
+          "start": 1.02,
+          "end": 1.42,
+          "key": "stone",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "exclaimed",
+          "start": 1.42,
+          "end": 2.24,
+          "key": "exclaimed",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Miss",
+          "start": 2.24,
+          "end": 2.5,
+          "key": "miss",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Havisham.",
+          "start": 2.5,
+          "end": 3.1,
+          "key": "havisham",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 3.4,
+          "end": 3.66,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "cold",
+          "start": 3.66,
+          "end": 4.06,
+          "key": "cold",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "cold",
+          "start": 4.06,
+          "end": 4.36,
+          "key": "cold",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "heart",
+          "start": 4.36,
+          "end": 4.72,
+          "key": "heart",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"You",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "stock",
+          "start": 0.52,
+          "end": 0.84
+        },
+        {
+          "text": "and",
+          "start": 0.84,
+          "end": 1.02
+        },
+        {
+          "text": "stone!\"",
+          "start": 1.02,
+          "end": 1.42
+        },
+        {
+          "text": "exclaimed",
+          "start": 1.42,
+          "end": 2.24
+        },
+        {
+          "text": "Miss",
+          "start": 2.24,
+          "end": 2.5
+        },
+        {
+          "text": "Havisham.",
+          "start": 2.5,
+          "end": 3.1
+        },
+        {
+          "text": "\"You",
+          "start": 3.4,
+          "end": 3.66
+        },
+        {
+          "text": "cold,",
+          "start": 3.66,
+          "end": 4.06
+        },
+        {
+          "text": "cold",
+          "start": 4.06,
+          "end": 4.36
+        },
+        {
+          "text": "heart!\"",
+          "start": 4.36,
+          "end": 4.72
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.29412773065268993
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b10158db0650cfae916ddf27a0ec492b5896316e3fd743a5ee2dd651de737796",
+  "selected_reasons": []
+}

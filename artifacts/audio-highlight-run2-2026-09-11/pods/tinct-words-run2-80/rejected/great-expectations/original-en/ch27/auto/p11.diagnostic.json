@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "d8aab144012f94718c40ae0a203d1ffc3067ab2543b43b8684b5e3cf27603013",
+  "attempts": [
+    {
+      "asr_seconds": 0.1418774351477623,
+      "alignment_seconds": 0.00032511912286281586,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Pip, how Air you, Pip?\"",
+        "hotwords": "Pip, Air"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Pip, how Air you, Pip?",
+          "start": 0.05,
+          "end": 1.43,
+          "words": [
+            {
+              "text": " Pip,",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.065185546875
+            },
+            {
+              "text": " how",
+              "start": 0.71,
+              "end": 0.85,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " Air",
+              "start": 0.85,
+              "end": 1.03,
+              "probability": 0.0008234977722167969
+            },
+            {
+              "text": " you,",
+              "start": 1.03,
+              "end": 1.23,
+              "probability": 0.650390625
+            },
+            {
+              "text": " Pip?",
+              "start": 1.29,
+              "end": 1.43,
+              "probability": 0.712890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pip,",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "how",
+          "start": 0.71,
+          "end": 0.85
+        },
+        {
+          "raw": "Air",
+          "start": 0.85,
+          "end": 1.03
+        },
+        {
+          "raw": "you,",
+          "start": 1.03,
+          "end": 1.23
+        },
+        {
+          "raw": "Pip?",
+          "start": 1.29,
+          "end": 1.43
+        }
+      ],
+      "expected_tokens": [
+        "\"Pip,",
+        "how",
+        "Air",
+        "you,",
+        "Pip?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pip,",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "pip",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 0.71,
+          "end": 0.85,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Air",
+          "start": 0.85,
+          "end": 1.03,
+          "key": "air",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 1.03,
+          "end": 1.23,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Pip?",
+          "start": 1.29,
+          "end": 1.43,
+          "key": "pip",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Pip,",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "how",
+          "start": 0.71,
+          "end": 0.85
+        },
+        {
+          "text": "Air",
+          "start": 0.85,
+          "end": 1.03
+        },
+        {
+          "text": "you,",
+          "start": 1.03,
+          "end": 1.23
+        },
+        {
+          "text": "Pip?\"",
+          "start": 1.29,
+          "end": 1.43
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14230877161026
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "dc78a461a847f20fe77d368827037009eecc719875132fd0b44bdabe97e58bbb",
+  "selected_reasons": []
+}

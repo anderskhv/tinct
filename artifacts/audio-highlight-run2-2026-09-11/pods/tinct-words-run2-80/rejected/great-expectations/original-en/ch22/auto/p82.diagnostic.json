@@ -1,0 +1,278 @@
+{
+  "complete": true,
+  "signature": "975704f017a43fe7f8121167f44d991d8e8270daa848ad4c840d22ddae3802a8",
+  "attempts": [
+    {
+      "asr_seconds": 0.2208973877131939,
+      "alignment_seconds": 0.00034638307988643646,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Is a counting-house profitable?\" I asked.",
+        "hotwords": "Is, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Is a counting-house profitable? I asked.",
+          "start": 0.05,
+          "end": 2.71,
+          "words": [
+            {
+              "text": " Is",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.245361328125
+            },
+            {
+              "text": " a",
+              "start": 0.53,
+              "end": 0.61,
+              "probability": 0.30078125
+            },
+            {
+              "text": " counting",
+              "start": 0.61,
+              "end": 0.87,
+              "probability": 0.837890625
+            },
+            {
+              "text": "-house",
+              "start": 0.87,
+              "end": 1.17,
+              "probability": 0.5080795288085938
+            },
+            {
+              "text": " profitable?",
+              "start": 1.17,
+              "end": 1.69,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " I",
+              "start": 2.27,
+              "end": 2.29,
+              "probability": 0.9140625
+            },
+            {
+              "text": " asked.",
+              "start": 2.29,
+              "end": 2.71,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Is",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "a",
+          "start": 0.53,
+          "end": 0.61
+        },
+        {
+          "raw": "counting",
+          "start": 0.61,
+          "end": 0.87
+        },
+        {
+          "raw": "-house",
+          "start": 0.87,
+          "end": 1.17
+        },
+        {
+          "raw": "profitable?",
+          "start": 1.17,
+          "end": 1.69
+        },
+        {
+          "raw": "I",
+          "start": 2.27,
+          "end": 2.29
+        },
+        {
+          "raw": "asked.",
+          "start": 2.29,
+          "end": 2.71
+        }
+      ],
+      "expected_tokens": [
+        "\"Is",
+        "a",
+        "counting-house",
+        "profitable?\"",
+        "I",
+        "asked."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Is",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "is",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.53,
+          "end": 0.61,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "counting -house",
+          "start": 0.61,
+          "end": 1.17,
+          "key": "countinghouse",
+          "pieces": [
+            2,
+            3
+          ]
+        },
+        {
+          "raw": "profitable?",
+          "start": 1.17,
+          "end": 1.69,
+          "key": "profitable",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.27,
+          "end": 2.29,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "asked.",
+          "start": 2.29,
+          "end": 2.71,
+          "key": "asked",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 2,
+          "text": "counting-house",
+          "heard": "counting -house",
+          "heard_indexes": [
+            2,
+            3
+          ],
+          "start": 0.61,
+          "end": 1.17
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Is",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "a",
+          "start": 0.53,
+          "end": 0.61
+        },
+        {
+          "text": "counting-house",
+          "start": 0.61,
+          "end": 1.17
+        },
+        {
+          "text": "profitable?\"",
+          "start": 1.17,
+          "end": 1.69
+        },
+        {
+          "text": "I",
+          "start": 2.27,
+          "end": 2.29
+        },
+        {
+          "text": "asked.",
+          "start": 2.29,
+          "end": 2.71
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2213528472930193
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2ad4f2b2757f794450b45a7316628c22415027781982d4fc74b004a24666af7f",
+  "selected_reasons": []
+}

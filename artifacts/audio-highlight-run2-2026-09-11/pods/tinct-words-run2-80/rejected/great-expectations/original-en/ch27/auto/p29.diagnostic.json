@@ -1,0 +1,574 @@
+{
+  "complete": true,
+  "signature": "c460bde1b7c88e1df45c2565f2023038ba4ef91dd4c3b33b6eda6075ce528195",
+  "attempts": [
+    {
+      "asr_seconds": 0.30898278020322323,
+      "alignment_seconds": 0.00047052837908267975,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Do you take tea, or coffee, Mr. Gargery?\" asked Herbert, who always presided of a morning.",
+        "hotwords": "Do, Mr, Gargery, Herbert"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Do you take tea, or coffee, Mr. Gargery?\" asked Herbert, who always presided of a morning.",
+          "start": 0.05,
+          "end": 5.71,
+          "words": [
+            {
+              "text": " Do",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.27197265625
+            },
+            {
+              "text": " you",
+              "start": 0.51,
+              "end": 0.61,
+              "probability": 0.998046875
+            },
+            {
+              "text": " take",
+              "start": 0.61,
+              "end": 0.81,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " tea,",
+              "start": 0.81,
+              "end": 1.15,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " or",
+              "start": 1.47,
+              "end": 1.55,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " coffee,",
+              "start": 1.55,
+              "end": 1.99,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Mr.",
+              "start": 2.13,
+              "end": 2.31,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " Gargery?\"",
+              "start": 2.73,
+              "end": 3.33,
+              "probability": 0.52294921875
+            },
+            {
+              "text": " asked",
+              "start": 3.33,
+              "end": 3.63,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " Herbert,",
+              "start": 3.63,
+              "end": 3.99,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " who",
+              "start": 4.31,
+              "end": 4.45,
+              "probability": 0.99609375
+            },
+            {
+              "text": " always",
+              "start": 4.45,
+              "end": 4.77,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " presided",
+              "start": 4.77,
+              "end": 5.23,
+              "probability": 0.98828125
+            },
+            {
+              "text": " of",
+              "start": 5.23,
+              "end": 5.39,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " a",
+              "start": 5.39,
+              "end": 5.51,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " morning.",
+              "start": 5.51,
+              "end": 5.71,
+              "probability": 0.6474609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Do",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "you",
+          "start": 0.51,
+          "end": 0.61
+        },
+        {
+          "raw": "take",
+          "start": 0.61,
+          "end": 0.81
+        },
+        {
+          "raw": "tea,",
+          "start": 0.81,
+          "end": 1.15
+        },
+        {
+          "raw": "or",
+          "start": 1.47,
+          "end": 1.55
+        },
+        {
+          "raw": "coffee,",
+          "start": 1.55,
+          "end": 1.99
+        },
+        {
+          "raw": "Mr.",
+          "start": 2.13,
+          "end": 2.31
+        },
+        {
+          "raw": "Gargery?\"",
+          "start": 2.73,
+          "end": 3.33
+        },
+        {
+          "raw": "asked",
+          "start": 3.33,
+          "end": 3.63
+        },
+        {
+          "raw": "Herbert,",
+          "start": 3.63,
+          "end": 3.99
+        },
+        {
+          "raw": "who",
+          "start": 4.31,
+          "end": 4.45
+        },
+        {
+          "raw": "always",
+          "start": 4.45,
+          "end": 4.77
+        },
+        {
+          "raw": "presided",
+          "start": 4.77,
+          "end": 5.23
+        },
+        {
+          "raw": "of",
+          "start": 5.23,
+          "end": 5.39
+        },
+        {
+          "raw": "a",
+          "start": 5.39,
+          "end": 5.51
+        },
+        {
+          "raw": "morning.",
+          "start": 5.51,
+          "end": 5.71
+        }
+      ],
+      "expected_tokens": [
+        "\"Do",
+        "you",
+        "take",
+        "tea,",
+        "or",
+        "coffee,",
+        "Mr.",
+        "Gargery?\"",
+        "asked",
+        "Herbert,",
+        "who",
+        "always",
+        "presided",
+        "of",
+        "a",
+        "morning."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Do",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "do",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.51,
+          "end": 0.61,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 0.61,
+          "end": 0.81,
+          "key": "take",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "tea,",
+          "start": 0.81,
+          "end": 1.15,
+          "key": "tea",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 1.47,
+          "end": 1.55,
+          "key": "or",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "coffee,",
+          "start": 1.55,
+          "end": 1.99,
+          "key": "coffee",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 2.13,
+          "end": 2.31,
+          "key": "mr",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Gargery?\"",
+          "start": 2.73,
+          "end": 3.33,
+          "key": "gargery",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 3.33,
+          "end": 3.63,
+          "key": "asked",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Herbert,",
+          "start": 3.63,
+          "end": 3.99,
+          "key": "herbert",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 4.31,
+          "end": 4.45,
+          "key": "who",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "always",
+          "start": 4.45,
+          "end": 4.77,
+          "key": "always",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "presided",
+          "start": 4.77,
+          "end": 5.23,
+          "key": "presided",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.23,
+          "end": 5.39,
+          "key": "of",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.39,
+          "end": 5.51,
+          "key": "a",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "morning.",
+          "start": 5.51,
+          "end": 5.71,
+          "key": "morning",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Do",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "you",
+          "start": 0.51,
+          "end": 0.61
+        },
+        {
+          "text": "take",
+          "start": 0.61,
+          "end": 0.81
+        },
+        {
+          "text": "tea,",
+          "start": 0.81,
+          "end": 1.15
+        },
+        {
+          "text": "or",
+          "start": 1.47,
+          "end": 1.55
+        },
+        {
+          "text": "coffee,",
+          "start": 1.55,
+          "end": 1.99
+        },
+        {
+          "text": "Mr.",
+          "start": 2.13,
+          "end": 2.31
+        },
+        {
+          "text": "Gargery?\"",
+          "start": 2.73,
+          "end": 3.33
+        },
+        {
+          "text": "asked",
+          "start": 3.33,
+          "end": 3.63
+        },
+        {
+          "text": "Herbert,",
+          "start": 3.63,
+          "end": 3.99
+        },
+        {
+          "text": "who",
+          "start": 4.31,
+          "end": 4.45
+        },
+        {
+          "text": "always",
+          "start": 4.45,
+          "end": 4.77
+        },
+        {
+          "text": "presided",
+          "start": 4.77,
+          "end": 5.23
+        },
+        {
+          "text": "of",
+          "start": 5.23,
+          "end": 5.39
+        },
+        {
+          "text": "a",
+          "start": 5.39,
+          "end": 5.51
+        },
+        {
+          "text": "morning.",
+          "start": 5.51,
+          "end": 5.71
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.30964350886642933
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e6bc6687f0967c1f0e8f8194336e5cb64443d99802947eb36bd09b13912de5fa",
+  "selected_reasons": []
+}

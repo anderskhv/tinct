@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "c220f70fcb7cfe6f8f31bea955ef0ebc10b51fb4508c50dd2becc4bf9778a761",
+  "attempts": [
+    {
+      "asr_seconds": 0.1079242117702961,
+      "alignment_seconds": 0.0003564823418855667,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"You should be.\"",
+        "hotwords": "You"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " You should be.",
+          "start": 0.05,
+          "end": 0.97,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.849609375
+            },
+            {
+              "text": " should",
+              "start": 0.53,
+              "end": 0.71,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " be.",
+              "start": 0.71,
+              "end": 0.97,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "should",
+          "start": 0.53,
+          "end": 0.71
+        },
+        {
+          "raw": "be.",
+          "start": 0.71,
+          "end": 0.97
+        }
+      ],
+      "expected_tokens": [
+        "\"You",
+        "should",
+        "be.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 0.53,
+          "end": 0.71,
+          "key": "should",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "be.",
+          "start": 0.71,
+          "end": 0.97,
+          "key": "be",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"You",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "should",
+          "start": 0.53,
+          "end": 0.71
+        },
+        {
+          "text": "be.\"",
+          "start": 0.71,
+          "end": 0.97
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10841374844312668
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "45fb96db7559cb5c235e956c7bb8ebe38a7e002b7a38774aba05ce7df70fe9fb",
+  "selected_reasons": []
+}

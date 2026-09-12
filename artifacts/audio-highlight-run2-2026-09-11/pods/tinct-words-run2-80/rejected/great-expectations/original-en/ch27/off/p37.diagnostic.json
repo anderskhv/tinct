@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "284a52d26bb0c053a0edf328779496f272de9388ecfb7644910b8a1eb499d782",
+  "attempts": [
+    {
+      "asr_seconds": 0.1852627731859684,
+      "alignment_seconds": 0.00017637014389038086,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Have you seen anything of London yet?",
+          "start": 0.05,
+          "end": 2.03,
+          "words": [
+            {
+              "text": " Have",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " you",
+              "start": 0.51,
+              "end": 0.63,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " seen",
+              "start": 0.63,
+              "end": 0.87,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " anything",
+              "start": 0.87,
+              "end": 1.29,
+              "probability": 0.9921875
+            },
+            {
+              "text": " of",
+              "start": 1.29,
+              "end": 1.49,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " London",
+              "start": 1.49,
+              "end": 1.71,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " yet?",
+              "start": 1.71,
+              "end": 2.03,
+              "probability": 0.97900390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Have",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "you",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "raw": "seen",
+          "start": 0.63,
+          "end": 0.87
+        },
+        {
+          "raw": "anything",
+          "start": 0.87,
+          "end": 1.29
+        },
+        {
+          "raw": "of",
+          "start": 1.29,
+          "end": 1.49
+        },
+        {
+          "raw": "London",
+          "start": 1.49,
+          "end": 1.71
+        },
+        {
+          "raw": "yet?",
+          "start": 1.71,
+          "end": 2.03
+        }
+      ],
+      "expected_tokens": [
+        "\"Have",
+        "you",
+        "seen",
+        "anything",
+        "of",
+        "London",
+        "yet?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Have",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "have",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.51,
+          "end": 0.63,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "seen",
+          "start": 0.63,
+          "end": 0.87,
+          "key": "seen",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "anything",
+          "start": 0.87,
+          "end": 1.29,
+          "key": "anything",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.29,
+          "end": 1.49,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "London",
+          "start": 1.49,
+          "end": 1.71,
+          "key": "london",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "yet?",
+          "start": 1.71,
+          "end": 2.03,
+          "key": "yet",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Have",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "you",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "text": "seen",
+          "start": 0.63,
+          "end": 0.87
+        },
+        {
+          "text": "anything",
+          "start": 0.87,
+          "end": 1.29
+        },
+        {
+          "text": "of",
+          "start": 1.29,
+          "end": 1.49
+        },
+        {
+          "text": "London",
+          "start": 1.49,
+          "end": 1.71
+        },
+        {
+          "text": "yet?\"",
+          "start": 1.71,
+          "end": 2.03
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18550422228872776
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "80e3d2387fb04dcc4b988afe62f15f1a8ca89f1e12af7ecf32a8dcb3f2f50ce4",
+  "selected_reasons": []
+}

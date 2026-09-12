@@ -1,0 +1,387 @@
+{
+  "complete": true,
+  "signature": "cdbee477bd54f93913b5240ba2e484abda95b0265a516769ba4c780d904c9ab0",
+  "attempts": [
+    {
+      "asr_seconds": 0.1495613045990467,
+      "alignment_seconds": 0.0002033635973930359,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"_Do_ you?\" said Drummle.",
+        "hotwords": "Drummle"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " \"_Do you?\" said Drummle.",
+          "start": 0.02,
+          "end": 1.7,
+          "words": [
+            {
+              "text": " \"_Do",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.42626985907554626
+            },
+            {
+              "text": " you?\"",
+              "start": 0.6,
+              "end": 1.08,
+              "probability": 0.53912353515625
+            },
+            {
+              "text": " said",
+              "start": 1.08,
+              "end": 1.3,
+              "probability": 0.8740234375
+            },
+            {
+              "text": " Drummle.",
+              "start": 1.3,
+              "end": 1.7,
+              "probability": 0.3817850748697917
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "\"_Do",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "you?\"",
+          "start": 0.6,
+          "end": 1.08
+        },
+        {
+          "raw": "said",
+          "start": 1.08,
+          "end": 1.3
+        },
+        {
+          "raw": "Drummle.",
+          "start": 1.3,
+          "end": 1.7
+        }
+      ],
+      "expected_tokens": [
+        "\"_Do_",
+        "you?\"",
+        "said",
+        "Drummle."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          4,
+          1,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "\"_Do",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "_do",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you?\"",
+          "start": 0.6,
+          "end": 1.08,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.08,
+          "end": 1.3,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Drummle.",
+          "start": 1.3,
+          "end": 1.7,
+          "key": "drummle",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"_Do_",
+          "start": 0.0,
+          "end": 0.3
+        },
+        {
+          "text": "you?\"",
+          "start": 0.6,
+          "end": 1.08
+        },
+        {
+          "text": "said",
+          "start": 1.08,
+          "end": 1.3
+        },
+        {
+          "text": "Drummle.",
+          "start": 1.3,
+          "end": 1.7
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1498280931264162
+    },
+    {
+      "asr_seconds": 0.12309914641082287,
+      "alignment_seconds": 0.00035123713314533234,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Drummle"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Do you? said Drummle",
+          "start": 0.02,
+          "end": 1.74,
+          "words": [
+            {
+              "text": " Do",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.0921630859375
+            },
+            {
+              "text": " you?",
+              "start": 0.6,
+              "end": 0.86,
+              "probability": 0.9609375
+            },
+            {
+              "text": " said",
+              "start": 1.26,
+              "end": 1.28,
+              "probability": 0.85302734375
+            },
+            {
+              "text": " Drummle",
+              "start": 1.28,
+              "end": 1.74,
+              "probability": 0.4283599853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Do",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "you?",
+          "start": 0.6,
+          "end": 0.86
+        },
+        {
+          "raw": "said",
+          "start": 1.26,
+          "end": 1.28
+        },
+        {
+          "raw": "Drummle",
+          "start": 1.28,
+          "end": 1.74
+        }
+      ],
+      "expected_tokens": [
+        "\"_Do_",
+        "you?\"",
+        "said",
+        "Drummle."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Do",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "do",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you?",
+          "start": 0.6,
+          "end": 0.86,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.26,
+          "end": 1.28,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Drummle",
+          "start": 1.28,
+          "end": 1.74,
+          "key": "drummle",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"_Do_",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "you?\"",
+          "start": 0.6,
+          "end": 0.86
+        },
+        {
+          "text": "said",
+          "start": 1.26,
+          "end": 1.28
+        },
+        {
+          "text": "Drummle.",
+          "start": 1.28,
+          "end": 1.74
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12356940470635891
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "1b72fae20ff1dad8ea7b32ef0165fc1345ca01337a8c5a59c02b474f3d557593",
+  "selected_reasons": []
+}
