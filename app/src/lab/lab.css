@@ -4761,6 +4761,29 @@
   }
 }
 
+/* Chat/Talk on an upright tablet (2026-09-12): on a phone this sheet is
+   meant to fill the screen — there is nowhere else for it to go. On an
+   upright tablet, stretching the same conversation edge-to-edge read as a
+   blown-up phone screen: a wall of bare paper around a composer glued to
+   the bottom. There is no second leaf to dock beside here (that is the
+   desktop spread's trick, below), so the sheet keeps the full height, but
+   the conversation itself is capped at the same measure the desktop
+   companion panel centres on its leaf, with a border on both sides so it
+   reads as a placed panel rather than the whole viewport.
+   A min-height guard (not just the 700-1024px width band above) keeps this
+   off a phone lying on its side — 852x393 landscape matches that width
+   band too, but is short, still every bit a phone, and already has its own
+   considered landscape-phone rules elsewhere; it must keep the full-bleed
+   sheet those rules assume. */
+@media (min-width: 700px) and (max-width: 1024px) and (min-height: 620px) {
+  .lab.is-phone .lab-ask {
+    width: min(100%, 40rem);
+    margin: 0 auto;
+    border-left: 1px solid var(--lab-border);
+    border-right: 1px solid var(--lab-border);
+  }
+}
+
 /* ── Page-turn buttons follow the POINTER, not the window width ──────────
    A half-screen desktop window gets the narrow single-column layout (that is
    a layout decision, and correct), but it is still a mouse with hover and a
@@ -6774,8 +6797,15 @@
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-audio-dock button { width: 40px; height: 40px; min-width: 40px; color: var(--lab-ink); }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-audio-dock button.is-primary { background: var(--lab-surface); color: var(--lab-ink); }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-audio-track span { display: block; font-size: 10px; opacity: .65; }
+/* bottom:88px cleared the audio dock but not the book-progress line beneath
+   it: measured at 1180x820 (playing, popover open), the progress line
+   (".lab-chapter-progress", part of ".lab-bottom-chrome") sits 725-743px
+   from the top of an 820px-tall viewport, and the popover's own bottom edge
+   landed at 732px — inside that span, so its rounded corners let the
+   translucent-looking (in fact just adjacent) progress text show through
+   the gap the radius leaves. 112px clears it with room at every height. */
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-audio-speed-popover {
-  left: 50%; transform: translateX(-50%); bottom: 88px; width: 300px;
+  left: 50%; transform: translateX(-50%); bottom: 112px; width: 300px;
   padding: 16px; box-sizing: border-box; border-radius: 20px;
   background: var(--lab-paper); border: 1px solid var(--lab-border);
   box-shadow: 0 8px 30px #0002; z-index: 250; pointer-events: auto;
