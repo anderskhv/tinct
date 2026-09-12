@@ -1,0 +1,454 @@
+{
+  "complete": true,
+  "signature": "a71b878d3f1c1a18a9fb5d93455f000e3710a772a33d67c1fc455cfb38b2898b",
+  "attempts": [
+    {
+      "asr_seconds": 0.17017413210123777,
+      "alignment_seconds": 0.00033496879041194916,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Your own act is Stella to fling yourself away upon a brute",
+          "start": 0.02,
+          "end": 3.38,
+          "words": [
+            {
+              "text": " Your",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.7734375
+            },
+            {
+              "text": " own",
+              "start": 0.52,
+              "end": 0.78,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " act",
+              "start": 0.78,
+              "end": 1.1,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " is",
+              "start": 1.1,
+              "end": 1.22,
+              "probability": 0.474609375
+            },
+            {
+              "text": " Stella",
+              "start": 1.22,
+              "end": 1.54,
+              "probability": 0.890625
+            },
+            {
+              "text": " to",
+              "start": 1.54,
+              "end": 1.98,
+              "probability": 0.68798828125
+            },
+            {
+              "text": " fling",
+              "start": 1.98,
+              "end": 2.2,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " yourself",
+              "start": 2.2,
+              "end": 2.46,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " away",
+              "start": 2.46,
+              "end": 2.76,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " upon",
+              "start": 2.76,
+              "end": 3.06,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 3.06,
+              "end": 3.18,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " brute",
+              "start": 3.18,
+              "end": 3.38,
+              "probability": 0.93994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Your",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "own",
+          "start": 0.52,
+          "end": 0.78
+        },
+        {
+          "raw": "act",
+          "start": 0.78,
+          "end": 1.1
+        },
+        {
+          "raw": "is",
+          "start": 1.1,
+          "end": 1.22
+        },
+        {
+          "raw": "Stella",
+          "start": 1.22,
+          "end": 1.54
+        },
+        {
+          "raw": "to",
+          "start": 1.54,
+          "end": 1.98
+        },
+        {
+          "raw": "fling",
+          "start": 1.98,
+          "end": 2.2
+        },
+        {
+          "raw": "yourself",
+          "start": 2.2,
+          "end": 2.46
+        },
+        {
+          "raw": "away",
+          "start": 2.46,
+          "end": 2.76
+        },
+        {
+          "raw": "upon",
+          "start": 2.76,
+          "end": 3.06
+        },
+        {
+          "raw": "a",
+          "start": 3.06,
+          "end": 3.18
+        },
+        {
+          "raw": "brute",
+          "start": 3.18,
+          "end": 3.38
+        }
+      ],
+      "expected_tokens": [
+        "\"Your",
+        "own",
+        "act,",
+        "Estella,",
+        "to",
+        "fling",
+        "yourself",
+        "away",
+        "upon",
+        "a",
+        "brute?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          11,
+          5,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Your",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "your",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "own",
+          "start": 0.52,
+          "end": 0.78,
+          "key": "own",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "act",
+          "start": 0.78,
+          "end": 1.1,
+          "key": "act",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.1,
+          "end": 1.22,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Stella",
+          "start": 1.22,
+          "end": 1.54,
+          "key": "stella",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.54,
+          "end": 1.98,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "fling",
+          "start": 1.98,
+          "end": 2.2,
+          "key": "fling",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "yourself",
+          "start": 2.2,
+          "end": 2.46,
+          "key": "yourself",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "away",
+          "start": 2.46,
+          "end": 2.76,
+          "key": "away",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 2.76,
+          "end": 3.06,
+          "key": "upon",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.06,
+          "end": 3.18,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "brute",
+          "start": 3.18,
+          "end": 3.38,
+          "key": "brute",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Your",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "own",
+          "start": 0.52,
+          "end": 0.78
+        },
+        {
+          "text": "act,",
+          "start": 0.78,
+          "end": 1.1
+        },
+        {
+          "text": "Estella,",
+          "start": 1.1,
+          "end": 1.32
+        },
+        {
+          "text": "to",
+          "start": 1.54,
+          "end": 1.98
+        },
+        {
+          "text": "fling",
+          "start": 1.98,
+          "end": 2.2
+        },
+        {
+          "text": "yourself",
+          "start": 2.2,
+          "end": 2.46
+        },
+        {
+          "text": "away",
+          "start": 2.46,
+          "end": 2.76
+        },
+        {
+          "text": "upon",
+          "start": 2.76,
+          "end": 3.06
+        },
+        {
+          "text": "a",
+          "start": 3.06,
+          "end": 3.18
+        },
+        {
+          "text": "brute?\"",
+          "start": 3.18,
+          "end": 3.38
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 12,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.17062985617667437
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8ff43f1b59c1c0fbdbf1c41ef263138fe2c71890b079378f56b0f7273efaf8d1",
+  "selected_reasons": []
+}

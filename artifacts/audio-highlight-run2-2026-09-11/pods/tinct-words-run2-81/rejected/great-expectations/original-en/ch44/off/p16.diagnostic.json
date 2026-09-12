@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "efc59089db287f812fa7b8903116e3d8b4a63c6360e7cc710ddac4b9365577c9",
+  "attempts": [
+    {
+      "asr_seconds": 0.12990090064704418,
+      "alignment_seconds": 0.0002882685512304306,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Was that kind?",
+          "start": 0.02,
+          "end": 1.08,
+          "words": [
+            {
+              "text": " Was",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.77587890625
+            },
+            {
+              "text": " that",
+              "start": 0.54,
+              "end": 0.78,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " kind?",
+              "start": 0.78,
+              "end": 1.08,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Was",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "that",
+          "start": 0.54,
+          "end": 0.78
+        },
+        {
+          "raw": "kind?",
+          "start": 0.78,
+          "end": 1.08
+        }
+      ],
+      "expected_tokens": [
+        "\"Was",
+        "that",
+        "kind?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Was",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "was",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 0.54,
+          "end": 0.78,
+          "key": "that",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "kind?",
+          "start": 0.78,
+          "end": 1.08,
+          "key": "kind",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Was",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "that",
+          "start": 0.54,
+          "end": 0.78
+        },
+        {
+          "text": "kind?\"",
+          "start": 0.78,
+          "end": 1.08
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1302940184250474
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8510b8fa7407aed3fd6901fb503594f6643270d13edbfc63176387fb2c2e80eb",
+  "selected_reasons": []
+}

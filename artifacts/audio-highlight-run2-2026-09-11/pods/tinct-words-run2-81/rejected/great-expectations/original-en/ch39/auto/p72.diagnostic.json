@@ -1,0 +1,353 @@
+{
+  "complete": true,
+  "signature": "ebbdf7e011fe21237e6a26ea383b4df907fecc346d257a92f12042236e0d137f",
+  "attempts": [
+    {
+      "asr_seconds": 0.23022924177348614,
+      "alignment_seconds": 0.0004151277244091034,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"O no, no, no,\" I returned, \"Never, never!\"",
+        "hotwords": "O, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " O, no, no, no,\" I returned, Never, never!\"",
+          "start": 0.02,
+          "end": 3.5,
+          "words": [
+            {
+              "text": " O,",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.0011768341064453125
+            },
+            {
+              "text": " no,",
+              "start": 0.6,
+              "end": 0.68,
+              "probability": 0.8330078125
+            },
+            {
+              "text": " no,",
+              "start": 0.8,
+              "end": 0.9,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " no,\"",
+              "start": 0.9,
+              "end": 1.36,
+              "probability": 0.4972076416015625
+            },
+            {
+              "text": " I",
+              "start": 1.36,
+              "end": 1.46,
+              "probability": 0.984375
+            },
+            {
+              "text": " returned,",
+              "start": 1.46,
+              "end": 1.8,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Never,",
+              "start": 2.2,
+              "end": 2.52,
+              "probability": 0.00673675537109375
+            },
+            {
+              "text": " never",
+              "start": 2.72,
+              "end": 2.88,
+              "probability": 0.80224609375
+            },
+            {
+              "text": "!\"",
+              "start": 2.88,
+              "end": 3.5,
+              "probability": 0.00937652587890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "O,",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "no,",
+          "start": 0.6,
+          "end": 0.68
+        },
+        {
+          "raw": "no,",
+          "start": 0.8,
+          "end": 0.9
+        },
+        {
+          "raw": "no,\"",
+          "start": 0.9,
+          "end": 1.36
+        },
+        {
+          "raw": "I",
+          "start": 1.36,
+          "end": 1.46
+        },
+        {
+          "raw": "returned,",
+          "start": 1.46,
+          "end": 1.8
+        },
+        {
+          "raw": "Never,",
+          "start": 2.2,
+          "end": 2.52
+        },
+        {
+          "raw": "never",
+          "start": 2.72,
+          "end": 2.88
+        },
+        {
+          "raw": "!\"",
+          "start": 2.88,
+          "end": 3.5
+        }
+      ],
+      "expected_tokens": [
+        "\"O",
+        "no,",
+        "no,",
+        "no,\"",
+        "I",
+        "returned,",
+        "\"Never,",
+        "never!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "insert",
+          8,
+          8,
+          8,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          8,
+          8,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "O,",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "o",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "no,",
+          "start": 0.6,
+          "end": 0.68,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "no,",
+          "start": 0.8,
+          "end": 0.9,
+          "key": "no",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "no,\"",
+          "start": 0.9,
+          "end": 1.36,
+          "key": "no",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.36,
+          "end": 1.46,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "returned,",
+          "start": 1.46,
+          "end": 1.8,
+          "key": "returned",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Never,",
+          "start": 2.2,
+          "end": 2.52,
+          "key": "never",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 2.72,
+          "end": 2.88,
+          "key": "never",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 2.88,
+          "end": 3.5,
+          "key": "",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"O",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "no,",
+          "start": 0.6,
+          "end": 0.68
+        },
+        {
+          "text": "no,",
+          "start": 0.8,
+          "end": 0.9
+        },
+        {
+          "text": "no,\"",
+          "start": 0.9,
+          "end": 1.36
+        },
+        {
+          "text": "I",
+          "start": 1.36,
+          "end": 1.46
+        },
+        {
+          "text": "returned,",
+          "start": 1.46,
+          "end": 1.8
+        },
+        {
+          "text": "\"Never,",
+          "start": 2.2,
+          "end": 2.52
+        },
+        {
+          "text": "never!\"",
+          "start": 2.72,
+          "end": 2.88
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.230800436809659
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9fcbf9a3cfc3d948a3f3e896567ef2a9b2acb000b315577e72a8f40929ecc832",
+  "selected_reasons": []
+}

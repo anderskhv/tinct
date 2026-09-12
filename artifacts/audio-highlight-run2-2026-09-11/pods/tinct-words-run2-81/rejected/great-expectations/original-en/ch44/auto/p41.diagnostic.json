@@ -1,0 +1,542 @@
+{
+  "complete": true,
+  "signature": "b7ddba9a224b16fa489ec73457cb11d04c373345482fe4b9e2c962f4607ac62e",
+  "attempts": [
+    {
+      "asr_seconds": 0.31352545879781246,
+      "alignment_seconds": 0.00040911417454481125,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Looking at me perfectly unmoved and with her fingers busy, she shook her head again.",
+        "hotwords": "Looking"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Looking at me perfectly unmoved and with her fingers busy, she shook her head again.",
+          "start": 0.02,
+          "end": 5.0,
+          "words": [
+            {
+              "text": " Looking",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.6318359375
+            },
+            {
+              "text": " at",
+              "start": 0.64,
+              "end": 0.82,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " me",
+              "start": 0.82,
+              "end": 1.0,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " perfectly",
+              "start": 1.0,
+              "end": 1.4,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " unmoved",
+              "start": 1.4,
+              "end": 2.22,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " and",
+              "start": 2.22,
+              "end": 2.66,
+              "probability": 0.5810546875
+            },
+            {
+              "text": " with",
+              "start": 2.66,
+              "end": 2.78,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " her",
+              "start": 2.78,
+              "end": 2.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " fingers",
+              "start": 2.9,
+              "end": 3.24,
+              "probability": 0.998046875
+            },
+            {
+              "text": " busy,",
+              "start": 3.24,
+              "end": 3.7,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " she",
+              "start": 3.84,
+              "end": 4.2,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " shook",
+              "start": 4.2,
+              "end": 4.36,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " her",
+              "start": 4.36,
+              "end": 4.5,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " head",
+              "start": 4.5,
+              "end": 4.66,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " again.",
+              "start": 4.66,
+              "end": 5.0,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Looking",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "at",
+          "start": 0.64,
+          "end": 0.82
+        },
+        {
+          "raw": "me",
+          "start": 0.82,
+          "end": 1.0
+        },
+        {
+          "raw": "perfectly",
+          "start": 1.0,
+          "end": 1.4
+        },
+        {
+          "raw": "unmoved",
+          "start": 1.4,
+          "end": 2.22
+        },
+        {
+          "raw": "and",
+          "start": 2.22,
+          "end": 2.66
+        },
+        {
+          "raw": "with",
+          "start": 2.66,
+          "end": 2.78
+        },
+        {
+          "raw": "her",
+          "start": 2.78,
+          "end": 2.9
+        },
+        {
+          "raw": "fingers",
+          "start": 2.9,
+          "end": 3.24
+        },
+        {
+          "raw": "busy,",
+          "start": 3.24,
+          "end": 3.7
+        },
+        {
+          "raw": "she",
+          "start": 3.84,
+          "end": 4.2
+        },
+        {
+          "raw": "shook",
+          "start": 4.2,
+          "end": 4.36
+        },
+        {
+          "raw": "her",
+          "start": 4.36,
+          "end": 4.5
+        },
+        {
+          "raw": "head",
+          "start": 4.5,
+          "end": 4.66
+        },
+        {
+          "raw": "again.",
+          "start": 4.66,
+          "end": 5.0
+        }
+      ],
+      "expected_tokens": [
+        "Looking",
+        "at",
+        "me",
+        "perfectly",
+        "unmoved",
+        "and",
+        "with",
+        "her",
+        "fingers",
+        "busy,",
+        "she",
+        "shook",
+        "her",
+        "head",
+        "again."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Looking",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "looking",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 0.64,
+          "end": 0.82,
+          "key": "at",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 0.82,
+          "end": 1.0,
+          "key": "me",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "perfectly",
+          "start": 1.0,
+          "end": 1.4,
+          "key": "perfectly",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "unmoved",
+          "start": 1.4,
+          "end": 2.22,
+          "key": "unmoved",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.22,
+          "end": 2.66,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.66,
+          "end": 2.78,
+          "key": "with",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 2.78,
+          "end": 2.9,
+          "key": "her",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "fingers",
+          "start": 2.9,
+          "end": 3.24,
+          "key": "fingers",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "busy,",
+          "start": 3.24,
+          "end": 3.7,
+          "key": "busy",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 3.84,
+          "end": 4.2,
+          "key": "she",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "shook",
+          "start": 4.2,
+          "end": 4.36,
+          "key": "shook",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 4.36,
+          "end": 4.5,
+          "key": "her",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "head",
+          "start": 4.5,
+          "end": 4.66,
+          "key": "head",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "again.",
+          "start": 4.66,
+          "end": 5.0,
+          "key": "again",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Looking",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "at",
+          "start": 0.64,
+          "end": 0.82
+        },
+        {
+          "text": "me",
+          "start": 0.82,
+          "end": 1.0
+        },
+        {
+          "text": "perfectly",
+          "start": 1.0,
+          "end": 1.4
+        },
+        {
+          "text": "unmoved",
+          "start": 1.4,
+          "end": 2.22
+        },
+        {
+          "text": "and",
+          "start": 2.22,
+          "end": 2.66
+        },
+        {
+          "text": "with",
+          "start": 2.66,
+          "end": 2.78
+        },
+        {
+          "text": "her",
+          "start": 2.78,
+          "end": 2.9
+        },
+        {
+          "text": "fingers",
+          "start": 2.9,
+          "end": 3.24
+        },
+        {
+          "text": "busy,",
+          "start": 3.24,
+          "end": 3.7
+        },
+        {
+          "text": "she",
+          "start": 3.84,
+          "end": 4.2
+        },
+        {
+          "text": "shook",
+          "start": 4.2,
+          "end": 4.36
+        },
+        {
+          "text": "her",
+          "start": 4.36,
+          "end": 4.5
+        },
+        {
+          "text": "head",
+          "start": 4.5,
+          "end": 4.66
+        },
+        {
+          "text": "again.",
+          "start": 4.66,
+          "end": 5.0
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.314093672670424
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fc470316edec83a1955a429a1bae3da33800b0f068c33e135615157d78868832",
+  "selected_reasons": []
+}

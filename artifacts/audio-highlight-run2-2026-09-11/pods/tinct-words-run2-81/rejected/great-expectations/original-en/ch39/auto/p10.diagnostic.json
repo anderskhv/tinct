@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "4c4e5ea5657d0ac1f70acf9b031ddd9ff3fb8e5f45dfb13db6159c64805e30c9",
+  "attempts": [
+    {
+      "asr_seconds": 0.13046986144036055,
+      "alignment_seconds": 0.0003012046217918396,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"The top. Mr. Pip.\"",
+        "hotwords": "The, Mr, Pip"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The top, Mr. Pip.",
+          "start": 0.02,
+          "end": 1.54,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.78173828125
+            },
+            {
+              "text": " top,",
+              "start": 0.5,
+              "end": 0.82,
+              "probability": 0.5732421875
+            },
+            {
+              "text": " Mr.",
+              "start": 1.14,
+              "end": 1.3,
+              "probability": 0.8828125
+            },
+            {
+              "text": " Pip.",
+              "start": 1.5,
+              "end": 1.54,
+              "probability": 0.76123046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "top,",
+          "start": 0.5,
+          "end": 0.82
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.14,
+          "end": 1.3
+        },
+        {
+          "raw": "Pip.",
+          "start": 1.5,
+          "end": 1.54
+        }
+      ],
+      "expected_tokens": [
+        "\"The",
+        "top.",
+        "Mr.",
+        "Pip.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "top,",
+          "start": 0.5,
+          "end": 0.82,
+          "key": "top",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.14,
+          "end": 1.3,
+          "key": "mr",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Pip.",
+          "start": 1.5,
+          "end": 1.54,
+          "key": "pip",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "top.",
+          "start": 0.5,
+          "end": 0.82
+        },
+        {
+          "text": "Mr.",
+          "start": 1.14,
+          "end": 1.3
+        },
+        {
+          "text": "Pip.\"",
+          "start": 1.5,
+          "end": 1.54
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1308812778443098
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bce40bc7f4266061787832967297465b354a9b4d699d1776aba4d88c65b9183c",
+  "selected_reasons": []
+}

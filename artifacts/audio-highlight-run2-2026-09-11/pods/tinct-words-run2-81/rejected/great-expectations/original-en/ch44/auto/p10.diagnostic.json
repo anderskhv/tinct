@@ -1,0 +1,1402 @@
+{
+  "complete": true,
+  "signature": "57c7a94efaf6b23b51d694cb1529c30e5897da0fdc9fc15c66e9b44d6dd8ac1e",
+  "attempts": [
+    {
+      "asr_seconds": 0.3495211247354746,
+      "alignment_seconds": 0.0005095675587654114,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Ay, Pip,\" replied Miss Havisham, steadily nodding her head; \"you did.\"",
+        "hotwords": "Ay, Pip, Miss, Havisham"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ay, Pip, replied Miss Havisham, steadily nodding her head.",
+          "start": 0.21,
+          "end": 3.55,
+          "words": [
+            {
+              "text": " Ay,",
+              "start": 0.21,
+              "end": 0.63,
+              "probability": 0.0003871917724609375
+            },
+            {
+              "text": " Pip,",
+              "start": 0.79,
+              "end": 0.91,
+              "probability": 0.30419921875
+            },
+            {
+              "text": " replied",
+              "start": 1.31,
+              "end": 1.61,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Miss",
+              "start": 1.61,
+              "end": 1.85,
+              "probability": 0.85302734375
+            },
+            {
+              "text": " Havisham,",
+              "start": 1.85,
+              "end": 2.41,
+              "probability": 0.9729817708333334
+            },
+            {
+              "text": " steadily",
+              "start": 2.57,
+              "end": 2.81,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " nodding",
+              "start": 2.81,
+              "end": 3.13,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " her",
+              "start": 3.13,
+              "end": 3.33,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " head.",
+              "start": 3.33,
+              "end": 3.55,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " Ay, Pip, Miss Havisham, steadily nodding her head.",
+          "start": 3.55,
+          "end": 5.15,
+          "words": [
+            {
+              "text": " Ay,",
+              "start": 3.55,
+              "end": 4.17,
+              "probability": 2.682209014892578e-06
+            },
+            {
+              "text": " Pip,",
+              "start": 4.53,
+              "end": 4.53,
+              "probability": 1.8477439880371094e-06
+            },
+            {
+              "text": " Miss",
+              "start": 4.53,
+              "end": 4.53,
+              "probability": 9.965896606445312e-05
+            },
+            {
+              "text": " Havisham,",
+              "start": 4.53,
+              "end": 4.53,
+              "probability": 0.023410677909851074
+            },
+            {
+              "text": " steadily",
+              "start": 4.53,
+              "end": 4.53,
+              "probability": 1.1920928955078125e-07
+            },
+            {
+              "text": " nodding",
+              "start": 4.53,
+              "end": 4.71,
+              "probability": 0.00015974044799804688
+            },
+            {
+              "text": " her",
+              "start": 4.71,
+              "end": 5.15,
+              "probability": 0.09857177734375
+            },
+            {
+              "text": " head.",
+              "start": 5.15,
+              "end": 5.15,
+              "probability": 0.293212890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ay,",
+          "start": 0.21,
+          "end": 0.63
+        },
+        {
+          "raw": "Pip,",
+          "start": 0.79,
+          "end": 0.91
+        },
+        {
+          "raw": "replied",
+          "start": 1.31,
+          "end": 1.61
+        },
+        {
+          "raw": "Miss",
+          "start": 1.61,
+          "end": 1.85
+        },
+        {
+          "raw": "Havisham,",
+          "start": 1.85,
+          "end": 2.41
+        },
+        {
+          "raw": "steadily",
+          "start": 2.57,
+          "end": 2.81
+        },
+        {
+          "raw": "nodding",
+          "start": 2.81,
+          "end": 3.13
+        },
+        {
+          "raw": "her",
+          "start": 3.13,
+          "end": 3.33
+        },
+        {
+          "raw": "head.",
+          "start": 3.33,
+          "end": 3.55
+        },
+        {
+          "raw": "Ay,",
+          "start": 3.55,
+          "end": 4.17
+        },
+        {
+          "raw": "Pip,",
+          "start": 4.53,
+          "end": 4.53
+        },
+        {
+          "raw": "Miss",
+          "start": 4.53,
+          "end": 4.53
+        },
+        {
+          "raw": "Havisham,",
+          "start": 4.53,
+          "end": 4.53
+        },
+        {
+          "raw": "steadily",
+          "start": 4.53,
+          "end": 4.53
+        },
+        {
+          "raw": "nodding",
+          "start": 4.53,
+          "end": 4.71
+        },
+        {
+          "raw": "her",
+          "start": 4.71,
+          "end": 5.15
+        },
+        {
+          "raw": "head.",
+          "start": 5.15,
+          "end": 5.15
+        }
+      ],
+      "expected_tokens": [
+        "\"Ay,",
+        "Pip,\"",
+        "replied",
+        "Miss",
+        "Havisham,",
+        "steadily",
+        "nodding",
+        "her",
+        "head;",
+        "\"you",
+        "did.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          11,
+          9,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          11,
+          9,
+          17
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ay,",
+          "start": 0.21,
+          "end": 0.63,
+          "key": "ay",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pip,",
+          "start": 0.79,
+          "end": 0.91,
+          "key": "pip",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "replied",
+          "start": 1.31,
+          "end": 1.61,
+          "key": "replied",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Miss",
+          "start": 1.61,
+          "end": 1.85,
+          "key": "miss",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Havisham,",
+          "start": 1.85,
+          "end": 2.41,
+          "key": "havisham",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "steadily",
+          "start": 2.57,
+          "end": 2.81,
+          "key": "steadily",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "nodding",
+          "start": 2.81,
+          "end": 3.13,
+          "key": "nodding",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.13,
+          "end": 3.33,
+          "key": "her",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "head.",
+          "start": 3.33,
+          "end": 3.55,
+          "key": "head",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Ay,",
+          "start": 3.55,
+          "end": 4.17,
+          "key": "ay",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Pip,",
+          "start": 4.53,
+          "end": 4.53,
+          "key": "pip",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Miss",
+          "start": 4.53,
+          "end": 4.53,
+          "key": "miss",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Havisham,",
+          "start": 4.53,
+          "end": 4.53,
+          "key": "havisham",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "steadily",
+          "start": 4.53,
+          "end": 4.53,
+          "key": "steadily",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "nodding",
+          "start": 4.53,
+          "end": 4.71,
+          "key": "nodding",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 4.71,
+          "end": 5.15,
+          "key": "her",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "head.",
+          "start": 5.15,
+          "end": 5.15,
+          "key": "head",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Ay,",
+          "start": 0.21,
+          "end": 0.63
+        },
+        {
+          "text": "Pip,\"",
+          "start": 0.79,
+          "end": 0.91
+        },
+        {
+          "text": "replied",
+          "start": 1.31,
+          "end": 1.61
+        },
+        {
+          "text": "Miss",
+          "start": 1.61,
+          "end": 1.85
+        },
+        {
+          "text": "Havisham,",
+          "start": 1.85,
+          "end": 2.41
+        },
+        {
+          "text": "steadily",
+          "start": 2.57,
+          "end": 2.81
+        },
+        {
+          "text": "nodding",
+          "start": 2.81,
+          "end": 3.13
+        },
+        {
+          "text": "her",
+          "start": 3.13,
+          "end": 3.33
+        },
+        {
+          "text": "head;",
+          "start": 3.33,
+          "end": 3.55
+        },
+        {
+          "text": "\"you",
+          "start": 3.55,
+          "end": 4.35
+        },
+        {
+          "text": "did.\"",
+          "start": 4.35,
+          "end": 4.75
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 17,
+        "matched_words": 9
+      },
+      "match_ratio": 0.8181818181818182,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3502598814666271
+    },
+    {
+      "asr_seconds": 0.2116461070254445,
+      "alignment_seconds": 0.0005349302664399147,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Ay, Pip, Miss, Havisham"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " I, Pip, replied Miss Havisham steadily nodding her head. You did.",
+          "start": 0.21,
+          "end": 4.45,
+          "words": [
+            {
+              "text": " I,",
+              "start": 0.21,
+              "end": 0.63,
+              "probability": 0.023406982421875
+            },
+            {
+              "text": " Pip,",
+              "start": 0.85,
+              "end": 0.91,
+              "probability": 0.63671875
+            },
+            {
+              "text": " replied",
+              "start": 1.29,
+              "end": 1.61,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " Miss",
+              "start": 1.61,
+              "end": 1.85,
+              "probability": 0.8193359375
+            },
+            {
+              "text": " Havisham",
+              "start": 1.85,
+              "end": 2.41,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " steadily",
+              "start": 2.41,
+              "end": 2.77,
+              "probability": 0.443359375
+            },
+            {
+              "text": " nodding",
+              "start": 2.77,
+              "end": 3.13,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " her",
+              "start": 3.13,
+              "end": 3.33,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " head.",
+              "start": 3.33,
+              "end": 3.59,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " You",
+              "start": 4.09,
+              "end": 4.19,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " did.",
+              "start": 4.19,
+              "end": 4.45,
+              "probability": 0.986328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I,",
+          "start": 0.21,
+          "end": 0.63
+        },
+        {
+          "raw": "Pip,",
+          "start": 0.85,
+          "end": 0.91
+        },
+        {
+          "raw": "replied",
+          "start": 1.29,
+          "end": 1.61
+        },
+        {
+          "raw": "Miss",
+          "start": 1.61,
+          "end": 1.85
+        },
+        {
+          "raw": "Havisham",
+          "start": 1.85,
+          "end": 2.41
+        },
+        {
+          "raw": "steadily",
+          "start": 2.41,
+          "end": 2.77
+        },
+        {
+          "raw": "nodding",
+          "start": 2.77,
+          "end": 3.13
+        },
+        {
+          "raw": "her",
+          "start": 3.13,
+          "end": 3.33
+        },
+        {
+          "raw": "head.",
+          "start": 3.33,
+          "end": 3.59
+        },
+        {
+          "raw": "You",
+          "start": 4.09,
+          "end": 4.19
+        },
+        {
+          "raw": "did.",
+          "start": 4.19,
+          "end": 4.45
+        }
+      ],
+      "expected_tokens": [
+        "\"Ay,",
+        "Pip,\"",
+        "replied",
+        "Miss",
+        "Havisham,",
+        "steadily",
+        "nodding",
+        "her",
+        "head;",
+        "\"you",
+        "did.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          11,
+          1,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I,",
+          "start": 0.21,
+          "end": 0.63,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pip,",
+          "start": 0.85,
+          "end": 0.91,
+          "key": "pip",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "replied",
+          "start": 1.29,
+          "end": 1.61,
+          "key": "replied",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Miss",
+          "start": 1.61,
+          "end": 1.85,
+          "key": "miss",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Havisham",
+          "start": 1.85,
+          "end": 2.41,
+          "key": "havisham",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "steadily",
+          "start": 2.41,
+          "end": 2.77,
+          "key": "steadily",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "nodding",
+          "start": 2.77,
+          "end": 3.13,
+          "key": "nodding",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.13,
+          "end": 3.33,
+          "key": "her",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "head.",
+          "start": 3.33,
+          "end": 3.59,
+          "key": "head",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 4.09,
+          "end": 4.19,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "did.",
+          "start": 4.19,
+          "end": 4.45,
+          "key": "did",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Ay,",
+          "start": 0.0,
+          "end": 0.425
+        },
+        {
+          "text": "Pip,\"",
+          "start": 0.85,
+          "end": 0.91
+        },
+        {
+          "text": "replied",
+          "start": 1.29,
+          "end": 1.61
+        },
+        {
+          "text": "Miss",
+          "start": 1.61,
+          "end": 1.85
+        },
+        {
+          "text": "Havisham,",
+          "start": 1.85,
+          "end": 2.41
+        },
+        {
+          "text": "steadily",
+          "start": 2.41,
+          "end": 2.77
+        },
+        {
+          "text": "nodding",
+          "start": 2.77,
+          "end": 3.13
+        },
+        {
+          "text": "her",
+          "start": 3.13,
+          "end": 3.33
+        },
+        {
+          "text": "head;",
+          "start": 3.33,
+          "end": 3.59
+        },
+        {
+          "text": "\"you",
+          "start": 4.09,
+          "end": 4.19
+        },
+        {
+          "text": "did.\"",
+          "start": 4.19,
+          "end": 4.45
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.21238509472459555
+    },
+    {
+      "asr_seconds": 0.28961550258100033,
+      "alignment_seconds": 0.0005438774824142456,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I pip, replied Miss Havisham steadily nodding her head.",
+          "start": 0.21,
+          "end": 3.61,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.21,
+              "end": 0.63,
+              "probability": 0.023406982421875
+            },
+            {
+              "text": " pip,",
+              "start": 0.63,
+              "end": 0.91,
+              "probability": 0.4990234375
+            },
+            {
+              "text": " replied",
+              "start": 1.33,
+              "end": 1.61,
+              "probability": 0.984375
+            },
+            {
+              "text": " Miss",
+              "start": 1.61,
+              "end": 1.85,
+              "probability": 0.7900390625
+            },
+            {
+              "text": " Havisham",
+              "start": 1.85,
+              "end": 2.41,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " steadily",
+              "start": 2.41,
+              "end": 2.77,
+              "probability": 0.57470703125
+            },
+            {
+              "text": " nodding",
+              "start": 2.77,
+              "end": 3.13,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " her",
+              "start": 3.13,
+              "end": 3.33,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " head.",
+              "start": 3.33,
+              "end": 3.61,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " You did.",
+          "start": 4.09,
+          "end": 4.45,
+          "words": [
+            {
+              "text": " You",
+              "start": 4.09,
+              "end": 4.19,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " did.",
+              "start": 4.19,
+              "end": 4.45,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.21,
+          "end": 0.63
+        },
+        {
+          "raw": "pip,",
+          "start": 0.63,
+          "end": 0.91
+        },
+        {
+          "raw": "replied",
+          "start": 1.33,
+          "end": 1.61
+        },
+        {
+          "raw": "Miss",
+          "start": 1.61,
+          "end": 1.85
+        },
+        {
+          "raw": "Havisham",
+          "start": 1.85,
+          "end": 2.41
+        },
+        {
+          "raw": "steadily",
+          "start": 2.41,
+          "end": 2.77
+        },
+        {
+          "raw": "nodding",
+          "start": 2.77,
+          "end": 3.13
+        },
+        {
+          "raw": "her",
+          "start": 3.13,
+          "end": 3.33
+        },
+        {
+          "raw": "head.",
+          "start": 3.33,
+          "end": 3.61
+        },
+        {
+          "raw": "You",
+          "start": 4.09,
+          "end": 4.19
+        },
+        {
+          "raw": "did.",
+          "start": 4.19,
+          "end": 4.45
+        }
+      ],
+      "expected_tokens": [
+        "\"Ay,",
+        "Pip,\"",
+        "replied",
+        "Miss",
+        "Havisham,",
+        "steadily",
+        "nodding",
+        "her",
+        "head;",
+        "\"you",
+        "did.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          11,
+          1,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.21,
+          "end": 0.63,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "pip,",
+          "start": 0.63,
+          "end": 0.91,
+          "key": "pip",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "replied",
+          "start": 1.33,
+          "end": 1.61,
+          "key": "replied",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Miss",
+          "start": 1.61,
+          "end": 1.85,
+          "key": "miss",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Havisham",
+          "start": 1.85,
+          "end": 2.41,
+          "key": "havisham",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "steadily",
+          "start": 2.41,
+          "end": 2.77,
+          "key": "steadily",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "nodding",
+          "start": 2.77,
+          "end": 3.13,
+          "key": "nodding",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.13,
+          "end": 3.33,
+          "key": "her",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "head.",
+          "start": 3.33,
+          "end": 3.61,
+          "key": "head",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 4.09,
+          "end": 4.19,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "did.",
+          "start": 4.19,
+          "end": 4.45,
+          "key": "did",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Ay,",
+          "start": 0.0,
+          "end": 0.315
+        },
+        {
+          "text": "Pip,\"",
+          "start": 0.63,
+          "end": 0.91
+        },
+        {
+          "text": "replied",
+          "start": 1.33,
+          "end": 1.61
+        },
+        {
+          "text": "Miss",
+          "start": 1.61,
+          "end": 1.85
+        },
+        {
+          "text": "Havisham,",
+          "start": 1.85,
+          "end": 2.41
+        },
+        {
+          "text": "steadily",
+          "start": 2.41,
+          "end": 2.77
+        },
+        {
+          "text": "nodding",
+          "start": 2.77,
+          "end": 3.13
+        },
+        {
+          "text": "her",
+          "start": 3.13,
+          "end": 3.33
+        },
+        {
+          "text": "head;",
+          "start": 3.33,
+          "end": 3.61
+        },
+        {
+          "text": "\"you",
+          "start": 4.09,
+          "end": 4.19
+        },
+        {
+          "text": "did.\"",
+          "start": 4.19,
+          "end": 4.45
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.2904534703120589
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "f2b73a3fd9194c30d1e19319763e2af84b30914fe7e3279d8df8fd2941f704cd",
+  "selected_reasons": []
+}
