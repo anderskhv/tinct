@@ -1696,3 +1696,108 @@ asset:
 
 Report live evidence back to the package `status.json` and the generated
 inventory only after those checks pass. Validated is not deployed.
+
+## Lane A automation batch 11: The Nicomachean Ethics
+
+Authored on branch `claude/tinct-character-content-1n5iqq` by the Lane A
+automated author per `AUTOMATION-QUEUE.md`. Queued, not production
+verified; this lane never sets `appStatus`.
+
+| Book | Content commit | Original / modern entries | Builder |
+|---|---:|---:|---|
+| The Nicomachean Ethics | 644d986af | 57 / 57 | build_nicomachean_ethics.py |
+
+| Book | original-en | modern-en |
+|---|---|---|
+| The Nicomachean Ethics | 214c4025cd1ef25c68685bf7207bc0d59552a3cdc5a85df6becb8ae99c90df1c | c6128f1563bbe0eb4c95a4d31b9355efe834dc010b976e25b568cd49968bcdcf |
+
+118 exact mentions in original-en, 119 in modern-en (one legitimate
+paraphrase variance, see below), across all 10 Books and 1195 paragraphs
+per edition. No omitted entities on either side. Commands: `python3
+books/characters/build_nicomachean_ethics.py --check`, then `python3 -m
+unittest discover -s books/characters -p 'test_*.py'`. Shared
+dependencies: `build_reviewed.py` and `reviewed_aliases.py`; neither was
+changed.
+
+### Release review points
+
+Like Aristotle's Politics, already in this queue, this lecture-course
+treatise has no narrative or staged dialogue of its own, so **all 57
+bound entries are Reference** per editorial policy's guidance for
+treatises. Aristotle is never named in running text and gets no entry.
+
+Despite the automation queue's explicit caution that treatises can hide
+a namesake collision (Hume's two Alexanders and two Catos), **none was
+found here**: every name recurring more than once (Homer, Socrates,
+Plato, Euripides, Heraclitus, Diomedes/Tydides, Empedocles, Odysseus,
+Philoctetes, Priam, Solon, Agathon, Anaxagoras, Eudoxus, Neoptolemus,
+Phalaris, Sophocles, Speusippus, Theognis) was checked at every
+occurrence and names the same person throughout.
+
+Two "person or not" resolutions: **"Demus"** (8, 66) is Aristotle's own
+technical term for a political subdivision (a deme), not a person, and
+gets no entity; **"Alope"** (7, 68) is a lost tragedy's title, not a
+character -- only Cercyon, the character within it, is bound. Two named
+groups (**the Pythagoreans**, **the Sophists**) are bound with kind
+`group`, distinct from individually-named members (Protagoras).
+
+### Edition divergences, resolved rather than assumed
+
+- **Ulysses / Odysseus**: original-en's Latin name vs. modern-en's
+  Greek one. Aliased both.
+- **Jupiter+Jove / Zeus**: original-en uses two different names for the
+  same god (including one inside a quoted line from Euripides);
+  modern-en uses one. Aliased all three forms.
+- **Venus / Aphrodite**: aliased both.
+- **Anexagoras / Anaxagoras**: original-en itself spells the
+  philosopher's name two different ways for the same person at two
+  different locations -- a source inconsistency, not corrected, per the
+  "record source defects, don't repair them" rule. modern-en spells it
+  consistently. Both spellings aliased under one entity.
+- **Sophists / sophists**: modern-en itself capitalizes the name at its
+  first occurrence but lowercases it at the other two -- again an
+  internal inconsistency, not corrected. Both cases aliased.
+- **Hector, one legitimate extra mention in modern-en**: at (3, 105),
+  original-en reads "The latter says" while modern-en reads "Hector
+  says" -- a paraphrase naming him explicitly where original-en uses a
+  pronoun. This is the one source of the 118-vs-119 mention-count
+  difference, confirmed and pinned down by a dedicated test rather than
+  left as an unexplained gap.
+
+No divergence was found in which edition names or omits a person
+outright.
+
+### Full suite note
+
+This book's own focused test suite (10 tests) passed cleanly in 1.6s
+and `--check` is clean. A full `python3 -m unittest discover` run was
+started but did not complete within a reasonable session time budget
+(2.5+ minutes against this session's established ~65-70s baseline),
+consistent with the environmental instability documented for the three
+prior books in this session (concurrent sessions' packages, including
+the-histories and peloponnesian-war, have grown the shared test tree
+substantially). This package was committed on the strength of its own
+focused suite, a clean `--check`, and exhaustive manual verification
+(full paragraph-by-paragraph read of both editions, every one of the
+118/119 mentions checked in its source context given this book's high
+citation density, and a 12-mentions-per-edition random spot-read)
+rather than an independently confirmed full-suite pass. Re-run the full
+suite before production integration.
+
+### Required production checks
+
+Register both English editions, version the immutable asset URL, run the
+normal app gates and deploy, then open the production reader and confirm
+on the fetched asset:
+
+1. A first-encounter card in original-en and modern-en alike.
+2. That (8, 66) "Demus" shows no card at all, and that (7, 68) shows a
+   card only for Carcinus and Cercyon, never for "Alope."
+3. That the Pythagoreans and the Sophists show a group card, distinct
+   from the Protagoras card shown elsewhere.
+4. That "Jupiter"/"Jove" (original-en) and "Zeus" (modern-en) resolve
+   to the same card at every one of their four locations, and likewise
+   "Ulysses"/"Odysseus" and "Venus"/"Aphrodite."
+
+Report live evidence back to the package `status.json` and the generated
+inventory only after those checks pass. Validated is not deployed.
