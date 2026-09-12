@@ -103,7 +103,7 @@ import { useLabHighlights } from './useLabHighlights'
 import { useLabAsk } from './useLabAsk'
 import { readLabPositionLocal } from './labPositionStore'
 import { LabAccountSheet, LabSecondBookNudge } from './LabAccountPrompt.tsx'
-import { labBooksReadOnDevice, labCurrentPath, markSecondBookNudgeShown, shouldShowSecondBookNudge, type LabAccountPromptRequest } from './labAccountPrompt'
+import { clearLabAiActionCount, labBooksReadOnDevice, labCurrentPath, markSecondBookNudgeShown, shouldShowSecondBookNudge, type LabAccountPromptRequest } from './labAccountPrompt'
 import { useLabListen } from './useLabListen'
 import { mapLabCompareAnchor } from './labCompare'
 import {
@@ -506,8 +506,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   // connecting; after that, no session means no connection.
   const [callAwaitingConnection, setCallAwaitingConnection] = useState(false)
   // Account policy (labAccountPrompt.ts): reading is always free; an
-  // anonymous reader's second AI action shows a sheet and is not sent; a
-  // second book shows one quiet line under the header, once per device.
+  // anonymous reader's fourth AI action — chat and voice share one allowance
+  // of three — shows a sheet and is not sent; a second book shows one quiet
+  // line under the header, once per device.
   const signedIn = authToken !== undefined ? Boolean(authToken) : (Boolean(authUser) || likelyAuthenticated)
   const [accountPrompt, setAccountPrompt] = useState<LabAccountPromptRequest | null>(null)
   const [secondBookNudge, setSecondBookNudge] = useState(() => shouldShowSecondBookNudge({
@@ -522,6 +523,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     if (signedIn) {
       setSecondBookNudge(false)
       setAccountPrompt(null)
+      // Signing in spends nothing: the anonymous allowance is handed back, so
+      // a later sign-out on the same device starts from three again.
+      clearLabAiActionCount()
     }
   }, [signedIn])
   const signInReturnTo = labCurrentPath()
@@ -3519,6 +3523,12 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         ['--lab-text-align' as string]: prefs.alignment,
         ['--lab-line-height' as string]: prefs.lineSpacing === 'compact' ? '1.34' : prefs.lineSpacing === 'open' ? '1.62' : '1.48',
         ['--lab-reader-margin' as string]: prefs.margins === 'narrow' ? '1.1rem' : prefs.margins === 'wide' ? '2.2rem' : '1.55rem',
+        // The V2 desktop leaves set their side padding from their own measured
+        // scale, not from a rem figure sized for the phone, so the Margins
+        // preference reaches them as a factor on that scale. Both the painted
+        // passage and the hidden measure box read it, so pagination and paint
+        // stay in step. V1 reads nothing of it, and its DOM stays as it was.
+        ...(chromeV2 ? { ['--lab-reader-margin-scale' as string]: prefs.margins === 'narrow' ? '0.7' : prefs.margins === 'wide' ? '1.45' : '1' } : {}),
         ['--lab-paragraph-gap' as string]: prefs.paragraphSpacing === 'compact' ? '.08em' : prefs.paragraphSpacing === 'generous' ? '.55em' : '.28em',
       }}
     >

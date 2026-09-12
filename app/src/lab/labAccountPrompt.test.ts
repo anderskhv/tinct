@@ -30,22 +30,59 @@ function memoryStorage(seed: Record<string, string> = {}): LabPromptStorage & { 
 }
 
 describe('lab account prompt: AI action gate', () => {
-  it('lets the first anonymous AI action through and spends it', () => {
+  it('gives an anonymous reader three free AI actions and spends one per action', () => {
+    expect(LAB_FREE_AI_ACTIONS).toBe(3)
     const storage = memoryStorage()
-    expect(decideLabAiAction({ signedIn: false, storage })).toEqual({ allowed: true, reason: 'free' })
-    expect(gateLabAiAction({ signedIn: false, storage })).toEqual({ allowed: true, reason: 'free' })
-    expect(readLabAiActionCount(storage)).toBe(LAB_FREE_AI_ACTIONS)
-    expect(storage.getItem(LAB_AI_ACTIONS_KEY)).toBe('1')
+    for (let spent = 0; spent < LAB_FREE_AI_ACTIONS; spent++) {
+      expect(decideLabAiAction({ signedIn: false, storage })).toEqual({ allowed: true, reason: 'free' })
+      expect(gateLabAiAction({ signedIn: false, storage })).toEqual({ allowed: true, reason: 'free' })
+      expect(readLabAiActionCount(storage)).toBe(spent + 1)
+    }
+    expect(storage.getItem(LAB_AI_ACTIONS_KEY)).toBe(String(LAB_FREE_AI_ACTIONS))
   })
 
-  it('gates the second anonymous action and keeps gating after a dismiss', () => {
+  it('gates the fourth anonymous action and keeps gating after a dismiss', () => {
     const storage = memoryStorage()
-    gateLabAiAction({ signedIn: false, storage })
+    for (let spent = 0; spent < LAB_FREE_AI_ACTIONS; spent++) gateLabAiAction({ signedIn: false, storage })
     expect(gateLabAiAction({ signedIn: false, storage })).toEqual({ allowed: false, reason: 'account-required' })
     // A dismissed sheet sends nothing and spends nothing: the count is unchanged.
-    expect(readLabAiActionCount(storage)).toBe(1)
+    expect(readLabAiActionCount(storage)).toBe(LAB_FREE_AI_ACTIONS)
     expect(gateLabAiAction({ signedIn: false, storage })).toEqual({ allowed: false, reason: 'account-required' })
-    expect(readLabAiActionCount(storage)).toBe(1)
+    expect(readLabAiActionCount(storage)).toBe(LAB_FREE_AI_ACTIONS)
+  })
+
+  it('counts chat and voice against the same allowance, in any mix', () => {
+    // The gate takes no action kind on purpose: one counter, one allowance, so
+    // a reader can try a chat message and a voice turn before being asked.
+    const storage = memoryStorage()
+    const take = (_action: 'chat' | 'voice') => gateLabAiAction({ signedIn: false, storage }).allowed
+    expect(take('chat')).toBe(true)
+    expect(take('voice')).toBe(true)
+    expect(take('chat')).toBe(true)
+    expect(readLabAiActionCount(storage)).toBe(3)
+    expect(take('voice')).toBe(false)
+    expect(take('chat')).toBe(false)
+  })
+
+  it('persists the count across a reload', () => {
+    const storage = memoryStorage()
+    gateLabAiAction({ signedIn: false, storage })
+    gateLabAiAction({ signedIn: false, storage })
+    // A reload keeps only what reached storage — a fresh view over the same bytes.
+    const afterReload = memoryStorage({ [LAB_AI_ACTIONS_KEY]: storage.getItem(LAB_AI_ACTIONS_KEY) as string })
+    expect(readLabAiActionCount(afterReload)).toBe(2)
+    expect(gateLabAiAction({ signedIn: false, storage: afterReload })).toEqual({ allowed: true, reason: 'free' })
+    expect(gateLabAiAction({ signedIn: false, storage: afterReload })).toEqual({ allowed: false, reason: 'account-required' })
+  })
+
+  it('hands the allowance back on sign-in', () => {
+    const storage = memoryStorage()
+    for (let spent = 0; spent < LAB_FREE_AI_ACTIONS; spent++) gateLabAiAction({ signedIn: false, storage })
+    expect(gateLabAiAction({ signedIn: false, storage }).allowed).toBe(false)
+    // What LabApp's signed-in effect does.
+    clearLabAiActionCount(storage)
+    expect(readLabAiActionCount(storage)).toBe(0)
+    expect(gateLabAiAction({ signedIn: false, storage })).toEqual({ allowed: true, reason: 'free' })
   })
 
   it('never gates or counts a signed-in reader, whatever the device count says', () => {
@@ -81,7 +118,7 @@ describe('lab account prompt: AI action gate', () => {
     expect(gateLabAiAction({ signedIn: false, storage: broken }).allowed).toBe(true)
   })
 
-  it('blocks without a storage only after the free action, never for reading', () => {
+  it('never blocks without a storage, so reading and asking still work', () => {
     // No storage at all (SSR / blocked): every action reads as the first one.
     expect(gateLabAiAction({ signedIn: false, storage: null }).allowed).toBe(true)
     expect(gateLabAiAction({ signedIn: false, storage: null }).allowed).toBe(true)

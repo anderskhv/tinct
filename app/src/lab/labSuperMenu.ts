@@ -18,6 +18,19 @@ export interface LabSuperMenuRow {
 }
 
 /**
+ * The compare row's label.
+ *
+ * On the phone Compare *swaps* the single page between the two versions, so
+ * when compare is showing the row's job is to put the main version back.
+ * On the desktop Compare is a second pane beside the first — nothing is
+ * swapped, so when it is showing the row's job is to turn the pane off.
+ */
+export function labCompareRowLabel(input: { compareActive?: boolean; phone?: boolean }): string {
+  if (!input.compareActive) return 'Compare Version'
+  return input.phone ? 'Main Version' : 'Compare off'
+}
+
+/**
  * Compare is absent entirely when no compare edition is chosen — not disabled,
  * not greyed. Compare only exists once a second version is picked.
  */
@@ -26,7 +39,7 @@ export function labSuperMenuRows(input: { compare: boolean; compareActive?: bool
     { id: 'chat', label: 'Chat' },
     { id: 'talk', label: 'Talk' },
   ]
-  if (input.compare) rows.push({ id: 'compare', label: input.compareActive ? 'Main Version' : 'Compare Version' })
+  if (input.compare) rows.push({ id: 'compare', label: labCompareRowLabel(input) })
   rows.push(
     { id: 'library', label: 'Library', ruleBefore: true },
     { id: 'settings', label: 'Reading settings', chevron: true },

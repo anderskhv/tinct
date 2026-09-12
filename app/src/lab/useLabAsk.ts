@@ -206,8 +206,9 @@ export function useLabAsk(options: UseLabAskOptions) {
   const liveToken = options.authToken !== undefined ? options.authToken : sessionToken
   const signedIn = options.signedIn ?? (Boolean(liveToken) || likelyAuthenticated)
   // Account policy (labAccountPrompt.ts), in one place, before any network
-  // call or mic session: the first anonymous AI action is free, the second
-  // shows the account sheet and is not sent. Signed in: never gated.
+  // call or mic session: an anonymous reader gets three free AI actions,
+  // chat and voice spending the same allowance, and the fourth shows the
+  // account sheet and is not sent. Signed in: never gated.
   const gateAiAction = useCallback((action: LabAiAction, text?: string): boolean => {
     const decision = gateLabAiAction({ signedIn })
     if (!decision.allowed) optionsRef.current.onAccountPrompt?.({ action, text })

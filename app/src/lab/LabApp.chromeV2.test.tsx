@@ -525,3 +525,34 @@ describe('the V2 surface', () => {
     }
   })
 })
+
+describe('the Margins preference on the desktop leaves', () => {
+  const css = readFileSync(resolve(__dirname, 'lab.css'), 'utf8')
+
+  function openAdvanced() {
+    fireEvent.click(screen.getByTestId('lab-super'))
+    fireEvent.click(screen.getByTestId('lab-super-row-settings'))
+    fireEvent.click(screen.getByTestId('lab-v2-advanced'))
+  }
+
+  it('carries the margins choice to the desktop leaves as a scale, not only as a rem figure', () => {
+    render(<LabApp pathname="/lab/desktop" search="?chrome=v2" source={fallbackLabSource()} authToken={null} />)
+    openAdvanced()
+    // The rem figure the phone reads, and the scale the desktop leaves read.
+    for (const [value, rem, scale] of [['narrow', '1.1rem', '0.7'], ['wide', '2.2rem', '1.45'], ['medium', '1.55rem', '1']] as const) {
+      fireEvent.change(screen.getByTestId('lab-v2-margins'), { target: { value: String(['narrow', 'medium', 'wide'].indexOf(value)) } })
+      expect(root().style.getPropertyValue('--lab-reader-margin')).toBe(rem)
+      expect(root().style.getPropertyValue('--lab-reader-margin-scale')).toBe(scale)
+    }
+  })
+
+  it('makes the desktop side padding — painted and measured — depend on that scale', () => {
+    // Before this, --desktop-pad-x was a fixed clamp, so Margins moved nothing
+    // on the desktop. The painted passage and the hidden measure box take
+    // their inset from the same variable, so pagination follows the paint.
+    expect(css).toMatch(/--desktop-pad-x: calc\(clamp\(28px, 3vw, 64px\) \* var\(--lab-reader-margin-scale, 1\)\)/)
+    expect(css).toMatch(/--desktop-pad-x: calc\(24px \* var\(--lab-reader-margin-scale, 1\)\)/)
+    expect(css).toMatch(/lab-page-wrap > \.lab-passage \{\s*padding: var\(--desktop-pad-top\) var\(--desktop-pad-x\)/)
+    expect(css).toMatch(/lab-desktop-measure \{\s*\n?\s*position: absolute; inset: var\(--desktop-pad-top\) var\(--desktop-pad-x\)/)
+  })
+})

@@ -4,7 +4,7 @@ import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/re
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { LabAccountSheet, LabSecondBookNudge } from './LabAccountPrompt.tsx'
 import { LabApp } from './LabApp'
-import { LAB_AI_ACTIONS_KEY, LAB_SECOND_BOOK_NUDGE_KEY } from './labAccountPrompt'
+import { LAB_AI_ACTIONS_KEY, LAB_FREE_AI_ACTIONS, LAB_SECOND_BOOK_NUDGE_KEY } from './labAccountPrompt'
 import { LAB_COPY } from './labCopy'
 import { fallbackLabSource, resetLabBibleManifestCache, resetLabChapterTextCache } from './labSource'
 
@@ -105,45 +105,96 @@ describe('LabSecondBookNudge', () => {
 })
 
 describe('lab account prompt in the reader', () => {
-  it('sends the first anonymous chat, holds the second behind the sheet, and keeps the draft on dismiss', async () => {
+  it('sends three anonymous chats, holds the fourth behind the sheet, and keeps the draft on dismiss', async () => {
     const fetchMock = chatFetch()
     vi.stubGlobal('fetch', fetchMock)
     render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} online authToken={null} />)
     openDesktopChat()
 
-    sendTyped('Who wrote this?')
-    expect((await screen.findByTestId('lab-ask-turn-user')).textContent).toContain('Who wrote this?')
-    expect((await screen.findByTestId('lab-ask-turn-assistant')).textContent).toContain('A reply from the page.')
-    expect(chatCalls(fetchMock)).toHaveLength(1)
-    expect(screen.queryByTestId('lab-account-sheet')).toBeNull()
-    expect(localStorage.getItem(LAB_AI_ACTIONS_KEY)).toBe('1')
+    const questions = ['Who wrote this?', 'And when?', 'Where?']
+    expect(questions).toHaveLength(LAB_FREE_AI_ACTIONS)
+    for (const [index, question] of questions.entries()) {
+      sendTyped(question)
+      await waitFor(() => expect(screen.getAllByTestId('lab-ask-turn-user')).toHaveLength(index + 1))
+      await waitFor(() => expect(chatCalls(fetchMock)).toHaveLength(index + 1))
+      expect(screen.queryByTestId('lab-account-sheet')).toBeNull()
+      expect(localStorage.getItem(LAB_AI_ACTIONS_KEY)).toBe(String(index + 1))
+    }
+    expect((await screen.findAllByTestId('lab-ask-turn-assistant'))[0].textContent).toContain('A reply from the page.')
 
-    sendTyped('And when?')
+    sendTyped('One more?')
     const sheet = await screen.findByTestId('lab-account-sheet')
     expect(sheet.getAttribute('data-action')).toBe('chat')
     expect(screen.getByText(LAB_COPY.accountTitle)).toBeTruthy()
     expect(screen.getByTestId('lab-account-create').getAttribute('href')).toContain('/lab/sign-in?mode=create&returnTo=')
-    // Not sent: one network call, one user turn, counter unchanged.
-    expect(chatCalls(fetchMock)).toHaveLength(1)
-    expect(screen.getAllByTestId('lab-ask-turn-user')).toHaveLength(1)
-    expect(localStorage.getItem(LAB_AI_ACTIONS_KEY)).toBe('1')
+    // Not sent: no extra network call, no extra user turn, counter unchanged.
+    expect(chatCalls(fetchMock)).toHaveLength(LAB_FREE_AI_ACTIONS)
+    expect(screen.getAllByTestId('lab-ask-turn-user')).toHaveLength(LAB_FREE_AI_ACTIONS)
+    expect(localStorage.getItem(LAB_AI_ACTIONS_KEY)).toBe(String(LAB_FREE_AI_ACTIONS))
     expect(screen.queryByTestId('lab-ask-notice')).toBeNull()
 
     fireEvent.click(screen.getByTestId('lab-account-dismiss'))
     expect(screen.queryByTestId('lab-account-sheet')).toBeNull()
     // The reader keeps the chat pane and the unsent question.
     expect(screen.getByTestId('lab-ask-pane')).toBeTruthy()
-    expect((screen.getByPlaceholderText('Ask') as HTMLInputElement).value).toBe('And when?')
-    expect(chatCalls(fetchMock)).toHaveLength(1)
+    expect((screen.getByPlaceholderText('Ask') as HTMLInputElement).value).toBe('One more?')
+    expect(chatCalls(fetchMock)).toHaveLength(LAB_FREE_AI_ACTIONS)
 
     // Trying again is still held: the dismissed sheet spent nothing.
     fireEvent.click(screen.getByTestId('lab-ask-send'))
     expect(await screen.findByTestId('lab-account-sheet')).toBeTruthy()
+    expect(chatCalls(fetchMock)).toHaveLength(LAB_FREE_AI_ACTIONS)
+  })
+
+  it('counts chat and voice against one allowance, so both can be tried first', async () => {
+    // Two chats already spent on this device. A chat takes the third, and the
+    // voice turn after it — the fourth action overall — is the one held.
+    localStorage.setItem(LAB_AI_ACTIONS_KEY, '2')
+    const fetchMock = chatFetch()
+    vi.stubGlobal('fetch', fetchMock)
+    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} online authToken={null} />)
+
+    openDesktopChat()
+    sendTyped('Who wrote this?')
+    await waitFor(() => expect(localStorage.getItem(LAB_AI_ACTIONS_KEY)).toBe('3'))
     expect(chatCalls(fetchMock)).toHaveLength(1)
+    expect(screen.queryByTestId('lab-account-sheet')).toBeNull()
+
+    fireEvent.click(screen.getByTestId('lab-desktop-talk'))
+    expect((await screen.findByTestId('lab-account-sheet')).getAttribute('data-action')).toBe('voice')
+    expect(fetchMock.mock.calls.some(call => String(call[0]).includes('voice-session'))).toBe(false)
+    expect(localStorage.getItem(LAB_AI_ACTIONS_KEY)).toBe('3')
+  })
+
+  it('keeps the spent count across a reload and hands it back on sign-in', async () => {
+    const fetchMock = chatFetch()
+    vi.stubGlobal('fetch', fetchMock)
+    const first = render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} online authToken={null} />)
+    openDesktopChat()
+    sendTyped('Who wrote this?')
+    await waitFor(() => expect(localStorage.getItem(LAB_AI_ACTIONS_KEY)).toBe('1'))
+    first.unmount()
+
+    // Reload: only what reached storage survives, and it still counts.
+    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} online authToken={null} />)
+    openDesktopChat()
+    sendTyped('And when?')
+    await waitFor(() => expect(localStorage.getItem(LAB_AI_ACTIONS_KEY)).toBe('2'))
+    sendTyped('Where?')
+    await waitFor(() => expect(localStorage.getItem(LAB_AI_ACTIONS_KEY)).toBe('3'))
+    sendTyped('One more?')
+    expect(await screen.findByTestId('lab-account-sheet')).toBeTruthy()
+    cleanup()
+
+    // Signing in hands the anonymous allowance back.
+    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} online authToken="signed-in" />)
+    await waitFor(() => expect(localStorage.getItem(LAB_AI_ACTIONS_KEY)).toBeNull())
+    expect(screen.queryByTestId('lab-account-sheet')).toBeNull()
   })
 
   it('never shows the sheet to a signed-in reader', async () => {
     localStorage.setItem(LAB_AI_ACTIONS_KEY, '5')
+    // Signing in clears the anonymous device count, so it is gone by the end.
     const fetchMock = chatFetch()
     vi.stubGlobal('fetch', fetchMock)
     render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} online authToken="signed-in" />)
@@ -154,11 +205,11 @@ describe('lab account prompt in the reader', () => {
     await waitFor(() => expect(screen.getAllByTestId('lab-ask-turn-user')).toHaveLength(2))
     expect(screen.queryByTestId('lab-account-sheet')).toBeNull()
     expect(chatCalls(fetchMock)).toHaveLength(2)
-    expect(localStorage.getItem(LAB_AI_ACTIONS_KEY)).toBe('5')
+    expect(localStorage.getItem(LAB_AI_ACTIONS_KEY)).toBeNull()
   })
 
-  it('holds a second anonymous voice question before any mic session and returns to reading on dismiss', async () => {
-    localStorage.setItem(LAB_AI_ACTIONS_KEY, '1')
+  it('holds an anonymous voice question once the allowance is spent, before any mic session, and returns to reading on dismiss', async () => {
+    localStorage.setItem(LAB_AI_ACTIONS_KEY, String(LAB_FREE_AI_ACTIONS))
     const fetchMock = chatFetch()
     vi.stubGlobal('fetch', fetchMock)
     render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} online authToken={null} />)
@@ -167,7 +218,7 @@ describe('lab account prompt in the reader', () => {
     expect(sheet.getAttribute('data-action')).toBe('voice')
     expect(fetchMock.mock.calls.some(call => String(call[0]).includes('voice-session'))).toBe(false)
     expect(screen.queryByTestId('lab-voice-gate')).toBeNull()
-    expect(localStorage.getItem(LAB_AI_ACTIONS_KEY)).toBe('1')
+    expect(localStorage.getItem(LAB_AI_ACTIONS_KEY)).toBe(String(LAB_FREE_AI_ACTIONS))
 
     fireEvent.click(screen.getByTestId('lab-account-dismiss'))
     expect(screen.queryByTestId('lab-account-sheet')).toBeNull()
@@ -177,7 +228,7 @@ describe('lab account prompt in the reader', () => {
   })
 
   it('holds the phone Talk button the same way', async () => {
-    localStorage.setItem(LAB_AI_ACTIONS_KEY, '1')
+    localStorage.setItem(LAB_AI_ACTIONS_KEY, String(LAB_FREE_AI_ACTIONS))
     const fetchMock = chatFetch()
     vi.stubGlobal('fetch', fetchMock)
     render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} online authToken={null} />)
