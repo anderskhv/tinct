@@ -181,7 +181,7 @@
         <header class="entry-top"><button type="button" data-about-book>← About the book</button><b>Tinct.</b><span>2 / 2</span></header>
         <main class="entry-picker-body"><header class="tov5-edition-head"><div><small data-picker-book></small><h2>Choose your edition</h2></div><img data-picker-cover alt=""></header>
           <div class="tov5-versions" data-book-versions></div>
-          <div class="entry-picker-footer"><span data-picker-selection aria-live="polite"></span><button type="button" class="tov5-continue">Start reading →</button></div>
+          <div class="entry-picker-footer"><button type="button" class="tov5-continue">Start reading →</button></div>
         </main>
       </div>
     </section>
@@ -1008,6 +1008,14 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
   #tinct-onboarding-worlds-v5 .lib-search-drawer[data-search-drawer="peek"],#tinct-onboarding-worlds-v5 .lib-search-drawer[data-search-drawer="opening"] { overflow:hidden; }
   #tinct-onboarding-worlds-v5 .lib-search-drawer[data-search-drawer="peek"] { height:var(--lib-search-peek); }
   #tinct-onboarding-worlds-v5 .lib-search-drawer[data-search-drawer="peek"] .lib-search { cursor:pointer; }
+  /* The closed drawer clips the row from the bottom, so a whole top padding
+     pushed the magnifier and the placeholder onto the strip's bottom edge —
+     the row read as sunk rather than as a field. In the closed state the top
+     padding is only what centres the line in the visible strip; it grows back
+     to the row's own as the drawer opens (same curve and duration as the
+     height), so nothing jumps on the way out. */
+  #tinct-onboarding-worlds-v5 .lib-search { transition:padding-top 520ms cubic-bezier(.2,.7,.2,1); }
+  #tinct-onboarding-worlds-v5 .lib-search-drawer[data-search-drawer="peek"] .lib-search { padding-top:7px; }
   #tinct-onboarding-worlds-v5 .lib-search-drawer[data-search-drawer="opening"] { transition:height 520ms cubic-bezier(.2,.7,.2,1); }
   /* The light behind the field and the hairline at the drawer's edge. */
   #tinct-onboarding-worlds-v5 .lib-search-drawer::before { content:''; position:absolute; inset:0; z-index:-1; background:linear-gradient(to top,var(--lib-drawer-light),transparent 70%); opacity:0; transition:opacity 420ms ease; pointer-events:none; }
@@ -1025,7 +1033,7 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
      confirms it. A wide screen only ever peeks — see the desktop block. */
   @media (max-width:899px) {
     html[data-lab-search-revealed] #tinct-onboarding-worlds-v5 .lib-search-drawer[data-search-drawer="peek"] { height:auto; overflow:visible; }
-    html[data-lab-search-revealed] #tinct-onboarding-worlds-v5 .lib-search-drawer[data-search-drawer="peek"] .lib-search { cursor:text; }
+    html[data-lab-search-revealed] #tinct-onboarding-worlds-v5 .lib-search-drawer[data-search-drawer="peek"] .lib-search { cursor:text; padding-top:var(--lib-search-pad,18px); }
     html[data-lab-search-revealed] #tinct-onboarding-worlds-v5 .lib-search-drawer[data-search-drawer="peek"]::before,html[data-lab-search-revealed] #tinct-onboarding-worlds-v5 .lib-search-drawer[data-search-drawer="peek"]::after { opacity:0; }
     /* With the drawer opening or open the page can always glide the field
        to the top (revealSearch in catalogue-runtime.js): the index under it
@@ -1038,7 +1046,7 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
     #tinct-onboarding-worlds-v5 .lib-main:has(.lib-search-drawer[data-search-drawer="opening"],.lib-search-drawer[data-search-drawer="open"]) > .lib-index,html[data-lab-search-revealed] #tinct-onboarding-worlds-v5 .lib-index { min-height:calc(100dvh - var(--lib-search-reach,167px)); }
   }
   @media (prefers-reduced-motion:reduce) {
-    #tinct-onboarding-worlds-v5 .lib-search-drawer[data-search-drawer="opening"],#tinct-onboarding-worlds-v5 .lib-search-drawer::before,#tinct-onboarding-worlds-v5 .lib-search-drawer::after { transition:none; }
+    #tinct-onboarding-worlds-v5 .lib-search-drawer[data-search-drawer="opening"],#tinct-onboarding-worlds-v5 .lib-search-drawer::before,#tinct-onboarding-worlds-v5 .lib-search-drawer::after,#tinct-onboarding-worlds-v5 .lib-search { transition:none; }
   }
 
   /* Index: houses as rows with counts; a house opens a cover grid; search results use the same grid. */
@@ -1110,7 +1118,8 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
     #tinct-onboarding-worlds-v5 .lib-search { gap:16px; padding:22px 0; }
     #tinct-onboarding-worlds-v5 .lib-search svg { width:20px; height:20px; }
     #tinct-onboarding-worlds-v5 .lib-search input { font-size:22px; }
-    #tinct-onboarding-worlds-v5 .lib-search-drawer { --lib-search-peek:46px; }
+    #tinct-onboarding-worlds-v5 .lib-search-drawer { --lib-search-peek:46px; --lib-search-pad:22px; }
+    #tinct-onboarding-worlds-v5 .lib-search-drawer[data-search-drawer="peek"] .lib-search { padding-top:9px; }
     #tinct-onboarding-worlds-v5 .lib-main { --lib-search-reach:234px; }
     #tinct-onboarding-worlds-v5 .lib-index { gap:20px; }
     #tinct-onboarding-worlds-v5 .lib-index-body { grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:56px; }
@@ -1185,6 +1194,12 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
   #tinct-onboarding-worlds-v5 .tov5-version-both { flex:0 0 auto; min-height:52px; padding:8px 18px; border:1px solid rgba(255,255,255,.3); border-radius:10px; background:rgba(255,255,255,.07); color:#fffdf7; font:14px/1 Georgia,serif; cursor:pointer; }
   #tinct-onboarding-worlds-v5 .tov5-version-both[aria-pressed="true"] { border-color:var(--tov5-world-accent); background:var(--tov5-world-accent); color:#1a1408; }
   #tinct-onboarding-worlds-v5 .tov5-version-both[hidden] { display:none; }
+  /* The Both button says what "both" does, and that differs by device: a
+     phone swipes between the two versions, a wide screen shows them side by
+     side. Both labels ship and the media query below picks one — display:none
+     keeps the other out of the accessibility tree too, so no resize handler
+     has to re-render the button. */
+  #tinct-onboarding-worlds-v5 .tov5-both-wide { display:none; }
 
   /* The list: translation names with a sample of that translation's opening.
      It floats above the page so opening it never moves Start reading. */
@@ -1400,8 +1415,8 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
   }
 </style>
 
-<link rel="stylesheet" href="/lab/entry.css?v=20260911-1">
-<script type="module" src="/lab/catalogue-runtime.js?v=20260911-2"></script>
+<link rel="stylesheet" href="/lab/entry.css?v=20260912-figures-1">
+<script type="module" src="/lab/catalogue-runtime.js?v=20260912-figures-1"></script>
   <script type="module" src="/lab/auth-status.js"></script>
   <script type="module" src="/lab/reading-memory.js"></script>
 </body>

@@ -472,6 +472,28 @@ export function readerWordsPerMinute(records) {
 }
 
 /**
+ * The pace a Tinct audiobook is read at. The per-chapter audio manifests live
+ * on R2, so the book page cannot total real durations without fetching every
+ * chapter of every book; the listening figure is therefore the same word count
+ * at a stated narration pace, and the pill's title says so.
+ */
+export const LISTENING_WORDS_PER_MINUTE = 150
+
+/**
+ * The book page's listening-time line, for books that have audio. Null when
+ * the book has no word count — the pill is then left out rather than guessed.
+ */
+export function listeningTimeLine(wordCount) {
+  const label = formatReadingTime(readingMinutes(wordCount, LISTENING_WORDS_PER_MINUTE))
+  if (!label) return null
+  return {
+    value: label,
+    wordsPerMinute: LISTENING_WORDS_PER_MINUTE,
+    note: `at ${LISTENING_WORDS_PER_MINUTE} words a minute`,
+  }
+}
+
+/**
  * The book page's reading-time line. When the reader has a measured speed the
  * copy says so, so the number is never mistaken for a claim about them.
  */
