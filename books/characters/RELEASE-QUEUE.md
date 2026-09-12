@@ -1179,3 +1179,96 @@ on the fetched asset:
 
 Report live evidence back to the package `status.json` and the generated
 inventory only after those checks pass. Validated is not deployed.
+
+## Opus batch 10: The Histories
+
+Authored on branch `claude/tinct-character-content-1n5iqq` across nine
+sequential passes, one per book. Queued, not production verified; this lane
+never sets `appStatus`.
+
+| Book | Content commit | Original / modern entries | Builder |
+|---|---:|---:|---|
+| The Histories | 16c3c82a | 1,040 / 1,043 | build_the_histories.py |
+
+| Book | original-en | modern-en |
+|---|---|---|
+| The Histories | f442e468e59838d5783d0c30d14b3f180e06c4175261913597d5f2182c22de31 | d79ea955070c9d8cbfae1b6153f0087d263d6aa87cc59e410e69fb427f744d54 |
+
+**1,043 entities and 11,285 exact mentions in each edition**, across 1,525
+numbered sections and 1,626 paragraphs per edition. This is by a wide margin the
+largest package in the library — 11,285 mentions and 1,043 entities against the
+Iliad's 7,946 and 750, the next biggest — because Herodotus's nations recur through all nine books and are bound
+wherever they appear, not only where they were first cast. Three entities
+(`smyrnaeans`, `cymeans`, `crotoniats`) are absent from the older translation,
+which writes "the men of Kyme" where the modern edition names the people; none
+are absent from the modern edition, and **none from both**. Commands:
+`python3 books/characters/build_the_histories.py --check`, then
+`python3 -m unittest discover -s books/characters -p 'test_*.py'`. Shared
+dependencies: `build_reviewed.py` and `reviewed_aliases.py`; neither was changed.
+
+### Release review points
+
+Almost none of this package is aliases. **111 position tables** carry the
+bindings, because Herodotus reuses names across generations and empires and
+explains almost nobody. The reviewer should look hardest at these, each of which
+is pinned by a test and documented in the package README:
+
+- **The namesakes.** Two men called Atys in the first hundred sections, two
+  called Lycurgus six sections apart, two called Cambyses, two called Alexander
+  (Paris and the king of Macedon), three called Hegesistratus, three called
+  Lampon inside one book, three called Oeobazus, two called Arimnestus eight
+  sections apart, two called Artembares fourteen hundred sections apart. The
+  Eurypontid and Agiad king lists share three names and are kept apart by
+  occurrence-indexed tables.
+- **Herodotus inverts a pair.** At 7.67 Artayntes is the son of Ithamitres; at
+  8.130 Artayntes is the son of Artachaees and Ithamitres is his brother's son.
+  All four are separate entities.
+- **Identifications the text does not make are not made here.** Lampon of
+  Aegina's father Pytheas has his own reference card rather than being merged
+  with the Pytheas son of Ischenous, though commentators join them; the card says
+  so.
+- **Unnamed figures are not cast**, however prominent — Croesus's mute son, the
+  Persian who nearly kills Croesus, the woman of Cos who takes Pausanias by the
+  knees.
+- **Two `None` defaults are open by design**: the Leon sacrificed at 1202 and the
+  Ninos of 365, whom Herodotus never identifies further. Do not close them.
+
+### Source defects — recorded, not repaired
+
+Five, all in the README's defect table and none touched:
+
+1. Chapter titles number sections continuously for Books 1–3 and restart at 1 for
+   Books 4–9, though the underlying chapter numbers are continuous. **This is a
+   reader-facing label bug and the only one worth fixing in the edition
+   metadata.**
+2. Stray editorial footnote numbers survive inside the running text of the older
+   translation. Cosmetic; stripping them would move every UTF-16 offset and
+   invalidate this package.
+3. The modern edition inserts a translator's parenthetical at section 936 that
+   has no counterpart in Macaulay, where "Greek" means the language and the
+   package-wide alias binds it to the Hellenes. One mention, one edition.
+4. Both editions print **Erechththeus** at 1211 and spell him correctly at 843,
+   1304 and 1315.
+5. The older translation prints **Mardonions** at 1441 and **Tisamenes** at 938.
+
+Items 2–5 are carried as aliases or table patterns so the mentions still bind.
+No edition byte was changed.
+
+### Required production checks
+
+Register both English editions, version the immutable asset URL, run the normal
+app gates and deploy, then open the production reader and confirm on the fetched
+asset:
+
+1. A first-encounter card in each edition (section 6, "Croesus").
+2. That the two men called **Atys** show distinct cards at sections 7 and 34, and
+   that the **Alexander** of section 3 is Paris while the Alexander of 1404 is the
+   king of Macedon.
+3. That **Pausanias** has a card at section 637 (four books before Plataea) and
+   that his gated updates appear at 1413 and 1467 and not before.
+4. That **Smerdis** shows Cyrus's son before 464 and the Magian usurper after it.
+5. That the river **Lycus**, the city **Argos** at 1437 and the **Plataean land**
+   show no card at all.
+
+Report live evidence back to the package `status.json` and the generated inventory
+only after those checks pass. Validated is not deployed.
