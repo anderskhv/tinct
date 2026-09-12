@@ -1559,3 +1559,140 @@ on the fetched asset:
 
 Report live evidence back to the package `status.json` and the generated
 inventory only after those checks pass. Validated is not deployed.
+
+## Opus batch 11: The History of the Peloponnesian War
+
+Authored on branch `claude/tinct-character-content-1n5iqq` over eight passes,
+one per book of Thucydides. Queued, not production verified; this lane never
+sets `appStatus`.
+
+| Book | Content commit | Original / modern entries | Builder |
+|---|---:|---:|---|
+| History of the Peloponnesian War | 42911775b | 833 / 833 | build_peloponnesian_war.py |
+
+| Book | original-en | modern-en |
+|---|---|---|
+| History of the Peloponnesian War | e50ada55ab4db8be8238f5b201f241478ff145f75073b79e09af48472e5f3d6a | c035038d032ca4ec110b18df43b68d5a15c33cfef7c934170699a51313b90f75 |
+
+7,510 exact mentions in original-en and 7,586 in modern-en, across all 26
+chapters and 998 paragraphs per edition — the whole work, including the
+unfinished Book 8 that breaks off in mid-sentence. No omitted entities on either
+side; this is the largest package in the library and the first of its size where
+every authored entity binds in both editions. Content revision `2026-09-12.8`.
+Commands: `python3 books/characters/build_peloponnesian_war.py --check`, then
+`python3 -m unittest discover -s books/characters -p 'test_*.py'` — 99 focused
+tests for this book. Shared dependencies: `build_reviewed.py` and
+`reviewed_aliases.py`; neither was changed.
+
+### Release review points
+
+Both editions are Crawley, and unusually for this library **the transliterations
+are the same in both**, so almost none of the work here is spelling variants.
+The work is namesakes, and the reviewer should look there first.
+
+- **Eighty-two position tables, seventy of them with a `None` default.** A name
+  that belongs to more than one man is bound only in the paragraphs that
+  identify him; everywhere else it carries no card at all. A name that is
+  single-referent across the whole work — Brasidas, Archidamus, Perdiccas,
+  Pericles, Cleon, Demosthenes — is bound by alias through all 26 chapters.
+- **Six men called Leon; four each called Callias and Timocrates; three each
+  called Thucydides, Aristeus, Pausanias, Pythodorus, Nicias, Hippocrates and
+  Aristocrates**, plus two Pisistratuses three sentences apart at 19:22 — the
+  one paragraph in the package that has to be keyed by occurrence rather than by
+  position.
+- **The thirty-four signatories of the Peace of Nicias are printed with no
+  patronymics at all** (15:26 and 15:35). Where a signatory's name belongs to a
+  known man elsewhere and the history gives nothing to tie them together, the
+  signatory gets his own card and the card says what the history does not say:
+  `euthydemus-signatory`, `thrasycles-signatory`, `aristocrates-signatory`,
+  `procles-signatory`, `pythodorus-signatory`, `tellis-signatory`,
+  `timocrates-athens`, `leon-athens`, `theagenes-athens`, `acanthus-signatory`.
+  **Tellis is the one a reviewer is most likely to want overturned**: standard
+  history identifies the signatory with Brasidas's father, and Thucydides does
+  not. A test pins the split.
+- **Two identifications are made in the other direction**, and both are
+  judgement calls: Ramphias the envoy of Book 1 and Ramphias the commander of
+  Book 5 are one card, because splitting them would produce two cards saying the
+  same thing; and Dorieus the Rhodian of 9:7 is Diagoras's son of 24:38, because
+  9:7 gives the city and 24:38 the father and nothing distinguishes them.
+- **Geography is not cast**, which in Thucydides removes most of the proper
+  nouns in the narrative, and five names that look like people are deliberately
+  left unbound everywhere: the river Eurymedon (4:7), the river Sicanus (18:1),
+  the Iapygian promontory, the place called Leon (20:38), and the town of
+  Acanthus, whose name is a person's only in the treaty lists. Seas are
+  suppressed the same way — the Hellenic, Ionian, Sicilian, Cretan and Tyrrhenian
+  waters against the peoples of those names.
+- **The Hermae are the one object in the package that is neither a person nor a
+  people.** Thucydides never explains what they are and never names Hermes, and
+  the second half of Book 6 turns on the night they were defaced. Casting them
+  is a deliberate exception to the scope line and a reviewer may disagree.
+- **The Chalcidian Race** (`chalcidians-sicily`) is deliberately widened to
+  cover Euboea and the Sicilian cities out of it, because Hermocrates argues
+  from both ends of the same descent; it is kept apart from the Thracian
+  Chalcidians who were Brasidas's allies.
+- **Bodies as well as men in Book 8**: the Four Hundred, the Five Thousand, the
+  Three Hundred at Samos, the Council of Five Hundred, the crew of the Paralus,
+  the Eumolpidae and the Ceryces each carry a card, because in that book a
+  constitution is an actor.
+- **Adjectival singulars of peoples** were swept once over the finished work.
+  Twenty-seven are plain aliases; five (*Thracian*, *Acarnanian*, *Cretan*,
+  *Euboean*, *Egyptian*) are bound by lookahead because the base name is a region
+  with a name of its own; and six (*Delian*, *Achaean*, *Malian*, *Pierian*,
+  *Paralian*, *Cyprian*) are never the people and stay unbound. *Delian* is the
+  Histories precedent — binding a cult epithet to a people was withdrawn there
+  for the same reason.
+
+### Source defects, none blocking enablement
+
+No edition byte was touched. Editing one would move every UTF-16 offset after it
+and invalidate the hashes above.
+
+1. The older translation misprints **Bradidas** for Brasidas (8:14),
+   **Amphiraus** for Amphiaraus (8:32), **Antichus** for Antiochus (8:9),
+   **Onamacles** for Onomacles (24:33) and **Silenus** for Selinus (24:29). The
+   first four are carried as aliases so the mentions still bind, and a test pins
+   them so nobody later "fixes" the aliases away. Silenus is a place and carries
+   no card.
+2. **The modern edition calls two unrelated peoples the Messenians.** At 11:1
+   and 11:3 it writes *Messenians* and *Messenian* for the people of Sicilian
+   Messana, whom Crawley calls the *Messinese* — and *Messenians* is the name the
+   Helots settled at Naupactus carry everywhere else in the work. Handled by a
+   position table rather than an alias, so both editions bind each paragraph to
+   the people it means. A test pins all six mentions. **This one is worth a
+   decision**: the binding is correct either way, but the edition text arguably
+   should be fixed.
+3. Both editions print the **æ ligature inconsistently** — *Potidæa* and
+   *Mycenæ* always, *Aegina* and *Aeginetans* never, *Æthæans* in one edition
+   against *Aethaeans* in the other. Carried as aliases.
+4. The older translation writes **Hellenic sea** at 1:3 where the modern writes
+   **Hellenic Sea**; the older names the **Tanagraeans** at 4:13 where the modern
+   writes "the walls of Tanagra"; the modern writes **Messinian territory** at
+   12:31 where the older writes "the territory of Messina"; and the modern writes
+   **Greeks** once, at 1:11, where the older writes **Hellenes**. Each is handled
+   in the binder or by an alias; none omits an entity from either edition.
+
+### Required production checks
+
+Register both English editions, version the immutable asset URL, run the normal
+app gates and deploy, then open the production reader and confirm on the fetched
+asset:
+
+1. A first-encounter card in each edition (1:0, "Thucydides").
+2. That 19:22 shows the tyrant's card on the first two *Pisistratus* mentions
+   and the archon's card on the third — the occurrence-keyed paragraph.
+3. That the two signatory lists at 15:26 and 15:35 show signatory cards, not the
+   cards of the better-known men who share those names: tap *Euthydemus*,
+   *Tellis*, *Procles* and *Leon* in both lists.
+4. That the river *Eurymedon* at 4:7, the place called *Leon* at 20:38, the
+   *Iapygian promontory*, the river *Sicanus* at 18:1 and the town *Acanthus* at
+   14:8 show **no card at all**, while Eurymedon the general, the three men
+   called Leon and the Acanthian signatory do.
+5. That *Messenians* at 11:1 and 11:3 in the modern edition shows the Messinese
+   card, and *Messenians* at 12:49 shows the Naupactus card.
+6. That a gated update appears at a chapter boundary — open Brasidas before and
+   after 14:63, and Alcibiades before and after 26:29.
+7. That the Ionian, Sicilian, Cretan, Tyrrhenian and Hellenic **seas** show no
+   people's card, while the Ionians, Sicilians, Cretans and Tyrrhenians do.
+
+Report live evidence back to the package `status.json` and the generated
+inventory only after those checks pass. Validated is not deployed.
