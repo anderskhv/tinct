@@ -84,6 +84,7 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   werther: { editions: EN, revision: '2026-09-11.2' },
   // 2026-09-12.1 — epics, plays, histories and ancient works
   iliad: { editions: EN, revision: '2026-09-12.1' },
+  odyssey: { editions: EN, revision: '2026-09-12.1' },
 }
 const supportedEditions = (bookId: string): string[] | undefined => characterReleases[bookId]?.editions
 export async function verifyCharacters(asset: CharacterAsset, bookId: string, editionKey: string, raw: ArrayBuffer): Promise<VerifiedCharacters | null> {
