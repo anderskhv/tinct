@@ -20,8 +20,8 @@ countries are not cast, even where Herodotus treats them as actors.
 import json
 from pathlib import Path
 entities=[]
-def add(id,name,body,aliases='',category='supporting',kind='person'):
- entities.append(dict(id=id,name=name,body=body,aliases=aliases.split('|') if aliases else [],category=category,kind=kind,subtitle='',snapshots=[]))
+def add(id,name,body,aliases='',category='supporting',kind='person',updates=None):
+ entities.append(dict(id=id,name=name,body=body,aliases=aliases.split('|') if aliases else [],category=category,kind=kind,subtitle='',snapshots=updates or []))
 
 # ==================================================== BOOK 1 — CLIO (1-215)
 # ------------------------------------------------------------- the Lydian kings
@@ -70,7 +70,7 @@ for row in [
 ('spargapises','Spargapises','Tomyris’s son, taken by Cyrus’s stratagem with the feast and the unmixed wine, who asked to be unbound and killed himself.','Spargapises','supporting'),
 ('labynetus','Labynetus','The king of Babylon, named twice — as one of the two mediators of the peace between Lydia and Media, and as the ruler Cyrus’s canals were dug against.','Labynetus|Labynetos','supporting'),
 ('syennesis','Syennesis','The Cilician, who with Labynetus mediated the peace between Alyattes and Cyaxares.','Syennesis','reference'),
-('magians','The Magians','One of the Median tribes, and the interpreters of dreams and portents at the Persian court; their reading of Astyages’s dream is what sets the whole story going.','Magians|Magian','supporting','group'),
+('magians','The Magians','One of the Median tribes, and the caste that reads dreams and portents and performs the Persian sacrifices; their reading of Astyages’s dream is what sets the whole story going.','','supporting','group'),
 ('chaldeans','The Chaldeans','The priests of Bel at Babylon, who told Herodotus what stood in the temple and what had been taken from it.','Chaldeans','reference','group'),
 ]:add(*row)
 
@@ -279,7 +279,92 @@ for row in [
 
 print(len(entities),'entities after Book 2')
 
+
+# ================================================== BOOK 3 — THALIA (398-557)
+# The book turns on one deception, so the two men at its centre are two entities.
+# Herodotus is careful: every literal "Smerdis" in the text is Cyrus’s son. The
+# impostor is never given the name in narration — he is always "the Magian" —
+# so he is bound on that word, by position, and the caste of the same name is
+# bound by position too.
+for row in [
+('smerdis-son-of-cyrus','Smerdis','Cyrus’s younger son, whom Cambyses had Prexaspes kill in secret after dreaming that he would sit on the throne. Almost nobody in Persia knew he was dead, which is what made the impersonation possible.','Smerdis','major',
+ 'person',[{'after':[427,0],'body':'Cyrus’s younger son, killed in secret on Cambyses’s orders by Prexaspes — a death so few Persians knew of that a stranger could later take his name.'}]),
+('smerdis-the-magian','The Magian','The brother left in charge of Cambyses’s household, who seized the throne because he knew the real Smerdis was dead and that almost nobody else did. He was his namesake, and he reigned seven months and did his subjects good; the Persians killed him when Otanes found out, through his own daughter, that the man in the bed had no ears.','','major',
+ 'person',[{'after':[464,0],'name':'The Magian','body':'The usurper who reigned as Smerdis for seven months, remitted military service and tribute for three years, and was mourned by every nation in Asia except the Persians.'},{'after':[477,0],'name':'The Magian','body':'The usurper, killed in his own chamber by Darius and Gobryas wrestling in the dark — and commemorated afterwards by the Magophonia, the one day in the year a Magian may not walk out of doors.'}]),
+('magian-brothers','The two Magians','The usurper and Patizeithes his brother, who between them held Persia for seven months: one on the throne, the other managing everything for him.','','major','group'),
+('patizeithes','Patizeithes','The Magian left as caretaker of Cambyses’s household, who put his brother on the throne and ran the kingdom for him. He is named once.','Patizeithes','supporting'),
+]:add(*row)
+
+# ------------------------------------------------------------- Cambyses in Egypt
+for row in [
+('nitetis','Nitetis','Apries’s daughter, whom Amasis sent to Cambyses in place of his own — and who told Cambyses whose daughter she really was. That, in the Egyptian telling, is why Persia invaded.','Nitetis','supporting'),
+('cassandane','Cassandane','Cyrus’s wife and Cambyses’s mother, whom the Persian account says Cambyses avenged on Egypt because Cyrus had slighted her.','Cassandane','supporting'),
+('pharnaspes','Pharnaspes','Cassandane’s father, and Otanes’s, of the Achaemenid family.','Pharnaspes','reference'),
+('phanes','Phanes','The Halicarnassian mercenary who quarrelled with Apries, fled to Cambyses, and told the Persians how to cross the waterless desert. The Greeks in Egyptian service cut his sons’ throats in front of him before the battle and drank the blood.','Phanes','major'),
+('psammenitos','Psammenitos','Amasis’s son, king of Egypt for six months, who did not weep to see his daughter carrying water or his son led out to die, and wept at the sight of an old drinking-companion begging. Cambyses spared him and then killed him for plotting.','Psammenitos','major'),
+('prexaspes','Prexaspes','Cambyses’s most trusted Persian, who killed Smerdis for him, told him the truth about what the Persians said of him, watched Cambyses shoot his own son through the heart to prove his hand was steady, and finally threw himself off a tower after telling Persia the truth.','Prexaspes','major'),
+('apis','Apis','The sacred calf of Memphis, whom the Greeks call Epaphos: black with a white diamond, a double hair in its tail, the marks of an eagle and a beetle. Cambyses stabbed it in the thigh and it died in the temple, which the Egyptians say is why he went mad.','Apis|Epaphos','major','animal'),
+('ichthyophagoi','The Ichthyophagoi','The Fish-eaters of Elephantine, who knew the Ethiopian tongue and were sent ahead of Cambyses’s army as spies with gifts.','Ichthyophagoi','supporting','group'),
+('achaimenes','Achaimenes','Darius’s son, killed with his army in Egypt by Inaros the Libyan — Herodotus looking forward out of his own narrative.','Achaimenes|Achaemenes','reference'),
+('inaros','Inaros','The Libyan who destroyed Achaimenes and his Persians in Egypt.','Inaros','reference'),
+]:add(*row)
+
+# ------------------------------------------------------------------- Samos
+for row in [
+('polycrates','Polycrates','Tyrant of Samos, who took the island with fifteen men, made himself the first Greek since Minos to aim at ruling the sea, and was crucified at Magnesia by a Persian governor he had never fought. Herodotus will not repeat what was done to his body.','Polycrates','major'),
+('aiakes','Aiakes','Polycrates’s father.','Aiakes','reference'),
+('syloson','Syloson','Polycrates’s brother, exiled — and the man who gave Darius a red cloak in Egypt for nothing, years before Darius was king, and afterwards asked for Samos and got it.','Syloson','major'),
+('pantagnotos','Pantagnotos','Polycrates’s other brother, killed when Polycrates took sole power.','Pantagnotos','reference'),
+('maiandrios','Maiandrios','Polycrates’s secretary, left in charge of Samos, who tried to hand the island over to a free constitution and was refused; he ended by opening the treasury to the Persians and escaping through a tunnel.','Maiandrios','major'),
+('charilaos','Charilaos','Maiandrios’s half-mad brother, who was let out of the cells, saw the Persians sitting unarmed, took the mercenaries and killed them — and so brought the massacre of Samos on the island.','Charilaos','supporting'),
+('archias-samos','Archias','One of the two Lacedaemonians who broke into Samos and died inside it; Herodotus met his grandson, also Archias, at Pitana.','','supporting'),
+('archias-grandson','Archias','The grandson of the Archias who died at Samos, whom Herodotus met and who honoured the Samians above all strangers because they had buried his grandfather at public cost.','','supporting'),
+('lycopas','Lycopas','The other Lacedaemonian who followed the routed Samians inside the walls and was cut off there with Archias.','Lycopas','supporting'),
+('samios','Samios','The son the first Archias named for Samos, and the father of the Archias Herodotus met.','Samios','reference'),
+('eupalinos','Eupalinos','The Megarian engineer of the Samian tunnel, seven furlongs through a mountain and open at both ends — the first of the three greatest Greek works Herodotus knows.','Eupalinos','supporting'),
+('naustrophos','Naustrophos','Eupalinos’s father.','Naustrophos','reference'),
+('oroetes','Oroetes','The Persian governor of Sardis who had Polycrates crucified out of nothing but pique at a slight he had imagined, and murdered Mitrobates and his son as well. Darius had him killed by a letter read out to his own guards.','Oroetes|Oroites','major'),
+('mitrobates','Mitrobates','Governor of Daskyleion, who taunted Oroetes at the king’s door with not having taken Samos, and was killed for it with his son.','Mitrobates','supporting'),
+('bagaios','Bagaios','The son of Artontes who drew the lot, went to Sardis with a bundle of letters, and had Oroetes’s own bodyguard kill him by reading the last one aloud.','Bagaios','supporting'),
+('artontes','Artontes','Bagaios’s father.','Artontes','reference'),
+]:add(*row)
+
+# ------------------------------------------------- Corinth, Corcyra and the boys
+for row in [
+('melissa','Melissa','Periander’s wife, whom he killed, and whose ghost would not name the hiding-place of a deposit until he had burnt real clothes for her in the pit at Corinth.','Melissa','supporting'),
+('procles','Procles','Despot of Epidauros and Melissa’s father, who asked his two grandsons whether they knew who had killed their mother — and ruined the younger one.','Procles','supporting'),
+('lycophron','Lycophron','Periander’s younger son, who would not speak to his father after his grandfather’s question, was driven to Corcyra, refused the throne on any terms that meant returning, and was killed by the Corcyreans to stop Periander coming.','Lycophron','major'),
+('corcyreans','The Corcyreans','Periander’s enemies, who killed his son to keep him out and whose three hundred boys he sent to Sardis to be made eunuchs; the Samians saved them.','Corcyreans|Corcyrean','supporting','group'),
+('siphnians','The Siphnians','At the height of their wealth from gold and silver mines, who refused the exiled Samians a loan and lost a hundred talents and their fields for it — as their oracle about the white council-house had warned them.','Siphnians','supporting','group'),
+('aeginetans','The Aeginetans','Who with the Cretans defeated the Samian settlers at Kydonia and dedicated the ships’ boar-prows in the temple of Athena on Aegina.','Aeginetans|Eginetans|Eginetan','supporting','group'),
+]:add(*row)
+
+# ------------------------------------------------------- the seven, and Darius
+for row in [
+('otanes','Otanes','Son of Pharnaspes, the first to suspect that the man on the throne was not Smerdis, and the one who proved it through his own daughter. He argued for democracy against the other six, withdrew from the contest for the throne on condition that his house be free, and it still was in Herodotus’s day.','Otanes','major'),
+('phaidyme','Phaidyme','Otanes’s daughter, married to the king; her father asked her to feel for the ears of the man asleep beside her, knowing Cyrus had cut the Magian’s off. She did it, and there were none.','Phaidyme','major'),
+('atossa','Atossa','Cyrus’s daughter, wife of her brother Cambyses, then of the Magian, then of Darius — and the woman who, prompted in bed by a Greek physician, set Darius on Greece.','Atossa','major'),
+('intaphrenes','Intaphrenes','One of the seven, whom Otanes brought in; he later forced the palace gates believing the law let him, and Darius destroyed his whole family but for the brother and son his wife chose. The two editions spell him Intaphrenes and Intaphernes.','Intaphrenes|Intaphernes','major'),
+('gobryas','Gobryas','One of the seven, who grappled with the Magian in the dark and told Darius to strike through both of them rather than let go.','Gobryas','major'),
+('megabyzos','Megabyzos','One of the seven, who argued for oligarchy: nothing is more foolish or more insolent, he said, than a useless crowd.','Megabyzos|Megabyxos','major'),
+('aspathines','Aspathines','One of the seven, who brought in Hydarnes.','Aspathines','supporting'),
+('hydarnes','Hydarnes','One of the seven, brought in by Aspathines.','Hydarnes','supporting'),
+('oibares','Oibares','Darius’s groom, who won him the kingdom before sunrise with a mare, a hand and a horse that neighed first.','Oibares','supporting'),
+('parmys','Parmys','Smerdis’s daughter, one of the wives Darius took to fasten the succession to Cyrus’s line.','Parmys','reference'),
+('artystone','Artystone','Cyrus’s other daughter, a virgin, whom Darius married with Atossa.','Artystone','reference'),
+('zopyros','Zopyros','Megabyzos’s son, to whom a mule foaled; he cut off his own nose and ears, had himself whipped, deserted to Babylon as a mutilated man with a grievance, was given the city’s army, and handed the walls to Darius. Darius said he would rather have one Zopyros unmutilated than twenty Babylons.','Zopyros','major'),
+('demokedes','Demokedes','The physician of Croton, sold into Persia as Polycrates’s slave, who cured Darius’s ankle and Atossa’s breast, got everything he asked for except his freedom, and talked his way home by way of a reconnaissance of Greece. The two editions spell him Demokedes and Democedes.','Demokedes|Democedes','major'),
+('calliphon','Calliphon','Demokedes’s father, at Croton.','Calliphon','reference'),
+('milon','Milon','The wrestler of Croton, whose daughter Demokedes bought himself a betrothal to, in name, because Darius had heard of him.','Milon','reference'),
+('aristophilides','Aristophilides','King of the Tarentines, who unshipped the Persian ships’ steering-oars and locked up the crews so that Demokedes could get away to Croton.','Aristophilides','supporting'),
+('gillos','Gillos','The Tarentine exile who rescued the stranded Persians and brought them back to the king, and asked in payment only to be restored — which the Cnidians could not manage.','Gillos','supporting'),
+('tarentines','The Tarentines','Aristophilides’s people, in Italy.','Tarentines','reference','group'),
+('indians','The Indians','The most numerous nation Herodotus knows, whose Callatians eat their dead and who pay their tribute in gold dust.','Indians','major','group'),
+('tribute-nations','The tribute nations','Darius’s twenty provinces, named in a roll of some forty peoples — Chorasmians, Sogdians, Bactrians, Caspians, Parthians, Sarangians, Paricanians and the rest — each with its assessment in talents. The list is Herodotus’s proof of what the empire actually was: not a conquest story but an accounts book.','Chorasmians|Sogdians|Bactrians|Caspians|Parthians|Sarangians|Thamanaians|Paricanians|Pausicans|Pantimathoi|Dareitai|Orthocorybantians|Utians|Mycans|Aigloi|Areians','major','group'),
+]:add(*row)
+
+print(len(entities),'entities after Book 3')
 Path(__file__).parent.joinpath('editorial.json').write_text(json.dumps(dict(
  contentVersion='2026-09-12.1',
- coverage='Both full English editions. BOOKS 1-2 (Clio and Euterpe, sections 1-397) are authored; Books 3-9 are in progress. Named people and named peoples. Cities, rivers, mountains, seas and countries are not cast.',
+ coverage='Both full English editions. BOOKS 1-3 (Clio, Euterpe and Thalia, sections 1-557) are authored; Books 4-9 are in progress. Named people and named peoples. Cities, rivers, mountains, seas and countries are not cast.',
  entities=[e for e in entities if e['name']!='unused']),ensure_ascii=False,indent=2)+'\n')

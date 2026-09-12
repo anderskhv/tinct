@@ -1,11 +1,11 @@
 # The Histories character package — IN PROGRESS
 
-**Books 1–2 (Clio and Euterpe, sections 1–397) are authored. Books 3–9 are
-not.** Status stays `in-progress` and the package must not be integrated until
-all nine books are covered.
+**Books 1–3 (Clio, Euterpe and Thalia, sections 1–557) are authored. Books 4–9
+are not.** Status stays `in-progress` and the package must not be integrated
+until all nine books are covered.
 
-Current state: 216 entities authored, 214 bound in the older translation and all
-216 in the modern edition, 7,037 and 6,954 exact mentions. The mention counts are
+Current state: 272 entities authored, 270 bound in the older translation and all
+272 in the modern edition, 7,718 and 7,625 exact mentions. The mention counts are
 already the highest in the library, because the nations Herodotus names —
 Persians, Hellenes, Athenians, Lacedaemonians — recur through all nine books and
 are bound wherever they appear, not only in Book 1. Content revision 2026-09-12.1.
@@ -52,7 +52,7 @@ entity: **Heracleidai / Heraclids**, **Mermnadai**, **Alcaios**, **Ninos**,
 **Lacedemonians**, **Aiolians**, **Lykians**, **Phocaians**, **Massagetae**. A
 test pins eleven of them.
 
-## Editorial checks — Books 1 and 2
+## Editorial checks — Books 1 to 3
 
 **1. Namesakes.** The four resolved above (Atys, Lycurgus, Cambyses, Alexander),
 plus Leon, Ninus and Bias against their later namesakes, plus **Artembares** the
@@ -118,26 +118,68 @@ No edition byte was touched.
   the Scythian campaign, the Ionian revolt, Marathon, Thermopylae, Salamis and
   Plataea. Several hundred more people and nations.
 
-  **Book 3 has the worst namesake in the work and it must not be flattened.**
-  There are two men called **Smerdis**: Cyrus's son, whom Cambyses has Prexaspes
-  kill in secret, and the Magian who takes his name and his throne because nobody
-  outside the family knows the real one is dead. The entire plot of Book 3 depends
-  on the reader holding the two apart, and a single entity called "Smerdis" would
-  destroy it. Two entities, a position table, and a test.
+  Book 3 is done. Books 4–9 remain.
 
-  Book 3 also has **two men called Archias** in one sentence (452), **Otanes**
-  the conspirator against **Otanes** the later general, and the tribute roll of
-  sections 489–495, which names about forty nations in a list. That roll is a
-  candidate for one grouped card — *the tribute nations of Darius* — on the same
-  reasoning as the Florentine houses in the Divine Comedy package: forty cards
-  reading "one of the peoples in Darius's twentieth division" is noise, and what
-  the reader wants is to know what the list is.
 - The namesake tables extended as each book is authored, and the `None` defaults
   replaced only where the later man is actually carded.
 - The six editorial checks re-run over the whole work, and a fresh spot-read.
 
+## The Smerdis problem, and how it is solved
+
+Book 3 turns on one deception and the package has to carry it exactly.
+
+Herodotus is more careful than he is usually given credit for: **every literal
+"Smerdis" in the text is Cyrus's son.** The impostor is never given the name in
+narration — he is always "the Magian" — and the one place the two come closest,
+section 464, says he usurped "the place of his namesake Smerdis son of Cyrus",
+naming the dead man, not the living one. So:
+
+- **`smerdis-son-of-cyrus`** is bound on the word *Smerdis*, everywhere, and a
+  test asserts that every mention of him quotes that word.
+- **`smerdis-the-magian`** is bound on the word *Magian*, and a test asserts that
+  no mention of him quotes the word *Smerdis* at all.
+
+The one genuinely undecidable case is section 460, where Prexaspes interrogates
+the herald: *"you say you have come as a messenger from Smerdis son of Cyrus."*
+The name spoken means Cyrus's son; the man it refers to is the Magian. It is
+bound to Cyrus's son, because that is the name on the page, and the whole force
+of the scene is that the two have not yet been separated.
+
+Three entities answer to the word, not two. **`magians`** is the priestly caste
+and Median tribe of Books 1, 5, 7 and 8. **`magian-brothers`** is the usurper and
+Patizeithes together, which is what the plural means through the conspiracy.
+**`smerdis-the-magian`** is the usurper alone.
+
+**Section 476 is the hardest paragraph in the work.** In a single paragraph the
+two Magians are beheaded, every Magian in Persia is then hunted down, and the
+festival of the Magophonia is explained — so the word switches from the two men
+to the caste mid-paragraph, and *the two translations distribute the singular and
+the plural differently while doing it.* Macaulay writes "every one of the
+Magians" where the modern edition writes "every Magian". That paragraph carries
+a separate occurrence list per edition, and a test walks its bindings in source
+order and asserts the switch happens.
+
+## Also in Book 3
+
+**Two men called Archias in one paragraph** (452): the Lacedaemonian who died
+inside Samos, and the grandson of the same name whom Herodotus says he talked to
+at Pitane. Only the fourth occurrence is the grandson; a test pins it.
+
+**The tribute roll of sections 489–495** names about forty nations with their
+assessments. It is bound to one card — *The tribute nations* — on the same
+reasoning as the Florentine houses in the Divine Comedy package: forty cards
+reading "one of the peoples of Darius's twentieth division" is noise, and what
+the reader needs is to know what the list is and why Herodotus troubled to copy
+it out.
+
+**Gated identities.** Smerdis son of Cyrus, and the Magian, both carry
+identity updates released at the paragraph where the text itself releases them —
+427 for the secret killing, 464 for the seven months' reign, 477 for the
+Magophonia. A reader at section 430 is not told by a card what only section 458
+reveals.
+
 ## Validation
 
 `python3 books/characters/build_the_histories.py --check`, then
-`python3 -m unittest discover -s books/characters -p 'test_*.py'`. Fourteen focused
+`python3 -m unittest discover -s books/characters -p 'test_*.py'`. Nineteen focused
 tests so far. No edition changes, no network generation.

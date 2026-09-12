@@ -1,5 +1,5 @@
-"""Focused checks for the Histories. AUTHORING IN PROGRESS: Books 1-2
-(sections 1-397) are authored; Books 3-9 are not."""
+"""Focused checks for the Histories. AUTHORING IN PROGRESS: Books 1-3
+(sections 1-557) are authored; Books 4-9 are not."""
 import unittest
 from build_the_histories import compile_package
 
@@ -51,7 +51,8 @@ class TheHistories(unittest.TestCase):
         for t in ['Heracleidai','Kyaxares','Deïokes','Peisistratos','Kypselos',
                   'Thrasybulos','Alcmaion','Athene','Kimmerians','Phenicians','Adrastos',
                   'Ladike','Esop','Etearchos','Hecataios','Menelaos','Lynkeus','Linos',
-                  'Dioscuroi','Samothrakians','Keltoi','Kilikians','Hephaistos','Dionysos']:
+                  'Dioscuroi','Samothrakians','Keltoi','Kilikians','Hephaistos','Dionysos',
+                  'Oroites','Eginetans','Dareios']:
             self.assertIn(t,texts,t)
 
     def test_the_peoples_carry_across_all_nine_books(self):
@@ -80,6 +81,57 @@ class TheHistories(unittest.TestCase):
             for cid in ['min','nitocris','sesostris','pheros','proteus-egypt','rhampsinitos',
                         'cheops','chephren','mykerinos','asychis','anysis','sabacos','sethos',
                         'psammetichos','necos','psammis','apries']:
+                self.assertTrue(where(ed,cid),f'{cid} {ed}')
+
+    def test_smerdis_is_never_the_name_of_the_impostor(self):
+        # Herodotus is careful: every literal "Smerdis" in the text is Cyrus's
+        # son. The usurper is only ever "the Magian" in narration, so the two
+        # men are two entities and no mention of one is a mention of the other.
+        for ed in ['original-en','modern-en']:
+            for m in mentions(ed):
+                if m['characterId']=='smerdis-the-magian':
+                    self.assertNotIn('Smerdis',m['text'],ed)
+                if m['characterId']=='smerdis-son-of-cyrus':
+                    self.assertIn('Smerdis',m['text'],ed)
+            self.assertGreater(len(where(ed,'smerdis-son-of-cyrus')),30,ed)
+            self.assertGreater(len(where(ed,'smerdis-the-magian')),25,ed)
+
+    def test_the_magian_the_two_magians_and_the_caste_are_three_things(self):
+        for ed in ['original-en','modern-en']:
+            # The usurper: Book 3 and the four later backward glances.
+            self.assertTrue(all(398<=c<=557 or c in (515,537,547,550)
+                                for c,_ in where(ed,'smerdis-the-magian')),ed)
+            # The caste: never inside the conspiracy sections 458-477 except in
+            # section 476, where the Persians massacre it.
+            castes={c for c,_ in where(ed,'magians')}
+            self.assertFalse({c for c in castes if 458<=c<=475},ed)
+            self.assertIn(476,castes,ed)
+            self.assertTrue(where(ed,'magian-brothers'),ed)
+
+    def test_section_476_switches_from_the_usurpers_to_the_caste(self):
+        # The hardest paragraph in the book: the two Magians are beheaded and
+        # then every Magian in Persia is hunted down, in one paragraph, and the
+        # two translations distribute the plural differently.
+        for ed in ['original-en','modern-en']:
+            ms=[m for m in mentions(ed)
+                if m['chapterNumber']==476 and m['characterId'].startswith(('magian','smerdis'))]
+            ms.sort(key=lambda m:m['startOffset'])
+            ids=[m['characterId'] for m in ms]
+            self.assertEqual(ids[:2],['magian-brothers','magian-brothers'],ed)
+            self.assertEqual(ids[-1],'magians',ed)
+            self.assertNotIn('smerdis-the-magian',ids,ed)
+
+    def test_the_two_men_called_archias(self):
+        # Both in one paragraph; only the fourth occurrence is the grandson.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(where(ed,'archias-grandson'),[(452,0)],ed)
+            self.assertTrue(all(c==452 for c,_ in where(ed,'archias-samos')),ed)
+            self.assertGreater(len(where(ed,'archias-samos')),3,ed)
+
+    def test_the_seven_who_killed_the_magian(self):
+        for ed in ['original-en','modern-en']:
+            for cid in ['otanes','intaphrenes','gobryas','megabyzos','aspathines',
+                        'hydarnes','darius']:
                 self.assertTrue(where(ed,cid),f'{cid} {ed}')
 
     def test_no_entity_is_missing_from_both_editions(self):

@@ -164,7 +164,7 @@ The Cilician, who with Labynetus mediated the peace between Alyattes and Cyaxare
 
 ## The Magians · supporting
 
-One of the Median tribes, and the interpreters of dreams and portents at the Persian court; their reading of Astyages’s dream is what sets the whole story going.
+One of the Median tribes, and the caste that reads dreams and portents and performs the Persian sacrifices; their reading of Astyages’s dream is what sets the whole story going.
 
 ## The Chaldeans · reference
 
@@ -865,3 +865,233 @@ Who, Herodotus argues, would have given Helen back if they had had her, since th
 ## The Cilicians · reference
 
 Named as the people whose land Cilicia is, in the argument about what makes a country.
+
+## Smerdis · major
+
+Cyrus’s younger son, whom Cambyses had Prexaspes kill in secret after dreaming that he would sit on the throne. Almost nobody in Persia knew he was dead, which is what made the impersonation possible.
+
+After source chapter 427, paragraph 1: Cyrus’s younger son, killed in secret on Cambyses’s orders by Prexaspes — a death so few Persians knew of that a stranger could later take his name.
+
+## The Magian · major
+
+The brother left in charge of Cambyses’s household, who seized the throne because he knew the real Smerdis was dead and that almost nobody else did. He was his namesake, and he reigned seven months and did his subjects good; the Persians killed him when Otanes found out, through his own daughter, that the man in the bed had no ears.
+
+After source chapter 464, paragraph 1: The usurper who reigned as Smerdis for seven months, remitted military service and tribute for three years, and was mourned by every nation in Asia except the Persians.
+
+After source chapter 477, paragraph 1: The usurper, killed in his own chamber by Darius and Gobryas wrestling in the dark — and commemorated afterwards by the Magophonia, the one day in the year a Magian may not walk out of doors.
+
+## The two Magians · major
+
+The usurper and Patizeithes his brother, who between them held Persia for seven months: one on the throne, the other managing everything for him.
+
+## Patizeithes · supporting
+
+The Magian left as caretaker of Cambyses’s household, who put his brother on the throne and ran the kingdom for him. He is named once.
+
+## Nitetis · supporting
+
+Apries’s daughter, whom Amasis sent to Cambyses in place of his own — and who told Cambyses whose daughter she really was. That, in the Egyptian telling, is why Persia invaded.
+
+## Cassandane · supporting
+
+Cyrus’s wife and Cambyses’s mother, whom the Persian account says Cambyses avenged on Egypt because Cyrus had slighted her.
+
+## Pharnaspes · reference
+
+Cassandane’s father, and Otanes’s, of the Achaemenid family.
+
+## Phanes · major
+
+The Halicarnassian mercenary who quarrelled with Apries, fled to Cambyses, and told the Persians how to cross the waterless desert. The Greeks in Egyptian service cut his sons’ throats in front of him before the battle and drank the blood.
+
+## Psammenitos · major
+
+Amasis’s son, king of Egypt for six months, who did not weep to see his daughter carrying water or his son led out to die, and wept at the sight of an old drinking-companion begging. Cambyses spared him and then killed him for plotting.
+
+## Prexaspes · major
+
+Cambyses’s most trusted Persian, who killed Smerdis for him, told him the truth about what the Persians said of him, watched Cambyses shoot his own son through the heart to prove his hand was steady, and finally threw himself off a tower after telling Persia the truth.
+
+## Apis · major
+
+The sacred calf of Memphis, whom the Greeks call Epaphos: black with a white diamond, a double hair in its tail, the marks of an eagle and a beetle. Cambyses stabbed it in the thigh and it died in the temple, which the Egyptians say is why he went mad.
+
+## The Ichthyophagoi · supporting
+
+The Fish-eaters of Elephantine, who knew the Ethiopian tongue and were sent ahead of Cambyses’s army as spies with gifts.
+
+## Achaimenes · reference
+
+Darius’s son, killed with his army in Egypt by Inaros the Libyan — Herodotus looking forward out of his own narrative.
+
+## Inaros · reference
+
+The Libyan who destroyed Achaimenes and his Persians in Egypt.
+
+## Polycrates · major
+
+Tyrant of Samos, who took the island with fifteen men, made himself the first Greek since Minos to aim at ruling the sea, and was crucified at Magnesia by a Persian governor he had never fought. Herodotus will not repeat what was done to his body.
+
+## Aiakes · reference
+
+Polycrates’s father.
+
+## Syloson · major
+
+Polycrates’s brother, exiled — and the man who gave Darius a red cloak in Egypt for nothing, years before Darius was king, and afterwards asked for Samos and got it.
+
+## Pantagnotos · reference
+
+Polycrates’s other brother, killed when Polycrates took sole power.
+
+## Maiandrios · major
+
+Polycrates’s secretary, left in charge of Samos, who tried to hand the island over to a free constitution and was refused; he ended by opening the treasury to the Persians and escaping through a tunnel.
+
+## Charilaos · supporting
+
+Maiandrios’s half-mad brother, who was let out of the cells, saw the Persians sitting unarmed, took the mercenaries and killed them — and so brought the massacre of Samos on the island.
+
+## Archias · supporting
+
+One of the two Lacedaemonians who broke into Samos and died inside it; Herodotus met his grandson, also Archias, at Pitana.
+
+## Archias · supporting
+
+The grandson of the Archias who died at Samos, whom Herodotus met and who honoured the Samians above all strangers because they had buried his grandfather at public cost.
+
+## Lycopas · supporting
+
+The other Lacedaemonian who followed the routed Samians inside the walls and was cut off there with Archias.
+
+## Samios · reference
+
+The son the first Archias named for Samos, and the father of the Archias Herodotus met.
+
+## Eupalinos · supporting
+
+The Megarian engineer of the Samian tunnel, seven furlongs through a mountain and open at both ends — the first of the three greatest Greek works Herodotus knows.
+
+## Naustrophos · reference
+
+Eupalinos’s father.
+
+## Oroetes · major
+
+The Persian governor of Sardis who had Polycrates crucified out of nothing but pique at a slight he had imagined, and murdered Mitrobates and his son as well. Darius had him killed by a letter read out to his own guards.
+
+## Mitrobates · supporting
+
+Governor of Daskyleion, who taunted Oroetes at the king’s door with not having taken Samos, and was killed for it with his son.
+
+## Bagaios · supporting
+
+The son of Artontes who drew the lot, went to Sardis with a bundle of letters, and had Oroetes’s own bodyguard kill him by reading the last one aloud.
+
+## Artontes · reference
+
+Bagaios’s father.
+
+## Melissa · supporting
+
+Periander’s wife, whom he killed, and whose ghost would not name the hiding-place of a deposit until he had burnt real clothes for her in the pit at Corinth.
+
+## Procles · supporting
+
+Despot of Epidauros and Melissa’s father, who asked his two grandsons whether they knew who had killed their mother — and ruined the younger one.
+
+## Lycophron · major
+
+Periander’s younger son, who would not speak to his father after his grandfather’s question, was driven to Corcyra, refused the throne on any terms that meant returning, and was killed by the Corcyreans to stop Periander coming.
+
+## The Corcyreans · supporting
+
+Periander’s enemies, who killed his son to keep him out and whose three hundred boys he sent to Sardis to be made eunuchs; the Samians saved them.
+
+## The Siphnians · supporting
+
+At the height of their wealth from gold and silver mines, who refused the exiled Samians a loan and lost a hundred talents and their fields for it — as their oracle about the white council-house had warned them.
+
+## The Aeginetans · supporting
+
+Who with the Cretans defeated the Samian settlers at Kydonia and dedicated the ships’ boar-prows in the temple of Athena on Aegina.
+
+## Otanes · major
+
+Son of Pharnaspes, the first to suspect that the man on the throne was not Smerdis, and the one who proved it through his own daughter. He argued for democracy against the other six, withdrew from the contest for the throne on condition that his house be free, and it still was in Herodotus’s day.
+
+## Phaidyme · major
+
+Otanes’s daughter, married to the king; her father asked her to feel for the ears of the man asleep beside her, knowing Cyrus had cut the Magian’s off. She did it, and there were none.
+
+## Atossa · major
+
+Cyrus’s daughter, wife of her brother Cambyses, then of the Magian, then of Darius — and the woman who, prompted in bed by a Greek physician, set Darius on Greece.
+
+## Intaphrenes · major
+
+One of the seven, whom Otanes brought in; he later forced the palace gates believing the law let him, and Darius destroyed his whole family but for the brother and son his wife chose. The two editions spell him Intaphrenes and Intaphernes.
+
+## Gobryas · major
+
+One of the seven, who grappled with the Magian in the dark and told Darius to strike through both of them rather than let go.
+
+## Megabyzos · major
+
+One of the seven, who argued for oligarchy: nothing is more foolish or more insolent, he said, than a useless crowd.
+
+## Aspathines · supporting
+
+One of the seven, who brought in Hydarnes.
+
+## Hydarnes · supporting
+
+One of the seven, brought in by Aspathines.
+
+## Oibares · supporting
+
+Darius’s groom, who won him the kingdom before sunrise with a mare, a hand and a horse that neighed first.
+
+## Parmys · reference
+
+Smerdis’s daughter, one of the wives Darius took to fasten the succession to Cyrus’s line.
+
+## Artystone · reference
+
+Cyrus’s other daughter, a virgin, whom Darius married with Atossa.
+
+## Zopyros · major
+
+Megabyzos’s son, to whom a mule foaled; he cut off his own nose and ears, had himself whipped, deserted to Babylon as a mutilated man with a grievance, was given the city’s army, and handed the walls to Darius. Darius said he would rather have one Zopyros unmutilated than twenty Babylons.
+
+## Demokedes · major
+
+The physician of Croton, sold into Persia as Polycrates’s slave, who cured Darius’s ankle and Atossa’s breast, got everything he asked for except his freedom, and talked his way home by way of a reconnaissance of Greece. The two editions spell him Demokedes and Democedes.
+
+## Calliphon · reference
+
+Demokedes’s father, at Croton.
+
+## Milon · reference
+
+The wrestler of Croton, whose daughter Demokedes bought himself a betrothal to, in name, because Darius had heard of him.
+
+## Aristophilides · supporting
+
+King of the Tarentines, who unshipped the Persian ships’ steering-oars and locked up the crews so that Demokedes could get away to Croton.
+
+## Gillos · supporting
+
+The Tarentine exile who rescued the stranded Persians and brought them back to the king, and asked in payment only to be restored — which the Cnidians could not manage.
+
+## The Tarentines · reference
+
+Aristophilides’s people, in Italy.
+
+## The Indians · major
+
+The most numerous nation Herodotus knows, whose Callatians eat their dead and who pay their tribute in gold dust.
+
+## The tribute nations · major
+
+Darius’s twenty provinces, named in a roll of some forty peoples — Chorasmians, Sogdians, Bactrians, Caspians, Parthians, Sarangians, Paricanians and the rest — each with its assessment in talents. The list is Herodotus’s proof of what the empire actually was: not a conquest story but an accounts book.
