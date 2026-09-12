@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "fa7c96bc9e9edcfe0da5e342dedfb856b9f86fae76a8e0353e696340154e1a25",
+  "attempts": [
+    {
+      "asr_seconds": 0.16284308675676584,
+      "alignment_seconds": 0.0002559470012784004,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Emilia. Alas, good gentleman! alas, good Cassio!",
+        "hotwords": "Emilia, Cassio"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Emilia. Alas, good gentleman! alas, good Cassio!",
+          "start": 0.08,
+          "end": 3.74,
+          "words": [
+            {
+              "text": " Emilia.",
+              "start": 0.08,
+              "end": 0.86,
+              "probability": 0.578857421875
+            },
+            {
+              "text": " Alas,",
+              "start": 1.66,
+              "end": 1.66,
+              "probability": 0.771484375
+            },
+            {
+              "text": " good",
+              "start": 1.84,
+              "end": 1.9,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " gentleman!",
+              "start": 1.9,
+              "end": 2.24,
+              "probability": 0.45068359375
+            },
+            {
+              "text": " alas,",
+              "start": 2.64,
+              "end": 2.84,
+              "probability": 0.0015239715576171875
+            },
+            {
+              "text": " good",
+              "start": 3.1,
+              "end": 3.16,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Cassio!",
+              "start": 3.16,
+              "end": 3.74,
+              "probability": 0.55621337890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Emilia.",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "raw": "Alas,",
+          "start": 1.66,
+          "end": 1.66
+        },
+        {
+          "raw": "good",
+          "start": 1.84,
+          "end": 1.9
+        },
+        {
+          "raw": "gentleman!",
+          "start": 1.9,
+          "end": 2.24
+        },
+        {
+          "raw": "alas,",
+          "start": 2.64,
+          "end": 2.84
+        },
+        {
+          "raw": "good",
+          "start": 3.1,
+          "end": 3.16
+        },
+        {
+          "raw": "Cassio!",
+          "start": 3.16,
+          "end": 3.74
+        }
+      ],
+      "expected_tokens": [
+        "Emilia.",
+        "Alas,",
+        "good",
+        "gentleman!",
+        "alas,",
+        "good",
+        "Cassio!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Emilia.",
+          "start": 0.08,
+          "end": 0.86,
+          "key": "emilia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Alas,",
+          "start": 1.66,
+          "end": 1.66,
+          "key": "alas",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.84,
+          "end": 1.9,
+          "key": "good",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "gentleman!",
+          "start": 1.9,
+          "end": 2.24,
+          "key": "gentleman",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "alas,",
+          "start": 2.64,
+          "end": 2.84,
+          "key": "alas",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 3.1,
+          "end": 3.16,
+          "key": "good",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Cassio!",
+          "start": 3.16,
+          "end": 3.74,
+          "key": "cassio",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Emilia.",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "text": "Alas,",
+          "start": 1.66,
+          "end": 1.66
+        },
+        {
+          "text": "good",
+          "start": 1.84,
+          "end": 1.9
+        },
+        {
+          "text": "gentleman!",
+          "start": 1.9,
+          "end": 2.24
+        },
+        {
+          "text": "alas,",
+          "start": 2.64,
+          "end": 2.84
+        },
+        {
+          "text": "good",
+          "start": 3.1,
+          "end": 3.16
+        },
+        {
+          "text": "Cassio!",
+          "start": 3.16,
+          "end": 3.74
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16319157276302576
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ebd288e3e612d40fb41601e04ee9ee59fbfd532feed4eeb4338ef97789df23b6",
+  "selected_reasons": []
+}

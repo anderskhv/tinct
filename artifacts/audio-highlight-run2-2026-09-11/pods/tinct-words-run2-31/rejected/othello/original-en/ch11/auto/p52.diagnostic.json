@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "5a5da310486cbbfbef70f655a3763fefc92cef291fae728182955e359c26f0ad",
+  "attempts": [
+    {
+      "asr_seconds": 0.1273988620378077,
+      "alignment_seconds": 0.00018283771350979805,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Othello. Look how he laughs already!",
+        "hotwords": "Othello, Look"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Othello, Look how he laughs already!",
+          "start": 0.24,
+          "end": 2.12,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.24,
+              "end": 0.9,
+              "probability": 0.9060872395833334
+            },
+            {
+              "text": " Look",
+              "start": 1.26,
+              "end": 1.34,
+              "probability": 0.026641845703125
+            },
+            {
+              "text": " how",
+              "start": 1.34,
+              "end": 1.48,
+              "probability": 0.87646484375
+            },
+            {
+              "text": " he",
+              "start": 1.48,
+              "end": 1.6,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " laughs",
+              "start": 1.6,
+              "end": 1.8,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " already!",
+              "start": 1.8,
+              "end": 2.12,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.24,
+          "end": 0.9
+        },
+        {
+          "raw": "Look",
+          "start": 1.26,
+          "end": 1.34
+        },
+        {
+          "raw": "how",
+          "start": 1.34,
+          "end": 1.48
+        },
+        {
+          "raw": "he",
+          "start": 1.48,
+          "end": 1.6
+        },
+        {
+          "raw": "laughs",
+          "start": 1.6,
+          "end": 1.8
+        },
+        {
+          "raw": "already!",
+          "start": 1.8,
+          "end": 2.12
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "Look",
+        "how",
+        "he",
+        "laughs",
+        "already!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.24,
+          "end": 0.9,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Look",
+          "start": 1.26,
+          "end": 1.34,
+          "key": "look",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 1.34,
+          "end": 1.48,
+          "key": "how",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.48,
+          "end": 1.6,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "laughs",
+          "start": 1.6,
+          "end": 1.8,
+          "key": "laughs",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "already!",
+          "start": 1.8,
+          "end": 2.12,
+          "key": "already",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.24,
+          "end": 0.9
+        },
+        {
+          "text": "Look",
+          "start": 1.26,
+          "end": 1.34
+        },
+        {
+          "text": "how",
+          "start": 1.34,
+          "end": 1.48
+        },
+        {
+          "text": "he",
+          "start": 1.48,
+          "end": 1.6
+        },
+        {
+          "text": "laughs",
+          "start": 1.6,
+          "end": 1.8
+        },
+        {
+          "text": "already!",
+          "start": 1.8,
+          "end": 2.12
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12764537939801812
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "806123fc0fac130fcdf932dba28f5d9c7a8a32e656c9a9072103c05d7756f765",
+  "selected_reasons": []
+}

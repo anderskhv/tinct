@@ -1,0 +1,604 @@
+{
+  "complete": true,
+  "signature": "3ea8d31d74313d7ab8ed2f445fd0d7cfc1d11651dc9416fc27fd9a38461d769f",
+  "attempts": [
+    {
+      "asr_seconds": 0.216836407314986,
+      "alignment_seconds": 0.00023739691823720932,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cassio, this did I fear but thought he had no weapon, for he was great of heart.",
+          "start": 0.05,
+          "end": 4.83,
+          "words": [
+            {
+              "text": " Cassio,",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.610595703125
+            },
+            {
+              "text": " this",
+              "start": 1.33,
+              "end": 1.65,
+              "probability": 0.896484375
+            },
+            {
+              "text": " did",
+              "start": 1.65,
+              "end": 1.81,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " I",
+              "start": 1.81,
+              "end": 1.93,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " fear",
+              "start": 1.93,
+              "end": 2.23,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " but",
+              "start": 2.23,
+              "end": 2.49,
+              "probability": 0.73046875
+            },
+            {
+              "text": " thought",
+              "start": 2.49,
+              "end": 2.67,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " he",
+              "start": 2.67,
+              "end": 2.79,
+              "probability": 0.994140625
+            },
+            {
+              "text": " had",
+              "start": 2.79,
+              "end": 2.93,
+              "probability": 0.998046875
+            },
+            {
+              "text": " no",
+              "start": 2.93,
+              "end": 3.13,
+              "probability": 0.998046875
+            },
+            {
+              "text": " weapon,",
+              "start": 3.13,
+              "end": 3.45,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " for",
+              "start": 3.79,
+              "end": 3.87,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " he",
+              "start": 3.87,
+              "end": 4.01,
+              "probability": 0.998046875
+            },
+            {
+              "text": " was",
+              "start": 4.01,
+              "end": 4.17,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " great",
+              "start": 4.17,
+              "end": 4.43,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " of",
+              "start": 4.43,
+              "end": 4.59,
+              "probability": 0.99609375
+            },
+            {
+              "text": " heart.",
+              "start": 4.59,
+              "end": 4.83,
+              "probability": 0.98828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassio,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "this",
+          "start": 1.33,
+          "end": 1.65
+        },
+        {
+          "raw": "did",
+          "start": 1.65,
+          "end": 1.81
+        },
+        {
+          "raw": "I",
+          "start": 1.81,
+          "end": 1.93
+        },
+        {
+          "raw": "fear",
+          "start": 1.93,
+          "end": 2.23
+        },
+        {
+          "raw": "but",
+          "start": 2.23,
+          "end": 2.49
+        },
+        {
+          "raw": "thought",
+          "start": 2.49,
+          "end": 2.67
+        },
+        {
+          "raw": "he",
+          "start": 2.67,
+          "end": 2.79
+        },
+        {
+          "raw": "had",
+          "start": 2.79,
+          "end": 2.93
+        },
+        {
+          "raw": "no",
+          "start": 2.93,
+          "end": 3.13
+        },
+        {
+          "raw": "weapon,",
+          "start": 3.13,
+          "end": 3.45
+        },
+        {
+          "raw": "for",
+          "start": 3.79,
+          "end": 3.87
+        },
+        {
+          "raw": "he",
+          "start": 3.87,
+          "end": 4.01
+        },
+        {
+          "raw": "was",
+          "start": 4.01,
+          "end": 4.17
+        },
+        {
+          "raw": "great",
+          "start": 4.17,
+          "end": 4.43
+        },
+        {
+          "raw": "of",
+          "start": 4.43,
+          "end": 4.59
+        },
+        {
+          "raw": "heart.",
+          "start": 4.59,
+          "end": 4.83
+        }
+      ],
+      "expected_tokens": [
+        "Cassio.",
+        "This",
+        "did",
+        "I",
+        "fear,",
+        "but",
+        "thought",
+        "he",
+        "had",
+        "no",
+        "weapon,",
+        "For",
+        "he",
+        "was",
+        "great",
+        "of",
+        "heart."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassio,",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "cassio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.33,
+          "end": 1.65,
+          "key": "this",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 1.65,
+          "end": 1.81,
+          "key": "did",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.81,
+          "end": 1.93,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "fear",
+          "start": 1.93,
+          "end": 2.23,
+          "key": "fear",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.23,
+          "end": 2.49,
+          "key": "but",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "thought",
+          "start": 2.49,
+          "end": 2.67,
+          "key": "thought",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.67,
+          "end": 2.79,
+          "key": "he",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 2.79,
+          "end": 2.93,
+          "key": "had",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 2.93,
+          "end": 3.13,
+          "key": "no",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "weapon,",
+          "start": 3.13,
+          "end": 3.45,
+          "key": "weapon",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.79,
+          "end": 3.87,
+          "key": "for",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.87,
+          "end": 4.01,
+          "key": "he",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 4.01,
+          "end": 4.17,
+          "key": "was",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 4.17,
+          "end": 4.43,
+          "key": "great",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.43,
+          "end": 4.59,
+          "key": "of",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "heart.",
+          "start": 4.59,
+          "end": 4.83,
+          "key": "heart",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassio.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "This",
+          "start": 1.33,
+          "end": 1.65
+        },
+        {
+          "text": "did",
+          "start": 1.65,
+          "end": 1.81
+        },
+        {
+          "text": "I",
+          "start": 1.81,
+          "end": 1.93
+        },
+        {
+          "text": "fear,",
+          "start": 1.93,
+          "end": 2.23
+        },
+        {
+          "text": "but",
+          "start": 2.23,
+          "end": 2.49
+        },
+        {
+          "text": "thought",
+          "start": 2.49,
+          "end": 2.67
+        },
+        {
+          "text": "he",
+          "start": 2.67,
+          "end": 2.79
+        },
+        {
+          "text": "had",
+          "start": 2.79,
+          "end": 2.93
+        },
+        {
+          "text": "no",
+          "start": 2.93,
+          "end": 3.13
+        },
+        {
+          "text": "weapon,",
+          "start": 3.13,
+          "end": 3.45
+        },
+        {
+          "text": "For",
+          "start": 3.79,
+          "end": 3.87
+        },
+        {
+          "text": "he",
+          "start": 3.87,
+          "end": 4.01
+        },
+        {
+          "text": "was",
+          "start": 4.01,
+          "end": 4.17
+        },
+        {
+          "text": "great",
+          "start": 4.17,
+          "end": 4.43
+        },
+        {
+          "text": "of",
+          "start": 4.43,
+          "end": 4.59
+        },
+        {
+          "text": "heart.",
+          "start": 4.59,
+          "end": 4.83
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21716456301510334
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "69b03dc522e5bbecd7188d47602edaf27704e13e8876019d2f709d719c117af7",
+  "selected_reasons": []
+}

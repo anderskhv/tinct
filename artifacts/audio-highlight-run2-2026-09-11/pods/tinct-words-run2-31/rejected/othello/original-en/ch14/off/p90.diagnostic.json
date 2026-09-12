@@ -1,0 +1,434 @@
+{
+  "complete": true,
+  "signature": "9c11be80c8203d98201712bd346b53862ed6fbb69469adb75e3c66089245efa2",
+  "attempts": [
+    {
+      "asr_seconds": 0.18031606916338205,
+      "alignment_seconds": 0.00035244692116975784,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Bianca, he supped at my house, but I therefore shake not.",
+          "start": 0.05,
+          "end": 3.65,
+          "words": [
+            {
+              "text": " Bianca,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.900634765625
+            },
+            {
+              "text": " he",
+              "start": 1.29,
+              "end": 1.47,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " supped",
+              "start": 1.47,
+              "end": 1.77,
+              "probability": 0.6080322265625
+            },
+            {
+              "text": " at",
+              "start": 1.77,
+              "end": 1.85,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " my",
+              "start": 1.85,
+              "end": 1.99,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " house,",
+              "start": 1.99,
+              "end": 2.29,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " but",
+              "start": 2.47,
+              "end": 2.55,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " I",
+              "start": 2.55,
+              "end": 2.67,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " therefore",
+              "start": 2.67,
+              "end": 2.97,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " shake",
+              "start": 2.97,
+              "end": 3.31,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " not.",
+              "start": 3.31,
+              "end": 3.65,
+              "probability": 0.90673828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bianca,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "he",
+          "start": 1.29,
+          "end": 1.47
+        },
+        {
+          "raw": "supped",
+          "start": 1.47,
+          "end": 1.77
+        },
+        {
+          "raw": "at",
+          "start": 1.77,
+          "end": 1.85
+        },
+        {
+          "raw": "my",
+          "start": 1.85,
+          "end": 1.99
+        },
+        {
+          "raw": "house,",
+          "start": 1.99,
+          "end": 2.29
+        },
+        {
+          "raw": "but",
+          "start": 2.47,
+          "end": 2.55
+        },
+        {
+          "raw": "I",
+          "start": 2.55,
+          "end": 2.67
+        },
+        {
+          "raw": "therefore",
+          "start": 2.67,
+          "end": 2.97
+        },
+        {
+          "raw": "shake",
+          "start": 2.97,
+          "end": 3.31
+        },
+        {
+          "raw": "not.",
+          "start": 3.31,
+          "end": 3.65
+        }
+      ],
+      "expected_tokens": [
+        "Bianca.",
+        "He",
+        "supp'd",
+        "at",
+        "my",
+        "house,",
+        "but",
+        "I",
+        "therefore",
+        "shake",
+        "not."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          11,
+          3,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bianca,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "bianca",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.29,
+          "end": 1.47,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "supped",
+          "start": 1.47,
+          "end": 1.77,
+          "key": "supped",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.77,
+          "end": 1.85,
+          "key": "at",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.85,
+          "end": 1.99,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "house,",
+          "start": 1.99,
+          "end": 2.29,
+          "key": "house",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.47,
+          "end": 2.55,
+          "key": "but",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.55,
+          "end": 2.67,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "therefore",
+          "start": 2.67,
+          "end": 2.97,
+          "key": "therefore",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "shake",
+          "start": 2.97,
+          "end": 3.31,
+          "key": "shake",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "not.",
+          "start": 3.31,
+          "end": 3.65,
+          "key": "not",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Bianca.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "He",
+          "start": 1.29,
+          "end": 1.47
+        },
+        {
+          "text": "supp'd",
+          "start": 1.47,
+          "end": 1.62
+        },
+        {
+          "text": "at",
+          "start": 1.77,
+          "end": 1.85
+        },
+        {
+          "text": "my",
+          "start": 1.85,
+          "end": 1.99
+        },
+        {
+          "text": "house,",
+          "start": 1.99,
+          "end": 2.29
+        },
+        {
+          "text": "but",
+          "start": 2.47,
+          "end": 2.55
+        },
+        {
+          "text": "I",
+          "start": 2.55,
+          "end": 2.67
+        },
+        {
+          "text": "therefore",
+          "start": 2.67,
+          "end": 2.97
+        },
+        {
+          "text": "shake",
+          "start": 2.97,
+          "end": 3.31
+        },
+        {
+          "text": "not.",
+          "start": 3.31,
+          "end": 3.65
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.18079780414700508
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c76dab1749932f58cb8a82dcce1ccefc3ce48dedef3e169edcff63b5f4fde489",
+  "selected_reasons": []
+}

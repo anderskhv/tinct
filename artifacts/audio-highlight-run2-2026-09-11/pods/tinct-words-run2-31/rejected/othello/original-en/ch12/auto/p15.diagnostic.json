@@ -1,0 +1,1278 @@
+{
+  "complete": true,
+  "signature": "3f62650bb3b6f2df0d28405316158b01348df6c736a226be57f68964e194100e",
+  "attempts": [
+    {
+      "asr_seconds": 0.44045260874554515,
+      "alignment_seconds": 0.0007655611261725426,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[She says enough. Yet she's a simple bawd That cannot say as much. This is a subtle whore, A closet lock and key of villainous secrets. And yet she'll kneel and pray. I have seen her do 't.]",
+        "hotwords": "She, That, This, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " She says enough. Yet she's a simple bawd That cannot say as much. This is a subtle whore, A closet lock and key of villainous secrets. And yet she'll kneel and pray. I have seen her do t.]",
+          "start": 0.02,
+          "end": 12.24,
+          "words": [
+            {
+              "text": " She",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.77197265625
+            },
+            {
+              "text": " says",
+              "start": 0.54,
+              "end": 0.74,
+              "probability": 0.9921875
+            },
+            {
+              "text": " enough.",
+              "start": 0.74,
+              "end": 1.12,
+              "probability": 0.908203125
+            },
+            {
+              "text": " Yet",
+              "start": 1.64,
+              "end": 1.78,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " she's",
+              "start": 1.78,
+              "end": 2.02,
+              "probability": 0.843017578125
+            },
+            {
+              "text": " a",
+              "start": 2.02,
+              "end": 2.14,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " simple",
+              "start": 2.14,
+              "end": 2.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " bawd",
+              "start": 2.44,
+              "end": 2.84,
+              "probability": 0.63671875
+            },
+            {
+              "text": " That",
+              "start": 2.84,
+              "end": 2.94,
+              "probability": 0.00913238525390625
+            },
+            {
+              "text": " cannot",
+              "start": 2.94,
+              "end": 3.22,
+              "probability": 0.9609375
+            },
+            {
+              "text": " say",
+              "start": 3.22,
+              "end": 3.52,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " as",
+              "start": 3.52,
+              "end": 3.7,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " much.",
+              "start": 3.7,
+              "end": 3.94,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " This",
+              "start": 4.48,
+              "end": 4.64,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " is",
+              "start": 4.64,
+              "end": 4.78,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " a",
+              "start": 4.78,
+              "end": 4.94,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " subtle",
+              "start": 4.94,
+              "end": 5.18,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " whore,",
+              "start": 5.18,
+              "end": 5.56,
+              "probability": 0.720703125
+            },
+            {
+              "text": " A",
+              "start": 5.82,
+              "end": 5.88,
+              "probability": 0.72216796875
+            },
+            {
+              "text": " closet",
+              "start": 5.88,
+              "end": 6.22,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " lock",
+              "start": 6.22,
+              "end": 6.6,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " and",
+              "start": 6.6,
+              "end": 6.82,
+              "probability": 0.77978515625
+            },
+            {
+              "text": " key",
+              "start": 6.82,
+              "end": 7.04,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " of",
+              "start": 7.04,
+              "end": 7.22,
+              "probability": 0.67724609375
+            },
+            {
+              "text": " villainous",
+              "start": 7.22,
+              "end": 7.66,
+              "probability": 0.969970703125
+            },
+            {
+              "text": " secrets.",
+              "start": 7.66,
+              "end": 8.04,
+              "probability": 0.9921875
+            },
+            {
+              "text": " And",
+              "start": 8.68,
+              "end": 8.78,
+              "probability": 0.984375
+            },
+            {
+              "text": " yet",
+              "start": 8.78,
+              "end": 8.94,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " she'll",
+              "start": 8.94,
+              "end": 9.26,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " kneel",
+              "start": 9.26,
+              "end": 9.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 9.6,
+              "end": 9.78,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " pray.",
+              "start": 9.78,
+              "end": 10.08,
+              "probability": 0.984375
+            },
+            {
+              "text": " I",
+              "start": 10.72,
+              "end": 10.84,
+              "probability": 0.98828125
+            },
+            {
+              "text": " have",
+              "start": 10.84,
+              "end": 10.94,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " seen",
+              "start": 10.94,
+              "end": 11.1,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " her",
+              "start": 11.1,
+              "end": 11.3,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " do",
+              "start": 11.3,
+              "end": 11.48,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " t.]",
+              "start": 11.48,
+              "end": 12.24,
+              "probability": 0.008265495300292969
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "She",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "says",
+          "start": 0.54,
+          "end": 0.74
+        },
+        {
+          "raw": "enough.",
+          "start": 0.74,
+          "end": 1.12
+        },
+        {
+          "raw": "Yet",
+          "start": 1.64,
+          "end": 1.78
+        },
+        {
+          "raw": "she's",
+          "start": 1.78,
+          "end": 2.02
+        },
+        {
+          "raw": "a",
+          "start": 2.02,
+          "end": 2.14
+        },
+        {
+          "raw": "simple",
+          "start": 2.14,
+          "end": 2.44
+        },
+        {
+          "raw": "bawd",
+          "start": 2.44,
+          "end": 2.84
+        },
+        {
+          "raw": "That",
+          "start": 2.84,
+          "end": 2.94
+        },
+        {
+          "raw": "cannot",
+          "start": 2.94,
+          "end": 3.22
+        },
+        {
+          "raw": "say",
+          "start": 3.22,
+          "end": 3.52
+        },
+        {
+          "raw": "as",
+          "start": 3.52,
+          "end": 3.7
+        },
+        {
+          "raw": "much.",
+          "start": 3.7,
+          "end": 3.94
+        },
+        {
+          "raw": "This",
+          "start": 4.48,
+          "end": 4.64
+        },
+        {
+          "raw": "is",
+          "start": 4.64,
+          "end": 4.78
+        },
+        {
+          "raw": "a",
+          "start": 4.78,
+          "end": 4.94
+        },
+        {
+          "raw": "subtle",
+          "start": 4.94,
+          "end": 5.18
+        },
+        {
+          "raw": "whore,",
+          "start": 5.18,
+          "end": 5.56
+        },
+        {
+          "raw": "A",
+          "start": 5.82,
+          "end": 5.88
+        },
+        {
+          "raw": "closet",
+          "start": 5.88,
+          "end": 6.22
+        },
+        {
+          "raw": "lock",
+          "start": 6.22,
+          "end": 6.6
+        },
+        {
+          "raw": "and",
+          "start": 6.6,
+          "end": 6.82
+        },
+        {
+          "raw": "key",
+          "start": 6.82,
+          "end": 7.04
+        },
+        {
+          "raw": "of",
+          "start": 7.04,
+          "end": 7.22
+        },
+        {
+          "raw": "villainous",
+          "start": 7.22,
+          "end": 7.66
+        },
+        {
+          "raw": "secrets.",
+          "start": 7.66,
+          "end": 8.04
+        },
+        {
+          "raw": "And",
+          "start": 8.68,
+          "end": 8.78
+        },
+        {
+          "raw": "yet",
+          "start": 8.78,
+          "end": 8.94
+        },
+        {
+          "raw": "she'll",
+          "start": 8.94,
+          "end": 9.26
+        },
+        {
+          "raw": "kneel",
+          "start": 9.26,
+          "end": 9.6
+        },
+        {
+          "raw": "and",
+          "start": 9.6,
+          "end": 9.78
+        },
+        {
+          "raw": "pray.",
+          "start": 9.78,
+          "end": 10.08
+        },
+        {
+          "raw": "I",
+          "start": 10.72,
+          "end": 10.84
+        },
+        {
+          "raw": "have",
+          "start": 10.84,
+          "end": 10.94
+        },
+        {
+          "raw": "seen",
+          "start": 10.94,
+          "end": 11.1
+        },
+        {
+          "raw": "her",
+          "start": 11.1,
+          "end": 11.3
+        },
+        {
+          "raw": "do",
+          "start": 11.3,
+          "end": 11.48
+        },
+        {
+          "raw": "t.]",
+          "start": 11.48,
+          "end": 12.24
+        }
+      ],
+      "expected_tokens": [
+        "[She",
+        "says",
+        "enough.",
+        "Yet",
+        "she's",
+        "a",
+        "simple",
+        "bawd",
+        "That",
+        "cannot",
+        "say",
+        "as",
+        "much.",
+        "This",
+        "is",
+        "a",
+        "subtle",
+        "whore,",
+        "A",
+        "closet",
+        "lock",
+        "and",
+        "key",
+        "of",
+        "villainous",
+        "secrets.",
+        "And",
+        "yet",
+        "she'll",
+        "kneel",
+        "and",
+        "pray.",
+        "I",
+        "have",
+        "seen",
+        "her",
+        "do",
+        "'t.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          38,
+          0,
+          38
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "She",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "she",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "says",
+          "start": 0.54,
+          "end": 0.74,
+          "key": "says",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "enough.",
+          "start": 0.74,
+          "end": 1.12,
+          "key": "enough",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Yet",
+          "start": 1.64,
+          "end": 1.78,
+          "key": "yet",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "she's",
+          "start": 1.78,
+          "end": 2.02,
+          "key": "shes",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.02,
+          "end": 2.14,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "simple",
+          "start": 2.14,
+          "end": 2.44,
+          "key": "simple",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "bawd",
+          "start": 2.44,
+          "end": 2.84,
+          "key": "bawd",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 2.84,
+          "end": 2.94,
+          "key": "that",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 2.94,
+          "end": 3.22,
+          "key": "cannot",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 3.22,
+          "end": 3.52,
+          "key": "say",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.52,
+          "end": 3.7,
+          "key": "as",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "much.",
+          "start": 3.7,
+          "end": 3.94,
+          "key": "much",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "This",
+          "start": 4.48,
+          "end": 4.64,
+          "key": "this",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.64,
+          "end": 4.78,
+          "key": "is",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.78,
+          "end": 4.94,
+          "key": "a",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "subtle",
+          "start": 4.94,
+          "end": 5.18,
+          "key": "subtle",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "whore,",
+          "start": 5.18,
+          "end": 5.56,
+          "key": "whore",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 5.82,
+          "end": 5.88,
+          "key": "a",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "closet",
+          "start": 5.88,
+          "end": 6.22,
+          "key": "closet",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "lock",
+          "start": 6.22,
+          "end": 6.6,
+          "key": "lock",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.6,
+          "end": 6.82,
+          "key": "and",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "key",
+          "start": 6.82,
+          "end": 7.04,
+          "key": "key",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.04,
+          "end": 7.22,
+          "key": "of",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "villainous",
+          "start": 7.22,
+          "end": 7.66,
+          "key": "villainous",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "secrets.",
+          "start": 7.66,
+          "end": 8.04,
+          "key": "secrets",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 8.68,
+          "end": 8.78,
+          "key": "and",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "yet",
+          "start": 8.78,
+          "end": 8.94,
+          "key": "yet",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "she'll",
+          "start": 8.94,
+          "end": 9.26,
+          "key": "shell",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "kneel",
+          "start": 9.26,
+          "end": 9.6,
+          "key": "kneel",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 9.6,
+          "end": 9.78,
+          "key": "and",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "pray.",
+          "start": 9.78,
+          "end": 10.08,
+          "key": "pray",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 10.72,
+          "end": 10.84,
+          "key": "i",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 10.84,
+          "end": 10.94,
+          "key": "have",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "seen",
+          "start": 10.94,
+          "end": 11.1,
+          "key": "seen",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 11.1,
+          "end": 11.3,
+          "key": "her",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 11.3,
+          "end": 11.48,
+          "key": "do",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "t.]",
+          "start": 11.48,
+          "end": 12.24,
+          "key": "t",
+          "pieces": [
+            37
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[She",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "says",
+          "start": 0.54,
+          "end": 0.74
+        },
+        {
+          "text": "enough.",
+          "start": 0.74,
+          "end": 1.12
+        },
+        {
+          "text": "Yet",
+          "start": 1.64,
+          "end": 1.78
+        },
+        {
+          "text": "she's",
+          "start": 1.78,
+          "end": 2.02
+        },
+        {
+          "text": "a",
+          "start": 2.02,
+          "end": 2.14
+        },
+        {
+          "text": "simple",
+          "start": 2.14,
+          "end": 2.44
+        },
+        {
+          "text": "bawd",
+          "start": 2.44,
+          "end": 2.84
+        },
+        {
+          "text": "That",
+          "start": 2.84,
+          "end": 2.94
+        },
+        {
+          "text": "cannot",
+          "start": 2.94,
+          "end": 3.22
+        },
+        {
+          "text": "say",
+          "start": 3.22,
+          "end": 3.52
+        },
+        {
+          "text": "as",
+          "start": 3.52,
+          "end": 3.7
+        },
+        {
+          "text": "much.",
+          "start": 3.7,
+          "end": 3.94
+        },
+        {
+          "text": "This",
+          "start": 4.48,
+          "end": 4.64
+        },
+        {
+          "text": "is",
+          "start": 4.64,
+          "end": 4.78
+        },
+        {
+          "text": "a",
+          "start": 4.78,
+          "end": 4.94
+        },
+        {
+          "text": "subtle",
+          "start": 4.94,
+          "end": 5.18
+        },
+        {
+          "text": "whore,",
+          "start": 5.18,
+          "end": 5.56
+        },
+        {
+          "text": "A",
+          "start": 5.82,
+          "end": 5.88
+        },
+        {
+          "text": "closet",
+          "start": 5.88,
+          "end": 6.22
+        },
+        {
+          "text": "lock",
+          "start": 6.22,
+          "end": 6.6
+        },
+        {
+          "text": "and",
+          "start": 6.6,
+          "end": 6.82
+        },
+        {
+          "text": "key",
+          "start": 6.82,
+          "end": 7.04
+        },
+        {
+          "text": "of",
+          "start": 7.04,
+          "end": 7.22
+        },
+        {
+          "text": "villainous",
+          "start": 7.22,
+          "end": 7.66
+        },
+        {
+          "text": "secrets.",
+          "start": 7.66,
+          "end": 8.04
+        },
+        {
+          "text": "And",
+          "start": 8.68,
+          "end": 8.78
+        },
+        {
+          "text": "yet",
+          "start": 8.78,
+          "end": 8.94
+        },
+        {
+          "text": "she'll",
+          "start": 8.94,
+          "end": 9.26
+        },
+        {
+          "text": "kneel",
+          "start": 9.26,
+          "end": 9.6
+        },
+        {
+          "text": "and",
+          "start": 9.6,
+          "end": 9.78
+        },
+        {
+          "text": "pray.",
+          "start": 9.78,
+          "end": 10.08
+        },
+        {
+          "text": "I",
+          "start": 10.72,
+          "end": 10.84
+        },
+        {
+          "text": "have",
+          "start": 10.84,
+          "end": 10.94
+        },
+        {
+          "text": "seen",
+          "start": 10.94,
+          "end": 11.1
+        },
+        {
+          "text": "her",
+          "start": 11.1,
+          "end": 11.3
+        },
+        {
+          "text": "do",
+          "start": 11.3,
+          "end": 11.48
+        },
+        {
+          "text": "'t.]",
+          "start": 11.48,
+          "end": 12.24
+        }
+      ],
+      "stats": {
+        "expected_words": 38,
+        "heard_words": 38,
+        "matched_words": 38
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.44156106701120734
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c488476055465018de6e42e473b5224686872ac1a819345f8b24cc5c5f3518bd",
+  "selected_reasons": []
+}

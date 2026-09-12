@@ -1,0 +1,508 @@
+{
+  "complete": true,
+  "signature": "3f376ba0a4d02ff925c61bbff69d989af2515ea9af30ff91a1adc0075bb3beb9",
+  "attempts": [
+    {
+      "asr_seconds": 0.23307777103036642,
+      "alignment_seconds": 0.0003684959374368191,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Othello, are there not stones in heaven, but what serve for thunder? Precious villain.",
+          "start": 0.05,
+          "end": 4.69,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " are",
+              "start": 0.93,
+              "end": 0.95,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " there",
+              "start": 0.95,
+              "end": 1.05,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " not",
+              "start": 1.05,
+              "end": 1.25,
+              "probability": 0.986328125
+            },
+            {
+              "text": " stones",
+              "start": 1.25,
+              "end": 1.57,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " in",
+              "start": 1.57,
+              "end": 1.85,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " heaven,",
+              "start": 1.85,
+              "end": 2.07,
+              "probability": 0.82666015625
+            },
+            {
+              "text": " but",
+              "start": 2.33,
+              "end": 2.41,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " what",
+              "start": 2.41,
+              "end": 2.59,
+              "probability": 0.99609375
+            },
+            {
+              "text": " serve",
+              "start": 2.59,
+              "end": 2.87,
+              "probability": 0.8681640625
+            },
+            {
+              "text": " for",
+              "start": 2.87,
+              "end": 3.13,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " thunder?",
+              "start": 3.13,
+              "end": 3.43,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " Precious",
+              "start": 4.11,
+              "end": 4.39,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " villain.",
+              "start": 4.39,
+              "end": 4.69,
+              "probability": 0.9375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "are",
+          "start": 0.93,
+          "end": 0.95
+        },
+        {
+          "raw": "there",
+          "start": 0.95,
+          "end": 1.05
+        },
+        {
+          "raw": "not",
+          "start": 1.05,
+          "end": 1.25
+        },
+        {
+          "raw": "stones",
+          "start": 1.25,
+          "end": 1.57
+        },
+        {
+          "raw": "in",
+          "start": 1.57,
+          "end": 1.85
+        },
+        {
+          "raw": "heaven,",
+          "start": 1.85,
+          "end": 2.07
+        },
+        {
+          "raw": "but",
+          "start": 2.33,
+          "end": 2.41
+        },
+        {
+          "raw": "what",
+          "start": 2.41,
+          "end": 2.59
+        },
+        {
+          "raw": "serve",
+          "start": 2.59,
+          "end": 2.87
+        },
+        {
+          "raw": "for",
+          "start": 2.87,
+          "end": 3.13
+        },
+        {
+          "raw": "thunder?",
+          "start": 3.13,
+          "end": 3.43
+        },
+        {
+          "raw": "Precious",
+          "start": 4.11,
+          "end": 4.39
+        },
+        {
+          "raw": "villain.",
+          "start": 4.39,
+          "end": 4.69
+        }
+      ],
+      "expected_tokens": [
+        "[Othello",
+        "Are",
+        "there",
+        "not",
+        "stones",
+        "in",
+        "heaven",
+        "But",
+        "what",
+        "serve",
+        "for",
+        "thunder?",
+        "Precious",
+        "villain!]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 0.93,
+          "end": 0.95,
+          "key": "are",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 0.95,
+          "end": 1.05,
+          "key": "there",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.05,
+          "end": 1.25,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "stones",
+          "start": 1.25,
+          "end": 1.57,
+          "key": "stones",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.57,
+          "end": 1.85,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "heaven,",
+          "start": 1.85,
+          "end": 2.07,
+          "key": "heaven",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.33,
+          "end": 2.41,
+          "key": "but",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 2.41,
+          "end": 2.59,
+          "key": "what",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "serve",
+          "start": 2.59,
+          "end": 2.87,
+          "key": "serve",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.87,
+          "end": 3.13,
+          "key": "for",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "thunder?",
+          "start": 3.13,
+          "end": 3.43,
+          "key": "thunder",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Precious",
+          "start": 4.11,
+          "end": 4.39,
+          "key": "precious",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "villain.",
+          "start": 4.39,
+          "end": 4.69,
+          "key": "villain",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Othello",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "Are",
+          "start": 0.93,
+          "end": 0.95
+        },
+        {
+          "text": "there",
+          "start": 0.95,
+          "end": 1.05
+        },
+        {
+          "text": "not",
+          "start": 1.05,
+          "end": 1.25
+        },
+        {
+          "text": "stones",
+          "start": 1.25,
+          "end": 1.57
+        },
+        {
+          "text": "in",
+          "start": 1.57,
+          "end": 1.85
+        },
+        {
+          "text": "heaven",
+          "start": 1.85,
+          "end": 2.07
+        },
+        {
+          "text": "But",
+          "start": 2.33,
+          "end": 2.41
+        },
+        {
+          "text": "what",
+          "start": 2.41,
+          "end": 2.59
+        },
+        {
+          "text": "serve",
+          "start": 2.59,
+          "end": 2.87
+        },
+        {
+          "text": "for",
+          "start": 2.87,
+          "end": 3.13
+        },
+        {
+          "text": "thunder?",
+          "start": 3.13,
+          "end": 3.43
+        },
+        {
+          "text": "Precious",
+          "start": 4.11,
+          "end": 4.39
+        },
+        {
+          "text": "villain!]",
+          "start": 4.39,
+          "end": 4.69
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23359515564516187
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f9f2d7890e53fa9c6eac6ccc57905de57d4364bca7a34cac07fe268fbf54c477",
+  "selected_reasons": []
+}

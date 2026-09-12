@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "474e8ee135df9ec4749c85afaddec72c59d3ae7199304d3709c07b83c6987e45",
+  "attempts": [
+    {
+      "asr_seconds": 0.1331694801338017,
+      "alignment_seconds": 0.00012934813275933266,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cassio, rub him about the temples.",
+          "start": 0.05,
+          "end": 2.19,
+          "words": [
+            {
+              "text": " Cassio,",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.6888427734375
+            },
+            {
+              "text": " rub",
+              "start": 1.23,
+              "end": 1.43,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " him",
+              "start": 1.43,
+              "end": 1.57,
+              "probability": 0.998046875
+            },
+            {
+              "text": " about",
+              "start": 1.57,
+              "end": 1.73,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 1.73,
+              "end": 1.89,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " temples.",
+              "start": 1.89,
+              "end": 2.19,
+              "probability": 0.986328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassio,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "rub",
+          "start": 1.23,
+          "end": 1.43
+        },
+        {
+          "raw": "him",
+          "start": 1.43,
+          "end": 1.57
+        },
+        {
+          "raw": "about",
+          "start": 1.57,
+          "end": 1.73
+        },
+        {
+          "raw": "the",
+          "start": 1.73,
+          "end": 1.89
+        },
+        {
+          "raw": "temples.",
+          "start": 1.89,
+          "end": 2.19
+        }
+      ],
+      "expected_tokens": [
+        "Cassio.",
+        "Rub",
+        "him",
+        "about",
+        "the",
+        "temples."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassio,",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "cassio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "rub",
+          "start": 1.23,
+          "end": 1.43,
+          "key": "rub",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 1.43,
+          "end": 1.57,
+          "key": "him",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 1.57,
+          "end": 1.73,
+          "key": "about",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.73,
+          "end": 1.89,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "temples.",
+          "start": 1.89,
+          "end": 2.19,
+          "key": "temples",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassio.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "Rub",
+          "start": 1.23,
+          "end": 1.43
+        },
+        {
+          "text": "him",
+          "start": 1.43,
+          "end": 1.57
+        },
+        {
+          "text": "about",
+          "start": 1.57,
+          "end": 1.73
+        },
+        {
+          "text": "the",
+          "start": 1.73,
+          "end": 1.89
+        },
+        {
+          "text": "temples.",
+          "start": 1.89,
+          "end": 2.19
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13334536785259843
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "073d836ecd72489b62b43fbdf716adc04cb3240b3889411e17d778ecf246d031",
+  "selected_reasons": []
+}

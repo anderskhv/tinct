@@ -1,0 +1,1878 @@
+{
+  "complete": true,
+  "signature": "5d2b0b3b8918595ed6fb39ae0456735c14dba617704e49bea7467adc8c399da3",
+  "attempts": [
+    {
+      "asr_seconds": 6.214673798996955,
+      "alignment_seconds": 0.0007649119943380356,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Iago. Ay, what of that?",
+        "hotwords": "Iago, Ay"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Iago, Iago, Iago, Iago, Iago, Iago, Iago. Ay, what of that?",
+          "start": 0.08,
+          "end": 1.72,
+          "words": [
+            {
+              "text": " Iago,",
+              "start": 0.08,
+              "end": 0.76,
+              "probability": 0.007540702819824219
+            },
+            {
+              "text": " Iago,",
+              "start": 1.06,
+              "end": 1.4,
+              "probability": 0.47827354073524475
+            },
+            {
+              "text": " Iago,",
+              "start": 1.4,
+              "end": 1.4,
+              "probability": 0.4978809356689453
+            },
+            {
+              "text": " Iago,",
+              "start": 1.4,
+              "end": 1.4,
+              "probability": 0.54437255859375
+            },
+            {
+              "text": " Iago,",
+              "start": 1.4,
+              "end": 1.4,
+              "probability": 0.638427734375
+            },
+            {
+              "text": " Iago,",
+              "start": 1.4,
+              "end": 1.42,
+              "probability": 0.7279052734375
+            },
+            {
+              "text": " Iago.",
+              "start": 1.42,
+              "end": 1.42,
+              "probability": 0.798828125
+            },
+            {
+              "text": " Ay,",
+              "start": 1.42,
+              "end": 1.42,
+              "probability": 0.0006084442138671875
+            },
+            {
+              "text": " what",
+              "start": 1.42,
+              "end": 1.42,
+              "probability": 0.7900390625
+            },
+            {
+              "text": " of",
+              "start": 1.42,
+              "end": 1.52,
+              "probability": 0.939453125
+            },
+            {
+              "text": " that?",
+              "start": 1.52,
+              "end": 1.72,
+              "probability": 0.9853515625
+            }
+          ]
+        },
+        {
+          "text": " Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, Iago, I",
+          "start": 1.72,
+          "end": 2.32,
+          "words": [
+            {
+              "text": " Iago,",
+              "start": 1.72,
+              "end": 1.72,
+              "probability": 0.0009897947311401367
+            },
+            {
+              "text": " Iago,",
+              "start": 1.72,
+              "end": 1.72,
+              "probability": 0.042633056640625
+            },
+            {
+              "text": " Iago,",
+              "start": 1.72,
+              "end": 1.72,
+              "probability": 0.853759765625
+            },
+            {
+              "text": " Iago,",
+              "start": 1.72,
+              "end": 1.72,
+              "probability": 0.88916015625
+            },
+            {
+              "text": " Iago,",
+              "start": 1.72,
+              "end": 1.72,
+              "probability": 0.900390625
+            },
+            {
+              "text": " Iago,",
+              "start": 1.72,
+              "end": 1.72,
+              "probability": 0.91015625
+            },
+            {
+              "text": " Iago,",
+              "start": 1.72,
+              "end": 1.72,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " Iago,",
+              "start": 1.72,
+              "end": 1.72,
+              "probability": 0.932861328125
+            },
+            {
+              "text": " Iago,",
+              "start": 1.72,
+              "end": 1.76,
+              "probability": 0.941162109375
+            },
+            {
+              "text": " Iago,",
+              "start": 1.76,
+              "end": 1.76,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " Iago,",
+              "start": 1.76,
+              "end": 1.76,
+              "probability": 0.952880859375
+            },
+            {
+              "text": " Iago,",
+              "start": 1.76,
+              "end": 1.76,
+              "probability": 0.957763671875
+            },
+            {
+              "text": " Iago,",
+              "start": 1.76,
+              "end": 1.76,
+              "probability": 0.962158203125
+            },
+            {
+              "text": " Iago,",
+              "start": 1.76,
+              "end": 1.76,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " Iago,",
+              "start": 1.76,
+              "end": 1.76,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " Iago,",
+              "start": 1.76,
+              "end": 1.76,
+              "probability": 0.972900390625
+            },
+            {
+              "text": " Iago,",
+              "start": 1.76,
+              "end": 1.76,
+              "probability": 0.975341796875
+            },
+            {
+              "text": " Iago,",
+              "start": 1.76,
+              "end": 1.76,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " Iago,",
+              "start": 1.76,
+              "end": 1.76,
+              "probability": 0.979248046875
+            },
+            {
+              "text": " Iago,",
+              "start": 1.76,
+              "end": 1.76,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " Iago,",
+              "start": 1.76,
+              "end": 1.76,
+              "probability": 0.982421875
+            },
+            {
+              "text": " Iago,",
+              "start": 1.76,
+              "end": 1.76,
+              "probability": 0.983642578125
+            },
+            {
+              "text": " Iago,",
+              "start": 1.76,
+              "end": 1.76,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " Iago,",
+              "start": 1.76,
+              "end": 1.76,
+              "probability": 0.985595703125
+            },
+            {
+              "text": " Iago,",
+              "start": 1.76,
+              "end": 1.76,
+              "probability": 0.986083984375
+            },
+            {
+              "text": " Iago,",
+              "start": 1.76,
+              "end": 1.76,
+              "probability": 0.986572265625
+            },
+            {
+              "text": " Iago,",
+              "start": 1.76,
+              "end": 1.76,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " Iago,",
+              "start": 1.76,
+              "end": 1.76,
+              "probability": 0.987548828125
+            },
+            {
+              "text": " Iago,",
+              "start": 1.76,
+              "end": 1.76,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Iago,",
+              "start": 1.76,
+              "end": 1.76,
+              "probability": 0.988525390625
+            },
+            {
+              "text": " Iago,",
+              "start": 1.76,
+              "end": 1.8,
+              "probability": 0.988525390625
+            },
+            {
+              "text": " Iago,",
+              "start": 1.8,
+              "end": 1.8,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Iago,",
+              "start": 1.8,
+              "end": 1.8,
+              "probability": 0.989013671875
+            },
+            {
+              "text": " Iago,",
+              "start": 1.8,
+              "end": 1.8,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Iago,",
+              "start": 1.8,
+              "end": 1.8,
+              "probability": 0.989013671875
+            },
+            {
+              "text": " Iago,",
+              "start": 1.8,
+              "end": 1.8,
+              "probability": 0.989013671875
+            },
+            {
+              "text": " Iago,",
+              "start": 1.8,
+              "end": 1.82,
+              "probability": 0.989013671875
+            },
+            {
+              "text": " Iago,",
+              "start": 1.82,
+              "end": 1.82,
+              "probability": 0.988525390625
+            },
+            {
+              "text": " Iago,",
+              "start": 1.82,
+              "end": 2.04,
+              "probability": 0.988525390625
+            },
+            {
+              "text": " Iago,",
+              "start": 2.04,
+              "end": 2.04,
+              "probability": 0.988037109375
+            },
+            {
+              "text": " Iago,",
+              "start": 2.04,
+              "end": 2.04,
+              "probability": 0.988525390625
+            },
+            {
+              "text": " Iago,",
+              "start": 2.04,
+              "end": 2.04,
+              "probability": 0.98828125
+            },
+            {
+              "text": " Iago,",
+              "start": 2.04,
+              "end": 2.04,
+              "probability": 0.988037109375
+            },
+            {
+              "text": " Iago,",
+              "start": 2.04,
+              "end": 2.04,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Iago,",
+              "start": 2.04,
+              "end": 2.04,
+              "probability": 0.987548828125
+            },
+            {
+              "text": " Iago,",
+              "start": 2.04,
+              "end": 2.04,
+              "probability": 0.987548828125
+            },
+            {
+              "text": " Iago,",
+              "start": 2.04,
+              "end": 2.06,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " Iago,",
+              "start": 2.06,
+              "end": 2.06,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " Iago,",
+              "start": 2.06,
+              "end": 2.06,
+              "probability": 0.986572265625
+            },
+            {
+              "text": " Iago,",
+              "start": 2.06,
+              "end": 2.06,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " Iago,",
+              "start": 2.06,
+              "end": 2.06,
+              "probability": 0.986328125
+            },
+            {
+              "text": " Iago,",
+              "start": 2.06,
+              "end": 2.06,
+              "probability": 0.986083984375
+            },
+            {
+              "text": " Iago,",
+              "start": 2.06,
+              "end": 2.06,
+              "probability": 0.985595703125
+            },
+            {
+              "text": " Iago,",
+              "start": 2.06,
+              "end": 2.06,
+              "probability": 0.985595703125
+            },
+            {
+              "text": " Iago,",
+              "start": 2.06,
+              "end": 2.06,
+              "probability": 0.984375
+            },
+            {
+              "text": " Iago,",
+              "start": 2.06,
+              "end": 2.06,
+              "probability": 0.984619140625
+            },
+            {
+              "text": " Iago,",
+              "start": 2.06,
+              "end": 2.06,
+              "probability": 0.983642578125
+            },
+            {
+              "text": " Iago,",
+              "start": 2.06,
+              "end": 2.06,
+              "probability": 0.983154296875
+            },
+            {
+              "text": " Iago,",
+              "start": 2.06,
+              "end": 2.06,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " Iago,",
+              "start": 2.06,
+              "end": 2.06,
+              "probability": 0.982177734375
+            },
+            {
+              "text": " Iago,",
+              "start": 2.06,
+              "end": 2.06,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " Iago,",
+              "start": 2.06,
+              "end": 2.06,
+              "probability": 0.980712890625
+            },
+            {
+              "text": " Iago,",
+              "start": 2.06,
+              "end": 2.32,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " Iago,",
+              "start": 2.32,
+              "end": 2.32,
+              "probability": 0.979736328125
+            },
+            {
+              "text": " Iago,",
+              "start": 2.32,
+              "end": 2.32,
+              "probability": 0.979248046875
+            },
+            {
+              "text": " Iago,",
+              "start": 2.32,
+              "end": 2.32,
+              "probability": 0.978271484375
+            },
+            {
+              "text": " Iago,",
+              "start": 2.32,
+              "end": 2.32,
+              "probability": 0.977783203125
+            },
+            {
+              "text": " Iago,",
+              "start": 2.32,
+              "end": 2.32,
+              "probability": 0.978271484375
+            },
+            {
+              "text": " Iago,",
+              "start": 2.32,
+              "end": 2.32,
+              "probability": 0.976318359375
+            },
+            {
+              "text": " Iago,",
+              "start": 2.32,
+              "end": 2.32,
+              "probability": 0.976806640625
+            },
+            {
+              "text": " Iago,",
+              "start": 2.32,
+              "end": 2.32,
+              "probability": 0.976318359375
+            },
+            {
+              "text": " Iago,",
+              "start": 2.32,
+              "end": 2.32,
+              "probability": 0.974365234375
+            },
+            {
+              "text": " Iago,",
+              "start": 2.32,
+              "end": 2.32,
+              "probability": 0.973876953125
+            },
+            {
+              "text": " Iago,",
+              "start": 2.32,
+              "end": 2.32,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " I",
+              "start": 2.32,
+              "end": 2.32,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Iago,",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.06,
+          "end": 1.4
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.4,
+          "end": 1.4
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.4,
+          "end": 1.4
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.4,
+          "end": 1.4
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.4,
+          "end": 1.42
+        },
+        {
+          "raw": "Iago.",
+          "start": 1.42,
+          "end": 1.42
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.42,
+          "end": 1.42
+        },
+        {
+          "raw": "what",
+          "start": 1.42,
+          "end": 1.42
+        },
+        {
+          "raw": "of",
+          "start": 1.42,
+          "end": 1.52
+        },
+        {
+          "raw": "that?",
+          "start": 1.52,
+          "end": 1.72
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.72,
+          "end": 1.72
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.72,
+          "end": 1.72
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.72,
+          "end": 1.72
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.72,
+          "end": 1.72
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.72,
+          "end": 1.72
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.72,
+          "end": 1.72
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.72,
+          "end": 1.72
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.72,
+          "end": 1.72
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.72,
+          "end": 1.76
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.76,
+          "end": 1.76
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.76,
+          "end": 1.76
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.76,
+          "end": 1.76
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.76,
+          "end": 1.76
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.76,
+          "end": 1.76
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.76,
+          "end": 1.76
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.76,
+          "end": 1.76
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.76,
+          "end": 1.76
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.76,
+          "end": 1.76
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.76,
+          "end": 1.76
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.76,
+          "end": 1.76
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.76,
+          "end": 1.76
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.76,
+          "end": 1.76
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.76,
+          "end": 1.76
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.76,
+          "end": 1.76
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.76,
+          "end": 1.76
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.76,
+          "end": 1.76
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.76,
+          "end": 1.76
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.76,
+          "end": 1.76
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.76,
+          "end": 1.76
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.76,
+          "end": 1.76
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.76,
+          "end": 1.8
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.8,
+          "end": 1.8
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.8,
+          "end": 1.8
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.8,
+          "end": 1.8
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.8,
+          "end": 1.8
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.8,
+          "end": 1.8
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.8,
+          "end": 1.82
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.82,
+          "end": 1.82
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.82,
+          "end": 2.04
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.04,
+          "end": 2.04
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.04,
+          "end": 2.04
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.04,
+          "end": 2.04
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.04,
+          "end": 2.04
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.04,
+          "end": 2.04
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.04,
+          "end": 2.04
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.04,
+          "end": 2.04
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.04,
+          "end": 2.06
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.06,
+          "end": 2.06
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.06,
+          "end": 2.06
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.06,
+          "end": 2.06
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.06,
+          "end": 2.06
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.06,
+          "end": 2.06
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.06,
+          "end": 2.06
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.06,
+          "end": 2.06
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.06,
+          "end": 2.06
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.06,
+          "end": 2.06
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.06,
+          "end": 2.06
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.06,
+          "end": 2.06
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.06,
+          "end": 2.06
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.06,
+          "end": 2.06
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.06,
+          "end": 2.06
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.06,
+          "end": 2.06
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.06,
+          "end": 2.32
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.32,
+          "end": 2.32
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.32,
+          "end": 2.32
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.32,
+          "end": 2.32
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.32,
+          "end": 2.32
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.32,
+          "end": 2.32
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.32,
+          "end": 2.32
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.32,
+          "end": 2.32
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.32,
+          "end": 2.32
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.32,
+          "end": 2.32
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.32,
+          "end": 2.32
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.32,
+          "end": 2.32
+        },
+        {
+          "raw": "I",
+          "start": 2.32,
+          "end": 2.32
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "Ay,",
+        "what",
+        "of",
+        "that?"
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          6
+        ],
+        [
+          "equal",
+          0,
+          5,
+          6,
+          11
+        ],
+        [
+          "insert",
+          5,
+          5,
+          11,
+          86
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          6
+        ],
+        [
+          "insert",
+          5,
+          5,
+          11,
+          86
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Iago,",
+          "start": 0.08,
+          "end": 0.76,
+          "key": "iago",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.06,
+          "end": 1.4,
+          "key": "iago",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.4,
+          "end": 1.4,
+          "key": "iago",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.4,
+          "end": 1.4,
+          "key": "iago",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.4,
+          "end": 1.4,
+          "key": "iago",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.4,
+          "end": 1.42,
+          "key": "iago",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Iago.",
+          "start": 1.42,
+          "end": 1.42,
+          "key": "iago",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.42,
+          "end": 1.42,
+          "key": "ay",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.42,
+          "end": 1.42,
+          "key": "what",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.42,
+          "end": 1.52,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "that?",
+          "start": 1.52,
+          "end": 1.72,
+          "key": "that",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.72,
+          "end": 1.72,
+          "key": "iago",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.72,
+          "end": 1.72,
+          "key": "iago",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.72,
+          "end": 1.72,
+          "key": "iago",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.72,
+          "end": 1.72,
+          "key": "iago",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.72,
+          "end": 1.72,
+          "key": "iago",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.72,
+          "end": 1.72,
+          "key": "iago",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.72,
+          "end": 1.72,
+          "key": "iago",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.72,
+          "end": 1.72,
+          "key": "iago",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.72,
+          "end": 1.76,
+          "key": "iago",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.76,
+          "end": 1.76,
+          "key": "iago",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.76,
+          "end": 1.76,
+          "key": "iago",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.76,
+          "end": 1.76,
+          "key": "iago",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.76,
+          "end": 1.76,
+          "key": "iago",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.76,
+          "end": 1.76,
+          "key": "iago",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.76,
+          "end": 1.76,
+          "key": "iago",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.76,
+          "end": 1.76,
+          "key": "iago",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.76,
+          "end": 1.76,
+          "key": "iago",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.76,
+          "end": 1.76,
+          "key": "iago",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.76,
+          "end": 1.76,
+          "key": "iago",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.76,
+          "end": 1.76,
+          "key": "iago",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.76,
+          "end": 1.76,
+          "key": "iago",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.76,
+          "end": 1.76,
+          "key": "iago",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.76,
+          "end": 1.76,
+          "key": "iago",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.76,
+          "end": 1.76,
+          "key": "iago",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.76,
+          "end": 1.76,
+          "key": "iago",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.76,
+          "end": 1.76,
+          "key": "iago",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.76,
+          "end": 1.76,
+          "key": "iago",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.76,
+          "end": 1.76,
+          "key": "iago",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.76,
+          "end": 1.76,
+          "key": "iago",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.76,
+          "end": 1.76,
+          "key": "iago",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.76,
+          "end": 1.8,
+          "key": "iago",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.8,
+          "end": 1.8,
+          "key": "iago",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.8,
+          "end": 1.8,
+          "key": "iago",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.8,
+          "end": 1.8,
+          "key": "iago",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.8,
+          "end": 1.8,
+          "key": "iago",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.8,
+          "end": 1.8,
+          "key": "iago",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.8,
+          "end": 1.82,
+          "key": "iago",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.82,
+          "end": 1.82,
+          "key": "iago",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.82,
+          "end": 2.04,
+          "key": "iago",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.04,
+          "end": 2.04,
+          "key": "iago",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.04,
+          "end": 2.04,
+          "key": "iago",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.04,
+          "end": 2.04,
+          "key": "iago",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.04,
+          "end": 2.04,
+          "key": "iago",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.04,
+          "end": 2.04,
+          "key": "iago",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.04,
+          "end": 2.04,
+          "key": "iago",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.04,
+          "end": 2.04,
+          "key": "iago",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.04,
+          "end": 2.06,
+          "key": "iago",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.06,
+          "end": 2.06,
+          "key": "iago",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.06,
+          "end": 2.06,
+          "key": "iago",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.06,
+          "end": 2.06,
+          "key": "iago",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.06,
+          "end": 2.06,
+          "key": "iago",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.06,
+          "end": 2.06,
+          "key": "iago",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.06,
+          "end": 2.06,
+          "key": "iago",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.06,
+          "end": 2.06,
+          "key": "iago",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.06,
+          "end": 2.06,
+          "key": "iago",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.06,
+          "end": 2.06,
+          "key": "iago",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.06,
+          "end": 2.06,
+          "key": "iago",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.06,
+          "end": 2.06,
+          "key": "iago",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.06,
+          "end": 2.06,
+          "key": "iago",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.06,
+          "end": 2.06,
+          "key": "iago",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.06,
+          "end": 2.06,
+          "key": "iago",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.06,
+          "end": 2.06,
+          "key": "iago",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.06,
+          "end": 2.32,
+          "key": "iago",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.32,
+          "end": 2.32,
+          "key": "iago",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.32,
+          "end": 2.32,
+          "key": "iago",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.32,
+          "end": 2.32,
+          "key": "iago",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.32,
+          "end": 2.32,
+          "key": "iago",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.32,
+          "end": 2.32,
+          "key": "iago",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.32,
+          "end": 2.32,
+          "key": "iago",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.32,
+          "end": 2.32,
+          "key": "iago",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.32,
+          "end": 2.32,
+          "key": "iago",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.32,
+          "end": 2.32,
+          "key": "iago",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.32,
+          "end": 2.32,
+          "key": "iago",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 2.32,
+          "end": 2.32,
+          "key": "iago",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.32,
+          "end": 2.32,
+          "key": "i",
+          "pieces": [
+            85
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 1.42,
+          "end": 1.42
+        },
+        {
+          "text": "Ay,",
+          "start": 1.42,
+          "end": 1.42
+        },
+        {
+          "text": "what",
+          "start": 1.42,
+          "end": 1.42
+        },
+        {
+          "text": "of",
+          "start": 1.42,
+          "end": 1.52
+        },
+        {
+          "text": "that?",
+          "start": 1.52,
+          "end": 1.72
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 86,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 6.216262111905962
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7a2f103470a929c73c0a1048cac15f0235bddf8b4305b9df90973b34559bcc13",
+  "selected_reasons": []
+}

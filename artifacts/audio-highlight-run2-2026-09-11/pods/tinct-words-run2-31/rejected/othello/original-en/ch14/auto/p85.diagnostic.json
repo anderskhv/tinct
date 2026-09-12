@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "6515108a80154fb003f7c3d379aa50eb1755e0b1493872f3d04db8a5bb0e62bb",
+  "attempts": [
+    {
+      "asr_seconds": 0.12157650105655193,
+      "alignment_seconds": 0.00016315793618559837,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Enter Emilia.]",
+        "hotwords": "Enter, Emilia"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter, Emilia.",
+          "start": 0.05,
+          "end": 1.07,
+          "words": [
+            {
+              "text": " Enter,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " Emilia.",
+              "start": 0.79,
+              "end": 1.07,
+              "probability": 0.5577392578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "Emilia.",
+          "start": 0.79,
+          "end": 1.07
+        }
+      ],
+      "expected_tokens": [
+        "[Enter",
+        "Emilia.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter,",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Emilia.",
+          "start": 0.79,
+          "end": 1.07,
+          "key": "emilia",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Enter",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "Emilia.]",
+          "start": 0.79,
+          "end": 1.07
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12181196920573711
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7722739ebee5ecbc1dc8a7ea8e0633a0bb401a349b2248c23b4af308715079c0",
+  "selected_reasons": []
+}

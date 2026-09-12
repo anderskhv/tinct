@@ -1,0 +1,530 @@
+{
+  "complete": true,
+  "signature": "08e0a294f7d31409df9dc68b2b90f0acc11830bfebe5bb1557d8d77b038adbdd",
+  "attempts": [
+    {
+      "asr_seconds": 0.21269947104156017,
+      "alignment_seconds": 0.0002256082370877266,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Othello, not Cassio killed. Then murders out of tune and sweet revenge grows harsh.",
+          "start": 0.24,
+          "end": 5.6,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.24,
+              "end": 0.9,
+              "probability": 0.9646809895833334
+            },
+            {
+              "text": " not",
+              "start": 1.28,
+              "end": 1.42,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " Cassio",
+              "start": 1.42,
+              "end": 1.86,
+              "probability": 0.714111328125
+            },
+            {
+              "text": " killed.",
+              "start": 1.86,
+              "end": 2.16,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " Then",
+              "start": 2.92,
+              "end": 3.02,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " murders",
+              "start": 3.02,
+              "end": 3.3,
+              "probability": 0.888671875
+            },
+            {
+              "text": " out",
+              "start": 3.3,
+              "end": 3.5,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " of",
+              "start": 3.5,
+              "end": 3.62,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " tune",
+              "start": 3.62,
+              "end": 3.9,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " and",
+              "start": 3.9,
+              "end": 4.16,
+              "probability": 0.73779296875
+            },
+            {
+              "text": " sweet",
+              "start": 4.16,
+              "end": 4.46,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " revenge",
+              "start": 4.46,
+              "end": 4.9,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " grows",
+              "start": 4.9,
+              "end": 5.24,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " harsh.",
+              "start": 5.24,
+              "end": 5.6,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.24,
+          "end": 0.9
+        },
+        {
+          "raw": "not",
+          "start": 1.28,
+          "end": 1.42
+        },
+        {
+          "raw": "Cassio",
+          "start": 1.42,
+          "end": 1.86
+        },
+        {
+          "raw": "killed.",
+          "start": 1.86,
+          "end": 2.16
+        },
+        {
+          "raw": "Then",
+          "start": 2.92,
+          "end": 3.02
+        },
+        {
+          "raw": "murders",
+          "start": 3.02,
+          "end": 3.3
+        },
+        {
+          "raw": "out",
+          "start": 3.3,
+          "end": 3.5
+        },
+        {
+          "raw": "of",
+          "start": 3.5,
+          "end": 3.62
+        },
+        {
+          "raw": "tune",
+          "start": 3.62,
+          "end": 3.9
+        },
+        {
+          "raw": "and",
+          "start": 3.9,
+          "end": 4.16
+        },
+        {
+          "raw": "sweet",
+          "start": 4.16,
+          "end": 4.46
+        },
+        {
+          "raw": "revenge",
+          "start": 4.46,
+          "end": 4.9
+        },
+        {
+          "raw": "grows",
+          "start": 4.9,
+          "end": 5.24
+        },
+        {
+          "raw": "harsh.",
+          "start": 5.24,
+          "end": 5.6
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "Not",
+        "Cassio",
+        "kill'd!",
+        "Then",
+        "murder's",
+        "out",
+        "of",
+        "tune,",
+        "And",
+        "sweet",
+        "revenge",
+        "grows",
+        "harsh."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          14,
+          4,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.24,
+          "end": 0.9,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.28,
+          "end": 1.42,
+          "key": "not",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Cassio",
+          "start": 1.42,
+          "end": 1.86,
+          "key": "cassio",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "killed.",
+          "start": 1.86,
+          "end": 2.16,
+          "key": "killed",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Then",
+          "start": 2.92,
+          "end": 3.02,
+          "key": "then",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "murders",
+          "start": 3.02,
+          "end": 3.3,
+          "key": "murders",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 3.3,
+          "end": 3.5,
+          "key": "out",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.5,
+          "end": 3.62,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "tune",
+          "start": 3.62,
+          "end": 3.9,
+          "key": "tune",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.9,
+          "end": 4.16,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "sweet",
+          "start": 4.16,
+          "end": 4.46,
+          "key": "sweet",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "revenge",
+          "start": 4.46,
+          "end": 4.9,
+          "key": "revenge",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "grows",
+          "start": 4.9,
+          "end": 5.24,
+          "key": "grows",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "harsh.",
+          "start": 5.24,
+          "end": 5.6,
+          "key": "harsh",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.24,
+          "end": 0.9
+        },
+        {
+          "text": "Not",
+          "start": 1.28,
+          "end": 1.42
+        },
+        {
+          "text": "Cassio",
+          "start": 1.42,
+          "end": 1.86
+        },
+        {
+          "text": "kill'd!",
+          "start": 1.86,
+          "end": 2.39
+        },
+        {
+          "text": "Then",
+          "start": 2.92,
+          "end": 3.02
+        },
+        {
+          "text": "murder's",
+          "start": 3.02,
+          "end": 3.3
+        },
+        {
+          "text": "out",
+          "start": 3.3,
+          "end": 3.5
+        },
+        {
+          "text": "of",
+          "start": 3.5,
+          "end": 3.62
+        },
+        {
+          "text": "tune,",
+          "start": 3.62,
+          "end": 3.9
+        },
+        {
+          "text": "And",
+          "start": 3.9,
+          "end": 4.16
+        },
+        {
+          "text": "sweet",
+          "start": 4.16,
+          "end": 4.46
+        },
+        {
+          "text": "revenge",
+          "start": 4.46,
+          "end": 4.9
+        },
+        {
+          "text": "grows",
+          "start": 4.9,
+          "end": 5.24
+        },
+        {
+          "text": "harsh.",
+          "start": 5.24,
+          "end": 5.6
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 13
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.2130020377226174
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0519cbdb9f5cc5a40893e7ecb768f9913d042cb9c957d6399cbda0732f91a1e4",
+  "selected_reasons": []
+}

@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "41d9cc583eb278336ab86f89804d2b5f9e2d9efee3b696977806355cf547d559",
+  "attempts": [
+    {
+      "asr_seconds": 0.18019590014591813,
+      "alignment_seconds": 0.0003222571685910225,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Iago. Who's there? Whose noise is this that cries on murder?",
+        "hotwords": "Iago, Who's, Whose"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Iago, Who's there? Whose noise is this that cries on murder?",
+          "start": 0.05,
+          "end": 3.75,
+          "words": [
+            {
+              "text": " Iago,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.31046295166015625
+            },
+            {
+              "text": " Who's",
+              "start": 1.11,
+              "end": 1.37,
+              "probability": 0.4904060363769531
+            },
+            {
+              "text": " there?",
+              "start": 1.37,
+              "end": 1.59,
+              "probability": 0.853515625
+            },
+            {
+              "text": " Whose",
+              "start": 2.11,
+              "end": 2.23,
+              "probability": 0.905517578125
+            },
+            {
+              "text": " noise",
+              "start": 2.23,
+              "end": 2.45,
+              "probability": 0.962890625
+            },
+            {
+              "text": " is",
+              "start": 2.45,
+              "end": 2.69,
+              "probability": 0.994140625
+            },
+            {
+              "text": " this",
+              "start": 2.69,
+              "end": 2.87,
+              "probability": 0.994140625
+            },
+            {
+              "text": " that",
+              "start": 2.87,
+              "end": 3.07,
+              "probability": 0.962890625
+            },
+            {
+              "text": " cries",
+              "start": 3.07,
+              "end": 3.27,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " on",
+              "start": 3.27,
+              "end": 3.53,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " murder?",
+              "start": 3.53,
+              "end": 3.75,
+              "probability": 0.97607421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Iago,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "Who's",
+          "start": 1.11,
+          "end": 1.37
+        },
+        {
+          "raw": "there?",
+          "start": 1.37,
+          "end": 1.59
+        },
+        {
+          "raw": "Whose",
+          "start": 2.11,
+          "end": 2.23
+        },
+        {
+          "raw": "noise",
+          "start": 2.23,
+          "end": 2.45
+        },
+        {
+          "raw": "is",
+          "start": 2.45,
+          "end": 2.69
+        },
+        {
+          "raw": "this",
+          "start": 2.69,
+          "end": 2.87
+        },
+        {
+          "raw": "that",
+          "start": 2.87,
+          "end": 3.07
+        },
+        {
+          "raw": "cries",
+          "start": 3.07,
+          "end": 3.27
+        },
+        {
+          "raw": "on",
+          "start": 3.27,
+          "end": 3.53
+        },
+        {
+          "raw": "murder?",
+          "start": 3.53,
+          "end": 3.75
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "Who's",
+        "there?",
+        "Whose",
+        "noise",
+        "is",
+        "this",
+        "that",
+        "cries",
+        "on",
+        "murder?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Iago,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "iago",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Who's",
+          "start": 1.11,
+          "end": 1.37,
+          "key": "whos",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "there?",
+          "start": 1.37,
+          "end": 1.59,
+          "key": "there",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Whose",
+          "start": 2.11,
+          "end": 2.23,
+          "key": "whose",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "noise",
+          "start": 2.23,
+          "end": 2.45,
+          "key": "noise",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.45,
+          "end": 2.69,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 2.69,
+          "end": 2.87,
+          "key": "this",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.87,
+          "end": 3.07,
+          "key": "that",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "cries",
+          "start": 3.07,
+          "end": 3.27,
+          "key": "cries",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 3.27,
+          "end": 3.53,
+          "key": "on",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "murder?",
+          "start": 3.53,
+          "end": 3.75,
+          "key": "murder",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Who's",
+          "start": 1.11,
+          "end": 1.37
+        },
+        {
+          "text": "there?",
+          "start": 1.37,
+          "end": 1.59
+        },
+        {
+          "text": "Whose",
+          "start": 2.11,
+          "end": 2.23
+        },
+        {
+          "text": "noise",
+          "start": 2.23,
+          "end": 2.45
+        },
+        {
+          "text": "is",
+          "start": 2.45,
+          "end": 2.69
+        },
+        {
+          "text": "this",
+          "start": 2.69,
+          "end": 2.87
+        },
+        {
+          "text": "that",
+          "start": 2.87,
+          "end": 3.07
+        },
+        {
+          "text": "cries",
+          "start": 3.07,
+          "end": 3.27
+        },
+        {
+          "text": "on",
+          "start": 3.27,
+          "end": 3.53
+        },
+        {
+          "text": "murder?",
+          "start": 3.53,
+          "end": 3.75
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18065041536465287
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4a7191eb6d6f15ae7da431ee81ffb9c29f252b2a9110cbdbfa6dd32088c85a75",
+  "selected_reasons": []
+}

@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "381570dd18fae71fecdc5b2c6ab36838b4ab484da5bc0f84745852483e1cbfb6",
+  "attempts": [
+    {
+      "asr_seconds": 0.1874678311869502,
+      "alignment_seconds": 0.00031785713508725166,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Roderigo. I know his gait; 'tis he. Villain, thou diest!",
+        "hotwords": "Roderigo, I, Villain"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Roderigo, I know his gait. Tis he. Villain, thou diest!",
+          "start": 0.49,
+          "end": 3.71,
+          "words": [
+            {
+              "text": " Roderigo,",
+              "start": 0.49,
+              "end": 0.93,
+              "probability": 0.22116597493489584
+            },
+            {
+              "text": " I",
+              "start": 1.15,
+              "end": 1.21,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " know",
+              "start": 1.21,
+              "end": 1.31,
+              "probability": 0.978515625
+            },
+            {
+              "text": " his",
+              "start": 1.31,
+              "end": 1.49,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " gait.",
+              "start": 1.49,
+              "end": 1.93,
+              "probability": 0.6798095703125
+            },
+            {
+              "text": " Tis",
+              "start": 2.25,
+              "end": 2.45,
+              "probability": 0.145355224609375
+            },
+            {
+              "text": " he.",
+              "start": 2.45,
+              "end": 2.63,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " Villain,",
+              "start": 2.85,
+              "end": 3.09,
+              "probability": 0.963134765625
+            },
+            {
+              "text": " thou",
+              "start": 3.21,
+              "end": 3.25,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " diest!",
+              "start": 3.25,
+              "end": 3.71,
+              "probability": 0.4985198974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Roderigo,",
+          "start": 0.49,
+          "end": 0.93
+        },
+        {
+          "raw": "I",
+          "start": 1.15,
+          "end": 1.21
+        },
+        {
+          "raw": "know",
+          "start": 1.21,
+          "end": 1.31
+        },
+        {
+          "raw": "his",
+          "start": 1.31,
+          "end": 1.49
+        },
+        {
+          "raw": "gait.",
+          "start": 1.49,
+          "end": 1.93
+        },
+        {
+          "raw": "Tis",
+          "start": 2.25,
+          "end": 2.45
+        },
+        {
+          "raw": "he.",
+          "start": 2.45,
+          "end": 2.63
+        },
+        {
+          "raw": "Villain,",
+          "start": 2.85,
+          "end": 3.09
+        },
+        {
+          "raw": "thou",
+          "start": 3.21,
+          "end": 3.25
+        },
+        {
+          "raw": "diest!",
+          "start": 3.25,
+          "end": 3.71
+        }
+      ],
+      "expected_tokens": [
+        "Roderigo.",
+        "I",
+        "know",
+        "his",
+        "gait;",
+        "'tis",
+        "he.",
+        "Villain,",
+        "thou",
+        "diest!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Roderigo,",
+          "start": 0.49,
+          "end": 0.93,
+          "key": "roderigo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.15,
+          "end": 1.21,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 1.21,
+          "end": 1.31,
+          "key": "know",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.31,
+          "end": 1.49,
+          "key": "his",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "gait.",
+          "start": 1.49,
+          "end": 1.93,
+          "key": "gait",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Tis",
+          "start": 2.25,
+          "end": 2.45,
+          "key": "tis",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "he.",
+          "start": 2.45,
+          "end": 2.63,
+          "key": "he",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Villain,",
+          "start": 2.85,
+          "end": 3.09,
+          "key": "villain",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 3.21,
+          "end": 3.25,
+          "key": "thou",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "diest!",
+          "start": 3.25,
+          "end": 3.71,
+          "key": "diest",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Roderigo.",
+          "start": 0.49,
+          "end": 0.93
+        },
+        {
+          "text": "I",
+          "start": 1.15,
+          "end": 1.21
+        },
+        {
+          "text": "know",
+          "start": 1.21,
+          "end": 1.31
+        },
+        {
+          "text": "his",
+          "start": 1.31,
+          "end": 1.49
+        },
+        {
+          "text": "gait;",
+          "start": 1.49,
+          "end": 1.93
+        },
+        {
+          "text": "'tis",
+          "start": 2.25,
+          "end": 2.45
+        },
+        {
+          "text": "he.",
+          "start": 2.45,
+          "end": 2.63
+        },
+        {
+          "text": "Villain,",
+          "start": 2.85,
+          "end": 3.09
+        },
+        {
+          "text": "thou",
+          "start": 3.21,
+          "end": 3.25
+        },
+        {
+          "text": "diest!",
+          "start": 3.25,
+          "end": 3.71
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18790766736492515
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "683913001d6d9d57cf812b694906ceb73e0d1075fc4ef12a5876318021ab1c34",
+  "selected_reasons": []
+}

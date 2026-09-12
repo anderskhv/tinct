@@ -1,0 +1,239 @@
+{
+  "complete": true,
+  "signature": "37065846c46a8ef2e8e6f0cfe29e4a5a3fbb19718719be6dae9780cdebf9ffa4",
+  "attempts": [
+    {
+      "asr_seconds": 0.12426419695839286,
+      "alignment_seconds": 0.00036249635741114616,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yago, I what of that?",
+          "start": 0.08,
+          "end": 1.74,
+          "words": [
+            {
+              "text": " Yago,",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.32659912109375
+            },
+            {
+              "text": " I",
+              "start": 1.08,
+              "end": 1.28,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " what",
+              "start": 1.28,
+              "end": 1.42,
+              "probability": 0.1788330078125
+            },
+            {
+              "text": " of",
+              "start": 1.42,
+              "end": 1.52,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " that?",
+              "start": 1.52,
+              "end": 1.74,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yago,",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "raw": "I",
+          "start": 1.08,
+          "end": 1.28
+        },
+        {
+          "raw": "what",
+          "start": 1.28,
+          "end": 1.42
+        },
+        {
+          "raw": "of",
+          "start": 1.42,
+          "end": 1.52
+        },
+        {
+          "raw": "that?",
+          "start": 1.52,
+          "end": 1.74
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "Ay,",
+        "what",
+        "of",
+        "that?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          5,
+          2,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yago,",
+          "start": 0.08,
+          "end": 0.78,
+          "key": "yago",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.08,
+          "end": 1.28,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.28,
+          "end": 1.42,
+          "key": "what",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.42,
+          "end": 1.52,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "that?",
+          "start": 1.52,
+          "end": 1.74,
+          "key": "that",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.0,
+          "end": 0.64
+        },
+        {
+          "text": "Ay,",
+          "start": 0.64,
+          "end": 0.96
+        },
+        {
+          "text": "what",
+          "start": 1.28,
+          "end": 1.42
+        },
+        {
+          "text": "of",
+          "start": 1.42,
+          "end": 1.52
+        },
+        {
+          "text": "that?",
+          "start": 1.52,
+          "end": 1.74
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 3
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12468075193464756
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7a2f103470a929c73c0a1048cac15f0235bddf8b4305b9df90973b34559bcc13",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

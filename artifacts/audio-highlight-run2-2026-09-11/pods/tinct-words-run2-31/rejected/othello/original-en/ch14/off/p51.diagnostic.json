@@ -1,0 +1,303 @@
+{
+  "complete": true,
+  "signature": "c52d0e75c322bf3ca0f931e773cad5f452b325da06f77b5698508d2a83973d45",
+  "attempts": [
+    {
+      "asr_seconds": 0.15774983074516058,
+      "alignment_seconds": 0.00027655670419335365,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Rodrico, oh damn Diego, oh inhuman dog.",
+          "start": 0.05,
+          "end": 3.27,
+          "words": [
+            {
+              "text": " Rodrico,",
+              "start": 0.05,
+              "end": 1.05,
+              "probability": 0.5190836588541666
+            },
+            {
+              "text": " oh",
+              "start": 1.37,
+              "end": 1.41,
+              "probability": 0.3037109375
+            },
+            {
+              "text": " damn",
+              "start": 1.41,
+              "end": 1.61,
+              "probability": 0.806640625
+            },
+            {
+              "text": " Diego,",
+              "start": 1.61,
+              "end": 1.93,
+              "probability": 0.96875
+            },
+            {
+              "text": " oh",
+              "start": 2.47,
+              "end": 2.51,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " inhuman",
+              "start": 2.51,
+              "end": 2.73,
+              "probability": 0.88427734375
+            },
+            {
+              "text": " dog.",
+              "start": 2.73,
+              "end": 3.27,
+              "probability": 0.9794921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Rodrico,",
+          "start": 0.05,
+          "end": 1.05
+        },
+        {
+          "raw": "oh",
+          "start": 1.37,
+          "end": 1.41
+        },
+        {
+          "raw": "damn",
+          "start": 1.41,
+          "end": 1.61
+        },
+        {
+          "raw": "Diego,",
+          "start": 1.61,
+          "end": 1.93
+        },
+        {
+          "raw": "oh",
+          "start": 2.47,
+          "end": 2.51
+        },
+        {
+          "raw": "inhuman",
+          "start": 2.51,
+          "end": 2.73
+        },
+        {
+          "raw": "dog.",
+          "start": 2.73,
+          "end": 3.27
+        }
+      ],
+      "expected_tokens": [
+        "Roderigo.",
+        "O",
+        "damn'd",
+        "Iago!",
+        "O",
+        "inhuman",
+        "dog!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "equal",
+          5,
+          7,
+          5,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Rodrico,",
+          "start": 0.05,
+          "end": 1.05,
+          "key": "rodrico",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "oh",
+          "start": 1.37,
+          "end": 1.41,
+          "key": "oh",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "damn",
+          "start": 1.41,
+          "end": 1.61,
+          "key": "damn",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Diego,",
+          "start": 1.61,
+          "end": 1.93,
+          "key": "diego",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "oh",
+          "start": 2.47,
+          "end": 2.51,
+          "key": "oh",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "inhuman",
+          "start": 2.51,
+          "end": 2.73,
+          "key": "inhuman",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "dog.",
+          "start": 2.73,
+          "end": 3.27,
+          "key": "dog",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Roderigo.",
+          "start": 0.0,
+          "end": 1.255
+        },
+        {
+          "text": "O",
+          "start": 1.255,
+          "end": 1.882
+        },
+        {
+          "text": "damn'd",
+          "start": 1.882,
+          "end": 2.196
+        },
+        {
+          "text": "Iago!",
+          "start": 2.196,
+          "end": 2.353
+        },
+        {
+          "text": "O",
+          "start": 2.353,
+          "end": 2.431
+        },
+        {
+          "text": "inhuman",
+          "start": 2.51,
+          "end": 2.73
+        },
+        {
+          "text": "dog!",
+          "start": 2.73,
+          "end": 3.27
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 2
+      },
+      "match_ratio": 0.2857142857142857,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.15812442684546113
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "34aa38c1788efc9a5cf9d106529513e06759a0fbceb5aa0ccefc579607290bd5",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

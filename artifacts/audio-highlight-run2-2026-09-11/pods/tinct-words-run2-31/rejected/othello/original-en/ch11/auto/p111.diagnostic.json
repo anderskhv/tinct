@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "101a73e72339d3894959ba7650f5670cfbeefa83e3a82e5c99a590c68b58c52e",
+  "attempts": [
+    {
+      "asr_seconds": 0.2401147847995162,
+      "alignment_seconds": 0.00041388487443327904,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Iago. Do it not with poison, strangle her in her bed, even the bed she hath contaminated.",
+        "hotwords": "Iago, Do"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Iago, Do it not with poison, strangle her in her bed, even the bed she hath contaminated.",
+          "start": 0.05,
+          "end": 5.51,
+          "words": [
+            {
+              "text": " Iago,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.265655517578125
+            },
+            {
+              "text": " Do",
+              "start": 1.19,
+              "end": 1.39,
+              "probability": 0.0189666748046875
+            },
+            {
+              "text": " it",
+              "start": 1.39,
+              "end": 1.49,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " not",
+              "start": 1.49,
+              "end": 1.61,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " with",
+              "start": 1.61,
+              "end": 1.79,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " poison,",
+              "start": 1.79,
+              "end": 2.17,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " strangle",
+              "start": 2.49,
+              "end": 2.83,
+              "probability": 0.642333984375
+            },
+            {
+              "text": " her",
+              "start": 2.83,
+              "end": 3.01,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " in",
+              "start": 3.01,
+              "end": 3.15,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " her",
+              "start": 3.15,
+              "end": 3.27,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " bed,",
+              "start": 3.27,
+              "end": 3.51,
+              "probability": 0.998046875
+            },
+            {
+              "text": " even",
+              "start": 4.01,
+              "end": 4.15,
+              "probability": 0.489013671875
+            },
+            {
+              "text": " the",
+              "start": 4.15,
+              "end": 4.33,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " bed",
+              "start": 4.33,
+              "end": 4.53,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " she",
+              "start": 4.53,
+              "end": 4.73,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " hath",
+              "start": 4.73,
+              "end": 4.89,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " contaminated.",
+              "start": 4.89,
+              "end": 5.51,
+              "probability": 0.986328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Iago,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "Do",
+          "start": 1.19,
+          "end": 1.39
+        },
+        {
+          "raw": "it",
+          "start": 1.39,
+          "end": 1.49
+        },
+        {
+          "raw": "not",
+          "start": 1.49,
+          "end": 1.61
+        },
+        {
+          "raw": "with",
+          "start": 1.61,
+          "end": 1.79
+        },
+        {
+          "raw": "poison,",
+          "start": 1.79,
+          "end": 2.17
+        },
+        {
+          "raw": "strangle",
+          "start": 2.49,
+          "end": 2.83
+        },
+        {
+          "raw": "her",
+          "start": 2.83,
+          "end": 3.01
+        },
+        {
+          "raw": "in",
+          "start": 3.01,
+          "end": 3.15
+        },
+        {
+          "raw": "her",
+          "start": 3.15,
+          "end": 3.27
+        },
+        {
+          "raw": "bed,",
+          "start": 3.27,
+          "end": 3.51
+        },
+        {
+          "raw": "even",
+          "start": 4.01,
+          "end": 4.15
+        },
+        {
+          "raw": "the",
+          "start": 4.15,
+          "end": 4.33
+        },
+        {
+          "raw": "bed",
+          "start": 4.33,
+          "end": 4.53
+        },
+        {
+          "raw": "she",
+          "start": 4.53,
+          "end": 4.73
+        },
+        {
+          "raw": "hath",
+          "start": 4.73,
+          "end": 4.89
+        },
+        {
+          "raw": "contaminated.",
+          "start": 4.89,
+          "end": 5.51
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "Do",
+        "it",
+        "not",
+        "with",
+        "poison,",
+        "strangle",
+        "her",
+        "in",
+        "her",
+        "bed,",
+        "even",
+        "the",
+        "bed",
+        "she",
+        "hath",
+        "contaminated."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Iago,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "iago",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 1.19,
+          "end": 1.39,
+          "key": "do",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.39,
+          "end": 1.49,
+          "key": "it",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.49,
+          "end": 1.61,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.61,
+          "end": 1.79,
+          "key": "with",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "poison,",
+          "start": 1.79,
+          "end": 2.17,
+          "key": "poison",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "strangle",
+          "start": 2.49,
+          "end": 2.83,
+          "key": "strangle",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 2.83,
+          "end": 3.01,
+          "key": "her",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.01,
+          "end": 3.15,
+          "key": "in",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.15,
+          "end": 3.27,
+          "key": "her",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "bed,",
+          "start": 3.27,
+          "end": 3.51,
+          "key": "bed",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "even",
+          "start": 4.01,
+          "end": 4.15,
+          "key": "even",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.15,
+          "end": 4.33,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "bed",
+          "start": 4.33,
+          "end": 4.53,
+          "key": "bed",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 4.53,
+          "end": 4.73,
+          "key": "she",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 4.73,
+          "end": 4.89,
+          "key": "hath",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "contaminated.",
+          "start": 4.89,
+          "end": 5.51,
+          "key": "contaminated",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Do",
+          "start": 1.19,
+          "end": 1.39
+        },
+        {
+          "text": "it",
+          "start": 1.39,
+          "end": 1.49
+        },
+        {
+          "text": "not",
+          "start": 1.49,
+          "end": 1.61
+        },
+        {
+          "text": "with",
+          "start": 1.61,
+          "end": 1.79
+        },
+        {
+          "text": "poison,",
+          "start": 1.79,
+          "end": 2.17
+        },
+        {
+          "text": "strangle",
+          "start": 2.49,
+          "end": 2.83
+        },
+        {
+          "text": "her",
+          "start": 2.83,
+          "end": 3.01
+        },
+        {
+          "text": "in",
+          "start": 3.01,
+          "end": 3.15
+        },
+        {
+          "text": "her",
+          "start": 3.15,
+          "end": 3.27
+        },
+        {
+          "text": "bed,",
+          "start": 3.27,
+          "end": 3.51
+        },
+        {
+          "text": "even",
+          "start": 4.01,
+          "end": 4.15
+        },
+        {
+          "text": "the",
+          "start": 4.15,
+          "end": 4.33
+        },
+        {
+          "text": "bed",
+          "start": 4.33,
+          "end": 4.53
+        },
+        {
+          "text": "she",
+          "start": 4.53,
+          "end": 4.73
+        },
+        {
+          "text": "hath",
+          "start": 4.73,
+          "end": 4.89
+        },
+        {
+          "text": "contaminated.",
+          "start": 4.89,
+          "end": 5.51
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24070334807038307
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d2732c418063a62308865bcee61b2af05166b41d3af7dfe157e47ec542bb0dde",
+  "selected_reasons": []
+}

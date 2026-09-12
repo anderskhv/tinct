@@ -1,0 +1,292 @@
+{
+  "complete": true,
+  "signature": "60c0fe629d67606a0b0ca4fd853f5e93ad942c937e2f4d60a4c03fe7d178d938",
+  "attempts": [
+    {
+      "asr_seconds": 0.15430038888007402,
+      "alignment_seconds": 0.00024794694036245346,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Othello, have you prayed tonight, Distimona?",
+          "start": 0.05,
+          "end": 2.59,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.9422200520833334
+            },
+            {
+              "text": " have",
+              "start": 1.29,
+              "end": 1.35,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " you",
+              "start": 1.35,
+              "end": 1.47,
+              "probability": 0.998046875
+            },
+            {
+              "text": " prayed",
+              "start": 1.47,
+              "end": 1.65,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " tonight,",
+              "start": 1.65,
+              "end": 2.01,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " Distimona?",
+              "start": 2.21,
+              "end": 2.59,
+              "probability": 0.58514404296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "raw": "have",
+          "start": 1.29,
+          "end": 1.35
+        },
+        {
+          "raw": "you",
+          "start": 1.35,
+          "end": 1.47
+        },
+        {
+          "raw": "prayed",
+          "start": 1.47,
+          "end": 1.65
+        },
+        {
+          "raw": "tonight,",
+          "start": 1.65,
+          "end": 2.01
+        },
+        {
+          "raw": "Distimona?",
+          "start": 2.21,
+          "end": 2.59
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "Have",
+        "you",
+        "pray'd",
+        "tonight,",
+        "Desdemona?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.29,
+          "end": 1.35,
+          "key": "have",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.35,
+          "end": 1.47,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "prayed",
+          "start": 1.47,
+          "end": 1.65,
+          "key": "prayed",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "tonight,",
+          "start": 1.65,
+          "end": 2.01,
+          "key": "tonight",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Distimona?",
+          "start": 2.21,
+          "end": 2.59,
+          "key": "distimona",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "text": "Have",
+          "start": 1.29,
+          "end": 1.35
+        },
+        {
+          "text": "you",
+          "start": 1.35,
+          "end": 1.47
+        },
+        {
+          "text": "pray'd",
+          "start": 1.47,
+          "end": 1.56
+        },
+        {
+          "text": "tonight,",
+          "start": 1.65,
+          "end": 2.01
+        },
+        {
+          "text": "Desdemona?",
+          "start": 2.01,
+          "end": 2.3
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1546320547349751
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e4cd7c5597c378af476292b934722bfa8f59263a30c19dcede5ea30ddbcdca92",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

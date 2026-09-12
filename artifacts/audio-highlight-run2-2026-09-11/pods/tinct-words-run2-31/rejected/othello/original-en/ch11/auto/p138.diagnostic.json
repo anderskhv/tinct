@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "a6fca53b1f041784b6f448320cc67dee5ec40e17815607f63f751ee93a9675e8",
+  "attempts": [
+    {
+      "asr_seconds": 0.15510794008150697,
+      "alignment_seconds": 0.0002471478655934334,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Desdemona. Trust me, I am glad on't.",
+        "hotwords": "Desdemona, Trust, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Desdemona, Trust me, I am glad on't.",
+          "start": 0.55,
+          "end": 2.71,
+          "words": [
+            {
+              "text": " Desdemona,",
+              "start": 0.55,
+              "end": 1.03,
+              "probability": 0.6519991556803385
+            },
+            {
+              "text": " Trust",
+              "start": 1.35,
+              "end": 1.59,
+              "probability": 0.0208587646484375
+            },
+            {
+              "text": " me,",
+              "start": 1.59,
+              "end": 1.79,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " I",
+              "start": 1.89,
+              "end": 1.95,
+              "probability": 0.951171875
+            },
+            {
+              "text": " am",
+              "start": 1.95,
+              "end": 2.05,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " glad",
+              "start": 2.05,
+              "end": 2.29,
+              "probability": 0.69189453125
+            },
+            {
+              "text": " on't.",
+              "start": 2.29,
+              "end": 2.71,
+              "probability": 0.3326892852783203
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Desdemona,",
+          "start": 0.55,
+          "end": 1.03
+        },
+        {
+          "raw": "Trust",
+          "start": 1.35,
+          "end": 1.59
+        },
+        {
+          "raw": "me,",
+          "start": 1.59,
+          "end": 1.79
+        },
+        {
+          "raw": "I",
+          "start": 1.89,
+          "end": 1.95
+        },
+        {
+          "raw": "am",
+          "start": 1.95,
+          "end": 2.05
+        },
+        {
+          "raw": "glad",
+          "start": 2.05,
+          "end": 2.29
+        },
+        {
+          "raw": "on't.",
+          "start": 2.29,
+          "end": 2.71
+        }
+      ],
+      "expected_tokens": [
+        "Desdemona.",
+        "Trust",
+        "me,",
+        "I",
+        "am",
+        "glad",
+        "on't."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Desdemona,",
+          "start": 0.55,
+          "end": 1.03,
+          "key": "desdemona",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Trust",
+          "start": 1.35,
+          "end": 1.59,
+          "key": "trust",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 1.59,
+          "end": 1.79,
+          "key": "me",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.89,
+          "end": 1.95,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 1.95,
+          "end": 2.05,
+          "key": "am",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "glad",
+          "start": 2.05,
+          "end": 2.29,
+          "key": "glad",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "on't.",
+          "start": 2.29,
+          "end": 2.71,
+          "key": "ont",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desdemona.",
+          "start": 0.55,
+          "end": 1.03
+        },
+        {
+          "text": "Trust",
+          "start": 1.35,
+          "end": 1.59
+        },
+        {
+          "text": "me,",
+          "start": 1.59,
+          "end": 1.79
+        },
+        {
+          "text": "I",
+          "start": 1.89,
+          "end": 1.95
+        },
+        {
+          "text": "am",
+          "start": 1.95,
+          "end": 2.05
+        },
+        {
+          "text": "glad",
+          "start": 2.05,
+          "end": 2.29
+        },
+        {
+          "text": "on't.",
+          "start": 2.29,
+          "end": 2.71
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15544852707535028
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e9c6e920be7e29624e697cfceeeead414e6105d6e39ddf516084592b77a8aba1",
+  "selected_reasons": []
+}

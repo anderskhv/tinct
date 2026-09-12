@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "481af280ac079b07e685a00923ea5c6aee76a26846afc7f0e65420dab7174c55",
+  "attempts": [
+    {
+      "asr_seconds": 0.1527559761889279,
+      "alignment_seconds": 0.00021381815895438194,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Sings.] Sing willow, willow, willow.",
+        "hotwords": "Sings, Sing"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sings, Sing willow, willow, willow.",
+          "start": 0.11,
+          "end": 2.63,
+          "words": [
+            {
+              "text": " Sings,",
+              "start": 0.11,
+              "end": 0.91,
+              "probability": 0.802490234375
+            },
+            {
+              "text": " Sing",
+              "start": 1.21,
+              "end": 1.51,
+              "probability": 0.0806884765625
+            },
+            {
+              "text": " willow,",
+              "start": 1.51,
+              "end": 1.85,
+              "probability": 0.757568359375
+            },
+            {
+              "text": " willow,",
+              "start": 2.01,
+              "end": 2.25,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " willow.",
+              "start": 2.33,
+              "end": 2.63,
+              "probability": 0.997314453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sings,",
+          "start": 0.11,
+          "end": 0.91
+        },
+        {
+          "raw": "Sing",
+          "start": 1.21,
+          "end": 1.51
+        },
+        {
+          "raw": "willow,",
+          "start": 1.51,
+          "end": 1.85
+        },
+        {
+          "raw": "willow,",
+          "start": 2.01,
+          "end": 2.25
+        },
+        {
+          "raw": "willow.",
+          "start": 2.33,
+          "end": 2.63
+        }
+      ],
+      "expected_tokens": [
+        "[Sings.]",
+        "Sing",
+        "willow,",
+        "willow,",
+        "willow."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sings,",
+          "start": 0.11,
+          "end": 0.91,
+          "key": "sings",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sing",
+          "start": 1.21,
+          "end": 1.51,
+          "key": "sing",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "willow,",
+          "start": 1.51,
+          "end": 1.85,
+          "key": "willow",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "willow,",
+          "start": 2.01,
+          "end": 2.25,
+          "key": "willow",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "willow.",
+          "start": 2.33,
+          "end": 2.63,
+          "key": "willow",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Sings.]",
+          "start": 0.11,
+          "end": 0.91
+        },
+        {
+          "text": "Sing",
+          "start": 1.21,
+          "end": 1.51
+        },
+        {
+          "text": "willow,",
+          "start": 1.51,
+          "end": 1.85
+        },
+        {
+          "text": "willow,",
+          "start": 2.01,
+          "end": 2.25
+        },
+        {
+          "text": "willow.",
+          "start": 2.33,
+          "end": 2.63
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15304951323196292
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c12fadb76b59b162fc0bc2a5a2b04b7aab064f4559cc32d045c7200e61405758",
+  "selected_reasons": []
+}

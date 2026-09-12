@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "81286d43d4397f8b744d7deab20a660a488fed0e0dd6e4d8b75b3117a3e2dec4",
+  "attempts": [
+    {
+      "asr_seconds": 0.113155672326684,
+      "alignment_seconds": 0.00019442802295088768,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[How now, Roderigo?]",
+        "hotwords": "How, Roderigo"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " How now, Roderigo",
+          "start": 0.05,
+          "end": 1.43,
+          "words": [
+            {
+              "text": " How",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " now,",
+              "start": 0.53,
+              "end": 0.81,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " Roderigo",
+              "start": 1.05,
+              "end": 1.43,
+              "probability": 0.12935781478881836
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "How",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "now,",
+          "start": 0.53,
+          "end": 0.81
+        },
+        {
+          "raw": "Roderigo",
+          "start": 1.05,
+          "end": 1.43
+        }
+      ],
+      "expected_tokens": [
+        "[How",
+        "now,",
+        "Roderigo?]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "How",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "how",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "now,",
+          "start": 0.53,
+          "end": 0.81,
+          "key": "now",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Roderigo",
+          "start": 1.05,
+          "end": 1.43,
+          "key": "roderigo",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[How",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "now,",
+          "start": 0.53,
+          "end": 0.81
+        },
+        {
+          "text": "Roderigo?]",
+          "start": 1.05,
+          "end": 1.43
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1136006573215127
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fba96fa4a1fbdfc5d34aa8b0870cce34f612131d7579a66de1cdb21351ec215f",
+  "selected_reasons": []
+}

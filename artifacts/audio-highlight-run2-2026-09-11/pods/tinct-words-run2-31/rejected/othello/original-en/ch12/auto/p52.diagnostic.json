@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "4a242d9bb0a99febef1df99822ec7eb2007bbbedf03d441982af8bcf86cacb69",
+  "attempts": [
+    {
+      "asr_seconds": 0.1273110401816666,
+      "alignment_seconds": 0.000176228117197752,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Desdemona. With who?",
+        "hotwords": "Desdemona, With"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Desdemona, With who?",
+          "start": 0.05,
+          "end": 1.69,
+          "words": [
+            {
+              "text": " Desdemona,",
+              "start": 0.05,
+              "end": 1.05,
+              "probability": 0.6547622680664062
+            },
+            {
+              "text": " With",
+              "start": 1.23,
+              "end": 1.43,
+              "probability": 0.0360107421875
+            },
+            {
+              "text": " who?",
+              "start": 1.43,
+              "end": 1.69,
+              "probability": 0.20263671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Desdemona,",
+          "start": 0.05,
+          "end": 1.05
+        },
+        {
+          "raw": "With",
+          "start": 1.23,
+          "end": 1.43
+        },
+        {
+          "raw": "who?",
+          "start": 1.43,
+          "end": 1.69
+        }
+      ],
+      "expected_tokens": [
+        "Desdemona.",
+        "With",
+        "who?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Desdemona,",
+          "start": 0.05,
+          "end": 1.05,
+          "key": "desdemona",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "With",
+          "start": 1.23,
+          "end": 1.43,
+          "key": "with",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "who?",
+          "start": 1.43,
+          "end": 1.69,
+          "key": "who",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desdemona.",
+          "start": 0.05,
+          "end": 1.05
+        },
+        {
+          "text": "With",
+          "start": 1.23,
+          "end": 1.43
+        },
+        {
+          "text": "who?",
+          "start": 1.43,
+          "end": 1.69
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.127551157027483
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "80812b8fbb1c4f7490d798f15ad09e01e470048082a4f971460d3b22e08aa0a6",
+  "selected_reasons": []
+}

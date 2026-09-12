@@ -1,0 +1,207 @@
+{
+  "complete": true,
+  "signature": "cf246e2a0a928198a366e8544381d0476011dcf06e62c34393ab78f27d24dbad",
+  "attempts": [
+    {
+      "asr_seconds": 0.12544991308823228,
+      "alignment_seconds": 0.00021221814677119255,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yago, I too gentle.",
+          "start": 0.05,
+          "end": 1.89,
+          "words": [
+            {
+              "text": " Yago,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.2730712890625
+            },
+            {
+              "text": " I",
+              "start": 1.13,
+              "end": 1.29,
+              "probability": 0.80126953125
+            },
+            {
+              "text": " too",
+              "start": 1.29,
+              "end": 1.51,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " gentle.",
+              "start": 1.51,
+              "end": 1.89,
+              "probability": 0.92626953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yago,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "I",
+          "start": 1.13,
+          "end": 1.29
+        },
+        {
+          "raw": "too",
+          "start": 1.29,
+          "end": 1.51
+        },
+        {
+          "raw": "gentle.",
+          "start": 1.51,
+          "end": 1.89
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "Ay,",
+        "too",
+        "gentle."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          4,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yago,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "yago",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.13,
+          "end": 1.29,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 1.29,
+          "end": 1.51,
+          "key": "too",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "gentle.",
+          "start": 1.51,
+          "end": 1.89,
+          "key": "gentle",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.0,
+          "end": 0.645
+        },
+        {
+          "text": "Ay,",
+          "start": 0.645,
+          "end": 0.968
+        },
+        {
+          "text": "too",
+          "start": 1.29,
+          "end": 1.51
+        },
+        {
+          "text": "gentle.",
+          "start": 1.51,
+          "end": 1.89
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1257552900351584
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5e714e2639aa79450947d4e7231558ed69e6e2efa55b87963498f035e08623dc",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

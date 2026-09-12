@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "fa25fb6ca382cb40209f849f88f9c2b008a33f58a58b347c0c9bf16b74b101c0",
+  "attempts": [
+    {
+      "asr_seconds": 0.14619819913059473,
+      "alignment_seconds": 0.00016756821423768997,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Iago. Did you perceive how he laughed at his vice?",
+        "hotwords": "Iago, Did"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Iago, Did you perceive how he laughed at his vice?",
+          "start": 0.05,
+          "end": 2.89,
+          "words": [
+            {
+              "text": " Iago,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.2681388854980469
+            },
+            {
+              "text": " Did",
+              "start": 1.19,
+              "end": 1.33,
+              "probability": 0.00791168212890625
+            },
+            {
+              "text": " you",
+              "start": 1.33,
+              "end": 1.45,
+              "probability": 0.962890625
+            },
+            {
+              "text": " perceive",
+              "start": 1.45,
+              "end": 1.69,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " how",
+              "start": 1.69,
+              "end": 1.99,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " he",
+              "start": 1.99,
+              "end": 2.11,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " laughed",
+              "start": 2.11,
+              "end": 2.35,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " at",
+              "start": 2.35,
+              "end": 2.51,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " his",
+              "start": 2.51,
+              "end": 2.65,
+              "probability": 0.99609375
+            },
+            {
+              "text": " vice?",
+              "start": 2.65,
+              "end": 2.89,
+              "probability": 0.70166015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Iago,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "Did",
+          "start": 1.19,
+          "end": 1.33
+        },
+        {
+          "raw": "you",
+          "start": 1.33,
+          "end": 1.45
+        },
+        {
+          "raw": "perceive",
+          "start": 1.45,
+          "end": 1.69
+        },
+        {
+          "raw": "how",
+          "start": 1.69,
+          "end": 1.99
+        },
+        {
+          "raw": "he",
+          "start": 1.99,
+          "end": 2.11
+        },
+        {
+          "raw": "laughed",
+          "start": 2.11,
+          "end": 2.35
+        },
+        {
+          "raw": "at",
+          "start": 2.35,
+          "end": 2.51
+        },
+        {
+          "raw": "his",
+          "start": 2.51,
+          "end": 2.65
+        },
+        {
+          "raw": "vice?",
+          "start": 2.65,
+          "end": 2.89
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "Did",
+        "you",
+        "perceive",
+        "how",
+        "he",
+        "laughed",
+        "at",
+        "his",
+        "vice?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Iago,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "iago",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Did",
+          "start": 1.19,
+          "end": 1.33,
+          "key": "did",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.33,
+          "end": 1.45,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "perceive",
+          "start": 1.45,
+          "end": 1.69,
+          "key": "perceive",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 1.69,
+          "end": 1.99,
+          "key": "how",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.99,
+          "end": 2.11,
+          "key": "he",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "laughed",
+          "start": 2.11,
+          "end": 2.35,
+          "key": "laughed",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.35,
+          "end": 2.51,
+          "key": "at",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.51,
+          "end": 2.65,
+          "key": "his",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "vice?",
+          "start": 2.65,
+          "end": 2.89,
+          "key": "vice",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Did",
+          "start": 1.19,
+          "end": 1.33
+        },
+        {
+          "text": "you",
+          "start": 1.33,
+          "end": 1.45
+        },
+        {
+          "text": "perceive",
+          "start": 1.45,
+          "end": 1.69
+        },
+        {
+          "text": "how",
+          "start": 1.69,
+          "end": 1.99
+        },
+        {
+          "text": "he",
+          "start": 1.99,
+          "end": 2.11
+        },
+        {
+          "text": "laughed",
+          "start": 2.11,
+          "end": 2.35
+        },
+        {
+          "text": "at",
+          "start": 2.35,
+          "end": 2.51
+        },
+        {
+          "text": "his",
+          "start": 2.51,
+          "end": 2.65
+        },
+        {
+          "text": "vice?",
+          "start": 2.65,
+          "end": 2.89
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1464262269437313
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9b183e930885babf806c17fec1228305a2fa373c81e75ef2b8e75e92937c3b0f",
+  "selected_reasons": []
+}

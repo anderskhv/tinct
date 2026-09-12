@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "fe30b034981af94bca24eafec144ff35ae1fbb91577c6ada67a86b4f950fe84a",
+  "attempts": [
+    {
+      "asr_seconds": 0.0996828768402338,
+      "alignment_seconds": 0.0001542181707918644,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " She dies.",
+          "start": 0.02,
+          "end": 0.8,
+          "words": [
+            {
+              "text": " She",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.8662109375
+            },
+            {
+              "text": " dies.",
+              "start": 0.54,
+              "end": 0.8,
+              "probability": 0.9765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "She",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "dies.",
+          "start": 0.54,
+          "end": 0.8
+        }
+      ],
+      "expected_tokens": [
+        "[She",
+        "dies.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "She",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "she",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "dies.",
+          "start": 0.54,
+          "end": 0.8,
+          "key": "dies",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[She",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "dies.]",
+          "start": 0.54,
+          "end": 0.8
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09988715499639511
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6972b6e749b7aa927ac96a41f1d9357c0deb8c5c3ae3ad4f222958ad9fae234f",
+  "selected_reasons": []
+}

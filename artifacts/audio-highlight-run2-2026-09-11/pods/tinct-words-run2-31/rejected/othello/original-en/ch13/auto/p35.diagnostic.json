@@ -1,0 +1,3559 @@
+{
+  "complete": true,
+  "signature": "7e290ccfafb4f09cdb0bfbcc9cb85fa78a442e706bc6ca12e75887f79cf00944",
+  "attempts": [
+    {
+      "asr_seconds": 5.3717504828237,
+      "alignment_seconds": 0.000762011855840683,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Desdemona. I have heard it said so. O, these men, these men! Dost thou in conscience think,—tell me, Emilia,— That there be women do abuse their husbands In such gross kind?",
+        "hotwords": "Desdemona, I, O, Dost, Emilia, That"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Desdemona, I have heard it said so. O, these men, these men! Dost thou in conscience think,—tell me, Emilia,—That there be women do abuse their husbands In such gross kind?",
+          "start": 0.55,
+          "end": 11.39,
+          "words": [
+            {
+              "text": " Desdemona,",
+              "start": 0.55,
+              "end": 1.03,
+              "probability": 0.6551844278971354
+            },
+            {
+              "text": " I",
+              "start": 1.31,
+              "end": 1.53,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " have",
+              "start": 1.53,
+              "end": 1.63,
+              "probability": 0.990234375
+            },
+            {
+              "text": " heard",
+              "start": 1.63,
+              "end": 1.81,
+              "probability": 0.99609375
+            },
+            {
+              "text": " it",
+              "start": 1.81,
+              "end": 1.99,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " said",
+              "start": 1.99,
+              "end": 2.15,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " so.",
+              "start": 2.15,
+              "end": 2.55,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " O,",
+              "start": 3.05,
+              "end": 3.23,
+              "probability": 0.63330078125
+            },
+            {
+              "text": " these",
+              "start": 3.35,
+              "end": 3.51,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " men,",
+              "start": 3.51,
+              "end": 3.75,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " these",
+              "start": 3.93,
+              "end": 3.99,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " men!",
+              "start": 3.99,
+              "end": 4.33,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Dost",
+              "start": 4.83,
+              "end": 4.91,
+              "probability": 0.769287109375
+            },
+            {
+              "text": " thou",
+              "start": 4.91,
+              "end": 5.15,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " in",
+              "start": 5.15,
+              "end": 5.33,
+              "probability": 0.859375
+            },
+            {
+              "text": " conscience",
+              "start": 5.33,
+              "end": 5.73,
+              "probability": 0.986328125
+            },
+            {
+              "text": " think,—tell",
+              "start": 5.73,
+              "end": 6.71,
+              "probability": 0.4842991828918457
+            },
+            {
+              "text": " me,",
+              "start": 6.71,
+              "end": 6.95,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Emilia,—That",
+              "start": 6.99,
+              "end": 8.15,
+              "probability": 0.4184303283691406
+            },
+            {
+              "text": " there",
+              "start": 8.15,
+              "end": 8.33,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " be",
+              "start": 8.33,
+              "end": 8.51,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " women",
+              "start": 8.51,
+              "end": 8.77,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " do",
+              "start": 8.77,
+              "end": 9.07,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " abuse",
+              "start": 9.07,
+              "end": 9.51,
+              "probability": 0.96875
+            },
+            {
+              "text": " their",
+              "start": 9.51,
+              "end": 9.75,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " husbands",
+              "start": 9.75,
+              "end": 10.07,
+              "probability": 0.99609375
+            },
+            {
+              "text": " In",
+              "start": 10.07,
+              "end": 10.43,
+              "probability": 0.0187225341796875
+            },
+            {
+              "text": " such",
+              "start": 10.43,
+              "end": 10.63,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " gross",
+              "start": 10.63,
+              "end": 10.97,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " kind?",
+              "start": 10.97,
+              "end": 11.39,
+              "probability": 0.986328125
+            }
+          ]
+        },
+        {
+          "text": " Desdemona, I, Emilia, That there be women do abusing their husbands",
+          "start": 11.39,
+          "end": 12.07,
+          "words": [
+            {
+              "text": " Desdemona,",
+              "start": 11.39,
+              "end": 12.07,
+              "probability": 0.006474097569783528
+            },
+            {
+              "text": " I,",
+              "start": 12.07,
+              "end": 12.07,
+              "probability": 0.0017948150634765625
+            },
+            {
+              "text": " Emilia,",
+              "start": 12.07,
+              "end": 12.07,
+              "probability": 0.03598499298095703
+            },
+            {
+              "text": " That",
+              "start": 12.07,
+              "end": 12.07,
+              "probability": 0.00011712312698364258
+            },
+            {
+              "text": " there",
+              "start": 12.07,
+              "end": 12.07,
+              "probability": 0.00019276142120361328
+            },
+            {
+              "text": " be",
+              "start": 12.07,
+              "end": 12.07,
+              "probability": 0.00431060791015625
+            },
+            {
+              "text": " women",
+              "start": 12.07,
+              "end": 12.07,
+              "probability": 0.00033092498779296875
+            },
+            {
+              "text": " do",
+              "start": 12.07,
+              "end": 12.07,
+              "probability": 0.0004754066467285156
+            },
+            {
+              "text": " abusing",
+              "start": 12.07,
+              "end": 12.07,
+              "probability": 1.1920928955078125e-07
+            },
+            {
+              "text": " their",
+              "start": 12.07,
+              "end": 12.07,
+              "probability": 0.0170135498046875
+            },
+            {
+              "text": " husbands",
+              "start": 12.07,
+              "end": 12.07,
+              "probability": 0.0027313232421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Desdemona,",
+          "start": 0.55,
+          "end": 1.03
+        },
+        {
+          "raw": "I",
+          "start": 1.31,
+          "end": 1.53
+        },
+        {
+          "raw": "have",
+          "start": 1.53,
+          "end": 1.63
+        },
+        {
+          "raw": "heard",
+          "start": 1.63,
+          "end": 1.81
+        },
+        {
+          "raw": "it",
+          "start": 1.81,
+          "end": 1.99
+        },
+        {
+          "raw": "said",
+          "start": 1.99,
+          "end": 2.15
+        },
+        {
+          "raw": "so.",
+          "start": 2.15,
+          "end": 2.55
+        },
+        {
+          "raw": "O,",
+          "start": 3.05,
+          "end": 3.23
+        },
+        {
+          "raw": "these",
+          "start": 3.35,
+          "end": 3.51
+        },
+        {
+          "raw": "men,",
+          "start": 3.51,
+          "end": 3.75
+        },
+        {
+          "raw": "these",
+          "start": 3.93,
+          "end": 3.99
+        },
+        {
+          "raw": "men!",
+          "start": 3.99,
+          "end": 4.33
+        },
+        {
+          "raw": "Dost",
+          "start": 4.83,
+          "end": 4.91
+        },
+        {
+          "raw": "thou",
+          "start": 4.91,
+          "end": 5.15
+        },
+        {
+          "raw": "in",
+          "start": 5.15,
+          "end": 5.33
+        },
+        {
+          "raw": "conscience",
+          "start": 5.33,
+          "end": 5.73
+        },
+        {
+          "raw": "think,—tell",
+          "start": 5.73,
+          "end": 6.71
+        },
+        {
+          "raw": "me,",
+          "start": 6.71,
+          "end": 6.95
+        },
+        {
+          "raw": "Emilia,—That",
+          "start": 6.99,
+          "end": 8.15
+        },
+        {
+          "raw": "there",
+          "start": 8.15,
+          "end": 8.33
+        },
+        {
+          "raw": "be",
+          "start": 8.33,
+          "end": 8.51
+        },
+        {
+          "raw": "women",
+          "start": 8.51,
+          "end": 8.77
+        },
+        {
+          "raw": "do",
+          "start": 8.77,
+          "end": 9.07
+        },
+        {
+          "raw": "abuse",
+          "start": 9.07,
+          "end": 9.51
+        },
+        {
+          "raw": "their",
+          "start": 9.51,
+          "end": 9.75
+        },
+        {
+          "raw": "husbands",
+          "start": 9.75,
+          "end": 10.07
+        },
+        {
+          "raw": "In",
+          "start": 10.07,
+          "end": 10.43
+        },
+        {
+          "raw": "such",
+          "start": 10.43,
+          "end": 10.63
+        },
+        {
+          "raw": "gross",
+          "start": 10.63,
+          "end": 10.97
+        },
+        {
+          "raw": "kind?",
+          "start": 10.97,
+          "end": 11.39
+        },
+        {
+          "raw": "Desdemona,",
+          "start": 11.39,
+          "end": 12.07
+        },
+        {
+          "raw": "I,",
+          "start": 12.07,
+          "end": 12.07
+        },
+        {
+          "raw": "Emilia,",
+          "start": 12.07,
+          "end": 12.07
+        },
+        {
+          "raw": "That",
+          "start": 12.07,
+          "end": 12.07
+        },
+        {
+          "raw": "there",
+          "start": 12.07,
+          "end": 12.07
+        },
+        {
+          "raw": "be",
+          "start": 12.07,
+          "end": 12.07
+        },
+        {
+          "raw": "women",
+          "start": 12.07,
+          "end": 12.07
+        },
+        {
+          "raw": "do",
+          "start": 12.07,
+          "end": 12.07
+        },
+        {
+          "raw": "abusing",
+          "start": 12.07,
+          "end": 12.07
+        },
+        {
+          "raw": "their",
+          "start": 12.07,
+          "end": 12.07
+        },
+        {
+          "raw": "husbands",
+          "start": 12.07,
+          "end": 12.07
+        }
+      ],
+      "expected_tokens": [
+        "Desdemona.",
+        "I",
+        "have",
+        "heard",
+        "it",
+        "said",
+        "so.",
+        "O,",
+        "these",
+        "men,",
+        "these",
+        "men!",
+        "Dost",
+        "thou",
+        "in",
+        "conscience",
+        "think,—tell",
+        "me,",
+        "Emilia,—",
+        "That",
+        "there",
+        "be",
+        "women",
+        "do",
+        "abuse",
+        "their",
+        "husbands",
+        "In",
+        "such",
+        "gross",
+        "kind?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ],
+        [
+          "replace",
+          18,
+          20,
+          18,
+          19
+        ],
+        [
+          "equal",
+          20,
+          31,
+          19,
+          30
+        ],
+        [
+          "insert",
+          31,
+          31,
+          30,
+          41
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 29
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          18,
+          20,
+          18,
+          19
+        ],
+        [
+          "insert",
+          31,
+          31,
+          30,
+          41
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Desdemona,",
+          "start": 0.55,
+          "end": 1.03,
+          "key": "desdemona",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.31,
+          "end": 1.53,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.53,
+          "end": 1.63,
+          "key": "have",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 1.63,
+          "end": 1.81,
+          "key": "heard",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.81,
+          "end": 1.99,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.99,
+          "end": 2.15,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "so.",
+          "start": 2.15,
+          "end": 2.55,
+          "key": "so",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "O,",
+          "start": 3.05,
+          "end": 3.23,
+          "key": "o",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 3.35,
+          "end": 3.51,
+          "key": "these",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "men,",
+          "start": 3.51,
+          "end": 3.75,
+          "key": "men",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 3.93,
+          "end": 3.99,
+          "key": "these",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "men!",
+          "start": 3.99,
+          "end": 4.33,
+          "key": "men",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Dost",
+          "start": 4.83,
+          "end": 4.91,
+          "key": "dost",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 4.91,
+          "end": 5.15,
+          "key": "thou",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.15,
+          "end": 5.33,
+          "key": "in",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "conscience",
+          "start": 5.33,
+          "end": 5.73,
+          "key": "conscience",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "think,—tell",
+          "start": 5.73,
+          "end": 6.71,
+          "key": "thinktell",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 6.71,
+          "end": 6.95,
+          "key": "me",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Emilia,—That",
+          "start": 6.99,
+          "end": 8.15,
+          "key": "emiliathat",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 8.15,
+          "end": 8.33,
+          "key": "there",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 8.33,
+          "end": 8.51,
+          "key": "be",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "women",
+          "start": 8.51,
+          "end": 8.77,
+          "key": "women",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 8.77,
+          "end": 9.07,
+          "key": "do",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "abuse",
+          "start": 9.07,
+          "end": 9.51,
+          "key": "abuse",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 9.51,
+          "end": 9.75,
+          "key": "their",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "husbands",
+          "start": 9.75,
+          "end": 10.07,
+          "key": "husbands",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 10.07,
+          "end": 10.43,
+          "key": "in",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 10.43,
+          "end": 10.63,
+          "key": "such",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "gross",
+          "start": 10.63,
+          "end": 10.97,
+          "key": "gross",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "kind?",
+          "start": 10.97,
+          "end": 11.39,
+          "key": "kind",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "Desdemona,",
+          "start": 11.39,
+          "end": 12.07,
+          "key": "desdemona",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 12.07,
+          "end": 12.07,
+          "key": "i",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "Emilia,",
+          "start": 12.07,
+          "end": 12.07,
+          "key": "emilia",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 12.07,
+          "end": 12.07,
+          "key": "that",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 12.07,
+          "end": 12.07,
+          "key": "there",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 12.07,
+          "end": 12.07,
+          "key": "be",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "women",
+          "start": 12.07,
+          "end": 12.07,
+          "key": "women",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 12.07,
+          "end": 12.07,
+          "key": "do",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "abusing",
+          "start": 12.07,
+          "end": 12.07,
+          "key": "abusing",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 12.07,
+          "end": 12.07,
+          "key": "their",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "husbands",
+          "start": 12.07,
+          "end": 12.07,
+          "key": "husbands",
+          "pieces": [
+            40
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desdemona.",
+          "start": 0.55,
+          "end": 1.03
+        },
+        {
+          "text": "I",
+          "start": 1.31,
+          "end": 1.53
+        },
+        {
+          "text": "have",
+          "start": 1.53,
+          "end": 1.63
+        },
+        {
+          "text": "heard",
+          "start": 1.63,
+          "end": 1.81
+        },
+        {
+          "text": "it",
+          "start": 1.81,
+          "end": 1.99
+        },
+        {
+          "text": "said",
+          "start": 1.99,
+          "end": 2.15
+        },
+        {
+          "text": "so.",
+          "start": 2.15,
+          "end": 2.55
+        },
+        {
+          "text": "O,",
+          "start": 3.05,
+          "end": 3.23
+        },
+        {
+          "text": "these",
+          "start": 3.35,
+          "end": 3.51
+        },
+        {
+          "text": "men,",
+          "start": 3.51,
+          "end": 3.75
+        },
+        {
+          "text": "these",
+          "start": 3.93,
+          "end": 3.99
+        },
+        {
+          "text": "men!",
+          "start": 3.99,
+          "end": 4.33
+        },
+        {
+          "text": "Dost",
+          "start": 4.83,
+          "end": 4.91
+        },
+        {
+          "text": "thou",
+          "start": 4.91,
+          "end": 5.15
+        },
+        {
+          "text": "in",
+          "start": 5.15,
+          "end": 5.33
+        },
+        {
+          "text": "conscience",
+          "start": 5.33,
+          "end": 5.73
+        },
+        {
+          "text": "think,—tell",
+          "start": 5.73,
+          "end": 6.71
+        },
+        {
+          "text": "me,",
+          "start": 6.71,
+          "end": 6.95
+        },
+        {
+          "text": "Emilia,—",
+          "start": 6.95,
+          "end": 7.55
+        },
+        {
+          "text": "That",
+          "start": 7.55,
+          "end": 7.85
+        },
+        {
+          "text": "there",
+          "start": 8.15,
+          "end": 8.33
+        },
+        {
+          "text": "be",
+          "start": 8.33,
+          "end": 8.51
+        },
+        {
+          "text": "women",
+          "start": 8.51,
+          "end": 8.77
+        },
+        {
+          "text": "do",
+          "start": 8.77,
+          "end": 9.07
+        },
+        {
+          "text": "abuse",
+          "start": 9.07,
+          "end": 9.51
+        },
+        {
+          "text": "their",
+          "start": 9.51,
+          "end": 9.75
+        },
+        {
+          "text": "husbands",
+          "start": 9.75,
+          "end": 10.07
+        },
+        {
+          "text": "In",
+          "start": 10.07,
+          "end": 10.43
+        },
+        {
+          "text": "such",
+          "start": 10.43,
+          "end": 10.63
+        },
+        {
+          "text": "gross",
+          "start": 10.63,
+          "end": 10.97
+        },
+        {
+          "text": "kind?",
+          "start": 10.97,
+          "end": 11.39
+        }
+      ],
+      "stats": {
+        "expected_words": 31,
+        "heard_words": 41,
+        "matched_words": 29
+      },
+      "match_ratio": 0.9354838709677419,
+      "rejection_reasons": [],
+      "seconds": 5.372875181026757
+    },
+    {
+      "asr_seconds": 0.4223342528566718,
+      "alignment_seconds": 0.0006968630477786064,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Desdemona, I, O, Dost, Emilia, That"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Dostemona, I have heard it said so. O, these men, these men, Dost thou in conscience think,",
+          "start": 0.05,
+          "end": 6.13,
+          "words": [
+            {
+              "text": " Dostemona,",
+              "start": 0.05,
+              "end": 1.01,
+              "probability": 0.3163318634033203
+            },
+            {
+              "text": " I",
+              "start": 1.33,
+              "end": 1.53,
+              "probability": 0.990234375
+            },
+            {
+              "text": " have",
+              "start": 1.53,
+              "end": 1.63,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " heard",
+              "start": 1.63,
+              "end": 1.81,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " it",
+              "start": 1.81,
+              "end": 1.99,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " said",
+              "start": 1.99,
+              "end": 2.15,
+              "probability": 0.955078125
+            },
+            {
+              "text": " so.",
+              "start": 2.15,
+              "end": 2.53,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " O,",
+              "start": 3.05,
+              "end": 3.23,
+              "probability": 0.67431640625
+            },
+            {
+              "text": " these",
+              "start": 3.35,
+              "end": 3.51,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " men,",
+              "start": 3.51,
+              "end": 3.75,
+              "probability": 0.994140625
+            },
+            {
+              "text": " these",
+              "start": 3.93,
+              "end": 3.99,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " men,",
+              "start": 3.99,
+              "end": 4.33,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Dost",
+              "start": 4.81,
+              "end": 4.89,
+              "probability": 0.6197509765625
+            },
+            {
+              "text": " thou",
+              "start": 4.89,
+              "end": 5.15,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " in",
+              "start": 5.15,
+              "end": 5.33,
+              "probability": 0.826171875
+            },
+            {
+              "text": " conscience",
+              "start": 5.33,
+              "end": 5.73,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " think,",
+              "start": 5.73,
+              "end": 6.13,
+              "probability": 0.97509765625
+            }
+          ]
+        },
+        {
+          "text": " Tell me, Emilia, That there be women do abuse their husbands",
+          "start": 6.47,
+          "end": 10.07,
+          "words": [
+            {
+              "text": " Tell",
+              "start": 6.47,
+              "end": 6.71,
+              "probability": 0.61767578125
+            },
+            {
+              "text": " me,",
+              "start": 6.71,
+              "end": 6.95,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Emilia,",
+              "start": 7.01,
+              "end": 7.35,
+              "probability": 0.60430908203125
+            },
+            {
+              "text": " That",
+              "start": 7.99,
+              "end": 8.15,
+              "probability": 0.71484375
+            },
+            {
+              "text": " there",
+              "start": 8.15,
+              "end": 8.33,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " be",
+              "start": 8.33,
+              "end": 8.51,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " women",
+              "start": 8.51,
+              "end": 8.77,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " do",
+              "start": 8.77,
+              "end": 9.09,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " abuse",
+              "start": 9.09,
+              "end": 9.49,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " their",
+              "start": 9.49,
+              "end": 9.75,
+              "probability": 0.6884765625
+            },
+            {
+              "text": " husbands",
+              "start": 9.75,
+              "end": 10.07,
+              "probability": 0.98291015625
+            }
+          ]
+        },
+        {
+          "text": " in such gross kind?",
+          "start": 10.07,
+          "end": 11.41,
+          "words": [
+            {
+              "text": " in",
+              "start": 10.07,
+              "end": 10.43,
+              "probability": 0.548828125
+            },
+            {
+              "text": " such",
+              "start": 10.43,
+              "end": 10.63,
+              "probability": 0.990234375
+            },
+            {
+              "text": " gross",
+              "start": 10.63,
+              "end": 10.97,
+              "probability": 0.943359375
+            },
+            {
+              "text": " kind?",
+              "start": 10.97,
+              "end": 11.41,
+              "probability": 0.96435546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dostemona,",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "raw": "I",
+          "start": 1.33,
+          "end": 1.53
+        },
+        {
+          "raw": "have",
+          "start": 1.53,
+          "end": 1.63
+        },
+        {
+          "raw": "heard",
+          "start": 1.63,
+          "end": 1.81
+        },
+        {
+          "raw": "it",
+          "start": 1.81,
+          "end": 1.99
+        },
+        {
+          "raw": "said",
+          "start": 1.99,
+          "end": 2.15
+        },
+        {
+          "raw": "so.",
+          "start": 2.15,
+          "end": 2.53
+        },
+        {
+          "raw": "O,",
+          "start": 3.05,
+          "end": 3.23
+        },
+        {
+          "raw": "these",
+          "start": 3.35,
+          "end": 3.51
+        },
+        {
+          "raw": "men,",
+          "start": 3.51,
+          "end": 3.75
+        },
+        {
+          "raw": "these",
+          "start": 3.93,
+          "end": 3.99
+        },
+        {
+          "raw": "men,",
+          "start": 3.99,
+          "end": 4.33
+        },
+        {
+          "raw": "Dost",
+          "start": 4.81,
+          "end": 4.89
+        },
+        {
+          "raw": "thou",
+          "start": 4.89,
+          "end": 5.15
+        },
+        {
+          "raw": "in",
+          "start": 5.15,
+          "end": 5.33
+        },
+        {
+          "raw": "conscience",
+          "start": 5.33,
+          "end": 5.73
+        },
+        {
+          "raw": "think,",
+          "start": 5.73,
+          "end": 6.13
+        },
+        {
+          "raw": "Tell",
+          "start": 6.47,
+          "end": 6.71
+        },
+        {
+          "raw": "me,",
+          "start": 6.71,
+          "end": 6.95
+        },
+        {
+          "raw": "Emilia,",
+          "start": 7.01,
+          "end": 7.35
+        },
+        {
+          "raw": "That",
+          "start": 7.99,
+          "end": 8.15
+        },
+        {
+          "raw": "there",
+          "start": 8.15,
+          "end": 8.33
+        },
+        {
+          "raw": "be",
+          "start": 8.33,
+          "end": 8.51
+        },
+        {
+          "raw": "women",
+          "start": 8.51,
+          "end": 8.77
+        },
+        {
+          "raw": "do",
+          "start": 8.77,
+          "end": 9.09
+        },
+        {
+          "raw": "abuse",
+          "start": 9.09,
+          "end": 9.49
+        },
+        {
+          "raw": "their",
+          "start": 9.49,
+          "end": 9.75
+        },
+        {
+          "raw": "husbands",
+          "start": 9.75,
+          "end": 10.07
+        },
+        {
+          "raw": "in",
+          "start": 10.07,
+          "end": 10.43
+        },
+        {
+          "raw": "such",
+          "start": 10.43,
+          "end": 10.63
+        },
+        {
+          "raw": "gross",
+          "start": 10.63,
+          "end": 10.97
+        },
+        {
+          "raw": "kind?",
+          "start": 10.97,
+          "end": 11.41
+        }
+      ],
+      "expected_tokens": [
+        "Desdemona.",
+        "I",
+        "have",
+        "heard",
+        "it",
+        "said",
+        "so.",
+        "O,",
+        "these",
+        "men,",
+        "these",
+        "men!",
+        "Dost",
+        "thou",
+        "in",
+        "conscience",
+        "think,—tell",
+        "me,",
+        "Emilia,—",
+        "That",
+        "there",
+        "be",
+        "women",
+        "do",
+        "abuse",
+        "their",
+        "husbands",
+        "In",
+        "such",
+        "gross",
+        "kind?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          16,
+          1,
+          16
+        ],
+        [
+          "replace",
+          16,
+          17,
+          16,
+          18
+        ],
+        [
+          "equal",
+          17,
+          31,
+          18,
+          32
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          16,
+          17,
+          16,
+          18
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dostemona,",
+          "start": 0.05,
+          "end": 1.01,
+          "key": "dostemona",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.33,
+          "end": 1.53,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.53,
+          "end": 1.63,
+          "key": "have",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 1.63,
+          "end": 1.81,
+          "key": "heard",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.81,
+          "end": 1.99,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.99,
+          "end": 2.15,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "so.",
+          "start": 2.15,
+          "end": 2.53,
+          "key": "so",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "O,",
+          "start": 3.05,
+          "end": 3.23,
+          "key": "o",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 3.35,
+          "end": 3.51,
+          "key": "these",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "men,",
+          "start": 3.51,
+          "end": 3.75,
+          "key": "men",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 3.93,
+          "end": 3.99,
+          "key": "these",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "men,",
+          "start": 3.99,
+          "end": 4.33,
+          "key": "men",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Dost",
+          "start": 4.81,
+          "end": 4.89,
+          "key": "dost",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 4.89,
+          "end": 5.15,
+          "key": "thou",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.15,
+          "end": 5.33,
+          "key": "in",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "conscience",
+          "start": 5.33,
+          "end": 5.73,
+          "key": "conscience",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "think,",
+          "start": 5.73,
+          "end": 6.13,
+          "key": "think",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Tell",
+          "start": 6.47,
+          "end": 6.71,
+          "key": "tell",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 6.71,
+          "end": 6.95,
+          "key": "me",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Emilia,",
+          "start": 7.01,
+          "end": 7.35,
+          "key": "emilia",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 7.99,
+          "end": 8.15,
+          "key": "that",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 8.15,
+          "end": 8.33,
+          "key": "there",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 8.33,
+          "end": 8.51,
+          "key": "be",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "women",
+          "start": 8.51,
+          "end": 8.77,
+          "key": "women",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 8.77,
+          "end": 9.09,
+          "key": "do",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "abuse",
+          "start": 9.09,
+          "end": 9.49,
+          "key": "abuse",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 9.49,
+          "end": 9.75,
+          "key": "their",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "husbands",
+          "start": 9.75,
+          "end": 10.07,
+          "key": "husbands",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 10.07,
+          "end": 10.43,
+          "key": "in",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 10.43,
+          "end": 10.63,
+          "key": "such",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "gross",
+          "start": 10.63,
+          "end": 10.97,
+          "key": "gross",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "kind?",
+          "start": 10.97,
+          "end": 11.41,
+          "key": "kind",
+          "pieces": [
+            31
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desdemona.",
+          "start": 0.0,
+          "end": 0.665
+        },
+        {
+          "text": "I",
+          "start": 1.33,
+          "end": 1.53
+        },
+        {
+          "text": "have",
+          "start": 1.53,
+          "end": 1.63
+        },
+        {
+          "text": "heard",
+          "start": 1.63,
+          "end": 1.81
+        },
+        {
+          "text": "it",
+          "start": 1.81,
+          "end": 1.99
+        },
+        {
+          "text": "said",
+          "start": 1.99,
+          "end": 2.15
+        },
+        {
+          "text": "so.",
+          "start": 2.15,
+          "end": 2.53
+        },
+        {
+          "text": "O,",
+          "start": 3.05,
+          "end": 3.23
+        },
+        {
+          "text": "these",
+          "start": 3.35,
+          "end": 3.51
+        },
+        {
+          "text": "men,",
+          "start": 3.51,
+          "end": 3.75
+        },
+        {
+          "text": "these",
+          "start": 3.93,
+          "end": 3.99
+        },
+        {
+          "text": "men!",
+          "start": 3.99,
+          "end": 4.33
+        },
+        {
+          "text": "Dost",
+          "start": 4.81,
+          "end": 4.89
+        },
+        {
+          "text": "thou",
+          "start": 4.89,
+          "end": 5.15
+        },
+        {
+          "text": "in",
+          "start": 5.15,
+          "end": 5.33
+        },
+        {
+          "text": "conscience",
+          "start": 5.33,
+          "end": 5.73
+        },
+        {
+          "text": "think,—tell",
+          "start": 5.73,
+          "end": 6.22
+        },
+        {
+          "text": "me,",
+          "start": 6.71,
+          "end": 6.95
+        },
+        {
+          "text": "Emilia,—",
+          "start": 7.01,
+          "end": 7.35
+        },
+        {
+          "text": "That",
+          "start": 7.99,
+          "end": 8.15
+        },
+        {
+          "text": "there",
+          "start": 8.15,
+          "end": 8.33
+        },
+        {
+          "text": "be",
+          "start": 8.33,
+          "end": 8.51
+        },
+        {
+          "text": "women",
+          "start": 8.51,
+          "end": 8.77
+        },
+        {
+          "text": "do",
+          "start": 8.77,
+          "end": 9.09
+        },
+        {
+          "text": "abuse",
+          "start": 9.09,
+          "end": 9.49
+        },
+        {
+          "text": "their",
+          "start": 9.49,
+          "end": 9.75
+        },
+        {
+          "text": "husbands",
+          "start": 9.75,
+          "end": 10.07
+        },
+        {
+          "text": "In",
+          "start": 10.07,
+          "end": 10.43
+        },
+        {
+          "text": "such",
+          "start": 10.43,
+          "end": 10.63
+        },
+        {
+          "text": "gross",
+          "start": 10.63,
+          "end": 10.97
+        },
+        {
+          "text": "kind?",
+          "start": 10.97,
+          "end": 11.41
+        }
+      ],
+      "stats": {
+        "expected_words": 31,
+        "heard_words": 32,
+        "matched_words": 29
+      },
+      "match_ratio": 0.9354838709677419,
+      "rejection_reasons": [],
+      "seconds": 0.42332330299541354
+    },
+    {
+      "asr_seconds": 0.4370828252285719,
+      "alignment_seconds": 0.0007161418907344341,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Distimona, I have heard it said so. Oh, these men, these men, dost thou in conscience think,",
+          "start": 0.05,
+          "end": 6.13,
+          "words": [
+            {
+              "text": " Distimona,",
+              "start": 0.05,
+              "end": 1.01,
+              "probability": 0.67547607421875
+            },
+            {
+              "text": " I",
+              "start": 1.33,
+              "end": 1.53,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " have",
+              "start": 1.53,
+              "end": 1.63,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " heard",
+              "start": 1.63,
+              "end": 1.81,
+              "probability": 0.99609375
+            },
+            {
+              "text": " it",
+              "start": 1.81,
+              "end": 1.99,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " said",
+              "start": 1.99,
+              "end": 2.15,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " so.",
+              "start": 2.15,
+              "end": 2.53,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Oh,",
+              "start": 3.05,
+              "end": 3.23,
+              "probability": 0.303466796875
+            },
+            {
+              "text": " these",
+              "start": 3.29,
+              "end": 3.51,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " men,",
+              "start": 3.51,
+              "end": 3.75,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " these",
+              "start": 3.93,
+              "end": 3.99,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " men,",
+              "start": 3.99,
+              "end": 4.33,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " dost",
+              "start": 4.81,
+              "end": 4.89,
+              "probability": 0.854736328125
+            },
+            {
+              "text": " thou",
+              "start": 4.89,
+              "end": 5.15,
+              "probability": 0.9921875
+            },
+            {
+              "text": " in",
+              "start": 5.15,
+              "end": 5.33,
+              "probability": 0.84375
+            },
+            {
+              "text": " conscience",
+              "start": 5.33,
+              "end": 5.73,
+              "probability": 0.990234375
+            },
+            {
+              "text": " think,",
+              "start": 5.73,
+              "end": 6.13,
+              "probability": 0.97705078125
+            }
+          ]
+        },
+        {
+          "text": " tell me, Amelia, that there be women do abuse their husbands in such gross kind?",
+          "start": 6.47,
+          "end": 11.41,
+          "words": [
+            {
+              "text": " tell",
+              "start": 6.47,
+              "end": 6.73,
+              "probability": 0.87451171875
+            },
+            {
+              "text": " me,",
+              "start": 6.73,
+              "end": 6.97,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Amelia,",
+              "start": 7.01,
+              "end": 7.27,
+              "probability": 0.6220703125
+            },
+            {
+              "text": " that",
+              "start": 7.99,
+              "end": 8.15,
+              "probability": 0.9453125
+            },
+            {
+              "text": " there",
+              "start": 8.15,
+              "end": 8.33,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " be",
+              "start": 8.33,
+              "end": 8.51,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " women",
+              "start": 8.51,
+              "end": 8.77,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " do",
+              "start": 8.77,
+              "end": 9.07,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " abuse",
+              "start": 9.07,
+              "end": 9.51,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " their",
+              "start": 9.51,
+              "end": 9.75,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " husbands",
+              "start": 9.75,
+              "end": 10.07,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 10.07,
+              "end": 10.43,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " such",
+              "start": 10.43,
+              "end": 10.63,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " gross",
+              "start": 10.63,
+              "end": 10.99,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " kind?",
+              "start": 10.99,
+              "end": 11.41,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Distimona,",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "raw": "I",
+          "start": 1.33,
+          "end": 1.53
+        },
+        {
+          "raw": "have",
+          "start": 1.53,
+          "end": 1.63
+        },
+        {
+          "raw": "heard",
+          "start": 1.63,
+          "end": 1.81
+        },
+        {
+          "raw": "it",
+          "start": 1.81,
+          "end": 1.99
+        },
+        {
+          "raw": "said",
+          "start": 1.99,
+          "end": 2.15
+        },
+        {
+          "raw": "so.",
+          "start": 2.15,
+          "end": 2.53
+        },
+        {
+          "raw": "Oh,",
+          "start": 3.05,
+          "end": 3.23
+        },
+        {
+          "raw": "these",
+          "start": 3.29,
+          "end": 3.51
+        },
+        {
+          "raw": "men,",
+          "start": 3.51,
+          "end": 3.75
+        },
+        {
+          "raw": "these",
+          "start": 3.93,
+          "end": 3.99
+        },
+        {
+          "raw": "men,",
+          "start": 3.99,
+          "end": 4.33
+        },
+        {
+          "raw": "dost",
+          "start": 4.81,
+          "end": 4.89
+        },
+        {
+          "raw": "thou",
+          "start": 4.89,
+          "end": 5.15
+        },
+        {
+          "raw": "in",
+          "start": 5.15,
+          "end": 5.33
+        },
+        {
+          "raw": "conscience",
+          "start": 5.33,
+          "end": 5.73
+        },
+        {
+          "raw": "think,",
+          "start": 5.73,
+          "end": 6.13
+        },
+        {
+          "raw": "tell",
+          "start": 6.47,
+          "end": 6.73
+        },
+        {
+          "raw": "me,",
+          "start": 6.73,
+          "end": 6.97
+        },
+        {
+          "raw": "Amelia,",
+          "start": 7.01,
+          "end": 7.27
+        },
+        {
+          "raw": "that",
+          "start": 7.99,
+          "end": 8.15
+        },
+        {
+          "raw": "there",
+          "start": 8.15,
+          "end": 8.33
+        },
+        {
+          "raw": "be",
+          "start": 8.33,
+          "end": 8.51
+        },
+        {
+          "raw": "women",
+          "start": 8.51,
+          "end": 8.77
+        },
+        {
+          "raw": "do",
+          "start": 8.77,
+          "end": 9.07
+        },
+        {
+          "raw": "abuse",
+          "start": 9.07,
+          "end": 9.51
+        },
+        {
+          "raw": "their",
+          "start": 9.51,
+          "end": 9.75
+        },
+        {
+          "raw": "husbands",
+          "start": 9.75,
+          "end": 10.07
+        },
+        {
+          "raw": "in",
+          "start": 10.07,
+          "end": 10.43
+        },
+        {
+          "raw": "such",
+          "start": 10.43,
+          "end": 10.63
+        },
+        {
+          "raw": "gross",
+          "start": 10.63,
+          "end": 10.99
+        },
+        {
+          "raw": "kind?",
+          "start": 10.99,
+          "end": 11.41
+        }
+      ],
+      "expected_tokens": [
+        "Desdemona.",
+        "I",
+        "have",
+        "heard",
+        "it",
+        "said",
+        "so.",
+        "O,",
+        "these",
+        "men,",
+        "these",
+        "men!",
+        "Dost",
+        "thou",
+        "in",
+        "conscience",
+        "think,—tell",
+        "me,",
+        "Emilia,—",
+        "That",
+        "there",
+        "be",
+        "women",
+        "do",
+        "abuse",
+        "their",
+        "husbands",
+        "In",
+        "such",
+        "gross",
+        "kind?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          7,
+          1,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "equal",
+          8,
+          16,
+          8,
+          16
+        ],
+        [
+          "replace",
+          16,
+          17,
+          16,
+          18
+        ],
+        [
+          "equal",
+          17,
+          18,
+          18,
+          19
+        ],
+        [
+          "replace",
+          18,
+          19,
+          19,
+          20
+        ],
+        [
+          "equal",
+          19,
+          31,
+          20,
+          32
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "replace",
+          16,
+          17,
+          16,
+          18
+        ],
+        [
+          "replace",
+          18,
+          19,
+          19,
+          20
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Distimona,",
+          "start": 0.05,
+          "end": 1.01,
+          "key": "distimona",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.33,
+          "end": 1.53,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.53,
+          "end": 1.63,
+          "key": "have",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 1.63,
+          "end": 1.81,
+          "key": "heard",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.81,
+          "end": 1.99,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.99,
+          "end": 2.15,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "so.",
+          "start": 2.15,
+          "end": 2.53,
+          "key": "so",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 3.05,
+          "end": 3.23,
+          "key": "oh",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 3.29,
+          "end": 3.51,
+          "key": "these",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "men,",
+          "start": 3.51,
+          "end": 3.75,
+          "key": "men",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 3.93,
+          "end": 3.99,
+          "key": "these",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "men,",
+          "start": 3.99,
+          "end": 4.33,
+          "key": "men",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "dost",
+          "start": 4.81,
+          "end": 4.89,
+          "key": "dost",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 4.89,
+          "end": 5.15,
+          "key": "thou",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.15,
+          "end": 5.33,
+          "key": "in",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "conscience",
+          "start": 5.33,
+          "end": 5.73,
+          "key": "conscience",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "think,",
+          "start": 5.73,
+          "end": 6.13,
+          "key": "think",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 6.47,
+          "end": 6.73,
+          "key": "tell",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 6.73,
+          "end": 6.97,
+          "key": "me",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Amelia,",
+          "start": 7.01,
+          "end": 7.27,
+          "key": "amelia",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 7.99,
+          "end": 8.15,
+          "key": "that",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 8.15,
+          "end": 8.33,
+          "key": "there",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 8.33,
+          "end": 8.51,
+          "key": "be",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "women",
+          "start": 8.51,
+          "end": 8.77,
+          "key": "women",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 8.77,
+          "end": 9.07,
+          "key": "do",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "abuse",
+          "start": 9.07,
+          "end": 9.51,
+          "key": "abuse",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 9.51,
+          "end": 9.75,
+          "key": "their",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "husbands",
+          "start": 9.75,
+          "end": 10.07,
+          "key": "husbands",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 10.07,
+          "end": 10.43,
+          "key": "in",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 10.43,
+          "end": 10.63,
+          "key": "such",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "gross",
+          "start": 10.63,
+          "end": 10.99,
+          "key": "gross",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "kind?",
+          "start": 10.99,
+          "end": 11.41,
+          "key": "kind",
+          "pieces": [
+            31
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desdemona.",
+          "start": 0.0,
+          "end": 0.665
+        },
+        {
+          "text": "I",
+          "start": 1.33,
+          "end": 1.53
+        },
+        {
+          "text": "have",
+          "start": 1.53,
+          "end": 1.63
+        },
+        {
+          "text": "heard",
+          "start": 1.63,
+          "end": 1.81
+        },
+        {
+          "text": "it",
+          "start": 1.81,
+          "end": 1.99
+        },
+        {
+          "text": "said",
+          "start": 1.99,
+          "end": 2.15
+        },
+        {
+          "text": "so.",
+          "start": 2.15,
+          "end": 2.53
+        },
+        {
+          "text": "O,",
+          "start": 2.53,
+          "end": 2.91
+        },
+        {
+          "text": "these",
+          "start": 3.29,
+          "end": 3.51
+        },
+        {
+          "text": "men,",
+          "start": 3.51,
+          "end": 3.75
+        },
+        {
+          "text": "these",
+          "start": 3.93,
+          "end": 3.99
+        },
+        {
+          "text": "men!",
+          "start": 3.99,
+          "end": 4.33
+        },
+        {
+          "text": "Dost",
+          "start": 4.81,
+          "end": 4.89
+        },
+        {
+          "text": "thou",
+          "start": 4.89,
+          "end": 5.15
+        },
+        {
+          "text": "in",
+          "start": 5.15,
+          "end": 5.33
+        },
+        {
+          "text": "conscience",
+          "start": 5.33,
+          "end": 5.73
+        },
+        {
+          "text": "think,—tell",
+          "start": 5.73,
+          "end": 6.23
+        },
+        {
+          "text": "me,",
+          "start": 6.73,
+          "end": 6.97
+        },
+        {
+          "text": "Emilia,—",
+          "start": 6.97,
+          "end": 7.48
+        },
+        {
+          "text": "That",
+          "start": 7.99,
+          "end": 8.15
+        },
+        {
+          "text": "there",
+          "start": 8.15,
+          "end": 8.33
+        },
+        {
+          "text": "be",
+          "start": 8.33,
+          "end": 8.51
+        },
+        {
+          "text": "women",
+          "start": 8.51,
+          "end": 8.77
+        },
+        {
+          "text": "do",
+          "start": 8.77,
+          "end": 9.07
+        },
+        {
+          "text": "abuse",
+          "start": 9.07,
+          "end": 9.51
+        },
+        {
+          "text": "their",
+          "start": 9.51,
+          "end": 9.75
+        },
+        {
+          "text": "husbands",
+          "start": 9.75,
+          "end": 10.07
+        },
+        {
+          "text": "In",
+          "start": 10.07,
+          "end": 10.43
+        },
+        {
+          "text": "such",
+          "start": 10.43,
+          "end": 10.63
+        },
+        {
+          "text": "gross",
+          "start": 10.63,
+          "end": 10.99
+        },
+        {
+          "text": "kind?",
+          "start": 10.99,
+          "end": 11.41
+        }
+      ],
+      "stats": {
+        "expected_words": 31,
+        "heard_words": 32,
+        "matched_words": 27
+      },
+      "match_ratio": 0.8709677419354839,
+      "rejection_reasons": [],
+      "seconds": 0.43810055404901505
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0d17de44c88970ae922125032a703728b5c2842bac7386c85e16914d78501d33",
+  "selected_reasons": []
+}

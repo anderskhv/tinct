@@ -1,0 +1,221 @@
+{
+  "complete": true,
+  "signature": "906cbe42b4de77bb1a44787e4ac3f437f1b20e00e4472745a06124477ecec00d",
+  "attempts": [
+    {
+      "asr_seconds": 0.13942975923419,
+      "alignment_seconds": 0.00022103684023022652,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Distimona, who's there, Othella?",
+          "start": 0.05,
+          "end": 2.21,
+          "words": [
+            {
+              "text": " Distimona,",
+              "start": 0.05,
+              "end": 1.01,
+              "probability": 0.683319091796875
+            },
+            {
+              "text": " who's",
+              "start": 1.33,
+              "end": 1.53,
+              "probability": 0.953125
+            },
+            {
+              "text": " there,",
+              "start": 1.53,
+              "end": 1.67,
+              "probability": 0.728515625
+            },
+            {
+              "text": " Othella?",
+              "start": 1.85,
+              "end": 2.21,
+              "probability": 0.8313802083333334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Distimona,",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "raw": "who's",
+          "start": 1.33,
+          "end": 1.53
+        },
+        {
+          "raw": "there,",
+          "start": 1.53,
+          "end": 1.67
+        },
+        {
+          "raw": "Othella?",
+          "start": 1.85,
+          "end": 2.21
+        }
+      ],
+      "expected_tokens": [
+        "Desdemona.",
+        "Who's",
+        "there?",
+        "Othello?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Distimona,",
+          "start": 0.05,
+          "end": 1.01,
+          "key": "distimona",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "who's",
+          "start": 1.33,
+          "end": 1.53,
+          "key": "whos",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "there,",
+          "start": 1.53,
+          "end": 1.67,
+          "key": "there",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Othella?",
+          "start": 1.85,
+          "end": 2.21,
+          "key": "othella",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desdemona.",
+          "start": 0.0,
+          "end": 0.665
+        },
+        {
+          "text": "Who's",
+          "start": 1.33,
+          "end": 1.53
+        },
+        {
+          "text": "there?",
+          "start": 1.53,
+          "end": 1.67
+        },
+        {
+          "text": "Othello?",
+          "start": 1.67,
+          "end": 1.94
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1397190261632204
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4882b9ed2fccc1006b0539e39fc4081c2879c0928e55b5feb5d7067347d2e3a5",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

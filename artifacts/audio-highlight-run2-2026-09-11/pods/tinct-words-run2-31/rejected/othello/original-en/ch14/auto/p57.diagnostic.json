@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "426994033b4e819e472ba9e9c6006f101e93615c53adb494b571c8cb0922b123",
+  "attempts": [
+    {
+      "asr_seconds": 0.10903160693123937,
+      "alignment_seconds": 0.0001140977256000042,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Gratiano. Cassio!",
+        "hotwords": "Gratiano, Cassio"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Gratiano, Cassio.",
+          "start": 0.05,
+          "end": 1.69,
+          "words": [
+            {
+              "text": " Gratiano,",
+              "start": 0.05,
+              "end": 1.01,
+              "probability": 0.481201171875
+            },
+            {
+              "text": " Cassio.",
+              "start": 1.19,
+              "end": 1.69,
+              "probability": 0.507598876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gratiano,",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "raw": "Cassio.",
+          "start": 1.19,
+          "end": 1.69
+        }
+      ],
+      "expected_tokens": [
+        "Gratiano.",
+        "Cassio!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gratiano,",
+          "start": 0.05,
+          "end": 1.01,
+          "key": "gratiano",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Cassio.",
+          "start": 1.19,
+          "end": 1.69,
+          "key": "cassio",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gratiano.",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "text": "Cassio!",
+          "start": 1.19,
+          "end": 1.69
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10918196476995945
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f0e0fa378dbae3a885d48e8ca96fb859ea114716d7dc699990c4d999a340ed31",
+  "selected_reasons": []
+}

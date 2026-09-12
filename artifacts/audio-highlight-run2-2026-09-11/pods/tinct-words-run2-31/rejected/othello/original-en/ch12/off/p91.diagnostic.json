@@ -1,0 +1,195 @@
+{
+  "complete": true,
+  "signature": "ceb1e74cda5a665bf3add5539d3b4e3130cd6d7ecb3d4738cc08a2b6c6d5f550",
+  "attempts": [
+    {
+      "asr_seconds": 0.12100221682339907,
+      "alignment_seconds": 0.00020902790129184723,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " How now, Rodra go.",
+          "start": 0.05,
+          "end": 1.43,
+          "words": [
+            {
+              "text": " How",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " now,",
+              "start": 0.53,
+              "end": 0.81,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " Rodra",
+              "start": 1.05,
+              "end": 1.21,
+              "probability": 0.364501953125
+            },
+            {
+              "text": " go.",
+              "start": 1.21,
+              "end": 1.43,
+              "probability": 0.440673828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "How",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "now,",
+          "start": 0.53,
+          "end": 0.81
+        },
+        {
+          "raw": "Rodra",
+          "start": 1.05,
+          "end": 1.21
+        },
+        {
+          "raw": "go.",
+          "start": 1.21,
+          "end": 1.43
+        }
+      ],
+      "expected_tokens": [
+        "[How",
+        "now,",
+        "Roderigo?]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "How",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "how",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "now,",
+          "start": 0.53,
+          "end": 0.81,
+          "key": "now",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Rodra",
+          "start": 1.05,
+          "end": 1.21,
+          "key": "rodra",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "go.",
+          "start": 1.21,
+          "end": 1.43,
+          "key": "go",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[How",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "now,",
+          "start": 0.53,
+          "end": 0.81
+        },
+        {
+          "text": "Roderigo?]",
+          "start": 0.81,
+          "end": 1.12
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12127934396266937
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fba96fa4a1fbdfc5d34aa8b0870cce34f612131d7579a66de1cdb21351ec215f",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,207 @@
+{
+  "complete": true,
+  "signature": "4e62a397d74c845983308e9d867399385bc745bf4729d9e96956749e8547e6c0",
+  "attempts": [
+    {
+      "asr_seconds": 0.12085895426571369,
+      "alignment_seconds": 0.000239477027207613,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Casio, pretty say true.",
+          "start": 0.05,
+          "end": 1.79,
+          "words": [
+            {
+              "text": " Casio,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.60009765625
+            },
+            {
+              "text": " pretty",
+              "start": 1.19,
+              "end": 1.23,
+              "probability": 0.358154296875
+            },
+            {
+              "text": " say",
+              "start": 1.23,
+              "end": 1.49,
+              "probability": 0.86083984375
+            },
+            {
+              "text": " true.",
+              "start": 1.49,
+              "end": 1.79,
+              "probability": 0.8798828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Casio,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "pretty",
+          "start": 1.19,
+          "end": 1.23
+        },
+        {
+          "raw": "say",
+          "start": 1.23,
+          "end": 1.49
+        },
+        {
+          "raw": "true.",
+          "start": 1.49,
+          "end": 1.79
+        }
+      ],
+      "expected_tokens": [
+        "Cassio.",
+        "Prithee",
+        "say",
+        "true."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          4,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Casio,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "casio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "pretty",
+          "start": 1.19,
+          "end": 1.23,
+          "key": "pretty",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 1.23,
+          "end": 1.49,
+          "key": "say",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "true.",
+          "start": 1.49,
+          "end": 1.79,
+          "key": "true",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassio.",
+          "start": 0.0,
+          "end": 0.615
+        },
+        {
+          "text": "Prithee",
+          "start": 0.615,
+          "end": 0.922
+        },
+        {
+          "text": "say",
+          "start": 1.23,
+          "end": 1.49
+        },
+        {
+          "text": "true.",
+          "start": 1.49,
+          "end": 1.79
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12117891013622284
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e193cbcb0b19d862a1b2091fb35c9bf88498a8b106e66b8039ae1b771a61b8b8",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

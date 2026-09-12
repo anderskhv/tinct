@@ -1,0 +1,221 @@
+{
+  "complete": true,
+  "signature": "c0b5e987ced404830ac4877a76d04bf6df795545aa908c0c35d45e356f7f4f1a",
+  "attempts": [
+    {
+      "asr_seconds": 0.12586019607260823,
+      "alignment_seconds": 0.0001376182772219181,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Diego, speak with Endor.",
+          "start": 0.05,
+          "end": 1.89,
+          "words": [
+            {
+              "text": " Diego,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.29443359375
+            },
+            {
+              "text": " speak",
+              "start": 1.27,
+              "end": 1.29,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " with",
+              "start": 1.29,
+              "end": 1.49,
+              "probability": 0.83544921875
+            },
+            {
+              "text": " Endor.",
+              "start": 1.49,
+              "end": 1.89,
+              "probability": 0.60040283203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Diego,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "speak",
+          "start": 1.27,
+          "end": 1.29
+        },
+        {
+          "raw": "with",
+          "start": 1.29,
+          "end": 1.49
+        },
+        {
+          "raw": "Endor.",
+          "start": 1.49,
+          "end": 1.89
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "Speak",
+        "within",
+        "door."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Diego,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "diego",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 1.27,
+          "end": 1.29,
+          "key": "speak",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.29,
+          "end": 1.49,
+          "key": "with",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Endor.",
+          "start": 1.49,
+          "end": 1.89,
+          "key": "endor",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.0,
+          "end": 0.635
+        },
+        {
+          "text": "Speak",
+          "start": 1.27,
+          "end": 1.29
+        },
+        {
+          "text": "within",
+          "start": 1.29,
+          "end": 1.59
+        },
+        {
+          "text": "door.",
+          "start": 1.59,
+          "end": 1.74
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 1
+      },
+      "match_ratio": 0.25,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1260435041040182
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "14e31f90817c1de3a1d44b4de0c3a7522e71ec7dbf032592eaf973099117cf32",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

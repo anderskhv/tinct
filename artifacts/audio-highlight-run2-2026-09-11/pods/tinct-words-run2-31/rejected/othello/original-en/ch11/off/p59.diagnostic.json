@@ -1,0 +1,207 @@
+{
+  "complete": true,
+  "signature": "cb89baf80cabe65f6fcb95a5eb304b90f0eed3bcf476af8e4c093c764742ac21",
+  "attempts": [
+    {
+      "asr_seconds": 0.14222914213314652,
+      "alignment_seconds": 0.0002567269839346409,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Casio, ha ha ha.",
+          "start": 0.5,
+          "end": 1.62,
+          "words": [
+            {
+              "text": " Casio,",
+              "start": 0.5,
+              "end": 0.94,
+              "probability": 0.78125
+            },
+            {
+              "text": " ha",
+              "start": 1.04,
+              "end": 1.2,
+              "probability": 0.73583984375
+            },
+            {
+              "text": " ha",
+              "start": 1.2,
+              "end": 1.34,
+              "probability": 0.36962890625
+            },
+            {
+              "text": " ha.",
+              "start": 1.34,
+              "end": 1.62,
+              "probability": 0.9853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Casio,",
+          "start": 0.5,
+          "end": 0.94
+        },
+        {
+          "raw": "ha",
+          "start": 1.04,
+          "end": 1.2
+        },
+        {
+          "raw": "ha",
+          "start": 1.2,
+          "end": 1.34
+        },
+        {
+          "raw": "ha.",
+          "start": 1.34,
+          "end": 1.62
+        }
+      ],
+      "expected_tokens": [
+        "Cassio.",
+        "Ha,",
+        "ha,",
+        "ha!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          4,
+          1,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Casio,",
+          "start": 0.5,
+          "end": 0.94,
+          "key": "casio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "ha",
+          "start": 1.04,
+          "end": 1.2,
+          "key": "ha",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ha",
+          "start": 1.2,
+          "end": 1.34,
+          "key": "ha",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "ha.",
+          "start": 1.34,
+          "end": 1.62,
+          "key": "ha",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassio.",
+          "start": 0.0,
+          "end": 0.52
+        },
+        {
+          "text": "Ha,",
+          "start": 1.04,
+          "end": 1.2
+        },
+        {
+          "text": "ha,",
+          "start": 1.2,
+          "end": 1.34
+        },
+        {
+          "text": "ha!",
+          "start": 1.34,
+          "end": 1.62
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14257536828517914
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7a8e87ebe46f9a42a667a7fc931d6536cf34141c9320174a10d81db51b5a1357",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

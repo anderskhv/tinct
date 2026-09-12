@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "181f500e4795e987e6cc8b7fc5b79c4ee42fb9cd7dff63f917f40e9d64fdd962",
+  "attempts": [
+    {
+      "asr_seconds": 0.12961674900725484,
+      "alignment_seconds": 0.00016194768249988556,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Iago. I am a very villain else.",
+        "hotwords": "Iago, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Iago, I am a very villain else.",
+          "start": 0.05,
+          "end": 2.17,
+          "words": [
+            {
+              "text": " Iago,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.042083740234375
+            },
+            {
+              "text": " I",
+              "start": 1.05,
+              "end": 1.25,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " am",
+              "start": 1.25,
+              "end": 1.31,
+              "probability": 0.1474609375
+            },
+            {
+              "text": " a",
+              "start": 1.31,
+              "end": 1.39,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " very",
+              "start": 1.39,
+              "end": 1.59,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " villain",
+              "start": 1.59,
+              "end": 1.83,
+              "probability": 0.88720703125
+            },
+            {
+              "text": " else.",
+              "start": 1.83,
+              "end": 2.17,
+              "probability": 0.1099853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Iago,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "I",
+          "start": 1.05,
+          "end": 1.25
+        },
+        {
+          "raw": "am",
+          "start": 1.25,
+          "end": 1.31
+        },
+        {
+          "raw": "a",
+          "start": 1.31,
+          "end": 1.39
+        },
+        {
+          "raw": "very",
+          "start": 1.39,
+          "end": 1.59
+        },
+        {
+          "raw": "villain",
+          "start": 1.59,
+          "end": 1.83
+        },
+        {
+          "raw": "else.",
+          "start": 1.83,
+          "end": 2.17
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "I",
+        "am",
+        "a",
+        "very",
+        "villain",
+        "else."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Iago,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "iago",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.05,
+          "end": 1.25,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 1.25,
+          "end": 1.31,
+          "key": "am",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.31,
+          "end": 1.39,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 1.39,
+          "end": 1.59,
+          "key": "very",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "villain",
+          "start": 1.59,
+          "end": 1.83,
+          "key": "villain",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "else.",
+          "start": 1.83,
+          "end": 2.17,
+          "key": "else",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "I",
+          "start": 1.05,
+          "end": 1.25
+        },
+        {
+          "text": "am",
+          "start": 1.25,
+          "end": 1.31
+        },
+        {
+          "text": "a",
+          "start": 1.31,
+          "end": 1.39
+        },
+        {
+          "text": "very",
+          "start": 1.39,
+          "end": 1.59
+        },
+        {
+          "text": "villain",
+          "start": 1.59,
+          "end": 1.83
+        },
+        {
+          "text": "else.",
+          "start": 1.83,
+          "end": 2.17
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1298301969654858
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f56e018278ba36e459896d50f2f045e804e002037644226d741de0f463b93266",
+  "selected_reasons": []
+}

@@ -1,0 +1,427 @@
+{
+  "complete": true,
+  "signature": "ca51c643605fb9e391691ac3aeefd855e2e07a55645b037da1490a87e13d922f",
+  "attempts": [
+    {
+      "asr_seconds": 0.1835283748805523,
+      "alignment_seconds": 0.0003372160717844963,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Amelia, my lord, my lord, what ho, my lord, my lord!",
+          "start": 0.05,
+          "end": 3.79,
+          "words": [
+            {
+              "text": " Amelia,",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.339599609375
+            },
+            {
+              "text": " my",
+              "start": 1.21,
+              "end": 1.31,
+              "probability": 0.89697265625
+            },
+            {
+              "text": " lord,",
+              "start": 1.31,
+              "end": 1.51,
+              "probability": 0.7568359375
+            },
+            {
+              "text": " my",
+              "start": 1.67,
+              "end": 1.71,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " lord,",
+              "start": 1.71,
+              "end": 2.03,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " what",
+              "start": 2.53,
+              "end": 2.63,
+              "probability": 0.85888671875
+            },
+            {
+              "text": " ho,",
+              "start": 2.63,
+              "end": 2.87,
+              "probability": 0.77001953125
+            },
+            {
+              "text": " my",
+              "start": 2.97,
+              "end": 3.07,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " lord,",
+              "start": 3.07,
+              "end": 3.27,
+              "probability": 0.9921875
+            },
+            {
+              "text": " my",
+              "start": 3.41,
+              "end": 3.49,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " lord!",
+              "start": 3.49,
+              "end": 3.79,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Amelia,",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "my",
+          "start": 1.21,
+          "end": 1.31
+        },
+        {
+          "raw": "lord,",
+          "start": 1.31,
+          "end": 1.51
+        },
+        {
+          "raw": "my",
+          "start": 1.67,
+          "end": 1.71
+        },
+        {
+          "raw": "lord,",
+          "start": 1.71,
+          "end": 2.03
+        },
+        {
+          "raw": "what",
+          "start": 2.53,
+          "end": 2.63
+        },
+        {
+          "raw": "ho,",
+          "start": 2.63,
+          "end": 2.87
+        },
+        {
+          "raw": "my",
+          "start": 2.97,
+          "end": 3.07
+        },
+        {
+          "raw": "lord,",
+          "start": 3.07,
+          "end": 3.27
+        },
+        {
+          "raw": "my",
+          "start": 3.41,
+          "end": 3.49
+        },
+        {
+          "raw": "lord!",
+          "start": 3.49,
+          "end": 3.79
+        }
+      ],
+      "expected_tokens": [
+        "Emilia.",
+        "My",
+        "lord,",
+        "my",
+        "lord!",
+        "what,",
+        "ho!",
+        "my",
+        "lord,",
+        "my",
+        "lord!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          11,
+          1,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Amelia,",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "amelia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.21,
+          "end": 1.31,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lord,",
+          "start": 1.31,
+          "end": 1.51,
+          "key": "lord",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.67,
+          "end": 1.71,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lord,",
+          "start": 1.71,
+          "end": 2.03,
+          "key": "lord",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 2.53,
+          "end": 2.63,
+          "key": "what",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "ho,",
+          "start": 2.63,
+          "end": 2.87,
+          "key": "ho",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.97,
+          "end": 3.07,
+          "key": "my",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "lord,",
+          "start": 3.07,
+          "end": 3.27,
+          "key": "lord",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.41,
+          "end": 3.49,
+          "key": "my",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "lord!",
+          "start": 3.49,
+          "end": 3.79,
+          "key": "lord",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Emilia.",
+          "start": 0.0,
+          "end": 0.605
+        },
+        {
+          "text": "My",
+          "start": 1.21,
+          "end": 1.31
+        },
+        {
+          "text": "lord,",
+          "start": 1.31,
+          "end": 1.51
+        },
+        {
+          "text": "my",
+          "start": 1.67,
+          "end": 1.71
+        },
+        {
+          "text": "lord!",
+          "start": 1.71,
+          "end": 2.03
+        },
+        {
+          "text": "what,",
+          "start": 2.53,
+          "end": 2.63
+        },
+        {
+          "text": "ho!",
+          "start": 2.63,
+          "end": 2.87
+        },
+        {
+          "text": "my",
+          "start": 2.97,
+          "end": 3.07
+        },
+        {
+          "text": "lord,",
+          "start": 3.07,
+          "end": 3.27
+        },
+        {
+          "text": "my",
+          "start": 3.41,
+          "end": 3.49
+        },
+        {
+          "text": "lord!",
+          "start": 3.49,
+          "end": 3.79
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.1839982597157359
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "947d8859217e7e38b78d6a2f15b4428756f71123cf530ebf6092891d9764c59e",
+  "selected_reasons": []
+}

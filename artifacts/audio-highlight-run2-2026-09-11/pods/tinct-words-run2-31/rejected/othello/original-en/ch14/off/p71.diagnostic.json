@@ -1,0 +1,228 @@
+{
+  "complete": true,
+  "signature": "eed6c9de2ca212948aec7352ee4bf8574158f426b87ad03c89788977a39eb86a",
+  "attempts": [
+    {
+      "asr_seconds": 0.12110628606751561,
+      "alignment_seconds": 0.00016747834160923958,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Graciano, what a Venice.",
+          "start": 0.08,
+          "end": 1.86,
+          "words": [
+            {
+              "text": " Graciano,",
+              "start": 0.08,
+              "end": 0.96,
+              "probability": 0.665771484375
+            },
+            {
+              "text": " what",
+              "start": 1.42,
+              "end": 1.48,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " a",
+              "start": 1.48,
+              "end": 1.62,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " Venice.",
+              "start": 1.62,
+              "end": 1.86,
+              "probability": 0.98388671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Graciano,",
+          "start": 0.08,
+          "end": 0.96
+        },
+        {
+          "raw": "what",
+          "start": 1.42,
+          "end": 1.48
+        },
+        {
+          "raw": "a",
+          "start": 1.48,
+          "end": 1.62
+        },
+        {
+          "raw": "Venice.",
+          "start": 1.62,
+          "end": 1.86
+        }
+      ],
+      "expected_tokens": [
+        "Gratiano.",
+        "What,",
+        "of",
+        "Venice?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Graciano,",
+          "start": 0.08,
+          "end": 0.96,
+          "key": "graciano",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.42,
+          "end": 1.48,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.48,
+          "end": 1.62,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Venice.",
+          "start": 1.62,
+          "end": 1.86,
+          "key": "venice",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gratiano.",
+          "start": 0.0,
+          "end": 0.71
+        },
+        {
+          "text": "What,",
+          "start": 1.42,
+          "end": 1.48
+        },
+        {
+          "text": "of",
+          "start": 1.48,
+          "end": 1.55
+        },
+        {
+          "text": "Venice?",
+          "start": 1.62,
+          "end": 1.86
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1213264730758965
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bf0455359fffab53a75f69141a7324caded6109640dca203c811b3188253aee8",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "16fea4648813b36cc13fe937e2ac27bd7d439ec8155c94a33f76745c73abc312",
+  "attempts": [
+    {
+      "asr_seconds": 0.1008438398130238,
+      "alignment_seconds": 0.00011608889326453209,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Enter Cassio.]",
+        "hotwords": "Enter, Cassio"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Cassio.",
+          "start": 0.02,
+          "end": 1.26,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.93359375
+            },
+            {
+              "text": " Cassio.",
+              "start": 0.68,
+              "end": 1.26,
+              "probability": 0.5703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "Cassio.",
+          "start": 0.68,
+          "end": 1.26
+        }
+      ],
+      "expected_tokens": [
+        "[Enter",
+        "Cassio.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Cassio.",
+          "start": 0.68,
+          "end": 1.26,
+          "key": "cassio",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Enter",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "Cassio.]",
+          "start": 0.68,
+          "end": 1.26
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10099565796554089
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6c0d05d2d6088dc8be005b95be49d01c751615693472cf75ff357e0a9e33050b",
+  "selected_reasons": []
+}

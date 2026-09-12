@@ -1,0 +1,299 @@
+{
+  "complete": true,
+  "signature": "e7bd4c4694d8a6020a816073122d7044d898c37ed1e3a367c3d6a72ba4e49f04",
+  "attempts": [
+    {
+      "asr_seconds": 0.14350133622065187,
+      "alignment_seconds": 0.000150368083268404,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Distimona, then Lord have mercy on me.",
+          "start": 0.05,
+          "end": 2.85,
+          "words": [
+            {
+              "text": " Distimona,",
+              "start": 0.05,
+              "end": 1.03,
+              "probability": 0.6812744140625
+            },
+            {
+              "text": " then",
+              "start": 1.43,
+              "end": 1.63,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " Lord",
+              "start": 1.63,
+              "end": 1.89,
+              "probability": 0.7490234375
+            },
+            {
+              "text": " have",
+              "start": 1.89,
+              "end": 2.13,
+              "probability": 0.77880859375
+            },
+            {
+              "text": " mercy",
+              "start": 2.13,
+              "end": 2.37,
+              "probability": 0.9921875
+            },
+            {
+              "text": " on",
+              "start": 2.37,
+              "end": 2.63,
+              "probability": 0.998046875
+            },
+            {
+              "text": " me.",
+              "start": 2.63,
+              "end": 2.85,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Distimona,",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "raw": "then",
+          "start": 1.43,
+          "end": 1.63
+        },
+        {
+          "raw": "Lord",
+          "start": 1.63,
+          "end": 1.89
+        },
+        {
+          "raw": "have",
+          "start": 1.89,
+          "end": 2.13
+        },
+        {
+          "raw": "mercy",
+          "start": 2.13,
+          "end": 2.37
+        },
+        {
+          "raw": "on",
+          "start": 2.37,
+          "end": 2.63
+        },
+        {
+          "raw": "me.",
+          "start": 2.63,
+          "end": 2.85
+        }
+      ],
+      "expected_tokens": [
+        "Desdemona.",
+        "Then,",
+        "Lord",
+        "have",
+        "mercy",
+        "on",
+        "me!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          7,
+          1,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Distimona,",
+          "start": 0.05,
+          "end": 1.03,
+          "key": "distimona",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 1.43,
+          "end": 1.63,
+          "key": "then",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Lord",
+          "start": 1.63,
+          "end": 1.89,
+          "key": "lord",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.89,
+          "end": 2.13,
+          "key": "have",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "mercy",
+          "start": 2.13,
+          "end": 2.37,
+          "key": "mercy",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.37,
+          "end": 2.63,
+          "key": "on",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 2.63,
+          "end": 2.85,
+          "key": "me",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desdemona.",
+          "start": 0.0,
+          "end": 0.715
+        },
+        {
+          "text": "Then,",
+          "start": 1.43,
+          "end": 1.63
+        },
+        {
+          "text": "Lord",
+          "start": 1.63,
+          "end": 1.89
+        },
+        {
+          "text": "have",
+          "start": 1.89,
+          "end": 2.13
+        },
+        {
+          "text": "mercy",
+          "start": 2.13,
+          "end": 2.37
+        },
+        {
+          "text": "on",
+          "start": 2.37,
+          "end": 2.63
+        },
+        {
+          "text": "me!",
+          "start": 2.63,
+          "end": 2.85
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.1437016143463552
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "24c4cab86326603175970e3fb7fa9eac40b1afaf65d8112bae78aa664dce575f",
+  "selected_reasons": []
+}

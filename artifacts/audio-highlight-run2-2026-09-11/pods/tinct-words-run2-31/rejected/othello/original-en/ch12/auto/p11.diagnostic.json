@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "94cf6ec615f1ac0bf1ece4684b4d3cc646d7ebd81a28cbdb87831603ec0939d5",
+  "attempts": [
+    {
+      "asr_seconds": 0.41570499539375305,
+      "alignment_seconds": 0.00017331913113594055,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Othello. That's strange.",
+        "hotwords": "Othello, That's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Othello, That's Strange.",
+          "start": 0.08,
+          "end": 1.64,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.08,
+              "end": 0.86,
+              "probability": 0.974609375
+            },
+            {
+              "text": " That's",
+              "start": 1.12,
+              "end": 1.4,
+              "probability": 0.5022659301757812
+            },
+            {
+              "text": " Strange.",
+              "start": 1.4,
+              "end": 1.64,
+              "probability": 0.73828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "raw": "That's",
+          "start": 1.12,
+          "end": 1.4
+        },
+        {
+          "raw": "Strange.",
+          "start": 1.4,
+          "end": 1.64
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "That's",
+        "strange."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.08,
+          "end": 0.86,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "That's",
+          "start": 1.12,
+          "end": 1.4,
+          "key": "thats",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Strange.",
+          "start": 1.4,
+          "end": 1.64,
+          "key": "strange",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "text": "That's",
+          "start": 1.12,
+          "end": 1.4
+        },
+        {
+          "text": "strange.",
+          "start": 1.4,
+          "end": 1.64
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4159404831007123
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cc17318bb001fe4252c46fec9a0e9f9dd7704bcae1109f6510b04250ce7820a5",
+  "selected_reasons": []
+}

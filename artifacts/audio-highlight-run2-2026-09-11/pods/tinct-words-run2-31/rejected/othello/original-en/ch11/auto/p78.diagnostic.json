@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "03312e525ea5f0ed40289ed75a5cc6c0903ccbf80f4fd8b894b40389bbaadea3",
+  "attempts": [
+    {
+      "asr_seconds": 0.17127501918002963,
+      "alignment_seconds": 0.0002347179688513279,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cassio. How now, my sweet Bianca? How now, how now?",
+        "hotwords": "Cassio, Bianca"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cassio, how now, my sweet Bianca? How now, how now?",
+          "start": 0.5,
+          "end": 3.34,
+          "words": [
+            {
+              "text": " Cassio,",
+              "start": 0.5,
+              "end": 0.86,
+              "probability": 0.572265625
+            },
+            {
+              "text": " how",
+              "start": 1.18,
+              "end": 1.2,
+              "probability": 0.93359375
+            },
+            {
+              "text": " now,",
+              "start": 1.2,
+              "end": 1.32,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " my",
+              "start": 1.42,
+              "end": 1.46,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " sweet",
+              "start": 1.46,
+              "end": 1.7,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Bianca?",
+              "start": 1.7,
+              "end": 2.2,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " How",
+              "start": 2.72,
+              "end": 2.74,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " now,",
+              "start": 2.74,
+              "end": 2.92,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " how",
+              "start": 3.0,
+              "end": 3.1,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " now?",
+              "start": 3.1,
+              "end": 3.34,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassio,",
+          "start": 0.5,
+          "end": 0.86
+        },
+        {
+          "raw": "how",
+          "start": 1.18,
+          "end": 1.2
+        },
+        {
+          "raw": "now,",
+          "start": 1.2,
+          "end": 1.32
+        },
+        {
+          "raw": "my",
+          "start": 1.42,
+          "end": 1.46
+        },
+        {
+          "raw": "sweet",
+          "start": 1.46,
+          "end": 1.7
+        },
+        {
+          "raw": "Bianca?",
+          "start": 1.7,
+          "end": 2.2
+        },
+        {
+          "raw": "How",
+          "start": 2.72,
+          "end": 2.74
+        },
+        {
+          "raw": "now,",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "raw": "how",
+          "start": 3.0,
+          "end": 3.1
+        },
+        {
+          "raw": "now?",
+          "start": 3.1,
+          "end": 3.34
+        }
+      ],
+      "expected_tokens": [
+        "Cassio.",
+        "How",
+        "now,",
+        "my",
+        "sweet",
+        "Bianca?",
+        "How",
+        "now,",
+        "how",
+        "now?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassio,",
+          "start": 0.5,
+          "end": 0.86,
+          "key": "cassio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 1.18,
+          "end": 1.2,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "now,",
+          "start": 1.2,
+          "end": 1.32,
+          "key": "now",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.42,
+          "end": 1.46,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sweet",
+          "start": 1.46,
+          "end": 1.7,
+          "key": "sweet",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Bianca?",
+          "start": 1.7,
+          "end": 2.2,
+          "key": "bianca",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 2.72,
+          "end": 2.74,
+          "key": "how",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "now,",
+          "start": 2.74,
+          "end": 2.92,
+          "key": "now",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 3.0,
+          "end": 3.1,
+          "key": "how",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "now?",
+          "start": 3.1,
+          "end": 3.34,
+          "key": "now",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassio.",
+          "start": 0.5,
+          "end": 0.86
+        },
+        {
+          "text": "How",
+          "start": 1.18,
+          "end": 1.2
+        },
+        {
+          "text": "now,",
+          "start": 1.2,
+          "end": 1.32
+        },
+        {
+          "text": "my",
+          "start": 1.42,
+          "end": 1.46
+        },
+        {
+          "text": "sweet",
+          "start": 1.46,
+          "end": 1.7
+        },
+        {
+          "text": "Bianca?",
+          "start": 1.7,
+          "end": 2.2
+        },
+        {
+          "text": "How",
+          "start": 2.72,
+          "end": 2.74
+        },
+        {
+          "text": "now,",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "text": "how",
+          "start": 3.0,
+          "end": 3.1
+        },
+        {
+          "text": "now?",
+          "start": 3.1,
+          "end": 3.34
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17159497505053878
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "44ffacf5744da3a5d0cfc3b430c83c71a566f6d9940a2b66ad10c1dd0a5c841f",
+  "selected_reasons": []
+}

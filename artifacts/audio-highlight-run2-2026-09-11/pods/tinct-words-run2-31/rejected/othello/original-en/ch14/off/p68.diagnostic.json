@@ -1,0 +1,564 @@
+{
+  "complete": true,
+  "signature": "70d13b2cdca05ab0958107cee92a98af0469af0263fc617ec8fe318192b6b088",
+  "attempts": [
+    {
+      "asr_seconds": 0.229377050884068,
+      "alignment_seconds": 0.0002251570113003254,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yago, lend me a garter. So, owe for a chair to bear him easily hence.",
+          "start": 0.05,
+          "end": 4.77,
+          "words": [
+            {
+              "text": " Yago,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.329833984375
+            },
+            {
+              "text": " lend",
+              "start": 1.11,
+              "end": 1.23,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " me",
+              "start": 1.23,
+              "end": 1.35,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 1.35,
+              "end": 1.47,
+              "probability": 0.9921875
+            },
+            {
+              "text": " garter.",
+              "start": 1.47,
+              "end": 1.67,
+              "probability": 0.951416015625
+            },
+            {
+              "text": " So,",
+              "start": 2.11,
+              "end": 2.29,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " owe",
+              "start": 3.03,
+              "end": 3.03,
+              "probability": 0.50634765625
+            },
+            {
+              "text": " for",
+              "start": 3.03,
+              "end": 3.25,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " a",
+              "start": 3.25,
+              "end": 3.33,
+              "probability": 0.966796875
+            },
+            {
+              "text": " chair",
+              "start": 3.33,
+              "end": 3.53,
+              "probability": 0.9921875
+            },
+            {
+              "text": " to",
+              "start": 3.53,
+              "end": 3.75,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " bear",
+              "start": 3.75,
+              "end": 3.89,
+              "probability": 0.83984375
+            },
+            {
+              "text": " him",
+              "start": 3.89,
+              "end": 4.07,
+              "probability": 0.998046875
+            },
+            {
+              "text": " easily",
+              "start": 4.07,
+              "end": 4.41,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " hence.",
+              "start": 4.41,
+              "end": 4.77,
+              "probability": 0.939453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yago,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "lend",
+          "start": 1.11,
+          "end": 1.23
+        },
+        {
+          "raw": "me",
+          "start": 1.23,
+          "end": 1.35
+        },
+        {
+          "raw": "a",
+          "start": 1.35,
+          "end": 1.47
+        },
+        {
+          "raw": "garter.",
+          "start": 1.47,
+          "end": 1.67
+        },
+        {
+          "raw": "So,",
+          "start": 2.11,
+          "end": 2.29
+        },
+        {
+          "raw": "owe",
+          "start": 3.03,
+          "end": 3.03
+        },
+        {
+          "raw": "for",
+          "start": 3.03,
+          "end": 3.25
+        },
+        {
+          "raw": "a",
+          "start": 3.25,
+          "end": 3.33
+        },
+        {
+          "raw": "chair",
+          "start": 3.33,
+          "end": 3.53
+        },
+        {
+          "raw": "to",
+          "start": 3.53,
+          "end": 3.75
+        },
+        {
+          "raw": "bear",
+          "start": 3.75,
+          "end": 3.89
+        },
+        {
+          "raw": "him",
+          "start": 3.89,
+          "end": 4.07
+        },
+        {
+          "raw": "easily",
+          "start": 4.07,
+          "end": 4.41
+        },
+        {
+          "raw": "hence.",
+          "start": 4.41,
+          "end": 4.77
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "Lend",
+        "me",
+        "a",
+        "garter.",
+        "So.—O,",
+        "for",
+        "a",
+        "chair,",
+        "To",
+        "bear",
+        "him",
+        "easily",
+        "hence!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ],
+        [
+          "equal",
+          6,
+          14,
+          7,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yago,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "yago",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "lend",
+          "start": 1.11,
+          "end": 1.23,
+          "key": "lend",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.23,
+          "end": 1.35,
+          "key": "me",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.35,
+          "end": 1.47,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "garter.",
+          "start": 1.47,
+          "end": 1.67,
+          "key": "garter",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "So,",
+          "start": 2.11,
+          "end": 2.29,
+          "key": "so",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "owe",
+          "start": 3.03,
+          "end": 3.03,
+          "key": "owe",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.03,
+          "end": 3.25,
+          "key": "for",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.25,
+          "end": 3.33,
+          "key": "a",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "chair",
+          "start": 3.33,
+          "end": 3.53,
+          "key": "chair",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.53,
+          "end": 3.75,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "bear",
+          "start": 3.75,
+          "end": 3.89,
+          "key": "bear",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 3.89,
+          "end": 4.07,
+          "key": "him",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "easily",
+          "start": 4.07,
+          "end": 4.41,
+          "key": "easily",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "hence.",
+          "start": 4.41,
+          "end": 4.77,
+          "key": "hence",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.0,
+          "end": 0.555
+        },
+        {
+          "text": "Lend",
+          "start": 1.11,
+          "end": 1.23
+        },
+        {
+          "text": "me",
+          "start": 1.23,
+          "end": 1.35
+        },
+        {
+          "text": "a",
+          "start": 1.35,
+          "end": 1.47
+        },
+        {
+          "text": "garter.",
+          "start": 1.47,
+          "end": 1.67
+        },
+        {
+          "text": "So.—O,",
+          "start": 1.67,
+          "end": 2.35
+        },
+        {
+          "text": "for",
+          "start": 3.03,
+          "end": 3.25
+        },
+        {
+          "text": "a",
+          "start": 3.25,
+          "end": 3.33
+        },
+        {
+          "text": "chair,",
+          "start": 3.33,
+          "end": 3.53
+        },
+        {
+          "text": "To",
+          "start": 3.53,
+          "end": 3.75
+        },
+        {
+          "text": "bear",
+          "start": 3.75,
+          "end": 3.89
+        },
+        {
+          "text": "him",
+          "start": 3.89,
+          "end": 4.07
+        },
+        {
+          "text": "easily",
+          "start": 4.07,
+          "end": 4.41
+        },
+        {
+          "text": "hence!",
+          "start": 4.41,
+          "end": 4.77
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 15,
+        "matched_words": 12
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.22968006785959005
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "07f5df1542a1a95ca9a804aaa7ebb17fb80073f468234f6eaf7651a2c42e1967",
+  "selected_reasons": []
+}

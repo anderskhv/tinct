@@ -1,0 +1,516 @@
+{
+  "complete": true,
+  "signature": "6848162b902acf2a16aedc9078ed4386545103efc1ab547ca096c71997c83fe2",
+  "attempts": [
+    {
+      "asr_seconds": 0.20296965586021543,
+      "alignment_seconds": 0.00044817524030804634,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Distimona, nobody, I myself. Farewell, commend me to my kind lord. Oh, farewell.",
+          "start": 0.55,
+          "end": 5.43,
+          "words": [
+            {
+              "text": " Distimona,",
+              "start": 0.55,
+              "end": 1.03,
+              "probability": 0.6219482421875
+            },
+            {
+              "text": " nobody,",
+              "start": 1.33,
+              "end": 1.53,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " I",
+              "start": 1.89,
+              "end": 1.93,
+              "probability": 0.990234375
+            },
+            {
+              "text": " myself.",
+              "start": 1.93,
+              "end": 2.25,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " Farewell,",
+              "start": 2.75,
+              "end": 3.07,
+              "probability": 0.982177734375
+            },
+            {
+              "text": " commend",
+              "start": 3.27,
+              "end": 3.41,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " me",
+              "start": 3.41,
+              "end": 3.57,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 3.57,
+              "end": 3.65,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " my",
+              "start": 3.65,
+              "end": 3.79,
+              "probability": 0.962890625
+            },
+            {
+              "text": " kind",
+              "start": 3.79,
+              "end": 4.09,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " lord.",
+              "start": 4.09,
+              "end": 4.37,
+              "probability": 0.62646484375
+            },
+            {
+              "text": " Oh,",
+              "start": 4.87,
+              "end": 5.07,
+              "probability": 0.697265625
+            },
+            {
+              "text": " farewell.",
+              "start": 5.23,
+              "end": 5.43,
+              "probability": 0.96630859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Distimona,",
+          "start": 0.55,
+          "end": 1.03
+        },
+        {
+          "raw": "nobody,",
+          "start": 1.33,
+          "end": 1.53
+        },
+        {
+          "raw": "I",
+          "start": 1.89,
+          "end": 1.93
+        },
+        {
+          "raw": "myself.",
+          "start": 1.93,
+          "end": 2.25
+        },
+        {
+          "raw": "Farewell,",
+          "start": 2.75,
+          "end": 3.07
+        },
+        {
+          "raw": "commend",
+          "start": 3.27,
+          "end": 3.41
+        },
+        {
+          "raw": "me",
+          "start": 3.41,
+          "end": 3.57
+        },
+        {
+          "raw": "to",
+          "start": 3.57,
+          "end": 3.65
+        },
+        {
+          "raw": "my",
+          "start": 3.65,
+          "end": 3.79
+        },
+        {
+          "raw": "kind",
+          "start": 3.79,
+          "end": 4.09
+        },
+        {
+          "raw": "lord.",
+          "start": 4.09,
+          "end": 4.37
+        },
+        {
+          "raw": "Oh,",
+          "start": 4.87,
+          "end": 5.07
+        },
+        {
+          "raw": "farewell.",
+          "start": 5.23,
+          "end": 5.43
+        }
+      ],
+      "expected_tokens": [
+        "Desdemona.",
+        "Nobody;",
+        "I",
+        "myself.",
+        "Farewell.",
+        "Commend",
+        "me",
+        "to",
+        "my",
+        "kind",
+        "lord.",
+        "O,",
+        "farewell!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          11,
+          1,
+          11
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ],
+        [
+          "equal",
+          12,
+          13,
+          12,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Distimona,",
+          "start": 0.55,
+          "end": 1.03,
+          "key": "distimona",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "nobody,",
+          "start": 1.33,
+          "end": 1.53,
+          "key": "nobody",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.89,
+          "end": 1.93,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "myself.",
+          "start": 1.93,
+          "end": 2.25,
+          "key": "myself",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Farewell,",
+          "start": 2.75,
+          "end": 3.07,
+          "key": "farewell",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "commend",
+          "start": 3.27,
+          "end": 3.41,
+          "key": "commend",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 3.41,
+          "end": 3.57,
+          "key": "me",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.57,
+          "end": 3.65,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.65,
+          "end": 3.79,
+          "key": "my",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "kind",
+          "start": 3.79,
+          "end": 4.09,
+          "key": "kind",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 4.09,
+          "end": 4.37,
+          "key": "lord",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 4.87,
+          "end": 5.07,
+          "key": "oh",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "farewell.",
+          "start": 5.23,
+          "end": 5.43,
+          "key": "farewell",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desdemona.",
+          "start": 0.0,
+          "end": 0.665
+        },
+        {
+          "text": "Nobody;",
+          "start": 1.33,
+          "end": 1.53
+        },
+        {
+          "text": "I",
+          "start": 1.89,
+          "end": 1.93
+        },
+        {
+          "text": "myself.",
+          "start": 1.93,
+          "end": 2.25
+        },
+        {
+          "text": "Farewell.",
+          "start": 2.75,
+          "end": 3.07
+        },
+        {
+          "text": "Commend",
+          "start": 3.27,
+          "end": 3.41
+        },
+        {
+          "text": "me",
+          "start": 3.41,
+          "end": 3.57
+        },
+        {
+          "text": "to",
+          "start": 3.57,
+          "end": 3.65
+        },
+        {
+          "text": "my",
+          "start": 3.65,
+          "end": 3.79
+        },
+        {
+          "text": "kind",
+          "start": 3.79,
+          "end": 4.09
+        },
+        {
+          "text": "lord.",
+          "start": 4.09,
+          "end": 4.37
+        },
+        {
+          "text": "O,",
+          "start": 4.37,
+          "end": 4.8
+        },
+        {
+          "text": "farewell!",
+          "start": 5.23,
+          "end": 5.43
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 11
+      },
+      "match_ratio": 0.8461538461538461,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20360686909407377
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "048fbd6512e131ee5f51d91bb4913c88b15a2c801fe5d61ac7622e1a0762c4a3",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

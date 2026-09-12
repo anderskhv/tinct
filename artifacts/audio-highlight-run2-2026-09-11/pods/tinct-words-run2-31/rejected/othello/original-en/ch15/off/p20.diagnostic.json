@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "56230791badbc142ab81bbbad33cafaf9ddacc17dfecb22d14239cd88e6b226f",
+  "attempts": [
+    {
+      "asr_seconds": 0.12156164227053523,
+      "alignment_seconds": 0.00021735671907663345,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Othello, think on thy sins.",
+          "start": 0.21,
+          "end": 1.87,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.21,
+              "end": 0.91,
+              "probability": 0.90625
+            },
+            {
+              "text": " think",
+              "start": 1.27,
+              "end": 1.31,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " on",
+              "start": 1.31,
+              "end": 1.45,
+              "probability": 0.9013671875
+            },
+            {
+              "text": " thy",
+              "start": 1.45,
+              "end": 1.57,
+              "probability": 0.958984375
+            },
+            {
+              "text": " sins.",
+              "start": 1.57,
+              "end": 1.87,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.21,
+          "end": 0.91
+        },
+        {
+          "raw": "think",
+          "start": 1.27,
+          "end": 1.31
+        },
+        {
+          "raw": "on",
+          "start": 1.31,
+          "end": 1.45
+        },
+        {
+          "raw": "thy",
+          "start": 1.45,
+          "end": 1.57
+        },
+        {
+          "raw": "sins.",
+          "start": 1.57,
+          "end": 1.87
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "Think",
+        "on",
+        "thy",
+        "sins."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.21,
+          "end": 0.91,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 1.27,
+          "end": 1.31,
+          "key": "think",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.31,
+          "end": 1.45,
+          "key": "on",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 1.45,
+          "end": 1.57,
+          "key": "thy",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sins.",
+          "start": 1.57,
+          "end": 1.87,
+          "key": "sins",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.21,
+          "end": 0.91
+        },
+        {
+          "text": "Think",
+          "start": 1.27,
+          "end": 1.31
+        },
+        {
+          "text": "on",
+          "start": 1.31,
+          "end": 1.45
+        },
+        {
+          "text": "thy",
+          "start": 1.45,
+          "end": 1.57
+        },
+        {
+          "text": "sins.",
+          "start": 1.57,
+          "end": 1.87
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12185490923002362
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f384fcadbba4a7c36d74b8e4136dbb502203120ca410906bf5adcb0736031553",
+  "selected_reasons": []
+}

@@ -1,0 +1,478 @@
+{
+  "complete": true,
+  "signature": "75a107b318550042368f35da854a0397dd267c1dd1705ed9d078def74456887e",
+  "attempts": [
+    {
+      "asr_seconds": 0.24061301024630666,
+      "alignment_seconds": 0.0003706258721649647,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Enter Lodovico, Montano, Cassio carried in a chair, and Officers with Iago prisoner.]",
+        "hotwords": "Enter, Lodovico, Montano, Cassio, Officers, Iago"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter, Lodovico, Montano, Cassio carried in a chair, and Officers with Iago prisoner.]",
+          "start": 0.08,
+          "end": 6.74,
+          "words": [
+            {
+              "text": " Enter,",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.90869140625
+            },
+            {
+              "text": " Lodovico,",
+              "start": 0.74,
+              "end": 1.36,
+              "probability": 0.4678141276041667
+            },
+            {
+              "text": " Montano,",
+              "start": 1.74,
+              "end": 2.26,
+              "probability": 0.867919921875
+            },
+            {
+              "text": " Cassio",
+              "start": 2.86,
+              "end": 3.12,
+              "probability": 0.65869140625
+            },
+            {
+              "text": " carried",
+              "start": 3.12,
+              "end": 3.42,
+              "probability": 0.953125
+            },
+            {
+              "text": " in",
+              "start": 3.42,
+              "end": 3.6,
+              "probability": 0.994140625
+            },
+            {
+              "text": " a",
+              "start": 3.6,
+              "end": 3.7,
+              "probability": 0.98828125
+            },
+            {
+              "text": " chair,",
+              "start": 3.7,
+              "end": 3.96,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " and",
+              "start": 4.34,
+              "end": 4.48,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Officers",
+              "start": 4.48,
+              "end": 4.88,
+              "probability": 0.005084991455078125
+            },
+            {
+              "text": " with",
+              "start": 4.88,
+              "end": 5.2,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " Iago",
+              "start": 5.2,
+              "end": 5.62,
+              "probability": 0.35986328125
+            },
+            {
+              "text": " prisoner.]",
+              "start": 5.62,
+              "end": 6.74,
+              "probability": 0.37720635533332825
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter,",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "Lodovico,",
+          "start": 0.74,
+          "end": 1.36
+        },
+        {
+          "raw": "Montano,",
+          "start": 1.74,
+          "end": 2.26
+        },
+        {
+          "raw": "Cassio",
+          "start": 2.86,
+          "end": 3.12
+        },
+        {
+          "raw": "carried",
+          "start": 3.12,
+          "end": 3.42
+        },
+        {
+          "raw": "in",
+          "start": 3.42,
+          "end": 3.6
+        },
+        {
+          "raw": "a",
+          "start": 3.6,
+          "end": 3.7
+        },
+        {
+          "raw": "chair,",
+          "start": 3.7,
+          "end": 3.96
+        },
+        {
+          "raw": "and",
+          "start": 4.34,
+          "end": 4.48
+        },
+        {
+          "raw": "Officers",
+          "start": 4.48,
+          "end": 4.88
+        },
+        {
+          "raw": "with",
+          "start": 4.88,
+          "end": 5.2
+        },
+        {
+          "raw": "Iago",
+          "start": 5.2,
+          "end": 5.62
+        },
+        {
+          "raw": "prisoner.]",
+          "start": 5.62,
+          "end": 6.74
+        }
+      ],
+      "expected_tokens": [
+        "[Enter",
+        "Lodovico,",
+        "Montano,",
+        "Cassio",
+        "carried",
+        "in",
+        "a",
+        "chair,",
+        "and",
+        "Officers",
+        "with",
+        "Iago",
+        "prisoner.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter,",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lodovico,",
+          "start": 0.74,
+          "end": 1.36,
+          "key": "lodovico",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Montano,",
+          "start": 1.74,
+          "end": 2.26,
+          "key": "montano",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Cassio",
+          "start": 2.86,
+          "end": 3.12,
+          "key": "cassio",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "carried",
+          "start": 3.12,
+          "end": 3.42,
+          "key": "carried",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.42,
+          "end": 3.6,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.6,
+          "end": 3.7,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "chair,",
+          "start": 3.7,
+          "end": 3.96,
+          "key": "chair",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.34,
+          "end": 4.48,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Officers",
+          "start": 4.48,
+          "end": 4.88,
+          "key": "officers",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.88,
+          "end": 5.2,
+          "key": "with",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Iago",
+          "start": 5.2,
+          "end": 5.62,
+          "key": "iago",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "prisoner.]",
+          "start": 5.62,
+          "end": 6.74,
+          "key": "prisoner",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Enter",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "Lodovico,",
+          "start": 0.74,
+          "end": 1.36
+        },
+        {
+          "text": "Montano,",
+          "start": 1.74,
+          "end": 2.26
+        },
+        {
+          "text": "Cassio",
+          "start": 2.86,
+          "end": 3.12
+        },
+        {
+          "text": "carried",
+          "start": 3.12,
+          "end": 3.42
+        },
+        {
+          "text": "in",
+          "start": 3.42,
+          "end": 3.6
+        },
+        {
+          "text": "a",
+          "start": 3.6,
+          "end": 3.7
+        },
+        {
+          "text": "chair,",
+          "start": 3.7,
+          "end": 3.96
+        },
+        {
+          "text": "and",
+          "start": 4.34,
+          "end": 4.48
+        },
+        {
+          "text": "Officers",
+          "start": 4.48,
+          "end": 4.88
+        },
+        {
+          "text": "with",
+          "start": 4.88,
+          "end": 5.2
+        },
+        {
+          "text": "Iago",
+          "start": 5.2,
+          "end": 5.62
+        },
+        {
+          "text": "prisoner.]",
+          "start": 5.62,
+          "end": 6.74
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.241126605309546
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9773e7e18824c7a14c78335c7155852179539a58dfde0e9f2e1743838c4734d4",
+  "selected_reasons": []
+}

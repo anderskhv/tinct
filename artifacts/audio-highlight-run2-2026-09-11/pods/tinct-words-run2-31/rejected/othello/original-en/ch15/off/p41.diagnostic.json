@@ -1,0 +1,271 @@
+{
+  "complete": true,
+  "signature": "44e9e41e02a7b0c40a4faa2fde9f5e7012edce7a52c8e72cbe485a53308dd3c3",
+  "attempts": [
+    {
+      "asr_seconds": 0.14375256234779954,
+      "alignment_seconds": 0.00024386821314692497,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Distimona, he will not say so.",
+          "start": 0.05,
+          "end": 2.33,
+          "words": [
+            {
+              "text": " Distimona,",
+              "start": 0.05,
+              "end": 0.99,
+              "probability": 0.67303466796875
+            },
+            {
+              "text": " he",
+              "start": 1.25,
+              "end": 1.45,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " will",
+              "start": 1.45,
+              "end": 1.53,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " not",
+              "start": 1.53,
+              "end": 1.71,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " say",
+              "start": 1.71,
+              "end": 1.95,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " so.",
+              "start": 1.95,
+              "end": 2.33,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Distimona,",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "raw": "he",
+          "start": 1.25,
+          "end": 1.45
+        },
+        {
+          "raw": "will",
+          "start": 1.45,
+          "end": 1.53
+        },
+        {
+          "raw": "not",
+          "start": 1.53,
+          "end": 1.71
+        },
+        {
+          "raw": "say",
+          "start": 1.71,
+          "end": 1.95
+        },
+        {
+          "raw": "so.",
+          "start": 1.95,
+          "end": 2.33
+        }
+      ],
+      "expected_tokens": [
+        "Desdemona.",
+        "He",
+        "will",
+        "not",
+        "say",
+        "so."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          6,
+          1,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Distimona,",
+          "start": 0.05,
+          "end": 0.99,
+          "key": "distimona",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.25,
+          "end": 1.45,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.45,
+          "end": 1.53,
+          "key": "will",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.53,
+          "end": 1.71,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 1.71,
+          "end": 1.95,
+          "key": "say",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "so.",
+          "start": 1.95,
+          "end": 2.33,
+          "key": "so",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desdemona.",
+          "start": 0.0,
+          "end": 0.625
+        },
+        {
+          "text": "He",
+          "start": 1.25,
+          "end": 1.45
+        },
+        {
+          "text": "will",
+          "start": 1.45,
+          "end": 1.53
+        },
+        {
+          "text": "not",
+          "start": 1.53,
+          "end": 1.71
+        },
+        {
+          "text": "say",
+          "start": 1.71,
+          "end": 1.95
+        },
+        {
+          "text": "so.",
+          "start": 1.95,
+          "end": 2.33
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1440806589089334
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b0d8817862152aa5129b37ae76430aeb5f2377e86859d4a890cd89324adceec1",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

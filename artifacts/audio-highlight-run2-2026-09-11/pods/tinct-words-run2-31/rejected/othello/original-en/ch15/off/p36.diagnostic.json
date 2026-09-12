@@ -1,0 +1,207 @@
+{
+  "complete": true,
+  "signature": "b7eb3f2d9427f133ebb40556cd2aef595d348847c56d96de6c3b6498771c5d52",
+  "attempts": [
+    {
+      "asr_seconds": 0.11969821201637387,
+      "alignment_seconds": 0.00015373807400465012,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Othello, he hath confessed.",
+          "start": 0.05,
+          "end": 1.79,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.9134114583333334
+            },
+            {
+              "text": " he",
+              "start": 1.13,
+              "end": 1.25,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " hath",
+              "start": 1.25,
+              "end": 1.39,
+              "probability": 0.99609375
+            },
+            {
+              "text": " confessed.",
+              "start": 1.39,
+              "end": 1.79,
+              "probability": 0.93994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "he",
+          "start": 1.13,
+          "end": 1.25
+        },
+        {
+          "raw": "hath",
+          "start": 1.25,
+          "end": 1.39
+        },
+        {
+          "raw": "confessed.",
+          "start": 1.39,
+          "end": 1.79
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "He",
+        "hath",
+        "confess'd."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.13,
+          "end": 1.25,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 1.25,
+          "end": 1.39,
+          "key": "hath",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "confessed.",
+          "start": 1.39,
+          "end": 1.79,
+          "key": "confessed",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "He",
+          "start": 1.13,
+          "end": 1.25
+        },
+        {
+          "text": "hath",
+          "start": 1.25,
+          "end": 1.39
+        },
+        {
+          "text": "confess'd.",
+          "start": 1.39,
+          "end": 1.59
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1199011099524796
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1dea37836ceef6a722abda729954919d77b877b6cdf75f12ac9d7a2d9518eb06",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

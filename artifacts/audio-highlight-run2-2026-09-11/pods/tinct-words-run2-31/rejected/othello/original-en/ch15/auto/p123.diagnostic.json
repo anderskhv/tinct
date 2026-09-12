@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "740e86e806c1d95cb7955efdbcf13d1a2dc9801ab2c5056f9696d0aed8e1fc81",
+  "attempts": [
+    {
+      "asr_seconds": 0.12827058881521225,
+      "alignment_seconds": 0.00012600887566804886,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Gratiano. 'Tis a strange truth.",
+        "hotwords": "Gratiano, Tis"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Gratiano, Tis a strange truth.",
+          "start": 0.05,
+          "end": 2.37,
+          "words": [
+            {
+              "text": " Gratiano,",
+              "start": 0.05,
+              "end": 1.03,
+              "probability": 0.6346028645833334
+            },
+            {
+              "text": " Tis",
+              "start": 1.37,
+              "end": 1.65,
+              "probability": 0.0421905517578125
+            },
+            {
+              "text": " a",
+              "start": 1.65,
+              "end": 1.75,
+              "probability": 0.921875
+            },
+            {
+              "text": " strange",
+              "start": 1.75,
+              "end": 1.99,
+              "probability": 0.70068359375
+            },
+            {
+              "text": " truth.",
+              "start": 1.99,
+              "end": 2.37,
+              "probability": 0.9892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gratiano,",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "raw": "Tis",
+          "start": 1.37,
+          "end": 1.65
+        },
+        {
+          "raw": "a",
+          "start": 1.65,
+          "end": 1.75
+        },
+        {
+          "raw": "strange",
+          "start": 1.75,
+          "end": 1.99
+        },
+        {
+          "raw": "truth.",
+          "start": 1.99,
+          "end": 2.37
+        }
+      ],
+      "expected_tokens": [
+        "Gratiano.",
+        "'Tis",
+        "a",
+        "strange",
+        "truth."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gratiano,",
+          "start": 0.05,
+          "end": 1.03,
+          "key": "gratiano",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Tis",
+          "start": 1.37,
+          "end": 1.65,
+          "key": "tis",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.65,
+          "end": 1.75,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "strange",
+          "start": 1.75,
+          "end": 1.99,
+          "key": "strange",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "truth.",
+          "start": 1.99,
+          "end": 2.37,
+          "key": "truth",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gratiano.",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "text": "'Tis",
+          "start": 1.37,
+          "end": 1.65
+        },
+        {
+          "text": "a",
+          "start": 1.65,
+          "end": 1.75
+        },
+        {
+          "text": "strange",
+          "start": 1.75,
+          "end": 1.99
+        },
+        {
+          "text": "truth.",
+          "start": 1.99,
+          "end": 2.37
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1284404769539833
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "506433bdbd1276d556eb4e17ef773546383c3952aa0cd9d7d912e63d9185c381",
+  "selected_reasons": []
+}

@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "ce3a0ddfedae0b4b41e2e7ab4912ef436566747390c95096badbad626732ccae",
+  "attempts": [
+    {
+      "asr_seconds": 0.15273437602445483,
+      "alignment_seconds": 0.0003184857778251171,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Emilia. Thou dost belie her, and thou art a devil.",
+        "hotwords": "Emilia"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Emilia. Thou dost belie her, and thou art a devil.",
+          "start": 0.05,
+          "end": 3.13,
+          "words": [
+            {
+              "text": " Emilia.",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.639404296875
+            },
+            {
+              "text": " Thou",
+              "start": 1.35,
+              "end": 1.47,
+              "probability": 0.84912109375
+            },
+            {
+              "text": " dost",
+              "start": 1.47,
+              "end": 1.75,
+              "probability": 0.89892578125
+            },
+            {
+              "text": " belie",
+              "start": 1.75,
+              "end": 1.95,
+              "probability": 0.78662109375
+            },
+            {
+              "text": " her,",
+              "start": 1.95,
+              "end": 2.25,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " and",
+              "start": 2.41,
+              "end": 2.45,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " thou",
+              "start": 2.45,
+              "end": 2.59,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " art",
+              "start": 2.59,
+              "end": 2.81,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " a",
+              "start": 2.81,
+              "end": 2.93,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " devil.",
+              "start": 2.93,
+              "end": 3.13,
+              "probability": 0.9482421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Emilia.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "Thou",
+          "start": 1.35,
+          "end": 1.47
+        },
+        {
+          "raw": "dost",
+          "start": 1.47,
+          "end": 1.75
+        },
+        {
+          "raw": "belie",
+          "start": 1.75,
+          "end": 1.95
+        },
+        {
+          "raw": "her,",
+          "start": 1.95,
+          "end": 2.25
+        },
+        {
+          "raw": "and",
+          "start": 2.41,
+          "end": 2.45
+        },
+        {
+          "raw": "thou",
+          "start": 2.45,
+          "end": 2.59
+        },
+        {
+          "raw": "art",
+          "start": 2.59,
+          "end": 2.81
+        },
+        {
+          "raw": "a",
+          "start": 2.81,
+          "end": 2.93
+        },
+        {
+          "raw": "devil.",
+          "start": 2.93,
+          "end": 3.13
+        }
+      ],
+      "expected_tokens": [
+        "Emilia.",
+        "Thou",
+        "dost",
+        "belie",
+        "her,",
+        "and",
+        "thou",
+        "art",
+        "a",
+        "devil."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Emilia.",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "emilia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Thou",
+          "start": 1.35,
+          "end": 1.47,
+          "key": "thou",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "dost",
+          "start": 1.47,
+          "end": 1.75,
+          "key": "dost",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "belie",
+          "start": 1.75,
+          "end": 1.95,
+          "key": "belie",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "her,",
+          "start": 1.95,
+          "end": 2.25,
+          "key": "her",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.41,
+          "end": 2.45,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.45,
+          "end": 2.59,
+          "key": "thou",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "art",
+          "start": 2.59,
+          "end": 2.81,
+          "key": "art",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.81,
+          "end": 2.93,
+          "key": "a",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "devil.",
+          "start": 2.93,
+          "end": 3.13,
+          "key": "devil",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Emilia.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "Thou",
+          "start": 1.35,
+          "end": 1.47
+        },
+        {
+          "text": "dost",
+          "start": 1.47,
+          "end": 1.75
+        },
+        {
+          "text": "belie",
+          "start": 1.75,
+          "end": 1.95
+        },
+        {
+          "text": "her,",
+          "start": 1.95,
+          "end": 2.25
+        },
+        {
+          "text": "and",
+          "start": 2.41,
+          "end": 2.45
+        },
+        {
+          "text": "thou",
+          "start": 2.45,
+          "end": 2.59
+        },
+        {
+          "text": "art",
+          "start": 2.59,
+          "end": 2.81
+        },
+        {
+          "text": "a",
+          "start": 2.81,
+          "end": 2.93
+        },
+        {
+          "text": "devil.",
+          "start": 2.93,
+          "end": 3.13
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1531753810122609
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3f9229f369971f518f6cfa493d6dcbaa6f947d7214c7d18d653e5efc81784076",
+  "selected_reasons": []
+}

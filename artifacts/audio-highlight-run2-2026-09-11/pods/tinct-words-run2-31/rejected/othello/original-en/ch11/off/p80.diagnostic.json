@@ -1,0 +1,707 @@
+{
+  "complete": true,
+  "signature": "ee0a624c33b135dcfff4fba76fe0786490ec1cdc74ac56261c9e0e3b172261d1",
+  "attempts": [
+    {
+      "asr_seconds": 0.29105951311066747,
+      "alignment_seconds": 0.00049553532153368,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Bianca, if you'll come to supper tonight, you may.",
+          "start": 0.5,
+          "end": 2.78,
+          "words": [
+            {
+              "text": " Bianca,",
+              "start": 0.5,
+              "end": 0.86,
+              "probability": 0.939697265625
+            },
+            {
+              "text": " if",
+              "start": 1.22,
+              "end": 1.38,
+              "probability": 0.97265625
+            },
+            {
+              "text": " you'll",
+              "start": 1.38,
+              "end": 1.54,
+              "probability": 0.906494140625
+            },
+            {
+              "text": " come",
+              "start": 1.54,
+              "end": 1.64,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 1.64,
+              "end": 1.78,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " supper",
+              "start": 1.78,
+              "end": 1.94,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " tonight,",
+              "start": 1.94,
+              "end": 2.3,
+              "probability": 0.9921875
+            },
+            {
+              "text": " you",
+              "start": 2.52,
+              "end": 2.56,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " may.",
+              "start": 2.56,
+              "end": 2.78,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " If you will not, come when you are next prepared for.",
+          "start": 3.44,
+          "end": 5.7,
+          "words": [
+            {
+              "text": " If",
+              "start": 3.44,
+              "end": 3.52,
+              "probability": 0.98046875
+            },
+            {
+              "text": " you",
+              "start": 3.52,
+              "end": 3.64,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " will",
+              "start": 3.64,
+              "end": 3.78,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " not,",
+              "start": 3.78,
+              "end": 4.08,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " come",
+              "start": 4.28,
+              "end": 4.46,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " when",
+              "start": 4.46,
+              "end": 4.62,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " you",
+              "start": 4.62,
+              "end": 4.72,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " are",
+              "start": 4.72,
+              "end": 4.8,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " next",
+              "start": 4.8,
+              "end": 5.02,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " prepared",
+              "start": 5.02,
+              "end": 5.4,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " for.",
+              "start": 5.4,
+              "end": 5.7,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bianca,",
+          "start": 0.5,
+          "end": 0.86
+        },
+        {
+          "raw": "if",
+          "start": 1.22,
+          "end": 1.38
+        },
+        {
+          "raw": "you'll",
+          "start": 1.38,
+          "end": 1.54
+        },
+        {
+          "raw": "come",
+          "start": 1.54,
+          "end": 1.64
+        },
+        {
+          "raw": "to",
+          "start": 1.64,
+          "end": 1.78
+        },
+        {
+          "raw": "supper",
+          "start": 1.78,
+          "end": 1.94
+        },
+        {
+          "raw": "tonight,",
+          "start": 1.94,
+          "end": 2.3
+        },
+        {
+          "raw": "you",
+          "start": 2.52,
+          "end": 2.56
+        },
+        {
+          "raw": "may.",
+          "start": 2.56,
+          "end": 2.78
+        },
+        {
+          "raw": "If",
+          "start": 3.44,
+          "end": 3.52
+        },
+        {
+          "raw": "you",
+          "start": 3.52,
+          "end": 3.64
+        },
+        {
+          "raw": "will",
+          "start": 3.64,
+          "end": 3.78
+        },
+        {
+          "raw": "not,",
+          "start": 3.78,
+          "end": 4.08
+        },
+        {
+          "raw": "come",
+          "start": 4.28,
+          "end": 4.46
+        },
+        {
+          "raw": "when",
+          "start": 4.46,
+          "end": 4.62
+        },
+        {
+          "raw": "you",
+          "start": 4.62,
+          "end": 4.72
+        },
+        {
+          "raw": "are",
+          "start": 4.72,
+          "end": 4.8
+        },
+        {
+          "raw": "next",
+          "start": 4.8,
+          "end": 5.02
+        },
+        {
+          "raw": "prepared",
+          "start": 5.02,
+          "end": 5.4
+        },
+        {
+          "raw": "for.",
+          "start": 5.4,
+          "end": 5.7
+        }
+      ],
+      "expected_tokens": [
+        "Bianca.",
+        "If",
+        "you'll",
+        "come",
+        "to",
+        "supper",
+        "tonight,",
+        "you",
+        "may.",
+        "If",
+        "you",
+        "will",
+        "not,",
+        "come",
+        "when",
+        "you",
+        "are",
+        "next",
+        "prepared",
+        "for."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bianca,",
+          "start": 0.5,
+          "end": 0.86,
+          "key": "bianca",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 1.22,
+          "end": 1.38,
+          "key": "if",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you'll",
+          "start": 1.38,
+          "end": 1.54,
+          "key": "youll",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 1.54,
+          "end": 1.64,
+          "key": "come",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.64,
+          "end": 1.78,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "supper",
+          "start": 1.78,
+          "end": 1.94,
+          "key": "supper",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "tonight,",
+          "start": 1.94,
+          "end": 2.3,
+          "key": "tonight",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.52,
+          "end": 2.56,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "may.",
+          "start": 2.56,
+          "end": 2.78,
+          "key": "may",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 3.44,
+          "end": 3.52,
+          "key": "if",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.52,
+          "end": 3.64,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 3.64,
+          "end": 3.78,
+          "key": "will",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "not,",
+          "start": 3.78,
+          "end": 4.08,
+          "key": "not",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 4.28,
+          "end": 4.46,
+          "key": "come",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 4.46,
+          "end": 4.62,
+          "key": "when",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.62,
+          "end": 4.72,
+          "key": "you",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 4.72,
+          "end": 4.8,
+          "key": "are",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "next",
+          "start": 4.8,
+          "end": 5.02,
+          "key": "next",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "prepared",
+          "start": 5.02,
+          "end": 5.4,
+          "key": "prepared",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "for.",
+          "start": 5.4,
+          "end": 5.7,
+          "key": "for",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Bianca.",
+          "start": 0.5,
+          "end": 0.86
+        },
+        {
+          "text": "If",
+          "start": 1.22,
+          "end": 1.38
+        },
+        {
+          "text": "you'll",
+          "start": 1.38,
+          "end": 1.54
+        },
+        {
+          "text": "come",
+          "start": 1.54,
+          "end": 1.64
+        },
+        {
+          "text": "to",
+          "start": 1.64,
+          "end": 1.78
+        },
+        {
+          "text": "supper",
+          "start": 1.78,
+          "end": 1.94
+        },
+        {
+          "text": "tonight,",
+          "start": 1.94,
+          "end": 2.3
+        },
+        {
+          "text": "you",
+          "start": 2.52,
+          "end": 2.56
+        },
+        {
+          "text": "may.",
+          "start": 2.56,
+          "end": 2.78
+        },
+        {
+          "text": "If",
+          "start": 3.44,
+          "end": 3.52
+        },
+        {
+          "text": "you",
+          "start": 3.52,
+          "end": 3.64
+        },
+        {
+          "text": "will",
+          "start": 3.64,
+          "end": 3.78
+        },
+        {
+          "text": "not,",
+          "start": 3.78,
+          "end": 4.08
+        },
+        {
+          "text": "come",
+          "start": 4.28,
+          "end": 4.46
+        },
+        {
+          "text": "when",
+          "start": 4.46,
+          "end": 4.62
+        },
+        {
+          "text": "you",
+          "start": 4.62,
+          "end": 4.72
+        },
+        {
+          "text": "are",
+          "start": 4.72,
+          "end": 4.8
+        },
+        {
+          "text": "next",
+          "start": 4.8,
+          "end": 5.02
+        },
+        {
+          "text": "prepared",
+          "start": 5.02,
+          "end": 5.4
+        },
+        {
+          "text": "for.",
+          "start": 5.4,
+          "end": 5.7
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2917466158978641
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cdfeaa809ea6c1898daae8e74e7b2d32dbf67658d07514f9d931731b33099df6",
+  "selected_reasons": []
+}

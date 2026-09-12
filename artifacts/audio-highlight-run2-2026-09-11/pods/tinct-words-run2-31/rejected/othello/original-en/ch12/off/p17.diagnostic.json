@@ -1,0 +1,299 @@
+{
+  "complete": true,
+  "signature": "63987b3606a14cd4ea2a926754c72622ebc5adca35a8a7e458e682aac030f45a",
+  "attempts": [
+    {
+      "asr_seconds": 0.1454594936221838,
+      "alignment_seconds": 0.00015180837363004684,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Distimona, my lord, what is your will?",
+          "start": 0.55,
+          "end": 2.55,
+          "words": [
+            {
+              "text": " Distimona,",
+              "start": 0.55,
+              "end": 0.99,
+              "probability": 0.68536376953125
+            },
+            {
+              "text": " my",
+              "start": 1.41,
+              "end": 1.57,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " lord,",
+              "start": 1.57,
+              "end": 1.81,
+              "probability": 0.7490234375
+            },
+            {
+              "text": " what",
+              "start": 2.05,
+              "end": 2.11,
+              "probability": 0.9921875
+            },
+            {
+              "text": " is",
+              "start": 2.11,
+              "end": 2.21,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " your",
+              "start": 2.21,
+              "end": 2.35,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " will?",
+              "start": 2.35,
+              "end": 2.55,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Distimona,",
+          "start": 0.55,
+          "end": 0.99
+        },
+        {
+          "raw": "my",
+          "start": 1.41,
+          "end": 1.57
+        },
+        {
+          "raw": "lord,",
+          "start": 1.57,
+          "end": 1.81
+        },
+        {
+          "raw": "what",
+          "start": 2.05,
+          "end": 2.11
+        },
+        {
+          "raw": "is",
+          "start": 2.11,
+          "end": 2.21
+        },
+        {
+          "raw": "your",
+          "start": 2.21,
+          "end": 2.35
+        },
+        {
+          "raw": "will?",
+          "start": 2.35,
+          "end": 2.55
+        }
+      ],
+      "expected_tokens": [
+        "Desdemona.",
+        "My",
+        "lord,",
+        "what",
+        "is",
+        "your",
+        "will?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          7,
+          1,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Distimona,",
+          "start": 0.55,
+          "end": 0.99,
+          "key": "distimona",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.41,
+          "end": 1.57,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lord,",
+          "start": 1.57,
+          "end": 1.81,
+          "key": "lord",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 2.05,
+          "end": 2.11,
+          "key": "what",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.11,
+          "end": 2.21,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.21,
+          "end": 2.35,
+          "key": "your",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "will?",
+          "start": 2.35,
+          "end": 2.55,
+          "key": "will",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desdemona.",
+          "start": 0.0,
+          "end": 0.705
+        },
+        {
+          "text": "My",
+          "start": 1.41,
+          "end": 1.57
+        },
+        {
+          "text": "lord,",
+          "start": 1.57,
+          "end": 1.81
+        },
+        {
+          "text": "what",
+          "start": 2.05,
+          "end": 2.11
+        },
+        {
+          "text": "is",
+          "start": 2.11,
+          "end": 2.21
+        },
+        {
+          "text": "your",
+          "start": 2.21,
+          "end": 2.35
+        },
+        {
+          "text": "will?",
+          "start": 2.35,
+          "end": 2.55
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.14566068165004253
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4c97a314a90e3a76bbc5931b222bb093e6d259bb9f23cd06b2aea346d2730d76",
+  "selected_reasons": []
+}

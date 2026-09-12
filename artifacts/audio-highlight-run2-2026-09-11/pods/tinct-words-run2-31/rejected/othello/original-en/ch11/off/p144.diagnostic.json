@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "738f23c6e591de574451716fe618ace2e8a2d3dbbfa57376803e0cf953a3b01f",
+  "attempts": [
+    {
+      "asr_seconds": 0.11926787998527288,
+      "alignment_seconds": 0.00016480917111039162,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " striking her.",
+          "start": 0.11,
+          "end": 1.05,
+          "words": [
+            {
+              "text": " striking",
+              "start": 0.11,
+              "end": 0.71,
+              "probability": 0.68994140625
+            },
+            {
+              "text": " her.",
+              "start": 0.71,
+              "end": 1.05,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "striking",
+          "start": 0.11,
+          "end": 0.71
+        },
+        {
+          "raw": "her.",
+          "start": 0.71,
+          "end": 1.05
+        }
+      ],
+      "expected_tokens": [
+        "[Striking",
+        "her.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "striking",
+          "start": 0.11,
+          "end": 0.71,
+          "key": "striking",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 0.71,
+          "end": 1.05,
+          "key": "her",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Striking",
+          "start": 0.11,
+          "end": 0.71
+        },
+        {
+          "text": "her.]",
+          "start": 0.71,
+          "end": 1.05
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11948557803407311
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "73f07573987f1f90e097d278bf808a287cb2593d4bb7950152e3bf7125bac11b",
+  "selected_reasons": []
+}

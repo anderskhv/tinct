@@ -1,0 +1,4880 @@
+{
+  "complete": true,
+  "signature": "b6bec48aad72580a229c7678a56a9be4719c68eb175aca1c6ae99f73ba70f073",
+  "attempts": [
+    {
+      "asr_seconds": 0.5588101041503251,
+      "alignment_seconds": 0.001009159255772829,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Stay you, good gentlemen.—Look you pale, mistress? Do you perceive the gastness of her eye? Nay, if you stare, we shall hear more anon. Behold her well. I pray you, look upon her. Do you see, gentlemen? Nay, guiltiness will speak Though tongues were out of use.]",
+        "hotwords": "Stay, Do, Nay, Behold, I, Though"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Stay, you good gentlemen. Look you pale, mistress. Do you perceive the gastness of her eye? Nay,",
+          "start": 0.08,
+          "end": 6.22,
+          "words": [
+            {
+              "text": " Stay,",
+              "start": 0.08,
+              "end": 0.6,
+              "probability": 0.390625
+            },
+            {
+              "text": " you",
+              "start": 0.76,
+              "end": 0.84,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " good",
+              "start": 0.84,
+              "end": 1.02,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " gentlemen.",
+              "start": 1.02,
+              "end": 1.5,
+              "probability": 0.308837890625
+            },
+            {
+              "text": " Look",
+              "start": 2.24,
+              "end": 2.32,
+              "probability": 0.970703125
+            },
+            {
+              "text": " you",
+              "start": 2.32,
+              "end": 2.5,
+              "probability": 0.473388671875
+            },
+            {
+              "text": " pale,",
+              "start": 2.5,
+              "end": 2.86,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " mistress.",
+              "start": 3.02,
+              "end": 3.24,
+              "probability": 0.9130859375
+            },
+            {
+              "text": " Do",
+              "start": 3.9,
+              "end": 3.98,
+              "probability": 0.98828125
+            },
+            {
+              "text": " you",
+              "start": 3.98,
+              "end": 4.08,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " perceive",
+              "start": 4.08,
+              "end": 4.36,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 4.36,
+              "end": 4.58,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " gastness",
+              "start": 4.58,
+              "end": 5.04,
+              "probability": 0.5026664733886719
+            },
+            {
+              "text": " of",
+              "start": 5.04,
+              "end": 5.18,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " her",
+              "start": 5.18,
+              "end": 5.3,
+              "probability": 0.998046875
+            },
+            {
+              "text": " eye?",
+              "start": 5.3,
+              "end": 5.58,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " Nay,",
+              "start": 6.12,
+              "end": 6.22,
+              "probability": 0.974609375
+            }
+          ]
+        },
+        {
+          "text": " if you stare, we shall hear more anon. Behold her well. I pray you, look upon her. Do you",
+          "start": 6.3,
+          "end": 11.54,
+          "words": [
+            {
+              "text": " if",
+              "start": 6.3,
+              "end": 6.42,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " you",
+              "start": 6.42,
+              "end": 6.56,
+              "probability": 0.99609375
+            },
+            {
+              "text": " stare,",
+              "start": 6.56,
+              "end": 6.86,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " we",
+              "start": 7.02,
+              "end": 7.12,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " shall",
+              "start": 7.12,
+              "end": 7.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " hear",
+              "start": 7.26,
+              "end": 7.48,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " more",
+              "start": 7.48,
+              "end": 7.7,
+              "probability": 0.9921875
+            },
+            {
+              "text": " anon.",
+              "start": 7.7,
+              "end": 8.06,
+              "probability": 0.925537109375
+            },
+            {
+              "text": " Behold",
+              "start": 8.52,
+              "end": 8.8,
+              "probability": 0.995361328125
+            },
+            {
+              "text": " her",
+              "start": 8.8,
+              "end": 9.0,
+              "probability": 0.921875
+            },
+            {
+              "text": " well.",
+              "start": 9.0,
+              "end": 9.2,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " I",
+              "start": 9.66,
+              "end": 9.76,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " pray",
+              "start": 9.76,
+              "end": 9.96,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " you,",
+              "start": 9.96,
+              "end": 10.2,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " look",
+              "start": 10.28,
+              "end": 10.4,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " upon",
+              "start": 10.4,
+              "end": 10.66,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " her.",
+              "start": 10.66,
+              "end": 10.92,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Do",
+              "start": 11.32,
+              "end": 11.44,
+              "probability": 0.984375
+            },
+            {
+              "text": " you",
+              "start": 11.44,
+              "end": 11.54,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " see, gentlemen? Nay, guiltiness will speak Though tongues were out of use.]",
+          "start": 11.54,
+          "end": 15.9,
+          "words": [
+            {
+              "text": " see,",
+              "start": 11.54,
+              "end": 11.76,
+              "probability": 0.99609375
+            },
+            {
+              "text": " gentlemen?",
+              "start": 11.88,
+              "end": 12.24,
+              "probability": 0.81689453125
+            },
+            {
+              "text": " Nay,",
+              "start": 12.9,
+              "end": 13.04,
+              "probability": 0.984375
+            },
+            {
+              "text": " guiltiness",
+              "start": 13.2,
+              "end": 13.6,
+              "probability": 0.966064453125
+            },
+            {
+              "text": " will",
+              "start": 13.6,
+              "end": 13.82,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " speak",
+              "start": 13.82,
+              "end": 14.1,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Though",
+              "start": 14.1,
+              "end": 14.32,
+              "probability": 0.0007848739624023438
+            },
+            {
+              "text": " tongues",
+              "start": 14.32,
+              "end": 14.62,
+              "probability": 0.986328125
+            },
+            {
+              "text": " were",
+              "start": 14.62,
+              "end": 14.84,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " out",
+              "start": 14.84,
+              "end": 15.0,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 15.0,
+              "end": 15.14,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " use.]",
+              "start": 15.14,
+              "end": 15.9,
+              "probability": 0.4993736147880554
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Stay,",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "raw": "you",
+          "start": 0.76,
+          "end": 0.84
+        },
+        {
+          "raw": "good",
+          "start": 0.84,
+          "end": 1.02
+        },
+        {
+          "raw": "gentlemen.",
+          "start": 1.02,
+          "end": 1.5
+        },
+        {
+          "raw": "Look",
+          "start": 2.24,
+          "end": 2.32
+        },
+        {
+          "raw": "you",
+          "start": 2.32,
+          "end": 2.5
+        },
+        {
+          "raw": "pale,",
+          "start": 2.5,
+          "end": 2.86
+        },
+        {
+          "raw": "mistress.",
+          "start": 3.02,
+          "end": 3.24
+        },
+        {
+          "raw": "Do",
+          "start": 3.9,
+          "end": 3.98
+        },
+        {
+          "raw": "you",
+          "start": 3.98,
+          "end": 4.08
+        },
+        {
+          "raw": "perceive",
+          "start": 4.08,
+          "end": 4.36
+        },
+        {
+          "raw": "the",
+          "start": 4.36,
+          "end": 4.58
+        },
+        {
+          "raw": "gastness",
+          "start": 4.58,
+          "end": 5.04
+        },
+        {
+          "raw": "of",
+          "start": 5.04,
+          "end": 5.18
+        },
+        {
+          "raw": "her",
+          "start": 5.18,
+          "end": 5.3
+        },
+        {
+          "raw": "eye?",
+          "start": 5.3,
+          "end": 5.58
+        },
+        {
+          "raw": "Nay,",
+          "start": 6.12,
+          "end": 6.22
+        },
+        {
+          "raw": "if",
+          "start": 6.3,
+          "end": 6.42
+        },
+        {
+          "raw": "you",
+          "start": 6.42,
+          "end": 6.56
+        },
+        {
+          "raw": "stare,",
+          "start": 6.56,
+          "end": 6.86
+        },
+        {
+          "raw": "we",
+          "start": 7.02,
+          "end": 7.12
+        },
+        {
+          "raw": "shall",
+          "start": 7.12,
+          "end": 7.26
+        },
+        {
+          "raw": "hear",
+          "start": 7.26,
+          "end": 7.48
+        },
+        {
+          "raw": "more",
+          "start": 7.48,
+          "end": 7.7
+        },
+        {
+          "raw": "anon.",
+          "start": 7.7,
+          "end": 8.06
+        },
+        {
+          "raw": "Behold",
+          "start": 8.52,
+          "end": 8.8
+        },
+        {
+          "raw": "her",
+          "start": 8.8,
+          "end": 9.0
+        },
+        {
+          "raw": "well.",
+          "start": 9.0,
+          "end": 9.2
+        },
+        {
+          "raw": "I",
+          "start": 9.66,
+          "end": 9.76
+        },
+        {
+          "raw": "pray",
+          "start": 9.76,
+          "end": 9.96
+        },
+        {
+          "raw": "you,",
+          "start": 9.96,
+          "end": 10.2
+        },
+        {
+          "raw": "look",
+          "start": 10.28,
+          "end": 10.4
+        },
+        {
+          "raw": "upon",
+          "start": 10.4,
+          "end": 10.66
+        },
+        {
+          "raw": "her.",
+          "start": 10.66,
+          "end": 10.92
+        },
+        {
+          "raw": "Do",
+          "start": 11.32,
+          "end": 11.44
+        },
+        {
+          "raw": "you",
+          "start": 11.44,
+          "end": 11.54
+        },
+        {
+          "raw": "see,",
+          "start": 11.54,
+          "end": 11.76
+        },
+        {
+          "raw": "gentlemen?",
+          "start": 11.88,
+          "end": 12.24
+        },
+        {
+          "raw": "Nay,",
+          "start": 12.9,
+          "end": 13.04
+        },
+        {
+          "raw": "guiltiness",
+          "start": 13.2,
+          "end": 13.6
+        },
+        {
+          "raw": "will",
+          "start": 13.6,
+          "end": 13.82
+        },
+        {
+          "raw": "speak",
+          "start": 13.82,
+          "end": 14.1
+        },
+        {
+          "raw": "Though",
+          "start": 14.1,
+          "end": 14.32
+        },
+        {
+          "raw": "tongues",
+          "start": 14.32,
+          "end": 14.62
+        },
+        {
+          "raw": "were",
+          "start": 14.62,
+          "end": 14.84
+        },
+        {
+          "raw": "out",
+          "start": 14.84,
+          "end": 15.0
+        },
+        {
+          "raw": "of",
+          "start": 15.0,
+          "end": 15.14
+        },
+        {
+          "raw": "use.]",
+          "start": 15.14,
+          "end": 15.9
+        }
+      ],
+      "expected_tokens": [
+        "[Stay",
+        "you,",
+        "good",
+        "gentlemen.—Look",
+        "you",
+        "pale,",
+        "mistress?",
+        "Do",
+        "you",
+        "perceive",
+        "the",
+        "gastness",
+        "of",
+        "her",
+        "eye?",
+        "Nay,",
+        "if",
+        "you",
+        "stare,",
+        "we",
+        "shall",
+        "hear",
+        "more",
+        "anon.",
+        "Behold",
+        "her",
+        "well.",
+        "I",
+        "pray",
+        "you,",
+        "look",
+        "upon",
+        "her.",
+        "Do",
+        "you",
+        "see,",
+        "gentlemen?",
+        "Nay,",
+        "guiltiness",
+        "will",
+        "speak",
+        "Though",
+        "tongues",
+        "were",
+        "out",
+        "of",
+        "use.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          47,
+          5,
+          48
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Stay,",
+          "start": 0.08,
+          "end": 0.6,
+          "key": "stay",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.76,
+          "end": 0.84,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 0.84,
+          "end": 1.02,
+          "key": "good",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "gentlemen.",
+          "start": 1.02,
+          "end": 1.5,
+          "key": "gentlemen",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Look",
+          "start": 2.24,
+          "end": 2.32,
+          "key": "look",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.32,
+          "end": 2.5,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "pale,",
+          "start": 2.5,
+          "end": 2.86,
+          "key": "pale",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "mistress.",
+          "start": 3.02,
+          "end": 3.24,
+          "key": "mistress",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 3.9,
+          "end": 3.98,
+          "key": "do",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.98,
+          "end": 4.08,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "perceive",
+          "start": 4.08,
+          "end": 4.36,
+          "key": "perceive",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.36,
+          "end": 4.58,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "gastness",
+          "start": 4.58,
+          "end": 5.04,
+          "key": "gastness",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.04,
+          "end": 5.18,
+          "key": "of",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 5.18,
+          "end": 5.3,
+          "key": "her",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "eye?",
+          "start": 5.3,
+          "end": 5.58,
+          "key": "eye",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Nay,",
+          "start": 6.12,
+          "end": 6.22,
+          "key": "nay",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 6.3,
+          "end": 6.42,
+          "key": "if",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 6.42,
+          "end": 6.56,
+          "key": "you",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "stare,",
+          "start": 6.56,
+          "end": 6.86,
+          "key": "stare",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 7.02,
+          "end": 7.12,
+          "key": "we",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 7.12,
+          "end": 7.26,
+          "key": "shall",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 7.26,
+          "end": 7.48,
+          "key": "hear",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 7.48,
+          "end": 7.7,
+          "key": "more",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "anon.",
+          "start": 7.7,
+          "end": 8.06,
+          "key": "anon",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Behold",
+          "start": 8.52,
+          "end": 8.8,
+          "key": "behold",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 8.8,
+          "end": 9.0,
+          "key": "her",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "well.",
+          "start": 9.0,
+          "end": 9.2,
+          "key": "well",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 9.66,
+          "end": 9.76,
+          "key": "i",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "pray",
+          "start": 9.76,
+          "end": 9.96,
+          "key": "pray",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 9.96,
+          "end": 10.2,
+          "key": "you",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 10.28,
+          "end": 10.4,
+          "key": "look",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 10.4,
+          "end": 10.66,
+          "key": "upon",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 10.66,
+          "end": 10.92,
+          "key": "her",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 11.32,
+          "end": 11.44,
+          "key": "do",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 11.44,
+          "end": 11.54,
+          "key": "you",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "see,",
+          "start": 11.54,
+          "end": 11.76,
+          "key": "see",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "gentlemen?",
+          "start": 11.88,
+          "end": 12.24,
+          "key": "gentlemen",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "Nay,",
+          "start": 12.9,
+          "end": 13.04,
+          "key": "nay",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "guiltiness",
+          "start": 13.2,
+          "end": 13.6,
+          "key": "guiltiness",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 13.6,
+          "end": 13.82,
+          "key": "will",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 13.82,
+          "end": 14.1,
+          "key": "speak",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "Though",
+          "start": 14.1,
+          "end": 14.32,
+          "key": "though",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "tongues",
+          "start": 14.32,
+          "end": 14.62,
+          "key": "tongues",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 14.62,
+          "end": 14.84,
+          "key": "were",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 14.84,
+          "end": 15.0,
+          "key": "out",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 15.0,
+          "end": 15.14,
+          "key": "of",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "use.]",
+          "start": 15.14,
+          "end": 15.9,
+          "key": "use",
+          "pieces": [
+            47
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Stay",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "text": "you,",
+          "start": 0.76,
+          "end": 0.84
+        },
+        {
+          "text": "good",
+          "start": 0.84,
+          "end": 1.02
+        },
+        {
+          "text": "gentlemen.—Look",
+          "start": 1.02,
+          "end": 1.67
+        },
+        {
+          "text": "you",
+          "start": 2.32,
+          "end": 2.5
+        },
+        {
+          "text": "pale,",
+          "start": 2.5,
+          "end": 2.86
+        },
+        {
+          "text": "mistress?",
+          "start": 3.02,
+          "end": 3.24
+        },
+        {
+          "text": "Do",
+          "start": 3.9,
+          "end": 3.98
+        },
+        {
+          "text": "you",
+          "start": 3.98,
+          "end": 4.08
+        },
+        {
+          "text": "perceive",
+          "start": 4.08,
+          "end": 4.36
+        },
+        {
+          "text": "the",
+          "start": 4.36,
+          "end": 4.58
+        },
+        {
+          "text": "gastness",
+          "start": 4.58,
+          "end": 5.04
+        },
+        {
+          "text": "of",
+          "start": 5.04,
+          "end": 5.18
+        },
+        {
+          "text": "her",
+          "start": 5.18,
+          "end": 5.3
+        },
+        {
+          "text": "eye?",
+          "start": 5.3,
+          "end": 5.58
+        },
+        {
+          "text": "Nay,",
+          "start": 6.12,
+          "end": 6.22
+        },
+        {
+          "text": "if",
+          "start": 6.3,
+          "end": 6.42
+        },
+        {
+          "text": "you",
+          "start": 6.42,
+          "end": 6.56
+        },
+        {
+          "text": "stare,",
+          "start": 6.56,
+          "end": 6.86
+        },
+        {
+          "text": "we",
+          "start": 7.02,
+          "end": 7.12
+        },
+        {
+          "text": "shall",
+          "start": 7.12,
+          "end": 7.26
+        },
+        {
+          "text": "hear",
+          "start": 7.26,
+          "end": 7.48
+        },
+        {
+          "text": "more",
+          "start": 7.48,
+          "end": 7.7
+        },
+        {
+          "text": "anon.",
+          "start": 7.7,
+          "end": 8.06
+        },
+        {
+          "text": "Behold",
+          "start": 8.52,
+          "end": 8.8
+        },
+        {
+          "text": "her",
+          "start": 8.8,
+          "end": 9.0
+        },
+        {
+          "text": "well.",
+          "start": 9.0,
+          "end": 9.2
+        },
+        {
+          "text": "I",
+          "start": 9.66,
+          "end": 9.76
+        },
+        {
+          "text": "pray",
+          "start": 9.76,
+          "end": 9.96
+        },
+        {
+          "text": "you,",
+          "start": 9.96,
+          "end": 10.2
+        },
+        {
+          "text": "look",
+          "start": 10.28,
+          "end": 10.4
+        },
+        {
+          "text": "upon",
+          "start": 10.4,
+          "end": 10.66
+        },
+        {
+          "text": "her.",
+          "start": 10.66,
+          "end": 10.92
+        },
+        {
+          "text": "Do",
+          "start": 11.32,
+          "end": 11.44
+        },
+        {
+          "text": "you",
+          "start": 11.44,
+          "end": 11.54
+        },
+        {
+          "text": "see,",
+          "start": 11.54,
+          "end": 11.76
+        },
+        {
+          "text": "gentlemen?",
+          "start": 11.88,
+          "end": 12.24
+        },
+        {
+          "text": "Nay,",
+          "start": 12.9,
+          "end": 13.04
+        },
+        {
+          "text": "guiltiness",
+          "start": 13.2,
+          "end": 13.6
+        },
+        {
+          "text": "will",
+          "start": 13.6,
+          "end": 13.82
+        },
+        {
+          "text": "speak",
+          "start": 13.82,
+          "end": 14.1
+        },
+        {
+          "text": "Though",
+          "start": 14.1,
+          "end": 14.32
+        },
+        {
+          "text": "tongues",
+          "start": 14.32,
+          "end": 14.62
+        },
+        {
+          "text": "were",
+          "start": 14.62,
+          "end": 14.84
+        },
+        {
+          "text": "out",
+          "start": 14.84,
+          "end": 15.0
+        },
+        {
+          "text": "of",
+          "start": 15.0,
+          "end": 15.14
+        },
+        {
+          "text": "use.]",
+          "start": 15.14,
+          "end": 15.9
+        }
+      ],
+      "stats": {
+        "expected_words": 47,
+        "heard_words": 48,
+        "matched_words": 46
+      },
+      "match_ratio": 0.9787234042553191,
+      "rejection_reasons": [],
+      "seconds": 0.5602498590014875
+    },
+    {
+      "asr_seconds": 0.4860178781673312,
+      "alignment_seconds": 0.0010165092535316944,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Stay, Do, Nay, Behold, I, Though"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Stay you good gentleman look you pale mistress. Do you perceive the ghastness of her eye? Nay, if you stare",
+          "start": 0.08,
+          "end": 6.86,
+          "words": [
+            {
+              "text": " Stay",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.39013671875
+            },
+            {
+              "text": " you",
+              "start": 0.58,
+              "end": 0.84,
+              "probability": 0.88427734375
+            },
+            {
+              "text": " good",
+              "start": 0.84,
+              "end": 1.02,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " gentleman",
+              "start": 1.02,
+              "end": 1.52,
+              "probability": 0.5107421875
+            },
+            {
+              "text": " look",
+              "start": 1.52,
+              "end": 2.32,
+              "probability": 0.433349609375
+            },
+            {
+              "text": " you",
+              "start": 2.32,
+              "end": 2.5,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " pale",
+              "start": 2.5,
+              "end": 2.86,
+              "probability": 0.984375
+            },
+            {
+              "text": " mistress.",
+              "start": 2.86,
+              "end": 3.3,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " Do",
+              "start": 3.5,
+              "end": 3.98,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " you",
+              "start": 3.98,
+              "end": 4.08,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " perceive",
+              "start": 4.08,
+              "end": 4.38,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 4.38,
+              "end": 4.58,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " ghastness",
+              "start": 4.58,
+              "end": 5.06,
+              "probability": 0.7408040364583334
+            },
+            {
+              "text": " of",
+              "start": 5.06,
+              "end": 5.18,
+              "probability": 0.998046875
+            },
+            {
+              "text": " her",
+              "start": 5.18,
+              "end": 5.3,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " eye?",
+              "start": 5.3,
+              "end": 5.64,
+              "probability": 0.82568359375
+            },
+            {
+              "text": " Nay,",
+              "start": 6.06,
+              "end": 6.24,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " if",
+              "start": 6.28,
+              "end": 6.42,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " you",
+              "start": 6.42,
+              "end": 6.56,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " stare",
+              "start": 6.56,
+              "end": 6.86,
+              "probability": 0.9931640625
+            }
+          ]
+        },
+        {
+          "text": " We shall hear more anon behold her well. I pray you look upon her. Do you see gentlemen nay guiltiness will speak though tongues were out of use?",
+          "start": 6.86,
+          "end": 15.4,
+          "words": [
+            {
+              "text": " We",
+              "start": 6.86,
+              "end": 7.1,
+              "probability": 0.0704345703125
+            },
+            {
+              "text": " shall",
+              "start": 7.1,
+              "end": 7.28,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " hear",
+              "start": 7.28,
+              "end": 7.48,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " more",
+              "start": 7.48,
+              "end": 7.7,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " anon",
+              "start": 7.7,
+              "end": 8.22,
+              "probability": 0.793212890625
+            },
+            {
+              "text": " behold",
+              "start": 8.22,
+              "end": 8.74,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " her",
+              "start": 8.74,
+              "end": 8.98,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " well.",
+              "start": 8.98,
+              "end": 9.22,
+              "probability": 0.4111328125
+            },
+            {
+              "text": " I",
+              "start": 9.28,
+              "end": 9.76,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " pray",
+              "start": 9.76,
+              "end": 9.96,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " you",
+              "start": 9.96,
+              "end": 10.2,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " look",
+              "start": 10.2,
+              "end": 10.4,
+              "probability": 0.986328125
+            },
+            {
+              "text": " upon",
+              "start": 10.4,
+              "end": 10.66,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " her.",
+              "start": 10.66,
+              "end": 10.98,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Do",
+              "start": 10.98,
+              "end": 11.44,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " you",
+              "start": 11.44,
+              "end": 11.54,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " see",
+              "start": 11.54,
+              "end": 11.76,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " gentlemen",
+              "start": 11.76,
+              "end": 12.32,
+              "probability": 0.736328125
+            },
+            {
+              "text": " nay",
+              "start": 12.32,
+              "end": 13.1,
+              "probability": 0.630859375
+            },
+            {
+              "text": " guiltiness",
+              "start": 13.1,
+              "end": 13.6,
+              "probability": 0.755615234375
+            },
+            {
+              "text": " will",
+              "start": 13.6,
+              "end": 13.82,
+              "probability": 0.91259765625
+            },
+            {
+              "text": " speak",
+              "start": 13.82,
+              "end": 14.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " though",
+              "start": 14.1,
+              "end": 14.32,
+              "probability": 0.951171875
+            },
+            {
+              "text": " tongues",
+              "start": 14.32,
+              "end": 14.66,
+              "probability": 0.947265625
+            },
+            {
+              "text": " were",
+              "start": 14.66,
+              "end": 14.84,
+              "probability": 0.8818359375
+            },
+            {
+              "text": " out",
+              "start": 14.84,
+              "end": 15.02,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 15.02,
+              "end": 15.12,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " use?",
+              "start": 15.12,
+              "end": 15.4,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Stay",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "you",
+          "start": 0.58,
+          "end": 0.84
+        },
+        {
+          "raw": "good",
+          "start": 0.84,
+          "end": 1.02
+        },
+        {
+          "raw": "gentleman",
+          "start": 1.02,
+          "end": 1.52
+        },
+        {
+          "raw": "look",
+          "start": 1.52,
+          "end": 2.32
+        },
+        {
+          "raw": "you",
+          "start": 2.32,
+          "end": 2.5
+        },
+        {
+          "raw": "pale",
+          "start": 2.5,
+          "end": 2.86
+        },
+        {
+          "raw": "mistress.",
+          "start": 2.86,
+          "end": 3.3
+        },
+        {
+          "raw": "Do",
+          "start": 3.5,
+          "end": 3.98
+        },
+        {
+          "raw": "you",
+          "start": 3.98,
+          "end": 4.08
+        },
+        {
+          "raw": "perceive",
+          "start": 4.08,
+          "end": 4.38
+        },
+        {
+          "raw": "the",
+          "start": 4.38,
+          "end": 4.58
+        },
+        {
+          "raw": "ghastness",
+          "start": 4.58,
+          "end": 5.06
+        },
+        {
+          "raw": "of",
+          "start": 5.06,
+          "end": 5.18
+        },
+        {
+          "raw": "her",
+          "start": 5.18,
+          "end": 5.3
+        },
+        {
+          "raw": "eye?",
+          "start": 5.3,
+          "end": 5.64
+        },
+        {
+          "raw": "Nay,",
+          "start": 6.06,
+          "end": 6.24
+        },
+        {
+          "raw": "if",
+          "start": 6.28,
+          "end": 6.42
+        },
+        {
+          "raw": "you",
+          "start": 6.42,
+          "end": 6.56
+        },
+        {
+          "raw": "stare",
+          "start": 6.56,
+          "end": 6.86
+        },
+        {
+          "raw": "We",
+          "start": 6.86,
+          "end": 7.1
+        },
+        {
+          "raw": "shall",
+          "start": 7.1,
+          "end": 7.28
+        },
+        {
+          "raw": "hear",
+          "start": 7.28,
+          "end": 7.48
+        },
+        {
+          "raw": "more",
+          "start": 7.48,
+          "end": 7.7
+        },
+        {
+          "raw": "anon",
+          "start": 7.7,
+          "end": 8.22
+        },
+        {
+          "raw": "behold",
+          "start": 8.22,
+          "end": 8.74
+        },
+        {
+          "raw": "her",
+          "start": 8.74,
+          "end": 8.98
+        },
+        {
+          "raw": "well.",
+          "start": 8.98,
+          "end": 9.22
+        },
+        {
+          "raw": "I",
+          "start": 9.28,
+          "end": 9.76
+        },
+        {
+          "raw": "pray",
+          "start": 9.76,
+          "end": 9.96
+        },
+        {
+          "raw": "you",
+          "start": 9.96,
+          "end": 10.2
+        },
+        {
+          "raw": "look",
+          "start": 10.2,
+          "end": 10.4
+        },
+        {
+          "raw": "upon",
+          "start": 10.4,
+          "end": 10.66
+        },
+        {
+          "raw": "her.",
+          "start": 10.66,
+          "end": 10.98
+        },
+        {
+          "raw": "Do",
+          "start": 10.98,
+          "end": 11.44
+        },
+        {
+          "raw": "you",
+          "start": 11.44,
+          "end": 11.54
+        },
+        {
+          "raw": "see",
+          "start": 11.54,
+          "end": 11.76
+        },
+        {
+          "raw": "gentlemen",
+          "start": 11.76,
+          "end": 12.32
+        },
+        {
+          "raw": "nay",
+          "start": 12.32,
+          "end": 13.1
+        },
+        {
+          "raw": "guiltiness",
+          "start": 13.1,
+          "end": 13.6
+        },
+        {
+          "raw": "will",
+          "start": 13.6,
+          "end": 13.82
+        },
+        {
+          "raw": "speak",
+          "start": 13.82,
+          "end": 14.1
+        },
+        {
+          "raw": "though",
+          "start": 14.1,
+          "end": 14.32
+        },
+        {
+          "raw": "tongues",
+          "start": 14.32,
+          "end": 14.66
+        },
+        {
+          "raw": "were",
+          "start": 14.66,
+          "end": 14.84
+        },
+        {
+          "raw": "out",
+          "start": 14.84,
+          "end": 15.02
+        },
+        {
+          "raw": "of",
+          "start": 15.02,
+          "end": 15.12
+        },
+        {
+          "raw": "use?",
+          "start": 15.12,
+          "end": 15.4
+        }
+      ],
+      "expected_tokens": [
+        "[Stay",
+        "you,",
+        "good",
+        "gentlemen.—Look",
+        "you",
+        "pale,",
+        "mistress?",
+        "Do",
+        "you",
+        "perceive",
+        "the",
+        "gastness",
+        "of",
+        "her",
+        "eye?",
+        "Nay,",
+        "if",
+        "you",
+        "stare,",
+        "we",
+        "shall",
+        "hear",
+        "more",
+        "anon.",
+        "Behold",
+        "her",
+        "well.",
+        "I",
+        "pray",
+        "you,",
+        "look",
+        "upon",
+        "her.",
+        "Do",
+        "you",
+        "see,",
+        "gentlemen?",
+        "Nay,",
+        "guiltiness",
+        "will",
+        "speak",
+        "Though",
+        "tongues",
+        "were",
+        "out",
+        "of",
+        "use.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          11,
+          5,
+          12
+        ],
+        [
+          "replace",
+          11,
+          12,
+          12,
+          13
+        ],
+        [
+          "equal",
+          12,
+          47,
+          13,
+          48
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "replace",
+          11,
+          12,
+          12,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Stay",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "stay",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.58,
+          "end": 0.84,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 0.84,
+          "end": 1.02,
+          "key": "good",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "gentleman",
+          "start": 1.02,
+          "end": 1.52,
+          "key": "gentleman",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 1.52,
+          "end": 2.32,
+          "key": "look",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.32,
+          "end": 2.5,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "pale",
+          "start": 2.5,
+          "end": 2.86,
+          "key": "pale",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "mistress.",
+          "start": 2.86,
+          "end": 3.3,
+          "key": "mistress",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 3.5,
+          "end": 3.98,
+          "key": "do",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.98,
+          "end": 4.08,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "perceive",
+          "start": 4.08,
+          "end": 4.38,
+          "key": "perceive",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.38,
+          "end": 4.58,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "ghastness",
+          "start": 4.58,
+          "end": 5.06,
+          "key": "ghastness",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.06,
+          "end": 5.18,
+          "key": "of",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 5.18,
+          "end": 5.3,
+          "key": "her",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "eye?",
+          "start": 5.3,
+          "end": 5.64,
+          "key": "eye",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Nay,",
+          "start": 6.06,
+          "end": 6.24,
+          "key": "nay",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 6.28,
+          "end": 6.42,
+          "key": "if",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 6.42,
+          "end": 6.56,
+          "key": "you",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "stare",
+          "start": 6.56,
+          "end": 6.86,
+          "key": "stare",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 6.86,
+          "end": 7.1,
+          "key": "we",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 7.1,
+          "end": 7.28,
+          "key": "shall",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 7.28,
+          "end": 7.48,
+          "key": "hear",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 7.48,
+          "end": 7.7,
+          "key": "more",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "anon",
+          "start": 7.7,
+          "end": 8.22,
+          "key": "anon",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "behold",
+          "start": 8.22,
+          "end": 8.74,
+          "key": "behold",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 8.74,
+          "end": 8.98,
+          "key": "her",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "well.",
+          "start": 8.98,
+          "end": 9.22,
+          "key": "well",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 9.28,
+          "end": 9.76,
+          "key": "i",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "pray",
+          "start": 9.76,
+          "end": 9.96,
+          "key": "pray",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 9.96,
+          "end": 10.2,
+          "key": "you",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 10.2,
+          "end": 10.4,
+          "key": "look",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 10.4,
+          "end": 10.66,
+          "key": "upon",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 10.66,
+          "end": 10.98,
+          "key": "her",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 10.98,
+          "end": 11.44,
+          "key": "do",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 11.44,
+          "end": 11.54,
+          "key": "you",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 11.54,
+          "end": 11.76,
+          "key": "see",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "gentlemen",
+          "start": 11.76,
+          "end": 12.32,
+          "key": "gentlemen",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "nay",
+          "start": 12.32,
+          "end": 13.1,
+          "key": "nay",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "guiltiness",
+          "start": 13.1,
+          "end": 13.6,
+          "key": "guiltiness",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 13.6,
+          "end": 13.82,
+          "key": "will",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 13.82,
+          "end": 14.1,
+          "key": "speak",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "though",
+          "start": 14.1,
+          "end": 14.32,
+          "key": "though",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "tongues",
+          "start": 14.32,
+          "end": 14.66,
+          "key": "tongues",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 14.66,
+          "end": 14.84,
+          "key": "were",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 14.84,
+          "end": 15.02,
+          "key": "out",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 15.02,
+          "end": 15.12,
+          "key": "of",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "use?",
+          "start": 15.12,
+          "end": 15.4,
+          "key": "use",
+          "pieces": [
+            47
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Stay",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "text": "you,",
+          "start": 0.58,
+          "end": 0.84
+        },
+        {
+          "text": "good",
+          "start": 0.84,
+          "end": 1.02
+        },
+        {
+          "text": "gentlemen.—Look",
+          "start": 1.02,
+          "end": 1.67
+        },
+        {
+          "text": "you",
+          "start": 2.32,
+          "end": 2.5
+        },
+        {
+          "text": "pale,",
+          "start": 2.5,
+          "end": 2.86
+        },
+        {
+          "text": "mistress?",
+          "start": 2.86,
+          "end": 3.3
+        },
+        {
+          "text": "Do",
+          "start": 3.5,
+          "end": 3.98
+        },
+        {
+          "text": "you",
+          "start": 3.98,
+          "end": 4.08
+        },
+        {
+          "text": "perceive",
+          "start": 4.08,
+          "end": 4.38
+        },
+        {
+          "text": "the",
+          "start": 4.38,
+          "end": 4.58
+        },
+        {
+          "text": "gastness",
+          "start": 4.58,
+          "end": 4.82
+        },
+        {
+          "text": "of",
+          "start": 5.06,
+          "end": 5.18
+        },
+        {
+          "text": "her",
+          "start": 5.18,
+          "end": 5.3
+        },
+        {
+          "text": "eye?",
+          "start": 5.3,
+          "end": 5.64
+        },
+        {
+          "text": "Nay,",
+          "start": 6.06,
+          "end": 6.24
+        },
+        {
+          "text": "if",
+          "start": 6.28,
+          "end": 6.42
+        },
+        {
+          "text": "you",
+          "start": 6.42,
+          "end": 6.56
+        },
+        {
+          "text": "stare,",
+          "start": 6.56,
+          "end": 6.86
+        },
+        {
+          "text": "we",
+          "start": 6.86,
+          "end": 7.1
+        },
+        {
+          "text": "shall",
+          "start": 7.1,
+          "end": 7.28
+        },
+        {
+          "text": "hear",
+          "start": 7.28,
+          "end": 7.48
+        },
+        {
+          "text": "more",
+          "start": 7.48,
+          "end": 7.7
+        },
+        {
+          "text": "anon.",
+          "start": 7.7,
+          "end": 8.22
+        },
+        {
+          "text": "Behold",
+          "start": 8.22,
+          "end": 8.74
+        },
+        {
+          "text": "her",
+          "start": 8.74,
+          "end": 8.98
+        },
+        {
+          "text": "well.",
+          "start": 8.98,
+          "end": 9.22
+        },
+        {
+          "text": "I",
+          "start": 9.28,
+          "end": 9.76
+        },
+        {
+          "text": "pray",
+          "start": 9.76,
+          "end": 9.96
+        },
+        {
+          "text": "you,",
+          "start": 9.96,
+          "end": 10.2
+        },
+        {
+          "text": "look",
+          "start": 10.2,
+          "end": 10.4
+        },
+        {
+          "text": "upon",
+          "start": 10.4,
+          "end": 10.66
+        },
+        {
+          "text": "her.",
+          "start": 10.66,
+          "end": 10.98
+        },
+        {
+          "text": "Do",
+          "start": 10.98,
+          "end": 11.44
+        },
+        {
+          "text": "you",
+          "start": 11.44,
+          "end": 11.54
+        },
+        {
+          "text": "see,",
+          "start": 11.54,
+          "end": 11.76
+        },
+        {
+          "text": "gentlemen?",
+          "start": 11.76,
+          "end": 12.32
+        },
+        {
+          "text": "Nay,",
+          "start": 12.32,
+          "end": 13.1
+        },
+        {
+          "text": "guiltiness",
+          "start": 13.1,
+          "end": 13.6
+        },
+        {
+          "text": "will",
+          "start": 13.6,
+          "end": 13.82
+        },
+        {
+          "text": "speak",
+          "start": 13.82,
+          "end": 14.1
+        },
+        {
+          "text": "Though",
+          "start": 14.1,
+          "end": 14.32
+        },
+        {
+          "text": "tongues",
+          "start": 14.32,
+          "end": 14.66
+        },
+        {
+          "text": "were",
+          "start": 14.66,
+          "end": 14.84
+        },
+        {
+          "text": "out",
+          "start": 14.84,
+          "end": 15.02
+        },
+        {
+          "text": "of",
+          "start": 15.02,
+          "end": 15.12
+        },
+        {
+          "text": "use.]",
+          "start": 15.12,
+          "end": 15.4
+        }
+      ],
+      "stats": {
+        "expected_words": 47,
+        "heard_words": 48,
+        "matched_words": 45
+      },
+      "match_ratio": 0.9574468085106383,
+      "rejection_reasons": [],
+      "seconds": 0.4875146020203829
+    },
+    {
+      "asr_seconds": 0.5037917667068541,
+      "alignment_seconds": 0.0009699389338493347,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Stay you good gentlemen. Look you pale mistress. Do you perceive the ghastness of her eye? Nay, if you stare",
+          "start": 0.08,
+          "end": 6.86,
+          "words": [
+            {
+              "text": " Stay",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.39013671875
+            },
+            {
+              "text": " you",
+              "start": 0.58,
+              "end": 0.84,
+              "probability": 0.88427734375
+            },
+            {
+              "text": " good",
+              "start": 0.84,
+              "end": 1.02,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " gentlemen.",
+              "start": 1.02,
+              "end": 1.52,
+              "probability": 0.416748046875
+            },
+            {
+              "text": " Look",
+              "start": 2.16,
+              "end": 2.34,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " you",
+              "start": 2.34,
+              "end": 2.5,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " pale",
+              "start": 2.5,
+              "end": 2.86,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " mistress.",
+              "start": 2.86,
+              "end": 3.26,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " Do",
+              "start": 3.86,
+              "end": 3.98,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " you",
+              "start": 3.98,
+              "end": 4.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " perceive",
+              "start": 4.06,
+              "end": 4.36,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 4.36,
+              "end": 4.58,
+              "probability": 0.99609375
+            },
+            {
+              "text": " ghastness",
+              "start": 4.58,
+              "end": 5.04,
+              "probability": 0.7482096354166666
+            },
+            {
+              "text": " of",
+              "start": 5.04,
+              "end": 5.18,
+              "probability": 0.998046875
+            },
+            {
+              "text": " her",
+              "start": 5.18,
+              "end": 5.3,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " eye?",
+              "start": 5.3,
+              "end": 5.62,
+              "probability": 0.87451171875
+            },
+            {
+              "text": " Nay,",
+              "start": 6.1,
+              "end": 6.22,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " if",
+              "start": 6.3,
+              "end": 6.42,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " you",
+              "start": 6.42,
+              "end": 6.56,
+              "probability": 0.998046875
+            },
+            {
+              "text": " stare",
+              "start": 6.56,
+              "end": 6.86,
+              "probability": 0.99609375
+            }
+          ]
+        },
+        {
+          "text": " We shall hear more anon behold her. Well, I pray you look upon her",
+          "start": 6.86,
+          "end": 11.08,
+          "words": [
+            {
+              "text": " We",
+              "start": 6.86,
+              "end": 7.1,
+              "probability": 0.046875
+            },
+            {
+              "text": " shall",
+              "start": 7.1,
+              "end": 7.28,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " hear",
+              "start": 7.28,
+              "end": 7.48,
+              "probability": 0.99609375
+            },
+            {
+              "text": " more",
+              "start": 7.48,
+              "end": 7.7,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " anon",
+              "start": 7.7,
+              "end": 8.12,
+              "probability": 0.873046875
+            },
+            {
+              "text": " behold",
+              "start": 8.12,
+              "end": 8.74,
+              "probability": 0.5283203125
+            },
+            {
+              "text": " her.",
+              "start": 8.74,
+              "end": 8.98,
+              "probability": 0.986328125
+            },
+            {
+              "text": " Well,",
+              "start": 9.08,
+              "end": 9.22,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " I",
+              "start": 9.26,
+              "end": 9.78,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " pray",
+              "start": 9.78,
+              "end": 9.96,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " you",
+              "start": 9.96,
+              "end": 10.2,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " look",
+              "start": 10.2,
+              "end": 10.4,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " upon",
+              "start": 10.4,
+              "end": 10.66,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " her",
+              "start": 10.66,
+              "end": 11.08,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " Do you see gentlemen nay guiltiness will speak though tongues were out of use",
+          "start": 11.08,
+          "end": 15.38,
+          "words": [
+            {
+              "text": " Do",
+              "start": 11.08,
+              "end": 11.42,
+              "probability": 0.5361328125
+            },
+            {
+              "text": " you",
+              "start": 11.42,
+              "end": 11.54,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " see",
+              "start": 11.54,
+              "end": 11.76,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " gentlemen",
+              "start": 11.76,
+              "end": 12.32,
+              "probability": 0.70654296875
+            },
+            {
+              "text": " nay",
+              "start": 12.32,
+              "end": 13.1,
+              "probability": 0.826904296875
+            },
+            {
+              "text": " guiltiness",
+              "start": 13.1,
+              "end": 13.58,
+              "probability": 0.882080078125
+            },
+            {
+              "text": " will",
+              "start": 13.58,
+              "end": 13.82,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " speak",
+              "start": 13.82,
+              "end": 14.12,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " though",
+              "start": 14.12,
+              "end": 14.32,
+              "probability": 0.974609375
+            },
+            {
+              "text": " tongues",
+              "start": 14.32,
+              "end": 14.68,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " were",
+              "start": 14.68,
+              "end": 14.84,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " out",
+              "start": 14.84,
+              "end": 15.02,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 15.02,
+              "end": 15.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " use",
+              "start": 15.12,
+              "end": 15.38,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Stay",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "you",
+          "start": 0.58,
+          "end": 0.84
+        },
+        {
+          "raw": "good",
+          "start": 0.84,
+          "end": 1.02
+        },
+        {
+          "raw": "gentlemen.",
+          "start": 1.02,
+          "end": 1.52
+        },
+        {
+          "raw": "Look",
+          "start": 2.16,
+          "end": 2.34
+        },
+        {
+          "raw": "you",
+          "start": 2.34,
+          "end": 2.5
+        },
+        {
+          "raw": "pale",
+          "start": 2.5,
+          "end": 2.86
+        },
+        {
+          "raw": "mistress.",
+          "start": 2.86,
+          "end": 3.26
+        },
+        {
+          "raw": "Do",
+          "start": 3.86,
+          "end": 3.98
+        },
+        {
+          "raw": "you",
+          "start": 3.98,
+          "end": 4.06
+        },
+        {
+          "raw": "perceive",
+          "start": 4.06,
+          "end": 4.36
+        },
+        {
+          "raw": "the",
+          "start": 4.36,
+          "end": 4.58
+        },
+        {
+          "raw": "ghastness",
+          "start": 4.58,
+          "end": 5.04
+        },
+        {
+          "raw": "of",
+          "start": 5.04,
+          "end": 5.18
+        },
+        {
+          "raw": "her",
+          "start": 5.18,
+          "end": 5.3
+        },
+        {
+          "raw": "eye?",
+          "start": 5.3,
+          "end": 5.62
+        },
+        {
+          "raw": "Nay,",
+          "start": 6.1,
+          "end": 6.22
+        },
+        {
+          "raw": "if",
+          "start": 6.3,
+          "end": 6.42
+        },
+        {
+          "raw": "you",
+          "start": 6.42,
+          "end": 6.56
+        },
+        {
+          "raw": "stare",
+          "start": 6.56,
+          "end": 6.86
+        },
+        {
+          "raw": "We",
+          "start": 6.86,
+          "end": 7.1
+        },
+        {
+          "raw": "shall",
+          "start": 7.1,
+          "end": 7.28
+        },
+        {
+          "raw": "hear",
+          "start": 7.28,
+          "end": 7.48
+        },
+        {
+          "raw": "more",
+          "start": 7.48,
+          "end": 7.7
+        },
+        {
+          "raw": "anon",
+          "start": 7.7,
+          "end": 8.12
+        },
+        {
+          "raw": "behold",
+          "start": 8.12,
+          "end": 8.74
+        },
+        {
+          "raw": "her.",
+          "start": 8.74,
+          "end": 8.98
+        },
+        {
+          "raw": "Well,",
+          "start": 9.08,
+          "end": 9.22
+        },
+        {
+          "raw": "I",
+          "start": 9.26,
+          "end": 9.78
+        },
+        {
+          "raw": "pray",
+          "start": 9.78,
+          "end": 9.96
+        },
+        {
+          "raw": "you",
+          "start": 9.96,
+          "end": 10.2
+        },
+        {
+          "raw": "look",
+          "start": 10.2,
+          "end": 10.4
+        },
+        {
+          "raw": "upon",
+          "start": 10.4,
+          "end": 10.66
+        },
+        {
+          "raw": "her",
+          "start": 10.66,
+          "end": 11.08
+        },
+        {
+          "raw": "Do",
+          "start": 11.08,
+          "end": 11.42
+        },
+        {
+          "raw": "you",
+          "start": 11.42,
+          "end": 11.54
+        },
+        {
+          "raw": "see",
+          "start": 11.54,
+          "end": 11.76
+        },
+        {
+          "raw": "gentlemen",
+          "start": 11.76,
+          "end": 12.32
+        },
+        {
+          "raw": "nay",
+          "start": 12.32,
+          "end": 13.1
+        },
+        {
+          "raw": "guiltiness",
+          "start": 13.1,
+          "end": 13.58
+        },
+        {
+          "raw": "will",
+          "start": 13.58,
+          "end": 13.82
+        },
+        {
+          "raw": "speak",
+          "start": 13.82,
+          "end": 14.12
+        },
+        {
+          "raw": "though",
+          "start": 14.12,
+          "end": 14.32
+        },
+        {
+          "raw": "tongues",
+          "start": 14.32,
+          "end": 14.68
+        },
+        {
+          "raw": "were",
+          "start": 14.68,
+          "end": 14.84
+        },
+        {
+          "raw": "out",
+          "start": 14.84,
+          "end": 15.02
+        },
+        {
+          "raw": "of",
+          "start": 15.02,
+          "end": 15.12
+        },
+        {
+          "raw": "use",
+          "start": 15.12,
+          "end": 15.38
+        }
+      ],
+      "expected_tokens": [
+        "[Stay",
+        "you,",
+        "good",
+        "gentlemen.—Look",
+        "you",
+        "pale,",
+        "mistress?",
+        "Do",
+        "you",
+        "perceive",
+        "the",
+        "gastness",
+        "of",
+        "her",
+        "eye?",
+        "Nay,",
+        "if",
+        "you",
+        "stare,",
+        "we",
+        "shall",
+        "hear",
+        "more",
+        "anon.",
+        "Behold",
+        "her",
+        "well.",
+        "I",
+        "pray",
+        "you,",
+        "look",
+        "upon",
+        "her.",
+        "Do",
+        "you",
+        "see,",
+        "gentlemen?",
+        "Nay,",
+        "guiltiness",
+        "will",
+        "speak",
+        "Though",
+        "tongues",
+        "were",
+        "out",
+        "of",
+        "use.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          11,
+          5,
+          12
+        ],
+        [
+          "replace",
+          11,
+          12,
+          12,
+          13
+        ],
+        [
+          "equal",
+          12,
+          47,
+          13,
+          48
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "replace",
+          11,
+          12,
+          12,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Stay",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "stay",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.58,
+          "end": 0.84,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 0.84,
+          "end": 1.02,
+          "key": "good",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "gentlemen.",
+          "start": 1.02,
+          "end": 1.52,
+          "key": "gentlemen",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Look",
+          "start": 2.16,
+          "end": 2.34,
+          "key": "look",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.34,
+          "end": 2.5,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "pale",
+          "start": 2.5,
+          "end": 2.86,
+          "key": "pale",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "mistress.",
+          "start": 2.86,
+          "end": 3.26,
+          "key": "mistress",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 3.86,
+          "end": 3.98,
+          "key": "do",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.98,
+          "end": 4.06,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "perceive",
+          "start": 4.06,
+          "end": 4.36,
+          "key": "perceive",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.36,
+          "end": 4.58,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "ghastness",
+          "start": 4.58,
+          "end": 5.04,
+          "key": "ghastness",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.04,
+          "end": 5.18,
+          "key": "of",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 5.18,
+          "end": 5.3,
+          "key": "her",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "eye?",
+          "start": 5.3,
+          "end": 5.62,
+          "key": "eye",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Nay,",
+          "start": 6.1,
+          "end": 6.22,
+          "key": "nay",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 6.3,
+          "end": 6.42,
+          "key": "if",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 6.42,
+          "end": 6.56,
+          "key": "you",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "stare",
+          "start": 6.56,
+          "end": 6.86,
+          "key": "stare",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 6.86,
+          "end": 7.1,
+          "key": "we",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 7.1,
+          "end": 7.28,
+          "key": "shall",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 7.28,
+          "end": 7.48,
+          "key": "hear",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 7.48,
+          "end": 7.7,
+          "key": "more",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "anon",
+          "start": 7.7,
+          "end": 8.12,
+          "key": "anon",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "behold",
+          "start": 8.12,
+          "end": 8.74,
+          "key": "behold",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 8.74,
+          "end": 8.98,
+          "key": "her",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "Well,",
+          "start": 9.08,
+          "end": 9.22,
+          "key": "well",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 9.26,
+          "end": 9.78,
+          "key": "i",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "pray",
+          "start": 9.78,
+          "end": 9.96,
+          "key": "pray",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 9.96,
+          "end": 10.2,
+          "key": "you",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 10.2,
+          "end": 10.4,
+          "key": "look",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 10.4,
+          "end": 10.66,
+          "key": "upon",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 10.66,
+          "end": 11.08,
+          "key": "her",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 11.08,
+          "end": 11.42,
+          "key": "do",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 11.42,
+          "end": 11.54,
+          "key": "you",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 11.54,
+          "end": 11.76,
+          "key": "see",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "gentlemen",
+          "start": 11.76,
+          "end": 12.32,
+          "key": "gentlemen",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "nay",
+          "start": 12.32,
+          "end": 13.1,
+          "key": "nay",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "guiltiness",
+          "start": 13.1,
+          "end": 13.58,
+          "key": "guiltiness",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 13.58,
+          "end": 13.82,
+          "key": "will",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 13.82,
+          "end": 14.12,
+          "key": "speak",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "though",
+          "start": 14.12,
+          "end": 14.32,
+          "key": "though",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "tongues",
+          "start": 14.32,
+          "end": 14.68,
+          "key": "tongues",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 14.68,
+          "end": 14.84,
+          "key": "were",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 14.84,
+          "end": 15.02,
+          "key": "out",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 15.02,
+          "end": 15.12,
+          "key": "of",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "use",
+          "start": 15.12,
+          "end": 15.38,
+          "key": "use",
+          "pieces": [
+            47
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Stay",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "text": "you,",
+          "start": 0.58,
+          "end": 0.84
+        },
+        {
+          "text": "good",
+          "start": 0.84,
+          "end": 1.02
+        },
+        {
+          "text": "gentlemen.—Look",
+          "start": 1.02,
+          "end": 1.68
+        },
+        {
+          "text": "you",
+          "start": 2.34,
+          "end": 2.5
+        },
+        {
+          "text": "pale,",
+          "start": 2.5,
+          "end": 2.86
+        },
+        {
+          "text": "mistress?",
+          "start": 2.86,
+          "end": 3.26
+        },
+        {
+          "text": "Do",
+          "start": 3.86,
+          "end": 3.98
+        },
+        {
+          "text": "you",
+          "start": 3.98,
+          "end": 4.06
+        },
+        {
+          "text": "perceive",
+          "start": 4.06,
+          "end": 4.36
+        },
+        {
+          "text": "the",
+          "start": 4.36,
+          "end": 4.58
+        },
+        {
+          "text": "gastness",
+          "start": 4.58,
+          "end": 4.81
+        },
+        {
+          "text": "of",
+          "start": 5.04,
+          "end": 5.18
+        },
+        {
+          "text": "her",
+          "start": 5.18,
+          "end": 5.3
+        },
+        {
+          "text": "eye?",
+          "start": 5.3,
+          "end": 5.62
+        },
+        {
+          "text": "Nay,",
+          "start": 6.1,
+          "end": 6.22
+        },
+        {
+          "text": "if",
+          "start": 6.3,
+          "end": 6.42
+        },
+        {
+          "text": "you",
+          "start": 6.42,
+          "end": 6.56
+        },
+        {
+          "text": "stare,",
+          "start": 6.56,
+          "end": 6.86
+        },
+        {
+          "text": "we",
+          "start": 6.86,
+          "end": 7.1
+        },
+        {
+          "text": "shall",
+          "start": 7.1,
+          "end": 7.28
+        },
+        {
+          "text": "hear",
+          "start": 7.28,
+          "end": 7.48
+        },
+        {
+          "text": "more",
+          "start": 7.48,
+          "end": 7.7
+        },
+        {
+          "text": "anon.",
+          "start": 7.7,
+          "end": 8.12
+        },
+        {
+          "text": "Behold",
+          "start": 8.12,
+          "end": 8.74
+        },
+        {
+          "text": "her",
+          "start": 8.74,
+          "end": 8.98
+        },
+        {
+          "text": "well.",
+          "start": 9.08,
+          "end": 9.22
+        },
+        {
+          "text": "I",
+          "start": 9.26,
+          "end": 9.78
+        },
+        {
+          "text": "pray",
+          "start": 9.78,
+          "end": 9.96
+        },
+        {
+          "text": "you,",
+          "start": 9.96,
+          "end": 10.2
+        },
+        {
+          "text": "look",
+          "start": 10.2,
+          "end": 10.4
+        },
+        {
+          "text": "upon",
+          "start": 10.4,
+          "end": 10.66
+        },
+        {
+          "text": "her.",
+          "start": 10.66,
+          "end": 11.08
+        },
+        {
+          "text": "Do",
+          "start": 11.08,
+          "end": 11.42
+        },
+        {
+          "text": "you",
+          "start": 11.42,
+          "end": 11.54
+        },
+        {
+          "text": "see,",
+          "start": 11.54,
+          "end": 11.76
+        },
+        {
+          "text": "gentlemen?",
+          "start": 11.76,
+          "end": 12.32
+        },
+        {
+          "text": "Nay,",
+          "start": 12.32,
+          "end": 13.1
+        },
+        {
+          "text": "guiltiness",
+          "start": 13.1,
+          "end": 13.58
+        },
+        {
+          "text": "will",
+          "start": 13.58,
+          "end": 13.82
+        },
+        {
+          "text": "speak",
+          "start": 13.82,
+          "end": 14.12
+        },
+        {
+          "text": "Though",
+          "start": 14.12,
+          "end": 14.32
+        },
+        {
+          "text": "tongues",
+          "start": 14.32,
+          "end": 14.68
+        },
+        {
+          "text": "were",
+          "start": 14.68,
+          "end": 14.84
+        },
+        {
+          "text": "out",
+          "start": 14.84,
+          "end": 15.02
+        },
+        {
+          "text": "of",
+          "start": 15.02,
+          "end": 15.12
+        },
+        {
+          "text": "use.]",
+          "start": 15.12,
+          "end": 15.38
+        }
+      ],
+      "stats": {
+        "expected_words": 47,
+        "heard_words": 48,
+        "matched_words": 45
+      },
+      "match_ratio": 0.9574468085106383,
+      "rejection_reasons": [],
+      "seconds": 0.5052084410563111
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d2160e713ebe4af05ccb13ebcbd1e8769c65731bf70c5189b59c6dcfb2a01149",
+  "selected_reasons": []
+}

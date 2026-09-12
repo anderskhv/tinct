@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "510868bc93a48e2670e4a9ed4c7ba7d5ce1260f1244b2afbfb8b9863948f44aa",
+  "attempts": [
+    {
+      "asr_seconds": 0.16594974417239428,
+      "alignment_seconds": 0.00016286829486489296,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Roderigo. Be near at hand, I may miscarry in 't.",
+        "hotwords": "Roderigo, Be, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Roderigo, Be near at hand, I may miscarry in t.",
+          "start": 0.57,
+          "end": 3.13,
+          "words": [
+            {
+              "text": " Roderigo,",
+              "start": 0.57,
+              "end": 0.93,
+              "probability": 0.227294921875
+            },
+            {
+              "text": " Be",
+              "start": 1.27,
+              "end": 1.43,
+              "probability": 0.01113128662109375
+            },
+            {
+              "text": " near",
+              "start": 1.43,
+              "end": 1.57,
+              "probability": 0.65380859375
+            },
+            {
+              "text": " at",
+              "start": 1.57,
+              "end": 1.71,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " hand,",
+              "start": 1.71,
+              "end": 2.03,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " I",
+              "start": 2.17,
+              "end": 2.19,
+              "probability": 0.9375
+            },
+            {
+              "text": " may",
+              "start": 2.19,
+              "end": 2.27,
+              "probability": 0.08380126953125
+            },
+            {
+              "text": " miscarry",
+              "start": 2.27,
+              "end": 2.69,
+              "probability": 0.6431884765625
+            },
+            {
+              "text": " in",
+              "start": 2.69,
+              "end": 2.87,
+              "probability": 0.80322265625
+            },
+            {
+              "text": " t.",
+              "start": 2.87,
+              "end": 3.13,
+              "probability": 0.0015535354614257812
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Roderigo,",
+          "start": 0.57,
+          "end": 0.93
+        },
+        {
+          "raw": "Be",
+          "start": 1.27,
+          "end": 1.43
+        },
+        {
+          "raw": "near",
+          "start": 1.43,
+          "end": 1.57
+        },
+        {
+          "raw": "at",
+          "start": 1.57,
+          "end": 1.71
+        },
+        {
+          "raw": "hand,",
+          "start": 1.71,
+          "end": 2.03
+        },
+        {
+          "raw": "I",
+          "start": 2.17,
+          "end": 2.19
+        },
+        {
+          "raw": "may",
+          "start": 2.19,
+          "end": 2.27
+        },
+        {
+          "raw": "miscarry",
+          "start": 2.27,
+          "end": 2.69
+        },
+        {
+          "raw": "in",
+          "start": 2.69,
+          "end": 2.87
+        },
+        {
+          "raw": "t.",
+          "start": 2.87,
+          "end": 3.13
+        }
+      ],
+      "expected_tokens": [
+        "Roderigo.",
+        "Be",
+        "near",
+        "at",
+        "hand,",
+        "I",
+        "may",
+        "miscarry",
+        "in",
+        "'t."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Roderigo,",
+          "start": 0.57,
+          "end": 0.93,
+          "key": "roderigo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Be",
+          "start": 1.27,
+          "end": 1.43,
+          "key": "be",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "near",
+          "start": 1.43,
+          "end": 1.57,
+          "key": "near",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.57,
+          "end": 1.71,
+          "key": "at",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hand,",
+          "start": 1.71,
+          "end": 2.03,
+          "key": "hand",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.17,
+          "end": 2.19,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 2.19,
+          "end": 2.27,
+          "key": "may",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "miscarry",
+          "start": 2.27,
+          "end": 2.69,
+          "key": "miscarry",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.69,
+          "end": 2.87,
+          "key": "in",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "t.",
+          "start": 2.87,
+          "end": 3.13,
+          "key": "t",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Roderigo.",
+          "start": 0.57,
+          "end": 0.93
+        },
+        {
+          "text": "Be",
+          "start": 1.27,
+          "end": 1.43
+        },
+        {
+          "text": "near",
+          "start": 1.43,
+          "end": 1.57
+        },
+        {
+          "text": "at",
+          "start": 1.57,
+          "end": 1.71
+        },
+        {
+          "text": "hand,",
+          "start": 1.71,
+          "end": 2.03
+        },
+        {
+          "text": "I",
+          "start": 2.17,
+          "end": 2.19
+        },
+        {
+          "text": "may",
+          "start": 2.19,
+          "end": 2.27
+        },
+        {
+          "text": "miscarry",
+          "start": 2.27,
+          "end": 2.69
+        },
+        {
+          "text": "in",
+          "start": 2.69,
+          "end": 2.87
+        },
+        {
+          "text": "'t.",
+          "start": 2.87,
+          "end": 3.13
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16617076098918915
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "02a29136ecd4eaba98bc38497e56ba45719cc83cbd19cb59892c02790dfb0ab6",
+  "selected_reasons": []
+}

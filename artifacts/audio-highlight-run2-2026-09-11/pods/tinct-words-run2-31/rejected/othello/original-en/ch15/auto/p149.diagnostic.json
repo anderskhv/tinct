@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "820995cbb81a1c7451f856a4cb11b761d9654b92299f21cd557aa14a8fac1f47",
+  "attempts": [
+    {
+      "asr_seconds": 0.17404875671491027,
+      "alignment_seconds": 0.0003241761587560177,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Emilia. Ay, ay. O, lay me by my mistress' side.",
+        "hotwords": "Emilia, O"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Emilia, ay, ay. O, lay me by my mistress' side.",
+          "start": 0.53,
+          "end": 3.37,
+          "words": [
+            {
+              "text": " Emilia,",
+              "start": 0.53,
+              "end": 0.81,
+              "probability": 0.592529296875
+            },
+            {
+              "text": " ay,",
+              "start": 1.25,
+              "end": 1.43,
+              "probability": 0.01380157470703125
+            },
+            {
+              "text": " ay.",
+              "start": 1.57,
+              "end": 1.67,
+              "probability": 0.939453125
+            },
+            {
+              "text": " O,",
+              "start": 1.99,
+              "end": 2.09,
+              "probability": 0.78369140625
+            },
+            {
+              "text": " lay",
+              "start": 2.21,
+              "end": 2.25,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " me",
+              "start": 2.25,
+              "end": 2.37,
+              "probability": 0.998046875
+            },
+            {
+              "text": " by",
+              "start": 2.37,
+              "end": 2.51,
+              "probability": 0.994140625
+            },
+            {
+              "text": " my",
+              "start": 2.51,
+              "end": 2.65,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " mistress'",
+              "start": 2.65,
+              "end": 2.95,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " side.",
+              "start": 3.31,
+              "end": 3.37,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Emilia,",
+          "start": 0.53,
+          "end": 0.81
+        },
+        {
+          "raw": "ay,",
+          "start": 1.25,
+          "end": 1.43
+        },
+        {
+          "raw": "ay.",
+          "start": 1.57,
+          "end": 1.67
+        },
+        {
+          "raw": "O,",
+          "start": 1.99,
+          "end": 2.09
+        },
+        {
+          "raw": "lay",
+          "start": 2.21,
+          "end": 2.25
+        },
+        {
+          "raw": "me",
+          "start": 2.25,
+          "end": 2.37
+        },
+        {
+          "raw": "by",
+          "start": 2.37,
+          "end": 2.51
+        },
+        {
+          "raw": "my",
+          "start": 2.51,
+          "end": 2.65
+        },
+        {
+          "raw": "mistress'",
+          "start": 2.65,
+          "end": 2.95
+        },
+        {
+          "raw": "side.",
+          "start": 3.31,
+          "end": 3.37
+        }
+      ],
+      "expected_tokens": [
+        "Emilia.",
+        "Ay,",
+        "ay.",
+        "O,",
+        "lay",
+        "me",
+        "by",
+        "my",
+        "mistress'",
+        "side."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Emilia,",
+          "start": 0.53,
+          "end": 0.81,
+          "key": "emilia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "ay,",
+          "start": 1.25,
+          "end": 1.43,
+          "key": "ay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ay.",
+          "start": 1.57,
+          "end": 1.67,
+          "key": "ay",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "O,",
+          "start": 1.99,
+          "end": 2.09,
+          "key": "o",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lay",
+          "start": 2.21,
+          "end": 2.25,
+          "key": "lay",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.25,
+          "end": 2.37,
+          "key": "me",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 2.37,
+          "end": 2.51,
+          "key": "by",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.51,
+          "end": 2.65,
+          "key": "my",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "mistress'",
+          "start": 2.65,
+          "end": 2.95,
+          "key": "mistress",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "side.",
+          "start": 3.31,
+          "end": 3.37,
+          "key": "side",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Emilia.",
+          "start": 0.53,
+          "end": 0.81
+        },
+        {
+          "text": "Ay,",
+          "start": 1.25,
+          "end": 1.43
+        },
+        {
+          "text": "ay.",
+          "start": 1.57,
+          "end": 1.67
+        },
+        {
+          "text": "O,",
+          "start": 1.99,
+          "end": 2.09
+        },
+        {
+          "text": "lay",
+          "start": 2.21,
+          "end": 2.25
+        },
+        {
+          "text": "me",
+          "start": 2.25,
+          "end": 2.37
+        },
+        {
+          "text": "by",
+          "start": 2.37,
+          "end": 2.51
+        },
+        {
+          "text": "my",
+          "start": 2.51,
+          "end": 2.65
+        },
+        {
+          "text": "mistress'",
+          "start": 2.65,
+          "end": 2.95
+        },
+        {
+          "text": "side.",
+          "start": 3.31,
+          "end": 3.37
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17449181200936437
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cf52b80dd61e8e2f6b227b59b78fdc1b1a4b3914820915afa187b7b38336adba",
+  "selected_reasons": []
+}

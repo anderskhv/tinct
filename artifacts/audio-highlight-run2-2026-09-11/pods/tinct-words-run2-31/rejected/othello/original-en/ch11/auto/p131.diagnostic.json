@@ -1,0 +1,645 @@
+{
+  "complete": true,
+  "signature": "4fa4c6878e179b12938c27799905b0bb2f5f2db2514807bc2898e8fb1d653bda",
+  "attempts": [
+    {
+      "asr_seconds": 0.3436881401576102,
+      "alignment_seconds": 0.0004561450332403183,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lodovico. He did not call; he's busy in the paper. Is there division 'twixt my lord and Cassio?",
+        "hotwords": "Lodovico, He, Is, Cassio"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lodovico, He did not call. He's busy in the paper. Is there division",
+          "start": 0.53,
+          "end": 4.71,
+          "words": [
+            {
+              "text": " Lodovico,",
+              "start": 0.53,
+              "end": 0.97,
+              "probability": 0.41718896230061847
+            },
+            {
+              "text": " He",
+              "start": 1.43,
+              "end": 1.65,
+              "probability": 0.021759033203125
+            },
+            {
+              "text": " did",
+              "start": 1.65,
+              "end": 1.75,
+              "probability": 0.970703125
+            },
+            {
+              "text": " not",
+              "start": 1.75,
+              "end": 1.97,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " call.",
+              "start": 1.97,
+              "end": 2.29,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " He's",
+              "start": 2.53,
+              "end": 2.69,
+              "probability": 0.883544921875
+            },
+            {
+              "text": " busy",
+              "start": 2.69,
+              "end": 2.85,
+              "probability": 0.99609375
+            },
+            {
+              "text": " in",
+              "start": 2.85,
+              "end": 3.05,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " the",
+              "start": 3.05,
+              "end": 3.15,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " paper.",
+              "start": 3.15,
+              "end": 3.41,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Is",
+              "start": 4.03,
+              "end": 4.15,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " there",
+              "start": 4.15,
+              "end": 4.29,
+              "probability": 0.74072265625
+            },
+            {
+              "text": " division",
+              "start": 4.29,
+              "end": 4.71,
+              "probability": 0.94482421875
+            }
+          ]
+        },
+        {
+          "text": " twixt my lord and Cassio?",
+          "start": 4.71,
+          "end": 6.41,
+          "words": [
+            {
+              "text": " twixt",
+              "start": 4.71,
+              "end": 5.21,
+              "probability": 0.51190185546875
+            },
+            {
+              "text": " my",
+              "start": 5.21,
+              "end": 5.41,
+              "probability": 0.97265625
+            },
+            {
+              "text": " lord",
+              "start": 5.41,
+              "end": 5.71,
+              "probability": 0.8720703125
+            },
+            {
+              "text": " and",
+              "start": 5.71,
+              "end": 5.87,
+              "probability": 0.9609375
+            },
+            {
+              "text": " Cassio?",
+              "start": 5.87,
+              "end": 6.41,
+              "probability": 0.609130859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lodovico,",
+          "start": 0.53,
+          "end": 0.97
+        },
+        {
+          "raw": "He",
+          "start": 1.43,
+          "end": 1.65
+        },
+        {
+          "raw": "did",
+          "start": 1.65,
+          "end": 1.75
+        },
+        {
+          "raw": "not",
+          "start": 1.75,
+          "end": 1.97
+        },
+        {
+          "raw": "call.",
+          "start": 1.97,
+          "end": 2.29
+        },
+        {
+          "raw": "He's",
+          "start": 2.53,
+          "end": 2.69
+        },
+        {
+          "raw": "busy",
+          "start": 2.69,
+          "end": 2.85
+        },
+        {
+          "raw": "in",
+          "start": 2.85,
+          "end": 3.05
+        },
+        {
+          "raw": "the",
+          "start": 3.05,
+          "end": 3.15
+        },
+        {
+          "raw": "paper.",
+          "start": 3.15,
+          "end": 3.41
+        },
+        {
+          "raw": "Is",
+          "start": 4.03,
+          "end": 4.15
+        },
+        {
+          "raw": "there",
+          "start": 4.15,
+          "end": 4.29
+        },
+        {
+          "raw": "division",
+          "start": 4.29,
+          "end": 4.71
+        },
+        {
+          "raw": "twixt",
+          "start": 4.71,
+          "end": 5.21
+        },
+        {
+          "raw": "my",
+          "start": 5.21,
+          "end": 5.41
+        },
+        {
+          "raw": "lord",
+          "start": 5.41,
+          "end": 5.71
+        },
+        {
+          "raw": "and",
+          "start": 5.71,
+          "end": 5.87
+        },
+        {
+          "raw": "Cassio?",
+          "start": 5.87,
+          "end": 6.41
+        }
+      ],
+      "expected_tokens": [
+        "Lodovico.",
+        "He",
+        "did",
+        "not",
+        "call;",
+        "he's",
+        "busy",
+        "in",
+        "the",
+        "paper.",
+        "Is",
+        "there",
+        "division",
+        "'twixt",
+        "my",
+        "lord",
+        "and",
+        "Cassio?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lodovico,",
+          "start": 0.53,
+          "end": 0.97,
+          "key": "lodovico",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 1.43,
+          "end": 1.65,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 1.65,
+          "end": 1.75,
+          "key": "did",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.75,
+          "end": 1.97,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "call.",
+          "start": 1.97,
+          "end": 2.29,
+          "key": "call",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "He's",
+          "start": 2.53,
+          "end": 2.69,
+          "key": "hes",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "busy",
+          "start": 2.69,
+          "end": 2.85,
+          "key": "busy",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.85,
+          "end": 3.05,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.05,
+          "end": 3.15,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "paper.",
+          "start": 3.15,
+          "end": 3.41,
+          "key": "paper",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 4.03,
+          "end": 4.15,
+          "key": "is",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 4.15,
+          "end": 4.29,
+          "key": "there",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "division",
+          "start": 4.29,
+          "end": 4.71,
+          "key": "division",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "twixt",
+          "start": 4.71,
+          "end": 5.21,
+          "key": "twixt",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 5.21,
+          "end": 5.41,
+          "key": "my",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "lord",
+          "start": 5.41,
+          "end": 5.71,
+          "key": "lord",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.71,
+          "end": 5.87,
+          "key": "and",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Cassio?",
+          "start": 5.87,
+          "end": 6.41,
+          "key": "cassio",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lodovico.",
+          "start": 0.53,
+          "end": 0.97
+        },
+        {
+          "text": "He",
+          "start": 1.43,
+          "end": 1.65
+        },
+        {
+          "text": "did",
+          "start": 1.65,
+          "end": 1.75
+        },
+        {
+          "text": "not",
+          "start": 1.75,
+          "end": 1.97
+        },
+        {
+          "text": "call;",
+          "start": 1.97,
+          "end": 2.29
+        },
+        {
+          "text": "he's",
+          "start": 2.53,
+          "end": 2.69
+        },
+        {
+          "text": "busy",
+          "start": 2.69,
+          "end": 2.85
+        },
+        {
+          "text": "in",
+          "start": 2.85,
+          "end": 3.05
+        },
+        {
+          "text": "the",
+          "start": 3.05,
+          "end": 3.15
+        },
+        {
+          "text": "paper.",
+          "start": 3.15,
+          "end": 3.41
+        },
+        {
+          "text": "Is",
+          "start": 4.03,
+          "end": 4.15
+        },
+        {
+          "text": "there",
+          "start": 4.15,
+          "end": 4.29
+        },
+        {
+          "text": "division",
+          "start": 4.29,
+          "end": 4.71
+        },
+        {
+          "text": "'twixt",
+          "start": 4.71,
+          "end": 5.21
+        },
+        {
+          "text": "my",
+          "start": 5.21,
+          "end": 5.41
+        },
+        {
+          "text": "lord",
+          "start": 5.41,
+          "end": 5.71
+        },
+        {
+          "text": "and",
+          "start": 5.71,
+          "end": 5.87
+        },
+        {
+          "text": "Cassio?",
+          "start": 5.87,
+          "end": 6.41
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.344326043035835
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e4123cd67bd2b18ece47ba785d8bdc6b5dc814d99acf9eb00aa06a2b00c9bd24",
+  "selected_reasons": []
+}

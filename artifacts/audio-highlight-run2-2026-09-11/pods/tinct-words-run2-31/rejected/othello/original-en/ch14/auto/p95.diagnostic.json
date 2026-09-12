@@ -1,0 +1,1598 @@
+{
+  "complete": true,
+  "signature": "d7998cdb503a3caed02300904b96e04f63bf9d14968b5970a6584516aba22a2e",
+  "attempts": [
+    {
+      "asr_seconds": 0.5054967980831861,
+      "alignment_seconds": 0.0006567430682480335,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Iago. Kind gentlemen, let's go see poor Cassio dress'd. Come, mistress, you must tell's another tale. Emilia, run you to the citadel, And tell my lord and lady what hath happ'd. Will you go on afore? This is the night That either makes me or fordoes me quite.",
+        "hotwords": "Iago, Kind, Cassio, Come, Emilia, Will, This, That"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Iago, kind gentlemen, let's go see poor Cassio dress'd. Come, mistress, you must tell's another tale. Emilia, run you to the citadel, And tell my lord and lady what hath happ'd. Will you go on afore? This is the night That either makes me or fordoes me quite.",
+          "start": 0.02,
+          "end": 16.4,
+          "words": [
+            {
+              "text": " Iago,",
+              "start": 0.02,
+              "end": 0.84,
+              "probability": 0.15459442138671875
+            },
+            {
+              "text": " kind",
+              "start": 1.38,
+              "end": 1.38,
+              "probability": 0.970703125
+            },
+            {
+              "text": " gentlemen,",
+              "start": 1.38,
+              "end": 1.84,
+              "probability": 0.2880859375
+            },
+            {
+              "text": " let's",
+              "start": 2.2,
+              "end": 2.38,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " go",
+              "start": 2.38,
+              "end": 2.52,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " see",
+              "start": 2.52,
+              "end": 2.72,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " poor",
+              "start": 2.72,
+              "end": 2.98,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " Cassio",
+              "start": 2.98,
+              "end": 3.5,
+              "probability": 0.82763671875
+            },
+            {
+              "text": " dress'd.",
+              "start": 3.5,
+              "end": 4.02,
+              "probability": 0.3759021759033203
+            },
+            {
+              "text": " Come,",
+              "start": 4.52,
+              "end": 4.74,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " mistress,",
+              "start": 4.88,
+              "end": 5.08,
+              "probability": 0.85205078125
+            },
+            {
+              "text": " you",
+              "start": 5.46,
+              "end": 5.58,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " must",
+              "start": 5.58,
+              "end": 5.7,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " tell's",
+              "start": 5.7,
+              "end": 6.04,
+              "probability": 0.6923828125
+            },
+            {
+              "text": " another",
+              "start": 6.04,
+              "end": 6.26,
+              "probability": 0.916015625
+            },
+            {
+              "text": " tale.",
+              "start": 6.26,
+              "end": 6.66,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " Emilia,",
+              "start": 7.44,
+              "end": 7.76,
+              "probability": 0.7091064453125
+            },
+            {
+              "text": " run",
+              "start": 8.02,
+              "end": 8.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you",
+              "start": 8.18,
+              "end": 8.38,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " to",
+              "start": 8.38,
+              "end": 8.52,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " the",
+              "start": 8.52,
+              "end": 8.68,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " citadel,",
+              "start": 8.68,
+              "end": 9.04,
+              "probability": 0.81640625
+            },
+            {
+              "text": " And",
+              "start": 9.32,
+              "end": 9.46,
+              "probability": 0.040069580078125
+            },
+            {
+              "text": " tell",
+              "start": 9.46,
+              "end": 9.68,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " my",
+              "start": 9.68,
+              "end": 9.9,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " lord",
+              "start": 9.9,
+              "end": 10.22,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " and",
+              "start": 10.22,
+              "end": 10.52,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " lady",
+              "start": 10.52,
+              "end": 10.8,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " what",
+              "start": 10.8,
+              "end": 11.06,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " hath",
+              "start": 11.06,
+              "end": 11.22,
+              "probability": 0.9921875
+            },
+            {
+              "text": " happ'd.",
+              "start": 11.22,
+              "end": 11.64,
+              "probability": 0.4825592041015625
+            },
+            {
+              "text": " Will",
+              "start": 12.14,
+              "end": 12.26,
+              "probability": 0.8896484375
+            },
+            {
+              "text": " you",
+              "start": 12.26,
+              "end": 12.38,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " go",
+              "start": 12.38,
+              "end": 12.52,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " on",
+              "start": 12.52,
+              "end": 12.74,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " afore?",
+              "start": 12.74,
+              "end": 12.94,
+              "probability": 0.66943359375
+            },
+            {
+              "text": " This",
+              "start": 13.58,
+              "end": 13.76,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " is",
+              "start": 13.76,
+              "end": 13.92,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " the",
+              "start": 13.92,
+              "end": 14.08,
+              "probability": 0.994140625
+            },
+            {
+              "text": " night",
+              "start": 14.08,
+              "end": 14.24,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " That",
+              "start": 14.24,
+              "end": 14.46,
+              "probability": 0.1837158203125
+            },
+            {
+              "text": " either",
+              "start": 14.46,
+              "end": 14.68,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " makes",
+              "start": 14.68,
+              "end": 14.98,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " me",
+              "start": 14.98,
+              "end": 15.26,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " or",
+              "start": 15.26,
+              "end": 15.5,
+              "probability": 0.89013671875
+            },
+            {
+              "text": " fordoes",
+              "start": 15.5,
+              "end": 15.88,
+              "probability": 0.3467903137207031
+            },
+            {
+              "text": " me",
+              "start": 15.88,
+              "end": 16.14,
+              "probability": 0.9921875
+            },
+            {
+              "text": " quite.",
+              "start": 16.14,
+              "end": 16.4,
+              "probability": 0.9814453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Iago,",
+          "start": 0.02,
+          "end": 0.84
+        },
+        {
+          "raw": "kind",
+          "start": 1.38,
+          "end": 1.38
+        },
+        {
+          "raw": "gentlemen,",
+          "start": 1.38,
+          "end": 1.84
+        },
+        {
+          "raw": "let's",
+          "start": 2.2,
+          "end": 2.38
+        },
+        {
+          "raw": "go",
+          "start": 2.38,
+          "end": 2.52
+        },
+        {
+          "raw": "see",
+          "start": 2.52,
+          "end": 2.72
+        },
+        {
+          "raw": "poor",
+          "start": 2.72,
+          "end": 2.98
+        },
+        {
+          "raw": "Cassio",
+          "start": 2.98,
+          "end": 3.5
+        },
+        {
+          "raw": "dress'd.",
+          "start": 3.5,
+          "end": 4.02
+        },
+        {
+          "raw": "Come,",
+          "start": 4.52,
+          "end": 4.74
+        },
+        {
+          "raw": "mistress,",
+          "start": 4.88,
+          "end": 5.08
+        },
+        {
+          "raw": "you",
+          "start": 5.46,
+          "end": 5.58
+        },
+        {
+          "raw": "must",
+          "start": 5.58,
+          "end": 5.7
+        },
+        {
+          "raw": "tell's",
+          "start": 5.7,
+          "end": 6.04
+        },
+        {
+          "raw": "another",
+          "start": 6.04,
+          "end": 6.26
+        },
+        {
+          "raw": "tale.",
+          "start": 6.26,
+          "end": 6.66
+        },
+        {
+          "raw": "Emilia,",
+          "start": 7.44,
+          "end": 7.76
+        },
+        {
+          "raw": "run",
+          "start": 8.02,
+          "end": 8.18
+        },
+        {
+          "raw": "you",
+          "start": 8.18,
+          "end": 8.38
+        },
+        {
+          "raw": "to",
+          "start": 8.38,
+          "end": 8.52
+        },
+        {
+          "raw": "the",
+          "start": 8.52,
+          "end": 8.68
+        },
+        {
+          "raw": "citadel,",
+          "start": 8.68,
+          "end": 9.04
+        },
+        {
+          "raw": "And",
+          "start": 9.32,
+          "end": 9.46
+        },
+        {
+          "raw": "tell",
+          "start": 9.46,
+          "end": 9.68
+        },
+        {
+          "raw": "my",
+          "start": 9.68,
+          "end": 9.9
+        },
+        {
+          "raw": "lord",
+          "start": 9.9,
+          "end": 10.22
+        },
+        {
+          "raw": "and",
+          "start": 10.22,
+          "end": 10.52
+        },
+        {
+          "raw": "lady",
+          "start": 10.52,
+          "end": 10.8
+        },
+        {
+          "raw": "what",
+          "start": 10.8,
+          "end": 11.06
+        },
+        {
+          "raw": "hath",
+          "start": 11.06,
+          "end": 11.22
+        },
+        {
+          "raw": "happ'd.",
+          "start": 11.22,
+          "end": 11.64
+        },
+        {
+          "raw": "Will",
+          "start": 12.14,
+          "end": 12.26
+        },
+        {
+          "raw": "you",
+          "start": 12.26,
+          "end": 12.38
+        },
+        {
+          "raw": "go",
+          "start": 12.38,
+          "end": 12.52
+        },
+        {
+          "raw": "on",
+          "start": 12.52,
+          "end": 12.74
+        },
+        {
+          "raw": "afore?",
+          "start": 12.74,
+          "end": 12.94
+        },
+        {
+          "raw": "This",
+          "start": 13.58,
+          "end": 13.76
+        },
+        {
+          "raw": "is",
+          "start": 13.76,
+          "end": 13.92
+        },
+        {
+          "raw": "the",
+          "start": 13.92,
+          "end": 14.08
+        },
+        {
+          "raw": "night",
+          "start": 14.08,
+          "end": 14.24
+        },
+        {
+          "raw": "That",
+          "start": 14.24,
+          "end": 14.46
+        },
+        {
+          "raw": "either",
+          "start": 14.46,
+          "end": 14.68
+        },
+        {
+          "raw": "makes",
+          "start": 14.68,
+          "end": 14.98
+        },
+        {
+          "raw": "me",
+          "start": 14.98,
+          "end": 15.26
+        },
+        {
+          "raw": "or",
+          "start": 15.26,
+          "end": 15.5
+        },
+        {
+          "raw": "fordoes",
+          "start": 15.5,
+          "end": 15.88
+        },
+        {
+          "raw": "me",
+          "start": 15.88,
+          "end": 16.14
+        },
+        {
+          "raw": "quite.",
+          "start": 16.14,
+          "end": 16.4
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "Kind",
+        "gentlemen,",
+        "let's",
+        "go",
+        "see",
+        "poor",
+        "Cassio",
+        "dress'd.",
+        "Come,",
+        "mistress,",
+        "you",
+        "must",
+        "tell's",
+        "another",
+        "tale.",
+        "Emilia,",
+        "run",
+        "you",
+        "to",
+        "the",
+        "citadel,",
+        "And",
+        "tell",
+        "my",
+        "lord",
+        "and",
+        "lady",
+        "what",
+        "hath",
+        "happ'd.",
+        "Will",
+        "you",
+        "go",
+        "on",
+        "afore?",
+        "This",
+        "is",
+        "the",
+        "night",
+        "That",
+        "either",
+        "makes",
+        "me",
+        "or",
+        "fordoes",
+        "me",
+        "quite."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          48,
+          0,
+          48
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Iago,",
+          "start": 0.02,
+          "end": 0.84,
+          "key": "iago",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "kind",
+          "start": 1.38,
+          "end": 1.38,
+          "key": "kind",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "gentlemen,",
+          "start": 1.38,
+          "end": 1.84,
+          "key": "gentlemen",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "let's",
+          "start": 2.2,
+          "end": 2.38,
+          "key": "lets",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 2.38,
+          "end": 2.52,
+          "key": "go",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 2.52,
+          "end": 2.72,
+          "key": "see",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "poor",
+          "start": 2.72,
+          "end": 2.98,
+          "key": "poor",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Cassio",
+          "start": 2.98,
+          "end": 3.5,
+          "key": "cassio",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "dress'd.",
+          "start": 3.5,
+          "end": 4.02,
+          "key": "dressd",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Come,",
+          "start": 4.52,
+          "end": 4.74,
+          "key": "come",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "mistress,",
+          "start": 4.88,
+          "end": 5.08,
+          "key": "mistress",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.46,
+          "end": 5.58,
+          "key": "you",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 5.58,
+          "end": 5.7,
+          "key": "must",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "tell's",
+          "start": 5.7,
+          "end": 6.04,
+          "key": "tells",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "another",
+          "start": 6.04,
+          "end": 6.26,
+          "key": "another",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "tale.",
+          "start": 6.26,
+          "end": 6.66,
+          "key": "tale",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Emilia,",
+          "start": 7.44,
+          "end": 7.76,
+          "key": "emilia",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "run",
+          "start": 8.02,
+          "end": 8.18,
+          "key": "run",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 8.18,
+          "end": 8.38,
+          "key": "you",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 8.38,
+          "end": 8.52,
+          "key": "to",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.52,
+          "end": 8.68,
+          "key": "the",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "citadel,",
+          "start": 8.68,
+          "end": 9.04,
+          "key": "citadel",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 9.32,
+          "end": 9.46,
+          "key": "and",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 9.46,
+          "end": 9.68,
+          "key": "tell",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 9.68,
+          "end": 9.9,
+          "key": "my",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "lord",
+          "start": 9.9,
+          "end": 10.22,
+          "key": "lord",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 10.22,
+          "end": 10.52,
+          "key": "and",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "lady",
+          "start": 10.52,
+          "end": 10.8,
+          "key": "lady",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 10.8,
+          "end": 11.06,
+          "key": "what",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 11.06,
+          "end": 11.22,
+          "key": "hath",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "happ'd.",
+          "start": 11.22,
+          "end": 11.64,
+          "key": "happd",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "Will",
+          "start": 12.14,
+          "end": 12.26,
+          "key": "will",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 12.26,
+          "end": 12.38,
+          "key": "you",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 12.38,
+          "end": 12.52,
+          "key": "go",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 12.52,
+          "end": 12.74,
+          "key": "on",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "afore?",
+          "start": 12.74,
+          "end": 12.94,
+          "key": "afore",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "This",
+          "start": 13.58,
+          "end": 13.76,
+          "key": "this",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 13.76,
+          "end": 13.92,
+          "key": "is",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.92,
+          "end": 14.08,
+          "key": "the",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "night",
+          "start": 14.08,
+          "end": 14.24,
+          "key": "night",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 14.24,
+          "end": 14.46,
+          "key": "that",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "either",
+          "start": 14.46,
+          "end": 14.68,
+          "key": "either",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "makes",
+          "start": 14.68,
+          "end": 14.98,
+          "key": "makes",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 14.98,
+          "end": 15.26,
+          "key": "me",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 15.26,
+          "end": 15.5,
+          "key": "or",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "fordoes",
+          "start": 15.5,
+          "end": 15.88,
+          "key": "fordoes",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 15.88,
+          "end": 16.14,
+          "key": "me",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "quite.",
+          "start": 16.14,
+          "end": 16.4,
+          "key": "quite",
+          "pieces": [
+            47
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.02,
+          "end": 0.84
+        },
+        {
+          "text": "Kind",
+          "start": 1.38,
+          "end": 1.38
+        },
+        {
+          "text": "gentlemen,",
+          "start": 1.38,
+          "end": 1.84
+        },
+        {
+          "text": "let's",
+          "start": 2.2,
+          "end": 2.38
+        },
+        {
+          "text": "go",
+          "start": 2.38,
+          "end": 2.52
+        },
+        {
+          "text": "see",
+          "start": 2.52,
+          "end": 2.72
+        },
+        {
+          "text": "poor",
+          "start": 2.72,
+          "end": 2.98
+        },
+        {
+          "text": "Cassio",
+          "start": 2.98,
+          "end": 3.5
+        },
+        {
+          "text": "dress'd.",
+          "start": 3.5,
+          "end": 4.02
+        },
+        {
+          "text": "Come,",
+          "start": 4.52,
+          "end": 4.74
+        },
+        {
+          "text": "mistress,",
+          "start": 4.88,
+          "end": 5.08
+        },
+        {
+          "text": "you",
+          "start": 5.46,
+          "end": 5.58
+        },
+        {
+          "text": "must",
+          "start": 5.58,
+          "end": 5.7
+        },
+        {
+          "text": "tell's",
+          "start": 5.7,
+          "end": 6.04
+        },
+        {
+          "text": "another",
+          "start": 6.04,
+          "end": 6.26
+        },
+        {
+          "text": "tale.",
+          "start": 6.26,
+          "end": 6.66
+        },
+        {
+          "text": "Emilia,",
+          "start": 7.44,
+          "end": 7.76
+        },
+        {
+          "text": "run",
+          "start": 8.02,
+          "end": 8.18
+        },
+        {
+          "text": "you",
+          "start": 8.18,
+          "end": 8.38
+        },
+        {
+          "text": "to",
+          "start": 8.38,
+          "end": 8.52
+        },
+        {
+          "text": "the",
+          "start": 8.52,
+          "end": 8.68
+        },
+        {
+          "text": "citadel,",
+          "start": 8.68,
+          "end": 9.04
+        },
+        {
+          "text": "And",
+          "start": 9.32,
+          "end": 9.46
+        },
+        {
+          "text": "tell",
+          "start": 9.46,
+          "end": 9.68
+        },
+        {
+          "text": "my",
+          "start": 9.68,
+          "end": 9.9
+        },
+        {
+          "text": "lord",
+          "start": 9.9,
+          "end": 10.22
+        },
+        {
+          "text": "and",
+          "start": 10.22,
+          "end": 10.52
+        },
+        {
+          "text": "lady",
+          "start": 10.52,
+          "end": 10.8
+        },
+        {
+          "text": "what",
+          "start": 10.8,
+          "end": 11.06
+        },
+        {
+          "text": "hath",
+          "start": 11.06,
+          "end": 11.22
+        },
+        {
+          "text": "happ'd.",
+          "start": 11.22,
+          "end": 11.64
+        },
+        {
+          "text": "Will",
+          "start": 12.14,
+          "end": 12.26
+        },
+        {
+          "text": "you",
+          "start": 12.26,
+          "end": 12.38
+        },
+        {
+          "text": "go",
+          "start": 12.38,
+          "end": 12.52
+        },
+        {
+          "text": "on",
+          "start": 12.52,
+          "end": 12.74
+        },
+        {
+          "text": "afore?",
+          "start": 12.74,
+          "end": 12.94
+        },
+        {
+          "text": "This",
+          "start": 13.58,
+          "end": 13.76
+        },
+        {
+          "text": "is",
+          "start": 13.76,
+          "end": 13.92
+        },
+        {
+          "text": "the",
+          "start": 13.92,
+          "end": 14.08
+        },
+        {
+          "text": "night",
+          "start": 14.08,
+          "end": 14.24
+        },
+        {
+          "text": "That",
+          "start": 14.24,
+          "end": 14.46
+        },
+        {
+          "text": "either",
+          "start": 14.46,
+          "end": 14.68
+        },
+        {
+          "text": "makes",
+          "start": 14.68,
+          "end": 14.98
+        },
+        {
+          "text": "me",
+          "start": 14.98,
+          "end": 15.26
+        },
+        {
+          "text": "or",
+          "start": 15.26,
+          "end": 15.5
+        },
+        {
+          "text": "fordoes",
+          "start": 15.5,
+          "end": 15.88
+        },
+        {
+          "text": "me",
+          "start": 15.88,
+          "end": 16.14
+        },
+        {
+          "text": "quite.",
+          "start": 16.14,
+          "end": 16.4
+        }
+      ],
+      "stats": {
+        "expected_words": 48,
+        "heard_words": 48,
+        "matched_words": 48
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5064321281388402
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "46e317b7b8da31992b55b177ee9ba4c0e507e417c7c65b9338d7cd1a589ac729",
+  "selected_reasons": []
+}

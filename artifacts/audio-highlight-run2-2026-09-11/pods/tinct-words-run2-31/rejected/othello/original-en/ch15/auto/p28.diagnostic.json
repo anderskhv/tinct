@@ -1,0 +1,1563 @@
+{
+  "complete": true,
+  "signature": "4b594e4a642a8b7d00504a7a28dba706cef09159ce3f62c85a1419f145f29ef2",
+  "attempts": [
+    {
+      "asr_seconds": 0.22765595000237226,
+      "alignment_seconds": 0.00039448589086532593,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Othello. Sweet soul, take heed, take heed of perjury, Thou'rt on thy death-bed.",
+        "hotwords": "Othello, Sweet, Thou'rt"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Othello, Sweet soul, take heed, take heed of perjury, Thou'rt on thy death-bed.",
+          "start": 0.21,
+          "end": 4.93,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.21,
+              "end": 0.91,
+              "probability": 0.8387044270833334
+            },
+            {
+              "text": " Sweet",
+              "start": 1.53,
+              "end": 1.57,
+              "probability": 0.0200958251953125
+            },
+            {
+              "text": " soul,",
+              "start": 1.57,
+              "end": 1.93,
+              "probability": 0.6796875
+            },
+            {
+              "text": " take",
+              "start": 2.13,
+              "end": 2.25,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " heed,",
+              "start": 2.25,
+              "end": 2.55,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " take",
+              "start": 2.91,
+              "end": 2.95,
+              "probability": 0.6201171875
+            },
+            {
+              "text": " heed",
+              "start": 2.95,
+              "end": 3.15,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 3.15,
+              "end": 3.31,
+              "probability": 0.8642578125
+            },
+            {
+              "text": " perjury,",
+              "start": 3.31,
+              "end": 3.67,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " Thou",
+              "start": 4.07,
+              "end": 4.07,
+              "probability": 0.351806640625
+            },
+            {
+              "text": "'rt",
+              "start": 4.07,
+              "end": 4.23,
+              "probability": 0.03353309631347656
+            },
+            {
+              "text": " on",
+              "start": 4.23,
+              "end": 4.35,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " thy",
+              "start": 4.35,
+              "end": 4.49,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " death",
+              "start": 4.49,
+              "end": 4.67,
+              "probability": 0.95703125
+            },
+            {
+              "text": "-bed.",
+              "start": 4.67,
+              "end": 4.93,
+              "probability": 0.52093505859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.21,
+          "end": 0.91
+        },
+        {
+          "raw": "Sweet",
+          "start": 1.53,
+          "end": 1.57
+        },
+        {
+          "raw": "soul,",
+          "start": 1.57,
+          "end": 1.93
+        },
+        {
+          "raw": "take",
+          "start": 2.13,
+          "end": 2.25
+        },
+        {
+          "raw": "heed,",
+          "start": 2.25,
+          "end": 2.55
+        },
+        {
+          "raw": "take",
+          "start": 2.91,
+          "end": 2.95
+        },
+        {
+          "raw": "heed",
+          "start": 2.95,
+          "end": 3.15
+        },
+        {
+          "raw": "of",
+          "start": 3.15,
+          "end": 3.31
+        },
+        {
+          "raw": "perjury,",
+          "start": 3.31,
+          "end": 3.67
+        },
+        {
+          "raw": "Thou",
+          "start": 4.07,
+          "end": 4.07
+        },
+        {
+          "raw": "'rt",
+          "start": 4.07,
+          "end": 4.23
+        },
+        {
+          "raw": "on",
+          "start": 4.23,
+          "end": 4.35
+        },
+        {
+          "raw": "thy",
+          "start": 4.35,
+          "end": 4.49
+        },
+        {
+          "raw": "death",
+          "start": 4.49,
+          "end": 4.67
+        },
+        {
+          "raw": "-bed.",
+          "start": 4.67,
+          "end": 4.93
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "Sweet",
+        "soul,",
+        "take",
+        "heed,",
+        "take",
+        "heed",
+        "of",
+        "perjury,",
+        "Thou'rt",
+        "on",
+        "thy",
+        "death-bed."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ],
+        [
+          "equal",
+          10,
+          13,
+          11,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.21,
+          "end": 0.91,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sweet",
+          "start": 1.53,
+          "end": 1.57,
+          "key": "sweet",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "soul,",
+          "start": 1.57,
+          "end": 1.93,
+          "key": "soul",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 2.13,
+          "end": 2.25,
+          "key": "take",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "heed,",
+          "start": 2.25,
+          "end": 2.55,
+          "key": "heed",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 2.91,
+          "end": 2.95,
+          "key": "take",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "heed",
+          "start": 2.95,
+          "end": 3.15,
+          "key": "heed",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.15,
+          "end": 3.31,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "perjury,",
+          "start": 3.31,
+          "end": 3.67,
+          "key": "perjury",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Thou",
+          "start": 4.07,
+          "end": 4.07,
+          "key": "thou",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "'rt",
+          "start": 4.07,
+          "end": 4.23,
+          "key": "rt",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 4.23,
+          "end": 4.35,
+          "key": "on",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 4.35,
+          "end": 4.49,
+          "key": "thy",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "death -bed.",
+          "start": 4.49,
+          "end": 4.93,
+          "key": "deathbed",
+          "pieces": [
+            13,
+            14
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 12,
+          "text": "death-bed.",
+          "heard": "death -bed.",
+          "heard_indexes": [
+            13,
+            14
+          ],
+          "start": 4.49,
+          "end": 4.93
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.21,
+          "end": 0.91
+        },
+        {
+          "text": "Sweet",
+          "start": 1.53,
+          "end": 1.57
+        },
+        {
+          "text": "soul,",
+          "start": 1.57,
+          "end": 1.93
+        },
+        {
+          "text": "take",
+          "start": 2.13,
+          "end": 2.25
+        },
+        {
+          "text": "heed,",
+          "start": 2.25,
+          "end": 2.55
+        },
+        {
+          "text": "take",
+          "start": 2.91,
+          "end": 2.95
+        },
+        {
+          "text": "heed",
+          "start": 2.95,
+          "end": 3.15
+        },
+        {
+          "text": "of",
+          "start": 3.15,
+          "end": 3.31
+        },
+        {
+          "text": "perjury,",
+          "start": 3.31,
+          "end": 3.67
+        },
+        {
+          "text": "Thou'rt",
+          "start": 3.67,
+          "end": 3.95
+        },
+        {
+          "text": "on",
+          "start": 4.23,
+          "end": 4.35
+        },
+        {
+          "text": "thy",
+          "start": 4.35,
+          "end": 4.49
+        },
+        {
+          "text": "death-bed.",
+          "start": 4.49,
+          "end": 4.93
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 14,
+        "matched_words": 12
+      },
+      "match_ratio": 0.9230769230769231,
+      "rejection_reasons": [],
+      "seconds": 0.22816445399075747
+    },
+    {
+      "asr_seconds": 0.1933059091679752,
+      "alignment_seconds": 0.00021461816504597664,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Othello, Sweet, Thou'rt"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Othello, Sweet Soul, Take heed, Take heed of perjury, Thou'rt on thy deathbed.",
+          "start": 0.21,
+          "end": 4.93,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.21,
+              "end": 0.91,
+              "probability": 0.8387044270833334
+            },
+            {
+              "text": " Sweet",
+              "start": 1.53,
+              "end": 1.57,
+              "probability": 0.0200958251953125
+            },
+            {
+              "text": " Soul,",
+              "start": 1.57,
+              "end": 1.93,
+              "probability": 0.273681640625
+            },
+            {
+              "text": " Take",
+              "start": 2.17,
+              "end": 2.25,
+              "probability": 0.16015625
+            },
+            {
+              "text": " heed,",
+              "start": 2.25,
+              "end": 2.53,
+              "probability": 0.54638671875
+            },
+            {
+              "text": " Take",
+              "start": 2.87,
+              "end": 2.97,
+              "probability": 0.58642578125
+            },
+            {
+              "text": " heed",
+              "start": 2.97,
+              "end": 3.15,
+              "probability": 0.994140625
+            },
+            {
+              "text": " of",
+              "start": 3.15,
+              "end": 3.31,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " perjury,",
+              "start": 3.31,
+              "end": 3.65,
+              "probability": 0.8671875
+            },
+            {
+              "text": " Thou",
+              "start": 4.07,
+              "end": 4.07,
+              "probability": 0.417724609375
+            },
+            {
+              "text": "'rt",
+              "start": 4.07,
+              "end": 4.23,
+              "probability": 0.03803253173828125
+            },
+            {
+              "text": " on",
+              "start": 4.23,
+              "end": 4.35,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " thy",
+              "start": 4.35,
+              "end": 4.49,
+              "probability": 0.90087890625
+            },
+            {
+              "text": " deathbed.",
+              "start": 4.49,
+              "end": 4.93,
+              "probability": 0.84423828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.21,
+          "end": 0.91
+        },
+        {
+          "raw": "Sweet",
+          "start": 1.53,
+          "end": 1.57
+        },
+        {
+          "raw": "Soul,",
+          "start": 1.57,
+          "end": 1.93
+        },
+        {
+          "raw": "Take",
+          "start": 2.17,
+          "end": 2.25
+        },
+        {
+          "raw": "heed,",
+          "start": 2.25,
+          "end": 2.53
+        },
+        {
+          "raw": "Take",
+          "start": 2.87,
+          "end": 2.97
+        },
+        {
+          "raw": "heed",
+          "start": 2.97,
+          "end": 3.15
+        },
+        {
+          "raw": "of",
+          "start": 3.15,
+          "end": 3.31
+        },
+        {
+          "raw": "perjury,",
+          "start": 3.31,
+          "end": 3.65
+        },
+        {
+          "raw": "Thou",
+          "start": 4.07,
+          "end": 4.07
+        },
+        {
+          "raw": "'rt",
+          "start": 4.07,
+          "end": 4.23
+        },
+        {
+          "raw": "on",
+          "start": 4.23,
+          "end": 4.35
+        },
+        {
+          "raw": "thy",
+          "start": 4.35,
+          "end": 4.49
+        },
+        {
+          "raw": "deathbed.",
+          "start": 4.49,
+          "end": 4.93
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "Sweet",
+        "soul,",
+        "take",
+        "heed,",
+        "take",
+        "heed",
+        "of",
+        "perjury,",
+        "Thou'rt",
+        "on",
+        "thy",
+        "death-bed."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ],
+        [
+          "equal",
+          10,
+          13,
+          11,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.21,
+          "end": 0.91,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sweet",
+          "start": 1.53,
+          "end": 1.57,
+          "key": "sweet",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Soul,",
+          "start": 1.57,
+          "end": 1.93,
+          "key": "soul",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Take",
+          "start": 2.17,
+          "end": 2.25,
+          "key": "take",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "heed,",
+          "start": 2.25,
+          "end": 2.53,
+          "key": "heed",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Take",
+          "start": 2.87,
+          "end": 2.97,
+          "key": "take",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "heed",
+          "start": 2.97,
+          "end": 3.15,
+          "key": "heed",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.15,
+          "end": 3.31,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "perjury,",
+          "start": 3.31,
+          "end": 3.65,
+          "key": "perjury",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Thou",
+          "start": 4.07,
+          "end": 4.07,
+          "key": "thou",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "'rt",
+          "start": 4.07,
+          "end": 4.23,
+          "key": "rt",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 4.23,
+          "end": 4.35,
+          "key": "on",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 4.35,
+          "end": 4.49,
+          "key": "thy",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "deathbed.",
+          "start": 4.49,
+          "end": 4.93,
+          "key": "deathbed",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.21,
+          "end": 0.91
+        },
+        {
+          "text": "Sweet",
+          "start": 1.53,
+          "end": 1.57
+        },
+        {
+          "text": "soul,",
+          "start": 1.57,
+          "end": 1.93
+        },
+        {
+          "text": "take",
+          "start": 2.17,
+          "end": 2.25
+        },
+        {
+          "text": "heed,",
+          "start": 2.25,
+          "end": 2.53
+        },
+        {
+          "text": "take",
+          "start": 2.87,
+          "end": 2.97
+        },
+        {
+          "text": "heed",
+          "start": 2.97,
+          "end": 3.15
+        },
+        {
+          "text": "of",
+          "start": 3.15,
+          "end": 3.31
+        },
+        {
+          "text": "perjury,",
+          "start": 3.31,
+          "end": 3.65
+        },
+        {
+          "text": "Thou'rt",
+          "start": 3.65,
+          "end": 3.94
+        },
+        {
+          "text": "on",
+          "start": 4.23,
+          "end": 4.35
+        },
+        {
+          "text": "thy",
+          "start": 4.35,
+          "end": 4.49
+        },
+        {
+          "text": "death-bed.",
+          "start": 4.49,
+          "end": 4.93
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 14,
+        "matched_words": 12
+      },
+      "match_ratio": 0.9230769230769231,
+      "rejection_reasons": [],
+      "seconds": 0.19359701592475176
+    },
+    {
+      "asr_seconds": 0.19571232423186302,
+      "alignment_seconds": 0.00021720677614212036,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Othello, sweet soul, take heed, take heed of perjury, thow it on thy deathbed.",
+          "start": 0.21,
+          "end": 4.93,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.21,
+              "end": 0.91,
+              "probability": 0.8387044270833334
+            },
+            {
+              "text": " sweet",
+              "start": 1.53,
+              "end": 1.57,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " soul,",
+              "start": 1.57,
+              "end": 1.93,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " take",
+              "start": 2.15,
+              "end": 2.25,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " heed,",
+              "start": 2.25,
+              "end": 2.55,
+              "probability": 0.99609375
+            },
+            {
+              "text": " take",
+              "start": 2.91,
+              "end": 2.95,
+              "probability": 0.85888671875
+            },
+            {
+              "text": " heed",
+              "start": 2.95,
+              "end": 3.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 3.15,
+              "end": 3.31,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " perjury,",
+              "start": 3.31,
+              "end": 3.65,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " thow",
+              "start": 4.05,
+              "end": 4.13,
+              "probability": 0.5438232421875
+            },
+            {
+              "text": " it",
+              "start": 4.13,
+              "end": 4.23,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " on",
+              "start": 4.23,
+              "end": 4.37,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " thy",
+              "start": 4.37,
+              "end": 4.49,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " deathbed.",
+              "start": 4.49,
+              "end": 4.93,
+              "probability": 0.885986328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.21,
+          "end": 0.91
+        },
+        {
+          "raw": "sweet",
+          "start": 1.53,
+          "end": 1.57
+        },
+        {
+          "raw": "soul,",
+          "start": 1.57,
+          "end": 1.93
+        },
+        {
+          "raw": "take",
+          "start": 2.15,
+          "end": 2.25
+        },
+        {
+          "raw": "heed,",
+          "start": 2.25,
+          "end": 2.55
+        },
+        {
+          "raw": "take",
+          "start": 2.91,
+          "end": 2.95
+        },
+        {
+          "raw": "heed",
+          "start": 2.95,
+          "end": 3.15
+        },
+        {
+          "raw": "of",
+          "start": 3.15,
+          "end": 3.31
+        },
+        {
+          "raw": "perjury,",
+          "start": 3.31,
+          "end": 3.65
+        },
+        {
+          "raw": "thow",
+          "start": 4.05,
+          "end": 4.13
+        },
+        {
+          "raw": "it",
+          "start": 4.13,
+          "end": 4.23
+        },
+        {
+          "raw": "on",
+          "start": 4.23,
+          "end": 4.37
+        },
+        {
+          "raw": "thy",
+          "start": 4.37,
+          "end": 4.49
+        },
+        {
+          "raw": "deathbed.",
+          "start": 4.49,
+          "end": 4.93
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "Sweet",
+        "soul,",
+        "take",
+        "heed,",
+        "take",
+        "heed",
+        "of",
+        "perjury,",
+        "Thou'rt",
+        "on",
+        "thy",
+        "death-bed."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ],
+        [
+          "equal",
+          10,
+          13,
+          11,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.21,
+          "end": 0.91,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sweet",
+          "start": 1.53,
+          "end": 1.57,
+          "key": "sweet",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "soul,",
+          "start": 1.57,
+          "end": 1.93,
+          "key": "soul",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 2.15,
+          "end": 2.25,
+          "key": "take",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "heed,",
+          "start": 2.25,
+          "end": 2.55,
+          "key": "heed",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 2.91,
+          "end": 2.95,
+          "key": "take",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "heed",
+          "start": 2.95,
+          "end": 3.15,
+          "key": "heed",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.15,
+          "end": 3.31,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "perjury,",
+          "start": 3.31,
+          "end": 3.65,
+          "key": "perjury",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "thow",
+          "start": 4.05,
+          "end": 4.13,
+          "key": "thow",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 4.13,
+          "end": 4.23,
+          "key": "it",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 4.23,
+          "end": 4.37,
+          "key": "on",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 4.37,
+          "end": 4.49,
+          "key": "thy",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "deathbed.",
+          "start": 4.49,
+          "end": 4.93,
+          "key": "deathbed",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.21,
+          "end": 0.91
+        },
+        {
+          "text": "Sweet",
+          "start": 1.53,
+          "end": 1.57
+        },
+        {
+          "text": "soul,",
+          "start": 1.57,
+          "end": 1.93
+        },
+        {
+          "text": "take",
+          "start": 2.15,
+          "end": 2.25
+        },
+        {
+          "text": "heed,",
+          "start": 2.25,
+          "end": 2.55
+        },
+        {
+          "text": "take",
+          "start": 2.91,
+          "end": 2.95
+        },
+        {
+          "text": "heed",
+          "start": 2.95,
+          "end": 3.15
+        },
+        {
+          "text": "of",
+          "start": 3.15,
+          "end": 3.31
+        },
+        {
+          "text": "perjury,",
+          "start": 3.31,
+          "end": 3.65
+        },
+        {
+          "text": "Thou'rt",
+          "start": 3.65,
+          "end": 3.94
+        },
+        {
+          "text": "on",
+          "start": 4.23,
+          "end": 4.37
+        },
+        {
+          "text": "thy",
+          "start": 4.37,
+          "end": 4.49
+        },
+        {
+          "text": "death-bed.",
+          "start": 4.49,
+          "end": 4.93
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 14,
+        "matched_words": 12
+      },
+      "match_ratio": 0.9230769230769231,
+      "rejection_reasons": [],
+      "seconds": 0.19600508036091924
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "63d086d6698a299cdee266aa1b33738adac19f96c4573cdd7fb4f6849b939a4b",
+  "selected_reasons": []
+}

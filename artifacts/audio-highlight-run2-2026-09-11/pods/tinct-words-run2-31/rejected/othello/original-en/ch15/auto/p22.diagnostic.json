@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "524cfb69ccd09db9dfa89ce163a343ee160449c4fbaadba3fedd42a8fd141eec",
+  "attempts": [
+    {
+      "asr_seconds": 0.13731705211102962,
+      "alignment_seconds": 0.00020596804097294807,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Othello. Ay, and for that thou diest.",
+        "hotwords": "Othello, Ay"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Othello, Ay, and for that thou diest.",
+          "start": 0.21,
+          "end": 2.45,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.21,
+              "end": 0.91,
+              "probability": 0.7508138020833334
+            },
+            {
+              "text": " Ay,",
+              "start": 1.33,
+              "end": 1.37,
+              "probability": 0.0271759033203125
+            },
+            {
+              "text": " and",
+              "start": 1.49,
+              "end": 1.49,
+              "probability": 0.8642578125
+            },
+            {
+              "text": " for",
+              "start": 1.49,
+              "end": 1.61,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " that",
+              "start": 1.61,
+              "end": 1.77,
+              "probability": 0.76123046875
+            },
+            {
+              "text": " thou",
+              "start": 1.77,
+              "end": 1.95,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " diest.",
+              "start": 1.95,
+              "end": 2.45,
+              "probability": 0.5060882568359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.21,
+          "end": 0.91
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.33,
+          "end": 1.37
+        },
+        {
+          "raw": "and",
+          "start": 1.49,
+          "end": 1.49
+        },
+        {
+          "raw": "for",
+          "start": 1.49,
+          "end": 1.61
+        },
+        {
+          "raw": "that",
+          "start": 1.61,
+          "end": 1.77
+        },
+        {
+          "raw": "thou",
+          "start": 1.77,
+          "end": 1.95
+        },
+        {
+          "raw": "diest.",
+          "start": 1.95,
+          "end": 2.45
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "Ay,",
+        "and",
+        "for",
+        "that",
+        "thou",
+        "diest."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.21,
+          "end": 0.91,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.33,
+          "end": 1.37,
+          "key": "ay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.49,
+          "end": 1.49,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.49,
+          "end": 1.61,
+          "key": "for",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.61,
+          "end": 1.77,
+          "key": "that",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.77,
+          "end": 1.95,
+          "key": "thou",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "diest.",
+          "start": 1.95,
+          "end": 2.45,
+          "key": "diest",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.21,
+          "end": 0.91
+        },
+        {
+          "text": "Ay,",
+          "start": 1.33,
+          "end": 1.37
+        },
+        {
+          "text": "and",
+          "start": 1.49,
+          "end": 1.49
+        },
+        {
+          "text": "for",
+          "start": 1.49,
+          "end": 1.61
+        },
+        {
+          "text": "that",
+          "start": 1.61,
+          "end": 1.77
+        },
+        {
+          "text": "thou",
+          "start": 1.77,
+          "end": 1.95
+        },
+        {
+          "text": "diest.",
+          "start": 1.95,
+          "end": 2.45
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13759331917390227
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3d8f4d005426549bf672d397a94ce778490bbab29b40adcbcc1d706a79cdde30",
+  "selected_reasons": []
+}

@@ -1,0 +1,1133 @@
+{
+  "complete": true,
+  "signature": "595556f2d554ef369981c60873f46c4d08601c72bae1b9892dc906d50c44a8f3",
+  "attempts": [
+    {
+      "asr_seconds": 4.055232375394553,
+      "alignment_seconds": 0.0003168671391904354,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Iago. What are you here that cry so grievously?",
+        "hotwords": "Iago, What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Iago, what do you hear that cry so grievously?",
+          "start": 0.08,
+          "end": 2.78,
+          "words": [
+            {
+              "text": " Iago,",
+              "start": 0.08,
+              "end": 0.76,
+              "probability": 0.08542490005493164
+            },
+            {
+              "text": " what",
+              "start": 1.16,
+              "end": 1.34,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " do",
+              "start": 1.34,
+              "end": 1.42,
+              "probability": 0.88525390625
+            },
+            {
+              "text": " you",
+              "start": 1.42,
+              "end": 1.5,
+              "probability": 0.998046875
+            },
+            {
+              "text": " hear",
+              "start": 1.5,
+              "end": 1.66,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " that",
+              "start": 1.66,
+              "end": 1.86,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " cry",
+              "start": 1.86,
+              "end": 2.08,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " so",
+              "start": 2.08,
+              "end": 2.32,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " grievously?",
+              "start": 2.32,
+              "end": 2.78,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Iago,",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "raw": "what",
+          "start": 1.16,
+          "end": 1.34
+        },
+        {
+          "raw": "do",
+          "start": 1.34,
+          "end": 1.42
+        },
+        {
+          "raw": "you",
+          "start": 1.42,
+          "end": 1.5
+        },
+        {
+          "raw": "hear",
+          "start": 1.5,
+          "end": 1.66
+        },
+        {
+          "raw": "that",
+          "start": 1.66,
+          "end": 1.86
+        },
+        {
+          "raw": "cry",
+          "start": 1.86,
+          "end": 2.08
+        },
+        {
+          "raw": "so",
+          "start": 2.08,
+          "end": 2.32
+        },
+        {
+          "raw": "grievously?",
+          "start": 2.32,
+          "end": 2.78
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "What",
+        "are",
+        "you",
+        "here",
+        "that",
+        "cry",
+        "so",
+        "grievously?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          9,
+          5,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Iago,",
+          "start": 0.08,
+          "end": 0.76,
+          "key": "iago",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.16,
+          "end": 1.34,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.34,
+          "end": 1.42,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.42,
+          "end": 1.5,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 1.5,
+          "end": 1.66,
+          "key": "hear",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.66,
+          "end": 1.86,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "cry",
+          "start": 1.86,
+          "end": 2.08,
+          "key": "cry",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 2.08,
+          "end": 2.32,
+          "key": "so",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "grievously?",
+          "start": 2.32,
+          "end": 2.78,
+          "key": "grievously",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "text": "What",
+          "start": 1.16,
+          "end": 1.34
+        },
+        {
+          "text": "are",
+          "start": 1.34,
+          "end": 1.38
+        },
+        {
+          "text": "you",
+          "start": 1.42,
+          "end": 1.5
+        },
+        {
+          "text": "here",
+          "start": 1.5,
+          "end": 1.58
+        },
+        {
+          "text": "that",
+          "start": 1.66,
+          "end": 1.86
+        },
+        {
+          "text": "cry",
+          "start": 1.86,
+          "end": 2.08
+        },
+        {
+          "text": "so",
+          "start": 2.08,
+          "end": 2.32
+        },
+        {
+          "text": "grievously?",
+          "start": 2.32,
+          "end": 2.78
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7777777777777778,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 4.0556589514017105
+    },
+    {
+      "asr_seconds": 0.14895691629499197,
+      "alignment_seconds": 0.00017757806926965714,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Iago, What"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " do you hear that cry so grievously?",
+          "start": 0.08,
+          "end": 2.82,
+          "words": [
+            {
+              "text": " do",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 7.212162017822266e-06
+            },
+            {
+              "text": " you",
+              "start": 0.64,
+              "end": 1.48,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " hear",
+              "start": 1.48,
+              "end": 1.66,
+              "probability": 0.89208984375
+            },
+            {
+              "text": " that",
+              "start": 1.66,
+              "end": 1.84,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " cry",
+              "start": 1.84,
+              "end": 2.1,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " so",
+              "start": 2.1,
+              "end": 2.32,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " grievously?",
+              "start": 2.32,
+              "end": 2.82,
+              "probability": 0.989990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "do",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "you",
+          "start": 0.64,
+          "end": 1.48
+        },
+        {
+          "raw": "hear",
+          "start": 1.48,
+          "end": 1.66
+        },
+        {
+          "raw": "that",
+          "start": 1.66,
+          "end": 1.84
+        },
+        {
+          "raw": "cry",
+          "start": 1.84,
+          "end": 2.1
+        },
+        {
+          "raw": "so",
+          "start": 2.1,
+          "end": 2.32
+        },
+        {
+          "raw": "grievously?",
+          "start": 2.32,
+          "end": 2.82
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "What",
+        "are",
+        "you",
+        "here",
+        "that",
+        "cry",
+        "so",
+        "grievously?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          1
+        ],
+        [
+          "equal",
+          3,
+          4,
+          1,
+          2
+        ],
+        [
+          "replace",
+          4,
+          5,
+          2,
+          3
+        ],
+        [
+          "equal",
+          5,
+          9,
+          3,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          1
+        ],
+        [
+          "replace",
+          4,
+          5,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "do",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "do",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.64,
+          "end": 1.48,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 1.48,
+          "end": 1.66,
+          "key": "hear",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.66,
+          "end": 1.84,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "cry",
+          "start": 1.84,
+          "end": 2.1,
+          "key": "cry",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 2.1,
+          "end": 2.32,
+          "key": "so",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "grievously?",
+          "start": 2.32,
+          "end": 2.82,
+          "key": "grievously",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "text": "What",
+          "start": 0.32,
+          "end": 0.48
+        },
+        {
+          "text": "are",
+          "start": 0.48,
+          "end": 0.56
+        },
+        {
+          "text": "you",
+          "start": 0.64,
+          "end": 1.48
+        },
+        {
+          "text": "here",
+          "start": 1.48,
+          "end": 1.57
+        },
+        {
+          "text": "that",
+          "start": 1.66,
+          "end": 1.84
+        },
+        {
+          "text": "cry",
+          "start": 1.84,
+          "end": 2.1
+        },
+        {
+          "text": "so",
+          "start": 2.1,
+          "end": 2.32
+        },
+        {
+          "text": "grievously?",
+          "start": 2.32,
+          "end": 2.82
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.5555555555555556,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1491835741326213
+    },
+    {
+      "asr_seconds": 0.13910546293482184,
+      "alignment_seconds": 0.00017504766583442688,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lego, what do you hear that cry so grievously?",
+          "start": 0.08,
+          "end": 2.78,
+          "words": [
+            {
+              "text": " Lego,",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.26806640625
+            },
+            {
+              "text": " what",
+              "start": 1.1,
+              "end": 1.32,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " do",
+              "start": 1.32,
+              "end": 1.42,
+              "probability": 0.8544921875
+            },
+            {
+              "text": " you",
+              "start": 1.42,
+              "end": 1.5,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " hear",
+              "start": 1.5,
+              "end": 1.66,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " that",
+              "start": 1.66,
+              "end": 1.86,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " cry",
+              "start": 1.86,
+              "end": 2.08,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " so",
+              "start": 2.08,
+              "end": 2.32,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " grievously?",
+              "start": 2.32,
+              "end": 2.78,
+              "probability": 0.994873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lego,",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "what",
+          "start": 1.1,
+          "end": 1.32
+        },
+        {
+          "raw": "do",
+          "start": 1.32,
+          "end": 1.42
+        },
+        {
+          "raw": "you",
+          "start": 1.42,
+          "end": 1.5
+        },
+        {
+          "raw": "hear",
+          "start": 1.5,
+          "end": 1.66
+        },
+        {
+          "raw": "that",
+          "start": 1.66,
+          "end": 1.86
+        },
+        {
+          "raw": "cry",
+          "start": 1.86,
+          "end": 2.08
+        },
+        {
+          "raw": "so",
+          "start": 2.08,
+          "end": 2.32
+        },
+        {
+          "raw": "grievously?",
+          "start": 2.32,
+          "end": 2.78
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "What",
+        "are",
+        "you",
+        "here",
+        "that",
+        "cry",
+        "so",
+        "grievously?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          9,
+          5,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lego,",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "lego",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.1,
+          "end": 1.32,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.32,
+          "end": 1.42,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.42,
+          "end": 1.5,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 1.5,
+          "end": 1.66,
+          "key": "hear",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.66,
+          "end": 1.86,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "cry",
+          "start": 1.86,
+          "end": 2.08,
+          "key": "cry",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 2.08,
+          "end": 2.32,
+          "key": "so",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "grievously?",
+          "start": 2.32,
+          "end": 2.78,
+          "key": "grievously",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.0,
+          "end": 0.55
+        },
+        {
+          "text": "What",
+          "start": 1.1,
+          "end": 1.32
+        },
+        {
+          "text": "are",
+          "start": 1.32,
+          "end": 1.37
+        },
+        {
+          "text": "you",
+          "start": 1.42,
+          "end": 1.5
+        },
+        {
+          "text": "here",
+          "start": 1.5,
+          "end": 1.58
+        },
+        {
+          "text": "that",
+          "start": 1.66,
+          "end": 1.86
+        },
+        {
+          "text": "cry",
+          "start": 1.86,
+          "end": 2.08
+        },
+        {
+          "text": "so",
+          "start": 2.08,
+          "end": 2.32
+        },
+        {
+          "text": "grievously?",
+          "start": 2.32,
+          "end": 2.78
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 6
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13933655060827732
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5915102982e1f9a5fb1f47e5776539bca7462203dc0afdac455058f6ed159024",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

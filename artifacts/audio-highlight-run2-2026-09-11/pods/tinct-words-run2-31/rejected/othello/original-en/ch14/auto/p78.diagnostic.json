@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "2888bf71c4ca39c0436db2baa6b6e6bb124e81c2749873b194b3709daa81d363",
+  "attempts": [
+    {
+      "asr_seconds": 0.1471941452473402,
+      "alignment_seconds": 0.00024150824174284935,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Iago. He, he, 'tis he.",
+        "hotwords": "Iago"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Iago he, he, tis he.",
+          "start": 0.05,
+          "end": 1.99,
+          "words": [
+            {
+              "text": " Iago",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.01458430290222168
+            },
+            {
+              "text": " he,",
+              "start": 0.81,
+              "end": 1.09,
+              "probability": 0.150634765625
+            },
+            {
+              "text": " he,",
+              "start": 1.33,
+              "end": 1.33,
+              "probability": 0.9296875
+            },
+            {
+              "text": " tis",
+              "start": 1.43,
+              "end": 1.77,
+              "probability": 0.102294921875
+            },
+            {
+              "text": " he.",
+              "start": 1.77,
+              "end": 1.99,
+              "probability": 0.447265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Iago",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "he,",
+          "start": 0.81,
+          "end": 1.09
+        },
+        {
+          "raw": "he,",
+          "start": 1.33,
+          "end": 1.33
+        },
+        {
+          "raw": "tis",
+          "start": 1.43,
+          "end": 1.77
+        },
+        {
+          "raw": "he.",
+          "start": 1.77,
+          "end": 1.99
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "He,",
+        "he,",
+        "'tis",
+        "he."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Iago",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "iago",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he,",
+          "start": 0.81,
+          "end": 1.09,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he,",
+          "start": 1.33,
+          "end": 1.33,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "tis",
+          "start": 1.43,
+          "end": 1.77,
+          "key": "tis",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "he.",
+          "start": 1.77,
+          "end": 1.99,
+          "key": "he",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "He,",
+          "start": 0.81,
+          "end": 1.09
+        },
+        {
+          "text": "he,",
+          "start": 1.33,
+          "end": 1.33
+        },
+        {
+          "text": "'tis",
+          "start": 1.43,
+          "end": 1.77
+        },
+        {
+          "text": "he.",
+          "start": 1.77,
+          "end": 1.99
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14752140222117305
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d72cdfba45920521fac45fb2da617be5561589a9c44f73770ba1ec67d810a6fa",
+  "selected_reasons": []
+}

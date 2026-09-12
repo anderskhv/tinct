@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "eb2246ed3c5b80c457521f4fa3f7b69e6c394ba298e4212a28bee54a16f9a9f8",
+  "attempts": [
+    {
+      "asr_seconds": 0.1524515920318663,
+      "alignment_seconds": 0.0002245381474494934,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Othello, do you triumph, Roman? Do you triumph?",
+          "start": 0.08,
+          "end": 2.92,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.08,
+              "end": 0.9,
+              "probability": 0.8816731770833334
+            },
+            {
+              "text": " do",
+              "start": 1.26,
+              "end": 1.28,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " you",
+              "start": 1.28,
+              "end": 1.38,
+              "probability": 0.998046875
+            },
+            {
+              "text": " triumph,",
+              "start": 1.38,
+              "end": 1.7,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " Roman?",
+              "start": 1.84,
+              "end": 1.94,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " Do",
+              "start": 2.4,
+              "end": 2.46,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " you",
+              "start": 2.46,
+              "end": 2.6,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " triumph?",
+              "start": 2.6,
+              "end": 2.92,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "raw": "do",
+          "start": 1.26,
+          "end": 1.28
+        },
+        {
+          "raw": "you",
+          "start": 1.28,
+          "end": 1.38
+        },
+        {
+          "raw": "triumph,",
+          "start": 1.38,
+          "end": 1.7
+        },
+        {
+          "raw": "Roman?",
+          "start": 1.84,
+          "end": 1.94
+        },
+        {
+          "raw": "Do",
+          "start": 2.4,
+          "end": 2.46
+        },
+        {
+          "raw": "you",
+          "start": 2.46,
+          "end": 2.6
+        },
+        {
+          "raw": "triumph?",
+          "start": 2.6,
+          "end": 2.92
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "Do",
+        "you",
+        "triumph,",
+        "Roman?",
+        "Do",
+        "you",
+        "triumph?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.08,
+          "end": 0.9,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.26,
+          "end": 1.28,
+          "key": "do",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.28,
+          "end": 1.38,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "triumph,",
+          "start": 1.38,
+          "end": 1.7,
+          "key": "triumph",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Roman?",
+          "start": 1.84,
+          "end": 1.94,
+          "key": "roman",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.4,
+          "end": 2.46,
+          "key": "do",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.46,
+          "end": 2.6,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "triumph?",
+          "start": 2.6,
+          "end": 2.92,
+          "key": "triumph",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "text": "Do",
+          "start": 1.26,
+          "end": 1.28
+        },
+        {
+          "text": "you",
+          "start": 1.28,
+          "end": 1.38
+        },
+        {
+          "text": "triumph,",
+          "start": 1.38,
+          "end": 1.7
+        },
+        {
+          "text": "Roman?",
+          "start": 1.84,
+          "end": 1.94
+        },
+        {
+          "text": "Do",
+          "start": 2.4,
+          "end": 2.46
+        },
+        {
+          "text": "you",
+          "start": 2.46,
+          "end": 2.6
+        },
+        {
+          "text": "triumph?",
+          "start": 2.6,
+          "end": 2.92
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1527615888044238
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "693b4fdceb473276ff4fbc720441cbb1c67c07f55cc3edb3096799289de72ca6",
+  "selected_reasons": []
+}

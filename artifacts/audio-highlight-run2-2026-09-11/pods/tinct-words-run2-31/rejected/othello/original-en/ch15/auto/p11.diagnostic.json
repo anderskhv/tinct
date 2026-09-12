@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "fdd54ea4035a4c7efb543a02748869b135c8cde0035c664ec7bd6048132ad739",
+  "attempts": [
+    {
+      "asr_seconds": 0.15878769103437662,
+      "alignment_seconds": 0.00019100820645689964,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Desdemona. Alack, my lord, what may you mean by that?",
+        "hotwords": "Desdemona, Alack"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Desdemona, Alack, my lord, what may you mean by that?",
+          "start": 0.67,
+          "end": 3.37,
+          "words": [
+            {
+              "text": " Desdemona,",
+              "start": 0.67,
+              "end": 1.03,
+              "probability": 0.6546058654785156
+            },
+            {
+              "text": " Alack,",
+              "start": 1.55,
+              "end": 1.81,
+              "probability": 0.5281982421875
+            },
+            {
+              "text": " my",
+              "start": 1.91,
+              "end": 2.03,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " lord,",
+              "start": 2.03,
+              "end": 2.23,
+              "probability": 0.80322265625
+            },
+            {
+              "text": " what",
+              "start": 2.49,
+              "end": 2.57,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " may",
+              "start": 2.57,
+              "end": 2.69,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " you",
+              "start": 2.69,
+              "end": 2.81,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " mean",
+              "start": 2.81,
+              "end": 2.93,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " by",
+              "start": 2.93,
+              "end": 3.09,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that?",
+              "start": 3.09,
+              "end": 3.37,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Desdemona,",
+          "start": 0.67,
+          "end": 1.03
+        },
+        {
+          "raw": "Alack,",
+          "start": 1.55,
+          "end": 1.81
+        },
+        {
+          "raw": "my",
+          "start": 1.91,
+          "end": 2.03
+        },
+        {
+          "raw": "lord,",
+          "start": 2.03,
+          "end": 2.23
+        },
+        {
+          "raw": "what",
+          "start": 2.49,
+          "end": 2.57
+        },
+        {
+          "raw": "may",
+          "start": 2.57,
+          "end": 2.69
+        },
+        {
+          "raw": "you",
+          "start": 2.69,
+          "end": 2.81
+        },
+        {
+          "raw": "mean",
+          "start": 2.81,
+          "end": 2.93
+        },
+        {
+          "raw": "by",
+          "start": 2.93,
+          "end": 3.09
+        },
+        {
+          "raw": "that?",
+          "start": 3.09,
+          "end": 3.37
+        }
+      ],
+      "expected_tokens": [
+        "Desdemona.",
+        "Alack,",
+        "my",
+        "lord,",
+        "what",
+        "may",
+        "you",
+        "mean",
+        "by",
+        "that?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Desdemona,",
+          "start": 0.67,
+          "end": 1.03,
+          "key": "desdemona",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Alack,",
+          "start": 1.55,
+          "end": 1.81,
+          "key": "alack",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.91,
+          "end": 2.03,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lord,",
+          "start": 2.03,
+          "end": 2.23,
+          "key": "lord",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 2.49,
+          "end": 2.57,
+          "key": "what",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 2.57,
+          "end": 2.69,
+          "key": "may",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.69,
+          "end": 2.81,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "mean",
+          "start": 2.81,
+          "end": 2.93,
+          "key": "mean",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 2.93,
+          "end": 3.09,
+          "key": "by",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "that?",
+          "start": 3.09,
+          "end": 3.37,
+          "key": "that",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desdemona.",
+          "start": 0.67,
+          "end": 1.03
+        },
+        {
+          "text": "Alack,",
+          "start": 1.55,
+          "end": 1.81
+        },
+        {
+          "text": "my",
+          "start": 1.91,
+          "end": 2.03
+        },
+        {
+          "text": "lord,",
+          "start": 2.03,
+          "end": 2.23
+        },
+        {
+          "text": "what",
+          "start": 2.49,
+          "end": 2.57
+        },
+        {
+          "text": "may",
+          "start": 2.57,
+          "end": 2.69
+        },
+        {
+          "text": "you",
+          "start": 2.69,
+          "end": 2.81
+        },
+        {
+          "text": "mean",
+          "start": 2.81,
+          "end": 2.93
+        },
+        {
+          "text": "by",
+          "start": 2.93,
+          "end": 3.09
+        },
+        {
+          "text": "that?",
+          "start": 3.09,
+          "end": 3.37
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15904268808662891
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c90a0c4514ff589eb2e5536891611f1fc3b3ce7023305aa327ae86e7c99886d4",
+  "selected_reasons": []
+}

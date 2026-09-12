@@ -1,0 +1,228 @@
+{
+  "complete": true,
+  "signature": "12b5f9b4504278c5350e7471d9aa7f0c1151355b23d229eece83086a40b9e078",
+  "attempts": [
+    {
+      "asr_seconds": 0.12313151499256492,
+      "alignment_seconds": 0.00023841671645641327,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Yego and Amelia.",
+          "start": 0.11,
+          "end": 1.57,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.11,
+              "end": 0.67,
+              "probability": 0.8359375
+            },
+            {
+              "text": " Yego",
+              "start": 0.67,
+              "end": 1.13,
+              "probability": 0.5481770833333334
+            },
+            {
+              "text": " and",
+              "start": 1.13,
+              "end": 1.33,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " Amelia.",
+              "start": 1.33,
+              "end": 1.57,
+              "probability": 0.89208984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.67
+        },
+        {
+          "raw": "Yego",
+          "start": 0.67,
+          "end": 1.13
+        },
+        {
+          "raw": "and",
+          "start": 1.13,
+          "end": 1.33
+        },
+        {
+          "raw": "Amelia.",
+          "start": 1.33,
+          "end": 1.57
+        }
+      ],
+      "expected_tokens": [
+        "[Enter",
+        "Iago",
+        "and",
+        "Emilia.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.67,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Yego",
+          "start": 0.67,
+          "end": 1.13,
+          "key": "yego",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.13,
+          "end": 1.33,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Amelia.",
+          "start": 1.33,
+          "end": 1.57,
+          "key": "amelia",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Enter",
+          "start": 0.11,
+          "end": 0.67
+        },
+        {
+          "text": "Iago",
+          "start": 0.67,
+          "end": 0.9
+        },
+        {
+          "text": "and",
+          "start": 1.13,
+          "end": 1.33
+        },
+        {
+          "text": "Emilia.]",
+          "start": 1.33,
+          "end": 1.45
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12344573065638542
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f2cf26c36e310ee42f3e0ab5f8c25d938a86191e76df7a1d1990d33a2a945eb2",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

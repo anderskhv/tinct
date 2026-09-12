@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "8ac36c8fe19c7433dcf2d1bd733adf8f0d2a81937bd6299157e1ac7d784d1486",
+  "attempts": [
+    {
+      "asr_seconds": 0.12134266411885619,
+      "alignment_seconds": 0.00019294815137982368,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Gives him a packet.]",
+        "hotwords": "Gives"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Gives him a packet.",
+          "start": 0.32,
+          "end": 1.14,
+          "words": [
+            {
+              "text": " Gives",
+              "start": 0.32,
+              "end": 0.56,
+              "probability": 0.7333984375
+            },
+            {
+              "text": " him",
+              "start": 0.56,
+              "end": 0.68,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " a",
+              "start": 0.68,
+              "end": 0.8,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " packet.",
+              "start": 0.8,
+              "end": 1.14,
+              "probability": 0.97412109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gives",
+          "start": 0.32,
+          "end": 0.56
+        },
+        {
+          "raw": "him",
+          "start": 0.56,
+          "end": 0.68
+        },
+        {
+          "raw": "a",
+          "start": 0.68,
+          "end": 0.8
+        },
+        {
+          "raw": "packet.",
+          "start": 0.8,
+          "end": 1.14
+        }
+      ],
+      "expected_tokens": [
+        "[Gives",
+        "him",
+        "a",
+        "packet.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gives",
+          "start": 0.32,
+          "end": 0.56,
+          "key": "gives",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 0.56,
+          "end": 0.68,
+          "key": "him",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.68,
+          "end": 0.8,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "packet.",
+          "start": 0.8,
+          "end": 1.14,
+          "key": "packet",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Gives",
+          "start": 0.32,
+          "end": 0.56
+        },
+        {
+          "text": "him",
+          "start": 0.56,
+          "end": 0.68
+        },
+        {
+          "text": "a",
+          "start": 0.68,
+          "end": 0.8
+        },
+        {
+          "text": "packet.]",
+          "start": 0.8,
+          "end": 1.14
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1216034609824419
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "86965697af6709c46a44411282357a764c93d0c90e778a0ca877b61a995bc479",
+  "selected_reasons": []
+}

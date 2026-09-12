@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "f5c43075b93ca0fe6b96391683c3e1c7fa68c163e1649ce5a495867fabe3ea24",
+  "attempts": [
+    {
+      "asr_seconds": 0.11283832509070635,
+      "alignment_seconds": 0.00011260900646448135,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lodovico. He, sir.",
+        "hotwords": "Lodovico, He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lodovico, He, sir.",
+          "start": 0.54,
+          "end": 1.66,
+          "words": [
+            {
+              "text": " Lodovico,",
+              "start": 0.54,
+              "end": 1.04,
+              "probability": 0.5459696451822916
+            },
+            {
+              "text": " He,",
+              "start": 1.4,
+              "end": 1.44,
+              "probability": 0.037994384765625
+            },
+            {
+              "text": " sir.",
+              "start": 1.52,
+              "end": 1.66,
+              "probability": 0.324462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lodovico,",
+          "start": 0.54,
+          "end": 1.04
+        },
+        {
+          "raw": "He,",
+          "start": 1.4,
+          "end": 1.44
+        },
+        {
+          "raw": "sir.",
+          "start": 1.52,
+          "end": 1.66
+        }
+      ],
+      "expected_tokens": [
+        "Lodovico.",
+        "He,",
+        "sir."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lodovico,",
+          "start": 0.54,
+          "end": 1.04,
+          "key": "lodovico",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "He,",
+          "start": 1.4,
+          "end": 1.44,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 1.52,
+          "end": 1.66,
+          "key": "sir",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lodovico.",
+          "start": 0.54,
+          "end": 1.04
+        },
+        {
+          "text": "He,",
+          "start": 1.4,
+          "end": 1.44
+        },
+        {
+          "text": "sir.",
+          "start": 1.52,
+          "end": 1.66
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11298716394230723
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "77097283a2fb5884baacf1e537ed3aa79de49e18fcb437a650e88f52c33a1534",
+  "selected_reasons": []
+}

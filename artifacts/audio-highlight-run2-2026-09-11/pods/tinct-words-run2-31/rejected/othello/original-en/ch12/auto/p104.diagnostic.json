@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "cb4ffe72939819bc69fd5da4c4d3bd92bb6e4988f32c4d1a1a6f5ab62c787991",
+  "attempts": [
+    {
+      "asr_seconds": 0.21654857881367207,
+      "alignment_seconds": 0.0003515970893204212,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Roderigo. Ay, and said nothing but what I protest intendment of doing.",
+        "hotwords": "Roderigo, Ay, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Roderigo, Ay, and said nothing but what I protest intendment of doing.",
+          "start": 0.02,
+          "end": 4.7,
+          "words": [
+            {
+              "text": " Roderigo,",
+              "start": 0.02,
+              "end": 1.0,
+              "probability": 0.18463134765625
+            },
+            {
+              "text": " Ay,",
+              "start": 1.4,
+              "end": 1.82,
+              "probability": 7.331371307373047e-05
+            },
+            {
+              "text": " and",
+              "start": 2.1,
+              "end": 2.2,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " said",
+              "start": 2.2,
+              "end": 2.38,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " nothing",
+              "start": 2.38,
+              "end": 2.7,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " but",
+              "start": 2.7,
+              "end": 2.98,
+              "probability": 0.95703125
+            },
+            {
+              "text": " what",
+              "start": 2.98,
+              "end": 3.1,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " I",
+              "start": 3.1,
+              "end": 3.24,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " protest",
+              "start": 3.24,
+              "end": 3.58,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " intendment",
+              "start": 3.58,
+              "end": 4.16,
+              "probability": 0.017581820487976074
+            },
+            {
+              "text": " of",
+              "start": 4.16,
+              "end": 4.4,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " doing.",
+              "start": 4.4,
+              "end": 4.7,
+              "probability": 0.98388671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Roderigo,",
+          "start": 0.02,
+          "end": 1.0
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.4,
+          "end": 1.82
+        },
+        {
+          "raw": "and",
+          "start": 2.1,
+          "end": 2.2
+        },
+        {
+          "raw": "said",
+          "start": 2.2,
+          "end": 2.38
+        },
+        {
+          "raw": "nothing",
+          "start": 2.38,
+          "end": 2.7
+        },
+        {
+          "raw": "but",
+          "start": 2.7,
+          "end": 2.98
+        },
+        {
+          "raw": "what",
+          "start": 2.98,
+          "end": 3.1
+        },
+        {
+          "raw": "I",
+          "start": 3.1,
+          "end": 3.24
+        },
+        {
+          "raw": "protest",
+          "start": 3.24,
+          "end": 3.58
+        },
+        {
+          "raw": "intendment",
+          "start": 3.58,
+          "end": 4.16
+        },
+        {
+          "raw": "of",
+          "start": 4.16,
+          "end": 4.4
+        },
+        {
+          "raw": "doing.",
+          "start": 4.4,
+          "end": 4.7
+        }
+      ],
+      "expected_tokens": [
+        "Roderigo.",
+        "Ay,",
+        "and",
+        "said",
+        "nothing",
+        "but",
+        "what",
+        "I",
+        "protest",
+        "intendment",
+        "of",
+        "doing."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Roderigo,",
+          "start": 0.02,
+          "end": 1.0,
+          "key": "roderigo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.4,
+          "end": 1.82,
+          "key": "ay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.1,
+          "end": 2.2,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.2,
+          "end": 2.38,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "nothing",
+          "start": 2.38,
+          "end": 2.7,
+          "key": "nothing",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.7,
+          "end": 2.98,
+          "key": "but",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 2.98,
+          "end": 3.1,
+          "key": "what",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.1,
+          "end": 3.24,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "protest",
+          "start": 3.24,
+          "end": 3.58,
+          "key": "protest",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "intendment",
+          "start": 3.58,
+          "end": 4.16,
+          "key": "intendment",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.16,
+          "end": 4.4,
+          "key": "of",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "doing.",
+          "start": 4.4,
+          "end": 4.7,
+          "key": "doing",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Roderigo.",
+          "start": 0.02,
+          "end": 1.0
+        },
+        {
+          "text": "Ay,",
+          "start": 1.4,
+          "end": 1.82
+        },
+        {
+          "text": "and",
+          "start": 2.1,
+          "end": 2.2
+        },
+        {
+          "text": "said",
+          "start": 2.2,
+          "end": 2.38
+        },
+        {
+          "text": "nothing",
+          "start": 2.38,
+          "end": 2.7
+        },
+        {
+          "text": "but",
+          "start": 2.7,
+          "end": 2.98
+        },
+        {
+          "text": "what",
+          "start": 2.98,
+          "end": 3.1
+        },
+        {
+          "text": "I",
+          "start": 3.1,
+          "end": 3.24
+        },
+        {
+          "text": "protest",
+          "start": 3.24,
+          "end": 3.58
+        },
+        {
+          "text": "intendment",
+          "start": 3.58,
+          "end": 4.16
+        },
+        {
+          "text": "of",
+          "start": 4.16,
+          "end": 4.4
+        },
+        {
+          "text": "doing.",
+          "start": 4.4,
+          "end": 4.7
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21705293375998735
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7be9d105c1aee1bac3306085ee324014599009e12b910c47ced1398b3f1072b7",
+  "selected_reasons": []
+}
