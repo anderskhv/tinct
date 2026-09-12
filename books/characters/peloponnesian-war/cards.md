@@ -10,6 +10,8 @@ After source chapter 14, paragraph 34: The Athenian who wrote this, and who appe
 
 After source chapter 16, paragraph 2: The Athenian who wrote this, and who says plainly here how he came to be able to. He lived through the whole twenty-seven years, of an age to understand them and giving his attention to them in order to know the exact truth; and after his command at Amphipolis he was in exile from his country for twenty years, which put him with both sides and especially with the Peloponnesians, and gave him the leisure to observe. He insists that the ten years’ peace was no peace — neither side gave back or received what was agreed — and counts the whole thing as one war, by summers and winters, because the names of magistrates cannot date anything accurately.
 
+After source chapter 26, paragraph 13: The Athenian who wrote this, and whose history breaks off in the middle of a sentence about Tissaphernes going to Ephesus to sacrifice to Artemis. The last thing he says in his own voice is that the first period of the constitution of the Five Thousand — a judicious fusion of the high and the low — was the best government the Athenians had in his time. A Thucydides the Pharsalian, proxenus of Athens, appears in the street fighting of that same chapter; the history does not connect the two.
+
 ## Thucydides · reference
 
 One of the three commanders of the forty ships that reinforced the siege of Samos. He is named without a patronymic, and the history never says whether the author means himself.
@@ -546,6 +548,8 @@ After source chapter 19, paragraph 32: Who fell in love with an expedition most 
 
 After source chapter 23, paragraph 40: Whose fleet, army and everything was destroyed in Sicily, and few out of many came home. They had two wars at once, a permanent enemy fort at Decelea, twenty thousand slaves gone, and a fortress instead of a city — and would not withdraw from Syracuse. At the end the whole force marched inland in a hollow square, forty thousand men leaving their unburied dead and their sick calling after them; they were shot at for a week, split in two, and finished at the Assinarus, drinking the muddy, bloody water and fighting each other for it. Of the survivors, all but the Athenians, Siceliots and Italiots were sold; the rest had eight months in the quarries.
 
+After source chapter 26, paragraph 18: Who lost Euboea, which was worth more to them than Attica, and were more frightened than by Sicily — and then deposed the Four Hundred, voted the government to everyone who could furnish a suit of armour, and had, Thucydides says, the best constitution of his lifetime. The city and the army had spent the summer as two states, each trying to force its own government on the other; the army at Samos told itself that it had the fleet, the money and the ancestral institutions, and that the city had nothing it needed. In the end neither destroyed the other, and the news of Cynossema reached Athens in time to make them think that if they put their shoulders to the wheel their cause might yet prevail.
+
 ## The Lacedaemonians · central
 
 Slow to go to war except under necessity, with the same form of government for more than four hundred years and no tyrants; they put down the tyrannies of the rest of Hellas, led the alliance against the Mede, and exacted no tribute from their allies, only oligarchies. The Corinthians tell them to their faces that they are the only Hellenes who are inactive, and who defend themselves not by doing anything but by looking as though they might.
@@ -553,6 +557,8 @@ Slow to go to war except under necessity, with the same form of government for m
 After source chapter 13, paragraph 14: Who lost four hundred and twenty men on an island and were never the same in this war. Nothing in it surprised the Hellenes so much: the opinion had been that no force or famine would make them give up their arms. With Pylos and Cythera held against them and descents possible anywhere, they stood on the defensive everywhere, raised four hundred horse and a force of archers for the first time, and grew afraid to take the field at all — new to adversity, and convinced they could not stir without making a blunder.
 
 After source chapter 16, paragraph 61: Whose name had been ruined by the island and was restored by one battle. In the years of the peace they gave back nothing they had promised, made a separate alliance with the Boeotians, were excluded from Olympia for a fine they would not pay, and were thought slow and faint-hearted by all Hellas. At Mantinea they were caught wholly unprepared — a shock such as they do not remember experiencing — fell into their ranks at a word passed from king to polemarch to lochage to pentecoster to enomotarch, advanced slowly to the flutes so as not to break their order, were completely outdone in generalship and won anyway. Fortune, it was thought, might have humbled them; the men were the same as ever.
+
+After source chapter 26, paragraph 17: Who had Athens at their mercy after Euboea and did not take it. With a little more courage they could have sailed on an undefended Piraeus and taken the Hellespont, Ionia, the islands and the whole empire with it. Thucydides says that here, as on so many other occasions, the Lacedaemonians proved the most convenient people in the world for the Athenians to be at war with: slow and unenterprising against dash and enterprise, which was of the greatest service to a maritime empire. It was shown, he adds, by the Syracusans, who were the most like the Athenians in character and also the most successful in fighting them.
 
 ## The Peloponnesians · major
 
@@ -618,9 +624,13 @@ After source chapter 13, paragraph 16: Who had been given Thyrea by Lacedaemon a
 
 For whom Ameinocles built the first four ships, and who went to war with Miletus over Priene, were given a democracy, stole back their hostages from Lemnos, revolted, and held their own waters for fourteen days before a nine-month siege ended it.
 
+After source chapter 25, paragraph 34: Whose commons killed two hundred of the upper class and banished four hundred, were given their independence by Athens for it, and then were talked by Pisander into an oligarchy of their own — three hundred of them bound by oath to fall on the people they had lately been. The people got word of it, went to Leon and Diomedon and to Thrasybulus and Thrasyllus, and the crew of the Paralus led the rescue. Thirty of the Three Hundred were killed and three banished; the rest had an amnesty, and Samos was the one place the Athenian democracy still stood.
+
 ## The Milesians · supporting
 
 Beaten by Samos over Priene, and the complainants who brought Athens into the Samian war.
+
+After source chapter 26, paragraph 5: Who revolted with Alcibiades and Chalcideus, beat the Argives under their own walls on the day the Athenians beat the Peloponnesians, and then found what a Persian paymaster costs: they surprised and took the fort Tissaphernes had built in their city and threw the garrison out. Lichas told them that people in the King’s country ought to court him until the war was won; they were angry with him for it, and when he died of sickness would not let him be buried where the Lacedaemonians wanted.
 
 ## The Thebans · major
 
@@ -677,6 +687,8 @@ The name the country chiefly went by before Hellen, and the stock the Greek lang
 Driven out of Arne by the Thessalians sixty years after Ilium and settled in the Cadmeis; beaten at Oenophyta and masters again after Coronea. Homer gives their ships a hundred and twenty men each, the maximum in the catalogue.
 
 After source chapter 14, paragraph 26: Who would not have fought at Delium at all if Pagondas had not argued the other ten Boeotarchs down. Seven thousand heavy infantry, the Thebans twenty-five shields deep, the peoples of the lake in the centre, the Thespians and Tanagraeans and Orchomenians on the left. They lost the left and won with the right, and two squadrons of horse sent unseen round a hill finished it. Afterwards they refused the Athenian dead until the sanctuary was evacuated, argued the law of the Hellenes with heralds for seventeen days, and burnt the fort down with a cauldron of coals and pitch blown through a hollowed beam.
+
+After source chapter 26, paragraph 19: Who took Oropus by treachery from its Athenian garrison, and at the end of the oligarchy got Oenoe as well, when Aristarchus told the besieged garrison that Athens had come to terms and the place was to be handed over. They believed him, because he was a general and the siege had kept them from hearing anything else.
 
 ## The Thessalians · supporting
 
@@ -752,6 +764,8 @@ After source chapter 14, paragraph 5: Whose numbers and stubbornness governed La
 
 After source chapter 16, paragraph 10: Whose service in Thrace bought some of them their freedom and cost Lacedaemon nothing she valued. Those who had gone out with Brasidas were freed by decree and allowed to live where they liked, and were settled with the Neodamodes at Lepreum on the Elean border. The Spartans taken on the island were disfranchised instead — barred from office and from buying or selling — for fear that men who had surrendered their arms would start a revolution if left with their full rights; after some time the rights were given back.
 
+After source chapter 24, paragraph 49: Whose numbers at Chios — more than in any city but Lacedaemon — are the measure Thucydides uses for the island’s wealth, and the reason it fell. Punished the more rigorously for being so many, most of them deserted to the Athenians as soon as the fort at Delphinium was firmly established, and did the greatest mischief through knowing the country.
+
 ## The Perioeci · reference
 
 The Thuriats and Aethaeans among them seceded to Ithome with the Helots.
@@ -800,6 +814,8 @@ Sparta’s enemy, whom the Athenians allied with the moment they were sent home 
 
 After source chapter 16, paragraph 81: Who came out of the ten years’ war rich and neutral, meant to have the Peloponnese, and ended with a Lacedaemonian oligarchy in the city. They took Mantinea, Elis and Corinth into a league, then Athens; threw away the finest field they would ever have because two men made a truce nobody had authorised; lost seven hundred at Mantinea; and were talked by their own Lacedaemonian party into a fifty years’ alliance with the enemy. The commons came back at the Gymnopaediae, killed and banished the oligarchs, and began long walls to the sea with the whole city at the work, women and slaves included, and masons sent from Athens.
 
+After source chapter 26, paragraph 7: Who sent envoys to Samos offering support to the Athenian commons, were thanked by Alcibiades and asked to come when called for — and who were handed the three envoys of the Four Hundred, seized at sea by the crew of the Paralus as the chief subverters of the democracy.
+
 ## The Achaeans · supporting
 
 One of Homer’s names for the Greeks; and the people Pericles picked up on the way from Sicyon to Acarnania.
@@ -846,7 +862,7 @@ Who sent five ships for the Epidamnus convoy, beat the Athenians with the Corint
 
 ## The Hermionians · reference
 
-Who sent one ship for the convoy; Pausanias took a galley of theirs on his own responsibility for his second voyage out.
+Who sent one ship for the convoy; Pausanias took a galley of theirs on his own responsibility for his second voyage out; and one of the states assessed for the hundred ships Lacedaemon ordered built after the Sicilian disaster.
 
 ## The Troezenians · reference
 
@@ -855,6 +871,8 @@ Who sent two ships for the convoy.
 ## The Chians · supporting
 
 Who with the Lesbians alone were never deprived of their ships and made to pay money instead, and who sent twenty-five ships to the siege of Samos.
+
+After source chapter 24, paragraph 28: Who revolted with more ships than anyone believed and held out longer than anyone expected. After the Lacedaemonians, Thucydides says, the Chians are the only people he has known who knew how to be wise in prosperity, and who managed their city more securely the greater it grew — and who did not venture this revolt until they had gallant allies and could see that Athens no longer denied how desperate her case was. They had more slaves than any city but Lacedaemon, and punished them the more rigorously for their numbers; when the Athenians fortified Delphinium most of those slaves deserted, and did the greatest mischief because they knew the country.
 
 ## The Lesbians · supporting
 
@@ -1386,7 +1404,7 @@ Whose tyrants had galleys before the Persian war; whose cities Lacedaemon ordere
 
 Nymphodorus, whose sister married Sitalces and who brought Athens the Thracian alliance, was one of them.
 
-## The Plataeans · major
+## The Plataeans|Plataean · major
 
 Thebes’s old enemy and Athens’s oldest ally. Three hundred Thebans came into their town in the first watch of a rainy night; they dug through their own party walls to join up unseen, barricaded the streets with wagons, drove the Thebans into the mud and the dark, and killed a hundred and eighty of them. Besieged two years later, they answered the mound with a wooden wall, tunnelled out its footings, built a crescent behind it, snapped the battering rams with beams hung on chains, and came within a wind of being burnt alive. The siege closed on four hundred of their own citizens, eighty Athenians, and a hundred and ten women to bake the bread.
 
@@ -1425,6 +1443,8 @@ Phormio’s son, whom the Acarnanians insisted on having because they would take
 ## Dorieus · reference
 
 The Rhodian, in whose Olympiad — his second victory — the Mitylenian envoys made their case to the allies.
+
+After source chapter 26, paragraph 5: Diagoras’s son, who brought ten Thurian ships out of the Peloponnese with Hippocrates, and lost six of the squadron to the Athenians on the watch off Triopium. When Astyochus answered the Syracusan and Thurian crews stiffly over their pay, Dorieus spoke up for his own sailors and the admiral lifted his baton at him — which is what sent the whole armament at Astyochus and drove him to an altar.
 
 ## Alcidas · major
 
@@ -1628,6 +1648,8 @@ After source chapter 20, paragraph 45: Who would not believe the expedition was 
 
 After source chapter 23, paragraph 40: Who beat the best navy in Hellas by cutting down their own prows and charging head-on in a harbour too narrow for skill, and then closed its mouth with a line of moored ships so that nothing could get out. Thucydides calls the result the greatest Hellenic achievement of any in this war, or in his opinion in Hellenic history: at once most glorious to the victors and most calamitous to the conquered, who were beaten at all points and altogether, and destroyed with a total destruction. They put the prisoners in the quarries on half a pint of water and a pint of corn a day, and killed both Athenian generals against Gylippus’s wishes.
 
+After source chapter 26, paragraph 6: Whose crews in Ionia were the freest in the armament and the boldest in demanding their pay, and whose Hermocrates was the only commander Tissaphernes could not bribe. They were most urgent for a decisive battle, and held the Peloponnesian right at Cynossema until the flight of their comrades made them run too. Hermocrates was banished from Syracuse while he was still at Miletus, and three new commanders came out to take over his ships.
+
 ## The Leontines · supporting
 
 Who had Camarina and the Chalcidian cities, and who appealed to Athens on their ancient alliance and their Ionian origin.
@@ -1657,6 +1679,8 @@ Archidamus’s son, who brought the army as far as the Isthmus and turned back w
 After source chapter 16, paragraph 61: Archidamus’s son, king of Lacedaemon, who nearly lost the Peloponnese and then saved it in an afternoon. He had the Argives surrounded before their own walls and granted them a four-month truce instead, on the word of two men who had no authority to give it — for which Sparta came within a vote of razing his house and fining him ten thousand drachmae, and did pass a law attaching ten counsellors to him without whose consent he could not lead an army out. At Mantinea he ordered his left extended in the moment of the onset, two polemarchs refused to fill the gap, and the Mantineans poured through it; he turned the whole army on the broken wing and won the greatest Hellenic battle for a very long time.
 
 After source chapter 21, paragraph 29: Archidamus’s son, king of Lacedaemon, who fortified Decelea in sight of Athens and stayed in the field prosecuting the war — which turned the old short invasions into a permanent occupation, and was one of the principal causes of Athens’s ruin.
+
+After source chapter 25, paragraph 32: Archidamus’s son, who at Decelea could send troops where he pleased and levy men and money without instructions from home — and was obeyed by the allies, Thucydides says, more readily than the authorities in the city were. He arranged the revolt of Euboea and then of Lesbos on his own, and marched down to the very walls of Athens when the Four Hundred wrote to him about peace, expecting the city to fall into his hands in the confusion. The Athenians came out, shot down the men who came too close, and took some arms and dead; and he led his army back.
 
 ## Demosthenes · central
 
@@ -1977,6 +2001,8 @@ Hermon’s son, a Syracusan, and the most influential man at the congress of Gel
 After source chapter 20, paragraph 41: Hermon’s son, who told an assembly that would not believe him that the Athenians were already on the voyage, and that the way to stop them was to meet them at Tarentum before they ever reached Sicily. After the first defeat he told the Syracusans that their spirit had not been beaten, only their discipline — fifteen generals and too many orders — and had them elect three with full powers and an oath to leave them alone; he was one. It was his idea to stop fighting pitched battles and build counterworks across the line the Athenian wall had to take.
 
 After source chapter 23, paragraph 25: Hermon’s son, who talked the Syracusans into trying their hand at sea — the Athenians had been landsmen too, he said, until the Mede forced them — and who, when the Athenians were beaten and meant to slip away by night, could not get the magistrates to march out and block the roads, because the city was keeping a feast of Heracles and had fallen to drinking. So he sent friends of his own to ride up to the Athenian camp in the dark and call out, as well-wishers, that the roads were guarded and Nicias had better wait for daylight. Nicias waited, and the roads were guarded by the time he moved.
+
+After source chapter 26, paragraph 6: Hermon’s son, who alone of the commanders in Ionia refused Tissaphernes’s bribes, opposed him on behalf of the whole confederacy over the pay, and sailed for Lacedaemon to accuse him of joining with Alcibiades to ruin the Peloponnesian cause and of playing a double game. Syracuse banished him while he was doing it, and Tissaphernes pressed harder on him in his exile, charging among other things that he had once asked for money and turned enemy when he did not get it.
 
 ## Hermon · reference
 
@@ -2458,7 +2484,7 @@ Lichas’s father.
 
 ## Pharnaces · reference
 
-Who gave the Delians Atramyttium in Asia to live in when Athens expelled them from their island. The history does not say whether he is the Pharnaces whose son Artabazus carried Pausanias’s letters.
+Who gave the Delians Atramyttium in Asia to live in when Athens expelled them from their island; and, in Book 8, the father of the satrap Pharnabazus and of the sons named in the third treaty with Tissaphernes. The history does not say whether he is the Pharnaces whose son Artabazus carried Pausanias’s letters.
 
 ## The Delians · supporting
 
@@ -2497,6 +2523,8 @@ Of the Edonian town that came over to Brasidas. One of their targeteers overtook
 Clinias’s son, still young for high office in any other Hellenic city but distinguished by the splendour of his ancestry — and offended that Lacedaemon had made the peace through Nicias and Laches and passed him over. He sent privately to Argos to bring the Argives, Mantineans and Eleans to Athens; trapped the Lacedaemonian envoys into denying in the assembly the full powers they had claimed in the senate, by promising privately to give Pylos back for them; and carried the hundred years’ alliance. Afterwards he marched about the Peloponnese settling the league’s affairs, had the Athenians write on the Laconian pillar that Lacedaemon had not kept her oaths, and when Argos went over at last carried off three hundred suspected men and lodged them in the islands.
 
 After source chapter 20, paragraph 34: Clinias’s son, who talked Athens into Sicily and then talked Sparta into Decelea. He answered Nicias with his seven chariots at Olympia and the argument that a city not inactive by nature ruins itself fastest by suddenly becoming so — and that an empire cannot fix the point at which it stops. Recalled on the charge of profaning the Mysteries, he sailed as far as Thurii with the Salaminia and disappeared; sentenced to death in absence, he crossed to the Peloponnese and was invited to Lacedaemon. There he set out the whole plan of the expedition — Sicily, then Italy, then Carthage, then the Peloponnese — asked for a Spartan commander for Syracuse and a fort at Decelea, and told them that love of country is not what a man feels when he is wronged.
+
+After source chapter 26, paragraph 30: Clinias’s son, who in three years served Sparta, Persia and Athens and was suspected by all of them. He brought Chios, Erythrae, Clazomenae and Miletus out of the Athenian empire with five ships and his own reputation; then, with Agis his enemy and an order out for his death, went over to Tissaphernes and taught him to pay the Peloponnesians three obols late — and to let the Hellenes wear each other out at a small share of the expense. He offered the army at Samos the King’s friendship for an oligarchy, wrecked the negotiation himself when he found Tissaphernes would not treat, and was recalled by the army rather than the city. Thucydides says that then, for the first time, he did the state a service of the most signal kind: when the fleet was bent on sailing against Athens, and Ionia and the Hellespont would certainly have been lost, he alone could have stopped them, and did.
 
 ## Clinias · reference
 
@@ -3083,3 +3111,399 @@ What the Carystians are by race — subjects obliged to serve, and still Ionians
 ## The Aenians · reference
 
 Of Aenus, Aeolians who paid tribute and so fought against the Boeotians, their own Aeolian founders, because they were obliged to. Not the Aenianians who beat the Heracleots in Trachis.
+
+## Tissaphernes · central
+
+King Darius’s commander in the maritime districts, in arrears on his tribute because the Athenians held the Hellenic towns, and under orders to take Amorges alive or dead. He brought Lacedaemon into the King’s pay and made three treaties with her, each worse for the Hellenes than the last; then, on Alcibiades’s advice, cut the pay to three obols, paid it late, would not let the fleet fight, and kept a Phoenician squadron always about to arrive and never arriving. Thucydides’s own judgement is that he did not bring it because he wanted to wear both sides out and keep the scale even — and that the excuse he gave convicts him, since it would only have done him credit to spend less of the King’s money for the same result.
+
+## Amorges · supporting
+
+Pissuthnes’s bastard son, in rebellion on the coast of Caria, and the man the King had ordered Tissaphernes to take alive or dead. The Peloponnesians took Iasus by surprise and handed him over; his mercenaries, being mostly Peloponnesians themselves, they enrolled in their own army, and sold the town and its people to Tissaphernes at one Doric stater a head.
+
+## Cyrus · reference
+
+The King’s son who furnished the funds for the Peloponnesian navy — the last of the three things Thucydides names, in the digression on Pericles, as what it finally took to beat Athens. It happens after the history breaks off, and he never appears in the narrative. Not the Cyrus who dethroned Croesus.
+
+## Darius · major
+
+Artaxerxes’s son, the King in whose name the three treaties with Lacedaemon were made, and whose first treaty claimed for him every country his ancestors had ever held — which Lichas said was giving the Hellenes a Median master instead of liberty. Not Hystaspes’s son.
+
+## Alcamenes · supporting
+
+Sthenelaidas’s son, sent for by Agis to command in Euboea and then made governor for Lesbos instead, and finally given the twenty-one ships that were chased into Spiraeum, where he was killed in the melee.
+
+## Sthenelaidas · reference
+
+Alcamenes’s father. The history does not say whether he is the ephor who put the question to the Lacedaemonian assembly and would not have it voted by shouting.
+
+## Melanthus · reference
+
+The other Spartan sent with Alcamenes to take command in Euboea.
+
+## Calligeitus · supporting
+
+Laophon’s son, a Megarian exile living at Pharnabazus’s court, and one of the two who came to Lacedaemon to get a fleet for the Hellespont — and who then would not put their twenty-five talents into the expedition to Chios.
+
+## Laophon · reference
+
+Calligeitus’s father.
+
+## Timagoras · supporting
+
+Athenagoras’s son, a Cyzicene exile and Calligeitus’s colleague. Not the Tegean killed at Athens with the Lacedaemonian envoys.
+
+## Athenagoras · reference
+
+Timagoras the Cyzicene’s father. Not the Syracusan popular leader.
+
+## Phrynis · reference
+
+One of the Perioeci, sent to Chios to find out whether the Chians really had the ships and the city they claimed. They had.
+
+## Melanchridas · reference
+
+Who was to have been admiral of the first ten ships for Chios, and was replaced by Chalcideus after an earthquake.
+
+## Chalcideus · major
+
+The Lacedaemonian who sailed with Alcibiades and five ships and made Chios, Erythrae, Clazomenae and Miletus revolt in a few weeks, seizing everyone they met on the voyage so that no word could get ahead of them. He made the first of the three treaties with Tissaphernes, and was killed soon afterwards in a skirmish at Panormus in Milesian territory.
+
+## Clearchus · supporting
+
+Ramphias’s son, given the command for the Hellespont, and sent at last with forty ships to Pharnabazus — most of which a storm drove into Delos and back to Miletus, so that he had to go on by land while ten under Helixus got through and made Byzantium revolt.
+
+## Ramphias · reference
+
+Clearchus’s father. The history does not say whether he is the Ramphias who brought the ultimatum to Athens and afterwards led the reinforcement that turned back at Pierium.
+
+## Hippocles · reference
+
+Menippus’s son, who caught the sixteen Peloponnesian ships coming home from Sicily off Leucadia with twenty-seven of his own, and took one of them.
+
+## Menippus · reference
+
+Hippocles’s father.
+
+## Strombichides · supporting
+
+Diotimus’s son, first out with eight ships when Chios revolted, and afterwards up and down the Ionian coast and the Hellespont — chased into Samos by Chalcideus, taking Lampsacus at the first assault, failing at Abydos, and making Sestos the centre for the defence of the whole Hellespont.
+
+## Diotimus · reference
+
+Strombichides’s father. Not Strombichus’s son, who took the thirty ships to Corcyra.
+
+## Thrasycles · supporting
+
+Who brought twelve ships out of the blockade at Spiraeum to Ionia and joined the chase after Chalcideus. He is given no patronymic, and the history does not say whether he is the Thrasycles who swore to the Peace of Nicias.
+
+## Diomedon · supporting
+
+Who arrived after Thrasycles and worked the Ionian coast with Leon — retaking Teos by the same arrangement the enemy had used, beating the Chians three times in the field, and then, sent out with Leon to replace Phrynichus, protecting the Samian commons against the Three Hundred. Both of them were unwilling supporters of the oligarchy and were trusted by the commons for it.
+
+## Leon · supporting
+
+Diomedon’s colleague throughout the Ionian war and in the crisis at Samos. He is given no patronymic, and is not said to be either of the other Athenians of the name.
+
+## Stages · reference
+
+Tissaphernes’s lieutenant, who brought up the few barbarians that helped the Teians pull down their own Athenian wall.
+
+## Astyochus · major
+
+High admiral from Lacedaemon and, on the evidence, the worst thing that happened to the Peloponnesian cause at sea. He would not relieve Chios however often the Chians and Pedaritus begged him, threatened them that he certainly would not come, and was denounced at Lacedaemon as a traitor; he sacked Cos, which an earthquake had already levelled; he would not fight when the Athenians were divided and his own fleet in full vigour. When Phrynichus wrote to him to betray Alcibiades he betrayed Phrynichus instead, and — if report may be trusted — became the paid creature of Tissaphernes, which is also why he never pressed hard about the pay. His own sailors rushed at him over their arrears and he saved himself at an altar.
+
+## Eualas · reference
+
+A Spartan, who led the land forces along the coast for Clazomenae and Cuma.
+
+## Diniadas · reference
+
+One of the Perioeci, who took the fleet to Methymna and made it and Mitylene revolt.
+
+## Eubulus · reference
+
+Who was left with the Chian ships at Methymna, and fled when Mitylene was taken.
+
+## Eteonicus · reference
+
+Who took the heavy infantry from Astyochus’s ships by land to Antissa and Methymna.
+
+## Aristocrates · supporting
+
+One of the Athenian generals, sent to charge the Chians with what was being prepared and to require a contingent of ships from them; they sent seven. He is given no patronymic here, and the history does not say whether he is Scellias’s son or the signatory of the Peace.
+
+## Phrynichus · major
+
+Who alone of the Athenian commanders before Miletus refused to keep the sea when fifty-five ships were coming, and made them go: it was no disgrace for an Athenian fleet to retreat when it suited, and far worse to be beaten. Thucydides says that not in this alone but in everything he had to do with, Phrynichus showed himself a man of sense. He then saw through Alcibiades — who cared no more for an oligarchy than a democracy and only wanted himself recalled — wrote twice to Astyochus to betray him and was betrayed in turn, and saved himself by telling the army the enemy meant to attack an unfortified Samos, which got Samos fortified. He became the staunchest of the Four Hundred, and was stabbed in the marketplace by one of the Peripoli on his way back from an embassy to Lacedaemon.
+
+## Onomacles · reference
+
+One of the three commanders of the expedition that beat the Milesians’ allies under the walls of Miletus, and afterwards one of the three sent against Chios — where the older translation misprints him Onamacles.
+
+## Scironides · reference
+
+The third, and Phrynichus’s colleague — dismissed with him on Pisander’s accusation that they had betrayed Iasus and Amorges.
+
+## Therimenes · supporting
+
+Who brought the fifty-five ships from the Peloponnese and Sicily out to Astyochus, made the second treaty with Tissaphernes, handed the fleet over, sailed off in a small boat, and was lost.
+
+## Pedaritus · supporting
+
+Leon’s son, sent out to command at Chios, which he reached by land from Miletus. He executed the party of Tydeus for Atticism and forced an oligarchy on the rest, refused Astyochus the Chian ships, denounced him to Lacedaemon as a traitor — and was killed assaulting the Athenian works round the ships, with many of the Chians.
+
+## Leon · reference
+
+Pedaritus’s father.
+
+## Philip · supporting
+
+Left as governor of Miletus, and afterwards sent with two galleys to fetch the Phoenician fleet from Aspendus. He wrote to Mindarus that the ships were not coming at all and that Tissaphernes was grossly cheating them. Not the Macedonian pretender.
+
+## Charminus · supporting
+
+One of the commanders at Samos, who was out watching for the twenty-seven ships from Caunus, mistook Astyochus’s straggling left wing for them, attacked with part of his twenty ships and was surrounded, and lost six. Afterwards he helped the Samian Three Hundred put Hyperbolus to death.
+
+## Euctemon · reference
+
+One of the three commanders who brought thirty-five more ships from home and then sailed against Chios.
+
+## Pharnabazus · major
+
+Pharnaces’s son, satrap on the Hellespont, and Tissaphernes’s rival for the King’s work of detaching the Athenian cities. He sent two exiles to Lacedaemon to ask for a fleet and lost the competition to Chios; kept asking, and in the end got Clearchus and then Mindarus and the whole Peloponnesian navy, which he paid better and used faster than Tissaphernes ever had. The history does not say whether he is the Pharnabazus to whom the envoys of Book 2 were to be conveyed across the Hellespont.
+
+## Tamos · reference
+
+The King’s lieutenant in Ionia, whom Tissaphernes left to find the pay while he went to Aspendus — and who proved a worse paymaster than himself.
+
+## Diagoras · reference
+
+Dorieus’s father.
+
+## Hippocrates · supporting
+
+The Lacedaemonian who took ten Thurian ships to Cnidus with Dorieus; and who wrote from Phaselis with Philip that the Phoenician fleet was not coming. Neither Ariphron’s son nor the tyrant of Gela.
+
+## Antisthenes · supporting
+
+A Spartan, who brought out the twenty-seven ships for Pharnabazus and the eleven Lacedaemonian commissioners, with instructions that he might be made admiral in Astyochus’s place if they thought proper.
+
+## Tydeus · reference
+
+Ion’s son, whose party Pedaritus put to death at Chios on the charge of Atticism, after which an oligarchy was forced on the rest of the city and nobody trusted anybody.
+
+## Ion · reference
+
+Tydeus’s father.
+
+## The Erythraeans · supporting
+
+Who applied at Lacedaemon with the Chians and revolted immediately after them.
+
+## The Clazomenians · supporting
+
+Who revolted and at once crossed to the mainland to fortify Polichna as a refuge — which the Athenians took, carrying them back to their island and leaving only the authors of the revolt at Daphnus.
+
+## The Teians · supporting
+
+Who would not receive the land forces until the Athenians had fled, and then helped pull down their own Athenian wall; and who afterwards admitted Diomedon on the same terms they had admitted the enemy.
+
+## The Cnidians · reference
+
+Whose town had revolted at Tissaphernes’s instigation, was unfortified, and was nearly taken twice in two days; they urged Astyochus not to disembark but to sail straight at Charminus.
+
+## The Eresians · reference
+
+Who told Astyochus that Mitylene had been taken almost without a blow; he raised and armed their town, and it revolted again later under the Methymnian exiles.
+
+## Pisander · major
+
+Who carried the revolution. He took the proposals from Samos to Athens, asked each opponent in turn whether he had any hope of saving the state without the King, and told them that the safety of the state and not the form of its government was the pressing question, since they could always change back afterwards. He went round the clubs, put down the democracies of the subject cities on his way, moved the resolution that made the Four Hundred, and withdrew to Decelea when it fell.
+
+## Antiphon · major
+
+One of the best men of his day in Athens, who contrived the whole thing and prepared the way for it, and who would not come forward in the assembly because his reputation for cleverness made the multitude look ill on him — though no one was better able to help a man who needed an opinion. Tried for his life afterwards for this very government, he made what seems to Thucydides the best defence of any known up to his time.
+
+## Theramenes · major
+
+Hagnon’s son, as able in council as in debate, one of the foremost subverters of the democracy — and then the man who broke it. He said the wall in Eetionia was built less to keep the army of Samos out of Piraeus than to let the enemy in, and that it would prove the ruin of the state; when forty-two ships appeared off Las he said so again, went down to Piraeus, raged at the heavy infantry, and told them that if they thought the wall should come down he agreed with them.
+
+## Androcles · reference
+
+The chief leader of the commons and the man most responsible for the banishment of Alcibiades, secretly assassinated by some of the younger men to recommend themselves to Alcibiades and to Tissaphernes.
+
+## Alexippidas · reference
+
+The ephor at Lacedaemon by whose year the third treaty with Tissaphernes is dated.
+
+## Hieramenes · reference
+
+Named with Tissaphernes and the sons of Pharnaces as a party to that treaty, and nowhere explained.
+
+## Xenophantes · reference
+
+A Laconian, who brought word from Pedaritus to Rhodes that unless the whole fleet came, Chios was lost.
+
+## Dercyllidas · supporting
+
+A Spartan, sent by land to the Hellespont with a small force, who brought about the revolt of Abydos and then of Lampsacus.
+
+## Thrasybulus · major
+
+Lycus’s son, a captain of a galley, and with Thrasyllus the chief leader of the counter-revolution at Samos. He bound the whole army — the oligarchical party most of all — by the most tremendous oaths to a democracy, and then, having been set on it from the moment the government changed, carried the vote that recalled Alcibiades and fetched him from Tissaphernes himself. At Cynossema he held the Athenian right, turned about when the victorious enemy scattered, and won the battle.
+
+## Lycus · reference
+
+Thrasybulus’s father.
+
+## Thrasyllus · major
+
+Who was serving with the heavy infantry, not in any command, when the commons at Samos came to him; and who with Thrasybulus led the counter-revolution and was elected general by the army. He held the Athenian left at Cynossema, hidden from the centre by the point itself.
+
+## Leon · supporting
+
+A Spartan who had come out with Antisthenes, and was sent from Miletus to command at Chios after Pedaritus was killed. Not the Athenian general, nor Pedaritus’s father, nor any of the three earlier men of the name.
+
+## Hyperbolus · reference
+
+An Athenian who had been ostracised — not for fear of his influence or position, Thucydides says, but because he was a rascal and a disgrace to the city — and was put to death at Samos by the Three Hundred with Charminus’s help.
+
+## Chaereas · supporting
+
+Archestratus’s son, sent to Athens in the Paralus to report the counter-revolution before anyone at Samos knew the Four Hundred were in power. He hid when he saw how things stood, got back to Samos, and gave the soldiers a picture of Athens in which everything was exaggerated — floggings, outrages on their wives and children, and hostages to be put to death.
+
+## Archestratus · reference
+
+Chaereas’s father. Not Lycomedes’s son, who went to Potidaea.
+
+## The Four Hundred · major
+
+The body that governed Athens by force for four months: a hundred chosen by five presidents, each of the hundred choosing three more, with full powers and the right to convene the Five Thousand whenever they pleased. They came into the council chamber with daggers under their clothes and a hundred and twenty Hellenic youths behind them, paid the Council of the Bean off, and sat down. They neither wished the Five Thousand to exist nor to have it known that they did not, holding that so many partners in empire would be downright democracy while the mystery would keep the people afraid of one another.
+
+## The Five Thousand · major
+
+The body in whose name the Four Hundred governed — everyone who furnished a suit of armour — and which was not actually constituted until the Four Hundred were deposed. Thucydides says that the first period of this constitution, with its judicious fusion of the high and the low, was the best government the Athenians had in his time, and what first enabled the state to lift its head.
+
+## The Three Hundred · supporting
+
+The Samians who had risen against their own upper class and then bound themselves by oath to fall on the people they had lately been — and who were beaten by the commons with the crew of the Paralus at their head, thirty of them killed and three banished, and an amnesty for the rest.
+
+## The Parali · supporting
+
+The crew of the state galley Paralus, all Athenians and freemen, and enemies of oligarchy from time out of mind even when there was none. They led the rescue of the Samian commons, carried Chaereas to Athens, were taken out of their ship by the Four Hundred and put in a troopship — and seized the envoys they were carrying to Lacedaemon as they sailed past Argos and handed them over to the Argives.
+
+## The Council of Five Hundred · major
+
+The Athenian council, which the Four Hundred paid off and sent out of its own chamber, and whose restoration Alcibiades demanded from Samos as the price of leaving the Five Thousand alone. Thucydides calls it the Council of the Bean, after the lot by which it was chosen.
+
+## The Eumolpidae · reference
+
+Who with the Ceryces protested on behalf of the mysteries when the recall of Alcibiades was proposed, and called on the gods to avert it.
+
+## The Ceryces · reference
+
+The other of the two priestly families.
+
+## The Lampsacenes · reference
+
+Who came out against Strombichides and were beaten, and whose unfortified town was taken at the first assault; the slaves and goods were made prize and the freemen restored to their homes.
+
+## Helixus · reference
+
+A Megarian, who got ten ships through to the Hellespont when a storm scattered the rest, and brought about the revolt of Byzantium.
+
+## Mindarus · major
+
+Who came out to succeed Astyochus, gave up on Tissaphernes, and took seventy-three ships out of Miletus for the Hellespont at a moment’s notice and in great order to elude the fleet at Samos — and got there. He held the Peloponnesian left at Cynossema with the best sailers in the navy, drove the Athenian centre ashore, and lost the battle when his own men scattered to plunder it.
+
+## Gaulites · reference
+
+A Carian who spoke both languages and one of Tissaphernes’s confidants, sent home with Astyochus to complain of the Milesians over the fort and to answer them before they could speak first.
+
+## Potamis · reference
+
+One of the three new Syracusan commanders sent out to Miletus when Hermocrates was banished.
+
+## Myscon · reference
+
+The second of them.
+
+## Demarchus · reference
+
+The third.
+
+## Laespodias · reference
+
+One of the three envoys the Four Hundred sent to Lacedaemon in the Paralus, and whom the crew seized off Argos and handed over as the chief subverters of the democracy.
+
+## Aristophon · reference
+
+The second of the three.
+
+## Melesias · reference
+
+The third.
+
+## Aristarchus · supporting
+
+The bitterest and most inveterate enemy of the commons among the Four Hundred; when the government fell he took the most barbarian of the archers to Oenoe, told the garrison that Athens had made terms and the place was to go to the Boeotians, and was believed because he was a general.
+
+## Alexicles · supporting
+
+A general under the oligarchy and a devoted adherent of the cabal, seized by the heavy infantry building the wall in Eetionia and shut in a house — which is where the Four Hundred began to come apart.
+
+## Hermon · reference
+
+Commander of the Peripoli in Munychia, who helped the heavy infantry seize Alexicles. Not Hermocrates’s father.
+
+## Thucydides · supporting
+
+The Pharsalian, proxenus of Athens, who threw himself between the factions in the street and appealed to them not to ruin the state while the enemy was waiting for his opportunity — and got their hands off each other. The history does not connect him with the Athenian who wrote it.
+
+## Agesandridas · major
+
+Agesander’s son, a Spartan, who took forty-two ships from Las past Aegina and Epidaurus to Euboea, caught the Athenians at Eretria with their crews scattered looking for a dinner the Eretrians had arranged not to be on sale, took twenty-two ships, and brought all Euboea out except Oreus.
+
+## Agesander · reference
+
+Agesandridas’s father. The history does not say whether he is the Agesander who came with the last Lacedaemonian ultimatum to Athens.
+
+## Thymochares · reference
+
+Sent in haste with some ships to Eretria; with those already in Euboea they made thirty-six, and were forced to engage at once.
+
+## Anaxander · reference
+
+A Theban, chosen to command the three hundred men the Methymnian exiles raised, on account of the kinship between the Thebans and the Lesbians; balked at Methymna, he crossed the mountain and brought Eresus out.
+
+## Arsaces · supporting
+
+Tissaphernes’s Persian lieutenant, who laid burdens too heavy to bear on the Antandrians — and who had invited the chief men of the Delians at Atramyttium to serve with him as friends and allies, drawn them out of their town, ambushed them at dinner and had them shot down. That is what made the Antandrians afraid of him.
+
+## Aristocrates · supporting
+
+Scellias’s son, one of the principal generals under the oligarchy and one of its foremost critics; he was a colonel among the heavy infantry in Piraeus who laid hands on Alexicles. The history does not say whether he is the general sent to Chios or the signatory of the Peace.
+
+## Scellias · reference
+
+Aristocrates’s father.
+
+## Epicles · reference
+
+Sent with Hippocrates from Abydos to Euboea to fetch the squadron there. Not Proteas’s father.
+
+## Protesilaus · reference
+
+By whose temple at Elaeus one of the four Athenian ships overtaken by Mindarus was stranded and taken with its crew.
+
+## The Antandrians · supporting
+
+A people of Aeolic extraction, who brought heavy infantry over Mount Ida from Abydos and let them into the town, and threw Arsaces’s garrison out of their citadel.
+
+## The Halicarnassians · reference
+
+From whom Alcibiades levied large sums on his way back to Samos.
+
+## The Elaeusians · reference
+
+Who burned the captured Athenian galleys the Peloponnesians came back for.

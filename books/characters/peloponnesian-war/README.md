@@ -1,16 +1,19 @@
-# The Peloponnesian War character package — IN PROGRESS
+# The Peloponnesian War character package — COMPLETE
 
-**Books 1–7 (chapters 1–23) are authored. Chapters 24–26 are not.** Status stays
-`in-progress` and the package must not be integrated until all eight of
-Thucydides's books are covered.
+**All eight of Thucydides's books are authored: chapters 1–26, the whole work,
+including the unfinished Book 8 that breaks off in mid-sentence.** The whole-work
+editorial checks have been run and `contentStatus` is `validated-package`.
+Validated is not deployed: nothing here has been registered in the app or
+verified in production, and `appStatus` stays `not-integrated` until the release
+owner says otherwise.
 
-Current state: 734 entities authored, all 734 bound in both editions, 6,933 and
-7,005 exact mentions. Of those, 946 and 975 fall inside Book 1's chapters, 738
-and 747 inside Book 2's, 832 and 836 inside Book 3's, 1,084 and 1,090 inside
-Book 4's, 1,116 and 1,130 inside Book 5's, 751 in each inside Book 6's, and 791
-and 796 inside Book 7's; the rest are the nation cards, which are bound through
-all twenty-six chapters because a people is the same people in every book.
-Content revision 2026-09-12.7.
+Current state: 833 entities authored, all 833 bound in both editions, 7,510 and
+7,586 exact mentions. Of those, 956 and 985 fall inside Book 1's chapters, 754
+and 763 inside Book 2's, 853 and 857 inside Book 3's, 1,095 and 1,101 inside
+Book 4's, 1,119 and 1,133 inside Book 5's, 753 in each inside Book 6's, 797 and
+803 inside Book 7's, and 1,183 and 1,191 inside Book 8's. The nation cards are
+bound through all twenty-six chapters, because a people is the same people in
+every book. Content revision 2026-09-12.8.
 
 ## What is hard about this book, and what is not
 
@@ -42,9 +45,9 @@ campaign. Book 1 alone has:
 | `chrysis-argos` / `chrysis-father-of-eumachus` | 6:1 / 6:33 | the priestess of Hera at Argos by whose year of office Thucydides dates the war, and a Corinthian commander's father |
 | `timocrates-corinth` / `timocrates-sparta` | 6:33 / 8:14, 8:21 | Timoxenus's father, and the commissioner who killed himself when his ship went down off Naupactus |
 | `callimachus-father-of-learchus` / `callimachus-father-of-phanomachus` | 7:22 / 7:25 | two fathers three paragraphs apart |
-| `nicias-father-of-hagnon` / `nicias-gortys` | 7:13 / 8:14 | Hagnon's father, and the Cretan of Gortys who diverted twenty ships to Crete — neither of them the Nicias son of Niceratus who fills the later books and is not yet authored |
+| `nicias-father-of-hagnon` / `nicias-gortys` | 7:13 / 8:14 | Hagnon's father, and the Cretan of Gortys who diverted twenty ships to Crete — neither of them the Nicias son of Niceratus who fills the later books |
 | `teres` / `tereus` | 6:31 | Sitalces's father and the king of the nightingale story, whom Thucydides is at pains to separate: different part of Thrace, different name |
-| `pythodorus`, `tellis`, `clinias`, `evarchus`, `euphamidas`, `aristonymus`, `timagoras-tegea`, `pharnabazus`, `lycophron` | Book 2 only | later men of the same name, in books not yet read |
+| `pythodorus`, `tellis`, `clinias`, `evarchus`, `euphamidas`, `aristonymus`, `timagoras-tegea`, `pharnabazus`, `lycophron` | Book 2 only | later men of the same name, each of whom got his own card when his book was reached |
 
 Seven cards cross from Book 1 into Book 2 and are enriched rather than
 duplicated — Pericles, Archidamus, Perdiccas, Phormio, Pleistoanax, Hagnon and
@@ -66,7 +69,7 @@ at all, are cast here.
 | `lysicles` / `lysicles-general` | 4:1 / 9:18 | Abronichus's father, and the general killed on the Meander |
 | `hippias` / `hippias-arcadia` | 1:19 / 9:33 | the tyrant, and the Arcadian commander Paches trapped by a safe-conduct |
 | `pythodorus` / `pythodorus-isolochus` | 6:1 / 11:33 | the archon of the year the war began, and the general sent to relieve Laches |
-| `thucles` / `procles` / `leon-heraclea` / `dorieus` | Book 3 only | later men of the same name, in books not yet read |
+| `thucles` / `procles` / `leon-heraclea` / `dorieus` | Book 3 only | later men of the same name — except Dorieus, whom Book 8 identifies with the Olympic victor of 9:7 |
 | `locrians` / `locrians-italy` | passim / 10:36, 11:13, 11:17, 11:33 | the Ozolian and Opuntian Locrians of Greece, and the Epizephyrian Locrians who were for Syracuse |
 
 **The river Eurymedon is water.** Book 1 fights a battle "at the river
@@ -83,7 +86,7 @@ Corinthian commander. One card, two aliases.
 Book 4 is where the pile-up starts. Three men called Aristeus, two called
 Aristonymus three paragraphs apart in the same list, and a whole group of
 patronymics — Hermon, Eucles, Hegesander, Archias — that belong to somebody else
-in a chapter nobody has read yet.
+in a chapter further on.
 
 | Entity | Where | Against |
 |---|---|---|
@@ -93,7 +96,7 @@ in a chapter nobody has read yet.
 | `aristides` / `aristides-archippus` | 4:1 / 13:8, 14:0 | Lysimachus's son on the embassy about the wall, and Archippus's son who arrested Artaphernes |
 | `tolmaeus` / `tolmaeus-father-of-autocles` | 4:13, 4:17 / 13:11, 14:54 | Tolmides's father and Autocles's father. **The history never identifies them**, so neither card does |
 | `lycophron` / `lycophron-corinth` | 8:14 / 13:1, 13:2 | the Lacedaemonian commissioner sent to Cnemus, and the Corinthian general killed at Solygia |
-| `hippocrates-ariphron` | 13:24–14:25 | against the tyrant of Gela at 18:4 and the Lacedaemonian of Book 8, both unbound |
+| `hippocrates-ariphron` | 13:24–14:25 | against the tyrant of Gela at 18:4 and `hippocrates-sparta` of Book 8 |
 | `hermon` | 13:16 | against the Hermon who commands the Peripoli at Munychia in Book 8 |
 | `eucles` | 14:30 | against the Syracusan general elected in Book 6 |
 | `hegesander` | 14:67 | against the Thespian commander of Book 7 |
@@ -230,25 +233,63 @@ sides — Thucydides's own answer to the Homeric catalogue, and his argument tha
 right and community of blood counted for less than interest or compulsion. Every
 one of them carries a card, and a test names them all.
 
-## How the unauthored books are handled
+## Book 8's namesakes
+
+Book 8 is the one that most often gives a patronymic to a name an earlier book
+left bare — and almost every time, the patronymic belongs to somebody new. Seven
+fathers in this book carry the name of a man from an earlier one, and the history
+never connects them, so each gets his own card and each card says so.
+
+| Entity | Where | Against |
+|---|---|---|
+| `sthenelaidas-father-of-alcamenes` | 24:5 | the ephor whose speech sent Sparta to war in Book 1 |
+| `diotimus-father-of-strombichides` | 24:15 | Strombichus's son, who took the thirty ships to Corcyra in Book 1 |
+| `archestratus-father-of-chaereas` | 25:33 | Lycomedes's son, who took the thirty ships to Macedonia in Book 1 |
+| `ramphias-father-of-clearchus` | 24:8 | the envoy of Book 1 and the commander of Book 5, who are one card |
+| `agesander-father-of-agesandridas` | 26:16 | the Spartan envoy of Book 1 |
+| `leon-father-of-pedaritus` / `leon-chios` / `leon-general` | 24:31 / 25:21 / 24:26–25:33 | three more men called Leon, against the Heraclean, the Athenian signatory and the Spartan of the earlier books — six in all |
+| `athenagoras-cyzicus` | 24:11 | the popular leader of Syracuse in Book 6. This one is Timagoras the Cyzicene's father |
+| `thucydides-pharsalus` | 26:12 | the author, who is named in the same chapter. The history does not connect them |
+| `pharnabazus-satrap` | 24:11 | Pharnaces's son, against the Pharnabazus of Book 2 |
+| `hippocrates-sparta` | 25:24 | Ariphron's son of Book 4 and the tyrant of Gela of Book 6 |
+| `hermon-munychia` | 26:14 | Hermocrates's father, of Book 4 |
+| `epicles-euboea` | 26:16 | Proteas's father |
+| `aristocrates-scellias` | 26:9 | the general of 24:9 and the signatory of the Peace, neither of them identified with him |
+
+**Dorieus is the one man Book 8 does settle.** The Rhodian named at 9:7 for the
+Olympiad of his second victory and the Diagoras's son who brings the Thurian
+ships at 24:38 are read as one man: 9:7 gives the city and 24:38 gives the
+father, the history never distinguishes them, and splitting them would produce
+two cards saying nothing. His card carries a gated Book 8 update rather than a
+second entry. Every other Book 8 identification the earlier passes
+refused is still refused: Tellis, Euthydemus, Thrasycles, Aristocrates, Procles,
+Pythodorus, Ramphias, Xenares and Diitrephes all keep their separate cards,
+because Book 8 gives no patronymic that would join them.
+
+**The bodies are cast as well as the men.** The Four Hundred, the Five Thousand,
+the Three Hundred at Samos, the Council of Five Hundred, the crew of the Paralus,
+the Eumolpidae and the Ceryces each carry a card: in this book a constitution is
+an actor, and a reader who meets "the Four Hundred" in chapter 25 needs to know
+what it is more than he needs to know who Alexicles was.
+
+## How the person tables work
 
 The rule is this. A name that **has a namesake anywhere in the work** is bound
-by a position table keyed only to the chapters that have been authored, so that
-its later occurrences carry no card at all rather than the wrong one. A name
-that is **single-referent across the whole work** — Brasidas, Archidamus,
-Perdiccas, Phormio, Pericles, Sitalces, Cleon, Demosthenes, Laches — is bound by
-alias and therefore appears in chapters that have not been authored yet, with a
-card that says only what the authored chapters support. Every table has `None`
-for its default; there are 76 of them. Where the later man has not been read at
-all, the name is table-keyed anyway, because a coverage number is not worth a
-wrong card.
+by a position table keyed to the paragraphs that identify each man, so that a
+paragraph the history leaves ambiguous carries no card at all rather than the
+wrong one. A name that is **single-referent across the whole work** — Brasidas,
+Archidamus, Perdiccas, Phormio, Pericles, Sitalces, Cleon, Demosthenes, Laches —
+is bound by alias through all twenty-six chapters. There are 82 tables; 70 of
+them have `None` for a default, which is what makes an unkeyed paragraph silent.
+The remaining twelve are the peoples whose adjectives need a lookahead rather
+than a key.
 
 The nations are the opposite case and are bound by alias throughout, because the
 Athenians of chapter 26 are the Athenians of chapter 1. A test pins both halves
 of that rule: `athenians` appears in all twenty-six chapters, `cylon` in none
 after chapter 5.
 
-## Editorial checks — Book 1
+## Editorial checks — the whole work
 
 **1. Namesakes.** The eight in the table above, each pinned by a test.
 
@@ -284,36 +325,79 @@ treats him as a witness to be cross-examined.
 
 **4. Ambiguous references.** Left unbound: the **Argilian** courier and the
 **master of the merchantman** who hid Themistocles, both nameless; the
-**goddess of the Brazen House**, whom Thucydides never names; and every name in
-chapters 6–26 belonging to a person this pass has not authored.
+**goddess of the Brazen House**, whom Thucydides never names; and every bare
+name the history gives to more than one man without saying which — the nine
+signatories of the Peace, the second Euthydemus, the second Aristocrates, the
+Ramphias who is Clearchus's father. Those all carry cards of their own where
+the history supports one, and no card at all where it does not.
 
-**5. Spot-read and sweep.** A hundred and fifty mentions drawn at random — ten
-per edition for Book 1, nine for Book 2, eight for Book 3, and twelve each for
-Books 4, 5, 6 and 7 — read back against their paragraphs: all correct. The
-unbound-tabled-names audit over the whole authored range, chapters 1–23, comes
-back with six lines, every one of them deliberate: the Cyrus of 7:20, who is the
-King's son and belongs to a book that has not been read; the river Eurymedon of
-4:7; the river Sicanus of 18:1; the place called Leon at 20:38; the town of
-Acanthus, whose name is a person's only in the treaty lists; and the Iapygian
-promontory. Run first over Book 4 alone it came back with thirty-six, every one
-of them a table whose new chapters had not been keyed in yet — Thucydides
-himself at Amphipolis among them; over Book 5, twenty tables to extend,
-including Thucydides again at the second preface; over Book 6, twenty more,
-Thucydides again twice; over Book 7, ten, Nicias in twenty-eight paragraphs
-among them. That audit is the reason these passes are trustworthy and the tests
-are not; the tests all passed while Thucydides was unbound in six paragraphs of
-his own history. The adjacency sweep — which is what caught the Ionian Sea —
-over every
-Book 1 mention whose matched text abuts a capitalised word produced a hundred
-and eighty-seven hits and no mis-binding — sentence-initial *The Athenians*,
-cult titles like *the Delian Apollo* and *Zeus Meilichios*, *King Xerxes*, *the
-Ozolian Locrians*, *the Opuntian Locrians* — and it is what turned up the
-lowercase *Hellenic sea*.
+**5. Spot-read and sweep.** Two hundred and two mentions drawn at random — ten
+per edition for Book 1, nine for Book 2, eight for Book 3, twelve each for Books
+4 through 8, and a final fourteen per edition drawn from all twenty-six chapters
+at once — read back against their paragraphs: all correct.
+
+The **unbound-tabled-names audit** enumerates every pattern in `SPLIT` against
+the text and lists the paragraphs where it matches and no key covers it. Over
+the whole work it now comes back with seventeen positions per edition, every one
+of them deliberate geography: the river Eurymedon at 4:7; the river Sicanus at
+18:1; the Iapygian promontory at 18:30, 19:2 and 19:12; the place called Leon at
+20:38; the town of Acanthus at 14:8, 14:9, 14:40, 14:55 and 15:20, whose name is
+a person's only in the treaty lists; the Tyrrhenian main and the Tyrrhenian Sea;
+and the three Sicilian waters. Run over each book as it was authored it found
+real gaps every time — thirty-six over Book 4, every one a table whose new
+chapters had not been keyed in yet, Thucydides himself at Amphipolis among them;
+twenty over Book 5, Thucydides again at the second preface; twenty over Book 6;
+ten over Book 7, Nicias in twenty-eight paragraphs among them. **That audit is
+the reason these passes are trustworthy and the tests are not**; the tests all
+passed while Thucydides was unbound in six paragraphs of his own history. A
+table with no key produces no mention, so nothing at the mention level can see
+the gap.
+
+The **adjacency sweep** — which is what caught the Ionian Sea — reads every
+mention whose matched text abuts a capitalised word. Over the whole work it
+produces thirteen hundred hits and no mis-binding: sentence-initial *The
+Athenians*, cult titles like *the Delian Apollo* and *Zeus Meilichios*, *King
+Xerxes*, *the Ozolian Locrians*, *the Opuntian Locrians*, *the Acarnanian
+Evarchus*, *the Rhodian Dorieus*, *the Messenian Chromon*. It is what turned up
+the lowercase *Hellenic sea*, and it is deliberately blind to a mis-binding
+whose neighbours are lowercase — which is how *the Sicilian and Cretan seas*
+survived two books.
 
 **6. Both editions independently.** No entity is missing from either edition,
 which is the first package in this library where that is true of a work this
-size. The mention counts still differ (6,933 against 7,005), almost entirely
+size. The mention counts still differ (7,510 against 7,586), almost entirely
 because the modern edition resolves pronouns the older one leaves standing.
+
+**7. Adjectival singulars of peoples.** Deferred since Book 4 and run once over
+the finished work: every cast people's plural alias was singularised and the
+singular looked for in both editions. Thirty-nine forms came back uncovered, and
+each was read in context rather than bound on sight.
+
+- **Twenty-seven are the people everywhere they occur** and are now plain
+  aliases: *Theban*, *Plataean*, *Trojan*, *Thurian*, *Aetolian*, *Libyan*,
+  *Illyrian*, *Cnidian*, *Rhodian*, *Teian*, *Phocian*, *Phocaean*, *Pellenian*,
+  *Oropian*, *Ophionian*, *Methymnian*, *Melian*, *Lampsacene*, *Italiot*,
+  *Eurytanian*, *Erythraean*, *Crotonian*, *Cranian*, *Carthaginian*,
+  *Apodotian*, *Agraean*, *Tanagraean*. A man named by his city, a people's
+  troops, ships, coinage, colony or territory, and a war named after them, are
+  all that people.
+- **Five are mixed** and are bound by lookahead, because the base name is a
+  region or an island with a name of its own and most of its adjectives locate
+  something inside it rather than naming the people. *Thracian* binds only
+  before *tribes*, *swordsmen*, *independent*, *host*, *mercenaries*, *race* and
+  *horse* — not the Thracian towns, places, country, gates, possessions, allies
+  or Chalcidians. *Acarnanian* binds except before *coast* and *capital*.
+  *Cretan* except before *Sea*/*seas*. *Euboean* except before *Chalcidians*.
+  *Egyptian* except before *border* — the Egyptian revolt is the Egyptians', the
+  Egyptian border is Egypt's.
+- **Six are never the people and stay uncovered.** *Delian* is Apollo's cult
+  title and Delos's festival and dance; this is the Histories precedent, where
+  binding *Plataean Hera* to the Plataeans was withdrawn for the same reason.
+  *Achaean* is the promontory Rhium and a city of Achaea. *Malian* and *Pierian*
+  are gulfs. *Paralian* is a district of Attica and the state galley *Paralus*.
+  *Cyprian* is an expedition to the island.
+
+Four tests pin all three groups, including the six that must stay unbound.
 
 ## Source defects — recorded, not repaired
 
@@ -323,41 +407,43 @@ because the modern edition resolves pronouns the older one leaves standing.
 | Both editions print the æ ligature inconsistently: **Potidæa** and **Mycenæ** always, but **Aegina** and **Aeginetans** never, and **Æthæans** in one edition against **Aethaeans** in the other. | Carried as aliases. Not repaired: editing a ligature moves every UTF-16 offset after it and invalidates this package's hashes. |
 | The older translation writes **Hellenic sea** at 1:3 where the modern writes **Hellenic Sea**. | Handled in the binder's lookahead, which allows both cases. |
 | The older translation names the **Tanagraeans** at 4:13 where the modern writes "the walls of Tanagra". | One mention in one edition. The people are bound in both editions from their later chapters, so nothing is omitted. |
-| The older translation names the **Messinese** at 11:1 and 11:3 where the modern writes "Messina" and "the people of Messina"; and the modern writes **Messinian territory** at 12:31 where the older writes "the territory of Messina". | Three mentions that exist in one edition only, in both directions. The people are bound in both editions from 12:32, so nothing is omitted. Two tests pin the divergence. |
+| The modern edition calls the people of Sicilian Messana the **Messenians** at 11:1 and 11:3 — twice in the plural and once in the singular — where Crawley writes **Messinese**. "Messenians" is the name the Helots settled at Naupactus carry everywhere else in the work, so the modern edition gives two unrelated peoples one name. | Not repaired. The plural and singular are bound by a position table instead of an alias, so 11:1 and 11:3 go to the Messinese in both editions and every other paragraph goes to the Messenians. A test pins all six mentions. |
+| The modern edition writes **Messinian territory** at 12:31 where the older writes "the territory of Messina". | One mention in one edition. The people are bound in both editions from 11:1, so nothing is omitted. A test pins the divergence. |
+| The older translation misprints **Onamacles** for Onomacles at 24:33 and **Silenus** for Selinus at 24:29. | Onamacles is carried as an alias so the general still binds. Silenus is a place and carries no card in either edition. |
 | The modern edition writes **Greeks** once, at 1:11, where the older writes **Hellenes**; and resolves a pronoun to the name it stands for in a handful of places — *Aristeus*, *Pausanias*, *Pericles*, *Hagnon*. | Carried as an alias on the Hellenes. It is the main reason the two editions' mention counts differ. |
 
 No edition byte was touched.
 
-## Remaining work
+## What is left, and for whom
 
-- **Chapters 24–26** (Thucydides's Book 8, the unfinished one): the revolt of
-  Ionia, Tissaphernes and Alcibiades, the Four Hundred, and the recall to Samos.
-  Alcibiades, Agis, Leon, Diitrephes, Thrasycles, Aristocrates, Hippocrates,
-  Ramphias, Pharnaces, Lichas, Endius, Arcesilaus, Hermon, Athenagoras,
-  Chalcidians, Ionian and Tyrrhenian all have occurrences waiting there, and
-  Book 8 is the one that most often gives a patronymic to a name an earlier book
-  left bare — which may finally settle some of the identifications this package
-  has refused to make. **Run the unbound-tabled-names audit before believing the
-  tests** — enumerate every SPLIT pattern against the new chapters rather than
-  reading the mention list, since a table with no key produces no mention to
-  audit.
-- Then the six editorial checks over the whole work, a fresh whole-work
-  spot-read, the adjectival-singular sweep, a refreshed `omittedEntities`, and
-  only then `validated-package`.
-- Adjectival singulars of peoples are bound only where the plural's own book
-  bound them (*Edonian*, *Thasian*, *Rhegian*, *Mendaean*, *Andrian*,
-  *Thespian*, *Lyncestian* were added in Book 4; *Thracian*, *Theban*,
-  *Plataean*, *Argive*, *Sicyonian*, *Phocian*, *Acarnanian* and others are
-  still uncovered). A single sweep over the adjectival forms belongs in the
-  whole-work editorial checks at the end, not in a per-book pass.
-- The person tables extended as each book is authored, and the `None` defaults
-  replaced only where the later man is actually carded.
-- The six editorial checks re-run over the whole work, and a fresh spot-read.
+Nothing in this package is left for the authoring lane. What remains belongs to
+the release owner:
+
+- **Production verification.** Register the asset, open the book in the reader,
+  and check that a card opens on the right person in both editions and at a
+  chapter boundary. `appStatus` stays `not-integrated` until that has been done
+  and the evidence recorded; this lane never sets it.
+- **Two source defects to decide about**, both recorded in the table above and
+  neither repaired here, because editing an edition byte moves every UTF-16
+  offset after it and invalidates the hashes this package is pinned to: the
+  older translation's three misprinted names, and the modern edition's
+  **Messenians** at 11:1 and 11:3 for Crawley's Messinese. The bindings are
+  correct either way; the question is whether the edition text should be fixed.
+- **Judgement calls a human may want to overturn.** Each is pinned by a test, so
+  overturning one means changing the test on purpose rather than by accident:
+  Ramphias of Book 1 and Ramphias of Book 5 read as one man; Tellis the
+  signatory kept apart from Brasidas's father; Dorieus the Olympic victor
+  identified with Diagoras's son of Book 8; the Hermae cast although they are
+  neither a person nor a people; the Chalcidian Race widened to cover Euboea and
+  Sicily at once.
 
 ## Validation
 
 `python3 books/characters/build_peloponnesian_war.py --check`, then
-`python3 -m unittest discover -s books/characters -p 'test_*.py'`. Eighty-two
-focused tests so far. No edition changes, no network generation, no API spend:
-every card here was written in the authoring conversation and committed as a
-file.
+`python3 -m unittest discover -s books/characters -p 'test_*.py'`. Ninety-nine
+focused tests, all passing. The four audits behind the editorial checks are not
+tests and have to be run by hand — the unbound-tabled-names audit in particular,
+because a table with no key produces no mention, so no test can see the gap.
+
+No edition changes, no network generation, no API spend: every card here was
+written in the authoring conversation and committed as a file.
