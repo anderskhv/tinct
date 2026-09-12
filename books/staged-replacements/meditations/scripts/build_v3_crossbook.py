@@ -96,6 +96,12 @@ CHANGES = [
               'in the same way? and why do you not leave these agitations',
   'Long prints lowercase'),
  # --- F. the "vexed / vexation" row, applied where it was not --------------
+ # --- G. Long's comma before an em dash: removed in eleven books, two left ----
+ ('G', 7, 49, 'Consider the past,—such great changes', 'Consider the past—such great changes',
+  'the package removes Long\'s comma before an em dash; 38 of his 40 were already gone'),
+ ('G', 7, 55, 'the persuasions of the body,—for it is the peculiar office',
+              'the persuasions of the body—for it is the peculiar office',
+  'the second and last straggler in the work'),
  ('F', 1, 15, 'laugh to cover his annoyance', 'laugh to cover his resentment',
   'Long\'s "vexation"; the row renders the family "resent / resentment" '
   '(VI.20 "show any signs of resentment"), and Book I was drafted before the row was fixed'),
@@ -132,6 +138,7 @@ CLASS_NOTE = {
  'D': '"adapted to" in the dead sense -> "suited to"',
  'E': "Long's lowercase after his own question mark, restored",
  'F': 'the "vexed / vexation" glossary row, applied where it was not',
+ 'G': "Long's comma before an em dash, removed in the two places it was left",
 }
 
 
@@ -175,6 +182,7 @@ def main():
         assert not re.search(r'\bsuch ?like\b', joined, re.I), n
         assert not re.search(r'\badapted to\b', joined, re.I), n
         assert not re.search(r'\bseveral (?:parts|arts|qualities)\b', joined, re.I), n
+        assert ',—' not in joined, n
     for n, secs in ((3, [9]), (7, [8, 24, 68])):
         for s in secs:
             assert 'shall' not in books[n]['paragraphs'][s - 1], (n, s)

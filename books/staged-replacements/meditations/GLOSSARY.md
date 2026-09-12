@@ -33,7 +33,7 @@ in-text Greek" under Voice and form below.
 | a member of a civil community; political community; the world is a kind of state | **member of a community**; **political community**; **a kind of state** | As Long has them. |
 | the most ancient city and polity; the highest city | **the oldest city and commonwealth**; **the highest city** | *polis*, *politeia*. "Commonwealth" for "polity". |
 | opinion; all is opinion | **opinion** | *hypolēpsis*. Kept: "Everything is opinion" is clear and memorable. Never expanded into "how you judge things". |
-| impressions; appearances (in the technical sense) | **impressions** | *phantasiai*. "Appearances" is kept only where Long means outward looks (I.15, I.16). |
+| impressions; appearances (in the technical sense) | **impressions**; **appearance(s)** where Long's English word is his point | *phantasiai*. **Row corrected at the cross-book pass (2026-09-12) to describe the edition, which it did not.** Its note read "'Appearances' is kept only where Long means outward looks (I.15, I.16)"; the twelve candidates in fact keep Long's "appearance(s)" in **nine** sections and convert it in three, and the line between them is not outward looks alone. **Converted to "impressions"** where his plural stands alone for the technical *phantasiai*: III.1 ("clearly distinguishing all impressions"), VIII.26 ("plausible impressions"), VIII.49 ("what the first impressions report"). **Kept as his own word** in three shapes: where he means outward looks or what is seen (I.15 "the appearance of a man who could not be turned from the right", I.16, I.17 "the investigation of appearances in the heavens", XII.16 "has presented the appearance of having done wrong"); where he prints **both English words in one sentence**, so that merging them would delete his distinction (III.16 "to receive impressions of forms by means of appearances", VI.16 "the receiving of impressions by the appearances of things"); and where he has the **countable** "an appearance / the appearance of things" for a single presentation (V.22, V.36, XII.18 "what the thing is which produces for you an appearance"). The principle is the one the "intelligence / understanding / mind" and "imagination" rows already state: **where Long keeps two English words for one Greek word, the candidate keeps his two.** A correction of a row that under-described the edition, on the precedent of the *daimōn* row corrected before Book XII; **no word of any accepted paragraph changes.** |
 | principles | **principles** | *dogmata*. |
 | assent | **assent** | *synkatathesis*. |
 | movement(s) (in the sense of impulse) | **impulse(s)** | *hormē*. Long's "movement" is misleading in modern English; where he means physical motion, "movement" stays. |
@@ -60,6 +60,9 @@ in-text Greek" under Voice and form below.
 | the formal; the material (as nouns: "composed of the formal and the material"); the causal | **form**; **matter**; **cause** | V.13, XII.18, XII.29. Long's own words for the same pair in IV.21 are "the cause of form" and "that which is material", which stay as they are; where he uses the bare adjectives as nouns, "form" and "matter" say the same in current English. Added in Book V. Long pairs "the material" with "the causal" as well (VII.10 "everything formal", VII.29 "the causal and the material", VIII.11), each time offering the other word in brackets; the bracketed word is a second rendering and is dropped under D11, and Long's primary word is rendered — "everything that is form" at VII.10, "cause and matter" at VII.29. Row extended in Book VII. |
 | beneficence; benevolence; benevolent (acts, disposition); benevolently | **kindness**; **kind**; **kindly** | Long's one word-family kept as one family: I.3, I.7, I.9, I.15 (recorded in `book1/continuity.md` at Book I), V.5 "benevolence" → "kindness", VI.47 "a benevolent disposition" → "a kind disposition" (Long's own phrase at V.31). "Benevolent" now reads as institutional; "kind" is the plain word. Promoted from the Book I continuity sheet to a glossary row in Book VI, its third book. **Row extended in Book XII, before drafting:** the adverb, which occurs exactly once in the whole work — XII.5 "arranged all things well and **benevolently** for mankind" → "well and **kindly**" — takes the family's word, as the noun and the adjective do. |
 | imagination (Long's word where he does not use "impressions") | **imagination** | *phantasia*, the same Greek word the "impressions" row covers, but Long keeps two English words for it and the candidate keeps his distinction rather than merging them (the "intelligence / understanding / mind" row follows the same principle). "Imagination" is current English and needs nothing. II.12 ("the things his imagination presents to him") and III.1 rendered so in Books II and III; VII.17 ("What then are you doing here, imagination?"), VII.29 ("Wipe out the imagination"), VII.64 ("if you add nothing to it in imagination"), VIII.29, IX.7. Promoted from the Book II and Book III candidates to a glossary row in Book VII, its third book, on the Book VI precedent for "beneficence". |
+| such like; suchlike | **of that kind** | Long's phrase, dead in current English in both his spellings. Rendered "of that kind" behind the noun ("such like externals" → "externals of that kind"). Decided at Book XI (XI.1) and followed at XII.2; **applied to the whole work at the cross-book pass (2026-09-12), class A** — I.17 "suchlike show" → "show of that kind", III.11 "suchlike coincidence and chance" → "coincidence and chance of that kind", IX.1 "of such like successions" → "of successions of that kind". Five occurrences in the work, one rendering. |
+| several (the plural distributive: their several parts, their several arts) | **separate** | Not the modern "several" (= a few), which is what a reader now hears. Decided at Book XI (XI.2) and followed at XII.30; **applied to the whole work at the cross-book pass, class B** — V.1 ×2, which is where the ledger had recorded one. Long's other uses of "several" are his own and are untouched. |
+| adapted to (in the sense *suited to*) | **suited to** | The live modern sense of "adapted" is *altered to fit*, so "this reflection is most adapted to move us" can be read as "has been most altered in order to move us". Retired at XII.34 by the Book XII round-1 finding 34.1 ("best suited to"), and **decided once for the work at the cross-book pass, class D** — V.8 "a thing suited to procure health", VI.16 "should be suited to the work", X.11 "nothing is so well suited to produce magnanimity" ("so much suited" is not English). Four occurrences, none left. |
 | a man; men (generic) | **a man**; **men** | Long's generic "man" is kept. Rewriting it would be a modern imposition, and Marcus's "as a Roman and a man" is his own. "Human being" is used only where Long uses it (V.1, VI.23). |
 
 ## Voice and form
@@ -90,10 +93,30 @@ in-text Greek" under Voice and form below.
   reported speech, where "will be free" would turn a standing problem into a
   forecast. The rendering was right on the rule's spirit, the rule's letter did
   not reach it, and the wording is widened here — before Book X is drafted — so
-  that a later drafter reading the rule literally does not convert it. Three
-  third-person plain futures
-  stand in already-accepted books (III.9, VII.8, VII.24); they are recorded in
-  `00-progress-ledger.md` under "Open, not blocking" and are not reopened.
+  that a later drafter reading the rule literally does not convert it. **The class was re-derived at the cross-book pass (2026-09-12) and is now
+  empty.** The ledger had recorded three third-person plain futures standing in
+  accepted books (III.9, VII.8, VII.24) as "Open, not blocking". A mechanical
+  re-derivation over all twelve candidates found a **fourth** that was on no list
+  — VII.68, "and the use shall say to that which falls under the hand" — and two
+  more that had never been classified either way. All four plain futures are
+  converted in the v3 pass (class C); the two others are **kept**, with the
+  reason recorded so that the number stops moving: **VII.54** "that nothing shall
+  steal into them" is a negative final clause, the VIII.32 shape exactly, and
+  **IX.29** "They themselves shall judge whether they discovered…" is the
+  emphatic third person — *it is for them to judge* — which is current English in
+  its own right, the V.29 class, and not a forecast. **Twenty-five occurrences
+  stand in fifteen sections** (II.1, V.29, VI.10, VII.54, VIII.1, VIII.2,
+  VIII.14, VIII.32, VIII.45, IX.29, IX.40 ×6, IX.41, X.6 ×5, X.36, XI.18 ×2),
+  each licensed by a clause of this rule, and `scripts/build_v3_crossbook.py`
+  asserts that inventory.
+- **Long's "wilt" (decided at Book XII acceptance, 2026-09-12, finding 1.1 with
+  3.2).** The "shall" rule above governs "shall / shalt" only. Long's "wilt" in a
+  clause of condition takes the **plain present**, which is what English uses in
+  an if-clause: "if thou wilt take no notice" → "if you take no notice"; "if thou
+  wilt separate, I say" → "if you separate, I say". "If you will separate" reads
+  as volitional — *if you are willing to* — which imports a shade his plain future
+  does not carry. Where "wilt" is a plain future in a main clause it takes "will",
+  as any second-person future does.
 - **Imperatives stay imperatives.** "Remember", "Consider", "Throw away your
   books" are kept as the bare commands they are.
 - **Numbering.** Every candidate paragraph begins with the same section number
@@ -129,5 +152,10 @@ in-text Greek" under Voice and form below.
   `[Greek: …]` spans. Long's own English gloss beside such a word (his
   bracketed "[happiness]") is folded as an apposition, as any supplement is.
 - **Punctuation.** Straight apostrophes and quotation marks, em dashes without
-  spaces, as in the staged original.
+  spaces, as in the staged original. **The classes are collated in
+  `PUNCTUATION.md`** (written at the cross-book pass, 2026-09-12), which holds
+  the ten decided classes, the ruling and the book that settled each, and the
+  two the cross-book v3 pass made uniform: Long's comma before an em dash,
+  removed in all forty places, and his lowercase after his own question mark,
+  kept in all thirty-six.
 - **Spelling.** American, following the PG #15877 base text (honor, vapor).

@@ -198,7 +198,7 @@ The accepted candidate v2 with the cross-book v3 pass applied (see `../README.md
 
 **[B7-P049]**
 
-49. Consider the past,—such great changes of political power; you may foresee also the things which will be. For they will certainly be of like form, and it is not possible that they should deviate from the order of the things which take place now; accordingly, to have contemplated human life for forty years is the same as to have contemplated it for ten thousand years. For what more will you see?
+49. Consider the past—such great changes of political power; you may foresee also the things which will be. For they will certainly be of like form, and it is not possible that they should deviate from the order of the things which take place now; accordingly, to have contemplated human life for forty years is the same as to have contemplated it for ten thousand years. For what more will you see?
 
 **[B7-P050]**
 
@@ -222,7 +222,7 @@ The accepted candidate v2 with the cross-book v3 pass applied (see `../README.md
 
 **[B7-P055]**
 
-55. Do not look around you to discover other men's ruling parts, but look straight to this, to what nature leads you, both the universal nature through the things which happen to you, and your own nature through the acts which must be done by you. But every being ought to do that which is according to its constitution; and all other things have been constituted for the sake of rational beings, just as among irrational things the inferior for the sake of the superior, but the rational for the sake of one another. The prime principle, then, in man's constitution is the social. And the second is not to yield to the persuasions of the body,—for it is the peculiar office of the rational and intelligent motion to circumscribe itself, and never to be overpowered either by the motion of the senses or of the appetites, for both are animal: but the intelligent motion claims superiority, and does not permit itself to be overpowered by the others. And with good reason, for it is formed by nature to use all of them. The third thing in the rational constitution is freedom from error and from deception. Let the ruling part, then, holding fast to these things, go straight on, and it has what is its own.
+55. Do not look around you to discover other men's ruling parts, but look straight to this, to what nature leads you, both the universal nature through the things which happen to you, and your own nature through the acts which must be done by you. But every being ought to do that which is according to its constitution; and all other things have been constituted for the sake of rational beings, just as among irrational things the inferior for the sake of the superior, but the rational for the sake of one another. The prime principle, then, in man's constitution is the social. And the second is not to yield to the persuasions of the body—for it is the peculiar office of the rational and intelligent motion to circumscribe itself, and never to be overpowered either by the motion of the senses or of the appetites, for both are animal: but the intelligent motion claims superiority, and does not permit itself to be overpowered by the others. And with good reason, for it is formed by nature to use all of them. The third thing in the rational constitution is freedom from error and from deception. Let the ruling part, then, holding fast to these things, go straight on, and it has what is its own.
 
 **[B7-P056]**
 
