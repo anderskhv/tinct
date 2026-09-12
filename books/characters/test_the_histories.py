@@ -1,5 +1,5 @@
-"""Focused checks for the Histories. AUTHORING IN PROGRESS: Books 1-4
-(sections 1-761) are authored; Books 5-9 are not."""
+"""Focused checks for the Histories. AUTHORING IN PROGRESS: Books 1-5
+(sections 1-886) are authored; Books 6-9 are not."""
 import unittest
 from build_the_histories import compile_package
 
@@ -53,7 +53,8 @@ class TheHistories(unittest.TestCase):
                   'Ladike','Esop','Etearchos','Hecataios','Menelaos','Lynkeus','Linos',
                   'Dioscuroi','Samothrakians','Keltoi','Kilikians','Hephaistos','Dionysos',
                   'Oroites','Eginetans','Dareios','Battos','Arkesilaos','Kyrenians','Theraians',
-                  'Minyai','Lotophagoi','Machlyans','Atlantians']:
+                  'Minyai','Lotophagoi','Machlyans','Atlantians','Dorieos','Onesilos','Artybios',
+                  'Paionians','Chalkidians','Sikyonians','Hipparchos','Gephyraians']:
             self.assertIn(t,texts,t)
 
     def test_the_peoples_carry_across_all_nine_books(self):
@@ -166,6 +167,57 @@ class TheHistories(unittest.TestCase):
             self.assertTrue(all(c in (247,248) for c,_ in where(ed,'etearchus')),ed)
             self.assertEqual(set(where(ed,'etearchus-oaxos')),{(710,0)},ed)
 
+    def test_the_macedonian_alexander_finally_gets_the_name(self):
+        # Paris had it to himself for 775 sections. Now both are bound and
+        # neither reaches into the other's territory.
+        for ed in ['original-en','modern-en']:
+            self.assertTrue(all(c<400 for c,_ in where(ed,'alexander-paris')),ed)
+            self.assertTrue(all(778<=c<=783 for c,_ in where(ed,'alexander-macedon')),ed)
+
+    def test_not_every_aristagoras_is_the_milesian(self):
+        # The tyrant of Cyzicus in Darius's fleet, and the Samian father of
+        # Hegesistratos in Book 9, are other men.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(set(where(ed,'aristagoras-kyzikos')),{(694,0)},ed)
+            self.assertEqual(set(where(ed,'aristagoras-cyme')),{(798,0)},ed)
+            self.assertNotIn((694,0),where(ed,'aristagoras-miletus'),ed)
+            self.assertNotIn((1493,0),where(ed,'aristagoras-miletus'),ed)
+            # 798 names both in one sentence, the Cymean first.
+            ids=[m['characterId'] for m in sorted(
+                (m for m in mentions(ed) if m['chapterNumber']==798
+                 and m['characterId'].startswith('aristagoras')),
+                key=lambda m:m['startOffset'])]
+            self.assertEqual(ids,['aristagoras-cyme','aristagoras-miletus'],ed)
+
+    def test_the_two_men_called_cleisthenes(self):
+        # The Athenian and his mother's father the tyrant of Sicyon, named in
+        # the same sentence at 828 and again at 830.
+        for ed in ['original-en','modern-en']:
+            ids=[m['characterId'] for m in sorted(
+                (m for m in mentions(ed) if m['chapterNumber']==828
+                 and m['characterId'].startswith('cleisthenes')),
+                key=lambda m:m['startOffset'])]
+            self.assertEqual(ids[0],'cleisthenes-athens',ed)
+            self.assertTrue(all(i=='cleisthenes-sicyon' for i in ids[1:]),ed)
+            self.assertIn((829,0),where(ed,'cleisthenes-sicyon'),ed)
+            self.assertIn((833,0),where(ed,'cleisthenes-athens'),ed)
+
+    def test_the_three_men_called_otanes(self):
+        # The conspirator of the seven; Sisamnes's son in Thrace; and the
+        # commanders of 877 and 883 and Books 7-9, who stay unbound.
+        for ed in ['original-en','modern-en']:
+            self.assertTrue(all(c<=929 for c,_ in where(ed,'otanes')),ed)
+            self.assertEqual(sorted(set(where(ed,'otanes-sisamnes'))),[(786,0),(787,0),(789,0)],ed)
+            for c in (877,883,1064,1085):
+                self.assertNotIn((c,0),where(ed,'otanes'),ed)
+                self.assertNotIn((c,0),where(ed,'otanes-sisamnes'),ed)
+
+    def test_the_two_men_called_adrastus(self):
+        # The Phrygian who killed Croesus's son, and the Argive hero of Sicyon.
+        for ed in ['original-en','modern-en']:
+            self.assertTrue(all(c<100 for c,_ in where(ed,'adrastus')),ed)
+            self.assertEqual(sorted(set(where(ed,'adrastus-argos'))),[(828,0),(829,0)],ed)
+
     def test_no_entity_is_missing_from_both_editions(self):
         o=set(REPORT['editions']['original-en']['omittedEntities'])
         m=set(REPORT['editions']['modern-en']['omittedEntities'])
@@ -175,7 +227,7 @@ class TheHistories(unittest.TestCase):
         # The older translation writes "the men of Kyme" and "the men of Smyrna"
         # where the modern one names the peoples.
         self.assertEqual(sorted(REPORT['editions']['original-en']['omittedEntities']),
-                         ['cymeans','smyrnaeans'])
+                         ['crotoniats','cymeans','smyrnaeans'])
         self.assertEqual(REPORT['editions']['modern-en']['omittedEntities'],[])
 
     def test_every_mention_quotes_its_own_source_span(self):

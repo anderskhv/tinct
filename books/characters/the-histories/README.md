@@ -1,11 +1,11 @@
 # The Histories character package — IN PROGRESS
 
-**Books 1–4 (Clio, Euterpe, Thalia and Melpomene, sections 1–761) are
-authored. Books 5–9 are not.** Status stays `in-progress` and the package must
-not be integrated until all nine books are covered.
+**Books 1–5 (sections 1–886) are authored. Books 6–9 are not.** Status stays
+`in-progress` and the package must not be integrated until all nine books are
+covered.
 
-Current state: 364 entities authored, 362 bound in the older translation and all
-364 in the modern edition, 8,306 and 8,213 exact mentions. The mention counts are
+Current state: 439 entities authored, 436 bound in the older translation and all
+439 in the modern edition, 9,077 and 9,005 exact mentions. The mention counts are
 already the highest in the library, because the nations Herodotus names —
 Persians, Hellenes, Athenians, Lacedaemonians — recur through all nine books and
 are bound wherever they appear, not only in Book 1. Content revision 2026-09-12.1.
@@ -52,7 +52,7 @@ entity: **Heracleidai / Heraclids**, **Mermnadai**, **Alcaios**, **Ninos**,
 **Lacedemonians**, **Aiolians**, **Lykians**, **Phocaians**, **Massagetae**. A
 test pins eleven of them.
 
-## Editorial checks — Books 1 to 4
+## Editorial checks — Books 1 to 5
 
 **1. Namesakes.** The four resolved above (Atys, Lycurgus, Cambyses, Alexander),
 plus Leon, Ninus and Bias against their later namesakes, plus **Artembares** the
@@ -96,8 +96,9 @@ not. **Moeris** is a king in sections 221, 228 and 316 and a lake everywhere
 else; only the king is cast, and a test pins it.
 
 **6. Both editions independently.** Two entities are missing from the older
-translation — the **Smyrnaeans** and the **Cymeans**, where Macaulay writes only
-"the men of Smyrna" and "the men of Kyme" — and none from the modern. **No entity
+translation — the **Smyrnaeans**, the **Cymeans** and the **Crotoniats**, where
+Macaulay writes only "the men of Smyrna", "the men of Kyme" and "those of
+Croton" — and none from the modern. **No entity
 is missing from both.** Book 2 added another twelve transliteration divergences,
 all of them closed with aliases: Ladike, Esop, Etearchos, Hecataios, Menelaos,
 Lynkeus, Linos, Dioscuroi, Samothrakians, Keltoi, Kilikians, and the Hephaistos
@@ -114,11 +115,12 @@ No edition byte was touched.
 
 ## Remaining work
 
-- Books 5–9 (sections 762–1525): the Ionian revolt, Marathon, Thermopylae,
-  Salamis and Plataea. Several hundred more people and nations — and the
-  Macedonian Alexander, who is still deliberately unbound.
+- Books 6–9 (sections 887–1525): Marathon, Thermopylae, Salamis and Plataea.
+  Several hundred more people and nations, and the largest concentration of
+  Persian commanders in the work — where the fourth, fifth and sixth men called
+  Otanes turn up, all of them still unbound.
 
-  Books 3 and 4 are done. Books 5–9 remain.
+  Books 3, 4 and 5 are done. Books 6–9 remain.
 
 - The namesake tables extended as each book is authored, and the `None` defaults
   replaced only where the later man is actually carded.
@@ -208,8 +210,43 @@ Prosperous rather than the Fortunate.
 Book 2, and the Cretan of Oaxus in Book 4 who swore his own daughter away. The
 Book 2 entity lost its alias so that a table could own both.
 
+## Book 5: five namesakes in one book
+
+The Ionian revolt is the densest namesake book in the work so far, and one of
+them has been waiting since section 3.
+
+**Alexander.** The Macedonian son of Amyntas finally appears at 778, seven
+hundred and seventy-five sections after the Alexander who carried off Helen. Both
+are now bound, and a test asserts that neither reaches into the other's
+territory: Paris stops before section 400, the Macedonian begins at 778.
+
+**Aristagoras.** Three men. The Milesian who starts the revolt is the default,
+because he accounts for almost every occurrence in the work — but not all of
+them. The **tyrant of Cyzicus** in Darius's fleet at the Ister (694) and the
+**Samian father of Hegesistratos** in Book 9 (1493) are other men; the first has
+his own card, the second is suppressed until Book 9 is authored. Section 798
+names the Milesian and **Aristagoras of Cyme** in one sentence, the Cymean first,
+and a test walks that sentence in order. This is the case that shows why the
+`None` defaults elsewhere are worth the trouble: a plain default here would have
+quietly given a Cyzicene and a Samian the Milesian's card.
+
+**Cleisthenes.** The Athenian and his mother's father the tyrant of Sicyon,
+named in the same sentence at 828 and again at 830 — and the two translations put
+a different number of them in each paragraph, so both paragraphs carry a list per
+edition, as section 476 does in Book 3.
+
+**Otanes.** At least six men in the work. The conspirator of the seven (Book 3,
+and again commanding at Samos), **Sisamnes's son** in Thrace (Book 5), and the
+commanders of 877 and 883 and the patronymics of Books 7 to 9, all of whom stay
+unbound because the text does not say which Otanes they are and the later books
+are not authored. A test asserts that none of those four sections is bound to
+either of the two named men.
+
+**Adrastus.** The Phrygian suppliant who killed Croesus's son in Book 1, and the
+Argive hero whose shrine Cleisthenes tried to starve out in Book 5.
+
 ## Validation
 
 `python3 books/characters/build_the_histories.py --check`, then
-`python3 -m unittest discover -s books/characters -p 'test_*.py'`. Twenty-two
+`python3 -m unittest discover -s books/characters -p 'test_*.py'`. Twenty-seven
 focused tests so far. No edition changes, no network generation.

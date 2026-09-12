@@ -51,6 +51,31 @@ SPLIT={
  'Mo(?:e|i)ris':({(221,0):'moeris-king',(228,0):'moeris-king',
                  (316,0):'moeris-king'},None),
  # Paris again, in Egypt with Helen and the stolen goods.
+ # Two men called Heracleides: Aristagoras of Cyme's father, and the Mylasan
+ # who planned the ambush that destroyed Daurises.
+ 'Heracl(?:e)?ides':({(798,0):'heracleides-cyme',(881,0):'heracleides-mylasa'},None),
+ # Anaxandrides's youngest son, named once as Pausanias's father and once in
+ # the list of brothers.
+ 'Cleombrot(?:us|os)':({(793,0):'cleombrotus-sparta',(802,0):'cleombrotus-sparta'},None),
+ # BOOK 5. Two men called Aristagoras, two called Cleisthenes, a third Otanes,
+ # a second Adrastus, and the Macedonian Alexander, who has been left unbound
+ # since section 3 so that Paris could have the name to himself.
+ # The Milesian is the default, but not every Aristagoras is him: the tyrant of
+ # Cyzicus in Darius's fleet (694) is another man, and the Samian father of
+ # Hegesistratos (1493) belongs to Book 9, which is not yet authored.
+ 'Aristagoras':({(694,0):'aristagoras-kyzikos',(798,0):['aristagoras-cyme','aristagoras-miletus'],
+                 (1493,0):None},'aristagoras-miletus'),
+ 'Cleisthenes':({(827,0):'cleisthenes-athens',(829,0):'cleisthenes-sicyon',
+                 (831,0):'cleisthenes-athens',(833,0):'cleisthenes-athens',
+                 (834,0):'cleisthenes-athens'},None),
+ # Otanes son of Pharnaspes, of the seven. The Otanes of Book 5 is Sisamnes's
+ # son; the Otanes of 877, 883 and Books 7-9 are other men again, and unbound.
+ 'Otanes':({(465,0):'otanes',(466,0):'otanes',(467,0):'otanes',(468,0):'otanes',(469,0):'otanes',(473,0):'otanes',(477,0):'otanes',(478,0):'otanes',(480,0):'otanes',(481,0):'otanes',(485,0):'otanes',(538,0):'otanes',(541,0):'otanes',(544,0):'otanes',(546,0):'otanes',(929,0):'otanes',
+            (786,0):'otanes-sisamnes',(787,0):'otanes-sisamnes',
+            (789,0):'otanes-sisamnes'},None),
+ # The Phrygian suppliant of Book 1; the Argive hero of Sicyon in Book 5.
+ 'Adrast(?:us|os)':({(35,0):'adrastus',(36,0):'adrastus',(37,0):'adrastus',(38,0):'adrastus',(39,0):'adrastus',(40,0):'adrastus',(41,0):'adrastus',(42,0):'adrastus',(43,0):'adrastus',(44,0):'adrastus',(45,0):'adrastus',
+                     (828,0):'adrastus-argos',(829,0):'adrastus-argos'},None),
  # BOOK 4. The royal house of Cyrene, where the oracle itself says there will
  # be "four named Battus and four named Arcesilaus". The founder, his grandson
  # the Fortunate, and his great-great-grandson the Lame are three men; so are
@@ -93,13 +118,20 @@ SPLIT={
                (328,0):'alexander-paris',(329,0):'alexander-paris',
                (330,0):'alexander-paris',(331,0):'alexander-paris',
                (332,0):'alexander-paris',(333,0):'alexander-paris',
-               (334,0):'alexander-paris',(335,0):'alexander-paris'},None),
+               (334,0):'alexander-paris',(335,0):'alexander-paris',
+               (778,0):'alexander-macedon',(780,0):'alexander-macedon',
+               (781,0):'alexander-macedon',(782,0):'alexander-macedon',
+               (783,0):'alexander-macedon'},None),
 }
 
 # Section 476 mixes the two usurpers with the caste being massacred, and the two
 # translations distribute the plural differently inside the paragraph, so this
 # one paragraph needs a list per edition.
 EDITION_SPLIT={
+ ('modern-en','Cleisthenes'):{(828,0):['cleisthenes-athens']+['cleisthenes-sicyon']*7,
+                              (830,0):['cleisthenes-sicyon','cleisthenes-athens']},
+ ('original-en','Cleisthenes'):{(828,0):['cleisthenes-athens']+['cleisthenes-sicyon']*6,
+                                (830,0):['cleisthenes-sicyon','cleisthenes-athens','cleisthenes-sicyon']},
  ('modern-en','Ar(?:cesilaus|kesilaos)'):{(719,0):['arcesilaus-iii','battiadae']},
  ('original-en','Ar(?:cesilaus|kesilaos)'):{(719,0):['arcesilaus-iii','arcesilaus-iii','battiadae']},
  ('modern-en','Magians'):{(476,0):['magian-brothers','magian-brothers','magian-brothers',

@@ -43,7 +43,7 @@ for row in [
 ('belus','Belus','Ninus’s father in the same genealogy; the older translation spells him Belos.','Belus|Belos','reference'),
 ('myrsus','Myrsus','Candaules’s father.','Myrsus|Myrsos','reference'),
 ('lydus','Lydus','Son of Atys, from whom the Lydians took their name; they had been called Meonians.','Lydus|Lydos','reference'),
-('adrastus','Adrastus','A Phrygian prince who had killed his own brother by accident, was purified by Croesus, was given charge of Croesus’s son, killed him by accident too, and cut his own throat on the grave.','Adrastus|Adrastos','major'),
+('adrastus','Adrastus','A Phrygian prince who had killed his own brother by accident, was purified by Croesus, was given charge of Croesus’s son, killed him by accident too, and cut his own throat on the grave.','','major'),
 ('hyroeades','Hyroeades','The Mardian soldier who watched a Lydian climb down the unguarded cliff after a fallen helmet, and so found the way into Sardis.','Hyroeades|Hyroiades','supporting'),
 ('pactyas','Pactyas','The Lydian left in charge of Croesus’s gold, who used it to raise a revolt against Cyrus and then fled from city to city until the Chians sold him for a stretch of land.','Pactyas','major'),
 ]:add(*row)
@@ -341,7 +341,7 @@ for row in [
 
 # ------------------------------------------------------- the seven, and Darius
 for row in [
-('otanes','Otanes','Son of Pharnaspes, the first to suspect that the man on the throne was not Smerdis, and the one who proved it through his own daughter. He argued for democracy against the other six, withdrew from the contest for the throne on condition that his house be free, and it still was in Herodotus’s day.','Otanes','major'),
+('otanes','Otanes','Son of Pharnaspes, the first to suspect that the man on the throne was not Smerdis, and the one who proved it through his own daughter. He argued for democracy against the other six, withdrew from the contest for the throne on condition that his house be free, and it still was in Herodotus’s day.','','major'),
 ('phaidyme','Phaidyme','Otanes’s daughter, married to the king; her father asked her to feel for the ears of the man asleep beside her, knowing Cyrus had cut the Magian’s off. She did it, and there were none.','Phaidyme','major'),
 ('atossa','Atossa','Cyrus’s daughter, wife of her brother Cambyses, then of the Magian, then of Darius — and the woman who, prompted in bed by a Greek physician, set Darius on Greece.','Atossa','major'),
 ('intaphrenes','Intaphrenes','One of the seven, whom Otanes brought in; he later forced the palace gates believing the law let him, and Darius destroyed his whole family but for the brother and son his wife chose. The two editions spell him Intaphrenes and Intaphernes.','Intaphrenes|Intaphernes','major'),
@@ -393,7 +393,7 @@ for row in [
 ('mandrocles','Mandrocles','The Samian who built the bridge of boats across the Bosphorus, was richly rewarded, and spent the money on a painting of the crossing dedicated in the temple of Hera.','Mandrocles','supporting'),
 ('sataspes','Sataspes','The Achaemenid sent to sail round Libya instead of being impaled, who turned back in fear and was impaled after all; his eunuch ran off to Samos with a great sum.','Sataspes','supporting'),
 ('teaspis','Teaspis','Sataspes’s father.','Teaspis','reference'),
-('megabazos','Megabazos','The Persian Darius left to command in Europe — the man whose praise Darius rated above a pomegranate’s seeds; he subdued the Hellespont and told the Persians the Chalcedonians must have been blind.','Megabazos','major'),
+('megabazos','Megabazos','The Persian Darius left to command in Europe — the man whose praise Darius rated above a pomegranate’s seeds; he subdued the Hellespont and told the Persians the Chalcedonians must have been blind.','Megabazos|Megabazus','major'),
 ('histiaeus','Histiaeus','Tyrant of Miletus, who talked the Ionians out of breaking Darius’s bridge over the Ister on the argument that their own tyrannies depended on him. The two editions spell him Histiaeus and Histiaios.','Histiaeus|Histiaios','major'),
 ('amazons','The Amazons','Whom the Scythians call Oiorpata, man-slayers; the ones taken at the Thermodon killed their crews, drifted to the Maeotian lake, and became the Sauromatai by marrying Scythian youths on terms.','Amazons|Oiorpata','major','group'),
 ('theras','Theras','The Spartan regent who would not be a subject when his nephews came of age, and led the colony to Callista, which took his name — Thera.','Theras','major'),
@@ -469,6 +469,94 @@ for row in [
 ]:add(*row)
 
 print(len(entities),'entities after Book 4')
+
+# =========================================== BOOK 5 — TERPSICHORE (762-886)
+# The Ionian revolt. Two men called Aristagoras, two called Cleisthenes, a third
+# Otanes and — at last — the Macedonian Alexander, who has been left unbound
+# since section 3 so that Paris could have the name to himself.
+for row in [
+('alexander-macedon','Alexander','Amyntas’s son, who had the seven Persian envoys killed at his father’s table by beardless men dressed as women, bought off the search with money and his own sister, and afterwards proved himself a Hellene at Olympia. A different man from the Alexander who carried off Helen.','','major'),
+('amyntas','Amyntas','King of Macedonia, who gave Darius earth and water and let the envoys insult his women rather than risk the Persians.','Amyntas','major'),
+('bubares','Bubares','The Persian to whom Alexander gave his sister Gygaea, and a great deal of money, to stop the inquiry into the missing envoys.','Bubares','supporting'),
+('gygaea','Gygaea','Alexander’s sister, married to Bubares as part of the price of silence.','Gygaea|Gygaia','supporting'),
+('pigres','Pigres','One of two Paeonian brothers who set out to make themselves despots of Paeonia and showed Darius a woman carrying water, spinning and leading a horse at once — which cost their whole nation its home.','Pigres','supporting'),
+('mantyes','Mantyes','Pigres’s brother, in the same scheme.','Mantyes|Mantyas','supporting'),
+('artaphrenes','Artaphrenes','Darius’s brother, governor of Sardis, who heard Aristagoras out about Naxos and sent five hundred ships. The two editions spell him Artaphrenes and Artaphernes.','Artaphrenes|Artaphernes','major'),
+('otanes-sisamnes','Otanes','Son of Sisamnes, made commander on the coast after Megabazus and given the seat his father was flayed for — he took Byzantion, Chalcedon, Antandros and Lamponion. Not the Otanes of the seven.','','major'),
+('sisamnes','Sisamnes','A royal judge who took a bribe; Cambyses cut his throat, flayed him, and had the seat of judgement covered with his skin, then appointed his son to sit in it.','Sisamnes','supporting'),
+('aristagoras-miletus','Aristagoras','Son of Molpagoras, deputy tyrant of Miletus, who talked Artaphrenes into the Naxos expedition, lost it, started the Ionian revolt to save himself, was refused by Sparta and promised twenty ships by Athens, and ran away twice — the second time to his death among the Thracians. Herodotus does not admire him.','','central'),
+('molpagoras','Molpagoras','Aristagoras’s father.','Molpagoras','reference'),
+('aristagoras-cyme','Aristagoras','Son of Heracleides, tyrant of Cyme, deposed with the rest — named once, in the same sentence as the Milesian.','','supporting'),
+('heracleides-cyme','Heracleides','Aristagoras of Cyme’s father.','','reference'),
+('aristagoras-kyzikos','Aristagoras','Tyrant of Cyzicus, one of the Hellespontine despots in Darius’s fleet at the Ister — named once, in the roll of tyrants, and not the Milesian.','','supporting'),
+('coes','Coës','The Mytilenian who advised Darius to leave the bridge over the Ister standing, was given Mytilene for it, and was stoned to death by the Mytilenians when Aristagoras deposed him.','Coës|Coes','supporting'),
+('erxander','Erxander','Coës’s father.','Erxander','reference'),
+('megabates','Megabates','The Achaemenid cousin of Darius who commanded the Naxos fleet, quarrelled with Aristagoras over a Myndian captain tied head-out through a hawse-hole, and warned the Naxians himself.','Megabates','major'),
+('skylax','Skylax','The Myndian captain whom Megabates had bound and pushed through a hole in his own ship, and Aristagoras untied.','Skylax','supporting'),
+('cleomenes','Cleomenes','King of Sparta, son of Anaxandrides by the second wife, who sent Aristagoras out of the city for saying the sea was three months from the Persian king, expelled Cleisthenes from Athens, was besieged on the Acropolis, and lost his army at Eleusis when the Corinthians went home.','Cleomenes','major'),
+('dorieus','Dorieus','Anaxandrides’s second son, who would not be ruled by his brother, failed to found a colony in Libya, tried again at Heraclea in Sicily against the oracle’s advice, and was killed there.','Dorieus|Dorieos','major'),
+('leonidas','Leonidas','Anaxandrides’s third son, named here only in the list of brothers — the man of Thermopylae.','Leonidas','supporting'),
+('cleombrotus-sparta','Cleombrotus','Anaxandrides’s youngest son, named with Leonidas; Pausanias was his son.','','supporting'),
+('telys','Telys','King of the Sybarites, against whom Dorieus is said to have helped Croton — the claim Herodotus reports and then queries.','Telys','supporting'),
+('callias','Callias','The diviner of Elis, of the Iamidae, who read the sacrifices for Croton against Sybaris and was given land for it — Herodotus’s evidence that the Crotoniats are telling the truth.','Callias','supporting'),
+('hippias','Hippias','Peisistratus’s son and tyrant of Athens, driven out by the Lacedaemonians and the Alcmaeonidae to Sigeum; the one man, Herodotus says, who understood the oracles about Attica.','Hippias','major'),
+('hipparchus','Hipparchus','Peisistratus’s other son, killed by Aristogeiton and Harmodius after a dream that warned him plainly and that he took no notice of.','Hipparchus|Hipparchos','major'),
+('aristogeiton','Aristogeiton','With Harmodius, the killer of Hipparchus; both were Gephyraeans by descent.','Aristogeiton','supporting'),
+('harmodius','Harmodius','Aristogeiton’s companion in the killing.','Harmodius|Harmodios','supporting'),
+('gephyraeans','The Gephyraeans','The family Aristogeiton and Harmodius came from, driven out of Tanagra by the Boeotians and received at Athens on conditions, with rites of their own that other Athenians may not attend.','Gephyraeans|Gephyraians|Gephrynians','supporting','group'),
+('anchimolius','Anchimolius','The Spartan of repute sent by sea against the Peisistratidae, beaten by the Thessalian horse at Phalerum and buried at Alopekai.','Anchimolius|Anchimolios','supporting'),
+('aster','Aster','Anchimolius’s father.','Aster','reference'),
+('alcmaeonidae','The Alcmaeonidae','The Athenian family in exile who, Herodotus says, bribed the Pythian priestess to tell every Spartan who came that Athens must be set free — and so brought down the tyranny.','Alcmaeonidae|Alcmaionidai','major','group'),
+('cleisthenes-athens','Cleisthenes','The Alcmaeonid who beat Isagoras by taking the people into his party, made ten tribes out of four, and was expelled by Cleomenes as one of the accursed — and sent for again.','','major'),
+('cleisthenes-sicyon','Cleisthenes','Tyrant of Sicyon and the Athenian Cleisthenes’s mother’s father, who renamed the Dorian tribes after a pig, an ass and a swine and called his own the Rulers, and tried to turn Adrastus out of his own hero-shrine by importing Melanippus.','','major'),
+('isagoras','Isagoras','Son of Tisander, Cleisthenes’s rival, who called in Cleomenes and was driven out with him.','Isagoras','major'),
+('tisander','Tisander','Isagoras’s father, of a family Herodotus cannot trace beyond its sacrifices to Carian Zeus.','Tisander','reference'),
+('adrastus-argos','Adrastus','Son of Talaus, the Argive hero whose shrine stood in the marketplace of Sicyon and whose worship Cleisthenes tried to starve out. A different man from the Phrygian Adrastus of Book 1.','','major','mythological-figure'),
+('talaus','Talaus','Adrastus’s father. The older translation spells him Talaos.','Talaus|Talaos','reference','mythological-figure'),
+('melanippus','Melanippus','Son of Astacus, Adrastus’s bitterest enemy, whom Cleisthenes fetched from Thebes and installed in the town hall of Sicyon so that Adrastus’s festivals could be transferred to him.','Melanippus|Melanippos','supporting','mythological-figure'),
+('astacus','Astacus','Melanippus’s father. The older translation spells him Astacos.','Astacus|Astacos','reference','mythological-figure'),
+('polybus','Polybus','The earlier king of the land of Sicyon, whose daughter’s son Adrastus was and whose kingdom he inherited.','Polybus|Polybos','reference','mythological-figure'),
+('aeacus','Aeacus','Whose sons the Aeginetans sent to the Thebans instead of an army — and afterwards sent the army too, which is what the Athenians never forgave.','Aeacus|Aiacos','supporting','mythological-figure'),
+('socles','Socles','The Corinthian who talked the allies out of restoring Hippias by telling them, at length, what a tyrant had actually been like at Corinth.','Socles','major'),
+('aetion','Aëtion','Son of Echecrates, of the deme of Petra and a Lapith by descent, who married the lame Labda when no Bacchiad would, and to whom the oracle said his wife would bear a rolling stone.','Aëtion|Aetion|Eetion','supporting'),
+('echecrates','Echecrates','Aëtion’s father.','Echecrates','reference'),
+('labda','Labda','The lame daughter of Amphion, whom no Bacchiad would marry, and the mother of Cypselus — whom ten men came to kill and none of them could, because she handed him to them and he smiled.','Labda','supporting'),
+('bacchiadae','The Bacchiadae','The oligarchy of Corinth, who married only among themselves and tried to kill the child the oracles warned them of. The older translation spells them Bacchiadai.','Bacchiadae|Bacchiadai','supporting','group'),
+('onesilus','Onesilus','Gorgus’s younger brother, who shut him out of Salamis and led the Cyprian revolt; his head was hung over the gate of Amathus and a swarm of bees filled it, which made him a hero with an annual sacrifice.','Onesilus|Onesilos','major'),
+('gorgus','Gorgus','King of Salamis in Cyprus, shut out of his own city by his brother and restored when the revolt failed.','Gorgus|Gorgos','supporting'),
+('chersis','Chersis','Gorgus and Onesilus’s father.','Chersis','reference'),
+('siromus','Siromus','Chersis’s father.','Siromus|Siromos','reference'),
+('artybius','Artybius','The Persian commander in Cyprus whose horse was trained to rear against a man, and which Onesilus’s Carian groom cut the legs from.','Artybius|Artybios','major'),
+('stesenor','Stesenor','The despot of Curium who deserted in the middle of the Cyprian battle and took the war with him.','Stesenor|Stesanor','supporting'),
+('daurises','Daurises','A son-in-law of Darius, who took the towns of the Hellespont and then was drawn off to Caria and killed in a night ambush at Pedasos.','Daurises','major'),
+('hymaees','Hymaees','Another son-in-law of Darius and a commander in the same campaign, who took Kios and the Aeolian towns and died of illness in the Troad. The two editions spell him Hymaees and Hymaies.','Hymaees|Hymaies','supporting'),
+('pixodarus','Pixodarus','The Carian who advised crossing the Maeander and fighting with the river at their backs so that the Carians could not run — advice they did not take.','Pixodarus|Pixodaros','supporting'),
+('heracleides-mylasa','Heracleides','Of Mylasa, whose plan of a night ambush on the road to Pedasos destroyed Daurises and his generals.','','supporting'),
+]:add(*row)
+
+# --------------------------------------------------------- the peoples of Book 5
+for row in [
+('paeonians','The Paeonians','Whose two brothers’ scheme brought Darius’s order to move the whole nation to Asia; those round Lake Prasias, living on platforms over the water, were never taken.','Paeonians|Paionians','major','group'),
+('perinthians','The Perinthians','Who had once lost to the Paeonians on a paean and a single combat of man, horse and dog, and who fought Megabazus bravely and lost to numbers.','Perinthians','supporting','group'),
+('macedonians','The Macedonians','Amyntas’s and Alexander’s people, whose royal house Herodotus is at pains to prove Hellenic.','Macedonians','supporting','group'),
+('boeotians','The Boeotians','Who drove the Gephyraeans out of Tanagra, and who invaded Attica with the Chalcidians while Cleomenes was at Eleusis.','Boeotians','major','group'),
+('chalcidians','The Chalcidians','Who invaded Attica from the other side and were beaten on the same day as the Boeotians; seven hundred of them were ransomed and their fetters hung in the Acropolis.','Chalcidians|Chalkidians','supporting','group'),
+('thebans','The Thebans','Who gave Cleisthenes leave to take Melanippus away, and who asked the oracle how to punish Athens and were told to ask their nearest kin.','Thebans','major','group'),
+('epidaurians','The Epidaurians','Who were told by Delphi to make images of Damia and Auxesia out of Athenian olive-wood, and whose Aeginetan colonists later stole them.','Epidaurians','supporting','group'),
+('sicyonians','The Sicyonians','Cleisthenes’s people, in whose marketplace Adrastus’s shrine stood and whose Dorian tribes he renamed after animals.','Sicyonians|Sikyonians','supporting','group'),
+('cyprians','The Cyprians','Who joined the Ionian revolt under Onesilus, all but Amathus, and were beaten in a year when their own contingents deserted in the field.','Cyprians|Cypriots','major','group'),
+('curians','The Curians','Of Curium, said to be colonists from Argos, whose desertion turned the Cyprian battle.','Curians','supporting','group'),
+('amathusians','The Amathusians','The one Cyprian city that would not join the revolt, and which hung Onesilus’s head over its gate.','Amathusians','supporting','group'),
+('sybarites','The Sybarites','Whose city Croton took, and who claim Dorieus helped do it.','Sybarites','supporting','group'),
+('crotoniats','The Crotoniats','Who say no stranger helped them except Callias the diviner — the version Herodotus prefers, and gives his reasons for. The older translation calls them only “the men of Croton”.','Crotoniats','supporting','group'),
+('mytilenians','The Mytilenians','Who stoned Coës to death as soon as Aristagoras deposed him.','Mytilenians','supporting','group'),
+('thessalians','The Thessalians','Whose thousand horse beat Anchimolius at Phalerum for the Peisistratidae, and were beaten in turn.','Thessalians','supporting','group'),
+('naxians','The Naxians','Whose exiles brought the Persians down on Ionia, and who were warned in time by Megabates and stood a four-month siege.','Naxians','supporting','group'),
+('eretrians','The Eretrians','Who sent five triremes to the Ionian revolt to repay Miletus for an older debt.','Eretrians','supporting','group'),
+('parians','The Parians','Who were called in to reform the constitution of Miletus and did it by finding the men who kept their own farms in good order.','Parians','supporting','group'),
+]:add(*row)
+
+print(len(entities),'entities after Book 5')
 Path(__file__).parent.joinpath('editorial.json').write_text(json.dumps(dict(
  contentVersion='2026-09-12.1',
  coverage='Both full English editions. BOOKS 1-4 (Clio, Euterpe, Thalia and Melpomene, sections 1-761) are authored; Books 5-9 are in progress. Named people and named peoples. Cities, rivers, mountains, seas and countries are not cast.',
