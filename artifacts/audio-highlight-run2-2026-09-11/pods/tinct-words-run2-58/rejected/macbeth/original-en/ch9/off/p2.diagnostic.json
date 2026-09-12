@@ -1,0 +1,259 @@
+{
+  "complete": true,
+  "signature": "3723263a6739704c35d6f524d74337f3b57c81b616736b481ef4758ef53cbcbb",
+  "attempts": [
+    {
+      "asr_seconds": 0.18457368575036526,
+      "alignment_seconds": 0.0002958131954073906,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Macbeth within, who's there, what hoe.",
+          "start": 0.02,
+          "end": 2.78,
+          "words": [
+            {
+              "text": " Macbeth",
+              "start": 0.02,
+              "end": 0.92,
+              "probability": 0.7841796875
+            },
+            {
+              "text": " within,",
+              "start": 0.92,
+              "end": 1.26,
+              "probability": 0.67724609375
+            },
+            {
+              "text": " who's",
+              "start": 1.56,
+              "end": 1.84,
+              "probability": 0.7384033203125
+            },
+            {
+              "text": " there,",
+              "start": 1.84,
+              "end": 2.08,
+              "probability": 0.986328125
+            },
+            {
+              "text": " what",
+              "start": 2.36,
+              "end": 2.42,
+              "probability": 0.9921875
+            },
+            {
+              "text": " hoe.",
+              "start": 2.42,
+              "end": 2.78,
+              "probability": 0.7069091796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Macbeth",
+          "start": 0.02,
+          "end": 0.92
+        },
+        {
+          "raw": "within,",
+          "start": 0.92,
+          "end": 1.26
+        },
+        {
+          "raw": "who's",
+          "start": 1.56,
+          "end": 1.84
+        },
+        {
+          "raw": "there,",
+          "start": 1.84,
+          "end": 2.08
+        },
+        {
+          "raw": "what",
+          "start": 2.36,
+          "end": 2.42
+        },
+        {
+          "raw": "hoe.",
+          "start": 2.42,
+          "end": 2.78
+        }
+      ],
+      "expected_tokens": [
+        "Macbeth.",
+        "[_Within._]",
+        "Who's",
+        "there?—what,",
+        "ho!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          5,
+          3,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Macbeth",
+          "start": 0.02,
+          "end": 0.92,
+          "key": "macbeth",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "within,",
+          "start": 0.92,
+          "end": 1.26,
+          "key": "within",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "who's",
+          "start": 1.56,
+          "end": 1.84,
+          "key": "whos",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "there,",
+          "start": 1.84,
+          "end": 2.08,
+          "key": "there",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 2.36,
+          "end": 2.42,
+          "key": "what",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "hoe.",
+          "start": 2.42,
+          "end": 2.78,
+          "key": "hoe",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Macbeth.",
+          "start": 0.02,
+          "end": 0.92
+        },
+        {
+          "text": "[_Within._]",
+          "start": 0.92,
+          "end": 1.26
+        },
+        {
+          "text": "Who's",
+          "start": 1.56,
+          "end": 1.84
+        },
+        {
+          "text": "there?—what,",
+          "start": 1.84,
+          "end": 2.31
+        },
+        {
+          "text": "ho!",
+          "start": 2.31,
+          "end": 2.545
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 3
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.18497695960104465
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "224faecaaee210841725ddbb98ad32fb69e44f9db4ebc3074ddc353016156bea",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

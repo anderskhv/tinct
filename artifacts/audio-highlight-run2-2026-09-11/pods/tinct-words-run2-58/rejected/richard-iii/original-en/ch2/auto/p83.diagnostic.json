@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "ce30067bc20bd7c98490176aad1a0d4ea75c190ac96bffd3444e8f123e147ead",
+  "attempts": [
+    {
+      "asr_seconds": 0.1940912352874875,
+      "alignment_seconds": 0.00035628024488687515,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Richard. Then never was man true.",
+        "hotwords": "Richard, Then"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Richard, Then never was man true.",
+          "start": 0.02,
+          "end": 2.26,
+          "words": [
+            {
+              "text": " Richard,",
+              "start": 0.02,
+              "end": 0.8,
+              "probability": 0.8203125
+            },
+            {
+              "text": " Then",
+              "start": 1.22,
+              "end": 1.32,
+              "probability": 0.00026988983154296875
+            },
+            {
+              "text": " never",
+              "start": 1.32,
+              "end": 1.46,
+              "probability": 0.141845703125
+            },
+            {
+              "text": " was",
+              "start": 1.46,
+              "end": 1.64,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " man",
+              "start": 1.64,
+              "end": 1.88,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " true.",
+              "start": 1.88,
+              "end": 2.26,
+              "probability": 0.9326171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Richard,",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "raw": "Then",
+          "start": 1.22,
+          "end": 1.32
+        },
+        {
+          "raw": "never",
+          "start": 1.32,
+          "end": 1.46
+        },
+        {
+          "raw": "was",
+          "start": 1.46,
+          "end": 1.64
+        },
+        {
+          "raw": "man",
+          "start": 1.64,
+          "end": 1.88
+        },
+        {
+          "raw": "true.",
+          "start": 1.88,
+          "end": 2.26
+        }
+      ],
+      "expected_tokens": [
+        "Richard.",
+        "Then",
+        "never",
+        "was",
+        "man",
+        "true."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Richard,",
+          "start": 0.02,
+          "end": 0.8,
+          "key": "richard",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Then",
+          "start": 1.22,
+          "end": 1.32,
+          "key": "then",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 1.32,
+          "end": 1.46,
+          "key": "never",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 1.46,
+          "end": 1.64,
+          "key": "was",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 1.64,
+          "end": 1.88,
+          "key": "man",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "true.",
+          "start": 1.88,
+          "end": 2.26,
+          "key": "true",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Richard.",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "text": "Then",
+          "start": 1.22,
+          "end": 1.32
+        },
+        {
+          "text": "never",
+          "start": 1.32,
+          "end": 1.46
+        },
+        {
+          "text": "was",
+          "start": 1.46,
+          "end": 1.64
+        },
+        {
+          "text": "man",
+          "start": 1.64,
+          "end": 1.88
+        },
+        {
+          "text": "true.",
+          "start": 1.88,
+          "end": 2.26
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19458399154245853
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cbb7adc73f682b8ad37f2bb3964665ac22cfc039af8ab66290b2b83c22cf92f5",
+  "selected_reasons": []
+}

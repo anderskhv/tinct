@@ -1,0 +1,266 @@
+{
+  "complete": true,
+  "signature": "2bef9cb8aa7baf56823081fdc2fb23227ceed361ab2693521b4e9825b52b0c7d",
+  "attempts": [
+    {
+      "asr_seconds": 0.1566179683431983,
+      "alignment_seconds": 0.0002256082370877266,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Banquo, at your kind steel leisure.",
+          "start": 0.55,
+          "end": 2.15,
+          "words": [
+            {
+              "text": " Banquo,",
+              "start": 0.55,
+              "end": 0.97,
+              "probability": 0.8268229166666666
+            },
+            {
+              "text": " at",
+              "start": 1.17,
+              "end": 1.27,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " your",
+              "start": 1.27,
+              "end": 1.39,
+              "probability": 0.98828125
+            },
+            {
+              "text": " kind",
+              "start": 1.39,
+              "end": 1.59,
+              "probability": 0.30712890625
+            },
+            {
+              "text": " steel",
+              "start": 1.59,
+              "end": 1.81,
+              "probability": 0.27099609375
+            },
+            {
+              "text": " leisure.",
+              "start": 1.81,
+              "end": 2.15,
+              "probability": 0.96240234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Banquo,",
+          "start": 0.55,
+          "end": 0.97
+        },
+        {
+          "raw": "at",
+          "start": 1.17,
+          "end": 1.27
+        },
+        {
+          "raw": "your",
+          "start": 1.27,
+          "end": 1.39
+        },
+        {
+          "raw": "kind",
+          "start": 1.39,
+          "end": 1.59
+        },
+        {
+          "raw": "steel",
+          "start": 1.59,
+          "end": 1.81
+        },
+        {
+          "raw": "leisure.",
+          "start": 1.81,
+          "end": 2.15
+        }
+      ],
+      "expected_tokens": [
+        "Banquo.",
+        "At",
+        "your",
+        "kind'st",
+        "leisure."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          5,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Banquo,",
+          "start": 0.55,
+          "end": 0.97,
+          "key": "banquo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.17,
+          "end": 1.27,
+          "key": "at",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.27,
+          "end": 1.39,
+          "key": "your",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "kind",
+          "start": 1.39,
+          "end": 1.59,
+          "key": "kind",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "steel",
+          "start": 1.59,
+          "end": 1.81,
+          "key": "steel",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "leisure.",
+          "start": 1.81,
+          "end": 2.15,
+          "key": "leisure",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Banquo.",
+          "start": 0.55,
+          "end": 0.97
+        },
+        {
+          "text": "At",
+          "start": 1.17,
+          "end": 1.27
+        },
+        {
+          "text": "your",
+          "start": 1.27,
+          "end": 1.39
+        },
+        {
+          "text": "kind'st",
+          "start": 1.39,
+          "end": 1.6
+        },
+        {
+          "text": "leisure.",
+          "start": 1.81,
+          "end": 2.15
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.15693118702620268
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "129cf3edde3f3b2b5b81119e9f1bdc1d7c5eff131b23f39c6cf066a472ccd915",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

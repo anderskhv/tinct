@@ -1,0 +1,709 @@
+{
+  "complete": true,
+  "signature": "2128b930084a0410a9561405e18175659af807fd189e60d7aa085b5e1f76df3a",
+  "attempts": [
+    {
+      "asr_seconds": 0.393592975102365,
+      "alignment_seconds": 0.0007919929921627045,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Macbeth. But wherefore could not I pronounce \"Amen\"? I had most need of blessing, and \"Amen\" Stuck in my throat.",
+        "hotwords": "Macbeth, But, I, Amen, Stuck"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Macbeth, But wherefore could not I pronounce Amen? I had most need of blessing, and",
+          "start": 0.58,
+          "end": 5.14,
+          "words": [
+            {
+              "text": " Macbeth,",
+              "start": 0.58,
+              "end": 0.94,
+              "probability": 0.8585611979166666
+            },
+            {
+              "text": " But",
+              "start": 1.12,
+              "end": 1.28,
+              "probability": 0.0150909423828125
+            },
+            {
+              "text": " wherefore",
+              "start": 1.28,
+              "end": 1.66,
+              "probability": 0.956787109375
+            },
+            {
+              "text": " could",
+              "start": 1.66,
+              "end": 1.82,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " not",
+              "start": 1.82,
+              "end": 1.96,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " I",
+              "start": 1.96,
+              "end": 2.1,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " pronounce",
+              "start": 2.1,
+              "end": 2.44,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " Amen?",
+              "start": 2.44,
+              "end": 3.0,
+              "probability": 0.39794921875
+            },
+            {
+              "text": " I",
+              "start": 3.7,
+              "end": 3.88,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " had",
+              "start": 3.88,
+              "end": 4.0,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " most",
+              "start": 4.0,
+              "end": 4.16,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " need",
+              "start": 4.16,
+              "end": 4.38,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " of",
+              "start": 4.38,
+              "end": 4.52,
+              "probability": 0.9921875
+            },
+            {
+              "text": " blessing,",
+              "start": 4.52,
+              "end": 4.84,
+              "probability": 0.9765625
+            },
+            {
+              "text": " and",
+              "start": 5.06,
+              "end": 5.14,
+              "probability": 0.298828125
+            }
+          ]
+        },
+        {
+          "text": " Amen Stuck in my throat.",
+          "start": 5.14,
+          "end": 6.46,
+          "words": [
+            {
+              "text": " Amen",
+              "start": 5.14,
+              "end": 5.5,
+              "probability": 0.73486328125
+            },
+            {
+              "text": " Stuck",
+              "start": 5.5,
+              "end": 5.98,
+              "probability": 0.5155792236328125
+            },
+            {
+              "text": " in",
+              "start": 5.98,
+              "end": 6.08,
+              "probability": 0.85595703125
+            },
+            {
+              "text": " my",
+              "start": 6.08,
+              "end": 6.22,
+              "probability": 0.59033203125
+            },
+            {
+              "text": " throat.",
+              "start": 6.22,
+              "end": 6.46,
+              "probability": 0.8134765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Macbeth,",
+          "start": 0.58,
+          "end": 0.94
+        },
+        {
+          "raw": "But",
+          "start": 1.12,
+          "end": 1.28
+        },
+        {
+          "raw": "wherefore",
+          "start": 1.28,
+          "end": 1.66
+        },
+        {
+          "raw": "could",
+          "start": 1.66,
+          "end": 1.82
+        },
+        {
+          "raw": "not",
+          "start": 1.82,
+          "end": 1.96
+        },
+        {
+          "raw": "I",
+          "start": 1.96,
+          "end": 2.1
+        },
+        {
+          "raw": "pronounce",
+          "start": 2.1,
+          "end": 2.44
+        },
+        {
+          "raw": "Amen?",
+          "start": 2.44,
+          "end": 3.0
+        },
+        {
+          "raw": "I",
+          "start": 3.7,
+          "end": 3.88
+        },
+        {
+          "raw": "had",
+          "start": 3.88,
+          "end": 4.0
+        },
+        {
+          "raw": "most",
+          "start": 4.0,
+          "end": 4.16
+        },
+        {
+          "raw": "need",
+          "start": 4.16,
+          "end": 4.38
+        },
+        {
+          "raw": "of",
+          "start": 4.38,
+          "end": 4.52
+        },
+        {
+          "raw": "blessing,",
+          "start": 4.52,
+          "end": 4.84
+        },
+        {
+          "raw": "and",
+          "start": 5.06,
+          "end": 5.14
+        },
+        {
+          "raw": "Amen",
+          "start": 5.14,
+          "end": 5.5
+        },
+        {
+          "raw": "Stuck",
+          "start": 5.5,
+          "end": 5.98
+        },
+        {
+          "raw": "in",
+          "start": 5.98,
+          "end": 6.08
+        },
+        {
+          "raw": "my",
+          "start": 6.08,
+          "end": 6.22
+        },
+        {
+          "raw": "throat.",
+          "start": 6.22,
+          "end": 6.46
+        }
+      ],
+      "expected_tokens": [
+        "Macbeth.",
+        "But",
+        "wherefore",
+        "could",
+        "not",
+        "I",
+        "pronounce",
+        "\"Amen\"?",
+        "I",
+        "had",
+        "most",
+        "need",
+        "of",
+        "blessing,",
+        "and",
+        "\"Amen\"",
+        "Stuck",
+        "in",
+        "my",
+        "throat."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Macbeth,",
+          "start": 0.58,
+          "end": 0.94,
+          "key": "macbeth",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 1.12,
+          "end": 1.28,
+          "key": "but",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "wherefore",
+          "start": 1.28,
+          "end": 1.66,
+          "key": "wherefore",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 1.66,
+          "end": 1.82,
+          "key": "could",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.82,
+          "end": 1.96,
+          "key": "not",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.96,
+          "end": 2.1,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "pronounce",
+          "start": 2.1,
+          "end": 2.44,
+          "key": "pronounce",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Amen?",
+          "start": 2.44,
+          "end": 3.0,
+          "key": "amen",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.7,
+          "end": 3.88,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 3.88,
+          "end": 4.0,
+          "key": "had",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 4.0,
+          "end": 4.16,
+          "key": "most",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "need",
+          "start": 4.16,
+          "end": 4.38,
+          "key": "need",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.38,
+          "end": 4.52,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "blessing,",
+          "start": 4.52,
+          "end": 4.84,
+          "key": "blessing",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.06,
+          "end": 5.14,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Amen",
+          "start": 5.14,
+          "end": 5.5,
+          "key": "amen",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Stuck",
+          "start": 5.5,
+          "end": 5.98,
+          "key": "stuck",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.98,
+          "end": 6.08,
+          "key": "in",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 6.08,
+          "end": 6.22,
+          "key": "my",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "throat.",
+          "start": 6.22,
+          "end": 6.46,
+          "key": "throat",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Macbeth.",
+          "start": 0.58,
+          "end": 0.94
+        },
+        {
+          "text": "But",
+          "start": 1.12,
+          "end": 1.28
+        },
+        {
+          "text": "wherefore",
+          "start": 1.28,
+          "end": 1.66
+        },
+        {
+          "text": "could",
+          "start": 1.66,
+          "end": 1.82
+        },
+        {
+          "text": "not",
+          "start": 1.82,
+          "end": 1.96
+        },
+        {
+          "text": "I",
+          "start": 1.96,
+          "end": 2.1
+        },
+        {
+          "text": "pronounce",
+          "start": 2.1,
+          "end": 2.44
+        },
+        {
+          "text": "\"Amen\"?",
+          "start": 2.44,
+          "end": 3.0
+        },
+        {
+          "text": "I",
+          "start": 3.7,
+          "end": 3.88
+        },
+        {
+          "text": "had",
+          "start": 3.88,
+          "end": 4.0
+        },
+        {
+          "text": "most",
+          "start": 4.0,
+          "end": 4.16
+        },
+        {
+          "text": "need",
+          "start": 4.16,
+          "end": 4.38
+        },
+        {
+          "text": "of",
+          "start": 4.38,
+          "end": 4.52
+        },
+        {
+          "text": "blessing,",
+          "start": 4.52,
+          "end": 4.84
+        },
+        {
+          "text": "and",
+          "start": 5.06,
+          "end": 5.14
+        },
+        {
+          "text": "\"Amen\"",
+          "start": 5.14,
+          "end": 5.5
+        },
+        {
+          "text": "Stuck",
+          "start": 5.5,
+          "end": 5.98
+        },
+        {
+          "text": "in",
+          "start": 5.98,
+          "end": 6.08
+        },
+        {
+          "text": "my",
+          "start": 6.08,
+          "end": 6.22
+        },
+        {
+          "text": "throat.",
+          "start": 6.22,
+          "end": 6.46
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3947800025343895
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "df5e4694766466eb745a529e722e05e517986f9e0c845dd3f81471ac6c73b589",
+  "selected_reasons": []
+}

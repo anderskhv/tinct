@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "9d0938cfeee42ed047a210eea06db8997016fc1eedb5404702341a3424cf3375",
+  "attempts": [
+    {
+      "asr_seconds": 0.1837114254012704,
+      "alignment_seconds": 0.000412805937230587,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Third Murderer. Who did strike out the light?",
+        "hotwords": "Third, Murderer, Who"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Third, Murderer, Who did strike out the light?",
+          "start": 0.08,
+          "end": 2.52,
+          "words": [
+            {
+              "text": " Third,",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.8671875
+            },
+            {
+              "text": " Murderer,",
+              "start": 0.76,
+              "end": 1.1,
+              "probability": 0.558349609375
+            },
+            {
+              "text": " Who",
+              "start": 1.54,
+              "end": 1.56,
+              "probability": 0.08984375
+            },
+            {
+              "text": " did",
+              "start": 1.56,
+              "end": 1.72,
+              "probability": 0.1802978515625
+            },
+            {
+              "text": " strike",
+              "start": 1.72,
+              "end": 1.98,
+              "probability": 0.358154296875
+            },
+            {
+              "text": " out",
+              "start": 1.98,
+              "end": 2.18,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " the",
+              "start": 2.18,
+              "end": 2.3,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " light?",
+              "start": 2.3,
+              "end": 2.52,
+              "probability": 0.90234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Third,",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "Murderer,",
+          "start": 0.76,
+          "end": 1.1
+        },
+        {
+          "raw": "Who",
+          "start": 1.54,
+          "end": 1.56
+        },
+        {
+          "raw": "did",
+          "start": 1.56,
+          "end": 1.72
+        },
+        {
+          "raw": "strike",
+          "start": 1.72,
+          "end": 1.98
+        },
+        {
+          "raw": "out",
+          "start": 1.98,
+          "end": 2.18
+        },
+        {
+          "raw": "the",
+          "start": 2.18,
+          "end": 2.3
+        },
+        {
+          "raw": "light?",
+          "start": 2.3,
+          "end": 2.52
+        }
+      ],
+      "expected_tokens": [
+        "Third",
+        "Murderer.",
+        "Who",
+        "did",
+        "strike",
+        "out",
+        "the",
+        "light?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Third,",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "third",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Murderer,",
+          "start": 0.76,
+          "end": 1.1,
+          "key": "murderer",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Who",
+          "start": 1.54,
+          "end": 1.56,
+          "key": "who",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 1.56,
+          "end": 1.72,
+          "key": "did",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "strike",
+          "start": 1.72,
+          "end": 1.98,
+          "key": "strike",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 1.98,
+          "end": 2.18,
+          "key": "out",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.18,
+          "end": 2.3,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "light?",
+          "start": 2.3,
+          "end": 2.52,
+          "key": "light",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Third",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "text": "Murderer.",
+          "start": 0.76,
+          "end": 1.1
+        },
+        {
+          "text": "Who",
+          "start": 1.54,
+          "end": 1.56
+        },
+        {
+          "text": "did",
+          "start": 1.56,
+          "end": 1.72
+        },
+        {
+          "text": "strike",
+          "start": 1.72,
+          "end": 1.98
+        },
+        {
+          "text": "out",
+          "start": 1.98,
+          "end": 2.18
+        },
+        {
+          "text": "the",
+          "start": 2.18,
+          "end": 2.3
+        },
+        {
+          "text": "light?",
+          "start": 2.3,
+          "end": 2.52
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18428795784711838
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b0cbbfa52aefc521dc757e640cfbb2415865f3ec9d4944164e9b4f81c2ed517f",
+  "selected_reasons": []
+}

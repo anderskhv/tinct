@@ -1,0 +1,741 @@
+{
+  "complete": true,
+  "signature": "68da6319c3409ced98cbd8911c45df1596881f96a522218415befdf837e6be84",
+  "attempts": [
+    {
+      "asr_seconds": 0.38002321776002645,
+      "alignment_seconds": 0.0008256463333964348,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Apparition. Be bloody, bold, and resolute. Laugh to scorn The power of man, for none of woman born Shall harm Macbeth.",
+        "hotwords": "Apparition, Be, Laugh, The, Shall, Macbeth"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Apparition, Be bloody, bold, and resolute.",
+          "start": 0.02,
+          "end": 3.36,
+          "words": [
+            {
+              "text": " Apparition,",
+              "start": 0.02,
+              "end": 1.0,
+              "probability": 0.8810221354166666
+            },
+            {
+              "text": " Be",
+              "start": 1.48,
+              "end": 1.64,
+              "probability": 0.12103271484375
+            },
+            {
+              "text": " bloody,",
+              "start": 1.64,
+              "end": 1.98,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " bold,",
+              "start": 2.34,
+              "end": 2.52,
+              "probability": 0.767578125
+            },
+            {
+              "text": " and",
+              "start": 2.8,
+              "end": 2.88,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " resolute.",
+              "start": 2.88,
+              "end": 3.36,
+              "probability": 0.996826171875
+            }
+          ]
+        },
+        {
+          "text": " Laugh to scorn The power of man, for none of woman born Shall harm Macbeth.",
+          "start": 3.36,
+          "end": 7.94,
+          "words": [
+            {
+              "text": " Laugh",
+              "start": 3.36,
+              "end": 4.18,
+              "probability": 0.3828125
+            },
+            {
+              "text": " to",
+              "start": 4.18,
+              "end": 4.42,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " scorn",
+              "start": 4.42,
+              "end": 4.68,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " The",
+              "start": 4.68,
+              "end": 4.88,
+              "probability": 0.003162384033203125
+            },
+            {
+              "text": " power",
+              "start": 4.88,
+              "end": 5.1,
+              "probability": 0.438232421875
+            },
+            {
+              "text": " of",
+              "start": 5.1,
+              "end": 5.32,
+              "probability": 0.99609375
+            },
+            {
+              "text": " man,",
+              "start": 5.32,
+              "end": 5.6,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " for",
+              "start": 5.86,
+              "end": 6.0,
+              "probability": 0.4912109375
+            },
+            {
+              "text": " none",
+              "start": 6.0,
+              "end": 6.16,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " of",
+              "start": 6.16,
+              "end": 6.3,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " woman",
+              "start": 6.3,
+              "end": 6.52,
+              "probability": 0.58837890625
+            },
+            {
+              "text": " born",
+              "start": 6.52,
+              "end": 6.84,
+              "probability": 0.951171875
+            },
+            {
+              "text": " Shall",
+              "start": 6.84,
+              "end": 7.08,
+              "probability": 0.3330078125
+            },
+            {
+              "text": " harm",
+              "start": 7.08,
+              "end": 7.4,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Macbeth.",
+              "start": 7.4,
+              "end": 7.94,
+              "probability": 0.9430338541666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Apparition,",
+          "start": 0.02,
+          "end": 1.0
+        },
+        {
+          "raw": "Be",
+          "start": 1.48,
+          "end": 1.64
+        },
+        {
+          "raw": "bloody,",
+          "start": 1.64,
+          "end": 1.98
+        },
+        {
+          "raw": "bold,",
+          "start": 2.34,
+          "end": 2.52
+        },
+        {
+          "raw": "and",
+          "start": 2.8,
+          "end": 2.88
+        },
+        {
+          "raw": "resolute.",
+          "start": 2.88,
+          "end": 3.36
+        },
+        {
+          "raw": "Laugh",
+          "start": 3.36,
+          "end": 4.18
+        },
+        {
+          "raw": "to",
+          "start": 4.18,
+          "end": 4.42
+        },
+        {
+          "raw": "scorn",
+          "start": 4.42,
+          "end": 4.68
+        },
+        {
+          "raw": "The",
+          "start": 4.68,
+          "end": 4.88
+        },
+        {
+          "raw": "power",
+          "start": 4.88,
+          "end": 5.1
+        },
+        {
+          "raw": "of",
+          "start": 5.1,
+          "end": 5.32
+        },
+        {
+          "raw": "man,",
+          "start": 5.32,
+          "end": 5.6
+        },
+        {
+          "raw": "for",
+          "start": 5.86,
+          "end": 6.0
+        },
+        {
+          "raw": "none",
+          "start": 6.0,
+          "end": 6.16
+        },
+        {
+          "raw": "of",
+          "start": 6.16,
+          "end": 6.3
+        },
+        {
+          "raw": "woman",
+          "start": 6.3,
+          "end": 6.52
+        },
+        {
+          "raw": "born",
+          "start": 6.52,
+          "end": 6.84
+        },
+        {
+          "raw": "Shall",
+          "start": 6.84,
+          "end": 7.08
+        },
+        {
+          "raw": "harm",
+          "start": 7.08,
+          "end": 7.4
+        },
+        {
+          "raw": "Macbeth.",
+          "start": 7.4,
+          "end": 7.94
+        }
+      ],
+      "expected_tokens": [
+        "Apparition.",
+        "Be",
+        "bloody,",
+        "bold,",
+        "and",
+        "resolute.",
+        "Laugh",
+        "to",
+        "scorn",
+        "The",
+        "power",
+        "of",
+        "man,",
+        "for",
+        "none",
+        "of",
+        "woman",
+        "born",
+        "Shall",
+        "harm",
+        "Macbeth."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Apparition,",
+          "start": 0.02,
+          "end": 1.0,
+          "key": "apparition",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Be",
+          "start": 1.48,
+          "end": 1.64,
+          "key": "be",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "bloody,",
+          "start": 1.64,
+          "end": 1.98,
+          "key": "bloody",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "bold,",
+          "start": 2.34,
+          "end": 2.52,
+          "key": "bold",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.8,
+          "end": 2.88,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "resolute.",
+          "start": 2.88,
+          "end": 3.36,
+          "key": "resolute",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Laugh",
+          "start": 3.36,
+          "end": 4.18,
+          "key": "laugh",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.18,
+          "end": 4.42,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "scorn",
+          "start": 4.42,
+          "end": 4.68,
+          "key": "scorn",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 4.68,
+          "end": 4.88,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "power",
+          "start": 4.88,
+          "end": 5.1,
+          "key": "power",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.1,
+          "end": 5.32,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "man,",
+          "start": 5.32,
+          "end": 5.6,
+          "key": "man",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 5.86,
+          "end": 6.0,
+          "key": "for",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "none",
+          "start": 6.0,
+          "end": 6.16,
+          "key": "none",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.16,
+          "end": 6.3,
+          "key": "of",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "woman",
+          "start": 6.3,
+          "end": 6.52,
+          "key": "woman",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "born",
+          "start": 6.52,
+          "end": 6.84,
+          "key": "born",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Shall",
+          "start": 6.84,
+          "end": 7.08,
+          "key": "shall",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "harm",
+          "start": 7.08,
+          "end": 7.4,
+          "key": "harm",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Macbeth.",
+          "start": 7.4,
+          "end": 7.94,
+          "key": "macbeth",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Apparition.",
+          "start": 0.02,
+          "end": 1.0
+        },
+        {
+          "text": "Be",
+          "start": 1.48,
+          "end": 1.64
+        },
+        {
+          "text": "bloody,",
+          "start": 1.64,
+          "end": 1.98
+        },
+        {
+          "text": "bold,",
+          "start": 2.34,
+          "end": 2.52
+        },
+        {
+          "text": "and",
+          "start": 2.8,
+          "end": 2.88
+        },
+        {
+          "text": "resolute.",
+          "start": 2.88,
+          "end": 3.36
+        },
+        {
+          "text": "Laugh",
+          "start": 3.36,
+          "end": 4.18
+        },
+        {
+          "text": "to",
+          "start": 4.18,
+          "end": 4.42
+        },
+        {
+          "text": "scorn",
+          "start": 4.42,
+          "end": 4.68
+        },
+        {
+          "text": "The",
+          "start": 4.68,
+          "end": 4.88
+        },
+        {
+          "text": "power",
+          "start": 4.88,
+          "end": 5.1
+        },
+        {
+          "text": "of",
+          "start": 5.1,
+          "end": 5.32
+        },
+        {
+          "text": "man,",
+          "start": 5.32,
+          "end": 5.6
+        },
+        {
+          "text": "for",
+          "start": 5.86,
+          "end": 6.0
+        },
+        {
+          "text": "none",
+          "start": 6.0,
+          "end": 6.16
+        },
+        {
+          "text": "of",
+          "start": 6.16,
+          "end": 6.3
+        },
+        {
+          "text": "woman",
+          "start": 6.3,
+          "end": 6.52
+        },
+        {
+          "text": "born",
+          "start": 6.52,
+          "end": 6.84
+        },
+        {
+          "text": "Shall",
+          "start": 6.84,
+          "end": 7.08
+        },
+        {
+          "text": "harm",
+          "start": 7.08,
+          "end": 7.4
+        },
+        {
+          "text": "Macbeth.",
+          "start": 7.4,
+          "end": 7.94
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3811860317364335
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c2bb8770f106d1ab4e40ed8e2aac36605bc0fa2c82843c14af75af1daaacff5c",
+  "selected_reasons": []
+}

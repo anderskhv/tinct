@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "50c23337144d7683ba19a50fc0d2901af885fe77c1ad1b3f0154d81811a0bc2c",
+  "attempts": [
+    {
+      "asr_seconds": 0.117738694883883,
+      "alignment_seconds": 0.0002502528950572014,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Enter Lady Macbeth.]",
+        "hotwords": "Enter, Lady, Macbeth"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter, Lady Macbeth.",
+          "start": 0.02,
+          "end": 1.42,
+          "words": [
+            {
+              "text": " Enter,",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.9072265625
+            },
+            {
+              "text": " Lady",
+              "start": 0.7,
+              "end": 0.9,
+              "probability": 0.91455078125
+            },
+            {
+              "text": " Macbeth.",
+              "start": 0.9,
+              "end": 1.42,
+              "probability": 0.9296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter,",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "Lady",
+          "start": 0.7,
+          "end": 0.9
+        },
+        {
+          "raw": "Macbeth.",
+          "start": 0.9,
+          "end": 1.42
+        }
+      ],
+      "expected_tokens": [
+        "[Enter",
+        "Lady",
+        "Macbeth.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter,",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lady",
+          "start": 0.7,
+          "end": 0.9,
+          "key": "lady",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Macbeth.",
+          "start": 0.9,
+          "end": 1.42,
+          "key": "macbeth",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Enter",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "Lady",
+          "start": 0.7,
+          "end": 0.9
+        },
+        {
+          "text": "Macbeth.]",
+          "start": 0.9,
+          "end": 1.42
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11808443814516068
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "deaea98b2701e2b474a525675dc85d0cc07bdd0db7686f3075eef3d93720207f",
+  "selected_reasons": []
+}

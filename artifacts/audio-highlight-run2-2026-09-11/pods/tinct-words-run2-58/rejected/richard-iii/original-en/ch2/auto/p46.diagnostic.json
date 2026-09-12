@@ -1,0 +1,638 @@
+{
+  "complete": true,
+  "signature": "c27e90ce39aa647568530b44ab4d1c0c20248d52c3ba5be109ee86e61b1dc522",
+  "attempts": [
+    {
+      "asr_seconds": 0.3109897943213582,
+      "alignment_seconds": 0.0007482897490262985,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Anne. If I thought that, I tell thee, homicide, These nails should rend that beauty from my cheeks.",
+        "hotwords": "Anne, If, I, These"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Anne, If I thought that, I tell thee, homicide, These nails should rend that beauty from my cheeks.",
+          "start": 0.02,
+          "end": 6.1,
+          "words": [
+            {
+              "text": " Anne,",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.69384765625
+            },
+            {
+              "text": " If",
+              "start": 1.0,
+              "end": 1.2,
+              "probability": 0.0274505615234375
+            },
+            {
+              "text": " I",
+              "start": 1.2,
+              "end": 1.38,
+              "probability": 0.974609375
+            },
+            {
+              "text": " thought",
+              "start": 1.38,
+              "end": 1.56,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " that,",
+              "start": 1.56,
+              "end": 1.82,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " I",
+              "start": 2.18,
+              "end": 2.3,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " tell",
+              "start": 2.3,
+              "end": 2.52,
+              "probability": 0.88525390625
+            },
+            {
+              "text": " thee,",
+              "start": 2.52,
+              "end": 2.78,
+              "probability": 0.86181640625
+            },
+            {
+              "text": " homicide,",
+              "start": 2.98,
+              "end": 3.26,
+              "probability": 0.2222900390625
+            },
+            {
+              "text": " These",
+              "start": 3.96,
+              "end": 4.12,
+              "probability": 0.357666015625
+            },
+            {
+              "text": " nails",
+              "start": 4.12,
+              "end": 4.44,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " should",
+              "start": 4.44,
+              "end": 4.7,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " rend",
+              "start": 4.7,
+              "end": 4.9,
+              "probability": 0.943359375
+            },
+            {
+              "text": " that",
+              "start": 4.9,
+              "end": 5.14,
+              "probability": 0.94140625
+            },
+            {
+              "text": " beauty",
+              "start": 5.14,
+              "end": 5.38,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " from",
+              "start": 5.38,
+              "end": 5.66,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " my",
+              "start": 5.66,
+              "end": 5.82,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " cheeks.",
+              "start": 5.82,
+              "end": 6.1,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Anne,",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "If",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "raw": "I",
+          "start": 1.2,
+          "end": 1.38
+        },
+        {
+          "raw": "thought",
+          "start": 1.38,
+          "end": 1.56
+        },
+        {
+          "raw": "that,",
+          "start": 1.56,
+          "end": 1.82
+        },
+        {
+          "raw": "I",
+          "start": 2.18,
+          "end": 2.3
+        },
+        {
+          "raw": "tell",
+          "start": 2.3,
+          "end": 2.52
+        },
+        {
+          "raw": "thee,",
+          "start": 2.52,
+          "end": 2.78
+        },
+        {
+          "raw": "homicide,",
+          "start": 2.98,
+          "end": 3.26
+        },
+        {
+          "raw": "These",
+          "start": 3.96,
+          "end": 4.12
+        },
+        {
+          "raw": "nails",
+          "start": 4.12,
+          "end": 4.44
+        },
+        {
+          "raw": "should",
+          "start": 4.44,
+          "end": 4.7
+        },
+        {
+          "raw": "rend",
+          "start": 4.7,
+          "end": 4.9
+        },
+        {
+          "raw": "that",
+          "start": 4.9,
+          "end": 5.14
+        },
+        {
+          "raw": "beauty",
+          "start": 5.14,
+          "end": 5.38
+        },
+        {
+          "raw": "from",
+          "start": 5.38,
+          "end": 5.66
+        },
+        {
+          "raw": "my",
+          "start": 5.66,
+          "end": 5.82
+        },
+        {
+          "raw": "cheeks.",
+          "start": 5.82,
+          "end": 6.1
+        }
+      ],
+      "expected_tokens": [
+        "Anne.",
+        "If",
+        "I",
+        "thought",
+        "that,",
+        "I",
+        "tell",
+        "thee,",
+        "homicide,",
+        "These",
+        "nails",
+        "should",
+        "rend",
+        "that",
+        "beauty",
+        "from",
+        "my",
+        "cheeks."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Anne,",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "anne",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 1.0,
+          "end": 1.2,
+          "key": "if",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.2,
+          "end": 1.38,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thought",
+          "start": 1.38,
+          "end": 1.56,
+          "key": "thought",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "that,",
+          "start": 1.56,
+          "end": 1.82,
+          "key": "that",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.18,
+          "end": 2.3,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 2.3,
+          "end": 2.52,
+          "key": "tell",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thee,",
+          "start": 2.52,
+          "end": 2.78,
+          "key": "thee",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "homicide,",
+          "start": 2.98,
+          "end": 3.26,
+          "key": "homicide",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "These",
+          "start": 3.96,
+          "end": 4.12,
+          "key": "these",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "nails",
+          "start": 4.12,
+          "end": 4.44,
+          "key": "nails",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 4.44,
+          "end": 4.7,
+          "key": "should",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "rend",
+          "start": 4.7,
+          "end": 4.9,
+          "key": "rend",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.9,
+          "end": 5.14,
+          "key": "that",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "beauty",
+          "start": 5.14,
+          "end": 5.38,
+          "key": "beauty",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 5.38,
+          "end": 5.66,
+          "key": "from",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 5.66,
+          "end": 5.82,
+          "key": "my",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "cheeks.",
+          "start": 5.82,
+          "end": 6.1,
+          "key": "cheeks",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Anne.",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "If",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "text": "I",
+          "start": 1.2,
+          "end": 1.38
+        },
+        {
+          "text": "thought",
+          "start": 1.38,
+          "end": 1.56
+        },
+        {
+          "text": "that,",
+          "start": 1.56,
+          "end": 1.82
+        },
+        {
+          "text": "I",
+          "start": 2.18,
+          "end": 2.3
+        },
+        {
+          "text": "tell",
+          "start": 2.3,
+          "end": 2.52
+        },
+        {
+          "text": "thee,",
+          "start": 2.52,
+          "end": 2.78
+        },
+        {
+          "text": "homicide,",
+          "start": 2.98,
+          "end": 3.26
+        },
+        {
+          "text": "These",
+          "start": 3.96,
+          "end": 4.12
+        },
+        {
+          "text": "nails",
+          "start": 4.12,
+          "end": 4.44
+        },
+        {
+          "text": "should",
+          "start": 4.44,
+          "end": 4.7
+        },
+        {
+          "text": "rend",
+          "start": 4.7,
+          "end": 4.9
+        },
+        {
+          "text": "that",
+          "start": 4.9,
+          "end": 5.14
+        },
+        {
+          "text": "beauty",
+          "start": 5.14,
+          "end": 5.38
+        },
+        {
+          "text": "from",
+          "start": 5.38,
+          "end": 5.66
+        },
+        {
+          "text": "my",
+          "start": 5.66,
+          "end": 5.82
+        },
+        {
+          "text": "cheeks.",
+          "start": 5.82,
+          "end": 6.1
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3120043911039829
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "427d7cba5174046db249820831284058c01ced60a9bfec18aa4004aee12c3f8e",
+  "selected_reasons": []
+}

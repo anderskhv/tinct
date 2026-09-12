@@ -1,0 +1,239 @@
+{
+  "complete": true,
+  "signature": "1f1eac26d7ec9f133f971daf4d2afb59ce6e5589a5cc5f2d84babc061cea1d22",
+  "attempts": [
+    {
+      "asr_seconds": 0.12953935377299786,
+      "alignment_seconds": 0.0003713620826601982,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " McDuff, how does my wife?",
+          "start": 0.02,
+          "end": 1.66,
+          "words": [
+            {
+              "text": " McDuff,",
+              "start": 0.02,
+              "end": 0.82,
+              "probability": 0.749755859375
+            },
+            {
+              "text": " how",
+              "start": 1.06,
+              "end": 1.18,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " does",
+              "start": 1.18,
+              "end": 1.28,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " my",
+              "start": 1.28,
+              "end": 1.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " wife?",
+              "start": 1.42,
+              "end": 1.66,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "McDuff,",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "raw": "how",
+          "start": 1.06,
+          "end": 1.18
+        },
+        {
+          "raw": "does",
+          "start": 1.18,
+          "end": 1.28
+        },
+        {
+          "raw": "my",
+          "start": 1.28,
+          "end": 1.42
+        },
+        {
+          "raw": "wife?",
+          "start": 1.42,
+          "end": 1.66
+        }
+      ],
+      "expected_tokens": [
+        "Macduff.",
+        "How",
+        "does",
+        "my",
+        "wife?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "McDuff,",
+          "start": 0.02,
+          "end": 0.82,
+          "key": "mcduff",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 1.06,
+          "end": 1.18,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 1.18,
+          "end": 1.28,
+          "key": "does",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.28,
+          "end": 1.42,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "wife?",
+          "start": 1.42,
+          "end": 1.66,
+          "key": "wife",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Macduff.",
+          "start": 0.0,
+          "end": 0.53
+        },
+        {
+          "text": "How",
+          "start": 1.06,
+          "end": 1.18
+        },
+        {
+          "text": "does",
+          "start": 1.18,
+          "end": 1.28
+        },
+        {
+          "text": "my",
+          "start": 1.28,
+          "end": 1.42
+        },
+        {
+          "text": "wife?",
+          "start": 1.42,
+          "end": 1.66
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1300597507506609
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4c0b661cf7107ada11ee512d5fb98e40bc921c6817dc6e0af4013b6b622798f1",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

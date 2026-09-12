@@ -1,0 +1,271 @@
+{
+  "complete": true,
+  "signature": "0d819bf7ddc923424ba91d476d057401d4fe8ef1391c402209c8fbccc4731098",
+  "attempts": [
+    {
+      "asr_seconds": 0.16069332044571638,
+      "alignment_seconds": 0.00035863835364580154,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " McDuff, I have lost my hopes.",
+          "start": 0.02,
+          "end": 2.08,
+          "words": [
+            {
+              "text": " McDuff,",
+              "start": 0.02,
+              "end": 0.84,
+              "probability": 0.85205078125
+            },
+            {
+              "text": " I",
+              "start": 1.08,
+              "end": 1.24,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " have",
+              "start": 1.24,
+              "end": 1.34,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " lost",
+              "start": 1.34,
+              "end": 1.54,
+              "probability": 0.998046875
+            },
+            {
+              "text": " my",
+              "start": 1.54,
+              "end": 1.76,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " hopes.",
+              "start": 1.76,
+              "end": 2.08,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "McDuff,",
+          "start": 0.02,
+          "end": 0.84
+        },
+        {
+          "raw": "I",
+          "start": 1.08,
+          "end": 1.24
+        },
+        {
+          "raw": "have",
+          "start": 1.24,
+          "end": 1.34
+        },
+        {
+          "raw": "lost",
+          "start": 1.34,
+          "end": 1.54
+        },
+        {
+          "raw": "my",
+          "start": 1.54,
+          "end": 1.76
+        },
+        {
+          "raw": "hopes.",
+          "start": 1.76,
+          "end": 2.08
+        }
+      ],
+      "expected_tokens": [
+        "Macduff.",
+        "I",
+        "have",
+        "lost",
+        "my",
+        "hopes."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          6,
+          1,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "McDuff,",
+          "start": 0.02,
+          "end": 0.84,
+          "key": "mcduff",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.08,
+          "end": 1.24,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.24,
+          "end": 1.34,
+          "key": "have",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lost",
+          "start": 1.34,
+          "end": 1.54,
+          "key": "lost",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.54,
+          "end": 1.76,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "hopes.",
+          "start": 1.76,
+          "end": 2.08,
+          "key": "hopes",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Macduff.",
+          "start": 0.0,
+          "end": 0.54
+        },
+        {
+          "text": "I",
+          "start": 1.08,
+          "end": 1.24
+        },
+        {
+          "text": "have",
+          "start": 1.24,
+          "end": 1.34
+        },
+        {
+          "text": "lost",
+          "start": 1.34,
+          "end": 1.54
+        },
+        {
+          "text": "my",
+          "start": 1.54,
+          "end": 1.76
+        },
+        {
+          "text": "hopes.",
+          "start": 1.76,
+          "end": 2.08
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.16115402430295944
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5d99e48e13df4528053af3af5b1bcf56130efa48024b0dc98b51adc13b4cb4dd",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

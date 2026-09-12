@@ -1,0 +1,782 @@
+{
+  "complete": true,
+  "signature": "a52152f6128d80abd82651948f4034ba0a8f973256bc4e783bf42b8f06254a28",
+  "attempts": [
+    {
+      "asr_seconds": 0.19037385657429695,
+      "alignment_seconds": 0.00042684469372034073,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Fleance. I take't, 'tis later, sir.",
+        "hotwords": "Fleance, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Fleance, I take't, teas later, sir.",
+          "start": 0.08,
+          "end": 2.52,
+          "words": [
+            {
+              "text": " Fleance,",
+              "start": 0.08,
+              "end": 0.84,
+              "probability": 0.08981704711914062
+            },
+            {
+              "text": " I",
+              "start": 0.9,
+              "end": 1.06,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " take't,",
+              "start": 1.06,
+              "end": 1.52,
+              "probability": 0.219940185546875
+            },
+            {
+              "text": " teas",
+              "start": 1.64,
+              "end": 1.98,
+              "probability": 0.29736328125
+            },
+            {
+              "text": " later,",
+              "start": 1.98,
+              "end": 2.2,
+              "probability": 0.927734375
+            },
+            {
+              "text": " sir.",
+              "start": 2.38,
+              "end": 2.52,
+              "probability": 0.921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fleance,",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "raw": "I",
+          "start": 0.9,
+          "end": 1.06
+        },
+        {
+          "raw": "take't,",
+          "start": 1.06,
+          "end": 1.52
+        },
+        {
+          "raw": "teas",
+          "start": 1.64,
+          "end": 1.98
+        },
+        {
+          "raw": "later,",
+          "start": 1.98,
+          "end": 2.2
+        },
+        {
+          "raw": "sir.",
+          "start": 2.38,
+          "end": 2.52
+        }
+      ],
+      "expected_tokens": [
+        "Fleance.",
+        "I",
+        "take't,",
+        "'tis",
+        "later,",
+        "sir."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          6,
+          4,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fleance,",
+          "start": 0.08,
+          "end": 0.84,
+          "key": "fleance",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.9,
+          "end": 1.06,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "take't,",
+          "start": 1.06,
+          "end": 1.52,
+          "key": "taket",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "teas",
+          "start": 1.64,
+          "end": 1.98,
+          "key": "teas",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "later,",
+          "start": 1.98,
+          "end": 2.2,
+          "key": "later",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 2.38,
+          "end": 2.52,
+          "key": "sir",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Fleance.",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "text": "I",
+          "start": 0.9,
+          "end": 1.06
+        },
+        {
+          "text": "take't,",
+          "start": 1.06,
+          "end": 1.52
+        },
+        {
+          "text": "'tis",
+          "start": 1.52,
+          "end": 1.75
+        },
+        {
+          "text": "later,",
+          "start": 1.98,
+          "end": 2.2
+        },
+        {
+          "text": "sir.",
+          "start": 2.38,
+          "end": 2.52
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1909376299008727
+    },
+    {
+      "asr_seconds": 0.18592150788754225,
+      "alignment_seconds": 0.0004393588751554489,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Fleance, I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " take'd. Tease later, sir.",
+          "start": 0.94,
+          "end": 2.52,
+          "words": [
+            {
+              "text": " take'd.",
+              "start": 0.94,
+              "end": 1.46,
+              "probability": 0.10345515608787537
+            },
+            {
+              "text": " Tease",
+              "start": 1.72,
+              "end": 2.0,
+              "probability": 0.766845703125
+            },
+            {
+              "text": " later,",
+              "start": 2.0,
+              "end": 2.18,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " sir.",
+              "start": 2.4,
+              "end": 2.52,
+              "probability": 0.91455078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "take'd.",
+          "start": 0.94,
+          "end": 1.46
+        },
+        {
+          "raw": "Tease",
+          "start": 1.72,
+          "end": 2.0
+        },
+        {
+          "raw": "later,",
+          "start": 2.0,
+          "end": 2.18
+        },
+        {
+          "raw": "sir.",
+          "start": 2.4,
+          "end": 2.52
+        }
+      ],
+      "expected_tokens": [
+        "Fleance.",
+        "I",
+        "take't,",
+        "'tis",
+        "later,",
+        "sir."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          2
+        ],
+        [
+          "equal",
+          4,
+          6,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "take'd.",
+          "start": 0.94,
+          "end": 1.46,
+          "key": "taked",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Tease",
+          "start": 1.72,
+          "end": 2.0,
+          "key": "tease",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "later,",
+          "start": 2.0,
+          "end": 2.18,
+          "key": "later",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 2.4,
+          "end": 2.52,
+          "key": "sir",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Fleance.",
+          "start": 0.0,
+          "end": 1.0
+        },
+        {
+          "text": "I",
+          "start": 1.0,
+          "end": 1.5
+        },
+        {
+          "text": "take't,",
+          "start": 1.5,
+          "end": 1.75
+        },
+        {
+          "text": "'tis",
+          "start": 1.75,
+          "end": 1.875
+        },
+        {
+          "text": "later,",
+          "start": 2.0,
+          "end": 2.18
+        },
+        {
+          "text": "sir.",
+          "start": 2.4,
+          "end": 2.52
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.3333333333333333,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.18647169135510921
+    },
+    {
+      "asr_seconds": 0.20216541457921267,
+      "alignment_seconds": 0.00031643081456422806,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Fleens, I take'd. Tease later, sir.",
+          "start": 0.08,
+          "end": 2.5,
+          "words": [
+            {
+              "text": " Fleens,",
+              "start": 0.08,
+              "end": 0.82,
+              "probability": 0.311279296875
+            },
+            {
+              "text": " I",
+              "start": 0.94,
+              "end": 1.06,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " take'd.",
+              "start": 1.06,
+              "end": 1.48,
+              "probability": 0.435546875
+            },
+            {
+              "text": " Tease",
+              "start": 1.84,
+              "end": 2.0,
+              "probability": 0.85400390625
+            },
+            {
+              "text": " later,",
+              "start": 2.0,
+              "end": 2.18,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " sir.",
+              "start": 2.44,
+              "end": 2.5,
+              "probability": 0.9072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fleens,",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "raw": "I",
+          "start": 0.94,
+          "end": 1.06
+        },
+        {
+          "raw": "take'd.",
+          "start": 1.06,
+          "end": 1.48
+        },
+        {
+          "raw": "Tease",
+          "start": 1.84,
+          "end": 2.0
+        },
+        {
+          "raw": "later,",
+          "start": 2.0,
+          "end": 2.18
+        },
+        {
+          "raw": "sir.",
+          "start": 2.44,
+          "end": 2.5
+        }
+      ],
+      "expected_tokens": [
+        "Fleance.",
+        "I",
+        "take't,",
+        "'tis",
+        "later,",
+        "sir."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          4
+        ],
+        [
+          "equal",
+          4,
+          6,
+          4,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fleens,",
+          "start": 0.08,
+          "end": 0.82,
+          "key": "fleens",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.94,
+          "end": 1.06,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "take'd.",
+          "start": 1.06,
+          "end": 1.48,
+          "key": "taked",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Tease",
+          "start": 1.84,
+          "end": 2.0,
+          "key": "tease",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "later,",
+          "start": 2.0,
+          "end": 2.18,
+          "key": "later",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 2.44,
+          "end": 2.5,
+          "key": "sir",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Fleance.",
+          "start": 0.0,
+          "end": 0.47
+        },
+        {
+          "text": "I",
+          "start": 0.94,
+          "end": 1.06
+        },
+        {
+          "text": "take't,",
+          "start": 1.06,
+          "end": 1.53
+        },
+        {
+          "text": "'tis",
+          "start": 1.53,
+          "end": 1.765
+        },
+        {
+          "text": "later,",
+          "start": 2.0,
+          "end": 2.18
+        },
+        {
+          "text": "sir.",
+          "start": 2.44,
+          "end": 2.5
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 3
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20259512215852737
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b8bd590a0bb9ebd7e3b126d2bf1bad40bdd54a2508533cd116b5912e6b86fe8c",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "e500c2d7ad19e2981123d2bde98cbfaba05b24b77b998c0e02e6477291f237b6",
+  "attempts": [
+    {
+      "asr_seconds": 0.14974996261298656,
+      "alignment_seconds": 0.0003134915605187416,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Looking on his hands.]",
+        "hotwords": "Looking"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Looking on his hands.",
+          "start": 0.02,
+          "end": 1.34,
+          "words": [
+            {
+              "text": " Looking",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.33447265625
+            },
+            {
+              "text": " on",
+              "start": 0.58,
+              "end": 0.78,
+              "probability": 0.982421875
+            },
+            {
+              "text": " his",
+              "start": 0.78,
+              "end": 0.92,
+              "probability": 0.970703125
+            },
+            {
+              "text": " hands.",
+              "start": 0.92,
+              "end": 1.34,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Looking",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "on",
+          "start": 0.58,
+          "end": 0.78
+        },
+        {
+          "raw": "his",
+          "start": 0.78,
+          "end": 0.92
+        },
+        {
+          "raw": "hands.",
+          "start": 0.92,
+          "end": 1.34
+        }
+      ],
+      "expected_tokens": [
+        "[Looking",
+        "on",
+        "his",
+        "hands.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Looking",
+          "start": 0.02,
+          "end": 0.58,
+          "key": "looking",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 0.58,
+          "end": 0.78,
+          "key": "on",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 0.78,
+          "end": 0.92,
+          "key": "his",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hands.",
+          "start": 0.92,
+          "end": 1.34,
+          "key": "hands",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Looking",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "on",
+          "start": 0.58,
+          "end": 0.78
+        },
+        {
+          "text": "his",
+          "start": 0.78,
+          "end": 0.92
+        },
+        {
+          "text": "hands.]",
+          "start": 0.92,
+          "end": 1.34
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1501765139400959
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c2d1c3e9f5f1bef215e3cef9d61b7cb759fd24e590c76497a25c699f6fdc3c9c",
+  "selected_reasons": []
+}

@@ -1,0 +1,342 @@
+{
+  "complete": true,
+  "signature": "8157dc049395e48dd5f570e86cdc1e99917c9a2227a664367e2a4362bbfe5926",
+  "attempts": [
+    {
+      "asr_seconds": 0.1924388501793146,
+      "alignment_seconds": 0.0005734264850616455,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Second Witch. Thrice, and once the hedge-pig whin'd.",
+        "hotwords": "Second, Witch, Thrice"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Second, Witch, Thrice, and once the hedge-pig whin'd.",
+          "start": 0.08,
+          "end": 3.42,
+          "words": [
+            {
+              "text": " Second,",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.73583984375
+            },
+            {
+              "text": " Witch,",
+              "start": 0.88,
+              "end": 1.08,
+              "probability": 0.397216796875
+            },
+            {
+              "text": " Thrice,",
+              "start": 1.56,
+              "end": 1.88,
+              "probability": 0.902099609375
+            },
+            {
+              "text": " and",
+              "start": 2.18,
+              "end": 2.2,
+              "probability": 0.9921875
+            },
+            {
+              "text": " once",
+              "start": 2.2,
+              "end": 2.38,
+              "probability": 0.84228515625
+            },
+            {
+              "text": " the",
+              "start": 2.38,
+              "end": 2.52,
+              "probability": 0.98046875
+            },
+            {
+              "text": " hedge",
+              "start": 2.52,
+              "end": 2.68,
+              "probability": 0.2152099609375
+            },
+            {
+              "text": "-pig",
+              "start": 2.68,
+              "end": 2.9,
+              "probability": 0.6863199869791666
+            },
+            {
+              "text": " whin'd.",
+              "start": 2.9,
+              "end": 3.42,
+              "probability": 0.010053157806396484
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Second,",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "Witch,",
+          "start": 0.88,
+          "end": 1.08
+        },
+        {
+          "raw": "Thrice,",
+          "start": 1.56,
+          "end": 1.88
+        },
+        {
+          "raw": "and",
+          "start": 2.18,
+          "end": 2.2
+        },
+        {
+          "raw": "once",
+          "start": 2.2,
+          "end": 2.38
+        },
+        {
+          "raw": "the",
+          "start": 2.38,
+          "end": 2.52
+        },
+        {
+          "raw": "hedge",
+          "start": 2.52,
+          "end": 2.68
+        },
+        {
+          "raw": "-pig",
+          "start": 2.68,
+          "end": 2.9
+        },
+        {
+          "raw": "whin'd.",
+          "start": 2.9,
+          "end": 3.42
+        }
+      ],
+      "expected_tokens": [
+        "Second",
+        "Witch.",
+        "Thrice,",
+        "and",
+        "once",
+        "the",
+        "hedge-pig",
+        "whin'd."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Second,",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "second",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Witch,",
+          "start": 0.88,
+          "end": 1.08,
+          "key": "witch",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Thrice,",
+          "start": 1.56,
+          "end": 1.88,
+          "key": "thrice",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.18,
+          "end": 2.2,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "once",
+          "start": 2.2,
+          "end": 2.38,
+          "key": "once",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.38,
+          "end": 2.52,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "hedge -pig",
+          "start": 2.52,
+          "end": 2.9,
+          "key": "hedgepig",
+          "pieces": [
+            6,
+            7
+          ]
+        },
+        {
+          "raw": "whin'd.",
+          "start": 2.9,
+          "end": 3.42,
+          "key": "whind",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 6,
+          "text": "hedge-pig",
+          "heard": "hedge -pig",
+          "heard_indexes": [
+            6,
+            7
+          ],
+          "start": 2.52,
+          "end": 2.9
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Second",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "text": "Witch.",
+          "start": 0.88,
+          "end": 1.08
+        },
+        {
+          "text": "Thrice,",
+          "start": 1.56,
+          "end": 1.88
+        },
+        {
+          "text": "and",
+          "start": 2.18,
+          "end": 2.2
+        },
+        {
+          "text": "once",
+          "start": 2.2,
+          "end": 2.38
+        },
+        {
+          "text": "the",
+          "start": 2.38,
+          "end": 2.52
+        },
+        {
+          "text": "hedge-pig",
+          "start": 2.52,
+          "end": 2.9
+        },
+        {
+          "text": "whin'd.",
+          "start": 2.9,
+          "end": 3.42
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19318518228828907
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bc48dc2cd9bbdc96a4b5712d443004246a587058388a2a3c5fe24ddc3e89ca95",
+  "selected_reasons": []
+}

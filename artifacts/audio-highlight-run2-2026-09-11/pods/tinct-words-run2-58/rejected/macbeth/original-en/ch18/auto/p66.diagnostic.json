@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "f220275f8a5a58bbba2f2039a92a8d90be2a54252c92b260e0038d7f62e0bbbf",
+  "attempts": [
+    {
+      "asr_seconds": 0.1880311816930771,
+      "alignment_seconds": 0.0002643205225467682,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lennox. Ay, my good lord.",
+        "hotwords": "Lennox, Ay"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lennox, Ay, my good lord.",
+          "start": 0.02,
+          "end": 1.96,
+          "words": [
+            {
+              "text": " Lennox,",
+              "start": 0.02,
+              "end": 0.9,
+              "probability": 0.5460205078125
+            },
+            {
+              "text": " Ay,",
+              "start": 1.24,
+              "end": 1.38,
+              "probability": 0.00014865398406982422
+            },
+            {
+              "text": " my",
+              "start": 1.52,
+              "end": 1.52,
+              "probability": 0.86279296875
+            },
+            {
+              "text": " good",
+              "start": 1.52,
+              "end": 1.7,
+              "probability": 0.82177734375
+            },
+            {
+              "text": " lord.",
+              "start": 1.7,
+              "end": 1.96,
+              "probability": 0.7890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lennox,",
+          "start": 0.02,
+          "end": 0.9
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.24,
+          "end": 1.38
+        },
+        {
+          "raw": "my",
+          "start": 1.52,
+          "end": 1.52
+        },
+        {
+          "raw": "good",
+          "start": 1.52,
+          "end": 1.7
+        },
+        {
+          "raw": "lord.",
+          "start": 1.7,
+          "end": 1.96
+        }
+      ],
+      "expected_tokens": [
+        "Lennox.",
+        "Ay,",
+        "my",
+        "good",
+        "lord."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lennox,",
+          "start": 0.02,
+          "end": 0.9,
+          "key": "lennox",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.24,
+          "end": 1.38,
+          "key": "ay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.52,
+          "end": 1.52,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.52,
+          "end": 1.7,
+          "key": "good",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 1.7,
+          "end": 1.96,
+          "key": "lord",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lennox.",
+          "start": 0.02,
+          "end": 0.9
+        },
+        {
+          "text": "Ay,",
+          "start": 1.24,
+          "end": 1.38
+        },
+        {
+          "text": "my",
+          "start": 1.52,
+          "end": 1.52
+        },
+        {
+          "text": "good",
+          "start": 1.52,
+          "end": 1.7
+        },
+        {
+          "text": "lord.",
+          "start": 1.7,
+          "end": 1.96
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18839077278971672
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d132af5b0afcadf967dee3bd009a34dda1e53044e2d7c22e2cf6472ccc3e49db",
+  "selected_reasons": []
+}

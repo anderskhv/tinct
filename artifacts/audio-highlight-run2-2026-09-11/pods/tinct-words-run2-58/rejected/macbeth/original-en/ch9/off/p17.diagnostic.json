@@ -1,0 +1,306 @@
+{
+  "complete": true,
+  "signature": "efa9fa784c7ddbc821a78aa1138614c288bb3cba764f4b4056273c163b60cddb",
+  "attempts": [
+    {
+      "asr_seconds": 0.21017410047352314,
+      "alignment_seconds": 0.0002554990351200104,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lady Macbeth, there are two lodged together.",
+          "start": 0.02,
+          "end": 2.58,
+          "words": [
+            {
+              "text": " Lady",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.86962890625
+            },
+            {
+              "text": " Macbeth,",
+              "start": 0.62,
+              "end": 1.2,
+              "probability": 0.9244791666666666
+            },
+            {
+              "text": " there",
+              "start": 1.44,
+              "end": 1.58,
+              "probability": 0.9169921875
+            },
+            {
+              "text": " are",
+              "start": 1.58,
+              "end": 1.68,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " two",
+              "start": 1.68,
+              "end": 1.9,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " lodged",
+              "start": 1.9,
+              "end": 2.18,
+              "probability": 0.5791015625
+            },
+            {
+              "text": " together.",
+              "start": 2.18,
+              "end": 2.58,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lady",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 0.62,
+          "end": 1.2
+        },
+        {
+          "raw": "there",
+          "start": 1.44,
+          "end": 1.58
+        },
+        {
+          "raw": "are",
+          "start": 1.58,
+          "end": 1.68
+        },
+        {
+          "raw": "two",
+          "start": 1.68,
+          "end": 1.9
+        },
+        {
+          "raw": "lodged",
+          "start": 1.9,
+          "end": 2.18
+        },
+        {
+          "raw": "together.",
+          "start": 2.18,
+          "end": 2.58
+        }
+      ],
+      "expected_tokens": [
+        "Lady",
+        "Macbeth.",
+        "There",
+        "are",
+        "two",
+        "lodg'd",
+        "together."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lady",
+          "start": 0.02,
+          "end": 0.62,
+          "key": "lady",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 0.62,
+          "end": 1.2,
+          "key": "macbeth",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 1.44,
+          "end": 1.58,
+          "key": "there",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.58,
+          "end": 1.68,
+          "key": "are",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 1.68,
+          "end": 1.9,
+          "key": "two",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "lodged",
+          "start": 1.9,
+          "end": 2.18,
+          "key": "lodged",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "together.",
+          "start": 2.18,
+          "end": 2.58,
+          "key": "together",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lady",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "text": "Macbeth.",
+          "start": 0.62,
+          "end": 1.2
+        },
+        {
+          "text": "There",
+          "start": 1.44,
+          "end": 1.58
+        },
+        {
+          "text": "are",
+          "start": 1.58,
+          "end": 1.68
+        },
+        {
+          "text": "two",
+          "start": 1.68,
+          "end": 1.9
+        },
+        {
+          "text": "lodg'd",
+          "start": 1.9,
+          "end": 2.04
+        },
+        {
+          "text": "together.",
+          "start": 2.18,
+          "end": 2.58
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.2105262503027916
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "649799b282e50033d04a3d7181ecd2c6e7b5187b9f524260bf0377e1b22f49fc",
+  "selected_reasons": []
+}

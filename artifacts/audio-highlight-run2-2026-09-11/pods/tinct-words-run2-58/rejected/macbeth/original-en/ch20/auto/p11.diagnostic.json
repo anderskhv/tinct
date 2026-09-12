@@ -1,0 +1,1548 @@
+{
+  "complete": true,
+  "signature": "40a70f8ab3a3a7c9ca3a9c095f9cb1c6e26dc6a3c1fcf3c4ed1261d4afb67c0d",
+  "attempts": [
+    {
+      "asr_seconds": 0.739893164485693,
+      "alignment_seconds": 0.0015252456068992615,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Malcolm. It is myself I mean; in whom I know All the particulars of vice so grafted That, when they shall be open'd, black Macbeth Will seem as pure as snow; and the poor state Esteem him as a lamb, being compar'd With my confineless harms.",
+        "hotwords": "Malcolm, It, I, All, That, Macbeth, Will, Esteem, With"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Malcolm, It is myself I mean, in whom I know All the particulars of vice so grafted That,",
+          "start": 0.02,
+          "end": 6.1,
+          "words": [
+            {
+              "text": " Malcolm,",
+              "start": 0.02,
+              "end": 0.8,
+              "probability": 0.13623046875
+            },
+            {
+              "text": " It",
+              "start": 1.16,
+              "end": 1.38,
+              "probability": 0.0338134765625
+            },
+            {
+              "text": " is",
+              "start": 1.38,
+              "end": 1.52,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " myself",
+              "start": 1.52,
+              "end": 1.86,
+              "probability": 0.794921875
+            },
+            {
+              "text": " I",
+              "start": 1.86,
+              "end": 2.16,
+              "probability": 0.45166015625
+            },
+            {
+              "text": " mean,",
+              "start": 2.16,
+              "end": 2.44,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " in",
+              "start": 2.94,
+              "end": 3.08,
+              "probability": 0.51416015625
+            },
+            {
+              "text": " whom",
+              "start": 3.08,
+              "end": 3.28,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " I",
+              "start": 3.28,
+              "end": 3.5,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " know",
+              "start": 3.5,
+              "end": 3.66,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " All",
+              "start": 3.66,
+              "end": 3.96,
+              "probability": 0.007320404052734375
+            },
+            {
+              "text": " the",
+              "start": 3.96,
+              "end": 4.12,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " particulars",
+              "start": 4.12,
+              "end": 4.42,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " of",
+              "start": 4.42,
+              "end": 4.8,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " vice",
+              "start": 4.8,
+              "end": 5.04,
+              "probability": 0.783203125
+            },
+            {
+              "text": " so",
+              "start": 5.04,
+              "end": 5.36,
+              "probability": 0.7841796875
+            },
+            {
+              "text": " grafted",
+              "start": 5.36,
+              "end": 5.78,
+              "probability": 0.784423828125
+            },
+            {
+              "text": " That,",
+              "start": 5.78,
+              "end": 6.1,
+              "probability": 0.11260986328125
+            }
+          ]
+        },
+        {
+          "text": " when they shall be open'd, black Macbeth Will seem as pure as snow, and the poor state",
+          "start": 6.4,
+          "end": 11.62,
+          "words": [
+            {
+              "text": " when",
+              "start": 6.4,
+              "end": 6.6,
+              "probability": 0.978515625
+            },
+            {
+              "text": " they",
+              "start": 6.6,
+              "end": 6.76,
+              "probability": 0.982421875
+            },
+            {
+              "text": " shall",
+              "start": 6.76,
+              "end": 6.9,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " be",
+              "start": 6.9,
+              "end": 7.06,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " open'd,",
+              "start": 7.06,
+              "end": 7.68,
+              "probability": 0.4738655090332031
+            },
+            {
+              "text": " black",
+              "start": 7.84,
+              "end": 8.14,
+              "probability": 0.1138916015625
+            },
+            {
+              "text": " Macbeth",
+              "start": 8.14,
+              "end": 8.66,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " Will",
+              "start": 8.66,
+              "end": 8.84,
+              "probability": 0.284912109375
+            },
+            {
+              "text": " seem",
+              "start": 8.84,
+              "end": 9.12,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " as",
+              "start": 9.12,
+              "end": 9.34,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " pure",
+              "start": 9.34,
+              "end": 9.6,
+              "probability": 0.984375
+            },
+            {
+              "text": " as",
+              "start": 9.6,
+              "end": 9.82,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " snow,",
+              "start": 9.82,
+              "end": 10.12,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " and",
+              "start": 10.74,
+              "end": 10.9,
+              "probability": 0.81103515625
+            },
+            {
+              "text": " the",
+              "start": 10.9,
+              "end": 11.02,
+              "probability": 0.966796875
+            },
+            {
+              "text": " poor",
+              "start": 11.02,
+              "end": 11.22,
+              "probability": 0.9072265625
+            },
+            {
+              "text": " state",
+              "start": 11.22,
+              "end": 11.62,
+              "probability": 0.447509765625
+            }
+          ]
+        },
+        {
+          "text": " Esteem him as a lamb, being compar'd With my confineless harms.",
+          "start": 11.62,
+          "end": 15.5,
+          "words": [
+            {
+              "text": " Esteem",
+              "start": 11.62,
+              "end": 12.12,
+              "probability": 0.826171875
+            },
+            {
+              "text": " him",
+              "start": 12.12,
+              "end": 12.34,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " as",
+              "start": 12.34,
+              "end": 12.5,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " a",
+              "start": 12.5,
+              "end": 12.66,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " lamb,",
+              "start": 12.66,
+              "end": 12.94,
+              "probability": 0.88818359375
+            },
+            {
+              "text": " being",
+              "start": 13.4,
+              "end": 13.58,
+              "probability": 0.5380859375
+            },
+            {
+              "text": " compar'd",
+              "start": 13.58,
+              "end": 14.24,
+              "probability": 0.5029449462890625
+            },
+            {
+              "text": " With",
+              "start": 14.24,
+              "end": 14.34,
+              "probability": 0.481201171875
+            },
+            {
+              "text": " my",
+              "start": 14.34,
+              "end": 14.54,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " confineless",
+              "start": 14.54,
+              "end": 15.16,
+              "probability": 0.8719075520833334
+            },
+            {
+              "text": " harms.",
+              "start": 15.16,
+              "end": 15.5,
+              "probability": 0.90771484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Malcolm,",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "raw": "It",
+          "start": 1.16,
+          "end": 1.38
+        },
+        {
+          "raw": "is",
+          "start": 1.38,
+          "end": 1.52
+        },
+        {
+          "raw": "myself",
+          "start": 1.52,
+          "end": 1.86
+        },
+        {
+          "raw": "I",
+          "start": 1.86,
+          "end": 2.16
+        },
+        {
+          "raw": "mean,",
+          "start": 2.16,
+          "end": 2.44
+        },
+        {
+          "raw": "in",
+          "start": 2.94,
+          "end": 3.08
+        },
+        {
+          "raw": "whom",
+          "start": 3.08,
+          "end": 3.28
+        },
+        {
+          "raw": "I",
+          "start": 3.28,
+          "end": 3.5
+        },
+        {
+          "raw": "know",
+          "start": 3.5,
+          "end": 3.66
+        },
+        {
+          "raw": "All",
+          "start": 3.66,
+          "end": 3.96
+        },
+        {
+          "raw": "the",
+          "start": 3.96,
+          "end": 4.12
+        },
+        {
+          "raw": "particulars",
+          "start": 4.12,
+          "end": 4.42
+        },
+        {
+          "raw": "of",
+          "start": 4.42,
+          "end": 4.8
+        },
+        {
+          "raw": "vice",
+          "start": 4.8,
+          "end": 5.04
+        },
+        {
+          "raw": "so",
+          "start": 5.04,
+          "end": 5.36
+        },
+        {
+          "raw": "grafted",
+          "start": 5.36,
+          "end": 5.78
+        },
+        {
+          "raw": "That,",
+          "start": 5.78,
+          "end": 6.1
+        },
+        {
+          "raw": "when",
+          "start": 6.4,
+          "end": 6.6
+        },
+        {
+          "raw": "they",
+          "start": 6.6,
+          "end": 6.76
+        },
+        {
+          "raw": "shall",
+          "start": 6.76,
+          "end": 6.9
+        },
+        {
+          "raw": "be",
+          "start": 6.9,
+          "end": 7.06
+        },
+        {
+          "raw": "open'd,",
+          "start": 7.06,
+          "end": 7.68
+        },
+        {
+          "raw": "black",
+          "start": 7.84,
+          "end": 8.14
+        },
+        {
+          "raw": "Macbeth",
+          "start": 8.14,
+          "end": 8.66
+        },
+        {
+          "raw": "Will",
+          "start": 8.66,
+          "end": 8.84
+        },
+        {
+          "raw": "seem",
+          "start": 8.84,
+          "end": 9.12
+        },
+        {
+          "raw": "as",
+          "start": 9.12,
+          "end": 9.34
+        },
+        {
+          "raw": "pure",
+          "start": 9.34,
+          "end": 9.6
+        },
+        {
+          "raw": "as",
+          "start": 9.6,
+          "end": 9.82
+        },
+        {
+          "raw": "snow,",
+          "start": 9.82,
+          "end": 10.12
+        },
+        {
+          "raw": "and",
+          "start": 10.74,
+          "end": 10.9
+        },
+        {
+          "raw": "the",
+          "start": 10.9,
+          "end": 11.02
+        },
+        {
+          "raw": "poor",
+          "start": 11.02,
+          "end": 11.22
+        },
+        {
+          "raw": "state",
+          "start": 11.22,
+          "end": 11.62
+        },
+        {
+          "raw": "Esteem",
+          "start": 11.62,
+          "end": 12.12
+        },
+        {
+          "raw": "him",
+          "start": 12.12,
+          "end": 12.34
+        },
+        {
+          "raw": "as",
+          "start": 12.34,
+          "end": 12.5
+        },
+        {
+          "raw": "a",
+          "start": 12.5,
+          "end": 12.66
+        },
+        {
+          "raw": "lamb,",
+          "start": 12.66,
+          "end": 12.94
+        },
+        {
+          "raw": "being",
+          "start": 13.4,
+          "end": 13.58
+        },
+        {
+          "raw": "compar'd",
+          "start": 13.58,
+          "end": 14.24
+        },
+        {
+          "raw": "With",
+          "start": 14.24,
+          "end": 14.34
+        },
+        {
+          "raw": "my",
+          "start": 14.34,
+          "end": 14.54
+        },
+        {
+          "raw": "confineless",
+          "start": 14.54,
+          "end": 15.16
+        },
+        {
+          "raw": "harms.",
+          "start": 15.16,
+          "end": 15.5
+        }
+      ],
+      "expected_tokens": [
+        "Malcolm.",
+        "It",
+        "is",
+        "myself",
+        "I",
+        "mean;",
+        "in",
+        "whom",
+        "I",
+        "know",
+        "All",
+        "the",
+        "particulars",
+        "of",
+        "vice",
+        "so",
+        "grafted",
+        "That,",
+        "when",
+        "they",
+        "shall",
+        "be",
+        "open'd,",
+        "black",
+        "Macbeth",
+        "Will",
+        "seem",
+        "as",
+        "pure",
+        "as",
+        "snow;",
+        "and",
+        "the",
+        "poor",
+        "state",
+        "Esteem",
+        "him",
+        "as",
+        "a",
+        "lamb,",
+        "being",
+        "compar'd",
+        "With",
+        "my",
+        "confineless",
+        "harms."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          46,
+          0,
+          46
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Malcolm,",
+          "start": 0.02,
+          "end": 0.8,
+          "key": "malcolm",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 1.16,
+          "end": 1.38,
+          "key": "it",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.38,
+          "end": 1.52,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "myself",
+          "start": 1.52,
+          "end": 1.86,
+          "key": "myself",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.86,
+          "end": 2.16,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "mean,",
+          "start": 2.16,
+          "end": 2.44,
+          "key": "mean",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.94,
+          "end": 3.08,
+          "key": "in",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "whom",
+          "start": 3.08,
+          "end": 3.28,
+          "key": "whom",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.28,
+          "end": 3.5,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 3.5,
+          "end": 3.66,
+          "key": "know",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "All",
+          "start": 3.66,
+          "end": 3.96,
+          "key": "all",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.96,
+          "end": 4.12,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "particulars",
+          "start": 4.12,
+          "end": 4.42,
+          "key": "particulars",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.42,
+          "end": 4.8,
+          "key": "of",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "vice",
+          "start": 4.8,
+          "end": 5.04,
+          "key": "vice",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 5.04,
+          "end": 5.36,
+          "key": "so",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "grafted",
+          "start": 5.36,
+          "end": 5.78,
+          "key": "grafted",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "That,",
+          "start": 5.78,
+          "end": 6.1,
+          "key": "that",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 6.4,
+          "end": 6.6,
+          "key": "when",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 6.6,
+          "end": 6.76,
+          "key": "they",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 6.76,
+          "end": 6.9,
+          "key": "shall",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 6.9,
+          "end": 7.06,
+          "key": "be",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "open'd,",
+          "start": 7.06,
+          "end": 7.68,
+          "key": "opend",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "black",
+          "start": 7.84,
+          "end": 8.14,
+          "key": "black",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Macbeth",
+          "start": 8.14,
+          "end": 8.66,
+          "key": "macbeth",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Will",
+          "start": 8.66,
+          "end": 8.84,
+          "key": "will",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "seem",
+          "start": 8.84,
+          "end": 9.12,
+          "key": "seem",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 9.12,
+          "end": 9.34,
+          "key": "as",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "pure",
+          "start": 9.34,
+          "end": 9.6,
+          "key": "pure",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 9.6,
+          "end": 9.82,
+          "key": "as",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "snow,",
+          "start": 9.82,
+          "end": 10.12,
+          "key": "snow",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 10.74,
+          "end": 10.9,
+          "key": "and",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.9,
+          "end": 11.02,
+          "key": "the",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "poor",
+          "start": 11.02,
+          "end": 11.22,
+          "key": "poor",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "state",
+          "start": 11.22,
+          "end": 11.62,
+          "key": "state",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "Esteem",
+          "start": 11.62,
+          "end": 12.12,
+          "key": "esteem",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 12.12,
+          "end": 12.34,
+          "key": "him",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 12.34,
+          "end": 12.5,
+          "key": "as",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 12.5,
+          "end": 12.66,
+          "key": "a",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "lamb,",
+          "start": 12.66,
+          "end": 12.94,
+          "key": "lamb",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "being",
+          "start": 13.4,
+          "end": 13.58,
+          "key": "being",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "compar'd",
+          "start": 13.58,
+          "end": 14.24,
+          "key": "compard",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "With",
+          "start": 14.24,
+          "end": 14.34,
+          "key": "with",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 14.34,
+          "end": 14.54,
+          "key": "my",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "confineless",
+          "start": 14.54,
+          "end": 15.16,
+          "key": "confineless",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "harms.",
+          "start": 15.16,
+          "end": 15.5,
+          "key": "harms",
+          "pieces": [
+            45
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Malcolm.",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "text": "It",
+          "start": 1.16,
+          "end": 1.38
+        },
+        {
+          "text": "is",
+          "start": 1.38,
+          "end": 1.52
+        },
+        {
+          "text": "myself",
+          "start": 1.52,
+          "end": 1.86
+        },
+        {
+          "text": "I",
+          "start": 1.86,
+          "end": 2.16
+        },
+        {
+          "text": "mean;",
+          "start": 2.16,
+          "end": 2.44
+        },
+        {
+          "text": "in",
+          "start": 2.94,
+          "end": 3.08
+        },
+        {
+          "text": "whom",
+          "start": 3.08,
+          "end": 3.28
+        },
+        {
+          "text": "I",
+          "start": 3.28,
+          "end": 3.5
+        },
+        {
+          "text": "know",
+          "start": 3.5,
+          "end": 3.66
+        },
+        {
+          "text": "All",
+          "start": 3.66,
+          "end": 3.96
+        },
+        {
+          "text": "the",
+          "start": 3.96,
+          "end": 4.12
+        },
+        {
+          "text": "particulars",
+          "start": 4.12,
+          "end": 4.42
+        },
+        {
+          "text": "of",
+          "start": 4.42,
+          "end": 4.8
+        },
+        {
+          "text": "vice",
+          "start": 4.8,
+          "end": 5.04
+        },
+        {
+          "text": "so",
+          "start": 5.04,
+          "end": 5.36
+        },
+        {
+          "text": "grafted",
+          "start": 5.36,
+          "end": 5.78
+        },
+        {
+          "text": "That,",
+          "start": 5.78,
+          "end": 6.1
+        },
+        {
+          "text": "when",
+          "start": 6.4,
+          "end": 6.6
+        },
+        {
+          "text": "they",
+          "start": 6.6,
+          "end": 6.76
+        },
+        {
+          "text": "shall",
+          "start": 6.76,
+          "end": 6.9
+        },
+        {
+          "text": "be",
+          "start": 6.9,
+          "end": 7.06
+        },
+        {
+          "text": "open'd,",
+          "start": 7.06,
+          "end": 7.68
+        },
+        {
+          "text": "black",
+          "start": 7.84,
+          "end": 8.14
+        },
+        {
+          "text": "Macbeth",
+          "start": 8.14,
+          "end": 8.66
+        },
+        {
+          "text": "Will",
+          "start": 8.66,
+          "end": 8.84
+        },
+        {
+          "text": "seem",
+          "start": 8.84,
+          "end": 9.12
+        },
+        {
+          "text": "as",
+          "start": 9.12,
+          "end": 9.34
+        },
+        {
+          "text": "pure",
+          "start": 9.34,
+          "end": 9.6
+        },
+        {
+          "text": "as",
+          "start": 9.6,
+          "end": 9.82
+        },
+        {
+          "text": "snow;",
+          "start": 9.82,
+          "end": 10.12
+        },
+        {
+          "text": "and",
+          "start": 10.74,
+          "end": 10.9
+        },
+        {
+          "text": "the",
+          "start": 10.9,
+          "end": 11.02
+        },
+        {
+          "text": "poor",
+          "start": 11.02,
+          "end": 11.22
+        },
+        {
+          "text": "state",
+          "start": 11.22,
+          "end": 11.62
+        },
+        {
+          "text": "Esteem",
+          "start": 11.62,
+          "end": 12.12
+        },
+        {
+          "text": "him",
+          "start": 12.12,
+          "end": 12.34
+        },
+        {
+          "text": "as",
+          "start": 12.34,
+          "end": 12.5
+        },
+        {
+          "text": "a",
+          "start": 12.5,
+          "end": 12.66
+        },
+        {
+          "text": "lamb,",
+          "start": 12.66,
+          "end": 12.94
+        },
+        {
+          "text": "being",
+          "start": 13.4,
+          "end": 13.58
+        },
+        {
+          "text": "compar'd",
+          "start": 13.58,
+          "end": 14.24
+        },
+        {
+          "text": "With",
+          "start": 14.24,
+          "end": 14.34
+        },
+        {
+          "text": "my",
+          "start": 14.34,
+          "end": 14.54
+        },
+        {
+          "text": "confineless",
+          "start": 14.54,
+          "end": 15.16
+        },
+        {
+          "text": "harms.",
+          "start": 15.16,
+          "end": 15.5
+        }
+      ],
+      "stats": {
+        "expected_words": 46,
+        "heard_words": 46,
+        "matched_words": 46
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.742096159607172
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1c894c719843a8bc0b277b5492b824ee7c35f583e35a21fee5eaf6f586a654a3",
+  "selected_reasons": []
+}

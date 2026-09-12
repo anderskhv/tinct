@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "101b988865a39a503ea75155edc6eff8dd9e4c774d50c2125f2fad1a1fd071b2",
+  "attempts": [
+    {
+      "asr_seconds": 0.207160834223032,
+      "alignment_seconds": 0.00036756042391061783,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Richard. Vouchsafe to wear this ring.",
+        "hotwords": "Richard, Vouchsafe"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Richard, Vouchsafe to wear this ring.",
+          "start": 0.02,
+          "end": 2.5,
+          "words": [
+            {
+              "text": " Richard,",
+              "start": 0.02,
+              "end": 0.8,
+              "probability": 0.85302734375
+            },
+            {
+              "text": " Vouchsafe",
+              "start": 1.34,
+              "end": 1.64,
+              "probability": 0.171173095703125
+            },
+            {
+              "text": " to",
+              "start": 1.64,
+              "end": 1.84,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " wear",
+              "start": 1.84,
+              "end": 1.98,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " this",
+              "start": 1.98,
+              "end": 2.22,
+              "probability": 0.998046875
+            },
+            {
+              "text": " ring.",
+              "start": 2.22,
+              "end": 2.5,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Richard,",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "raw": "Vouchsafe",
+          "start": 1.34,
+          "end": 1.64
+        },
+        {
+          "raw": "to",
+          "start": 1.64,
+          "end": 1.84
+        },
+        {
+          "raw": "wear",
+          "start": 1.84,
+          "end": 1.98
+        },
+        {
+          "raw": "this",
+          "start": 1.98,
+          "end": 2.22
+        },
+        {
+          "raw": "ring.",
+          "start": 2.22,
+          "end": 2.5
+        }
+      ],
+      "expected_tokens": [
+        "Richard.",
+        "Vouchsafe",
+        "to",
+        "wear",
+        "this",
+        "ring."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Richard,",
+          "start": 0.02,
+          "end": 0.8,
+          "key": "richard",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Vouchsafe",
+          "start": 1.34,
+          "end": 1.64,
+          "key": "vouchsafe",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.64,
+          "end": 1.84,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "wear",
+          "start": 1.84,
+          "end": 1.98,
+          "key": "wear",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.98,
+          "end": 2.22,
+          "key": "this",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "ring.",
+          "start": 2.22,
+          "end": 2.5,
+          "key": "ring",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Richard.",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "text": "Vouchsafe",
+          "start": 1.34,
+          "end": 1.64
+        },
+        {
+          "text": "to",
+          "start": 1.64,
+          "end": 1.84
+        },
+        {
+          "text": "wear",
+          "start": 1.84,
+          "end": 1.98
+        },
+        {
+          "text": "this",
+          "start": 1.98,
+          "end": 2.22
+        },
+        {
+          "text": "ring.",
+          "start": 2.22,
+          "end": 2.5
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20766493026167154
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9aff1aa0bf0ad43b82e35c0d85445a7fc16f99e25bdb0d2600fb4cc98bc28c20",
+  "selected_reasons": []
+}

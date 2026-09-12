@@ -1,0 +1,1602 @@
+{
+  "complete": true,
+  "signature": "87e56bb5ef93e8bb45d9d90d014912e087db4df8c33cafd9b18ea50800108b42",
+  "attempts": [
+    {
+      "asr_seconds": 2.995782704092562,
+      "alignment_seconds": 0.0009382534772157669,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lady Macbeth. There are two lodg'd together.",
+        "hotwords": "Lady, Macbeth, There"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lady Macbeth, There Lady Macbeth, There Lady Macbeth, There Lady Macbeth, There Lady Macbeth, There Lady Macbeth, There Lady Macbeth, There Lady Macbeth, There Lady Macbeth, There Lady Macbeth, There Lady Macbeth, There Lady Macbeth, There Lady Macbeth, There Lady Macbeth, There Lady Macbeth, There Lady Macbeth, There Lady Macbeth, There Lady Macbeth, There Lady Macbeth, There Lady Macbeth, There Lady Macbeth, There Lady Macbeth, There are two lodg'd together.",
+          "start": 0.02,
+          "end": 2.54,
+          "words": [
+            {
+              "text": " Lady",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.8701171875
+            },
+            {
+              "text": " Macbeth,",
+              "start": 0.64,
+              "end": 1.18,
+              "probability": 0.9244791666666666
+            },
+            {
+              "text": " There",
+              "start": 1.42,
+              "end": 1.56,
+              "probability": 0.0501708984375
+            },
+            {
+              "text": " Lady",
+              "start": 1.56,
+              "end": 1.56,
+              "probability": 0.0
+            },
+            {
+              "text": " Macbeth,",
+              "start": 1.56,
+              "end": 1.56,
+              "probability": 0.9650065104166666
+            },
+            {
+              "text": " There",
+              "start": 1.56,
+              "end": 1.58,
+              "probability": 0.955078125
+            },
+            {
+              "text": " Lady",
+              "start": 1.58,
+              "end": 1.58,
+              "probability": 1.4901161193847656e-06
+            },
+            {
+              "text": " Macbeth,",
+              "start": 1.58,
+              "end": 1.58,
+              "probability": 0.9830729166666666
+            },
+            {
+              "text": " There",
+              "start": 1.58,
+              "end": 1.6,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " Lady",
+              "start": 1.6,
+              "end": 1.7,
+              "probability": 1.1920928955078125e-07
+            },
+            {
+              "text": " Macbeth,",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.9850260416666666
+            },
+            {
+              "text": " There",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.91748046875
+            },
+            {
+              "text": " Lady",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 1.7881393432617188e-07
+            },
+            {
+              "text": " Macbeth,",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.9881184895833334
+            },
+            {
+              "text": " There",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " Lady",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 2.980232238769531e-07
+            },
+            {
+              "text": " Macbeth,",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " There",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.890625
+            },
+            {
+              "text": " Lady",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 5.960464477539062e-07
+            },
+            {
+              "text": " Macbeth,",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.9923502604166666
+            },
+            {
+              "text": " There",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.87353515625
+            },
+            {
+              "text": " Lady",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 1.1324882507324219e-06
+            },
+            {
+              "text": " Macbeth,",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.9938151041666666
+            },
+            {
+              "text": " There",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.85107421875
+            },
+            {
+              "text": " Lady",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 2.6226043701171875e-06
+            },
+            {
+              "text": " Macbeth,",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.9949544270833334
+            },
+            {
+              "text": " There",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.8310546875
+            },
+            {
+              "text": " Lady",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 6.496906280517578e-06
+            },
+            {
+              "text": " Macbeth,",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " There",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.830078125
+            },
+            {
+              "text": " Lady",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 1.7464160919189453e-05
+            },
+            {
+              "text": " Macbeth,",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.9964192708333334
+            },
+            {
+              "text": " There",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.828125
+            },
+            {
+              "text": " Lady",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 6.490945816040039e-05
+            },
+            {
+              "text": " Macbeth,",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.9967447916666666
+            },
+            {
+              "text": " There",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.84033203125
+            },
+            {
+              "text": " Lady",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.0002281665802001953
+            },
+            {
+              "text": " Macbeth,",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " There",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.859375
+            },
+            {
+              "text": " Lady",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.0007872581481933594
+            },
+            {
+              "text": " Macbeth,",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.9973958333333334
+            },
+            {
+              "text": " There",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.87060546875
+            },
+            {
+              "text": " Lady",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.0016632080078125
+            },
+            {
+              "text": " Macbeth,",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " There",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.87841796875
+            },
+            {
+              "text": " Lady",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.005031585693359375
+            },
+            {
+              "text": " Macbeth,",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.998046875
+            },
+            {
+              "text": " There",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.88720703125
+            },
+            {
+              "text": " Lady",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.0076904296875
+            },
+            {
+              "text": " Macbeth,",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.998046875
+            },
+            {
+              "text": " There",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.90234375
+            },
+            {
+              "text": " Lady",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.01219940185546875
+            },
+            {
+              "text": " Macbeth,",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.9983723958333334
+            },
+            {
+              "text": " There",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.912109375
+            },
+            {
+              "text": " Lady",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.01953125
+            },
+            {
+              "text": " Macbeth,",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " There",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.921875
+            },
+            {
+              "text": " Lady",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.021881103515625
+            },
+            {
+              "text": " Macbeth,",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " There",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " Lady",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.0220489501953125
+            },
+            {
+              "text": " Macbeth,",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.9988606770833334
+            },
+            {
+              "text": " There",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " Lady",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.03082275390625
+            },
+            {
+              "text": " Macbeth,",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.9988606770833334
+            },
+            {
+              "text": " There",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.943359375
+            },
+            {
+              "text": " are",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.89794921875
+            },
+            {
+              "text": " two",
+              "start": 1.7,
+              "end": 1.86,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " lodg'd",
+              "start": 1.86,
+              "end": 2.28,
+              "probability": 0.0660870869954427
+            },
+            {
+              "text": " together.",
+              "start": 2.28,
+              "end": 2.54,
+              "probability": 0.9814453125
+            }
+          ]
+        },
+        {
+          "text": " There",
+          "start": 2.54,
+          "end": 2.64,
+          "words": [
+            {
+              "text": " There",
+              "start": 2.54,
+              "end": 2.64,
+              "probability": 0.002376556396484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lady",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 0.64,
+          "end": 1.18
+        },
+        {
+          "raw": "There",
+          "start": 1.42,
+          "end": 1.56
+        },
+        {
+          "raw": "Lady",
+          "start": 1.56,
+          "end": 1.56
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 1.56,
+          "end": 1.56
+        },
+        {
+          "raw": "There",
+          "start": 1.56,
+          "end": 1.58
+        },
+        {
+          "raw": "Lady",
+          "start": 1.58,
+          "end": 1.58
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 1.58,
+          "end": 1.58
+        },
+        {
+          "raw": "There",
+          "start": 1.58,
+          "end": 1.6
+        },
+        {
+          "raw": "Lady",
+          "start": 1.6,
+          "end": 1.7
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "There",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "Lady",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "There",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "Lady",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "There",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "Lady",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "There",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "Lady",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "There",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "Lady",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "There",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "Lady",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "There",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "Lady",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "There",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "Lady",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "There",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "Lady",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "There",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "Lady",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "There",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "Lady",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "There",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "Lady",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "There",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "Lady",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "There",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "Lady",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "There",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "Lady",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "There",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "Lady",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "There",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "Lady",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "There",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "Lady",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "There",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "are",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "two",
+          "start": 1.7,
+          "end": 1.86
+        },
+        {
+          "raw": "lodg'd",
+          "start": 1.86,
+          "end": 2.28
+        },
+        {
+          "raw": "together.",
+          "start": 2.28,
+          "end": 2.54
+        },
+        {
+          "raw": "There",
+          "start": 2.54,
+          "end": 2.64
+        }
+      ],
+      "expected_tokens": [
+        "Lady",
+        "Macbeth.",
+        "There",
+        "are",
+        "two",
+        "lodg'd",
+        "together."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          63
+        ],
+        [
+          "equal",
+          0,
+          7,
+          63,
+          70
+        ],
+        [
+          "insert",
+          7,
+          7,
+          70,
+          71
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 69
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          63
+        ],
+        [
+          "insert",
+          7,
+          7,
+          70,
+          71
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lady",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "lady",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 0.64,
+          "end": 1.18,
+          "key": "macbeth",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "There",
+          "start": 1.42,
+          "end": 1.56,
+          "key": "there",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Lady",
+          "start": 1.56,
+          "end": 1.56,
+          "key": "lady",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 1.56,
+          "end": 1.56,
+          "key": "macbeth",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "There",
+          "start": 1.56,
+          "end": 1.58,
+          "key": "there",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Lady",
+          "start": 1.58,
+          "end": 1.58,
+          "key": "lady",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 1.58,
+          "end": 1.58,
+          "key": "macbeth",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "There",
+          "start": 1.58,
+          "end": 1.6,
+          "key": "there",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Lady",
+          "start": 1.6,
+          "end": 1.7,
+          "key": "lady",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "macbeth",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "There",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "there",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Lady",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "lady",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "macbeth",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "There",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "there",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Lady",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "lady",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "macbeth",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "There",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "there",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Lady",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "lady",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "macbeth",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "There",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "there",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Lady",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "lady",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "macbeth",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "There",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "there",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Lady",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "lady",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "macbeth",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "There",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "there",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "Lady",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "lady",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "macbeth",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "There",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "there",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "Lady",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "lady",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "macbeth",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "There",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "there",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "Lady",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "lady",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "macbeth",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "There",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "there",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "Lady",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "lady",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "macbeth",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "There",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "there",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "Lady",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "lady",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "macbeth",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "There",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "there",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "Lady",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "lady",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "macbeth",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "There",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "there",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "Lady",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "lady",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "macbeth",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "There",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "there",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "Lady",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "lady",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "macbeth",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "There",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "there",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "Lady",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "lady",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "macbeth",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "There",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "there",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "Lady",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "lady",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "macbeth",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "There",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "there",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "Lady",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "lady",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "macbeth",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "There",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "there",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "Lady",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "lady",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "macbeth",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "There",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "there",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "Lady",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "lady",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "macbeth",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "There",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "there",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "are",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 1.7,
+          "end": 1.86,
+          "key": "two",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "lodg'd",
+          "start": 1.86,
+          "end": 2.28,
+          "key": "lodgd",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "together.",
+          "start": 2.28,
+          "end": 2.54,
+          "key": "together",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "There",
+          "start": 2.54,
+          "end": 2.64,
+          "key": "there",
+          "pieces": [
+            70
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lady",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "text": "Macbeth.",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "text": "There",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "text": "are",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "text": "two",
+          "start": 1.7,
+          "end": 1.86
+        },
+        {
+          "text": "lodg'd",
+          "start": 1.86,
+          "end": 2.28
+        },
+        {
+          "text": "together.",
+          "start": 2.28,
+          "end": 2.54
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 71,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.997747822664678
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "649799b282e50033d04a3d7181ecd2c6e7b5187b9f524260bf0377e1b22f49fc",
+  "selected_reasons": []
+}

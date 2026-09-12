@@ -1,0 +1,543 @@
+{
+  "complete": true,
+  "signature": "dda39823000374a3d6fd44295b64966c139fcddf74b4e925e66a3d42fe489e79",
+  "attempts": [
+    {
+      "asr_seconds": 0.31678105145692825,
+      "alignment_seconds": 0.0004698885604739189,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Banquo, O treachery! Fly, good flints! Fly, fly, fly! Thou mayst revenge, O slave!",
+          "start": 0.55,
+          "end": 5.67,
+          "words": [
+            {
+              "text": " Banquo,",
+              "start": 0.55,
+              "end": 0.95,
+              "probability": 0.7841796875
+            },
+            {
+              "text": " O",
+              "start": 1.15,
+              "end": 1.17,
+              "probability": 0.6591796875
+            },
+            {
+              "text": " treachery!",
+              "start": 1.17,
+              "end": 1.81,
+              "probability": 0.937255859375
+            },
+            {
+              "text": " Fly,",
+              "start": 2.27,
+              "end": 2.33,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " good",
+              "start": 2.49,
+              "end": 2.59,
+              "probability": 0.90673828125
+            },
+            {
+              "text": " flints!",
+              "start": 2.59,
+              "end": 2.89,
+              "probability": 0.29888916015625
+            },
+            {
+              "text": " Fly,",
+              "start": 3.13,
+              "end": 3.21,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " fly,",
+              "start": 3.39,
+              "end": 3.51,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " fly!",
+              "start": 3.67,
+              "end": 3.87,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Thou",
+              "start": 4.19,
+              "end": 4.27,
+              "probability": 0.85546875
+            },
+            {
+              "text": " mayst",
+              "start": 4.27,
+              "end": 4.57,
+              "probability": 0.801513671875
+            },
+            {
+              "text": " revenge,",
+              "start": 4.57,
+              "end": 4.89,
+              "probability": 0.86865234375
+            },
+            {
+              "text": " O",
+              "start": 5.23,
+              "end": 5.33,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " slave!",
+              "start": 5.33,
+              "end": 5.67,
+              "probability": 0.9365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Banquo,",
+          "start": 0.55,
+          "end": 0.95
+        },
+        {
+          "raw": "O",
+          "start": 1.15,
+          "end": 1.17
+        },
+        {
+          "raw": "treachery!",
+          "start": 1.17,
+          "end": 1.81
+        },
+        {
+          "raw": "Fly,",
+          "start": 2.27,
+          "end": 2.33
+        },
+        {
+          "raw": "good",
+          "start": 2.49,
+          "end": 2.59
+        },
+        {
+          "raw": "flints!",
+          "start": 2.59,
+          "end": 2.89
+        },
+        {
+          "raw": "Fly,",
+          "start": 3.13,
+          "end": 3.21
+        },
+        {
+          "raw": "fly,",
+          "start": 3.39,
+          "end": 3.51
+        },
+        {
+          "raw": "fly!",
+          "start": 3.67,
+          "end": 3.87
+        },
+        {
+          "raw": "Thou",
+          "start": 4.19,
+          "end": 4.27
+        },
+        {
+          "raw": "mayst",
+          "start": 4.27,
+          "end": 4.57
+        },
+        {
+          "raw": "revenge,",
+          "start": 4.57,
+          "end": 4.89
+        },
+        {
+          "raw": "O",
+          "start": 5.23,
+          "end": 5.33
+        },
+        {
+          "raw": "slave!",
+          "start": 5.33,
+          "end": 5.67
+        }
+      ],
+      "expected_tokens": [
+        "Banquo.",
+        "O,",
+        "treachery!",
+        "Fly,",
+        "good",
+        "Fleance,",
+        "fly,",
+        "fly,",
+        "fly!",
+        "Thou",
+        "mayst",
+        "revenge—O",
+        "slave!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          11,
+          6,
+          11
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          13
+        ],
+        [
+          "equal",
+          12,
+          13,
+          13,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Banquo,",
+          "start": 0.55,
+          "end": 0.95,
+          "key": "banquo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 1.15,
+          "end": 1.17,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "treachery!",
+          "start": 1.17,
+          "end": 1.81,
+          "key": "treachery",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Fly,",
+          "start": 2.27,
+          "end": 2.33,
+          "key": "fly",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 2.49,
+          "end": 2.59,
+          "key": "good",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "flints!",
+          "start": 2.59,
+          "end": 2.89,
+          "key": "flints",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Fly,",
+          "start": 3.13,
+          "end": 3.21,
+          "key": "fly",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "fly,",
+          "start": 3.39,
+          "end": 3.51,
+          "key": "fly",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "fly!",
+          "start": 3.67,
+          "end": 3.87,
+          "key": "fly",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Thou",
+          "start": 4.19,
+          "end": 4.27,
+          "key": "thou",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "mayst",
+          "start": 4.27,
+          "end": 4.57,
+          "key": "mayst",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "revenge,",
+          "start": 4.57,
+          "end": 4.89,
+          "key": "revenge",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 5.23,
+          "end": 5.33,
+          "key": "o",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "slave!",
+          "start": 5.33,
+          "end": 5.67,
+          "key": "slave",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Banquo.",
+          "start": 0.55,
+          "end": 0.95
+        },
+        {
+          "text": "O,",
+          "start": 1.15,
+          "end": 1.17
+        },
+        {
+          "text": "treachery!",
+          "start": 1.17,
+          "end": 1.81
+        },
+        {
+          "text": "Fly,",
+          "start": 2.27,
+          "end": 2.33
+        },
+        {
+          "text": "good",
+          "start": 2.49,
+          "end": 2.59
+        },
+        {
+          "text": "Fleance,",
+          "start": 2.59,
+          "end": 2.86
+        },
+        {
+          "text": "fly,",
+          "start": 3.13,
+          "end": 3.21
+        },
+        {
+          "text": "fly,",
+          "start": 3.39,
+          "end": 3.51
+        },
+        {
+          "text": "fly!",
+          "start": 3.67,
+          "end": 3.87
+        },
+        {
+          "text": "Thou",
+          "start": 4.19,
+          "end": 4.27
+        },
+        {
+          "text": "mayst",
+          "start": 4.27,
+          "end": 4.57
+        },
+        {
+          "text": "revenge—O",
+          "start": 4.57,
+          "end": 4.95
+        },
+        {
+          "text": "slave!",
+          "start": 5.33,
+          "end": 5.67
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 14,
+        "matched_words": 11
+      },
+      "match_ratio": 0.8461538461538461,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3174172332510352
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "010abc81c7e2c5f688734cb6fc1d732ffad20838720d14e270e849b312d5675f",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

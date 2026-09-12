@@ -1,0 +1,271 @@
+{
+  "complete": true,
+  "signature": "8665bc95a3d287eeedcaa3fdaae6d089ed960a2f0aec6f7eb87840dad17cc182",
+  "attempts": [
+    {
+      "asr_seconds": 0.19271658454090357,
+      "alignment_seconds": 0.0004202490672469139,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Richard, SIRS take up the course.",
+          "start": 0.02,
+          "end": 2.26,
+          "words": [
+            {
+              "text": " Richard,",
+              "start": 0.02,
+              "end": 0.78,
+              "probability": 0.8671875
+            },
+            {
+              "text": " SIRS",
+              "start": 1.34,
+              "end": 1.52,
+              "probability": 0.6787109375
+            },
+            {
+              "text": " take",
+              "start": 1.52,
+              "end": 1.72,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " up",
+              "start": 1.72,
+              "end": 1.88,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 1.88,
+              "end": 1.96,
+              "probability": 0.998046875
+            },
+            {
+              "text": " course.",
+              "start": 1.96,
+              "end": 2.26,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Richard,",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "raw": "SIRS",
+          "start": 1.34,
+          "end": 1.52
+        },
+        {
+          "raw": "take",
+          "start": 1.52,
+          "end": 1.72
+        },
+        {
+          "raw": "up",
+          "start": 1.72,
+          "end": 1.88
+        },
+        {
+          "raw": "the",
+          "start": 1.88,
+          "end": 1.96
+        },
+        {
+          "raw": "course.",
+          "start": 1.96,
+          "end": 2.26
+        }
+      ],
+      "expected_tokens": [
+        "Richard.",
+        "Sirs,",
+        "take",
+        "up",
+        "the",
+        "corse."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Richard,",
+          "start": 0.02,
+          "end": 0.78,
+          "key": "richard",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "SIRS",
+          "start": 1.34,
+          "end": 1.52,
+          "key": "sirs",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 1.52,
+          "end": 1.72,
+          "key": "take",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 1.72,
+          "end": 1.88,
+          "key": "up",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.88,
+          "end": 1.96,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "course.",
+          "start": 1.96,
+          "end": 2.26,
+          "key": "course",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Richard.",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "text": "Sirs,",
+          "start": 1.34,
+          "end": 1.52
+        },
+        {
+          "text": "take",
+          "start": 1.52,
+          "end": 1.72
+        },
+        {
+          "text": "up",
+          "start": 1.72,
+          "end": 1.88
+        },
+        {
+          "text": "the",
+          "start": 1.88,
+          "end": 1.96
+        },
+        {
+          "text": "corse.",
+          "start": 1.96,
+          "end": 2.11
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19327456410974264
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c6733899fe2c56b3a73b96e1ce1cb4d44e2500d7e75ad14a1f80b5801637305d",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

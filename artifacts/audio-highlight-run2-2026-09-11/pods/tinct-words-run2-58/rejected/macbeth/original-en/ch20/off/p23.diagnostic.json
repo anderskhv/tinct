@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "942fdde5bce82cdae0b3144eb14e1265c46a7bcfc7c0cfe10516034eb900cbaa",
+  "attempts": [
+    {
+      "asr_seconds": 0.09646866749972105,
+      "alignment_seconds": 0.0002673417329788208,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter a doctor.",
+          "start": 0.08,
+          "end": 1.18,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " a",
+              "start": 0.66,
+              "end": 0.84,
+              "probability": 0.9921875
+            },
+            {
+              "text": " doctor.",
+              "start": 0.84,
+              "end": 1.18,
+              "probability": 0.87060546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "a",
+          "start": 0.66,
+          "end": 0.84
+        },
+        {
+          "raw": "doctor.",
+          "start": 0.84,
+          "end": 1.18
+        }
+      ],
+      "expected_tokens": [
+        "[Enter",
+        "a",
+        "Doctor.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.66,
+          "end": 0.84,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "doctor.",
+          "start": 0.84,
+          "end": 1.18,
+          "key": "doctor",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Enter",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "a",
+          "start": 0.66,
+          "end": 0.84
+        },
+        {
+          "text": "Doctor.]",
+          "start": 0.84,
+          "end": 1.18
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0968260457739234
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d5056b1cdbc0edbcdbfded894b47ec096615842e23bd19d2f79fd7ae28420bea",
+  "selected_reasons": []
+}

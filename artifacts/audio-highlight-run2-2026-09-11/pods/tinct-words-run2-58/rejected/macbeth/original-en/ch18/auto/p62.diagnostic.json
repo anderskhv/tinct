@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "9015b6e328bb097725c832e2e53ed0e49507eadedb753d38314b1edfd9a90765",
+  "attempts": [
+    {
+      "asr_seconds": 0.19871876575052738,
+      "alignment_seconds": 0.00025153905153274536,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lennox. No, indeed, my lord.",
+        "hotwords": "Lennox, No"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lennox, No, indeed, my lord.",
+          "start": 0.05,
+          "end": 2.19,
+          "words": [
+            {
+              "text": " Lennox,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.555694580078125
+            },
+            {
+              "text": " No,",
+              "start": 1.25,
+              "end": 1.43,
+              "probability": 0.00904083251953125
+            },
+            {
+              "text": " indeed,",
+              "start": 1.71,
+              "end": 1.71,
+              "probability": 0.6796875
+            },
+            {
+              "text": " my",
+              "start": 1.87,
+              "end": 1.99,
+              "probability": 0.818359375
+            },
+            {
+              "text": " lord.",
+              "start": 1.99,
+              "end": 2.19,
+              "probability": 0.642578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lennox,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "No,",
+          "start": 1.25,
+          "end": 1.43
+        },
+        {
+          "raw": "indeed,",
+          "start": 1.71,
+          "end": 1.71
+        },
+        {
+          "raw": "my",
+          "start": 1.87,
+          "end": 1.99
+        },
+        {
+          "raw": "lord.",
+          "start": 1.99,
+          "end": 2.19
+        }
+      ],
+      "expected_tokens": [
+        "Lennox.",
+        "No,",
+        "indeed,",
+        "my",
+        "lord."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lennox,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "lennox",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "No,",
+          "start": 1.25,
+          "end": 1.43,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "indeed,",
+          "start": 1.71,
+          "end": 1.71,
+          "key": "indeed",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.87,
+          "end": 1.99,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 1.99,
+          "end": 2.19,
+          "key": "lord",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lennox.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "No,",
+          "start": 1.25,
+          "end": 1.43
+        },
+        {
+          "text": "indeed,",
+          "start": 1.71,
+          "end": 1.71
+        },
+        {
+          "text": "my",
+          "start": 1.87,
+          "end": 1.99
+        },
+        {
+          "text": "lord.",
+          "start": 1.99,
+          "end": 2.19
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1990641951560974
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "16e0a06789a297243b84841d560c1bcad06346302d1e8de1247778d490196723",
+  "selected_reasons": []
+}

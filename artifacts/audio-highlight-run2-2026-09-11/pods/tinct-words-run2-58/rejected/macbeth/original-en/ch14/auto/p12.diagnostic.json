@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "e4c20cb6833c93d98acd0fc072ba7310976a9bcc954cc5969b2ff06c49452d35",
+  "attempts": [
+    {
+      "asr_seconds": 0.1565745184198022,
+      "alignment_seconds": 0.000424407422542572,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Third Murderer. 'Tis he.",
+        "hotwords": "Third, Murderer, Tis"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Third Murderer, Tis he.",
+          "start": 0.08,
+          "end": 1.98,
+          "words": [
+            {
+              "text": " Third",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.8994140625
+            },
+            {
+              "text": " Murderer,",
+              "start": 0.64,
+              "end": 1.16,
+              "probability": 0.537139892578125
+            },
+            {
+              "text": " Tis",
+              "start": 1.64,
+              "end": 1.76,
+              "probability": 0.2505425214767456
+            },
+            {
+              "text": " he.",
+              "start": 1.76,
+              "end": 1.98,
+              "probability": 0.1552734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Third",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "Murderer,",
+          "start": 0.64,
+          "end": 1.16
+        },
+        {
+          "raw": "Tis",
+          "start": 1.64,
+          "end": 1.76
+        },
+        {
+          "raw": "he.",
+          "start": 1.76,
+          "end": 1.98
+        }
+      ],
+      "expected_tokens": [
+        "Third",
+        "Murderer.",
+        "'Tis",
+        "he."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Third",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "third",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Murderer,",
+          "start": 0.64,
+          "end": 1.16,
+          "key": "murderer",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Tis",
+          "start": 1.64,
+          "end": 1.76,
+          "key": "tis",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he.",
+          "start": 1.76,
+          "end": 1.98,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Third",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "Murderer.",
+          "start": 0.64,
+          "end": 1.16
+        },
+        {
+          "text": "'Tis",
+          "start": 1.64,
+          "end": 1.76
+        },
+        {
+          "text": "he.",
+          "start": 1.76,
+          "end": 1.98
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1571625703945756
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a573acaca2f43958ceb860a71eae2c4d29b1bffad8ad9f2d70a7346b7ca2ddba",
+  "selected_reasons": []
+}

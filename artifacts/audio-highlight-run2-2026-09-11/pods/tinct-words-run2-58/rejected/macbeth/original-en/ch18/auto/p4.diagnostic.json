@@ -1,0 +1,1142 @@
+{
+  "complete": true,
+  "signature": "6a3aa75bea030697131cbca39631c601dbac93427648266607b651583ab69a1a",
+  "attempts": [
+    {
+      "asr_seconds": 0.4215026358142495,
+      "alignment_seconds": 0.0008376669138669968,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "First Witch. Round about the cauldron go; In the poison'd entrails throw.— Toad, that under cold stone Days and nights has thirty-one Swelter'd venom sleeping got, Boil thou first i' th' charmed pot!",
+        "hotwords": "Witch, Round, In, Toad, Days, Swelter'd, Boil"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " First Witch, Round about the cauldron go, In the poison'd entrails throw.— Toad, that under cold stone Days and nights has thirty-one Swelter'd venom sleeping got, Boil thou first i' th' charmed pot!",
+          "start": 0.02,
+          "end": 13.38,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.462890625
+            },
+            {
+              "text": " Witch,",
+              "start": 0.66,
+              "end": 0.96,
+              "probability": 0.209716796875
+            },
+            {
+              "text": " Round",
+              "start": 1.7,
+              "end": 1.74,
+              "probability": 0.1527099609375
+            },
+            {
+              "text": " about",
+              "start": 1.74,
+              "end": 1.94,
+              "probability": 0.80419921875
+            },
+            {
+              "text": " the",
+              "start": 1.94,
+              "end": 2.1,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " cauldron",
+              "start": 2.1,
+              "end": 2.4,
+              "probability": 0.86474609375
+            },
+            {
+              "text": " go,",
+              "start": 2.4,
+              "end": 2.74,
+              "probability": 0.93359375
+            },
+            {
+              "text": " In",
+              "start": 3.14,
+              "end": 3.22,
+              "probability": 0.9130859375
+            },
+            {
+              "text": " the",
+              "start": 3.22,
+              "end": 3.36,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " poison'd",
+              "start": 3.36,
+              "end": 3.92,
+              "probability": 0.053661346435546875
+            },
+            {
+              "text": " entrails",
+              "start": 3.92,
+              "end": 4.28,
+              "probability": 0.7724609375
+            },
+            {
+              "text": " throw.—",
+              "start": 4.28,
+              "end": 5.76,
+              "probability": 0.47876232862472534
+            },
+            {
+              "text": " Toad,",
+              "start": 5.76,
+              "end": 5.76,
+              "probability": 0.62109375
+            },
+            {
+              "text": " that",
+              "start": 6.1,
+              "end": 6.2,
+              "probability": 0.432861328125
+            },
+            {
+              "text": " under",
+              "start": 6.2,
+              "end": 6.44,
+              "probability": 0.70361328125
+            },
+            {
+              "text": " cold",
+              "start": 6.44,
+              "end": 6.78,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " stone",
+              "start": 6.78,
+              "end": 7.18,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " Days",
+              "start": 7.18,
+              "end": 7.48,
+              "probability": 0.011749267578125
+            },
+            {
+              "text": " and",
+              "start": 7.48,
+              "end": 7.74,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " nights",
+              "start": 7.74,
+              "end": 7.96,
+              "probability": 0.89892578125
+            },
+            {
+              "text": " has",
+              "start": 7.96,
+              "end": 8.24,
+              "probability": 0.41259765625
+            },
+            {
+              "text": " thirty",
+              "start": 8.24,
+              "end": 8.52,
+              "probability": 0.875
+            },
+            {
+              "text": "-one",
+              "start": 8.52,
+              "end": 8.82,
+              "probability": 0.987548828125
+            },
+            {
+              "text": " Swelter'd",
+              "start": 8.82,
+              "end": 9.46,
+              "probability": 0.4910125732421875
+            },
+            {
+              "text": " venom",
+              "start": 9.46,
+              "end": 9.64,
+              "probability": 0.908203125
+            },
+            {
+              "text": " sleeping",
+              "start": 9.64,
+              "end": 10.04,
+              "probability": 0.578125
+            },
+            {
+              "text": " got,",
+              "start": 10.04,
+              "end": 10.44,
+              "probability": 0.63330078125
+            },
+            {
+              "text": " Boil",
+              "start": 10.86,
+              "end": 11.08,
+              "probability": 0.8369140625
+            },
+            {
+              "text": " thou",
+              "start": 11.08,
+              "end": 11.26,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " first",
+              "start": 11.26,
+              "end": 11.62,
+              "probability": 0.927734375
+            },
+            {
+              "text": " i'",
+              "start": 11.62,
+              "end": 11.9,
+              "probability": 0.048095703125
+            },
+            {
+              "text": " th'",
+              "start": 12.06,
+              "end": 12.3,
+              "probability": 0.83544921875
+            },
+            {
+              "text": " charmed",
+              "start": 12.74,
+              "end": 13.12,
+              "probability": 0.78173828125
+            },
+            {
+              "text": " pot!",
+              "start": 13.12,
+              "end": 13.38,
+              "probability": 0.93212890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "Witch,",
+          "start": 0.66,
+          "end": 0.96
+        },
+        {
+          "raw": "Round",
+          "start": 1.7,
+          "end": 1.74
+        },
+        {
+          "raw": "about",
+          "start": 1.74,
+          "end": 1.94
+        },
+        {
+          "raw": "the",
+          "start": 1.94,
+          "end": 2.1
+        },
+        {
+          "raw": "cauldron",
+          "start": 2.1,
+          "end": 2.4
+        },
+        {
+          "raw": "go,",
+          "start": 2.4,
+          "end": 2.74
+        },
+        {
+          "raw": "In",
+          "start": 3.14,
+          "end": 3.22
+        },
+        {
+          "raw": "the",
+          "start": 3.22,
+          "end": 3.36
+        },
+        {
+          "raw": "poison'd",
+          "start": 3.36,
+          "end": 3.92
+        },
+        {
+          "raw": "entrails",
+          "start": 3.92,
+          "end": 4.28
+        },
+        {
+          "raw": "throw.—",
+          "start": 4.28,
+          "end": 5.76
+        },
+        {
+          "raw": "Toad,",
+          "start": 5.76,
+          "end": 5.76
+        },
+        {
+          "raw": "that",
+          "start": 6.1,
+          "end": 6.2
+        },
+        {
+          "raw": "under",
+          "start": 6.2,
+          "end": 6.44
+        },
+        {
+          "raw": "cold",
+          "start": 6.44,
+          "end": 6.78
+        },
+        {
+          "raw": "stone",
+          "start": 6.78,
+          "end": 7.18
+        },
+        {
+          "raw": "Days",
+          "start": 7.18,
+          "end": 7.48
+        },
+        {
+          "raw": "and",
+          "start": 7.48,
+          "end": 7.74
+        },
+        {
+          "raw": "nights",
+          "start": 7.74,
+          "end": 7.96
+        },
+        {
+          "raw": "has",
+          "start": 7.96,
+          "end": 8.24
+        },
+        {
+          "raw": "thirty",
+          "start": 8.24,
+          "end": 8.52
+        },
+        {
+          "raw": "-one",
+          "start": 8.52,
+          "end": 8.82
+        },
+        {
+          "raw": "Swelter'd",
+          "start": 8.82,
+          "end": 9.46
+        },
+        {
+          "raw": "venom",
+          "start": 9.46,
+          "end": 9.64
+        },
+        {
+          "raw": "sleeping",
+          "start": 9.64,
+          "end": 10.04
+        },
+        {
+          "raw": "got,",
+          "start": 10.04,
+          "end": 10.44
+        },
+        {
+          "raw": "Boil",
+          "start": 10.86,
+          "end": 11.08
+        },
+        {
+          "raw": "thou",
+          "start": 11.08,
+          "end": 11.26
+        },
+        {
+          "raw": "first",
+          "start": 11.26,
+          "end": 11.62
+        },
+        {
+          "raw": "i'",
+          "start": 11.62,
+          "end": 11.9
+        },
+        {
+          "raw": "th'",
+          "start": 12.06,
+          "end": 12.3
+        },
+        {
+          "raw": "charmed",
+          "start": 12.74,
+          "end": 13.12
+        },
+        {
+          "raw": "pot!",
+          "start": 13.12,
+          "end": 13.38
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Witch.",
+        "Round",
+        "about",
+        "the",
+        "cauldron",
+        "go;",
+        "In",
+        "the",
+        "poison'd",
+        "entrails",
+        "throw.—",
+        "Toad,",
+        "that",
+        "under",
+        "cold",
+        "stone",
+        "Days",
+        "and",
+        "nights",
+        "has",
+        "thirty-one",
+        "Swelter'd",
+        "venom",
+        "sleeping",
+        "got,",
+        "Boil",
+        "thou",
+        "first",
+        "i'",
+        "th'",
+        "charmed",
+        "pot!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          33,
+          0,
+          33
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Witch,",
+          "start": 0.66,
+          "end": 0.96,
+          "key": "witch",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Round",
+          "start": 1.7,
+          "end": 1.74,
+          "key": "round",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 1.74,
+          "end": 1.94,
+          "key": "about",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.94,
+          "end": 2.1,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "cauldron",
+          "start": 2.1,
+          "end": 2.4,
+          "key": "cauldron",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "go,",
+          "start": 2.4,
+          "end": 2.74,
+          "key": "go",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 3.14,
+          "end": 3.22,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.22,
+          "end": 3.36,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "poison'd",
+          "start": 3.36,
+          "end": 3.92,
+          "key": "poisond",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "entrails",
+          "start": 3.92,
+          "end": 4.28,
+          "key": "entrails",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "throw.—",
+          "start": 4.28,
+          "end": 5.76,
+          "key": "throw",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Toad,",
+          "start": 5.76,
+          "end": 5.76,
+          "key": "toad",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 6.1,
+          "end": 6.2,
+          "key": "that",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "under",
+          "start": 6.2,
+          "end": 6.44,
+          "key": "under",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "cold",
+          "start": 6.44,
+          "end": 6.78,
+          "key": "cold",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "stone",
+          "start": 6.78,
+          "end": 7.18,
+          "key": "stone",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Days",
+          "start": 7.18,
+          "end": 7.48,
+          "key": "days",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 7.48,
+          "end": 7.74,
+          "key": "and",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "nights",
+          "start": 7.74,
+          "end": 7.96,
+          "key": "nights",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 7.96,
+          "end": 8.24,
+          "key": "has",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "thirty -one",
+          "start": 8.24,
+          "end": 8.82,
+          "key": "thirtyone",
+          "pieces": [
+            21,
+            22
+          ]
+        },
+        {
+          "raw": "Swelter'd",
+          "start": 8.82,
+          "end": 9.46,
+          "key": "swelterd",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "venom",
+          "start": 9.46,
+          "end": 9.64,
+          "key": "venom",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "sleeping",
+          "start": 9.64,
+          "end": 10.04,
+          "key": "sleeping",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "got,",
+          "start": 10.04,
+          "end": 10.44,
+          "key": "got",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "Boil",
+          "start": 10.86,
+          "end": 11.08,
+          "key": "boil",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 11.08,
+          "end": 11.26,
+          "key": "thou",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 11.26,
+          "end": 11.62,
+          "key": "first",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "i'",
+          "start": 11.62,
+          "end": 11.9,
+          "key": "i",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "th'",
+          "start": 12.06,
+          "end": 12.3,
+          "key": "th",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "charmed",
+          "start": 12.74,
+          "end": 13.12,
+          "key": "charmed",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "pot!",
+          "start": 13.12,
+          "end": 13.38,
+          "key": "pot",
+          "pieces": [
+            33
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 21,
+          "text": "thirty-one",
+          "heard": "thirty -one",
+          "heard_indexes": [
+            21,
+            22
+          ],
+          "start": 8.24,
+          "end": 8.82
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "Witch.",
+          "start": 0.66,
+          "end": 0.96
+        },
+        {
+          "text": "Round",
+          "start": 1.7,
+          "end": 1.74
+        },
+        {
+          "text": "about",
+          "start": 1.74,
+          "end": 1.94
+        },
+        {
+          "text": "the",
+          "start": 1.94,
+          "end": 2.1
+        },
+        {
+          "text": "cauldron",
+          "start": 2.1,
+          "end": 2.4
+        },
+        {
+          "text": "go;",
+          "start": 2.4,
+          "end": 2.74
+        },
+        {
+          "text": "In",
+          "start": 3.14,
+          "end": 3.22
+        },
+        {
+          "text": "the",
+          "start": 3.22,
+          "end": 3.36
+        },
+        {
+          "text": "poison'd",
+          "start": 3.36,
+          "end": 3.92
+        },
+        {
+          "text": "entrails",
+          "start": 3.92,
+          "end": 4.28
+        },
+        {
+          "text": "throw.—",
+          "start": 4.28,
+          "end": 5.76
+        },
+        {
+          "text": "Toad,",
+          "start": 5.76,
+          "end": 5.76
+        },
+        {
+          "text": "that",
+          "start": 6.1,
+          "end": 6.2
+        },
+        {
+          "text": "under",
+          "start": 6.2,
+          "end": 6.44
+        },
+        {
+          "text": "cold",
+          "start": 6.44,
+          "end": 6.78
+        },
+        {
+          "text": "stone",
+          "start": 6.78,
+          "end": 7.18
+        },
+        {
+          "text": "Days",
+          "start": 7.18,
+          "end": 7.48
+        },
+        {
+          "text": "and",
+          "start": 7.48,
+          "end": 7.74
+        },
+        {
+          "text": "nights",
+          "start": 7.74,
+          "end": 7.96
+        },
+        {
+          "text": "has",
+          "start": 7.96,
+          "end": 8.24
+        },
+        {
+          "text": "thirty-one",
+          "start": 8.24,
+          "end": 8.82
+        },
+        {
+          "text": "Swelter'd",
+          "start": 8.82,
+          "end": 9.46
+        },
+        {
+          "text": "venom",
+          "start": 9.46,
+          "end": 9.64
+        },
+        {
+          "text": "sleeping",
+          "start": 9.64,
+          "end": 10.04
+        },
+        {
+          "text": "got,",
+          "start": 10.04,
+          "end": 10.44
+        },
+        {
+          "text": "Boil",
+          "start": 10.86,
+          "end": 11.08
+        },
+        {
+          "text": "thou",
+          "start": 11.08,
+          "end": 11.26
+        },
+        {
+          "text": "first",
+          "start": 11.26,
+          "end": 11.62
+        },
+        {
+          "text": "i'",
+          "start": 11.62,
+          "end": 11.9
+        },
+        {
+          "text": "th'",
+          "start": 12.06,
+          "end": 12.3
+        },
+        {
+          "text": "charmed",
+          "start": 12.74,
+          "end": 13.12
+        },
+        {
+          "text": "pot!",
+          "start": 13.12,
+          "end": 13.38
+        }
+      ],
+      "stats": {
+        "expected_words": 33,
+        "heard_words": 33,
+        "matched_words": 33
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4226700896397233
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9f8ed410b6f59a502364059659a48cb46c2314a8d3e97ce94ca89ba859fb0367",
+  "selected_reasons": []
+}

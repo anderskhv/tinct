@@ -1,0 +1,542 @@
+{
+  "complete": true,
+  "signature": "1315e3cfd0da45c503df9749a9cdaa5c3ea32962314807a5eaa11f0d1ec0816f",
+  "attempts": [
+    {
+      "asr_seconds": 0.2766017587855458,
+      "alignment_seconds": 0.0006455658003687859,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Macbeth. [_Aside._] Come what come may, Time and the hour runs through the roughest day.",
+        "hotwords": "Macbeth, Time"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Macbeth. Aside. Come what come may, Time and the hour runs through the roughest day.",
+          "start": 0.02,
+          "end": 5.16,
+          "words": [
+            {
+              "text": " Macbeth.",
+              "start": 0.02,
+              "end": 0.94,
+              "probability": 0.88720703125
+            },
+            {
+              "text": " Aside.",
+              "start": 1.28,
+              "end": 1.36,
+              "probability": 0.6708984375
+            },
+            {
+              "text": " Come",
+              "start": 2.1,
+              "end": 2.2,
+              "probability": 0.974609375
+            },
+            {
+              "text": " what",
+              "start": 2.2,
+              "end": 2.34,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " come",
+              "start": 2.34,
+              "end": 2.52,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " may,",
+              "start": 2.52,
+              "end": 2.8,
+              "probability": 0.1669921875
+            },
+            {
+              "text": " Time",
+              "start": 3.06,
+              "end": 3.18,
+              "probability": 0.07244873046875
+            },
+            {
+              "text": " and",
+              "start": 3.18,
+              "end": 3.34,
+              "probability": 0.2030029296875
+            },
+            {
+              "text": " the",
+              "start": 3.34,
+              "end": 3.46,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " hour",
+              "start": 3.46,
+              "end": 3.7,
+              "probability": 0.94140625
+            },
+            {
+              "text": " runs",
+              "start": 3.7,
+              "end": 4.04,
+              "probability": 0.6083984375
+            },
+            {
+              "text": " through",
+              "start": 4.04,
+              "end": 4.34,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " the",
+              "start": 4.34,
+              "end": 4.5,
+              "probability": 0.982421875
+            },
+            {
+              "text": " roughest",
+              "start": 4.5,
+              "end": 4.84,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " day.",
+              "start": 4.84,
+              "end": 5.16,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Macbeth.",
+          "start": 0.02,
+          "end": 0.94
+        },
+        {
+          "raw": "Aside.",
+          "start": 1.28,
+          "end": 1.36
+        },
+        {
+          "raw": "Come",
+          "start": 2.1,
+          "end": 2.2
+        },
+        {
+          "raw": "what",
+          "start": 2.2,
+          "end": 2.34
+        },
+        {
+          "raw": "come",
+          "start": 2.34,
+          "end": 2.52
+        },
+        {
+          "raw": "may,",
+          "start": 2.52,
+          "end": 2.8
+        },
+        {
+          "raw": "Time",
+          "start": 3.06,
+          "end": 3.18
+        },
+        {
+          "raw": "and",
+          "start": 3.18,
+          "end": 3.34
+        },
+        {
+          "raw": "the",
+          "start": 3.34,
+          "end": 3.46
+        },
+        {
+          "raw": "hour",
+          "start": 3.46,
+          "end": 3.7
+        },
+        {
+          "raw": "runs",
+          "start": 3.7,
+          "end": 4.04
+        },
+        {
+          "raw": "through",
+          "start": 4.04,
+          "end": 4.34
+        },
+        {
+          "raw": "the",
+          "start": 4.34,
+          "end": 4.5
+        },
+        {
+          "raw": "roughest",
+          "start": 4.5,
+          "end": 4.84
+        },
+        {
+          "raw": "day.",
+          "start": 4.84,
+          "end": 5.16
+        }
+      ],
+      "expected_tokens": [
+        "Macbeth.",
+        "[_Aside._]",
+        "Come",
+        "what",
+        "come",
+        "may,",
+        "Time",
+        "and",
+        "the",
+        "hour",
+        "runs",
+        "through",
+        "the",
+        "roughest",
+        "day."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Macbeth.",
+          "start": 0.02,
+          "end": 0.94,
+          "key": "macbeth",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Aside.",
+          "start": 1.28,
+          "end": 1.36,
+          "key": "aside",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Come",
+          "start": 2.1,
+          "end": 2.2,
+          "key": "come",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 2.2,
+          "end": 2.34,
+          "key": "what",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 2.34,
+          "end": 2.52,
+          "key": "come",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "may,",
+          "start": 2.52,
+          "end": 2.8,
+          "key": "may",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Time",
+          "start": 3.06,
+          "end": 3.18,
+          "key": "time",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.18,
+          "end": 3.34,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.34,
+          "end": 3.46,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "hour",
+          "start": 3.46,
+          "end": 3.7,
+          "key": "hour",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "runs",
+          "start": 3.7,
+          "end": 4.04,
+          "key": "runs",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "through",
+          "start": 4.04,
+          "end": 4.34,
+          "key": "through",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.34,
+          "end": 4.5,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "roughest",
+          "start": 4.5,
+          "end": 4.84,
+          "key": "roughest",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "day.",
+          "start": 4.84,
+          "end": 5.16,
+          "key": "day",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Macbeth.",
+          "start": 0.02,
+          "end": 0.94
+        },
+        {
+          "text": "[_Aside._]",
+          "start": 1.28,
+          "end": 1.36
+        },
+        {
+          "text": "Come",
+          "start": 2.1,
+          "end": 2.2
+        },
+        {
+          "text": "what",
+          "start": 2.2,
+          "end": 2.34
+        },
+        {
+          "text": "come",
+          "start": 2.34,
+          "end": 2.52
+        },
+        {
+          "text": "may,",
+          "start": 2.52,
+          "end": 2.8
+        },
+        {
+          "text": "Time",
+          "start": 3.06,
+          "end": 3.18
+        },
+        {
+          "text": "and",
+          "start": 3.18,
+          "end": 3.34
+        },
+        {
+          "text": "the",
+          "start": 3.34,
+          "end": 3.46
+        },
+        {
+          "text": "hour",
+          "start": 3.46,
+          "end": 3.7
+        },
+        {
+          "text": "runs",
+          "start": 3.7,
+          "end": 4.04
+        },
+        {
+          "text": "through",
+          "start": 4.04,
+          "end": 4.34
+        },
+        {
+          "text": "the",
+          "start": 4.34,
+          "end": 4.5
+        },
+        {
+          "text": "roughest",
+          "start": 4.5,
+          "end": 4.84
+        },
+        {
+          "text": "day.",
+          "start": 4.84,
+          "end": 5.16
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.27750817965716124
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "89adcbb3bc0e01680c5738c915d120db22d06fc62f8cd457eb5caaa2886db5c2",
+  "selected_reasons": []
+}

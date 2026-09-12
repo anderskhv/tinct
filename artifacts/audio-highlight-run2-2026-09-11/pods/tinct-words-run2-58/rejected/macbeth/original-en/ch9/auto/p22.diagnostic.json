@@ -1,0 +1,4893 @@
+{
+  "complete": true,
+  "signature": "46dc171880306deb2059797432373552609935a6ab94931685251a7439bfc4c3",
+  "attempts": [
+    {
+      "asr_seconds": 0.5459663430228829,
+      "alignment_seconds": 0.0010385047644376755,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Macbeth. Methought I heard a voice cry, \"Sleep no more! Macbeth does murder sleep,\"—the innocent sleep; Sleep that knits up the ravell'd sleave of care, The death of each day's life, sore labour's bath, Balm of hurt minds, great nature's second course, Chief nourisher in life's feast.",
+        "hotwords": "Macbeth, Methought, I, Balm, Chief"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Macbeth, Methought I heard a voice cry, Sleep no more! Macbeth does murder sleep,—the innocent sleep—Sleep that knits up the ravell'd sleave of care, The death of each day's life, sore labour's bath, Balm of hurt minds, great nature's second course, Chief nourisher in life's feast.",
+          "start": 0.02,
+          "end": 16.86,
+          "words": [
+            {
+              "text": " Macbeth,",
+              "start": 0.02,
+              "end": 0.92,
+              "probability": 0.7479654947916666
+            },
+            {
+              "text": " Methought",
+              "start": 1.14,
+              "end": 1.42,
+              "probability": 0.49444580078125
+            },
+            {
+              "text": " I",
+              "start": 1.42,
+              "end": 1.58,
+              "probability": 0.93359375
+            },
+            {
+              "text": " heard",
+              "start": 1.58,
+              "end": 1.72,
+              "probability": 0.953125
+            },
+            {
+              "text": " a",
+              "start": 1.72,
+              "end": 1.84,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " voice",
+              "start": 1.84,
+              "end": 2.04,
+              "probability": 0.7509765625
+            },
+            {
+              "text": " cry,",
+              "start": 2.04,
+              "end": 2.38,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " Sleep",
+              "start": 2.68,
+              "end": 2.84,
+              "probability": 0.75537109375
+            },
+            {
+              "text": " no",
+              "start": 2.84,
+              "end": 3.08,
+              "probability": 0.869140625
+            },
+            {
+              "text": " more!",
+              "start": 3.08,
+              "end": 3.34,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Macbeth",
+              "start": 3.68,
+              "end": 4.04,
+              "probability": 0.9944661458333334
+            },
+            {
+              "text": " does",
+              "start": 4.04,
+              "end": 4.24,
+              "probability": 0.85498046875
+            },
+            {
+              "text": " murder",
+              "start": 4.24,
+              "end": 4.52,
+              "probability": 0.8642578125
+            },
+            {
+              "text": " sleep",
+              "start": 4.52,
+              "end": 4.96,
+              "probability": 0.84326171875
+            },
+            {
+              "text": ",—the",
+              "start": 4.96,
+              "end": 5.72,
+              "probability": 0.18256823221842447
+            },
+            {
+              "text": " innocent",
+              "start": 5.72,
+              "end": 5.96,
+              "probability": 0.912109375
+            },
+            {
+              "text": " sleep—Sleep",
+              "start": 5.96,
+              "end": 7.12,
+              "probability": 0.4049224853515625
+            },
+            {
+              "text": " that",
+              "start": 7.12,
+              "end": 7.38,
+              "probability": 0.974609375
+            },
+            {
+              "text": " knits",
+              "start": 7.38,
+              "end": 7.6,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " up",
+              "start": 7.6,
+              "end": 7.72,
+              "probability": 0.9921875
+            },
+            {
+              "text": " the",
+              "start": 7.72,
+              "end": 7.86,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " ravell'd",
+              "start": 7.86,
+              "end": 8.28,
+              "probability": 0.3021448453267415
+            },
+            {
+              "text": " sleave",
+              "start": 8.28,
+              "end": 8.58,
+              "probability": 0.30681800842285156
+            },
+            {
+              "text": " of",
+              "start": 8.58,
+              "end": 8.7,
+              "probability": 0.962890625
+            },
+            {
+              "text": " care,",
+              "start": 8.7,
+              "end": 8.98,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " The",
+              "start": 9.28,
+              "end": 9.4,
+              "probability": 0.658203125
+            },
+            {
+              "text": " death",
+              "start": 9.4,
+              "end": 9.62,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " of",
+              "start": 9.62,
+              "end": 9.82,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " each",
+              "start": 9.82,
+              "end": 10.06,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " day's",
+              "start": 10.06,
+              "end": 10.54,
+              "probability": 0.984130859375
+            },
+            {
+              "text": " life,",
+              "start": 10.54,
+              "end": 10.8,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " sore",
+              "start": 11.26,
+              "end": 11.36,
+              "probability": 0.002166748046875
+            },
+            {
+              "text": " labour's",
+              "start": 11.36,
+              "end": 11.9,
+              "probability": 0.600830078125
+            },
+            {
+              "text": " bath,",
+              "start": 11.9,
+              "end": 12.16,
+              "probability": 0.88623046875
+            },
+            {
+              "text": " Balm",
+              "start": 12.56,
+              "end": 12.7,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " of",
+              "start": 12.7,
+              "end": 12.8,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " hurt",
+              "start": 12.8,
+              "end": 13.0,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " minds,",
+              "start": 13.0,
+              "end": 13.38,
+              "probability": 0.58544921875
+            },
+            {
+              "text": " great",
+              "start": 13.66,
+              "end": 13.82,
+              "probability": 0.3134765625
+            },
+            {
+              "text": " nature's",
+              "start": 13.82,
+              "end": 14.3,
+              "probability": 0.87255859375
+            },
+            {
+              "text": " second",
+              "start": 14.3,
+              "end": 14.54,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " course,",
+              "start": 14.54,
+              "end": 14.92,
+              "probability": 0.802734375
+            },
+            {
+              "text": " Chief",
+              "start": 15.5,
+              "end": 15.5,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " nourisher",
+              "start": 15.5,
+              "end": 15.98,
+              "probability": 0.842041015625
+            },
+            {
+              "text": " in",
+              "start": 15.98,
+              "end": 16.22,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " life's",
+              "start": 16.22,
+              "end": 16.62,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " feast.",
+              "start": 16.62,
+              "end": 16.86,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Macbeth,",
+          "start": 0.02,
+          "end": 0.92
+        },
+        {
+          "raw": "Methought",
+          "start": 1.14,
+          "end": 1.42
+        },
+        {
+          "raw": "I",
+          "start": 1.42,
+          "end": 1.58
+        },
+        {
+          "raw": "heard",
+          "start": 1.58,
+          "end": 1.72
+        },
+        {
+          "raw": "a",
+          "start": 1.72,
+          "end": 1.84
+        },
+        {
+          "raw": "voice",
+          "start": 1.84,
+          "end": 2.04
+        },
+        {
+          "raw": "cry,",
+          "start": 2.04,
+          "end": 2.38
+        },
+        {
+          "raw": "Sleep",
+          "start": 2.68,
+          "end": 2.84
+        },
+        {
+          "raw": "no",
+          "start": 2.84,
+          "end": 3.08
+        },
+        {
+          "raw": "more!",
+          "start": 3.08,
+          "end": 3.34
+        },
+        {
+          "raw": "Macbeth",
+          "start": 3.68,
+          "end": 4.04
+        },
+        {
+          "raw": "does",
+          "start": 4.04,
+          "end": 4.24
+        },
+        {
+          "raw": "murder",
+          "start": 4.24,
+          "end": 4.52
+        },
+        {
+          "raw": "sleep",
+          "start": 4.52,
+          "end": 4.96
+        },
+        {
+          "raw": ",—the",
+          "start": 4.96,
+          "end": 5.72
+        },
+        {
+          "raw": "innocent",
+          "start": 5.72,
+          "end": 5.96
+        },
+        {
+          "raw": "sleep—Sleep",
+          "start": 5.96,
+          "end": 7.12
+        },
+        {
+          "raw": "that",
+          "start": 7.12,
+          "end": 7.38
+        },
+        {
+          "raw": "knits",
+          "start": 7.38,
+          "end": 7.6
+        },
+        {
+          "raw": "up",
+          "start": 7.6,
+          "end": 7.72
+        },
+        {
+          "raw": "the",
+          "start": 7.72,
+          "end": 7.86
+        },
+        {
+          "raw": "ravell'd",
+          "start": 7.86,
+          "end": 8.28
+        },
+        {
+          "raw": "sleave",
+          "start": 8.28,
+          "end": 8.58
+        },
+        {
+          "raw": "of",
+          "start": 8.58,
+          "end": 8.7
+        },
+        {
+          "raw": "care,",
+          "start": 8.7,
+          "end": 8.98
+        },
+        {
+          "raw": "The",
+          "start": 9.28,
+          "end": 9.4
+        },
+        {
+          "raw": "death",
+          "start": 9.4,
+          "end": 9.62
+        },
+        {
+          "raw": "of",
+          "start": 9.62,
+          "end": 9.82
+        },
+        {
+          "raw": "each",
+          "start": 9.82,
+          "end": 10.06
+        },
+        {
+          "raw": "day's",
+          "start": 10.06,
+          "end": 10.54
+        },
+        {
+          "raw": "life,",
+          "start": 10.54,
+          "end": 10.8
+        },
+        {
+          "raw": "sore",
+          "start": 11.26,
+          "end": 11.36
+        },
+        {
+          "raw": "labour's",
+          "start": 11.36,
+          "end": 11.9
+        },
+        {
+          "raw": "bath,",
+          "start": 11.9,
+          "end": 12.16
+        },
+        {
+          "raw": "Balm",
+          "start": 12.56,
+          "end": 12.7
+        },
+        {
+          "raw": "of",
+          "start": 12.7,
+          "end": 12.8
+        },
+        {
+          "raw": "hurt",
+          "start": 12.8,
+          "end": 13.0
+        },
+        {
+          "raw": "minds,",
+          "start": 13.0,
+          "end": 13.38
+        },
+        {
+          "raw": "great",
+          "start": 13.66,
+          "end": 13.82
+        },
+        {
+          "raw": "nature's",
+          "start": 13.82,
+          "end": 14.3
+        },
+        {
+          "raw": "second",
+          "start": 14.3,
+          "end": 14.54
+        },
+        {
+          "raw": "course,",
+          "start": 14.54,
+          "end": 14.92
+        },
+        {
+          "raw": "Chief",
+          "start": 15.5,
+          "end": 15.5
+        },
+        {
+          "raw": "nourisher",
+          "start": 15.5,
+          "end": 15.98
+        },
+        {
+          "raw": "in",
+          "start": 15.98,
+          "end": 16.22
+        },
+        {
+          "raw": "life's",
+          "start": 16.22,
+          "end": 16.62
+        },
+        {
+          "raw": "feast.",
+          "start": 16.62,
+          "end": 16.86
+        }
+      ],
+      "expected_tokens": [
+        "Macbeth.",
+        "Methought",
+        "I",
+        "heard",
+        "a",
+        "voice",
+        "cry,",
+        "\"Sleep",
+        "no",
+        "more!",
+        "Macbeth",
+        "does",
+        "murder",
+        "sleep,\"—the",
+        "innocent",
+        "sleep;",
+        "Sleep",
+        "that",
+        "knits",
+        "up",
+        "the",
+        "ravell'd",
+        "sleave",
+        "of",
+        "care,",
+        "The",
+        "death",
+        "of",
+        "each",
+        "day's",
+        "life,",
+        "sore",
+        "labour's",
+        "bath,",
+        "Balm",
+        "of",
+        "hurt",
+        "minds,",
+        "great",
+        "nature's",
+        "second",
+        "course,",
+        "Chief",
+        "nourisher",
+        "in",
+        "life's",
+        "feast."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ],
+        [
+          "replace",
+          13,
+          14,
+          13,
+          15
+        ],
+        [
+          "equal",
+          14,
+          15,
+          15,
+          16
+        ],
+        [
+          "replace",
+          15,
+          17,
+          16,
+          17
+        ],
+        [
+          "equal",
+          17,
+          47,
+          17,
+          47
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          13,
+          14,
+          13,
+          15
+        ],
+        [
+          "replace",
+          15,
+          17,
+          16,
+          17
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Macbeth,",
+          "start": 0.02,
+          "end": 0.92,
+          "key": "macbeth",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Methought",
+          "start": 1.14,
+          "end": 1.42,
+          "key": "methought",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.42,
+          "end": 1.58,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 1.58,
+          "end": 1.72,
+          "key": "heard",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.72,
+          "end": 1.84,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "voice",
+          "start": 1.84,
+          "end": 2.04,
+          "key": "voice",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "cry,",
+          "start": 2.04,
+          "end": 2.38,
+          "key": "cry",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Sleep",
+          "start": 2.68,
+          "end": 2.84,
+          "key": "sleep",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 2.84,
+          "end": 3.08,
+          "key": "no",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "more!",
+          "start": 3.08,
+          "end": 3.34,
+          "key": "more",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Macbeth",
+          "start": 3.68,
+          "end": 4.04,
+          "key": "macbeth",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 4.04,
+          "end": 4.24,
+          "key": "does",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "murder",
+          "start": 4.24,
+          "end": 4.52,
+          "key": "murder",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "sleep",
+          "start": 4.52,
+          "end": 4.96,
+          "key": "sleep",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": ",—the",
+          "start": 4.96,
+          "end": 5.72,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "innocent",
+          "start": 5.72,
+          "end": 5.96,
+          "key": "innocent",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "sleep—Sleep",
+          "start": 5.96,
+          "end": 7.12,
+          "key": "sleepsleep",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 7.12,
+          "end": 7.38,
+          "key": "that",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "knits",
+          "start": 7.38,
+          "end": 7.6,
+          "key": "knits",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 7.6,
+          "end": 7.72,
+          "key": "up",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.72,
+          "end": 7.86,
+          "key": "the",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "ravell'd",
+          "start": 7.86,
+          "end": 8.28,
+          "key": "ravelld",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "sleave",
+          "start": 8.28,
+          "end": 8.58,
+          "key": "sleave",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 8.58,
+          "end": 8.7,
+          "key": "of",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "care,",
+          "start": 8.7,
+          "end": 8.98,
+          "key": "care",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 9.28,
+          "end": 9.4,
+          "key": "the",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "death",
+          "start": 9.4,
+          "end": 9.62,
+          "key": "death",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 9.62,
+          "end": 9.82,
+          "key": "of",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "each",
+          "start": 9.82,
+          "end": 10.06,
+          "key": "each",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "day's",
+          "start": 10.06,
+          "end": 10.54,
+          "key": "days",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "life,",
+          "start": 10.54,
+          "end": 10.8,
+          "key": "life",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "sore",
+          "start": 11.26,
+          "end": 11.36,
+          "key": "sore",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "labour's",
+          "start": 11.36,
+          "end": 11.9,
+          "key": "labours",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "bath,",
+          "start": 11.9,
+          "end": 12.16,
+          "key": "bath",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "Balm",
+          "start": 12.56,
+          "end": 12.7,
+          "key": "balm",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 12.7,
+          "end": 12.8,
+          "key": "of",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "hurt",
+          "start": 12.8,
+          "end": 13.0,
+          "key": "hurt",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "minds,",
+          "start": 13.0,
+          "end": 13.38,
+          "key": "minds",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 13.66,
+          "end": 13.82,
+          "key": "great",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "nature's",
+          "start": 13.82,
+          "end": 14.3,
+          "key": "natures",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "second",
+          "start": 14.3,
+          "end": 14.54,
+          "key": "second",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "course,",
+          "start": 14.54,
+          "end": 14.92,
+          "key": "course",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "Chief",
+          "start": 15.5,
+          "end": 15.5,
+          "key": "chief",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "nourisher",
+          "start": 15.5,
+          "end": 15.98,
+          "key": "nourisher",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 15.98,
+          "end": 16.22,
+          "key": "in",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "life's",
+          "start": 16.22,
+          "end": 16.62,
+          "key": "lifes",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "feast.",
+          "start": 16.62,
+          "end": 16.86,
+          "key": "feast",
+          "pieces": [
+            46
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Macbeth.",
+          "start": 0.02,
+          "end": 0.92
+        },
+        {
+          "text": "Methought",
+          "start": 1.14,
+          "end": 1.42
+        },
+        {
+          "text": "I",
+          "start": 1.42,
+          "end": 1.58
+        },
+        {
+          "text": "heard",
+          "start": 1.58,
+          "end": 1.72
+        },
+        {
+          "text": "a",
+          "start": 1.72,
+          "end": 1.84
+        },
+        {
+          "text": "voice",
+          "start": 1.84,
+          "end": 2.04
+        },
+        {
+          "text": "cry,",
+          "start": 2.04,
+          "end": 2.38
+        },
+        {
+          "text": "\"Sleep",
+          "start": 2.68,
+          "end": 2.84
+        },
+        {
+          "text": "no",
+          "start": 2.84,
+          "end": 3.08
+        },
+        {
+          "text": "more!",
+          "start": 3.08,
+          "end": 3.34
+        },
+        {
+          "text": "Macbeth",
+          "start": 3.68,
+          "end": 4.04
+        },
+        {
+          "text": "does",
+          "start": 4.04,
+          "end": 4.24
+        },
+        {
+          "text": "murder",
+          "start": 4.24,
+          "end": 4.52
+        },
+        {
+          "text": "sleep,\"—the",
+          "start": 4.52,
+          "end": 5.12
+        },
+        {
+          "text": "innocent",
+          "start": 5.72,
+          "end": 5.96
+        },
+        {
+          "text": "sleep;",
+          "start": 5.96,
+          "end": 6.54
+        },
+        {
+          "text": "Sleep",
+          "start": 6.54,
+          "end": 6.83
+        },
+        {
+          "text": "that",
+          "start": 7.12,
+          "end": 7.38
+        },
+        {
+          "text": "knits",
+          "start": 7.38,
+          "end": 7.6
+        },
+        {
+          "text": "up",
+          "start": 7.6,
+          "end": 7.72
+        },
+        {
+          "text": "the",
+          "start": 7.72,
+          "end": 7.86
+        },
+        {
+          "text": "ravell'd",
+          "start": 7.86,
+          "end": 8.28
+        },
+        {
+          "text": "sleave",
+          "start": 8.28,
+          "end": 8.58
+        },
+        {
+          "text": "of",
+          "start": 8.58,
+          "end": 8.7
+        },
+        {
+          "text": "care,",
+          "start": 8.7,
+          "end": 8.98
+        },
+        {
+          "text": "The",
+          "start": 9.28,
+          "end": 9.4
+        },
+        {
+          "text": "death",
+          "start": 9.4,
+          "end": 9.62
+        },
+        {
+          "text": "of",
+          "start": 9.62,
+          "end": 9.82
+        },
+        {
+          "text": "each",
+          "start": 9.82,
+          "end": 10.06
+        },
+        {
+          "text": "day's",
+          "start": 10.06,
+          "end": 10.54
+        },
+        {
+          "text": "life,",
+          "start": 10.54,
+          "end": 10.8
+        },
+        {
+          "text": "sore",
+          "start": 11.26,
+          "end": 11.36
+        },
+        {
+          "text": "labour's",
+          "start": 11.36,
+          "end": 11.9
+        },
+        {
+          "text": "bath,",
+          "start": 11.9,
+          "end": 12.16
+        },
+        {
+          "text": "Balm",
+          "start": 12.56,
+          "end": 12.7
+        },
+        {
+          "text": "of",
+          "start": 12.7,
+          "end": 12.8
+        },
+        {
+          "text": "hurt",
+          "start": 12.8,
+          "end": 13.0
+        },
+        {
+          "text": "minds,",
+          "start": 13.0,
+          "end": 13.38
+        },
+        {
+          "text": "great",
+          "start": 13.66,
+          "end": 13.82
+        },
+        {
+          "text": "nature's",
+          "start": 13.82,
+          "end": 14.3
+        },
+        {
+          "text": "second",
+          "start": 14.3,
+          "end": 14.54
+        },
+        {
+          "text": "course,",
+          "start": 14.54,
+          "end": 14.92
+        },
+        {
+          "text": "Chief",
+          "start": 15.5,
+          "end": 15.5
+        },
+        {
+          "text": "nourisher",
+          "start": 15.5,
+          "end": 15.98
+        },
+        {
+          "text": "in",
+          "start": 15.98,
+          "end": 16.22
+        },
+        {
+          "text": "life's",
+          "start": 16.22,
+          "end": 16.62
+        },
+        {
+          "text": "feast.",
+          "start": 16.62,
+          "end": 16.86
+        }
+      ],
+      "stats": {
+        "expected_words": 47,
+        "heard_words": 47,
+        "matched_words": 44
+      },
+      "match_ratio": 0.9361702127659575,
+      "rejection_reasons": [],
+      "seconds": 0.5474456818774343
+    },
+    {
+      "asr_seconds": 0.640522301197052,
+      "alignment_seconds": 0.001738324761390686,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Macbeth, Methought, I, Balm, Chief"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Macbeth, Methought, I Heard a Voice Cry, Sleep No More, Macbeth Does Murder Sleep,",
+          "start": 0.02,
+          "end": 4.98,
+          "words": [
+            {
+              "text": " Macbeth,",
+              "start": 0.02,
+              "end": 0.92,
+              "probability": 0.7479654947916666
+            },
+            {
+              "text": " Methought,",
+              "start": 1.14,
+              "end": 1.44,
+              "probability": 0.49444580078125
+            },
+            {
+              "text": " I",
+              "start": 1.52,
+              "end": 1.58,
+              "probability": 0.96484375
+            },
+            {
+              "text": " Heard",
+              "start": 1.58,
+              "end": 1.72,
+              "probability": 0.055999755859375
+            },
+            {
+              "text": " a",
+              "start": 1.72,
+              "end": 1.86,
+              "probability": 0.765625
+            },
+            {
+              "text": " Voice",
+              "start": 1.86,
+              "end": 2.02,
+              "probability": 0.7392578125
+            },
+            {
+              "text": " Cry,",
+              "start": 2.02,
+              "end": 2.38,
+              "probability": 0.6806640625
+            },
+            {
+              "text": " Sleep",
+              "start": 2.82,
+              "end": 2.84,
+              "probability": 0.94140625
+            },
+            {
+              "text": " No",
+              "start": 2.84,
+              "end": 3.08,
+              "probability": 0.350830078125
+            },
+            {
+              "text": " More,",
+              "start": 3.08,
+              "end": 3.34,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " Macbeth",
+              "start": 3.7,
+              "end": 4.04,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Does",
+              "start": 4.04,
+              "end": 4.24,
+              "probability": 0.8896484375
+            },
+            {
+              "text": " Murder",
+              "start": 4.24,
+              "end": 4.5,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " Sleep,",
+              "start": 4.5,
+              "end": 4.98,
+              "probability": 0.96923828125
+            }
+          ]
+        },
+        {
+          "text": " The Innocent Sleep, Sleep That Knits Up the Ravelled Sleeve of Care, The Death of Each",
+          "start": 5.64,
+          "end": 10.08,
+          "words": [
+            {
+              "text": " The",
+              "start": 5.64,
+              "end": 5.74,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " Innocent",
+              "start": 5.74,
+              "end": 5.98,
+              "probability": 0.908203125
+            },
+            {
+              "text": " Sleep,",
+              "start": 5.98,
+              "end": 6.44,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Sleep",
+              "start": 7.02,
+              "end": 7.14,
+              "probability": 0.9921875
+            },
+            {
+              "text": " That",
+              "start": 7.14,
+              "end": 7.38,
+              "probability": 0.8447265625
+            },
+            {
+              "text": " Knits",
+              "start": 7.38,
+              "end": 7.58,
+              "probability": 0.961669921875
+            },
+            {
+              "text": " Up",
+              "start": 7.58,
+              "end": 7.72,
+              "probability": 0.84423828125
+            },
+            {
+              "text": " the",
+              "start": 7.72,
+              "end": 7.88,
+              "probability": 0.439453125
+            },
+            {
+              "text": " Ravelled",
+              "start": 7.88,
+              "end": 8.26,
+              "probability": 0.6763509114583334
+            },
+            {
+              "text": " Sleeve",
+              "start": 8.26,
+              "end": 8.54,
+              "probability": 0.805419921875
+            },
+            {
+              "text": " of",
+              "start": 8.54,
+              "end": 8.72,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " Care,",
+              "start": 8.72,
+              "end": 8.98,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " The",
+              "start": 9.32,
+              "end": 9.42,
+              "probability": 0.89208984375
+            },
+            {
+              "text": " Death",
+              "start": 9.42,
+              "end": 9.62,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " of",
+              "start": 9.62,
+              "end": 9.82,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " Each",
+              "start": 9.82,
+              "end": 10.08,
+              "probability": 0.96875
+            }
+          ]
+        },
+        {
+          "text": " Day's Life, Soar Labor's Bath, Balm of Hurt Minds, Great Nature's Second Course, Chief",
+          "start": 10.08,
+          "end": 17.52,
+          "words": [
+            {
+              "text": " Day's",
+              "start": 10.08,
+              "end": 10.54,
+              "probability": 0.916748046875
+            },
+            {
+              "text": " Life,",
+              "start": 10.54,
+              "end": 10.8,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Soar",
+              "start": 11.3,
+              "end": 11.46,
+              "probability": 0.84814453125
+            },
+            {
+              "text": " Labor's",
+              "start": 11.46,
+              "end": 11.9,
+              "probability": 0.77001953125
+            },
+            {
+              "text": " Bath,",
+              "start": 11.9,
+              "end": 12.14,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " Balm",
+              "start": 12.58,
+              "end": 12.72,
+              "probability": 0.920166015625
+            },
+            {
+              "text": " of",
+              "start": 12.72,
+              "end": 12.82,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " Hurt",
+              "start": 12.82,
+              "end": 13.0,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Minds,",
+              "start": 13.0,
+              "end": 13.54,
+              "probability": 0.87060546875
+            },
+            {
+              "text": " Great",
+              "start": 13.68,
+              "end": 13.82,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Nature's",
+              "start": 13.82,
+              "end": 14.3,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " Second",
+              "start": 14.3,
+              "end": 14.54,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " Course,",
+              "start": 14.54,
+              "end": 14.92,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " Chief",
+              "start": 17.52,
+              "end": 17.52,
+              "probability": 0.97802734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Macbeth,",
+          "start": 0.02,
+          "end": 0.92
+        },
+        {
+          "raw": "Methought,",
+          "start": 1.14,
+          "end": 1.44
+        },
+        {
+          "raw": "I",
+          "start": 1.52,
+          "end": 1.58
+        },
+        {
+          "raw": "Heard",
+          "start": 1.58,
+          "end": 1.72
+        },
+        {
+          "raw": "a",
+          "start": 1.72,
+          "end": 1.86
+        },
+        {
+          "raw": "Voice",
+          "start": 1.86,
+          "end": 2.02
+        },
+        {
+          "raw": "Cry,",
+          "start": 2.02,
+          "end": 2.38
+        },
+        {
+          "raw": "Sleep",
+          "start": 2.82,
+          "end": 2.84
+        },
+        {
+          "raw": "No",
+          "start": 2.84,
+          "end": 3.08
+        },
+        {
+          "raw": "More,",
+          "start": 3.08,
+          "end": 3.34
+        },
+        {
+          "raw": "Macbeth",
+          "start": 3.7,
+          "end": 4.04
+        },
+        {
+          "raw": "Does",
+          "start": 4.04,
+          "end": 4.24
+        },
+        {
+          "raw": "Murder",
+          "start": 4.24,
+          "end": 4.5
+        },
+        {
+          "raw": "Sleep,",
+          "start": 4.5,
+          "end": 4.98
+        },
+        {
+          "raw": "The",
+          "start": 5.64,
+          "end": 5.74
+        },
+        {
+          "raw": "Innocent",
+          "start": 5.74,
+          "end": 5.98
+        },
+        {
+          "raw": "Sleep,",
+          "start": 5.98,
+          "end": 6.44
+        },
+        {
+          "raw": "Sleep",
+          "start": 7.02,
+          "end": 7.14
+        },
+        {
+          "raw": "That",
+          "start": 7.14,
+          "end": 7.38
+        },
+        {
+          "raw": "Knits",
+          "start": 7.38,
+          "end": 7.58
+        },
+        {
+          "raw": "Up",
+          "start": 7.58,
+          "end": 7.72
+        },
+        {
+          "raw": "the",
+          "start": 7.72,
+          "end": 7.88
+        },
+        {
+          "raw": "Ravelled",
+          "start": 7.88,
+          "end": 8.26
+        },
+        {
+          "raw": "Sleeve",
+          "start": 8.26,
+          "end": 8.54
+        },
+        {
+          "raw": "of",
+          "start": 8.54,
+          "end": 8.72
+        },
+        {
+          "raw": "Care,",
+          "start": 8.72,
+          "end": 8.98
+        },
+        {
+          "raw": "The",
+          "start": 9.32,
+          "end": 9.42
+        },
+        {
+          "raw": "Death",
+          "start": 9.42,
+          "end": 9.62
+        },
+        {
+          "raw": "of",
+          "start": 9.62,
+          "end": 9.82
+        },
+        {
+          "raw": "Each",
+          "start": 9.82,
+          "end": 10.08
+        },
+        {
+          "raw": "Day's",
+          "start": 10.08,
+          "end": 10.54
+        },
+        {
+          "raw": "Life,",
+          "start": 10.54,
+          "end": 10.8
+        },
+        {
+          "raw": "Soar",
+          "start": 11.3,
+          "end": 11.46
+        },
+        {
+          "raw": "Labor's",
+          "start": 11.46,
+          "end": 11.9
+        },
+        {
+          "raw": "Bath,",
+          "start": 11.9,
+          "end": 12.14
+        },
+        {
+          "raw": "Balm",
+          "start": 12.58,
+          "end": 12.72
+        },
+        {
+          "raw": "of",
+          "start": 12.72,
+          "end": 12.82
+        },
+        {
+          "raw": "Hurt",
+          "start": 12.82,
+          "end": 13.0
+        },
+        {
+          "raw": "Minds,",
+          "start": 13.0,
+          "end": 13.54
+        },
+        {
+          "raw": "Great",
+          "start": 13.68,
+          "end": 13.82
+        },
+        {
+          "raw": "Nature's",
+          "start": 13.82,
+          "end": 14.3
+        },
+        {
+          "raw": "Second",
+          "start": 14.3,
+          "end": 14.54
+        },
+        {
+          "raw": "Course,",
+          "start": 14.54,
+          "end": 14.92
+        },
+        {
+          "raw": "Chief",
+          "start": 17.52,
+          "end": 17.52
+        }
+      ],
+      "expected_tokens": [
+        "Macbeth.",
+        "Methought",
+        "I",
+        "heard",
+        "a",
+        "voice",
+        "cry,",
+        "\"Sleep",
+        "no",
+        "more!",
+        "Macbeth",
+        "does",
+        "murder",
+        "sleep,\"—the",
+        "innocent",
+        "sleep;",
+        "Sleep",
+        "that",
+        "knits",
+        "up",
+        "the",
+        "ravell'd",
+        "sleave",
+        "of",
+        "care,",
+        "The",
+        "death",
+        "of",
+        "each",
+        "day's",
+        "life,",
+        "sore",
+        "labour's",
+        "bath,",
+        "Balm",
+        "of",
+        "hurt",
+        "minds,",
+        "great",
+        "nature's",
+        "second",
+        "course,",
+        "Chief",
+        "nourisher",
+        "in",
+        "life's",
+        "feast."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ],
+        [
+          "replace",
+          13,
+          14,
+          13,
+          15
+        ],
+        [
+          "equal",
+          14,
+          21,
+          15,
+          22
+        ],
+        [
+          "replace",
+          21,
+          23,
+          22,
+          24
+        ],
+        [
+          "equal",
+          23,
+          31,
+          24,
+          32
+        ],
+        [
+          "replace",
+          31,
+          33,
+          32,
+          34
+        ],
+        [
+          "equal",
+          33,
+          43,
+          34,
+          44
+        ],
+        [
+          "delete",
+          43,
+          47,
+          44,
+          44
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 44,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 45,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 46,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          13,
+          14,
+          13,
+          15
+        ],
+        [
+          "replace",
+          21,
+          23,
+          22,
+          24
+        ],
+        [
+          "replace",
+          31,
+          33,
+          32,
+          34
+        ],
+        [
+          "delete",
+          43,
+          47,
+          44,
+          44
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Macbeth,",
+          "start": 0.02,
+          "end": 0.92,
+          "key": "macbeth",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Methought,",
+          "start": 1.14,
+          "end": 1.44,
+          "key": "methought",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.52,
+          "end": 1.58,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Heard",
+          "start": 1.58,
+          "end": 1.72,
+          "key": "heard",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.72,
+          "end": 1.86,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Voice",
+          "start": 1.86,
+          "end": 2.02,
+          "key": "voice",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Cry,",
+          "start": 2.02,
+          "end": 2.38,
+          "key": "cry",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Sleep",
+          "start": 2.82,
+          "end": 2.84,
+          "key": "sleep",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "No",
+          "start": 2.84,
+          "end": 3.08,
+          "key": "no",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "More,",
+          "start": 3.08,
+          "end": 3.34,
+          "key": "more",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Macbeth",
+          "start": 3.7,
+          "end": 4.04,
+          "key": "macbeth",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Does",
+          "start": 4.04,
+          "end": 4.24,
+          "key": "does",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Murder",
+          "start": 4.24,
+          "end": 4.5,
+          "key": "murder",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Sleep,",
+          "start": 4.5,
+          "end": 4.98,
+          "key": "sleep",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 5.64,
+          "end": 5.74,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Innocent",
+          "start": 5.74,
+          "end": 5.98,
+          "key": "innocent",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Sleep,",
+          "start": 5.98,
+          "end": 6.44,
+          "key": "sleep",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Sleep",
+          "start": 7.02,
+          "end": 7.14,
+          "key": "sleep",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 7.14,
+          "end": 7.38,
+          "key": "that",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Knits",
+          "start": 7.38,
+          "end": 7.58,
+          "key": "knits",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Up",
+          "start": 7.58,
+          "end": 7.72,
+          "key": "up",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.72,
+          "end": 7.88,
+          "key": "the",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Ravelled",
+          "start": 7.88,
+          "end": 8.26,
+          "key": "ravelled",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Sleeve",
+          "start": 8.26,
+          "end": 8.54,
+          "key": "sleeve",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 8.54,
+          "end": 8.72,
+          "key": "of",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Care,",
+          "start": 8.72,
+          "end": 8.98,
+          "key": "care",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 9.32,
+          "end": 9.42,
+          "key": "the",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "Death",
+          "start": 9.42,
+          "end": 9.62,
+          "key": "death",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 9.62,
+          "end": 9.82,
+          "key": "of",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "Each",
+          "start": 9.82,
+          "end": 10.08,
+          "key": "each",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "Day's",
+          "start": 10.08,
+          "end": 10.54,
+          "key": "days",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "Life,",
+          "start": 10.54,
+          "end": 10.8,
+          "key": "life",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "Soar",
+          "start": 11.3,
+          "end": 11.46,
+          "key": "soar",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "Labor's",
+          "start": 11.46,
+          "end": 11.9,
+          "key": "labors",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "Bath,",
+          "start": 11.9,
+          "end": 12.14,
+          "key": "bath",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "Balm",
+          "start": 12.58,
+          "end": 12.72,
+          "key": "balm",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 12.72,
+          "end": 12.82,
+          "key": "of",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "Hurt",
+          "start": 12.82,
+          "end": 13.0,
+          "key": "hurt",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "Minds,",
+          "start": 13.0,
+          "end": 13.54,
+          "key": "minds",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "Great",
+          "start": 13.68,
+          "end": 13.82,
+          "key": "great",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "Nature's",
+          "start": 13.82,
+          "end": 14.3,
+          "key": "natures",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "Second",
+          "start": 14.3,
+          "end": 14.54,
+          "key": "second",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "Course,",
+          "start": 14.54,
+          "end": 14.92,
+          "key": "course",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "Chief",
+          "start": 17.52,
+          "end": 17.52,
+          "key": "chief",
+          "pieces": [
+            43
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Macbeth.",
+          "start": 0.02,
+          "end": 0.92
+        },
+        {
+          "text": "Methought",
+          "start": 1.14,
+          "end": 1.44
+        },
+        {
+          "text": "I",
+          "start": 1.52,
+          "end": 1.58
+        },
+        {
+          "text": "heard",
+          "start": 1.58,
+          "end": 1.72
+        },
+        {
+          "text": "a",
+          "start": 1.72,
+          "end": 1.86
+        },
+        {
+          "text": "voice",
+          "start": 1.86,
+          "end": 2.02
+        },
+        {
+          "text": "cry,",
+          "start": 2.02,
+          "end": 2.38
+        },
+        {
+          "text": "\"Sleep",
+          "start": 2.82,
+          "end": 2.84
+        },
+        {
+          "text": "no",
+          "start": 2.84,
+          "end": 3.08
+        },
+        {
+          "text": "more!",
+          "start": 3.08,
+          "end": 3.34
+        },
+        {
+          "text": "Macbeth",
+          "start": 3.7,
+          "end": 4.04
+        },
+        {
+          "text": "does",
+          "start": 4.04,
+          "end": 4.24
+        },
+        {
+          "text": "murder",
+          "start": 4.24,
+          "end": 4.5
+        },
+        {
+          "text": "sleep,\"—the",
+          "start": 4.5,
+          "end": 5.12
+        },
+        {
+          "text": "innocent",
+          "start": 5.74,
+          "end": 5.98
+        },
+        {
+          "text": "sleep;",
+          "start": 5.98,
+          "end": 6.44
+        },
+        {
+          "text": "Sleep",
+          "start": 7.02,
+          "end": 7.14
+        },
+        {
+          "text": "that",
+          "start": 7.14,
+          "end": 7.38
+        },
+        {
+          "text": "knits",
+          "start": 7.38,
+          "end": 7.58
+        },
+        {
+          "text": "up",
+          "start": 7.58,
+          "end": 7.72
+        },
+        {
+          "text": "the",
+          "start": 7.72,
+          "end": 7.88
+        },
+        {
+          "text": "ravell'd",
+          "start": 7.88,
+          "end": 8.21
+        },
+        {
+          "text": "sleave",
+          "start": 8.21,
+          "end": 8.375
+        },
+        {
+          "text": "of",
+          "start": 8.54,
+          "end": 8.72
+        },
+        {
+          "text": "care,",
+          "start": 8.72,
+          "end": 8.98
+        },
+        {
+          "text": "The",
+          "start": 9.32,
+          "end": 9.42
+        },
+        {
+          "text": "death",
+          "start": 9.42,
+          "end": 9.62
+        },
+        {
+          "text": "of",
+          "start": 9.62,
+          "end": 9.82
+        },
+        {
+          "text": "each",
+          "start": 9.82,
+          "end": 10.08
+        },
+        {
+          "text": "day's",
+          "start": 10.08,
+          "end": 10.54
+        },
+        {
+          "text": "life,",
+          "start": 10.54,
+          "end": 10.8
+        },
+        {
+          "text": "sore",
+          "start": 10.8,
+          "end": 11.35
+        },
+        {
+          "text": "labour's",
+          "start": 11.35,
+          "end": 11.625
+        },
+        {
+          "text": "bath,",
+          "start": 11.9,
+          "end": 12.14
+        },
+        {
+          "text": "Balm",
+          "start": 12.58,
+          "end": 12.72
+        },
+        {
+          "text": "of",
+          "start": 12.72,
+          "end": 12.82
+        },
+        {
+          "text": "hurt",
+          "start": 12.82,
+          "end": 13.0
+        },
+        {
+          "text": "minds,",
+          "start": 13.0,
+          "end": 13.54
+        },
+        {
+          "text": "great",
+          "start": 13.68,
+          "end": 13.82
+        },
+        {
+          "text": "nature's",
+          "start": 13.82,
+          "end": 14.3
+        },
+        {
+          "text": "second",
+          "start": 14.3,
+          "end": 14.54
+        },
+        {
+          "text": "course,",
+          "start": 14.54,
+          "end": 14.92
+        },
+        {
+          "text": "Chief",
+          "start": 17.52,
+          "end": 17.52
+        },
+        {
+          "text": "nourisher",
+          "start": 17.52,
+          "end": 17.52
+        },
+        {
+          "text": "in",
+          "start": 17.52,
+          "end": 17.52
+        },
+        {
+          "text": "life's",
+          "start": 17.52,
+          "end": 17.52
+        },
+        {
+          "text": "feast.",
+          "start": 17.52,
+          "end": 17.52
+        }
+      ],
+      "stats": {
+        "expected_words": 47,
+        "heard_words": 44,
+        "matched_words": 38
+      },
+      "match_ratio": 0.8085106382978723,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.6429538344964385
+    },
+    {
+      "asr_seconds": 0.5787224499508739,
+      "alignment_seconds": 0.0008141985163092613,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Macbeth. Me thought I heard a voice cry. Sleep no more. Macbeth does murder sleep.",
+          "start": 0.02,
+          "end": 4.96,
+          "words": [
+            {
+              "text": " Macbeth.",
+              "start": 0.02,
+              "end": 0.92,
+              "probability": 0.7479654947916666
+            },
+            {
+              "text": " Me",
+              "start": 1.12,
+              "end": 1.22,
+              "probability": 0.76220703125
+            },
+            {
+              "text": " thought",
+              "start": 1.22,
+              "end": 1.42,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " I",
+              "start": 1.42,
+              "end": 1.58,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " heard",
+              "start": 1.58,
+              "end": 1.72,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " a",
+              "start": 1.72,
+              "end": 1.84,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " voice",
+              "start": 1.84,
+              "end": 2.04,
+              "probability": 0.96484375
+            },
+            {
+              "text": " cry.",
+              "start": 2.04,
+              "end": 2.38,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Sleep",
+              "start": 2.74,
+              "end": 2.84,
+              "probability": 0.880859375
+            },
+            {
+              "text": " no",
+              "start": 2.84,
+              "end": 3.08,
+              "probability": 0.84716796875
+            },
+            {
+              "text": " more.",
+              "start": 3.08,
+              "end": 3.34,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Macbeth",
+              "start": 3.7,
+              "end": 4.04,
+              "probability": 0.9982096354166666
+            },
+            {
+              "text": " does",
+              "start": 4.04,
+              "end": 4.24,
+              "probability": 0.953125
+            },
+            {
+              "text": " murder",
+              "start": 4.24,
+              "end": 4.52,
+              "probability": 0.966796875
+            },
+            {
+              "text": " sleep.",
+              "start": 4.52,
+              "end": 4.96,
+              "probability": 0.97900390625
+            }
+          ]
+        },
+        {
+          "text": " The innocent sleep. Sleep that knits up the raveled sleeve of care. The death of each day's life.",
+          "start": 5.66,
+          "end": 10.8,
+          "words": [
+            {
+              "text": " The",
+              "start": 5.66,
+              "end": 5.74,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " innocent",
+              "start": 5.74,
+              "end": 5.96,
+              "probability": 0.79931640625
+            },
+            {
+              "text": " sleep.",
+              "start": 5.96,
+              "end": 6.46,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Sleep",
+              "start": 7.06,
+              "end": 7.14,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " that",
+              "start": 7.14,
+              "end": 7.38,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " knits",
+              "start": 7.38,
+              "end": 7.6,
+              "probability": 0.970458984375
+            },
+            {
+              "text": " up",
+              "start": 7.6,
+              "end": 7.72,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 7.72,
+              "end": 7.84,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " raveled",
+              "start": 7.84,
+              "end": 8.3,
+              "probability": 0.8218587239583334
+            },
+            {
+              "text": " sleeve",
+              "start": 8.3,
+              "end": 8.5,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " of",
+              "start": 8.5,
+              "end": 8.7,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " care.",
+              "start": 8.7,
+              "end": 8.98,
+              "probability": 0.9921875
+            },
+            {
+              "text": " The",
+              "start": 9.32,
+              "end": 9.4,
+              "probability": 0.994140625
+            },
+            {
+              "text": " death",
+              "start": 9.4,
+              "end": 9.64,
+              "probability": 0.99609375
+            },
+            {
+              "text": " of",
+              "start": 9.64,
+              "end": 9.82,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " each",
+              "start": 9.82,
+              "end": 10.08,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " day's",
+              "start": 10.08,
+              "end": 10.54,
+              "probability": 0.978515625
+            },
+            {
+              "text": " life.",
+              "start": 10.54,
+              "end": 10.8,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " Soar labors bath. Balm of hurt minds. Great nature's second course. Chief nourisher in life's feast.",
+          "start": 11.3,
+          "end": 16.86,
+          "words": [
+            {
+              "text": " Soar",
+              "start": 11.3,
+              "end": 11.46,
+              "probability": 0.82373046875
+            },
+            {
+              "text": " labors",
+              "start": 11.46,
+              "end": 11.82,
+              "probability": 0.7802734375
+            },
+            {
+              "text": " bath.",
+              "start": 11.82,
+              "end": 12.16,
+              "probability": 0.94140625
+            },
+            {
+              "text": " Balm",
+              "start": 12.52,
+              "end": 12.72,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " of",
+              "start": 12.72,
+              "end": 12.8,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " hurt",
+              "start": 12.8,
+              "end": 13.0,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " minds.",
+              "start": 13.0,
+              "end": 13.38,
+              "probability": 0.87890625
+            },
+            {
+              "text": " Great",
+              "start": 13.68,
+              "end": 13.82,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " nature's",
+              "start": 13.82,
+              "end": 14.3,
+              "probability": 0.8828125
+            },
+            {
+              "text": " second",
+              "start": 14.3,
+              "end": 14.5,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " course.",
+              "start": 14.5,
+              "end": 14.94,
+              "probability": 0.962890625
+            },
+            {
+              "text": " Chief",
+              "start": 15.5,
+              "end": 15.5,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " nourisher",
+              "start": 15.5,
+              "end": 16.0,
+              "probability": 0.8544921875
+            },
+            {
+              "text": " in",
+              "start": 16.0,
+              "end": 16.22,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " life's",
+              "start": 16.22,
+              "end": 16.6,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " feast.",
+              "start": 16.6,
+              "end": 16.86,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Macbeth.",
+          "start": 0.02,
+          "end": 0.92
+        },
+        {
+          "raw": "Me",
+          "start": 1.12,
+          "end": 1.22
+        },
+        {
+          "raw": "thought",
+          "start": 1.22,
+          "end": 1.42
+        },
+        {
+          "raw": "I",
+          "start": 1.42,
+          "end": 1.58
+        },
+        {
+          "raw": "heard",
+          "start": 1.58,
+          "end": 1.72
+        },
+        {
+          "raw": "a",
+          "start": 1.72,
+          "end": 1.84
+        },
+        {
+          "raw": "voice",
+          "start": 1.84,
+          "end": 2.04
+        },
+        {
+          "raw": "cry.",
+          "start": 2.04,
+          "end": 2.38
+        },
+        {
+          "raw": "Sleep",
+          "start": 2.74,
+          "end": 2.84
+        },
+        {
+          "raw": "no",
+          "start": 2.84,
+          "end": 3.08
+        },
+        {
+          "raw": "more.",
+          "start": 3.08,
+          "end": 3.34
+        },
+        {
+          "raw": "Macbeth",
+          "start": 3.7,
+          "end": 4.04
+        },
+        {
+          "raw": "does",
+          "start": 4.04,
+          "end": 4.24
+        },
+        {
+          "raw": "murder",
+          "start": 4.24,
+          "end": 4.52
+        },
+        {
+          "raw": "sleep.",
+          "start": 4.52,
+          "end": 4.96
+        },
+        {
+          "raw": "The",
+          "start": 5.66,
+          "end": 5.74
+        },
+        {
+          "raw": "innocent",
+          "start": 5.74,
+          "end": 5.96
+        },
+        {
+          "raw": "sleep.",
+          "start": 5.96,
+          "end": 6.46
+        },
+        {
+          "raw": "Sleep",
+          "start": 7.06,
+          "end": 7.14
+        },
+        {
+          "raw": "that",
+          "start": 7.14,
+          "end": 7.38
+        },
+        {
+          "raw": "knits",
+          "start": 7.38,
+          "end": 7.6
+        },
+        {
+          "raw": "up",
+          "start": 7.6,
+          "end": 7.72
+        },
+        {
+          "raw": "the",
+          "start": 7.72,
+          "end": 7.84
+        },
+        {
+          "raw": "raveled",
+          "start": 7.84,
+          "end": 8.3
+        },
+        {
+          "raw": "sleeve",
+          "start": 8.3,
+          "end": 8.5
+        },
+        {
+          "raw": "of",
+          "start": 8.5,
+          "end": 8.7
+        },
+        {
+          "raw": "care.",
+          "start": 8.7,
+          "end": 8.98
+        },
+        {
+          "raw": "The",
+          "start": 9.32,
+          "end": 9.4
+        },
+        {
+          "raw": "death",
+          "start": 9.4,
+          "end": 9.64
+        },
+        {
+          "raw": "of",
+          "start": 9.64,
+          "end": 9.82
+        },
+        {
+          "raw": "each",
+          "start": 9.82,
+          "end": 10.08
+        },
+        {
+          "raw": "day's",
+          "start": 10.08,
+          "end": 10.54
+        },
+        {
+          "raw": "life.",
+          "start": 10.54,
+          "end": 10.8
+        },
+        {
+          "raw": "Soar",
+          "start": 11.3,
+          "end": 11.46
+        },
+        {
+          "raw": "labors",
+          "start": 11.46,
+          "end": 11.82
+        },
+        {
+          "raw": "bath.",
+          "start": 11.82,
+          "end": 12.16
+        },
+        {
+          "raw": "Balm",
+          "start": 12.52,
+          "end": 12.72
+        },
+        {
+          "raw": "of",
+          "start": 12.72,
+          "end": 12.8
+        },
+        {
+          "raw": "hurt",
+          "start": 12.8,
+          "end": 13.0
+        },
+        {
+          "raw": "minds.",
+          "start": 13.0,
+          "end": 13.38
+        },
+        {
+          "raw": "Great",
+          "start": 13.68,
+          "end": 13.82
+        },
+        {
+          "raw": "nature's",
+          "start": 13.82,
+          "end": 14.3
+        },
+        {
+          "raw": "second",
+          "start": 14.3,
+          "end": 14.5
+        },
+        {
+          "raw": "course.",
+          "start": 14.5,
+          "end": 14.94
+        },
+        {
+          "raw": "Chief",
+          "start": 15.5,
+          "end": 15.5
+        },
+        {
+          "raw": "nourisher",
+          "start": 15.5,
+          "end": 16.0
+        },
+        {
+          "raw": "in",
+          "start": 16.0,
+          "end": 16.22
+        },
+        {
+          "raw": "life's",
+          "start": 16.22,
+          "end": 16.6
+        },
+        {
+          "raw": "feast.",
+          "start": 16.6,
+          "end": 16.86
+        }
+      ],
+      "expected_tokens": [
+        "Macbeth.",
+        "Methought",
+        "I",
+        "heard",
+        "a",
+        "voice",
+        "cry,",
+        "\"Sleep",
+        "no",
+        "more!",
+        "Macbeth",
+        "does",
+        "murder",
+        "sleep,\"—the",
+        "innocent",
+        "sleep;",
+        "Sleep",
+        "that",
+        "knits",
+        "up",
+        "the",
+        "ravell'd",
+        "sleave",
+        "of",
+        "care,",
+        "The",
+        "death",
+        "of",
+        "each",
+        "day's",
+        "life,",
+        "sore",
+        "labour's",
+        "bath,",
+        "Balm",
+        "of",
+        "hurt",
+        "minds,",
+        "great",
+        "nature's",
+        "second",
+        "course,",
+        "Chief",
+        "nourisher",
+        "in",
+        "life's",
+        "feast."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          13,
+          3,
+          14
+        ],
+        [
+          "replace",
+          13,
+          14,
+          14,
+          16
+        ],
+        [
+          "equal",
+          14,
+          21,
+          16,
+          23
+        ],
+        [
+          "replace",
+          21,
+          23,
+          23,
+          25
+        ],
+        [
+          "equal",
+          23,
+          31,
+          25,
+          33
+        ],
+        [
+          "replace",
+          31,
+          33,
+          33,
+          35
+        ],
+        [
+          "equal",
+          33,
+          47,
+          35,
+          49
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 48
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "replace",
+          13,
+          14,
+          14,
+          16
+        ],
+        [
+          "replace",
+          21,
+          23,
+          23,
+          25
+        ],
+        [
+          "replace",
+          31,
+          33,
+          33,
+          35
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Macbeth.",
+          "start": 0.02,
+          "end": 0.92,
+          "key": "macbeth",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Me",
+          "start": 1.12,
+          "end": 1.22,
+          "key": "me",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thought",
+          "start": 1.22,
+          "end": 1.42,
+          "key": "thought",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.42,
+          "end": 1.58,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 1.58,
+          "end": 1.72,
+          "key": "heard",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.72,
+          "end": 1.84,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "voice",
+          "start": 1.84,
+          "end": 2.04,
+          "key": "voice",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "cry.",
+          "start": 2.04,
+          "end": 2.38,
+          "key": "cry",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Sleep",
+          "start": 2.74,
+          "end": 2.84,
+          "key": "sleep",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 2.84,
+          "end": 3.08,
+          "key": "no",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "more.",
+          "start": 3.08,
+          "end": 3.34,
+          "key": "more",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Macbeth",
+          "start": 3.7,
+          "end": 4.04,
+          "key": "macbeth",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 4.04,
+          "end": 4.24,
+          "key": "does",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "murder",
+          "start": 4.24,
+          "end": 4.52,
+          "key": "murder",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "sleep.",
+          "start": 4.52,
+          "end": 4.96,
+          "key": "sleep",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 5.66,
+          "end": 5.74,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "innocent",
+          "start": 5.74,
+          "end": 5.96,
+          "key": "innocent",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "sleep.",
+          "start": 5.96,
+          "end": 6.46,
+          "key": "sleep",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Sleep",
+          "start": 7.06,
+          "end": 7.14,
+          "key": "sleep",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 7.14,
+          "end": 7.38,
+          "key": "that",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "knits",
+          "start": 7.38,
+          "end": 7.6,
+          "key": "knits",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 7.6,
+          "end": 7.72,
+          "key": "up",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.72,
+          "end": 7.84,
+          "key": "the",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "raveled",
+          "start": 7.84,
+          "end": 8.3,
+          "key": "raveled",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "sleeve",
+          "start": 8.3,
+          "end": 8.5,
+          "key": "sleeve",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 8.5,
+          "end": 8.7,
+          "key": "of",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "care.",
+          "start": 8.7,
+          "end": 8.98,
+          "key": "care",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 9.32,
+          "end": 9.4,
+          "key": "the",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "death",
+          "start": 9.4,
+          "end": 9.64,
+          "key": "death",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 9.64,
+          "end": 9.82,
+          "key": "of",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "each",
+          "start": 9.82,
+          "end": 10.08,
+          "key": "each",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "day's",
+          "start": 10.08,
+          "end": 10.54,
+          "key": "days",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "life.",
+          "start": 10.54,
+          "end": 10.8,
+          "key": "life",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "Soar",
+          "start": 11.3,
+          "end": 11.46,
+          "key": "soar",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "labors",
+          "start": 11.46,
+          "end": 11.82,
+          "key": "labors",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "bath.",
+          "start": 11.82,
+          "end": 12.16,
+          "key": "bath",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "Balm",
+          "start": 12.52,
+          "end": 12.72,
+          "key": "balm",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 12.72,
+          "end": 12.8,
+          "key": "of",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "hurt",
+          "start": 12.8,
+          "end": 13.0,
+          "key": "hurt",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "minds.",
+          "start": 13.0,
+          "end": 13.38,
+          "key": "minds",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "Great",
+          "start": 13.68,
+          "end": 13.82,
+          "key": "great",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "nature's",
+          "start": 13.82,
+          "end": 14.3,
+          "key": "natures",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "second",
+          "start": 14.3,
+          "end": 14.5,
+          "key": "second",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "course.",
+          "start": 14.5,
+          "end": 14.94,
+          "key": "course",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "Chief",
+          "start": 15.5,
+          "end": 15.5,
+          "key": "chief",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "nourisher",
+          "start": 15.5,
+          "end": 16.0,
+          "key": "nourisher",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 16.0,
+          "end": 16.22,
+          "key": "in",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "life's",
+          "start": 16.22,
+          "end": 16.6,
+          "key": "lifes",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "feast.",
+          "start": 16.6,
+          "end": 16.86,
+          "key": "feast",
+          "pieces": [
+            48
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Macbeth.",
+          "start": 0.02,
+          "end": 0.92
+        },
+        {
+          "text": "Methought",
+          "start": 0.92,
+          "end": 1.17
+        },
+        {
+          "text": "I",
+          "start": 1.42,
+          "end": 1.58
+        },
+        {
+          "text": "heard",
+          "start": 1.58,
+          "end": 1.72
+        },
+        {
+          "text": "a",
+          "start": 1.72,
+          "end": 1.84
+        },
+        {
+          "text": "voice",
+          "start": 1.84,
+          "end": 2.04
+        },
+        {
+          "text": "cry,",
+          "start": 2.04,
+          "end": 2.38
+        },
+        {
+          "text": "\"Sleep",
+          "start": 2.74,
+          "end": 2.84
+        },
+        {
+          "text": "no",
+          "start": 2.84,
+          "end": 3.08
+        },
+        {
+          "text": "more!",
+          "start": 3.08,
+          "end": 3.34
+        },
+        {
+          "text": "Macbeth",
+          "start": 3.7,
+          "end": 4.04
+        },
+        {
+          "text": "does",
+          "start": 4.04,
+          "end": 4.24
+        },
+        {
+          "text": "murder",
+          "start": 4.24,
+          "end": 4.52
+        },
+        {
+          "text": "sleep,\"—the",
+          "start": 4.52,
+          "end": 5.13
+        },
+        {
+          "text": "innocent",
+          "start": 5.74,
+          "end": 5.96
+        },
+        {
+          "text": "sleep;",
+          "start": 5.96,
+          "end": 6.46
+        },
+        {
+          "text": "Sleep",
+          "start": 7.06,
+          "end": 7.14
+        },
+        {
+          "text": "that",
+          "start": 7.14,
+          "end": 7.38
+        },
+        {
+          "text": "knits",
+          "start": 7.38,
+          "end": 7.6
+        },
+        {
+          "text": "up",
+          "start": 7.6,
+          "end": 7.72
+        },
+        {
+          "text": "the",
+          "start": 7.72,
+          "end": 7.84
+        },
+        {
+          "text": "ravell'd",
+          "start": 7.84,
+          "end": 8.17
+        },
+        {
+          "text": "sleave",
+          "start": 8.17,
+          "end": 8.335
+        },
+        {
+          "text": "of",
+          "start": 8.5,
+          "end": 8.7
+        },
+        {
+          "text": "care,",
+          "start": 8.7,
+          "end": 8.98
+        },
+        {
+          "text": "The",
+          "start": 9.32,
+          "end": 9.4
+        },
+        {
+          "text": "death",
+          "start": 9.4,
+          "end": 9.64
+        },
+        {
+          "text": "of",
+          "start": 9.64,
+          "end": 9.82
+        },
+        {
+          "text": "each",
+          "start": 9.82,
+          "end": 10.08
+        },
+        {
+          "text": "day's",
+          "start": 10.08,
+          "end": 10.54
+        },
+        {
+          "text": "life,",
+          "start": 10.54,
+          "end": 10.8
+        },
+        {
+          "text": "sore",
+          "start": 10.8,
+          "end": 11.31
+        },
+        {
+          "text": "labour's",
+          "start": 11.31,
+          "end": 11.565
+        },
+        {
+          "text": "bath,",
+          "start": 11.82,
+          "end": 12.16
+        },
+        {
+          "text": "Balm",
+          "start": 12.52,
+          "end": 12.72
+        },
+        {
+          "text": "of",
+          "start": 12.72,
+          "end": 12.8
+        },
+        {
+          "text": "hurt",
+          "start": 12.8,
+          "end": 13.0
+        },
+        {
+          "text": "minds,",
+          "start": 13.0,
+          "end": 13.38
+        },
+        {
+          "text": "great",
+          "start": 13.68,
+          "end": 13.82
+        },
+        {
+          "text": "nature's",
+          "start": 13.82,
+          "end": 14.3
+        },
+        {
+          "text": "second",
+          "start": 14.3,
+          "end": 14.5
+        },
+        {
+          "text": "course,",
+          "start": 14.5,
+          "end": 14.94
+        },
+        {
+          "text": "Chief",
+          "start": 15.5,
+          "end": 15.5
+        },
+        {
+          "text": "nourisher",
+          "start": 15.5,
+          "end": 16.0
+        },
+        {
+          "text": "in",
+          "start": 16.0,
+          "end": 16.22
+        },
+        {
+          "text": "life's",
+          "start": 16.22,
+          "end": 16.6
+        },
+        {
+          "text": "feast.",
+          "start": 16.6,
+          "end": 16.86
+        }
+      ],
+      "stats": {
+        "expected_words": 47,
+        "heard_words": 49,
+        "matched_words": 41
+      },
+      "match_ratio": 0.8723404255319149,
+      "rejection_reasons": [],
+      "seconds": 0.579879785887897
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "48aca4d52a4e15efa6c42e9efef0089026cde599f9a6d8e8a06334bdb9a63d2b",
+  "selected_reasons": []
+}

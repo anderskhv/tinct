@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "183a814fc770ef1f229e4466d53cd4d9ee5872807fce75fb4883f912183adf60",
+  "attempts": [
+    {
+      "asr_seconds": 0.1527840057387948,
+      "alignment_seconds": 0.00027517881244421005,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lady Macbeth. Ay.",
+        "hotwords": "Lady, Macbeth, Ay"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lady Macbeth. Ay.",
+          "start": 0.02,
+          "end": 1.62,
+          "words": [
+            {
+              "text": " Lady",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.89990234375
+            },
+            {
+              "text": " Macbeth.",
+              "start": 0.64,
+              "end": 1.22,
+              "probability": 0.9347330729166666
+            },
+            {
+              "text": " Ay.",
+              "start": 1.44,
+              "end": 1.62,
+              "probability": 0.01020050048828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lady",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "Macbeth.",
+          "start": 0.64,
+          "end": 1.22
+        },
+        {
+          "raw": "Ay.",
+          "start": 1.44,
+          "end": 1.62
+        }
+      ],
+      "expected_tokens": [
+        "Lady",
+        "Macbeth.",
+        "Ay."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lady",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "lady",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Macbeth.",
+          "start": 0.64,
+          "end": 1.22,
+          "key": "macbeth",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Ay.",
+          "start": 1.44,
+          "end": 1.62,
+          "key": "ay",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lady",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "Macbeth.",
+          "start": 0.64,
+          "end": 1.22
+        },
+        {
+          "text": "Ay.",
+          "start": 1.44,
+          "end": 1.62
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15316554810851812
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c3f6983a5df902a59a88e4959baafa6ed6a240491e1fae65fbfa4500a856ec14",
+  "selected_reasons": []
+}

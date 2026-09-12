@@ -1,0 +1,822 @@
+{
+  "complete": true,
+  "signature": "29efc7386f74c84e18a91290241459c9dee39a4b6d63b4a1db5e25f77781c052",
+  "attempts": [
+    {
+      "asr_seconds": 0.18652207497507334,
+      "alignment_seconds": 0.0003917943686246872,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Exeunt Halberds and Gentlemen with corse._]",
+        "hotwords": "Halberds, Gentlemen"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exeunt Halberds and Gentlemen with corse._",
+          "start": 0.05,
+          "end": 3.07,
+          "words": [
+            {
+              "text": " Exeunt",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.4024454752604167
+            },
+            {
+              "text": " Halberds",
+              "start": 0.77,
+              "end": 1.27,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " and",
+              "start": 1.27,
+              "end": 1.49,
+              "probability": 0.6171875
+            },
+            {
+              "text": " Gentlemen",
+              "start": 1.49,
+              "end": 1.91,
+              "probability": 0.756591796875
+            },
+            {
+              "text": " with",
+              "start": 1.91,
+              "end": 2.05,
+              "probability": 0.85693359375
+            },
+            {
+              "text": " corse._",
+              "start": 2.05,
+              "end": 3.07,
+              "probability": 0.3283230463663737
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "Halberds",
+          "start": 0.77,
+          "end": 1.27
+        },
+        {
+          "raw": "and",
+          "start": 1.27,
+          "end": 1.49
+        },
+        {
+          "raw": "Gentlemen",
+          "start": 1.49,
+          "end": 1.91
+        },
+        {
+          "raw": "with",
+          "start": 1.91,
+          "end": 2.05
+        },
+        {
+          "raw": "corse._",
+          "start": 2.05,
+          "end": 3.07
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Halberds",
+        "and",
+        "Gentlemen",
+        "with",
+        "corse._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Halberds",
+          "start": 0.77,
+          "end": 1.27,
+          "key": "halberds",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.27,
+          "end": 1.49,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Gentlemen",
+          "start": 1.49,
+          "end": 1.91,
+          "key": "gentlemen",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.91,
+          "end": 2.05,
+          "key": "with",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "corse._",
+          "start": 2.05,
+          "end": 3.07,
+          "key": "corse_",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "Halberds",
+          "start": 0.77,
+          "end": 1.27
+        },
+        {
+          "text": "and",
+          "start": 1.27,
+          "end": 1.49
+        },
+        {
+          "text": "Gentlemen",
+          "start": 1.49,
+          "end": 1.91
+        },
+        {
+          "text": "with",
+          "start": 1.91,
+          "end": 2.05
+        },
+        {
+          "text": "corse._]",
+          "start": 2.05,
+          "end": 2.56
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1870490200817585
+    },
+    {
+      "asr_seconds": 0.20127756521105766,
+      "alignment_seconds": 0.0004221023991703987,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Halberds, Gentlemen"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Exhute Halberds and Gentlemen with Course",
+          "start": 0.05,
+          "end": 2.33,
+          "words": [
+            {
+              "text": " Exhute",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.4264729817708333
+            },
+            {
+              "text": " Halberds",
+              "start": 0.73,
+              "end": 1.27,
+              "probability": 0.7334798177083334
+            },
+            {
+              "text": " and",
+              "start": 1.27,
+              "end": 1.49,
+              "probability": 0.8203125
+            },
+            {
+              "text": " Gentlemen",
+              "start": 1.49,
+              "end": 1.89,
+              "probability": 0.776611328125
+            },
+            {
+              "text": " with",
+              "start": 1.89,
+              "end": 2.05,
+              "probability": 0.8671875
+            },
+            {
+              "text": " Course",
+              "start": 2.05,
+              "end": 2.33,
+              "probability": 0.73486328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exhute",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "Halberds",
+          "start": 0.73,
+          "end": 1.27
+        },
+        {
+          "raw": "and",
+          "start": 1.27,
+          "end": 1.49
+        },
+        {
+          "raw": "Gentlemen",
+          "start": 1.49,
+          "end": 1.89
+        },
+        {
+          "raw": "with",
+          "start": 1.89,
+          "end": 2.05
+        },
+        {
+          "raw": "Course",
+          "start": 2.05,
+          "end": 2.33
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Halberds",
+        "and",
+        "Gentlemen",
+        "with",
+        "corse._]"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exhute",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "exhute",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Halberds",
+          "start": 0.73,
+          "end": 1.27,
+          "key": "halberds",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.27,
+          "end": 1.49,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Gentlemen",
+          "start": 1.49,
+          "end": 1.89,
+          "key": "gentlemen",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.89,
+          "end": 2.05,
+          "key": "with",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Course",
+          "start": 2.05,
+          "end": 2.33,
+          "key": "course",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.0,
+          "end": 0.365
+        },
+        {
+          "text": "Halberds",
+          "start": 0.73,
+          "end": 1.27
+        },
+        {
+          "text": "and",
+          "start": 1.27,
+          "end": 1.49
+        },
+        {
+          "text": "Gentlemen",
+          "start": 1.49,
+          "end": 1.89
+        },
+        {
+          "text": "with",
+          "start": 1.89,
+          "end": 2.05
+        },
+        {
+          "text": "corse._]",
+          "start": 2.05,
+          "end": 2.19
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20184955280274153
+    },
+    {
+      "asr_seconds": 0.19412193819880486,
+      "alignment_seconds": 0.00040898844599723816,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exhute Halberds and Gentlemen with Course.",
+          "start": 0.05,
+          "end": 2.33,
+          "words": [
+            {
+              "text": " Exhute",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.4264729817708333
+            },
+            {
+              "text": " Halberds",
+              "start": 0.73,
+              "end": 1.27,
+              "probability": 0.7334798177083334
+            },
+            {
+              "text": " and",
+              "start": 1.27,
+              "end": 1.49,
+              "probability": 0.8203125
+            },
+            {
+              "text": " Gentlemen",
+              "start": 1.49,
+              "end": 1.89,
+              "probability": 0.776611328125
+            },
+            {
+              "text": " with",
+              "start": 1.89,
+              "end": 2.05,
+              "probability": 0.8671875
+            },
+            {
+              "text": " Course.",
+              "start": 2.05,
+              "end": 2.33,
+              "probability": 0.73486328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exhute",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "Halberds",
+          "start": 0.73,
+          "end": 1.27
+        },
+        {
+          "raw": "and",
+          "start": 1.27,
+          "end": 1.49
+        },
+        {
+          "raw": "Gentlemen",
+          "start": 1.49,
+          "end": 1.89
+        },
+        {
+          "raw": "with",
+          "start": 1.89,
+          "end": 2.05
+        },
+        {
+          "raw": "Course.",
+          "start": 2.05,
+          "end": 2.33
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Halberds",
+        "and",
+        "Gentlemen",
+        "with",
+        "corse._]"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exhute",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "exhute",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Halberds",
+          "start": 0.73,
+          "end": 1.27,
+          "key": "halberds",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.27,
+          "end": 1.49,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Gentlemen",
+          "start": 1.49,
+          "end": 1.89,
+          "key": "gentlemen",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.89,
+          "end": 2.05,
+          "key": "with",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Course.",
+          "start": 2.05,
+          "end": 2.33,
+          "key": "course",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.0,
+          "end": 0.365
+        },
+        {
+          "text": "Halberds",
+          "start": 0.73,
+          "end": 1.27
+        },
+        {
+          "text": "and",
+          "start": 1.27,
+          "end": 1.49
+        },
+        {
+          "text": "Gentlemen",
+          "start": 1.49,
+          "end": 1.89
+        },
+        {
+          "text": "with",
+          "start": 1.89,
+          "end": 2.05
+        },
+        {
+          "text": "corse._]",
+          "start": 2.05,
+          "end": 2.19
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19467044714838266
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9b6b75a3cd8c18d6928d15851895fb4dd207006d20bbe0dff1ba9e3cd7bcfce2",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

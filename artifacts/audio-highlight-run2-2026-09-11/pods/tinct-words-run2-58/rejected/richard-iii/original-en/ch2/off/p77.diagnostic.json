@@ -1,0 +1,412 @@
+{
+  "complete": true,
+  "signature": "6ae0583f71a9063425176a519586674b59d6bfa46b3e1d6932f99233a5752dea",
+  "attempts": [
+    {
+      "asr_seconds": 0.21075496263802052,
+      "alignment_seconds": 0.00044755730777978897,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Richard, then bid me kill myself and I will do it.",
+          "start": 0.02,
+          "end": 3.38,
+          "words": [
+            {
+              "text": " Richard,",
+              "start": 0.02,
+              "end": 0.74,
+              "probability": 0.73876953125
+            },
+            {
+              "text": " then",
+              "start": 1.4,
+              "end": 1.46,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " bid",
+              "start": 1.46,
+              "end": 1.6,
+              "probability": 0.982421875
+            },
+            {
+              "text": " me",
+              "start": 1.6,
+              "end": 1.76,
+              "probability": 0.9921875
+            },
+            {
+              "text": " kill",
+              "start": 1.76,
+              "end": 1.94,
+              "probability": 0.99609375
+            },
+            {
+              "text": " myself",
+              "start": 1.94,
+              "end": 2.3,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 2.3,
+              "end": 2.64,
+              "probability": 0.7177734375
+            },
+            {
+              "text": " I",
+              "start": 2.64,
+              "end": 2.76,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " will",
+              "start": 2.76,
+              "end": 2.92,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " do",
+              "start": 2.92,
+              "end": 3.12,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " it.",
+              "start": 3.12,
+              "end": 3.38,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Richard,",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "raw": "then",
+          "start": 1.4,
+          "end": 1.46
+        },
+        {
+          "raw": "bid",
+          "start": 1.46,
+          "end": 1.6
+        },
+        {
+          "raw": "me",
+          "start": 1.6,
+          "end": 1.76
+        },
+        {
+          "raw": "kill",
+          "start": 1.76,
+          "end": 1.94
+        },
+        {
+          "raw": "myself",
+          "start": 1.94,
+          "end": 2.3
+        },
+        {
+          "raw": "and",
+          "start": 2.3,
+          "end": 2.64
+        },
+        {
+          "raw": "I",
+          "start": 2.64,
+          "end": 2.76
+        },
+        {
+          "raw": "will",
+          "start": 2.76,
+          "end": 2.92
+        },
+        {
+          "raw": "do",
+          "start": 2.92,
+          "end": 3.12
+        },
+        {
+          "raw": "it.",
+          "start": 3.12,
+          "end": 3.38
+        }
+      ],
+      "expected_tokens": [
+        "Richard.",
+        "Then",
+        "bid",
+        "me",
+        "kill",
+        "myself,",
+        "and",
+        "I",
+        "will",
+        "do",
+        "it."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Richard,",
+          "start": 0.02,
+          "end": 0.74,
+          "key": "richard",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 1.4,
+          "end": 1.46,
+          "key": "then",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "bid",
+          "start": 1.46,
+          "end": 1.6,
+          "key": "bid",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.6,
+          "end": 1.76,
+          "key": "me",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "kill",
+          "start": 1.76,
+          "end": 1.94,
+          "key": "kill",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "myself",
+          "start": 1.94,
+          "end": 2.3,
+          "key": "myself",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.3,
+          "end": 2.64,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.64,
+          "end": 2.76,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 2.76,
+          "end": 2.92,
+          "key": "will",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 2.92,
+          "end": 3.12,
+          "key": "do",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 3.12,
+          "end": 3.38,
+          "key": "it",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Richard.",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "text": "Then",
+          "start": 1.4,
+          "end": 1.46
+        },
+        {
+          "text": "bid",
+          "start": 1.46,
+          "end": 1.6
+        },
+        {
+          "text": "me",
+          "start": 1.6,
+          "end": 1.76
+        },
+        {
+          "text": "kill",
+          "start": 1.76,
+          "end": 1.94
+        },
+        {
+          "text": "myself,",
+          "start": 1.94,
+          "end": 2.3
+        },
+        {
+          "text": "and",
+          "start": 2.3,
+          "end": 2.64
+        },
+        {
+          "text": "I",
+          "start": 2.64,
+          "end": 2.76
+        },
+        {
+          "text": "will",
+          "start": 2.76,
+          "end": 2.92
+        },
+        {
+          "text": "do",
+          "start": 2.92,
+          "end": 3.12
+        },
+        {
+          "text": "it.",
+          "start": 3.12,
+          "end": 3.38
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21140139363706112
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e5d8f973af126a2a5f488c173d5be93ffe2a310106defbf0fbb50364eef6cc32",
+  "selected_reasons": []
+}

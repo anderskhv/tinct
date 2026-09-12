@@ -1,0 +1,266 @@
+{
+  "complete": true,
+  "signature": "f1a37be2827011bd2f623804bda73a85066b04cdea15cb38f7953cf61161a95b",
+  "attempts": [
+    {
+      "asr_seconds": 0.20301111694425344,
+      "alignment_seconds": 0.0004108455032110214,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Macbeth, till then enough, come friends.",
+          "start": 0.02,
+          "end": 2.56,
+          "words": [
+            {
+              "text": " Macbeth,",
+              "start": 0.02,
+              "end": 0.94,
+              "probability": 0.8494466145833334
+            },
+            {
+              "text": " till",
+              "start": 1.26,
+              "end": 1.28,
+              "probability": 0.419921875
+            },
+            {
+              "text": " then",
+              "start": 1.28,
+              "end": 1.44,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " enough,",
+              "start": 1.44,
+              "end": 1.72,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " come",
+              "start": 2.08,
+              "end": 2.22,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " friends.",
+              "start": 2.22,
+              "end": 2.56,
+              "probability": 0.90869140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Macbeth,",
+          "start": 0.02,
+          "end": 0.94
+        },
+        {
+          "raw": "till",
+          "start": 1.26,
+          "end": 1.28
+        },
+        {
+          "raw": "then",
+          "start": 1.28,
+          "end": 1.44
+        },
+        {
+          "raw": "enough,",
+          "start": 1.44,
+          "end": 1.72
+        },
+        {
+          "raw": "come",
+          "start": 2.08,
+          "end": 2.22
+        },
+        {
+          "raw": "friends.",
+          "start": 2.22,
+          "end": 2.56
+        }
+      ],
+      "expected_tokens": [
+        "Macbeth.",
+        "Till",
+        "then,",
+        "enough.—Come,",
+        "friends."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          5,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Macbeth,",
+          "start": 0.02,
+          "end": 0.94,
+          "key": "macbeth",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "till",
+          "start": 1.26,
+          "end": 1.28,
+          "key": "till",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 1.28,
+          "end": 1.44,
+          "key": "then",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "enough,",
+          "start": 1.44,
+          "end": 1.72,
+          "key": "enough",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 2.08,
+          "end": 2.22,
+          "key": "come",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "friends.",
+          "start": 2.22,
+          "end": 2.56,
+          "key": "friends",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Macbeth.",
+          "start": 0.02,
+          "end": 0.94
+        },
+        {
+          "text": "Till",
+          "start": 1.26,
+          "end": 1.28
+        },
+        {
+          "text": "then,",
+          "start": 1.28,
+          "end": 1.44
+        },
+        {
+          "text": "enough.—Come,",
+          "start": 1.44,
+          "end": 1.83
+        },
+        {
+          "text": "friends.",
+          "start": 2.22,
+          "end": 2.56
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2035595066845417
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f02d9a279696bdf77c75725cef5868c2641139ee00a34aaed4279b6748dfa54e",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

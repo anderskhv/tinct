@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "841180149a1b3a4e0c57229b8e65161faa83413b89c57c722d819786e8d1d3c5",
+  "attempts": [
+    {
+      "asr_seconds": 0.1766448700800538,
+      "alignment_seconds": 0.00027552805840969086,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Macduff. O Scotland, Scotland!",
+        "hotwords": "Macduff, O, Scotland"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Macduff, O Scotland, Scotland!",
+          "start": 0.02,
+          "end": 2.2,
+          "words": [
+            {
+              "text": " Macduff,",
+              "start": 0.02,
+              "end": 1.02,
+              "probability": 0.67041015625
+            },
+            {
+              "text": " O",
+              "start": 1.28,
+              "end": 1.32,
+              "probability": 0.30224609375
+            },
+            {
+              "text": " Scotland,",
+              "start": 1.32,
+              "end": 1.68,
+              "probability": 0.8486328125
+            },
+            {
+              "text": " Scotland!",
+              "start": 1.94,
+              "end": 2.2,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Macduff,",
+          "start": 0.02,
+          "end": 1.02
+        },
+        {
+          "raw": "O",
+          "start": 1.28,
+          "end": 1.32
+        },
+        {
+          "raw": "Scotland,",
+          "start": 1.32,
+          "end": 1.68
+        },
+        {
+          "raw": "Scotland!",
+          "start": 1.94,
+          "end": 2.2
+        }
+      ],
+      "expected_tokens": [
+        "Macduff.",
+        "O",
+        "Scotland,",
+        "Scotland!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Macduff,",
+          "start": 0.02,
+          "end": 1.02,
+          "key": "macduff",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 1.28,
+          "end": 1.32,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Scotland,",
+          "start": 1.32,
+          "end": 1.68,
+          "key": "scotland",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Scotland!",
+          "start": 1.94,
+          "end": 2.2,
+          "key": "scotland",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Macduff.",
+          "start": 0.02,
+          "end": 1.02
+        },
+        {
+          "text": "O",
+          "start": 1.28,
+          "end": 1.32
+        },
+        {
+          "text": "Scotland,",
+          "start": 1.32,
+          "end": 1.68
+        },
+        {
+          "text": "Scotland!",
+          "start": 1.94,
+          "end": 2.2
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17702182941138744
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "56df55d81ab131f7486f00a57aa1eff8fa4c914c9fa6d508f55876edf4a9931e",
+  "selected_reasons": []
+}

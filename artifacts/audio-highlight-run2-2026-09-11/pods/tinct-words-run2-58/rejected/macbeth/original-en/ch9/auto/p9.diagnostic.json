@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "9302fef33b8e0bed6167e6336fa8033b86d6b55d6f98f0783c605c7c8351ca44",
+  "attempts": [
+    {
+      "asr_seconds": 0.17679761443287134,
+      "alignment_seconds": 0.0002999287098646164,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Macbeth. As I descended?",
+        "hotwords": "Macbeth, As, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Macbeth, As, I descended?",
+          "start": 0.6,
+          "end": 1.68,
+          "words": [
+            {
+              "text": " Macbeth,",
+              "start": 0.6,
+              "end": 0.96,
+              "probability": 0.8357747395833334
+            },
+            {
+              "text": " As,",
+              "start": 1.08,
+              "end": 1.26,
+              "probability": 0.003871917724609375
+            },
+            {
+              "text": " I",
+              "start": 1.32,
+              "end": 1.36,
+              "probability": 0.90185546875
+            },
+            {
+              "text": " descended?",
+              "start": 1.36,
+              "end": 1.68,
+              "probability": 0.74658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Macbeth,",
+          "start": 0.6,
+          "end": 0.96
+        },
+        {
+          "raw": "As,",
+          "start": 1.08,
+          "end": 1.26
+        },
+        {
+          "raw": "I",
+          "start": 1.32,
+          "end": 1.36
+        },
+        {
+          "raw": "descended?",
+          "start": 1.36,
+          "end": 1.68
+        }
+      ],
+      "expected_tokens": [
+        "Macbeth.",
+        "As",
+        "I",
+        "descended?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Macbeth,",
+          "start": 0.6,
+          "end": 0.96,
+          "key": "macbeth",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "As,",
+          "start": 1.08,
+          "end": 1.26,
+          "key": "as",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.32,
+          "end": 1.36,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "descended?",
+          "start": 1.36,
+          "end": 1.68,
+          "key": "descended",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Macbeth.",
+          "start": 0.6,
+          "end": 0.96
+        },
+        {
+          "text": "As",
+          "start": 1.08,
+          "end": 1.26
+        },
+        {
+          "text": "I",
+          "start": 1.32,
+          "end": 1.36
+        },
+        {
+          "text": "descended?",
+          "start": 1.36,
+          "end": 1.68
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1772092655301094
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8b0e2b98c6b1670f7620d1a5c83eaa13636a24c00766daa715f1cbd4044b259c",
+  "selected_reasons": []
+}

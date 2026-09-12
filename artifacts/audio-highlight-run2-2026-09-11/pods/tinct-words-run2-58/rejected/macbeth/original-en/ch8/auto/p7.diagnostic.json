@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "e15ff49f33f91c06131de862b64c0de937d623c5ddea0d5cc79c78c2d8907c8f",
+  "attempts": [
+    {
+      "asr_seconds": 0.1243332726880908,
+      "alignment_seconds": 0.0002776850014925003,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Macbeth. A friend.",
+        "hotwords": "Macbeth, A"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Macbeth, A Friend.",
+          "start": 0.5,
+          "end": 1.36,
+          "words": [
+            {
+              "text": " Macbeth,",
+              "start": 0.5,
+              "end": 0.94,
+              "probability": 0.8772786458333334
+            },
+            {
+              "text": " A",
+              "start": 1.04,
+              "end": 1.14,
+              "probability": 0.08599853515625
+            },
+            {
+              "text": " Friend.",
+              "start": 1.14,
+              "end": 1.36,
+              "probability": 0.80419921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Macbeth,",
+          "start": 0.5,
+          "end": 0.94
+        },
+        {
+          "raw": "A",
+          "start": 1.04,
+          "end": 1.14
+        },
+        {
+          "raw": "Friend.",
+          "start": 1.14,
+          "end": 1.36
+        }
+      ],
+      "expected_tokens": [
+        "Macbeth.",
+        "A",
+        "friend."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Macbeth,",
+          "start": 0.5,
+          "end": 0.94,
+          "key": "macbeth",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 1.04,
+          "end": 1.14,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Friend.",
+          "start": 1.14,
+          "end": 1.36,
+          "key": "friend",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Macbeth.",
+          "start": 0.5,
+          "end": 0.94
+        },
+        {
+          "text": "A",
+          "start": 1.04,
+          "end": 1.14
+        },
+        {
+          "text": "friend.",
+          "start": 1.14,
+          "end": 1.36
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12471587117761374
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "408b4e2115d94101492edf20f739ded4c1f1beb2ff97ef1c1331e046f6190b54",
+  "selected_reasons": []
+}

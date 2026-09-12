@@ -1,0 +1,937 @@
+{
+  "complete": true,
+  "signature": "1ce518fb0ec67d731a46a4b2f2e0c3a2c48fbd363044bf44e4023d3261422650",
+  "attempts": [
+    {
+      "asr_seconds": 0.18601304944604635,
+      "alignment_seconds": 0.0004753516986966133,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Thunder. An Apparition of an armed Head rises.]",
+        "hotwords": "Thunder, Apparition, Head"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Thunder, Apparition of an armed Head rises.",
+          "start": 0.08,
+          "end": 2.92,
+          "words": [
+            {
+              "text": " Thunder,",
+              "start": 0.08,
+              "end": 0.74,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " Apparition",
+              "start": 1.16,
+              "end": 1.76,
+              "probability": 0.63444056113561
+            },
+            {
+              "text": " of",
+              "start": 1.76,
+              "end": 1.88,
+              "probability": 0.90087890625
+            },
+            {
+              "text": " an",
+              "start": 1.88,
+              "end": 1.96,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " armed",
+              "start": 1.96,
+              "end": 2.26,
+              "probability": 0.399658203125
+            },
+            {
+              "text": " Head",
+              "start": 2.26,
+              "end": 2.48,
+              "probability": 0.032867431640625
+            },
+            {
+              "text": " rises.",
+              "start": 2.48,
+              "end": 2.92,
+              "probability": 0.285888671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Thunder,",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "raw": "Apparition",
+          "start": 1.16,
+          "end": 1.76
+        },
+        {
+          "raw": "of",
+          "start": 1.76,
+          "end": 1.88
+        },
+        {
+          "raw": "an",
+          "start": 1.88,
+          "end": 1.96
+        },
+        {
+          "raw": "armed",
+          "start": 1.96,
+          "end": 2.26
+        },
+        {
+          "raw": "Head",
+          "start": 2.26,
+          "end": 2.48
+        },
+        {
+          "raw": "rises.",
+          "start": 2.48,
+          "end": 2.92
+        }
+      ],
+      "expected_tokens": [
+        "[Thunder.",
+        "An",
+        "Apparition",
+        "of",
+        "an",
+        "armed",
+        "Head",
+        "rises.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "delete",
+          1,
+          2,
+          1,
+          1
+        ],
+        [
+          "equal",
+          2,
+          8,
+          1,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          1,
+          2,
+          1,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Thunder,",
+          "start": 0.08,
+          "end": 0.74,
+          "key": "thunder",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Apparition",
+          "start": 1.16,
+          "end": 1.76,
+          "key": "apparition",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.76,
+          "end": 1.88,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 1.88,
+          "end": 1.96,
+          "key": "an",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "armed",
+          "start": 1.96,
+          "end": 2.26,
+          "key": "armed",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Head",
+          "start": 2.26,
+          "end": 2.48,
+          "key": "head",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "rises.",
+          "start": 2.48,
+          "end": 2.92,
+          "key": "rises",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Thunder.",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "text": "An",
+          "start": 0.74,
+          "end": 0.95
+        },
+        {
+          "text": "Apparition",
+          "start": 1.16,
+          "end": 1.76
+        },
+        {
+          "text": "of",
+          "start": 1.76,
+          "end": 1.88
+        },
+        {
+          "text": "an",
+          "start": 1.88,
+          "end": 1.96
+        },
+        {
+          "text": "armed",
+          "start": 1.96,
+          "end": 2.26
+        },
+        {
+          "text": "Head",
+          "start": 2.26,
+          "end": 2.48
+        },
+        {
+          "text": "rises.]",
+          "start": 2.48,
+          "end": 2.92
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.1866415347903967
+    },
+    {
+      "asr_seconds": 0.20783151406794786,
+      "alignment_seconds": 0.00046424102038145065,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Thunder, Apparition, Head"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Thunder, Apparition of an Armed Head Rises",
+          "start": 0.08,
+          "end": 2.92,
+          "words": [
+            {
+              "text": " Thunder,",
+              "start": 0.08,
+              "end": 0.74,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " Apparition",
+              "start": 1.16,
+              "end": 1.76,
+              "probability": 0.63444056113561
+            },
+            {
+              "text": " of",
+              "start": 1.76,
+              "end": 1.88,
+              "probability": 0.90087890625
+            },
+            {
+              "text": " an",
+              "start": 1.88,
+              "end": 1.96,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " Armed",
+              "start": 1.96,
+              "end": 2.28,
+              "probability": 0.50146484375
+            },
+            {
+              "text": " Head",
+              "start": 2.28,
+              "end": 2.48,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " Rises",
+              "start": 2.48,
+              "end": 2.92,
+              "probability": 0.92236328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Thunder,",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "raw": "Apparition",
+          "start": 1.16,
+          "end": 1.76
+        },
+        {
+          "raw": "of",
+          "start": 1.76,
+          "end": 1.88
+        },
+        {
+          "raw": "an",
+          "start": 1.88,
+          "end": 1.96
+        },
+        {
+          "raw": "Armed",
+          "start": 1.96,
+          "end": 2.28
+        },
+        {
+          "raw": "Head",
+          "start": 2.28,
+          "end": 2.48
+        },
+        {
+          "raw": "Rises",
+          "start": 2.48,
+          "end": 2.92
+        }
+      ],
+      "expected_tokens": [
+        "[Thunder.",
+        "An",
+        "Apparition",
+        "of",
+        "an",
+        "armed",
+        "Head",
+        "rises.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "delete",
+          1,
+          2,
+          1,
+          1
+        ],
+        [
+          "equal",
+          2,
+          8,
+          1,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          1,
+          2,
+          1,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Thunder,",
+          "start": 0.08,
+          "end": 0.74,
+          "key": "thunder",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Apparition",
+          "start": 1.16,
+          "end": 1.76,
+          "key": "apparition",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.76,
+          "end": 1.88,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 1.88,
+          "end": 1.96,
+          "key": "an",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Armed",
+          "start": 1.96,
+          "end": 2.28,
+          "key": "armed",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Head",
+          "start": 2.28,
+          "end": 2.48,
+          "key": "head",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Rises",
+          "start": 2.48,
+          "end": 2.92,
+          "key": "rises",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Thunder.",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "text": "An",
+          "start": 0.74,
+          "end": 0.95
+        },
+        {
+          "text": "Apparition",
+          "start": 1.16,
+          "end": 1.76
+        },
+        {
+          "text": "of",
+          "start": 1.76,
+          "end": 1.88
+        },
+        {
+          "text": "an",
+          "start": 1.88,
+          "end": 1.96
+        },
+        {
+          "text": "armed",
+          "start": 1.96,
+          "end": 2.28
+        },
+        {
+          "text": "Head",
+          "start": 2.28,
+          "end": 2.48
+        },
+        {
+          "text": "rises.]",
+          "start": 2.48,
+          "end": 2.92
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.20844725240021944
+    },
+    {
+      "asr_seconds": 0.1787157515063882,
+      "alignment_seconds": 0.0003969818353652954,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Thunder, an apparition of an armed head rises.",
+          "start": 0.08,
+          "end": 2.9,
+          "words": [
+            {
+              "text": " Thunder,",
+              "start": 0.08,
+              "end": 0.74,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " an",
+              "start": 1.16,
+              "end": 1.28,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " apparition",
+              "start": 1.28,
+              "end": 1.74,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 1.74,
+              "end": 1.88,
+              "probability": 0.998046875
+            },
+            {
+              "text": " an",
+              "start": 1.88,
+              "end": 1.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " armed",
+              "start": 1.98,
+              "end": 2.28,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " head",
+              "start": 2.28,
+              "end": 2.48,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " rises.",
+              "start": 2.48,
+              "end": 2.9,
+              "probability": 0.98095703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Thunder,",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "raw": "an",
+          "start": 1.16,
+          "end": 1.28
+        },
+        {
+          "raw": "apparition",
+          "start": 1.28,
+          "end": 1.74
+        },
+        {
+          "raw": "of",
+          "start": 1.74,
+          "end": 1.88
+        },
+        {
+          "raw": "an",
+          "start": 1.88,
+          "end": 1.98
+        },
+        {
+          "raw": "armed",
+          "start": 1.98,
+          "end": 2.28
+        },
+        {
+          "raw": "head",
+          "start": 2.28,
+          "end": 2.48
+        },
+        {
+          "raw": "rises.",
+          "start": 2.48,
+          "end": 2.9
+        }
+      ],
+      "expected_tokens": [
+        "[Thunder.",
+        "An",
+        "Apparition",
+        "of",
+        "an",
+        "armed",
+        "Head",
+        "rises.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Thunder,",
+          "start": 0.08,
+          "end": 0.74,
+          "key": "thunder",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 1.16,
+          "end": 1.28,
+          "key": "an",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "apparition",
+          "start": 1.28,
+          "end": 1.74,
+          "key": "apparition",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.74,
+          "end": 1.88,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 1.88,
+          "end": 1.98,
+          "key": "an",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "armed",
+          "start": 1.98,
+          "end": 2.28,
+          "key": "armed",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "head",
+          "start": 2.28,
+          "end": 2.48,
+          "key": "head",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "rises.",
+          "start": 2.48,
+          "end": 2.9,
+          "key": "rises",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Thunder.",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "text": "An",
+          "start": 1.16,
+          "end": 1.28
+        },
+        {
+          "text": "Apparition",
+          "start": 1.28,
+          "end": 1.74
+        },
+        {
+          "text": "of",
+          "start": 1.74,
+          "end": 1.88
+        },
+        {
+          "text": "an",
+          "start": 1.88,
+          "end": 1.98
+        },
+        {
+          "text": "armed",
+          "start": 1.98,
+          "end": 2.28
+        },
+        {
+          "text": "Head",
+          "start": 2.28,
+          "end": 2.48
+        },
+        {
+          "text": "rises.]",
+          "start": 2.48,
+          "end": 2.9
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17925815097987652
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d0e891a9e18247f23bc8c5b4106822dacf0369a4f0f97a1b05f933a877abab83",
+  "selected_reasons": []
+}

@@ -1,0 +1,604 @@
+{
+  "complete": true,
+  "signature": "c13b687f7d809fcc92fa4dc3c1c58d6802380e78a10d86ea50043922538e0f87",
+  "attempts": [
+    {
+      "asr_seconds": 0.30076412856578827,
+      "alignment_seconds": 0.00045467354357242584,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lady Macbeth, these deeds must not be thought after these ways, so it will make us mad.",
+          "start": 0.05,
+          "end": 5.73,
+          "words": [
+            {
+              "text": " Lady",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.7236328125
+            },
+            {
+              "text": " Macbeth,",
+              "start": 0.63,
+              "end": 1.27,
+              "probability": 0.9176432291666666
+            },
+            {
+              "text": " these",
+              "start": 1.63,
+              "end": 1.95,
+              "probability": 0.873046875
+            },
+            {
+              "text": " deeds",
+              "start": 1.95,
+              "end": 2.23,
+              "probability": 0.99609375
+            },
+            {
+              "text": " must",
+              "start": 2.23,
+              "end": 2.49,
+              "probability": 0.99609375
+            },
+            {
+              "text": " not",
+              "start": 2.49,
+              "end": 2.71,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " be",
+              "start": 2.71,
+              "end": 2.85,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " thought",
+              "start": 2.85,
+              "end": 3.09,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " after",
+              "start": 3.09,
+              "end": 3.37,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " these",
+              "start": 3.37,
+              "end": 3.63,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " ways,",
+              "start": 3.63,
+              "end": 3.91,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " so",
+              "start": 4.27,
+              "end": 4.65,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " it",
+              "start": 4.65,
+              "end": 4.99,
+              "probability": 0.76123046875
+            },
+            {
+              "text": " will",
+              "start": 4.99,
+              "end": 5.11,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " make",
+              "start": 5.11,
+              "end": 5.25,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " us",
+              "start": 5.25,
+              "end": 5.45,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " mad.",
+              "start": 5.45,
+              "end": 5.73,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lady",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 0.63,
+          "end": 1.27
+        },
+        {
+          "raw": "these",
+          "start": 1.63,
+          "end": 1.95
+        },
+        {
+          "raw": "deeds",
+          "start": 1.95,
+          "end": 2.23
+        },
+        {
+          "raw": "must",
+          "start": 2.23,
+          "end": 2.49
+        },
+        {
+          "raw": "not",
+          "start": 2.49,
+          "end": 2.71
+        },
+        {
+          "raw": "be",
+          "start": 2.71,
+          "end": 2.85
+        },
+        {
+          "raw": "thought",
+          "start": 2.85,
+          "end": 3.09
+        },
+        {
+          "raw": "after",
+          "start": 3.09,
+          "end": 3.37
+        },
+        {
+          "raw": "these",
+          "start": 3.37,
+          "end": 3.63
+        },
+        {
+          "raw": "ways,",
+          "start": 3.63,
+          "end": 3.91
+        },
+        {
+          "raw": "so",
+          "start": 4.27,
+          "end": 4.65
+        },
+        {
+          "raw": "it",
+          "start": 4.65,
+          "end": 4.99
+        },
+        {
+          "raw": "will",
+          "start": 4.99,
+          "end": 5.11
+        },
+        {
+          "raw": "make",
+          "start": 5.11,
+          "end": 5.25
+        },
+        {
+          "raw": "us",
+          "start": 5.25,
+          "end": 5.45
+        },
+        {
+          "raw": "mad.",
+          "start": 5.45,
+          "end": 5.73
+        }
+      ],
+      "expected_tokens": [
+        "Lady",
+        "Macbeth.",
+        "These",
+        "deeds",
+        "must",
+        "not",
+        "be",
+        "thought",
+        "After",
+        "these",
+        "ways;",
+        "so,",
+        "it",
+        "will",
+        "make",
+        "us",
+        "mad."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lady",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "lady",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 0.63,
+          "end": 1.27,
+          "key": "macbeth",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 1.63,
+          "end": 1.95,
+          "key": "these",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "deeds",
+          "start": 1.95,
+          "end": 2.23,
+          "key": "deeds",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 2.23,
+          "end": 2.49,
+          "key": "must",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.49,
+          "end": 2.71,
+          "key": "not",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.71,
+          "end": 2.85,
+          "key": "be",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thought",
+          "start": 2.85,
+          "end": 3.09,
+          "key": "thought",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 3.09,
+          "end": 3.37,
+          "key": "after",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 3.37,
+          "end": 3.63,
+          "key": "these",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "ways,",
+          "start": 3.63,
+          "end": 3.91,
+          "key": "ways",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 4.27,
+          "end": 4.65,
+          "key": "so",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 4.65,
+          "end": 4.99,
+          "key": "it",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 4.99,
+          "end": 5.11,
+          "key": "will",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 5.11,
+          "end": 5.25,
+          "key": "make",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 5.25,
+          "end": 5.45,
+          "key": "us",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "mad.",
+          "start": 5.45,
+          "end": 5.73,
+          "key": "mad",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lady",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Macbeth.",
+          "start": 0.63,
+          "end": 1.27
+        },
+        {
+          "text": "These",
+          "start": 1.63,
+          "end": 1.95
+        },
+        {
+          "text": "deeds",
+          "start": 1.95,
+          "end": 2.23
+        },
+        {
+          "text": "must",
+          "start": 2.23,
+          "end": 2.49
+        },
+        {
+          "text": "not",
+          "start": 2.49,
+          "end": 2.71
+        },
+        {
+          "text": "be",
+          "start": 2.71,
+          "end": 2.85
+        },
+        {
+          "text": "thought",
+          "start": 2.85,
+          "end": 3.09
+        },
+        {
+          "text": "After",
+          "start": 3.09,
+          "end": 3.37
+        },
+        {
+          "text": "these",
+          "start": 3.37,
+          "end": 3.63
+        },
+        {
+          "text": "ways;",
+          "start": 3.63,
+          "end": 3.91
+        },
+        {
+          "text": "so,",
+          "start": 4.27,
+          "end": 4.65
+        },
+        {
+          "text": "it",
+          "start": 4.65,
+          "end": 4.99
+        },
+        {
+          "text": "will",
+          "start": 4.99,
+          "end": 5.11
+        },
+        {
+          "text": "make",
+          "start": 5.11,
+          "end": 5.25
+        },
+        {
+          "text": "us",
+          "start": 5.25,
+          "end": 5.45
+        },
+        {
+          "text": "mad.",
+          "start": 5.45,
+          "end": 5.73
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3014020901173353
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b1d2d6c9634c015883d4e5001ec08566ed5d2bd94c7408a50dfa981b098d6dd1",
+  "selected_reasons": []
+}

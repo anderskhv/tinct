@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "e27d731aa53d39a5ec1d504e6ebb328ee4453c089e9361099e67b7d06a2c1e9f",
+  "attempts": [
+    {
+      "asr_seconds": 0.12534038070589304,
+      "alignment_seconds": 0.00028992723673582077,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Second Witch, demand.",
+          "start": 0.08,
+          "end": 1.6,
+          "words": [
+            {
+              "text": " Second",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.673828125
+            },
+            {
+              "text": " Witch,",
+              "start": 0.7,
+              "end": 1.02,
+              "probability": 0.693359375
+            },
+            {
+              "text": " demand.",
+              "start": 1.58,
+              "end": 1.6,
+              "probability": 0.63916015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "Witch,",
+          "start": 0.7,
+          "end": 1.02
+        },
+        {
+          "raw": "demand.",
+          "start": 1.58,
+          "end": 1.6
+        }
+      ],
+      "expected_tokens": [
+        "Second",
+        "Witch.",
+        "Demand."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "second",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Witch,",
+          "start": 0.7,
+          "end": 1.02,
+          "key": "witch",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "demand.",
+          "start": 1.58,
+          "end": 1.6,
+          "key": "demand",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Second",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "Witch.",
+          "start": 0.7,
+          "end": 1.02
+        },
+        {
+          "text": "Demand.",
+          "start": 1.58,
+          "end": 1.6
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12574032321572304
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "dfde4a7df87cade9cee5b1df2f770afd546929b32a9b786f8ee9eb32307fa882",
+  "selected_reasons": []
+}

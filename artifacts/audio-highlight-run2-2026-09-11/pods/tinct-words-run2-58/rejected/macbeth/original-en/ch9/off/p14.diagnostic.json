@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "59669577cd8a9473552eb350e76fd53c306e0cd9fd5622c1bd4914c74f9171ef",
+  "attempts": [
+    {
+      "asr_seconds": 0.11888380628079176,
+      "alignment_seconds": 0.00031811557710170746,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " looking on his hands.",
+          "start": 0.02,
+          "end": 1.34,
+          "words": [
+            {
+              "text": " looking",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.509765625
+            },
+            {
+              "text": " on",
+              "start": 0.58,
+              "end": 0.78,
+              "probability": 0.98828125
+            },
+            {
+              "text": " his",
+              "start": 0.78,
+              "end": 0.92,
+              "probability": 0.994140625
+            },
+            {
+              "text": " hands.",
+              "start": 0.92,
+              "end": 1.34,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "looking",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "on",
+          "start": 0.58,
+          "end": 0.78
+        },
+        {
+          "raw": "his",
+          "start": 0.78,
+          "end": 0.92
+        },
+        {
+          "raw": "hands.",
+          "start": 0.92,
+          "end": 1.34
+        }
+      ],
+      "expected_tokens": [
+        "[Looking",
+        "on",
+        "his",
+        "hands.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "looking",
+          "start": 0.02,
+          "end": 0.58,
+          "key": "looking",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 0.58,
+          "end": 0.78,
+          "key": "on",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 0.78,
+          "end": 0.92,
+          "key": "his",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hands.",
+          "start": 0.92,
+          "end": 1.34,
+          "key": "hands",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Looking",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "on",
+          "start": 0.58,
+          "end": 0.78
+        },
+        {
+          "text": "his",
+          "start": 0.78,
+          "end": 0.92
+        },
+        {
+          "text": "hands.]",
+          "start": 0.92,
+          "end": 1.34
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1193278580904007
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c2d1c3e9f5f1bef215e3cef9d61b7cb759fd24e590c76497a25c699f6fdc3c9c",
+  "selected_reasons": []
+}

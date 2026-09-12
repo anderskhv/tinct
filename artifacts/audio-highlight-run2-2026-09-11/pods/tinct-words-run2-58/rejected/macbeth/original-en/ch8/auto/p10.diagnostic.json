@@ -1,0 +1,670 @@
+{
+  "complete": true,
+  "signature": "5aeab1f831e12ea0bea31f9871e0ce4ea7e0096c9bed3d96bc87ba27f206f432",
+  "attempts": [
+    {
+      "asr_seconds": 0.3063636338338256,
+      "alignment_seconds": 0.0006516175344586372,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Banquo. All's well. I dreamt last night of the three Weird Sisters: To you they have show'd some truth.",
+        "hotwords": "Banquo, All's, I, Weird, Sisters, To"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Banquo, All's well. I dreamt last night of the three Weird Sisters. To you they have show'd some truth.",
+          "start": 0.56,
+          "end": 6.16,
+          "words": [
+            {
+              "text": " Banquo,",
+              "start": 0.56,
+              "end": 1.0,
+              "probability": 0.7522786458333334
+            },
+            {
+              "text": " All's",
+              "start": 1.28,
+              "end": 1.44,
+              "probability": 0.3267822265625
+            },
+            {
+              "text": " well.",
+              "start": 1.44,
+              "end": 1.64,
+              "probability": 0.7890625
+            },
+            {
+              "text": " I",
+              "start": 2.2,
+              "end": 2.3,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " dreamt",
+              "start": 2.3,
+              "end": 2.66,
+              "probability": 0.966552734375
+            },
+            {
+              "text": " last",
+              "start": 2.66,
+              "end": 2.88,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " night",
+              "start": 2.88,
+              "end": 3.08,
+              "probability": 0.9921875
+            },
+            {
+              "text": " of",
+              "start": 3.08,
+              "end": 3.2,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " the",
+              "start": 3.2,
+              "end": 3.34,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " three",
+              "start": 3.34,
+              "end": 3.6,
+              "probability": 0.79736328125
+            },
+            {
+              "text": " Weird",
+              "start": 3.6,
+              "end": 3.86,
+              "probability": 0.3212890625
+            },
+            {
+              "text": " Sisters.",
+              "start": 3.86,
+              "end": 4.16,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " To",
+              "start": 4.84,
+              "end": 4.92,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " you",
+              "start": 4.92,
+              "end": 5.08,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " they",
+              "start": 5.08,
+              "end": 5.22,
+              "probability": 0.60546875
+            },
+            {
+              "text": " have",
+              "start": 5.22,
+              "end": 5.38,
+              "probability": 0.990234375
+            },
+            {
+              "text": " show'd",
+              "start": 5.38,
+              "end": 5.7,
+              "probability": 0.24512100219726562
+            },
+            {
+              "text": " some",
+              "start": 5.7,
+              "end": 5.82,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " truth.",
+              "start": 5.82,
+              "end": 6.16,
+              "probability": 0.97705078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Banquo,",
+          "start": 0.56,
+          "end": 1.0
+        },
+        {
+          "raw": "All's",
+          "start": 1.28,
+          "end": 1.44
+        },
+        {
+          "raw": "well.",
+          "start": 1.44,
+          "end": 1.64
+        },
+        {
+          "raw": "I",
+          "start": 2.2,
+          "end": 2.3
+        },
+        {
+          "raw": "dreamt",
+          "start": 2.3,
+          "end": 2.66
+        },
+        {
+          "raw": "last",
+          "start": 2.66,
+          "end": 2.88
+        },
+        {
+          "raw": "night",
+          "start": 2.88,
+          "end": 3.08
+        },
+        {
+          "raw": "of",
+          "start": 3.08,
+          "end": 3.2
+        },
+        {
+          "raw": "the",
+          "start": 3.2,
+          "end": 3.34
+        },
+        {
+          "raw": "three",
+          "start": 3.34,
+          "end": 3.6
+        },
+        {
+          "raw": "Weird",
+          "start": 3.6,
+          "end": 3.86
+        },
+        {
+          "raw": "Sisters.",
+          "start": 3.86,
+          "end": 4.16
+        },
+        {
+          "raw": "To",
+          "start": 4.84,
+          "end": 4.92
+        },
+        {
+          "raw": "you",
+          "start": 4.92,
+          "end": 5.08
+        },
+        {
+          "raw": "they",
+          "start": 5.08,
+          "end": 5.22
+        },
+        {
+          "raw": "have",
+          "start": 5.22,
+          "end": 5.38
+        },
+        {
+          "raw": "show'd",
+          "start": 5.38,
+          "end": 5.7
+        },
+        {
+          "raw": "some",
+          "start": 5.7,
+          "end": 5.82
+        },
+        {
+          "raw": "truth.",
+          "start": 5.82,
+          "end": 6.16
+        }
+      ],
+      "expected_tokens": [
+        "Banquo.",
+        "All's",
+        "well.",
+        "I",
+        "dreamt",
+        "last",
+        "night",
+        "of",
+        "the",
+        "three",
+        "Weird",
+        "Sisters:",
+        "To",
+        "you",
+        "they",
+        "have",
+        "show'd",
+        "some",
+        "truth."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Banquo,",
+          "start": 0.56,
+          "end": 1.0,
+          "key": "banquo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "All's",
+          "start": 1.28,
+          "end": 1.44,
+          "key": "alls",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "well.",
+          "start": 1.44,
+          "end": 1.64,
+          "key": "well",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.2,
+          "end": 2.3,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "dreamt",
+          "start": 2.3,
+          "end": 2.66,
+          "key": "dreamt",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "last",
+          "start": 2.66,
+          "end": 2.88,
+          "key": "last",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "night",
+          "start": 2.88,
+          "end": 3.08,
+          "key": "night",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.08,
+          "end": 3.2,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.2,
+          "end": 3.34,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "three",
+          "start": 3.34,
+          "end": 3.6,
+          "key": "three",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Weird",
+          "start": 3.6,
+          "end": 3.86,
+          "key": "weird",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Sisters.",
+          "start": 3.86,
+          "end": 4.16,
+          "key": "sisters",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 4.84,
+          "end": 4.92,
+          "key": "to",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.92,
+          "end": 5.08,
+          "key": "you",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 5.08,
+          "end": 5.22,
+          "key": "they",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 5.22,
+          "end": 5.38,
+          "key": "have",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "show'd",
+          "start": 5.38,
+          "end": 5.7,
+          "key": "showd",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 5.7,
+          "end": 5.82,
+          "key": "some",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "truth.",
+          "start": 5.82,
+          "end": 6.16,
+          "key": "truth",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Banquo.",
+          "start": 0.56,
+          "end": 1.0
+        },
+        {
+          "text": "All's",
+          "start": 1.28,
+          "end": 1.44
+        },
+        {
+          "text": "well.",
+          "start": 1.44,
+          "end": 1.64
+        },
+        {
+          "text": "I",
+          "start": 2.2,
+          "end": 2.3
+        },
+        {
+          "text": "dreamt",
+          "start": 2.3,
+          "end": 2.66
+        },
+        {
+          "text": "last",
+          "start": 2.66,
+          "end": 2.88
+        },
+        {
+          "text": "night",
+          "start": 2.88,
+          "end": 3.08
+        },
+        {
+          "text": "of",
+          "start": 3.08,
+          "end": 3.2
+        },
+        {
+          "text": "the",
+          "start": 3.2,
+          "end": 3.34
+        },
+        {
+          "text": "three",
+          "start": 3.34,
+          "end": 3.6
+        },
+        {
+          "text": "Weird",
+          "start": 3.6,
+          "end": 3.86
+        },
+        {
+          "text": "Sisters:",
+          "start": 3.86,
+          "end": 4.16
+        },
+        {
+          "text": "To",
+          "start": 4.84,
+          "end": 4.92
+        },
+        {
+          "text": "you",
+          "start": 4.92,
+          "end": 5.08
+        },
+        {
+          "text": "they",
+          "start": 5.08,
+          "end": 5.22
+        },
+        {
+          "text": "have",
+          "start": 5.22,
+          "end": 5.38
+        },
+        {
+          "text": "show'd",
+          "start": 5.38,
+          "end": 5.7
+        },
+        {
+          "text": "some",
+          "start": 5.7,
+          "end": 5.82
+        },
+        {
+          "text": "truth.",
+          "start": 5.82,
+          "end": 6.16
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3072960674762726
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f049c11966e3fcde6b8a1aa58d11b7a8f0f61aa5127293c0aac264af0b3f5b54",
+  "selected_reasons": []
+}

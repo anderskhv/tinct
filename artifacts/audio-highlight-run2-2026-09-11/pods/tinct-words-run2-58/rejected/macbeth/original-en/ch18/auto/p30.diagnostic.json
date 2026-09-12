@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "b6d712976fc309d229bdb3e2c0ecdec11a88c92128d6669d46eed0de72025e23",
+  "attempts": [
+    {
+      "asr_seconds": 0.3095070105046034,
+      "alignment_seconds": 0.0005147047340869904,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Apparition. Macbeth! Macbeth! Macbeth! Beware Macduff; Beware the Thane of Fife.—Dismiss me.—Enough.",
+        "hotwords": "Apparition, Macbeth, Beware, Macduff, Thane, Fife.—Dismiss"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Apparition. Macbeth! Macbeth! Macbeth! Beware Macduff! Beware the Thane of Fife.—Dismiss me.—Enough.",
+          "start": 0.02,
+          "end": 6.4,
+          "words": [
+            {
+              "text": " Apparition.",
+              "start": 0.02,
+              "end": 0.98,
+              "probability": 0.9352213541666666
+            },
+            {
+              "text": " Macbeth!",
+              "start": 1.3,
+              "end": 1.62,
+              "probability": 0.9568684895833334
+            },
+            {
+              "text": " Macbeth!",
+              "start": 1.78,
+              "end": 2.16,
+              "probability": 0.9959309895833334
+            },
+            {
+              "text": " Macbeth!",
+              "start": 2.3,
+              "end": 2.7,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Beware",
+              "start": 2.86,
+              "end": 2.98,
+              "probability": 0.8564453125
+            },
+            {
+              "text": " Macduff!",
+              "start": 2.98,
+              "end": 3.5,
+              "probability": 0.9451497395833334
+            },
+            {
+              "text": " Beware",
+              "start": 3.6,
+              "end": 3.68,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " the",
+              "start": 3.68,
+              "end": 3.9,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " Thane",
+              "start": 3.9,
+              "end": 4.06,
+              "probability": 0.75244140625
+            },
+            {
+              "text": " of",
+              "start": 4.06,
+              "end": 4.24,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Fife.—Dismiss",
+              "start": 4.24,
+              "end": 5.32,
+              "probability": 0.6646730105082194
+            },
+            {
+              "text": " me.—Enough.",
+              "start": 5.32,
+              "end": 6.4,
+              "probability": 0.5866260528564453
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Apparition.",
+          "start": 0.02,
+          "end": 0.98
+        },
+        {
+          "raw": "Macbeth!",
+          "start": 1.3,
+          "end": 1.62
+        },
+        {
+          "raw": "Macbeth!",
+          "start": 1.78,
+          "end": 2.16
+        },
+        {
+          "raw": "Macbeth!",
+          "start": 2.3,
+          "end": 2.7
+        },
+        {
+          "raw": "Beware",
+          "start": 2.86,
+          "end": 2.98
+        },
+        {
+          "raw": "Macduff!",
+          "start": 2.98,
+          "end": 3.5
+        },
+        {
+          "raw": "Beware",
+          "start": 3.6,
+          "end": 3.68
+        },
+        {
+          "raw": "the",
+          "start": 3.68,
+          "end": 3.9
+        },
+        {
+          "raw": "Thane",
+          "start": 3.9,
+          "end": 4.06
+        },
+        {
+          "raw": "of",
+          "start": 4.06,
+          "end": 4.24
+        },
+        {
+          "raw": "Fife.—Dismiss",
+          "start": 4.24,
+          "end": 5.32
+        },
+        {
+          "raw": "me.—Enough.",
+          "start": 5.32,
+          "end": 6.4
+        }
+      ],
+      "expected_tokens": [
+        "Apparition.",
+        "Macbeth!",
+        "Macbeth!",
+        "Macbeth!",
+        "Beware",
+        "Macduff;",
+        "Beware",
+        "the",
+        "Thane",
+        "of",
+        "Fife.—Dismiss",
+        "me.—Enough."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Apparition.",
+          "start": 0.02,
+          "end": 0.98,
+          "key": "apparition",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Macbeth!",
+          "start": 1.3,
+          "end": 1.62,
+          "key": "macbeth",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Macbeth!",
+          "start": 1.78,
+          "end": 2.16,
+          "key": "macbeth",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Macbeth!",
+          "start": 2.3,
+          "end": 2.7,
+          "key": "macbeth",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Beware",
+          "start": 2.86,
+          "end": 2.98,
+          "key": "beware",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Macduff!",
+          "start": 2.98,
+          "end": 3.5,
+          "key": "macduff",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Beware",
+          "start": 3.6,
+          "end": 3.68,
+          "key": "beware",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.68,
+          "end": 3.9,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Thane",
+          "start": 3.9,
+          "end": 4.06,
+          "key": "thane",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.06,
+          "end": 4.24,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Fife.—Dismiss",
+          "start": 4.24,
+          "end": 5.32,
+          "key": "fifedismiss",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "me.—Enough.",
+          "start": 5.32,
+          "end": 6.4,
+          "key": "meenough",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Apparition.",
+          "start": 0.02,
+          "end": 0.98
+        },
+        {
+          "text": "Macbeth!",
+          "start": 1.3,
+          "end": 1.62
+        },
+        {
+          "text": "Macbeth!",
+          "start": 1.78,
+          "end": 2.16
+        },
+        {
+          "text": "Macbeth!",
+          "start": 2.3,
+          "end": 2.7
+        },
+        {
+          "text": "Beware",
+          "start": 2.86,
+          "end": 2.98
+        },
+        {
+          "text": "Macduff;",
+          "start": 2.98,
+          "end": 3.5
+        },
+        {
+          "text": "Beware",
+          "start": 3.6,
+          "end": 3.68
+        },
+        {
+          "text": "the",
+          "start": 3.68,
+          "end": 3.9
+        },
+        {
+          "text": "Thane",
+          "start": 3.9,
+          "end": 4.06
+        },
+        {
+          "text": "of",
+          "start": 4.06,
+          "end": 4.24
+        },
+        {
+          "text": "Fife.—Dismiss",
+          "start": 4.24,
+          "end": 5.32
+        },
+        {
+          "text": "me.—Enough.",
+          "start": 5.32,
+          "end": 6.4
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3102330816909671
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "85727f11fd4624751ff31f75097bb1e4c8ad366e2c5e6ca0d0b1d45be53c1350",
+  "selected_reasons": []
+}

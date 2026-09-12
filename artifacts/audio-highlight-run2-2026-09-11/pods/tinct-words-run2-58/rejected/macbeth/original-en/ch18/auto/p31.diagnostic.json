@@ -1,0 +1,136 @@
+{
+  "complete": true,
+  "signature": "8e2dacc182e3ecbd6848d6f51013a7b5a0d61f58171ba2124d32d45572b4d160",
+  "attempts": [
+    {
+      "asr_seconds": 3.1052318131551147,
+      "alignment_seconds": 0.00023924466222524643,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Descends.]",
+        "hotwords": "Descends"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Descends",
+          "start": 0.05,
+          "end": 1.01,
+          "words": [
+            {
+              "text": " Descends",
+              "start": 0.05,
+              "end": 1.01,
+              "probability": 0.5004873275756836
+            }
+          ]
+        },
+        {
+          "text": " Descends.",
+          "start": 1.01,
+          "end": 1.33,
+          "words": [
+            {
+              "text": " Descends.",
+              "start": 1.01,
+              "end": 1.33,
+              "probability": 0.02496469020843506
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Descends",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "raw": "Descends.",
+          "start": 1.01,
+          "end": 1.33
+        }
+      ],
+      "expected_tokens": [
+        "[Descends.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "insert",
+          1,
+          1,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          1,
+          1,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Descends",
+          "start": 0.05,
+          "end": 1.01,
+          "key": "descends",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Descends.",
+          "start": 1.01,
+          "end": 1.33,
+          "key": "descends",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Descends.]",
+          "start": 0.05,
+          "end": 1.01
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 3.1055688578635454
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3a8c2f3367b8463254b39564a1e64e3fca55c29c2c9eab9babb00813301d0c96",
+  "selected_reasons": []
+}

@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "dd7a55f486d890c757a91abe9cb0dee1f5514d3fba10b9496565b1564b006c11",
+  "attempts": [
+    {
+      "asr_seconds": 0.1766674965620041,
+      "alignment_seconds": 0.0003478182479739189,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Richard, say that I slew them not.",
+          "start": 0.02,
+          "end": 2.22,
+          "words": [
+            {
+              "text": " Richard,",
+              "start": 0.02,
+              "end": 0.76,
+              "probability": 0.7958984375
+            },
+            {
+              "text": " say",
+              "start": 1.18,
+              "end": 1.34,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " that",
+              "start": 1.34,
+              "end": 1.48,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " I",
+              "start": 1.48,
+              "end": 1.6,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " slew",
+              "start": 1.6,
+              "end": 1.8,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " them",
+              "start": 1.8,
+              "end": 1.94,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " not.",
+              "start": 1.94,
+              "end": 2.22,
+              "probability": 0.98828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Richard,",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "raw": "say",
+          "start": 1.18,
+          "end": 1.34
+        },
+        {
+          "raw": "that",
+          "start": 1.34,
+          "end": 1.48
+        },
+        {
+          "raw": "I",
+          "start": 1.48,
+          "end": 1.6
+        },
+        {
+          "raw": "slew",
+          "start": 1.6,
+          "end": 1.8
+        },
+        {
+          "raw": "them",
+          "start": 1.8,
+          "end": 1.94
+        },
+        {
+          "raw": "not.",
+          "start": 1.94,
+          "end": 2.22
+        }
+      ],
+      "expected_tokens": [
+        "Richard.",
+        "Say",
+        "that",
+        "I",
+        "slew",
+        "them",
+        "not?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Richard,",
+          "start": 0.02,
+          "end": 0.76,
+          "key": "richard",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 1.18,
+          "end": 1.34,
+          "key": "say",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.34,
+          "end": 1.48,
+          "key": "that",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.48,
+          "end": 1.6,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "slew",
+          "start": 1.6,
+          "end": 1.8,
+          "key": "slew",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 1.8,
+          "end": 1.94,
+          "key": "them",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "not.",
+          "start": 1.94,
+          "end": 2.22,
+          "key": "not",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Richard.",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "text": "Say",
+          "start": 1.18,
+          "end": 1.34
+        },
+        {
+          "text": "that",
+          "start": 1.34,
+          "end": 1.48
+        },
+        {
+          "text": "I",
+          "start": 1.48,
+          "end": 1.6
+        },
+        {
+          "text": "slew",
+          "start": 1.6,
+          "end": 1.8
+        },
+        {
+          "text": "them",
+          "start": 1.8,
+          "end": 1.94
+        },
+        {
+          "text": "not?",
+          "start": 1.94,
+          "end": 2.22
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17715122643858194
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "effa974d9ad56bb30f096d34461f256cd95c17bf2cd862517723a0aeebc57786",
+  "selected_reasons": []
+}

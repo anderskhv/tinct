@@ -1,0 +1,182 @@
+{
+  "complete": true,
+  "signature": "ee414535fa2697c18762491511ad3290260d293ccd79a4aa4f16bb0f75916ff5",
+  "attempts": [
+    {
+      "asr_seconds": 0.11268573626875877,
+      "alignment_seconds": 0.00030227284878492355,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Dies, Fleens escapes.",
+          "start": 0.05,
+          "end": 1.71,
+          "words": [
+            {
+              "text": " Dies,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.7147216796875
+            },
+            {
+              "text": " Fleens",
+              "start": 1.21,
+              "end": 1.35,
+              "probability": 0.5660400390625
+            },
+            {
+              "text": " escapes.",
+              "start": 1.35,
+              "end": 1.71,
+              "probability": 0.90576171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dies,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "Fleens",
+          "start": 1.21,
+          "end": 1.35
+        },
+        {
+          "raw": "escapes.",
+          "start": 1.35,
+          "end": 1.71
+        }
+      ],
+      "expected_tokens": [
+        "[Dies.",
+        "Fleance",
+        "escapes.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dies,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "dies",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Fleens",
+          "start": 1.21,
+          "end": 1.35,
+          "key": "fleens",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "escapes.",
+          "start": 1.35,
+          "end": 1.71,
+          "key": "escapes",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Dies.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "Fleance",
+          "start": 0.83,
+          "end": 1.09
+        },
+        {
+          "text": "escapes.]",
+          "start": 1.35,
+          "end": 1.71
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11308389529585838
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f213c935ccbb50012226ce8a5c6115a1566a3761c54f1b4779d2c4f2e139b2c1",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

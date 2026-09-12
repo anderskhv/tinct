@@ -1,0 +1,604 @@
+{
+  "complete": true,
+  "signature": "eadf95e660de5e9fa5de1016f614da7b7cf32d03fecc7dc3aa67c48c39943463",
+  "attempts": [
+    {
+      "asr_seconds": 0.17585780192166567,
+      "alignment_seconds": 0.0003771428018808365,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lady Macbeth. Consider it not so deeply.",
+        "hotwords": "Lady, Macbeth, Consider"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lady Macbeth, Consider Lady Macbeth not so deeply.",
+          "start": 0.02,
+          "end": 2.62,
+          "words": [
+            {
+              "text": " Lady",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.85498046875
+            },
+            {
+              "text": " Macbeth,",
+              "start": 0.64,
+              "end": 1.22,
+              "probability": 0.9200846354166666
+            },
+            {
+              "text": " Consider",
+              "start": 1.6,
+              "end": 1.82,
+              "probability": 0.07220458984375
+            },
+            {
+              "text": " Lady",
+              "start": 1.82,
+              "end": 2.02,
+              "probability": 0.0
+            },
+            {
+              "text": " Macbeth",
+              "start": 2.02,
+              "end": 2.02,
+              "probability": 0.9778645833333334
+            },
+            {
+              "text": " not",
+              "start": 2.02,
+              "end": 2.08,
+              "probability": 0.375
+            },
+            {
+              "text": " so",
+              "start": 2.08,
+              "end": 2.3,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " deeply.",
+              "start": 2.3,
+              "end": 2.62,
+              "probability": 0.98095703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lady",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 0.64,
+          "end": 1.22
+        },
+        {
+          "raw": "Consider",
+          "start": 1.6,
+          "end": 1.82
+        },
+        {
+          "raw": "Lady",
+          "start": 1.82,
+          "end": 2.02
+        },
+        {
+          "raw": "Macbeth",
+          "start": 2.02,
+          "end": 2.02
+        },
+        {
+          "raw": "not",
+          "start": 2.02,
+          "end": 2.08
+        },
+        {
+          "raw": "so",
+          "start": 2.08,
+          "end": 2.3
+        },
+        {
+          "raw": "deeply.",
+          "start": 2.3,
+          "end": 2.62
+        }
+      ],
+      "expected_tokens": [
+        "Lady",
+        "Macbeth.",
+        "Consider",
+        "it",
+        "not",
+        "so",
+        "deeply."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          7,
+          5,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lady",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "lady",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 0.64,
+          "end": 1.22,
+          "key": "macbeth",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Consider",
+          "start": 1.6,
+          "end": 1.82,
+          "key": "consider",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Lady",
+          "start": 1.82,
+          "end": 2.02,
+          "key": "lady",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Macbeth",
+          "start": 2.02,
+          "end": 2.02,
+          "key": "macbeth",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.02,
+          "end": 2.08,
+          "key": "not",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 2.08,
+          "end": 2.3,
+          "key": "so",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "deeply.",
+          "start": 2.3,
+          "end": 2.62,
+          "key": "deeply",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lady",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "Macbeth.",
+          "start": 0.64,
+          "end": 1.22
+        },
+        {
+          "text": "Consider",
+          "start": 1.6,
+          "end": 1.82
+        },
+        {
+          "text": "it",
+          "start": 1.82,
+          "end": 1.92
+        },
+        {
+          "text": "not",
+          "start": 2.02,
+          "end": 2.08
+        },
+        {
+          "text": "so",
+          "start": 2.08,
+          "end": 2.3
+        },
+        {
+          "text": "deeply.",
+          "start": 2.3,
+          "end": 2.62
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 8,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.1763734593987465
+    },
+    {
+      "asr_seconds": 0.1934121297672391,
+      "alignment_seconds": 0.0003964323550462723,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Lady, Macbeth, Consider"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Lady Macbeth, Consider it not so deeply.",
+          "start": 0.02,
+          "end": 2.62,
+          "words": [
+            {
+              "text": " Lady",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.85693359375
+            },
+            {
+              "text": " Macbeth,",
+              "start": 0.62,
+              "end": 1.22,
+              "probability": 0.9195963541666666
+            },
+            {
+              "text": " Consider",
+              "start": 1.6,
+              "end": 1.82,
+              "probability": 0.07220458984375
+            },
+            {
+              "text": " it",
+              "start": 1.82,
+              "end": 1.98,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " not",
+              "start": 1.98,
+              "end": 2.1,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " so",
+              "start": 2.1,
+              "end": 2.3,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " deeply.",
+              "start": 2.3,
+              "end": 2.62,
+              "probability": 0.990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lady",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 0.62,
+          "end": 1.22
+        },
+        {
+          "raw": "Consider",
+          "start": 1.6,
+          "end": 1.82
+        },
+        {
+          "raw": "it",
+          "start": 1.82,
+          "end": 1.98
+        },
+        {
+          "raw": "not",
+          "start": 1.98,
+          "end": 2.1
+        },
+        {
+          "raw": "so",
+          "start": 2.1,
+          "end": 2.3
+        },
+        {
+          "raw": "deeply.",
+          "start": 2.3,
+          "end": 2.62
+        }
+      ],
+      "expected_tokens": [
+        "Lady",
+        "Macbeth.",
+        "Consider",
+        "it",
+        "not",
+        "so",
+        "deeply."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lady",
+          "start": 0.02,
+          "end": 0.62,
+          "key": "lady",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 0.62,
+          "end": 1.22,
+          "key": "macbeth",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Consider",
+          "start": 1.6,
+          "end": 1.82,
+          "key": "consider",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.82,
+          "end": 1.98,
+          "key": "it",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.98,
+          "end": 2.1,
+          "key": "not",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 2.1,
+          "end": 2.3,
+          "key": "so",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "deeply.",
+          "start": 2.3,
+          "end": 2.62,
+          "key": "deeply",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lady",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "text": "Macbeth.",
+          "start": 0.62,
+          "end": 1.22
+        },
+        {
+          "text": "Consider",
+          "start": 1.6,
+          "end": 1.82
+        },
+        {
+          "text": "it",
+          "start": 1.82,
+          "end": 1.98
+        },
+        {
+          "text": "not",
+          "start": 1.98,
+          "end": 2.1
+        },
+        {
+          "text": "so",
+          "start": 2.1,
+          "end": 2.3
+        },
+        {
+          "text": "deeply.",
+          "start": 2.3,
+          "end": 2.62
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19395865686237812
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "5179fec89ddc68a9f0327d98427507749e3ec6026dec3e0bc878fcc6502987b7",
+  "selected_reasons": []
+}

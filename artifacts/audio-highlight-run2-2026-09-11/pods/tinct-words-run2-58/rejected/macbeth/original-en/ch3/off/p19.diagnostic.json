@@ -1,0 +1,427 @@
+{
+  "complete": true,
+  "signature": "63ae984ce9262479fd4d6bca0c59bdebe82dd8f7af5a2cf5e85e1eb89cfbc83b",
+  "attempts": [
+    {
+      "asr_seconds": 0.1909620761871338,
+      "alignment_seconds": 0.00042552780359983444,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Second Witch, all hail Macbeth, hail to thee, Thane of Kador.",
+          "start": 0.08,
+          "end": 3.74,
+          "words": [
+            {
+              "text": " Second",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.4951171875
+            },
+            {
+              "text": " Witch,",
+              "start": 0.68,
+              "end": 0.94,
+              "probability": 0.552734375
+            },
+            {
+              "text": " all",
+              "start": 1.38,
+              "end": 1.46,
+              "probability": 0.454833984375
+            },
+            {
+              "text": " hail",
+              "start": 1.46,
+              "end": 1.64,
+              "probability": 0.869140625
+            },
+            {
+              "text": " Macbeth,",
+              "start": 1.64,
+              "end": 2.18,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " hail",
+              "start": 2.54,
+              "end": 2.58,
+              "probability": 0.703125
+            },
+            {
+              "text": " to",
+              "start": 2.58,
+              "end": 2.78,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " thee,",
+              "start": 2.78,
+              "end": 3.0,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " Thane",
+              "start": 3.1,
+              "end": 3.32,
+              "probability": 0.67333984375
+            },
+            {
+              "text": " of",
+              "start": 3.32,
+              "end": 3.46,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Kador.",
+              "start": 3.46,
+              "end": 3.74,
+              "probability": 0.4580078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "Witch,",
+          "start": 0.68,
+          "end": 0.94
+        },
+        {
+          "raw": "all",
+          "start": 1.38,
+          "end": 1.46
+        },
+        {
+          "raw": "hail",
+          "start": 1.46,
+          "end": 1.64
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 1.64,
+          "end": 2.18
+        },
+        {
+          "raw": "hail",
+          "start": 2.54,
+          "end": 2.58
+        },
+        {
+          "raw": "to",
+          "start": 2.58,
+          "end": 2.78
+        },
+        {
+          "raw": "thee,",
+          "start": 2.78,
+          "end": 3.0
+        },
+        {
+          "raw": "Thane",
+          "start": 3.1,
+          "end": 3.32
+        },
+        {
+          "raw": "of",
+          "start": 3.32,
+          "end": 3.46
+        },
+        {
+          "raw": "Kador.",
+          "start": 3.46,
+          "end": 3.74
+        }
+      ],
+      "expected_tokens": [
+        "Second",
+        "Witch.",
+        "All",
+        "hail,",
+        "Macbeth!",
+        "hail",
+        "to",
+        "thee,",
+        "Thane",
+        "of",
+        "Cawdor!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "second",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Witch,",
+          "start": 0.68,
+          "end": 0.94,
+          "key": "witch",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.38,
+          "end": 1.46,
+          "key": "all",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hail",
+          "start": 1.46,
+          "end": 1.64,
+          "key": "hail",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 1.64,
+          "end": 2.18,
+          "key": "macbeth",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "hail",
+          "start": 2.54,
+          "end": 2.58,
+          "key": "hail",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.58,
+          "end": 2.78,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thee,",
+          "start": 2.78,
+          "end": 3.0,
+          "key": "thee",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Thane",
+          "start": 3.1,
+          "end": 3.32,
+          "key": "thane",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.32,
+          "end": 3.46,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Kador.",
+          "start": 3.46,
+          "end": 3.74,
+          "key": "kador",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Second",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "Witch.",
+          "start": 0.68,
+          "end": 0.94
+        },
+        {
+          "text": "All",
+          "start": 1.38,
+          "end": 1.46
+        },
+        {
+          "text": "hail,",
+          "start": 1.46,
+          "end": 1.64
+        },
+        {
+          "text": "Macbeth!",
+          "start": 1.64,
+          "end": 2.18
+        },
+        {
+          "text": "hail",
+          "start": 2.54,
+          "end": 2.58
+        },
+        {
+          "text": "to",
+          "start": 2.58,
+          "end": 2.78
+        },
+        {
+          "text": "thee,",
+          "start": 2.78,
+          "end": 3.0
+        },
+        {
+          "text": "Thane",
+          "start": 3.1,
+          "end": 3.32
+        },
+        {
+          "text": "of",
+          "start": 3.32,
+          "end": 3.46
+        },
+        {
+          "text": "Cawdor!",
+          "start": 3.46,
+          "end": 3.6
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.19153850432485342
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "da2ba432570e911961922bd568df06f52e16b78ce7b102734670788e72e89076",
+  "selected_reasons": []
+}

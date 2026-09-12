@@ -1,0 +1,7677 @@
+{
+  "complete": true,
+  "signature": "b8fb4080a0584bfe051d4d19f61be9b257dfe75c601e22b56f0db2f196bd5b38",
+  "attempts": [
+    {
+      "asr_seconds": 0.7558350181207061,
+      "alignment_seconds": 0.0013860492035746574,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "First Witch. I myself have all the other, And the very ports they blow, All the quarters that they know I' the shipman's card. I will drain him dry as hay: Sleep shall neither night nor day Hang upon his pent-house lid; He shall live a man forbid. Weary sev'n-nights nine times nine, Shall he dwindle, peak, and pine: Though his bark cannot be lost, Yet it shall be tempest-tost. Look what I have.",
+        "hotwords": "First, Witch, I, Sleep, Hang, Weary, Though, Yet, Look"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " First Witch, I myself have all the other, And the very ports they blow, All the quarters",
+          "start": 0.05,
+          "end": 4.83,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.51806640625
+            },
+            {
+              "text": " Witch,",
+              "start": 0.67,
+              "end": 0.97,
+              "probability": 0.08502197265625
+            },
+            {
+              "text": " I",
+              "start": 1.55,
+              "end": 1.57,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " myself",
+              "start": 1.57,
+              "end": 1.83,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " have",
+              "start": 1.83,
+              "end": 2.09,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " all",
+              "start": 2.09,
+              "end": 2.29,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 2.29,
+              "end": 2.43,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " other,",
+              "start": 2.43,
+              "end": 2.63,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " And",
+              "start": 2.79,
+              "end": 2.83,
+              "probability": 0.3271484375
+            },
+            {
+              "text": " the",
+              "start": 2.83,
+              "end": 2.95,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " very",
+              "start": 2.95,
+              "end": 3.13,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " ports",
+              "start": 3.13,
+              "end": 3.45,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " they",
+              "start": 3.45,
+              "end": 3.71,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " blow,",
+              "start": 3.71,
+              "end": 3.95,
+              "probability": 0.994140625
+            },
+            {
+              "text": " All",
+              "start": 4.27,
+              "end": 4.41,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " the",
+              "start": 4.41,
+              "end": 4.55,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " quarters",
+              "start": 4.55,
+              "end": 4.83,
+              "probability": 0.97509765625
+            }
+          ]
+        },
+        {
+          "text": " that they know I' the shipman's card. I will drain him dry as hay. Sleep shall neither",
+          "start": 4.83,
+          "end": 9.59,
+          "words": [
+            {
+              "text": " that",
+              "start": 4.83,
+              "end": 5.13,
+              "probability": 0.904296875
+            },
+            {
+              "text": " they",
+              "start": 5.13,
+              "end": 5.27,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " know",
+              "start": 5.27,
+              "end": 5.45,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " I'",
+              "start": 5.45,
+              "end": 5.65,
+              "probability": 0.68115234375
+            },
+            {
+              "text": " the",
+              "start": 5.73,
+              "end": 5.83,
+              "probability": 0.83984375
+            },
+            {
+              "text": " shipman's",
+              "start": 5.83,
+              "end": 6.27,
+              "probability": 0.6613871256510416
+            },
+            {
+              "text": " card.",
+              "start": 6.27,
+              "end": 6.51,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " I",
+              "start": 7.15,
+              "end": 7.29,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " will",
+              "start": 7.29,
+              "end": 7.39,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " drain",
+              "start": 7.39,
+              "end": 7.57,
+              "probability": 0.98828125
+            },
+            {
+              "text": " him",
+              "start": 7.57,
+              "end": 7.77,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " dry",
+              "start": 7.77,
+              "end": 7.99,
+              "probability": 0.98046875
+            },
+            {
+              "text": " as",
+              "start": 7.99,
+              "end": 8.19,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " hay.",
+              "start": 8.19,
+              "end": 8.45,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Sleep",
+              "start": 9.17,
+              "end": 9.19,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " shall",
+              "start": 9.19,
+              "end": 9.41,
+              "probability": 0.982421875
+            },
+            {
+              "text": " neither",
+              "start": 9.41,
+              "end": 9.59,
+              "probability": 0.9931640625
+            }
+          ]
+        },
+        {
+          "text": " night nor day Hang upon his pent-house lid. He shall live a man forbid. Weary sev'n-nights",
+          "start": 9.59,
+          "end": 15.03,
+          "words": [
+            {
+              "text": " night",
+              "start": 9.59,
+              "end": 9.91,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " nor",
+              "start": 9.91,
+              "end": 10.09,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " day",
+              "start": 10.09,
+              "end": 10.41,
+              "probability": 0.98046875
+            },
+            {
+              "text": " Hang",
+              "start": 10.41,
+              "end": 10.65,
+              "probability": 0.5283203125
+            },
+            {
+              "text": " upon",
+              "start": 10.65,
+              "end": 10.95,
+              "probability": 0.98046875
+            },
+            {
+              "text": " his",
+              "start": 10.95,
+              "end": 11.13,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " pent",
+              "start": 11.13,
+              "end": 11.33,
+              "probability": 0.93212890625
+            },
+            {
+              "text": "-house",
+              "start": 11.33,
+              "end": 11.59,
+              "probability": 0.6544189453125
+            },
+            {
+              "text": " lid.",
+              "start": 11.59,
+              "end": 11.85,
+              "probability": 0.927734375
+            },
+            {
+              "text": " He",
+              "start": 12.27,
+              "end": 12.37,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " shall",
+              "start": 12.37,
+              "end": 12.51,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " live",
+              "start": 12.51,
+              "end": 12.67,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 12.67,
+              "end": 12.79,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " man",
+              "start": 12.79,
+              "end": 12.97,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " forbid.",
+              "start": 12.97,
+              "end": 13.33,
+              "probability": 0.560546875
+            },
+            {
+              "text": " Weary",
+              "start": 14.25,
+              "end": 14.55,
+              "probability": 0.944580078125
+            },
+            {
+              "text": " sev",
+              "start": 14.55,
+              "end": 14.79,
+              "probability": 0.27089881896972656
+            },
+            {
+              "text": "'n",
+              "start": 14.79,
+              "end": 14.83,
+              "probability": 0.52935791015625
+            },
+            {
+              "text": "-nights",
+              "start": 14.83,
+              "end": 15.03,
+              "probability": 0.49738502502441406
+            }
+          ]
+        },
+        {
+          "text": " nine times nine, Shall he dwindle, peak, and pine, Though his bark cannot be lost, Yet",
+          "start": 15.03,
+          "end": 20.25,
+          "words": [
+            {
+              "text": " nine",
+              "start": 15.03,
+              "end": 15.33,
+              "probability": 0.73876953125
+            },
+            {
+              "text": " times",
+              "start": 15.33,
+              "end": 15.67,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " nine,",
+              "start": 15.67,
+              "end": 16.11,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " Shall",
+              "start": 16.41,
+              "end": 16.47,
+              "probability": 0.97265625
+            },
+            {
+              "text": " he",
+              "start": 16.47,
+              "end": 16.61,
+              "probability": 0.99609375
+            },
+            {
+              "text": " dwindle,",
+              "start": 16.61,
+              "end": 17.09,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " peak,",
+              "start": 17.27,
+              "end": 17.45,
+              "probability": 0.623046875
+            },
+            {
+              "text": " and",
+              "start": 17.65,
+              "end": 17.73,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " pine,",
+              "start": 17.73,
+              "end": 18.03,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " Though",
+              "start": 18.47,
+              "end": 18.63,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " his",
+              "start": 18.63,
+              "end": 18.81,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " bark",
+              "start": 18.81,
+              "end": 19.05,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " cannot",
+              "start": 19.05,
+              "end": 19.29,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " be",
+              "start": 19.29,
+              "end": 19.59,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " lost,",
+              "start": 19.59,
+              "end": 19.93,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Yet",
+              "start": 20.15,
+              "end": 20.25,
+              "probability": 0.765625
+            }
+          ]
+        },
+        {
+          "text": " it shall be tempest-tost. Look what I have.",
+          "start": 20.25,
+          "end": 22.75,
+          "words": [
+            {
+              "text": " it",
+              "start": 20.25,
+              "end": 20.39,
+              "probability": 0.98828125
+            },
+            {
+              "text": " shall",
+              "start": 20.39,
+              "end": 20.49,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " be",
+              "start": 20.49,
+              "end": 20.69,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " tempest",
+              "start": 20.69,
+              "end": 21.13,
+              "probability": 0.98681640625
+            },
+            {
+              "text": "-tost.",
+              "start": 21.13,
+              "end": 21.43,
+              "probability": 0.6298014322916666
+            },
+            {
+              "text": " Look",
+              "start": 21.97,
+              "end": 22.11,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " what",
+              "start": 22.11,
+              "end": 22.25,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " I",
+              "start": 22.25,
+              "end": 22.39,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " have.",
+              "start": 22.39,
+              "end": 22.75,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Witch,",
+          "start": 0.67,
+          "end": 0.97
+        },
+        {
+          "raw": "I",
+          "start": 1.55,
+          "end": 1.57
+        },
+        {
+          "raw": "myself",
+          "start": 1.57,
+          "end": 1.83
+        },
+        {
+          "raw": "have",
+          "start": 1.83,
+          "end": 2.09
+        },
+        {
+          "raw": "all",
+          "start": 2.09,
+          "end": 2.29
+        },
+        {
+          "raw": "the",
+          "start": 2.29,
+          "end": 2.43
+        },
+        {
+          "raw": "other,",
+          "start": 2.43,
+          "end": 2.63
+        },
+        {
+          "raw": "And",
+          "start": 2.79,
+          "end": 2.83
+        },
+        {
+          "raw": "the",
+          "start": 2.83,
+          "end": 2.95
+        },
+        {
+          "raw": "very",
+          "start": 2.95,
+          "end": 3.13
+        },
+        {
+          "raw": "ports",
+          "start": 3.13,
+          "end": 3.45
+        },
+        {
+          "raw": "they",
+          "start": 3.45,
+          "end": 3.71
+        },
+        {
+          "raw": "blow,",
+          "start": 3.71,
+          "end": 3.95
+        },
+        {
+          "raw": "All",
+          "start": 4.27,
+          "end": 4.41
+        },
+        {
+          "raw": "the",
+          "start": 4.41,
+          "end": 4.55
+        },
+        {
+          "raw": "quarters",
+          "start": 4.55,
+          "end": 4.83
+        },
+        {
+          "raw": "that",
+          "start": 4.83,
+          "end": 5.13
+        },
+        {
+          "raw": "they",
+          "start": 5.13,
+          "end": 5.27
+        },
+        {
+          "raw": "know",
+          "start": 5.27,
+          "end": 5.45
+        },
+        {
+          "raw": "I'",
+          "start": 5.45,
+          "end": 5.65
+        },
+        {
+          "raw": "the",
+          "start": 5.73,
+          "end": 5.83
+        },
+        {
+          "raw": "shipman's",
+          "start": 5.83,
+          "end": 6.27
+        },
+        {
+          "raw": "card.",
+          "start": 6.27,
+          "end": 6.51
+        },
+        {
+          "raw": "I",
+          "start": 7.15,
+          "end": 7.29
+        },
+        {
+          "raw": "will",
+          "start": 7.29,
+          "end": 7.39
+        },
+        {
+          "raw": "drain",
+          "start": 7.39,
+          "end": 7.57
+        },
+        {
+          "raw": "him",
+          "start": 7.57,
+          "end": 7.77
+        },
+        {
+          "raw": "dry",
+          "start": 7.77,
+          "end": 7.99
+        },
+        {
+          "raw": "as",
+          "start": 7.99,
+          "end": 8.19
+        },
+        {
+          "raw": "hay.",
+          "start": 8.19,
+          "end": 8.45
+        },
+        {
+          "raw": "Sleep",
+          "start": 9.17,
+          "end": 9.19
+        },
+        {
+          "raw": "shall",
+          "start": 9.19,
+          "end": 9.41
+        },
+        {
+          "raw": "neither",
+          "start": 9.41,
+          "end": 9.59
+        },
+        {
+          "raw": "night",
+          "start": 9.59,
+          "end": 9.91
+        },
+        {
+          "raw": "nor",
+          "start": 9.91,
+          "end": 10.09
+        },
+        {
+          "raw": "day",
+          "start": 10.09,
+          "end": 10.41
+        },
+        {
+          "raw": "Hang",
+          "start": 10.41,
+          "end": 10.65
+        },
+        {
+          "raw": "upon",
+          "start": 10.65,
+          "end": 10.95
+        },
+        {
+          "raw": "his",
+          "start": 10.95,
+          "end": 11.13
+        },
+        {
+          "raw": "pent",
+          "start": 11.13,
+          "end": 11.33
+        },
+        {
+          "raw": "-house",
+          "start": 11.33,
+          "end": 11.59
+        },
+        {
+          "raw": "lid.",
+          "start": 11.59,
+          "end": 11.85
+        },
+        {
+          "raw": "He",
+          "start": 12.27,
+          "end": 12.37
+        },
+        {
+          "raw": "shall",
+          "start": 12.37,
+          "end": 12.51
+        },
+        {
+          "raw": "live",
+          "start": 12.51,
+          "end": 12.67
+        },
+        {
+          "raw": "a",
+          "start": 12.67,
+          "end": 12.79
+        },
+        {
+          "raw": "man",
+          "start": 12.79,
+          "end": 12.97
+        },
+        {
+          "raw": "forbid.",
+          "start": 12.97,
+          "end": 13.33
+        },
+        {
+          "raw": "Weary",
+          "start": 14.25,
+          "end": 14.55
+        },
+        {
+          "raw": "sev",
+          "start": 14.55,
+          "end": 14.79
+        },
+        {
+          "raw": "'n",
+          "start": 14.79,
+          "end": 14.83
+        },
+        {
+          "raw": "-nights",
+          "start": 14.83,
+          "end": 15.03
+        },
+        {
+          "raw": "nine",
+          "start": 15.03,
+          "end": 15.33
+        },
+        {
+          "raw": "times",
+          "start": 15.33,
+          "end": 15.67
+        },
+        {
+          "raw": "nine,",
+          "start": 15.67,
+          "end": 16.11
+        },
+        {
+          "raw": "Shall",
+          "start": 16.41,
+          "end": 16.47
+        },
+        {
+          "raw": "he",
+          "start": 16.47,
+          "end": 16.61
+        },
+        {
+          "raw": "dwindle,",
+          "start": 16.61,
+          "end": 17.09
+        },
+        {
+          "raw": "peak,",
+          "start": 17.27,
+          "end": 17.45
+        },
+        {
+          "raw": "and",
+          "start": 17.65,
+          "end": 17.73
+        },
+        {
+          "raw": "pine,",
+          "start": 17.73,
+          "end": 18.03
+        },
+        {
+          "raw": "Though",
+          "start": 18.47,
+          "end": 18.63
+        },
+        {
+          "raw": "his",
+          "start": 18.63,
+          "end": 18.81
+        },
+        {
+          "raw": "bark",
+          "start": 18.81,
+          "end": 19.05
+        },
+        {
+          "raw": "cannot",
+          "start": 19.05,
+          "end": 19.29
+        },
+        {
+          "raw": "be",
+          "start": 19.29,
+          "end": 19.59
+        },
+        {
+          "raw": "lost,",
+          "start": 19.59,
+          "end": 19.93
+        },
+        {
+          "raw": "Yet",
+          "start": 20.15,
+          "end": 20.25
+        },
+        {
+          "raw": "it",
+          "start": 20.25,
+          "end": 20.39
+        },
+        {
+          "raw": "shall",
+          "start": 20.39,
+          "end": 20.49
+        },
+        {
+          "raw": "be",
+          "start": 20.49,
+          "end": 20.69
+        },
+        {
+          "raw": "tempest",
+          "start": 20.69,
+          "end": 21.13
+        },
+        {
+          "raw": "-tost.",
+          "start": 21.13,
+          "end": 21.43
+        },
+        {
+          "raw": "Look",
+          "start": 21.97,
+          "end": 22.11
+        },
+        {
+          "raw": "what",
+          "start": 22.11,
+          "end": 22.25
+        },
+        {
+          "raw": "I",
+          "start": 22.25,
+          "end": 22.39
+        },
+        {
+          "raw": "have.",
+          "start": 22.39,
+          "end": 22.75
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Witch.",
+        "I",
+        "myself",
+        "have",
+        "all",
+        "the",
+        "other,",
+        "And",
+        "the",
+        "very",
+        "ports",
+        "they",
+        "blow,",
+        "All",
+        "the",
+        "quarters",
+        "that",
+        "they",
+        "know",
+        "I'",
+        "the",
+        "shipman's",
+        "card.",
+        "I",
+        "will",
+        "drain",
+        "him",
+        "dry",
+        "as",
+        "hay:",
+        "Sleep",
+        "shall",
+        "neither",
+        "night",
+        "nor",
+        "day",
+        "Hang",
+        "upon",
+        "his",
+        "pent-house",
+        "lid;",
+        "He",
+        "shall",
+        "live",
+        "a",
+        "man",
+        "forbid.",
+        "Weary",
+        "sev'n-nights",
+        "nine",
+        "times",
+        "nine,",
+        "Shall",
+        "he",
+        "dwindle,",
+        "peak,",
+        "and",
+        "pine:",
+        "Though",
+        "his",
+        "bark",
+        "cannot",
+        "be",
+        "lost,",
+        "Yet",
+        "it",
+        "shall",
+        "be",
+        "tempest-tost.",
+        "Look",
+        "what",
+        "I",
+        "have."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          49,
+          0,
+          49
+        ],
+        [
+          "replace",
+          49,
+          50,
+          49,
+          52
+        ],
+        [
+          "equal",
+          50,
+          74,
+          52,
+          76
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 75
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          49,
+          50,
+          49,
+          52
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Witch,",
+          "start": 0.67,
+          "end": 0.97,
+          "key": "witch",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.55,
+          "end": 1.57,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "myself",
+          "start": 1.57,
+          "end": 1.83,
+          "key": "myself",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.83,
+          "end": 2.09,
+          "key": "have",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 2.09,
+          "end": 2.29,
+          "key": "all",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.29,
+          "end": 2.43,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "other,",
+          "start": 2.43,
+          "end": 2.63,
+          "key": "other",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 2.79,
+          "end": 2.83,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.83,
+          "end": 2.95,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 2.95,
+          "end": 3.13,
+          "key": "very",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "ports",
+          "start": 3.13,
+          "end": 3.45,
+          "key": "ports",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 3.45,
+          "end": 3.71,
+          "key": "they",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "blow,",
+          "start": 3.71,
+          "end": 3.95,
+          "key": "blow",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "All",
+          "start": 4.27,
+          "end": 4.41,
+          "key": "all",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.41,
+          "end": 4.55,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "quarters",
+          "start": 4.55,
+          "end": 4.83,
+          "key": "quarters",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.83,
+          "end": 5.13,
+          "key": "that",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 5.13,
+          "end": 5.27,
+          "key": "they",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 5.27,
+          "end": 5.45,
+          "key": "know",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "I'",
+          "start": 5.45,
+          "end": 5.65,
+          "key": "i",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.73,
+          "end": 5.83,
+          "key": "the",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "shipman's",
+          "start": 5.83,
+          "end": 6.27,
+          "key": "shipmans",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "card.",
+          "start": 6.27,
+          "end": 6.51,
+          "key": "card",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 7.15,
+          "end": 7.29,
+          "key": "i",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 7.29,
+          "end": 7.39,
+          "key": "will",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "drain",
+          "start": 7.39,
+          "end": 7.57,
+          "key": "drain",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 7.57,
+          "end": 7.77,
+          "key": "him",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "dry",
+          "start": 7.77,
+          "end": 7.99,
+          "key": "dry",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 7.99,
+          "end": 8.19,
+          "key": "as",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "hay.",
+          "start": 8.19,
+          "end": 8.45,
+          "key": "hay",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "Sleep",
+          "start": 9.17,
+          "end": 9.19,
+          "key": "sleep",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 9.19,
+          "end": 9.41,
+          "key": "shall",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "neither",
+          "start": 9.41,
+          "end": 9.59,
+          "key": "neither",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "night",
+          "start": 9.59,
+          "end": 9.91,
+          "key": "night",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "nor",
+          "start": 9.91,
+          "end": 10.09,
+          "key": "nor",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "day",
+          "start": 10.09,
+          "end": 10.41,
+          "key": "day",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "Hang",
+          "start": 10.41,
+          "end": 10.65,
+          "key": "hang",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 10.65,
+          "end": 10.95,
+          "key": "upon",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 10.95,
+          "end": 11.13,
+          "key": "his",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "pent -house",
+          "start": 11.13,
+          "end": 11.59,
+          "key": "penthouse",
+          "pieces": [
+            40,
+            41
+          ]
+        },
+        {
+          "raw": "lid.",
+          "start": 11.59,
+          "end": 11.85,
+          "key": "lid",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 12.27,
+          "end": 12.37,
+          "key": "he",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 12.37,
+          "end": 12.51,
+          "key": "shall",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "live",
+          "start": 12.51,
+          "end": 12.67,
+          "key": "live",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 12.67,
+          "end": 12.79,
+          "key": "a",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 12.79,
+          "end": 12.97,
+          "key": "man",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "forbid.",
+          "start": 12.97,
+          "end": 13.33,
+          "key": "forbid",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "Weary",
+          "start": 14.25,
+          "end": 14.55,
+          "key": "weary",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "sev",
+          "start": 14.55,
+          "end": 14.79,
+          "key": "sev",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "'n",
+          "start": 14.79,
+          "end": 14.83,
+          "key": "n",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "-nights",
+          "start": 14.83,
+          "end": 15.03,
+          "key": "nights",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "nine",
+          "start": 15.03,
+          "end": 15.33,
+          "key": "nine",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "times",
+          "start": 15.33,
+          "end": 15.67,
+          "key": "times",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "nine,",
+          "start": 15.67,
+          "end": 16.11,
+          "key": "nine",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "Shall",
+          "start": 16.41,
+          "end": 16.47,
+          "key": "shall",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 16.47,
+          "end": 16.61,
+          "key": "he",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "dwindle,",
+          "start": 16.61,
+          "end": 17.09,
+          "key": "dwindle",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "peak,",
+          "start": 17.27,
+          "end": 17.45,
+          "key": "peak",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 17.65,
+          "end": 17.73,
+          "key": "and",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "pine,",
+          "start": 17.73,
+          "end": 18.03,
+          "key": "pine",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "Though",
+          "start": 18.47,
+          "end": 18.63,
+          "key": "though",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 18.63,
+          "end": 18.81,
+          "key": "his",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "bark",
+          "start": 18.81,
+          "end": 19.05,
+          "key": "bark",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 19.05,
+          "end": 19.29,
+          "key": "cannot",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 19.29,
+          "end": 19.59,
+          "key": "be",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "lost,",
+          "start": 19.59,
+          "end": 19.93,
+          "key": "lost",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "Yet",
+          "start": 20.15,
+          "end": 20.25,
+          "key": "yet",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 20.25,
+          "end": 20.39,
+          "key": "it",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 20.39,
+          "end": 20.49,
+          "key": "shall",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 20.49,
+          "end": 20.69,
+          "key": "be",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "tempest -tost.",
+          "start": 20.69,
+          "end": 21.43,
+          "key": "tempesttost",
+          "pieces": [
+            72,
+            73
+          ]
+        },
+        {
+          "raw": "Look",
+          "start": 21.97,
+          "end": 22.11,
+          "key": "look",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 22.11,
+          "end": 22.25,
+          "key": "what",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 22.25,
+          "end": 22.39,
+          "key": "i",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "have.",
+          "start": 22.39,
+          "end": 22.75,
+          "key": "have",
+          "pieces": [
+            77
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 40,
+          "text": "pent-house",
+          "heard": "pent -house",
+          "heard_indexes": [
+            40,
+            41
+          ],
+          "start": 11.13,
+          "end": 11.59
+        },
+        {
+          "expected_index": 69,
+          "text": "tempest-tost.",
+          "heard": "tempest -tost.",
+          "heard_indexes": [
+            72,
+            73
+          ],
+          "start": 20.69,
+          "end": 21.43
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Witch.",
+          "start": 0.67,
+          "end": 0.97
+        },
+        {
+          "text": "I",
+          "start": 1.55,
+          "end": 1.57
+        },
+        {
+          "text": "myself",
+          "start": 1.57,
+          "end": 1.83
+        },
+        {
+          "text": "have",
+          "start": 1.83,
+          "end": 2.09
+        },
+        {
+          "text": "all",
+          "start": 2.09,
+          "end": 2.29
+        },
+        {
+          "text": "the",
+          "start": 2.29,
+          "end": 2.43
+        },
+        {
+          "text": "other,",
+          "start": 2.43,
+          "end": 2.63
+        },
+        {
+          "text": "And",
+          "start": 2.79,
+          "end": 2.83
+        },
+        {
+          "text": "the",
+          "start": 2.83,
+          "end": 2.95
+        },
+        {
+          "text": "very",
+          "start": 2.95,
+          "end": 3.13
+        },
+        {
+          "text": "ports",
+          "start": 3.13,
+          "end": 3.45
+        },
+        {
+          "text": "they",
+          "start": 3.45,
+          "end": 3.71
+        },
+        {
+          "text": "blow,",
+          "start": 3.71,
+          "end": 3.95
+        },
+        {
+          "text": "All",
+          "start": 4.27,
+          "end": 4.41
+        },
+        {
+          "text": "the",
+          "start": 4.41,
+          "end": 4.55
+        },
+        {
+          "text": "quarters",
+          "start": 4.55,
+          "end": 4.83
+        },
+        {
+          "text": "that",
+          "start": 4.83,
+          "end": 5.13
+        },
+        {
+          "text": "they",
+          "start": 5.13,
+          "end": 5.27
+        },
+        {
+          "text": "know",
+          "start": 5.27,
+          "end": 5.45
+        },
+        {
+          "text": "I'",
+          "start": 5.45,
+          "end": 5.65
+        },
+        {
+          "text": "the",
+          "start": 5.73,
+          "end": 5.83
+        },
+        {
+          "text": "shipman's",
+          "start": 5.83,
+          "end": 6.27
+        },
+        {
+          "text": "card.",
+          "start": 6.27,
+          "end": 6.51
+        },
+        {
+          "text": "I",
+          "start": 7.15,
+          "end": 7.29
+        },
+        {
+          "text": "will",
+          "start": 7.29,
+          "end": 7.39
+        },
+        {
+          "text": "drain",
+          "start": 7.39,
+          "end": 7.57
+        },
+        {
+          "text": "him",
+          "start": 7.57,
+          "end": 7.77
+        },
+        {
+          "text": "dry",
+          "start": 7.77,
+          "end": 7.99
+        },
+        {
+          "text": "as",
+          "start": 7.99,
+          "end": 8.19
+        },
+        {
+          "text": "hay:",
+          "start": 8.19,
+          "end": 8.45
+        },
+        {
+          "text": "Sleep",
+          "start": 9.17,
+          "end": 9.19
+        },
+        {
+          "text": "shall",
+          "start": 9.19,
+          "end": 9.41
+        },
+        {
+          "text": "neither",
+          "start": 9.41,
+          "end": 9.59
+        },
+        {
+          "text": "night",
+          "start": 9.59,
+          "end": 9.91
+        },
+        {
+          "text": "nor",
+          "start": 9.91,
+          "end": 10.09
+        },
+        {
+          "text": "day",
+          "start": 10.09,
+          "end": 10.41
+        },
+        {
+          "text": "Hang",
+          "start": 10.41,
+          "end": 10.65
+        },
+        {
+          "text": "upon",
+          "start": 10.65,
+          "end": 10.95
+        },
+        {
+          "text": "his",
+          "start": 10.95,
+          "end": 11.13
+        },
+        {
+          "text": "pent-house",
+          "start": 11.13,
+          "end": 11.59
+        },
+        {
+          "text": "lid;",
+          "start": 11.59,
+          "end": 11.85
+        },
+        {
+          "text": "He",
+          "start": 12.27,
+          "end": 12.37
+        },
+        {
+          "text": "shall",
+          "start": 12.37,
+          "end": 12.51
+        },
+        {
+          "text": "live",
+          "start": 12.51,
+          "end": 12.67
+        },
+        {
+          "text": "a",
+          "start": 12.67,
+          "end": 12.79
+        },
+        {
+          "text": "man",
+          "start": 12.79,
+          "end": 12.97
+        },
+        {
+          "text": "forbid.",
+          "start": 12.97,
+          "end": 13.33
+        },
+        {
+          "text": "Weary",
+          "start": 14.25,
+          "end": 14.55
+        },
+        {
+          "text": "sev'n-nights",
+          "start": 14.55,
+          "end": 14.79
+        },
+        {
+          "text": "nine",
+          "start": 15.03,
+          "end": 15.33
+        },
+        {
+          "text": "times",
+          "start": 15.33,
+          "end": 15.67
+        },
+        {
+          "text": "nine,",
+          "start": 15.67,
+          "end": 16.11
+        },
+        {
+          "text": "Shall",
+          "start": 16.41,
+          "end": 16.47
+        },
+        {
+          "text": "he",
+          "start": 16.47,
+          "end": 16.61
+        },
+        {
+          "text": "dwindle,",
+          "start": 16.61,
+          "end": 17.09
+        },
+        {
+          "text": "peak,",
+          "start": 17.27,
+          "end": 17.45
+        },
+        {
+          "text": "and",
+          "start": 17.65,
+          "end": 17.73
+        },
+        {
+          "text": "pine:",
+          "start": 17.73,
+          "end": 18.03
+        },
+        {
+          "text": "Though",
+          "start": 18.47,
+          "end": 18.63
+        },
+        {
+          "text": "his",
+          "start": 18.63,
+          "end": 18.81
+        },
+        {
+          "text": "bark",
+          "start": 18.81,
+          "end": 19.05
+        },
+        {
+          "text": "cannot",
+          "start": 19.05,
+          "end": 19.29
+        },
+        {
+          "text": "be",
+          "start": 19.29,
+          "end": 19.59
+        },
+        {
+          "text": "lost,",
+          "start": 19.59,
+          "end": 19.93
+        },
+        {
+          "text": "Yet",
+          "start": 20.15,
+          "end": 20.25
+        },
+        {
+          "text": "it",
+          "start": 20.25,
+          "end": 20.39
+        },
+        {
+          "text": "shall",
+          "start": 20.39,
+          "end": 20.49
+        },
+        {
+          "text": "be",
+          "start": 20.49,
+          "end": 20.69
+        },
+        {
+          "text": "tempest-tost.",
+          "start": 20.69,
+          "end": 21.43
+        },
+        {
+          "text": "Look",
+          "start": 21.97,
+          "end": 22.11
+        },
+        {
+          "text": "what",
+          "start": 22.11,
+          "end": 22.25
+        },
+        {
+          "text": "I",
+          "start": 22.25,
+          "end": 22.39
+        },
+        {
+          "text": "have.",
+          "start": 22.39,
+          "end": 22.75
+        }
+      ],
+      "stats": {
+        "expected_words": 74,
+        "heard_words": 76,
+        "matched_words": 73
+      },
+      "match_ratio": 0.9864864864864865,
+      "rejection_reasons": [],
+      "seconds": 0.7578348871320486
+    },
+    {
+      "asr_seconds": 0.57211684435606,
+      "alignment_seconds": 0.0013044187799096107,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "First, Witch, I, Sleep, Hang, Weary, Though, Yet, Look"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " First, Witch, I myself have all the other and the very ports they blow all the quarters that they know I the shipments card",
+          "start": 0.05,
+          "end": 6.53,
+          "words": [
+            {
+              "text": " First,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.517578125
+            },
+            {
+              "text": " Witch,",
+              "start": 0.83,
+              "end": 0.93,
+              "probability": 0.0755615234375
+            },
+            {
+              "text": " I",
+              "start": 1.47,
+              "end": 1.59,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " myself",
+              "start": 1.59,
+              "end": 1.85,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " have",
+              "start": 1.85,
+              "end": 2.09,
+              "probability": 0.98828125
+            },
+            {
+              "text": " all",
+              "start": 2.09,
+              "end": 2.29,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 2.29,
+              "end": 2.43,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " other",
+              "start": 2.43,
+              "end": 2.63,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " and",
+              "start": 2.63,
+              "end": 2.83,
+              "probability": 0.67138671875
+            },
+            {
+              "text": " the",
+              "start": 2.83,
+              "end": 2.95,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " very",
+              "start": 2.95,
+              "end": 3.17,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " ports",
+              "start": 3.17,
+              "end": 3.45,
+              "probability": 0.97265625
+            },
+            {
+              "text": " they",
+              "start": 3.45,
+              "end": 3.69,
+              "probability": 0.87060546875
+            },
+            {
+              "text": " blow",
+              "start": 3.69,
+              "end": 3.99,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " all",
+              "start": 3.99,
+              "end": 4.41,
+              "probability": 0.2685546875
+            },
+            {
+              "text": " the",
+              "start": 4.41,
+              "end": 4.55,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " quarters",
+              "start": 4.55,
+              "end": 4.85,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " that",
+              "start": 4.85,
+              "end": 5.13,
+              "probability": 0.96875
+            },
+            {
+              "text": " they",
+              "start": 5.13,
+              "end": 5.27,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " know",
+              "start": 5.27,
+              "end": 5.45,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " I",
+              "start": 5.45,
+              "end": 5.65,
+              "probability": 0.8671875
+            },
+            {
+              "text": " the",
+              "start": 5.65,
+              "end": 5.81,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " shipments",
+              "start": 5.81,
+              "end": 6.07,
+              "probability": 0.205078125
+            },
+            {
+              "text": " card",
+              "start": 6.07,
+              "end": 6.53,
+              "probability": 0.958984375
+            }
+          ]
+        },
+        {
+          "text": " I will drain him dry as hay sleep shall neither night nor day hang upon his penthouse lid he shall live a man forbid",
+          "start": 6.53,
+          "end": 13.41,
+          "words": [
+            {
+              "text": " I",
+              "start": 6.53,
+              "end": 7.27,
+              "probability": 0.919921875
+            },
+            {
+              "text": " will",
+              "start": 7.27,
+              "end": 7.37,
+              "probability": 0.83203125
+            },
+            {
+              "text": " drain",
+              "start": 7.37,
+              "end": 7.57,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " him",
+              "start": 7.57,
+              "end": 7.75,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " dry",
+              "start": 7.75,
+              "end": 7.99,
+              "probability": 0.984375
+            },
+            {
+              "text": " as",
+              "start": 7.99,
+              "end": 8.19,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " hay",
+              "start": 8.19,
+              "end": 8.51,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " sleep",
+              "start": 8.51,
+              "end": 9.19,
+              "probability": 0.6123046875
+            },
+            {
+              "text": " shall",
+              "start": 9.19,
+              "end": 9.41,
+              "probability": 0.86083984375
+            },
+            {
+              "text": " neither",
+              "start": 9.41,
+              "end": 9.59,
+              "probability": 0.994140625
+            },
+            {
+              "text": " night",
+              "start": 9.59,
+              "end": 9.91,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " nor",
+              "start": 9.91,
+              "end": 10.11,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " day",
+              "start": 10.11,
+              "end": 10.41,
+              "probability": 0.98046875
+            },
+            {
+              "text": " hang",
+              "start": 10.41,
+              "end": 10.65,
+              "probability": 0.833984375
+            },
+            {
+              "text": " upon",
+              "start": 10.65,
+              "end": 10.93,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " his",
+              "start": 10.93,
+              "end": 11.11,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " penthouse",
+              "start": 11.11,
+              "end": 11.59,
+              "probability": 0.91162109375
+            },
+            {
+              "text": " lid",
+              "start": 11.59,
+              "end": 11.89,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " he",
+              "start": 11.89,
+              "end": 12.35,
+              "probability": 0.42041015625
+            },
+            {
+              "text": " shall",
+              "start": 12.35,
+              "end": 12.53,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " live",
+              "start": 12.53,
+              "end": 12.67,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " a",
+              "start": 12.67,
+              "end": 12.77,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " man",
+              "start": 12.77,
+              "end": 12.97,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " forbid",
+              "start": 12.97,
+              "end": 13.41,
+              "probability": 0.85986328125
+            }
+          ]
+        },
+        {
+          "text": " Weary seven nights nine times nine shall he dwindle peak and pine though his bark cannot be lost yet",
+          "start": 14.07,
+          "end": 20.25,
+          "words": [
+            {
+              "text": " Weary",
+              "start": 14.07,
+              "end": 14.55,
+              "probability": 0.56243896484375
+            },
+            {
+              "text": " seven",
+              "start": 14.55,
+              "end": 14.73,
+              "probability": 0.8662109375
+            },
+            {
+              "text": " nights",
+              "start": 14.73,
+              "end": 15.05,
+              "probability": 0.9375
+            },
+            {
+              "text": " nine",
+              "start": 15.05,
+              "end": 15.33,
+              "probability": 0.91748046875
+            },
+            {
+              "text": " times",
+              "start": 15.33,
+              "end": 15.69,
+              "probability": 0.994140625
+            },
+            {
+              "text": " nine",
+              "start": 15.69,
+              "end": 16.11,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " shall",
+              "start": 16.11,
+              "end": 16.47,
+              "probability": 0.8857421875
+            },
+            {
+              "text": " he",
+              "start": 16.47,
+              "end": 16.61,
+              "probability": 0.91455078125
+            },
+            {
+              "text": " dwindle",
+              "start": 16.61,
+              "end": 17.11,
+              "probability": 0.995361328125
+            },
+            {
+              "text": " peak",
+              "start": 17.11,
+              "end": 17.49,
+              "probability": 0.6396484375
+            },
+            {
+              "text": " and",
+              "start": 17.49,
+              "end": 17.71,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " pine",
+              "start": 17.71,
+              "end": 18.05,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " though",
+              "start": 18.05,
+              "end": 18.61,
+              "probability": 0.8212890625
+            },
+            {
+              "text": " his",
+              "start": 18.61,
+              "end": 18.81,
+              "probability": 0.83935546875
+            },
+            {
+              "text": " bark",
+              "start": 18.81,
+              "end": 19.05,
+              "probability": 0.986328125
+            },
+            {
+              "text": " cannot",
+              "start": 19.05,
+              "end": 19.33,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " be",
+              "start": 19.33,
+              "end": 19.59,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " lost",
+              "start": 19.59,
+              "end": 19.95,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " yet",
+              "start": 19.95,
+              "end": 20.25,
+              "probability": 0.9375
+            }
+          ]
+        },
+        {
+          "text": " It shall be tempest tossed look what I have",
+          "start": 20.25,
+          "end": 22.75,
+          "words": [
+            {
+              "text": " It",
+              "start": 20.25,
+              "end": 20.33,
+              "probability": 0.33203125
+            },
+            {
+              "text": " shall",
+              "start": 20.33,
+              "end": 20.49,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " be",
+              "start": 20.49,
+              "end": 20.67,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " tempest",
+              "start": 20.67,
+              "end": 21.15,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " tossed",
+              "start": 21.15,
+              "end": 21.47,
+              "probability": 0.794921875
+            },
+            {
+              "text": " look",
+              "start": 21.47,
+              "end": 22.09,
+              "probability": 0.8017578125
+            },
+            {
+              "text": " what",
+              "start": 22.09,
+              "end": 22.25,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " I",
+              "start": 22.25,
+              "end": 22.39,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " have",
+              "start": 22.39,
+              "end": 22.75,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Witch,",
+          "start": 0.83,
+          "end": 0.93
+        },
+        {
+          "raw": "I",
+          "start": 1.47,
+          "end": 1.59
+        },
+        {
+          "raw": "myself",
+          "start": 1.59,
+          "end": 1.85
+        },
+        {
+          "raw": "have",
+          "start": 1.85,
+          "end": 2.09
+        },
+        {
+          "raw": "all",
+          "start": 2.09,
+          "end": 2.29
+        },
+        {
+          "raw": "the",
+          "start": 2.29,
+          "end": 2.43
+        },
+        {
+          "raw": "other",
+          "start": 2.43,
+          "end": 2.63
+        },
+        {
+          "raw": "and",
+          "start": 2.63,
+          "end": 2.83
+        },
+        {
+          "raw": "the",
+          "start": 2.83,
+          "end": 2.95
+        },
+        {
+          "raw": "very",
+          "start": 2.95,
+          "end": 3.17
+        },
+        {
+          "raw": "ports",
+          "start": 3.17,
+          "end": 3.45
+        },
+        {
+          "raw": "they",
+          "start": 3.45,
+          "end": 3.69
+        },
+        {
+          "raw": "blow",
+          "start": 3.69,
+          "end": 3.99
+        },
+        {
+          "raw": "all",
+          "start": 3.99,
+          "end": 4.41
+        },
+        {
+          "raw": "the",
+          "start": 4.41,
+          "end": 4.55
+        },
+        {
+          "raw": "quarters",
+          "start": 4.55,
+          "end": 4.85
+        },
+        {
+          "raw": "that",
+          "start": 4.85,
+          "end": 5.13
+        },
+        {
+          "raw": "they",
+          "start": 5.13,
+          "end": 5.27
+        },
+        {
+          "raw": "know",
+          "start": 5.27,
+          "end": 5.45
+        },
+        {
+          "raw": "I",
+          "start": 5.45,
+          "end": 5.65
+        },
+        {
+          "raw": "the",
+          "start": 5.65,
+          "end": 5.81
+        },
+        {
+          "raw": "shipments",
+          "start": 5.81,
+          "end": 6.07
+        },
+        {
+          "raw": "card",
+          "start": 6.07,
+          "end": 6.53
+        },
+        {
+          "raw": "I",
+          "start": 6.53,
+          "end": 7.27
+        },
+        {
+          "raw": "will",
+          "start": 7.27,
+          "end": 7.37
+        },
+        {
+          "raw": "drain",
+          "start": 7.37,
+          "end": 7.57
+        },
+        {
+          "raw": "him",
+          "start": 7.57,
+          "end": 7.75
+        },
+        {
+          "raw": "dry",
+          "start": 7.75,
+          "end": 7.99
+        },
+        {
+          "raw": "as",
+          "start": 7.99,
+          "end": 8.19
+        },
+        {
+          "raw": "hay",
+          "start": 8.19,
+          "end": 8.51
+        },
+        {
+          "raw": "sleep",
+          "start": 8.51,
+          "end": 9.19
+        },
+        {
+          "raw": "shall",
+          "start": 9.19,
+          "end": 9.41
+        },
+        {
+          "raw": "neither",
+          "start": 9.41,
+          "end": 9.59
+        },
+        {
+          "raw": "night",
+          "start": 9.59,
+          "end": 9.91
+        },
+        {
+          "raw": "nor",
+          "start": 9.91,
+          "end": 10.11
+        },
+        {
+          "raw": "day",
+          "start": 10.11,
+          "end": 10.41
+        },
+        {
+          "raw": "hang",
+          "start": 10.41,
+          "end": 10.65
+        },
+        {
+          "raw": "upon",
+          "start": 10.65,
+          "end": 10.93
+        },
+        {
+          "raw": "his",
+          "start": 10.93,
+          "end": 11.11
+        },
+        {
+          "raw": "penthouse",
+          "start": 11.11,
+          "end": 11.59
+        },
+        {
+          "raw": "lid",
+          "start": 11.59,
+          "end": 11.89
+        },
+        {
+          "raw": "he",
+          "start": 11.89,
+          "end": 12.35
+        },
+        {
+          "raw": "shall",
+          "start": 12.35,
+          "end": 12.53
+        },
+        {
+          "raw": "live",
+          "start": 12.53,
+          "end": 12.67
+        },
+        {
+          "raw": "a",
+          "start": 12.67,
+          "end": 12.77
+        },
+        {
+          "raw": "man",
+          "start": 12.77,
+          "end": 12.97
+        },
+        {
+          "raw": "forbid",
+          "start": 12.97,
+          "end": 13.41
+        },
+        {
+          "raw": "Weary",
+          "start": 14.07,
+          "end": 14.55
+        },
+        {
+          "raw": "seven",
+          "start": 14.55,
+          "end": 14.73
+        },
+        {
+          "raw": "nights",
+          "start": 14.73,
+          "end": 15.05
+        },
+        {
+          "raw": "nine",
+          "start": 15.05,
+          "end": 15.33
+        },
+        {
+          "raw": "times",
+          "start": 15.33,
+          "end": 15.69
+        },
+        {
+          "raw": "nine",
+          "start": 15.69,
+          "end": 16.11
+        },
+        {
+          "raw": "shall",
+          "start": 16.11,
+          "end": 16.47
+        },
+        {
+          "raw": "he",
+          "start": 16.47,
+          "end": 16.61
+        },
+        {
+          "raw": "dwindle",
+          "start": 16.61,
+          "end": 17.11
+        },
+        {
+          "raw": "peak",
+          "start": 17.11,
+          "end": 17.49
+        },
+        {
+          "raw": "and",
+          "start": 17.49,
+          "end": 17.71
+        },
+        {
+          "raw": "pine",
+          "start": 17.71,
+          "end": 18.05
+        },
+        {
+          "raw": "though",
+          "start": 18.05,
+          "end": 18.61
+        },
+        {
+          "raw": "his",
+          "start": 18.61,
+          "end": 18.81
+        },
+        {
+          "raw": "bark",
+          "start": 18.81,
+          "end": 19.05
+        },
+        {
+          "raw": "cannot",
+          "start": 19.05,
+          "end": 19.33
+        },
+        {
+          "raw": "be",
+          "start": 19.33,
+          "end": 19.59
+        },
+        {
+          "raw": "lost",
+          "start": 19.59,
+          "end": 19.95
+        },
+        {
+          "raw": "yet",
+          "start": 19.95,
+          "end": 20.25
+        },
+        {
+          "raw": "It",
+          "start": 20.25,
+          "end": 20.33
+        },
+        {
+          "raw": "shall",
+          "start": 20.33,
+          "end": 20.49
+        },
+        {
+          "raw": "be",
+          "start": 20.49,
+          "end": 20.67
+        },
+        {
+          "raw": "tempest",
+          "start": 20.67,
+          "end": 21.15
+        },
+        {
+          "raw": "tossed",
+          "start": 21.15,
+          "end": 21.47
+        },
+        {
+          "raw": "look",
+          "start": 21.47,
+          "end": 22.09
+        },
+        {
+          "raw": "what",
+          "start": 22.09,
+          "end": 22.25
+        },
+        {
+          "raw": "I",
+          "start": 22.25,
+          "end": 22.39
+        },
+        {
+          "raw": "have",
+          "start": 22.39,
+          "end": 22.75
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Witch.",
+        "I",
+        "myself",
+        "have",
+        "all",
+        "the",
+        "other,",
+        "And",
+        "the",
+        "very",
+        "ports",
+        "they",
+        "blow,",
+        "All",
+        "the",
+        "quarters",
+        "that",
+        "they",
+        "know",
+        "I'",
+        "the",
+        "shipman's",
+        "card.",
+        "I",
+        "will",
+        "drain",
+        "him",
+        "dry",
+        "as",
+        "hay:",
+        "Sleep",
+        "shall",
+        "neither",
+        "night",
+        "nor",
+        "day",
+        "Hang",
+        "upon",
+        "his",
+        "pent-house",
+        "lid;",
+        "He",
+        "shall",
+        "live",
+        "a",
+        "man",
+        "forbid.",
+        "Weary",
+        "sev'n-nights",
+        "nine",
+        "times",
+        "nine,",
+        "Shall",
+        "he",
+        "dwindle,",
+        "peak,",
+        "and",
+        "pine:",
+        "Though",
+        "his",
+        "bark",
+        "cannot",
+        "be",
+        "lost,",
+        "Yet",
+        "it",
+        "shall",
+        "be",
+        "tempest-tost.",
+        "Look",
+        "what",
+        "I",
+        "have."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ],
+        [
+          "replace",
+          22,
+          23,
+          22,
+          23
+        ],
+        [
+          "equal",
+          23,
+          49,
+          23,
+          49
+        ],
+        [
+          "replace",
+          49,
+          50,
+          49,
+          51
+        ],
+        [
+          "equal",
+          50,
+          69,
+          51,
+          70
+        ],
+        [
+          "replace",
+          69,
+          70,
+          70,
+          72
+        ],
+        [
+          "equal",
+          70,
+          74,
+          72,
+          76
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 69,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 75
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          22,
+          23,
+          22,
+          23
+        ],
+        [
+          "replace",
+          49,
+          50,
+          49,
+          51
+        ],
+        [
+          "replace",
+          69,
+          70,
+          70,
+          72
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First,",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Witch,",
+          "start": 0.83,
+          "end": 0.93,
+          "key": "witch",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.47,
+          "end": 1.59,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "myself",
+          "start": 1.59,
+          "end": 1.85,
+          "key": "myself",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.85,
+          "end": 2.09,
+          "key": "have",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 2.09,
+          "end": 2.29,
+          "key": "all",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.29,
+          "end": 2.43,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 2.43,
+          "end": 2.63,
+          "key": "other",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.63,
+          "end": 2.83,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.83,
+          "end": 2.95,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 2.95,
+          "end": 3.17,
+          "key": "very",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "ports",
+          "start": 3.17,
+          "end": 3.45,
+          "key": "ports",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 3.45,
+          "end": 3.69,
+          "key": "they",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "blow",
+          "start": 3.69,
+          "end": 3.99,
+          "key": "blow",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 3.99,
+          "end": 4.41,
+          "key": "all",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.41,
+          "end": 4.55,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "quarters",
+          "start": 4.55,
+          "end": 4.85,
+          "key": "quarters",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.85,
+          "end": 5.13,
+          "key": "that",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 5.13,
+          "end": 5.27,
+          "key": "they",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 5.27,
+          "end": 5.45,
+          "key": "know",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.45,
+          "end": 5.65,
+          "key": "i",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.65,
+          "end": 5.81,
+          "key": "the",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "shipments",
+          "start": 5.81,
+          "end": 6.07,
+          "key": "shipments",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "card",
+          "start": 6.07,
+          "end": 6.53,
+          "key": "card",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 6.53,
+          "end": 7.27,
+          "key": "i",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 7.27,
+          "end": 7.37,
+          "key": "will",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "drain",
+          "start": 7.37,
+          "end": 7.57,
+          "key": "drain",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 7.57,
+          "end": 7.75,
+          "key": "him",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "dry",
+          "start": 7.75,
+          "end": 7.99,
+          "key": "dry",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 7.99,
+          "end": 8.19,
+          "key": "as",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "hay",
+          "start": 8.19,
+          "end": 8.51,
+          "key": "hay",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "sleep",
+          "start": 8.51,
+          "end": 9.19,
+          "key": "sleep",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 9.19,
+          "end": 9.41,
+          "key": "shall",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "neither",
+          "start": 9.41,
+          "end": 9.59,
+          "key": "neither",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "night",
+          "start": 9.59,
+          "end": 9.91,
+          "key": "night",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "nor",
+          "start": 9.91,
+          "end": 10.11,
+          "key": "nor",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "day",
+          "start": 10.11,
+          "end": 10.41,
+          "key": "day",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "hang",
+          "start": 10.41,
+          "end": 10.65,
+          "key": "hang",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 10.65,
+          "end": 10.93,
+          "key": "upon",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 10.93,
+          "end": 11.11,
+          "key": "his",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "penthouse",
+          "start": 11.11,
+          "end": 11.59,
+          "key": "penthouse",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "lid",
+          "start": 11.59,
+          "end": 11.89,
+          "key": "lid",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 11.89,
+          "end": 12.35,
+          "key": "he",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 12.35,
+          "end": 12.53,
+          "key": "shall",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "live",
+          "start": 12.53,
+          "end": 12.67,
+          "key": "live",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 12.67,
+          "end": 12.77,
+          "key": "a",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 12.77,
+          "end": 12.97,
+          "key": "man",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "forbid",
+          "start": 12.97,
+          "end": 13.41,
+          "key": "forbid",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "Weary",
+          "start": 14.07,
+          "end": 14.55,
+          "key": "weary",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "seven",
+          "start": 14.55,
+          "end": 14.73,
+          "key": "seven",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "nights",
+          "start": 14.73,
+          "end": 15.05,
+          "key": "nights",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "nine",
+          "start": 15.05,
+          "end": 15.33,
+          "key": "nine",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "times",
+          "start": 15.33,
+          "end": 15.69,
+          "key": "times",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "nine",
+          "start": 15.69,
+          "end": 16.11,
+          "key": "nine",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 16.11,
+          "end": 16.47,
+          "key": "shall",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 16.47,
+          "end": 16.61,
+          "key": "he",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "dwindle",
+          "start": 16.61,
+          "end": 17.11,
+          "key": "dwindle",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "peak",
+          "start": 17.11,
+          "end": 17.49,
+          "key": "peak",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 17.49,
+          "end": 17.71,
+          "key": "and",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "pine",
+          "start": 17.71,
+          "end": 18.05,
+          "key": "pine",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "though",
+          "start": 18.05,
+          "end": 18.61,
+          "key": "though",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 18.61,
+          "end": 18.81,
+          "key": "his",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "bark",
+          "start": 18.81,
+          "end": 19.05,
+          "key": "bark",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 19.05,
+          "end": 19.33,
+          "key": "cannot",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 19.33,
+          "end": 19.59,
+          "key": "be",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "lost",
+          "start": 19.59,
+          "end": 19.95,
+          "key": "lost",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "yet",
+          "start": 19.95,
+          "end": 20.25,
+          "key": "yet",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 20.25,
+          "end": 20.33,
+          "key": "it",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 20.33,
+          "end": 20.49,
+          "key": "shall",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 20.49,
+          "end": 20.67,
+          "key": "be",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "tempest",
+          "start": 20.67,
+          "end": 21.15,
+          "key": "tempest",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "tossed",
+          "start": 21.15,
+          "end": 21.47,
+          "key": "tossed",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 21.47,
+          "end": 22.09,
+          "key": "look",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 22.09,
+          "end": 22.25,
+          "key": "what",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 22.25,
+          "end": 22.39,
+          "key": "i",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 22.39,
+          "end": 22.75,
+          "key": "have",
+          "pieces": [
+            75
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Witch.",
+          "start": 0.83,
+          "end": 0.93
+        },
+        {
+          "text": "I",
+          "start": 1.47,
+          "end": 1.59
+        },
+        {
+          "text": "myself",
+          "start": 1.59,
+          "end": 1.85
+        },
+        {
+          "text": "have",
+          "start": 1.85,
+          "end": 2.09
+        },
+        {
+          "text": "all",
+          "start": 2.09,
+          "end": 2.29
+        },
+        {
+          "text": "the",
+          "start": 2.29,
+          "end": 2.43
+        },
+        {
+          "text": "other,",
+          "start": 2.43,
+          "end": 2.63
+        },
+        {
+          "text": "And",
+          "start": 2.63,
+          "end": 2.83
+        },
+        {
+          "text": "the",
+          "start": 2.83,
+          "end": 2.95
+        },
+        {
+          "text": "very",
+          "start": 2.95,
+          "end": 3.17
+        },
+        {
+          "text": "ports",
+          "start": 3.17,
+          "end": 3.45
+        },
+        {
+          "text": "they",
+          "start": 3.45,
+          "end": 3.69
+        },
+        {
+          "text": "blow,",
+          "start": 3.69,
+          "end": 3.99
+        },
+        {
+          "text": "All",
+          "start": 3.99,
+          "end": 4.41
+        },
+        {
+          "text": "the",
+          "start": 4.41,
+          "end": 4.55
+        },
+        {
+          "text": "quarters",
+          "start": 4.55,
+          "end": 4.85
+        },
+        {
+          "text": "that",
+          "start": 4.85,
+          "end": 5.13
+        },
+        {
+          "text": "they",
+          "start": 5.13,
+          "end": 5.27
+        },
+        {
+          "text": "know",
+          "start": 5.27,
+          "end": 5.45
+        },
+        {
+          "text": "I'",
+          "start": 5.45,
+          "end": 5.65
+        },
+        {
+          "text": "the",
+          "start": 5.65,
+          "end": 5.81
+        },
+        {
+          "text": "shipman's",
+          "start": 5.81,
+          "end": 5.94
+        },
+        {
+          "text": "card.",
+          "start": 6.07,
+          "end": 6.53
+        },
+        {
+          "text": "I",
+          "start": 6.53,
+          "end": 7.27
+        },
+        {
+          "text": "will",
+          "start": 7.27,
+          "end": 7.37
+        },
+        {
+          "text": "drain",
+          "start": 7.37,
+          "end": 7.57
+        },
+        {
+          "text": "him",
+          "start": 7.57,
+          "end": 7.75
+        },
+        {
+          "text": "dry",
+          "start": 7.75,
+          "end": 7.99
+        },
+        {
+          "text": "as",
+          "start": 7.99,
+          "end": 8.19
+        },
+        {
+          "text": "hay:",
+          "start": 8.19,
+          "end": 8.51
+        },
+        {
+          "text": "Sleep",
+          "start": 8.51,
+          "end": 9.19
+        },
+        {
+          "text": "shall",
+          "start": 9.19,
+          "end": 9.41
+        },
+        {
+          "text": "neither",
+          "start": 9.41,
+          "end": 9.59
+        },
+        {
+          "text": "night",
+          "start": 9.59,
+          "end": 9.91
+        },
+        {
+          "text": "nor",
+          "start": 9.91,
+          "end": 10.11
+        },
+        {
+          "text": "day",
+          "start": 10.11,
+          "end": 10.41
+        },
+        {
+          "text": "Hang",
+          "start": 10.41,
+          "end": 10.65
+        },
+        {
+          "text": "upon",
+          "start": 10.65,
+          "end": 10.93
+        },
+        {
+          "text": "his",
+          "start": 10.93,
+          "end": 11.11
+        },
+        {
+          "text": "pent-house",
+          "start": 11.11,
+          "end": 11.59
+        },
+        {
+          "text": "lid;",
+          "start": 11.59,
+          "end": 11.89
+        },
+        {
+          "text": "He",
+          "start": 11.89,
+          "end": 12.35
+        },
+        {
+          "text": "shall",
+          "start": 12.35,
+          "end": 12.53
+        },
+        {
+          "text": "live",
+          "start": 12.53,
+          "end": 12.67
+        },
+        {
+          "text": "a",
+          "start": 12.67,
+          "end": 12.77
+        },
+        {
+          "text": "man",
+          "start": 12.77,
+          "end": 12.97
+        },
+        {
+          "text": "forbid.",
+          "start": 12.97,
+          "end": 13.41
+        },
+        {
+          "text": "Weary",
+          "start": 14.07,
+          "end": 14.55
+        },
+        {
+          "text": "sev'n-nights",
+          "start": 14.55,
+          "end": 14.8
+        },
+        {
+          "text": "nine",
+          "start": 15.05,
+          "end": 15.33
+        },
+        {
+          "text": "times",
+          "start": 15.33,
+          "end": 15.69
+        },
+        {
+          "text": "nine,",
+          "start": 15.69,
+          "end": 16.11
+        },
+        {
+          "text": "Shall",
+          "start": 16.11,
+          "end": 16.47
+        },
+        {
+          "text": "he",
+          "start": 16.47,
+          "end": 16.61
+        },
+        {
+          "text": "dwindle,",
+          "start": 16.61,
+          "end": 17.11
+        },
+        {
+          "text": "peak,",
+          "start": 17.11,
+          "end": 17.49
+        },
+        {
+          "text": "and",
+          "start": 17.49,
+          "end": 17.71
+        },
+        {
+          "text": "pine:",
+          "start": 17.71,
+          "end": 18.05
+        },
+        {
+          "text": "Though",
+          "start": 18.05,
+          "end": 18.61
+        },
+        {
+          "text": "his",
+          "start": 18.61,
+          "end": 18.81
+        },
+        {
+          "text": "bark",
+          "start": 18.81,
+          "end": 19.05
+        },
+        {
+          "text": "cannot",
+          "start": 19.05,
+          "end": 19.33
+        },
+        {
+          "text": "be",
+          "start": 19.33,
+          "end": 19.59
+        },
+        {
+          "text": "lost,",
+          "start": 19.59,
+          "end": 19.95
+        },
+        {
+          "text": "Yet",
+          "start": 19.95,
+          "end": 20.25
+        },
+        {
+          "text": "it",
+          "start": 20.25,
+          "end": 20.33
+        },
+        {
+          "text": "shall",
+          "start": 20.33,
+          "end": 20.49
+        },
+        {
+          "text": "be",
+          "start": 20.49,
+          "end": 20.67
+        },
+        {
+          "text": "tempest-tost.",
+          "start": 20.67,
+          "end": 21.07
+        },
+        {
+          "text": "Look",
+          "start": 21.47,
+          "end": 22.09
+        },
+        {
+          "text": "what",
+          "start": 22.09,
+          "end": 22.25
+        },
+        {
+          "text": "I",
+          "start": 22.25,
+          "end": 22.39
+        },
+        {
+          "text": "have.",
+          "start": 22.39,
+          "end": 22.75
+        }
+      ],
+      "stats": {
+        "expected_words": 74,
+        "heard_words": 76,
+        "matched_words": 71
+      },
+      "match_ratio": 0.9594594594594594,
+      "rejection_reasons": [],
+      "seconds": 0.574063959531486
+    },
+    {
+      "asr_seconds": 0.5834325086325407,
+      "alignment_seconds": 0.00131281279027462,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " First, which I myself have all the other and the very ports they blow all the quarters that they know I the shipments card",
+          "start": 0.05,
+          "end": 6.55,
+          "words": [
+            {
+              "text": " First,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.517578125
+            },
+            {
+              "text": " which",
+              "start": 0.83,
+              "end": 0.93,
+              "probability": 0.76318359375
+            },
+            {
+              "text": " I",
+              "start": 0.93,
+              "end": 1.59,
+              "probability": 0.75390625
+            },
+            {
+              "text": " myself",
+              "start": 1.59,
+              "end": 1.87,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " have",
+              "start": 1.87,
+              "end": 2.09,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " all",
+              "start": 2.09,
+              "end": 2.29,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " the",
+              "start": 2.29,
+              "end": 2.41,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " other",
+              "start": 2.41,
+              "end": 2.65,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 2.65,
+              "end": 2.83,
+              "probability": 0.921875
+            },
+            {
+              "text": " the",
+              "start": 2.83,
+              "end": 2.95,
+              "probability": 0.994140625
+            },
+            {
+              "text": " very",
+              "start": 2.95,
+              "end": 3.15,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " ports",
+              "start": 3.15,
+              "end": 3.49,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " they",
+              "start": 3.49,
+              "end": 3.69,
+              "probability": 0.53759765625
+            },
+            {
+              "text": " blow",
+              "start": 3.69,
+              "end": 3.99,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " all",
+              "start": 3.99,
+              "end": 4.41,
+              "probability": 0.80224609375
+            },
+            {
+              "text": " the",
+              "start": 4.41,
+              "end": 4.55,
+              "probability": 0.990234375
+            },
+            {
+              "text": " quarters",
+              "start": 4.55,
+              "end": 4.85,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " that",
+              "start": 4.85,
+              "end": 5.11,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " they",
+              "start": 5.11,
+              "end": 5.27,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " know",
+              "start": 5.27,
+              "end": 5.45,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " I",
+              "start": 5.45,
+              "end": 5.65,
+              "probability": 0.84765625
+            },
+            {
+              "text": " the",
+              "start": 5.65,
+              "end": 5.81,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " shipments",
+              "start": 5.81,
+              "end": 6.09,
+              "probability": 0.564453125
+            },
+            {
+              "text": " card",
+              "start": 6.09,
+              "end": 6.55,
+              "probability": 0.95654296875
+            }
+          ]
+        },
+        {
+          "text": " I will drain him dry as hay sleep shall neither night nor day hang upon his penthouse lid",
+          "start": 6.55,
+          "end": 11.89,
+          "words": [
+            {
+              "text": " I",
+              "start": 6.55,
+              "end": 7.27,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " will",
+              "start": 7.27,
+              "end": 7.37,
+              "probability": 0.83251953125
+            },
+            {
+              "text": " drain",
+              "start": 7.37,
+              "end": 7.57,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " him",
+              "start": 7.57,
+              "end": 7.75,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " dry",
+              "start": 7.75,
+              "end": 7.99,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " as",
+              "start": 7.99,
+              "end": 8.19,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " hay",
+              "start": 8.19,
+              "end": 8.51,
+              "probability": 0.88232421875
+            },
+            {
+              "text": " sleep",
+              "start": 8.51,
+              "end": 9.19,
+              "probability": 0.5625
+            },
+            {
+              "text": " shall",
+              "start": 9.19,
+              "end": 9.41,
+              "probability": 0.8349609375
+            },
+            {
+              "text": " neither",
+              "start": 9.41,
+              "end": 9.59,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " night",
+              "start": 9.59,
+              "end": 9.91,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " nor",
+              "start": 9.91,
+              "end": 10.11,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " day",
+              "start": 10.11,
+              "end": 10.43,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " hang",
+              "start": 10.43,
+              "end": 10.65,
+              "probability": 0.810546875
+            },
+            {
+              "text": " upon",
+              "start": 10.65,
+              "end": 10.93,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " his",
+              "start": 10.93,
+              "end": 11.11,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " penthouse",
+              "start": 11.11,
+              "end": 11.61,
+              "probability": 0.938720703125
+            },
+            {
+              "text": " lid",
+              "start": 11.61,
+              "end": 11.89,
+              "probability": 0.93359375
+            }
+          ]
+        },
+        {
+          "text": " He shall live a man forbid weary seven nights nine times nine shall he dwindle peak and pine though",
+          "start": 11.89,
+          "end": 18.61,
+          "words": [
+            {
+              "text": " He",
+              "start": 11.89,
+              "end": 12.35,
+              "probability": 0.50390625
+            },
+            {
+              "text": " shall",
+              "start": 12.35,
+              "end": 12.53,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " live",
+              "start": 12.53,
+              "end": 12.67,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 12.67,
+              "end": 12.77,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " man",
+              "start": 12.77,
+              "end": 12.99,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " forbid",
+              "start": 12.99,
+              "end": 13.39,
+              "probability": 0.89599609375
+            },
+            {
+              "text": " weary",
+              "start": 13.39,
+              "end": 14.35,
+              "probability": 0.78662109375
+            },
+            {
+              "text": " seven",
+              "start": 14.35,
+              "end": 14.77,
+              "probability": 0.921875
+            },
+            {
+              "text": " nights",
+              "start": 14.77,
+              "end": 15.05,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " nine",
+              "start": 15.05,
+              "end": 15.35,
+              "probability": 0.88427734375
+            },
+            {
+              "text": " times",
+              "start": 15.35,
+              "end": 15.71,
+              "probability": 0.99609375
+            },
+            {
+              "text": " nine",
+              "start": 15.71,
+              "end": 16.11,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " shall",
+              "start": 16.11,
+              "end": 16.47,
+              "probability": 0.45166015625
+            },
+            {
+              "text": " he",
+              "start": 16.47,
+              "end": 16.61,
+              "probability": 0.6455078125
+            },
+            {
+              "text": " dwindle",
+              "start": 16.61,
+              "end": 17.11,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " peak",
+              "start": 17.11,
+              "end": 17.47,
+              "probability": 0.5546875
+            },
+            {
+              "text": " and",
+              "start": 17.47,
+              "end": 17.71,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " pine",
+              "start": 17.71,
+              "end": 18.05,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " though",
+              "start": 18.05,
+              "end": 18.61,
+              "probability": 0.452392578125
+            }
+          ]
+        },
+        {
+          "text": " His bark cannot be lost yet. It shall be tempest tossed look what I have",
+          "start": 18.61,
+          "end": 22.75,
+          "words": [
+            {
+              "text": " His",
+              "start": 18.61,
+              "end": 18.79,
+              "probability": 0.2164306640625
+            },
+            {
+              "text": " bark",
+              "start": 18.79,
+              "end": 19.05,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " cannot",
+              "start": 19.05,
+              "end": 19.31,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " be",
+              "start": 19.31,
+              "end": 19.59,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " lost",
+              "start": 19.59,
+              "end": 19.97,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " yet.",
+              "start": 19.97,
+              "end": 20.25,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " It",
+              "start": 20.27,
+              "end": 20.35,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " shall",
+              "start": 20.35,
+              "end": 20.49,
+              "probability": 0.99609375
+            },
+            {
+              "text": " be",
+              "start": 20.49,
+              "end": 20.67,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " tempest",
+              "start": 20.67,
+              "end": 21.15,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " tossed",
+              "start": 21.15,
+              "end": 21.47,
+              "probability": 0.83349609375
+            },
+            {
+              "text": " look",
+              "start": 21.47,
+              "end": 22.09,
+              "probability": 0.72412109375
+            },
+            {
+              "text": " what",
+              "start": 22.09,
+              "end": 22.25,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " I",
+              "start": 22.25,
+              "end": 22.39,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " have",
+              "start": 22.39,
+              "end": 22.75,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "which",
+          "start": 0.83,
+          "end": 0.93
+        },
+        {
+          "raw": "I",
+          "start": 0.93,
+          "end": 1.59
+        },
+        {
+          "raw": "myself",
+          "start": 1.59,
+          "end": 1.87
+        },
+        {
+          "raw": "have",
+          "start": 1.87,
+          "end": 2.09
+        },
+        {
+          "raw": "all",
+          "start": 2.09,
+          "end": 2.29
+        },
+        {
+          "raw": "the",
+          "start": 2.29,
+          "end": 2.41
+        },
+        {
+          "raw": "other",
+          "start": 2.41,
+          "end": 2.65
+        },
+        {
+          "raw": "and",
+          "start": 2.65,
+          "end": 2.83
+        },
+        {
+          "raw": "the",
+          "start": 2.83,
+          "end": 2.95
+        },
+        {
+          "raw": "very",
+          "start": 2.95,
+          "end": 3.15
+        },
+        {
+          "raw": "ports",
+          "start": 3.15,
+          "end": 3.49
+        },
+        {
+          "raw": "they",
+          "start": 3.49,
+          "end": 3.69
+        },
+        {
+          "raw": "blow",
+          "start": 3.69,
+          "end": 3.99
+        },
+        {
+          "raw": "all",
+          "start": 3.99,
+          "end": 4.41
+        },
+        {
+          "raw": "the",
+          "start": 4.41,
+          "end": 4.55
+        },
+        {
+          "raw": "quarters",
+          "start": 4.55,
+          "end": 4.85
+        },
+        {
+          "raw": "that",
+          "start": 4.85,
+          "end": 5.11
+        },
+        {
+          "raw": "they",
+          "start": 5.11,
+          "end": 5.27
+        },
+        {
+          "raw": "know",
+          "start": 5.27,
+          "end": 5.45
+        },
+        {
+          "raw": "I",
+          "start": 5.45,
+          "end": 5.65
+        },
+        {
+          "raw": "the",
+          "start": 5.65,
+          "end": 5.81
+        },
+        {
+          "raw": "shipments",
+          "start": 5.81,
+          "end": 6.09
+        },
+        {
+          "raw": "card",
+          "start": 6.09,
+          "end": 6.55
+        },
+        {
+          "raw": "I",
+          "start": 6.55,
+          "end": 7.27
+        },
+        {
+          "raw": "will",
+          "start": 7.27,
+          "end": 7.37
+        },
+        {
+          "raw": "drain",
+          "start": 7.37,
+          "end": 7.57
+        },
+        {
+          "raw": "him",
+          "start": 7.57,
+          "end": 7.75
+        },
+        {
+          "raw": "dry",
+          "start": 7.75,
+          "end": 7.99
+        },
+        {
+          "raw": "as",
+          "start": 7.99,
+          "end": 8.19
+        },
+        {
+          "raw": "hay",
+          "start": 8.19,
+          "end": 8.51
+        },
+        {
+          "raw": "sleep",
+          "start": 8.51,
+          "end": 9.19
+        },
+        {
+          "raw": "shall",
+          "start": 9.19,
+          "end": 9.41
+        },
+        {
+          "raw": "neither",
+          "start": 9.41,
+          "end": 9.59
+        },
+        {
+          "raw": "night",
+          "start": 9.59,
+          "end": 9.91
+        },
+        {
+          "raw": "nor",
+          "start": 9.91,
+          "end": 10.11
+        },
+        {
+          "raw": "day",
+          "start": 10.11,
+          "end": 10.43
+        },
+        {
+          "raw": "hang",
+          "start": 10.43,
+          "end": 10.65
+        },
+        {
+          "raw": "upon",
+          "start": 10.65,
+          "end": 10.93
+        },
+        {
+          "raw": "his",
+          "start": 10.93,
+          "end": 11.11
+        },
+        {
+          "raw": "penthouse",
+          "start": 11.11,
+          "end": 11.61
+        },
+        {
+          "raw": "lid",
+          "start": 11.61,
+          "end": 11.89
+        },
+        {
+          "raw": "He",
+          "start": 11.89,
+          "end": 12.35
+        },
+        {
+          "raw": "shall",
+          "start": 12.35,
+          "end": 12.53
+        },
+        {
+          "raw": "live",
+          "start": 12.53,
+          "end": 12.67
+        },
+        {
+          "raw": "a",
+          "start": 12.67,
+          "end": 12.77
+        },
+        {
+          "raw": "man",
+          "start": 12.77,
+          "end": 12.99
+        },
+        {
+          "raw": "forbid",
+          "start": 12.99,
+          "end": 13.39
+        },
+        {
+          "raw": "weary",
+          "start": 13.39,
+          "end": 14.35
+        },
+        {
+          "raw": "seven",
+          "start": 14.35,
+          "end": 14.77
+        },
+        {
+          "raw": "nights",
+          "start": 14.77,
+          "end": 15.05
+        },
+        {
+          "raw": "nine",
+          "start": 15.05,
+          "end": 15.35
+        },
+        {
+          "raw": "times",
+          "start": 15.35,
+          "end": 15.71
+        },
+        {
+          "raw": "nine",
+          "start": 15.71,
+          "end": 16.11
+        },
+        {
+          "raw": "shall",
+          "start": 16.11,
+          "end": 16.47
+        },
+        {
+          "raw": "he",
+          "start": 16.47,
+          "end": 16.61
+        },
+        {
+          "raw": "dwindle",
+          "start": 16.61,
+          "end": 17.11
+        },
+        {
+          "raw": "peak",
+          "start": 17.11,
+          "end": 17.47
+        },
+        {
+          "raw": "and",
+          "start": 17.47,
+          "end": 17.71
+        },
+        {
+          "raw": "pine",
+          "start": 17.71,
+          "end": 18.05
+        },
+        {
+          "raw": "though",
+          "start": 18.05,
+          "end": 18.61
+        },
+        {
+          "raw": "His",
+          "start": 18.61,
+          "end": 18.79
+        },
+        {
+          "raw": "bark",
+          "start": 18.79,
+          "end": 19.05
+        },
+        {
+          "raw": "cannot",
+          "start": 19.05,
+          "end": 19.31
+        },
+        {
+          "raw": "be",
+          "start": 19.31,
+          "end": 19.59
+        },
+        {
+          "raw": "lost",
+          "start": 19.59,
+          "end": 19.97
+        },
+        {
+          "raw": "yet.",
+          "start": 19.97,
+          "end": 20.25
+        },
+        {
+          "raw": "It",
+          "start": 20.27,
+          "end": 20.35
+        },
+        {
+          "raw": "shall",
+          "start": 20.35,
+          "end": 20.49
+        },
+        {
+          "raw": "be",
+          "start": 20.49,
+          "end": 20.67
+        },
+        {
+          "raw": "tempest",
+          "start": 20.67,
+          "end": 21.15
+        },
+        {
+          "raw": "tossed",
+          "start": 21.15,
+          "end": 21.47
+        },
+        {
+          "raw": "look",
+          "start": 21.47,
+          "end": 22.09
+        },
+        {
+          "raw": "what",
+          "start": 22.09,
+          "end": 22.25
+        },
+        {
+          "raw": "I",
+          "start": 22.25,
+          "end": 22.39
+        },
+        {
+          "raw": "have",
+          "start": 22.39,
+          "end": 22.75
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Witch.",
+        "I",
+        "myself",
+        "have",
+        "all",
+        "the",
+        "other,",
+        "And",
+        "the",
+        "very",
+        "ports",
+        "they",
+        "blow,",
+        "All",
+        "the",
+        "quarters",
+        "that",
+        "they",
+        "know",
+        "I'",
+        "the",
+        "shipman's",
+        "card.",
+        "I",
+        "will",
+        "drain",
+        "him",
+        "dry",
+        "as",
+        "hay:",
+        "Sleep",
+        "shall",
+        "neither",
+        "night",
+        "nor",
+        "day",
+        "Hang",
+        "upon",
+        "his",
+        "pent-house",
+        "lid;",
+        "He",
+        "shall",
+        "live",
+        "a",
+        "man",
+        "forbid.",
+        "Weary",
+        "sev'n-nights",
+        "nine",
+        "times",
+        "nine,",
+        "Shall",
+        "he",
+        "dwindle,",
+        "peak,",
+        "and",
+        "pine:",
+        "Though",
+        "his",
+        "bark",
+        "cannot",
+        "be",
+        "lost,",
+        "Yet",
+        "it",
+        "shall",
+        "be",
+        "tempest-tost.",
+        "Look",
+        "what",
+        "I",
+        "have."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          22,
+          2,
+          22
+        ],
+        [
+          "replace",
+          22,
+          23,
+          22,
+          23
+        ],
+        [
+          "equal",
+          23,
+          49,
+          23,
+          49
+        ],
+        [
+          "replace",
+          49,
+          50,
+          49,
+          51
+        ],
+        [
+          "equal",
+          50,
+          69,
+          51,
+          70
+        ],
+        [
+          "replace",
+          69,
+          70,
+          70,
+          72
+        ],
+        [
+          "equal",
+          70,
+          74,
+          72,
+          76
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 69,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 75
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          22,
+          23,
+          22,
+          23
+        ],
+        [
+          "replace",
+          49,
+          50,
+          49,
+          51
+        ],
+        [
+          "replace",
+          69,
+          70,
+          70,
+          72
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First,",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 0.83,
+          "end": 0.93,
+          "key": "which",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.93,
+          "end": 1.59,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "myself",
+          "start": 1.59,
+          "end": 1.87,
+          "key": "myself",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.87,
+          "end": 2.09,
+          "key": "have",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 2.09,
+          "end": 2.29,
+          "key": "all",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.29,
+          "end": 2.41,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 2.41,
+          "end": 2.65,
+          "key": "other",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.65,
+          "end": 2.83,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.83,
+          "end": 2.95,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 2.95,
+          "end": 3.15,
+          "key": "very",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "ports",
+          "start": 3.15,
+          "end": 3.49,
+          "key": "ports",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 3.49,
+          "end": 3.69,
+          "key": "they",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "blow",
+          "start": 3.69,
+          "end": 3.99,
+          "key": "blow",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 3.99,
+          "end": 4.41,
+          "key": "all",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.41,
+          "end": 4.55,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "quarters",
+          "start": 4.55,
+          "end": 4.85,
+          "key": "quarters",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.85,
+          "end": 5.11,
+          "key": "that",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 5.11,
+          "end": 5.27,
+          "key": "they",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 5.27,
+          "end": 5.45,
+          "key": "know",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.45,
+          "end": 5.65,
+          "key": "i",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.65,
+          "end": 5.81,
+          "key": "the",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "shipments",
+          "start": 5.81,
+          "end": 6.09,
+          "key": "shipments",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "card",
+          "start": 6.09,
+          "end": 6.55,
+          "key": "card",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 6.55,
+          "end": 7.27,
+          "key": "i",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 7.27,
+          "end": 7.37,
+          "key": "will",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "drain",
+          "start": 7.37,
+          "end": 7.57,
+          "key": "drain",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 7.57,
+          "end": 7.75,
+          "key": "him",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "dry",
+          "start": 7.75,
+          "end": 7.99,
+          "key": "dry",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 7.99,
+          "end": 8.19,
+          "key": "as",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "hay",
+          "start": 8.19,
+          "end": 8.51,
+          "key": "hay",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "sleep",
+          "start": 8.51,
+          "end": 9.19,
+          "key": "sleep",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 9.19,
+          "end": 9.41,
+          "key": "shall",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "neither",
+          "start": 9.41,
+          "end": 9.59,
+          "key": "neither",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "night",
+          "start": 9.59,
+          "end": 9.91,
+          "key": "night",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "nor",
+          "start": 9.91,
+          "end": 10.11,
+          "key": "nor",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "day",
+          "start": 10.11,
+          "end": 10.43,
+          "key": "day",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "hang",
+          "start": 10.43,
+          "end": 10.65,
+          "key": "hang",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 10.65,
+          "end": 10.93,
+          "key": "upon",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 10.93,
+          "end": 11.11,
+          "key": "his",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "penthouse",
+          "start": 11.11,
+          "end": 11.61,
+          "key": "penthouse",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "lid",
+          "start": 11.61,
+          "end": 11.89,
+          "key": "lid",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 11.89,
+          "end": 12.35,
+          "key": "he",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 12.35,
+          "end": 12.53,
+          "key": "shall",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "live",
+          "start": 12.53,
+          "end": 12.67,
+          "key": "live",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 12.67,
+          "end": 12.77,
+          "key": "a",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 12.77,
+          "end": 12.99,
+          "key": "man",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "forbid",
+          "start": 12.99,
+          "end": 13.39,
+          "key": "forbid",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "weary",
+          "start": 13.39,
+          "end": 14.35,
+          "key": "weary",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "seven",
+          "start": 14.35,
+          "end": 14.77,
+          "key": "seven",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "nights",
+          "start": 14.77,
+          "end": 15.05,
+          "key": "nights",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "nine",
+          "start": 15.05,
+          "end": 15.35,
+          "key": "nine",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "times",
+          "start": 15.35,
+          "end": 15.71,
+          "key": "times",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "nine",
+          "start": 15.71,
+          "end": 16.11,
+          "key": "nine",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 16.11,
+          "end": 16.47,
+          "key": "shall",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 16.47,
+          "end": 16.61,
+          "key": "he",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "dwindle",
+          "start": 16.61,
+          "end": 17.11,
+          "key": "dwindle",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "peak",
+          "start": 17.11,
+          "end": 17.47,
+          "key": "peak",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 17.47,
+          "end": 17.71,
+          "key": "and",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "pine",
+          "start": 17.71,
+          "end": 18.05,
+          "key": "pine",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "though",
+          "start": 18.05,
+          "end": 18.61,
+          "key": "though",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "His",
+          "start": 18.61,
+          "end": 18.79,
+          "key": "his",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "bark",
+          "start": 18.79,
+          "end": 19.05,
+          "key": "bark",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 19.05,
+          "end": 19.31,
+          "key": "cannot",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 19.31,
+          "end": 19.59,
+          "key": "be",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "lost",
+          "start": 19.59,
+          "end": 19.97,
+          "key": "lost",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "yet.",
+          "start": 19.97,
+          "end": 20.25,
+          "key": "yet",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 20.27,
+          "end": 20.35,
+          "key": "it",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 20.35,
+          "end": 20.49,
+          "key": "shall",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 20.49,
+          "end": 20.67,
+          "key": "be",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "tempest",
+          "start": 20.67,
+          "end": 21.15,
+          "key": "tempest",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "tossed",
+          "start": 21.15,
+          "end": 21.47,
+          "key": "tossed",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 21.47,
+          "end": 22.09,
+          "key": "look",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 22.09,
+          "end": 22.25,
+          "key": "what",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 22.25,
+          "end": 22.39,
+          "key": "i",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 22.39,
+          "end": 22.75,
+          "key": "have",
+          "pieces": [
+            75
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Witch.",
+          "start": 0.67,
+          "end": 0.8
+        },
+        {
+          "text": "I",
+          "start": 0.93,
+          "end": 1.59
+        },
+        {
+          "text": "myself",
+          "start": 1.59,
+          "end": 1.87
+        },
+        {
+          "text": "have",
+          "start": 1.87,
+          "end": 2.09
+        },
+        {
+          "text": "all",
+          "start": 2.09,
+          "end": 2.29
+        },
+        {
+          "text": "the",
+          "start": 2.29,
+          "end": 2.41
+        },
+        {
+          "text": "other,",
+          "start": 2.41,
+          "end": 2.65
+        },
+        {
+          "text": "And",
+          "start": 2.65,
+          "end": 2.83
+        },
+        {
+          "text": "the",
+          "start": 2.83,
+          "end": 2.95
+        },
+        {
+          "text": "very",
+          "start": 2.95,
+          "end": 3.15
+        },
+        {
+          "text": "ports",
+          "start": 3.15,
+          "end": 3.49
+        },
+        {
+          "text": "they",
+          "start": 3.49,
+          "end": 3.69
+        },
+        {
+          "text": "blow,",
+          "start": 3.69,
+          "end": 3.99
+        },
+        {
+          "text": "All",
+          "start": 3.99,
+          "end": 4.41
+        },
+        {
+          "text": "the",
+          "start": 4.41,
+          "end": 4.55
+        },
+        {
+          "text": "quarters",
+          "start": 4.55,
+          "end": 4.85
+        },
+        {
+          "text": "that",
+          "start": 4.85,
+          "end": 5.11
+        },
+        {
+          "text": "they",
+          "start": 5.11,
+          "end": 5.27
+        },
+        {
+          "text": "know",
+          "start": 5.27,
+          "end": 5.45
+        },
+        {
+          "text": "I'",
+          "start": 5.45,
+          "end": 5.65
+        },
+        {
+          "text": "the",
+          "start": 5.65,
+          "end": 5.81
+        },
+        {
+          "text": "shipman's",
+          "start": 5.81,
+          "end": 5.95
+        },
+        {
+          "text": "card.",
+          "start": 6.09,
+          "end": 6.55
+        },
+        {
+          "text": "I",
+          "start": 6.55,
+          "end": 7.27
+        },
+        {
+          "text": "will",
+          "start": 7.27,
+          "end": 7.37
+        },
+        {
+          "text": "drain",
+          "start": 7.37,
+          "end": 7.57
+        },
+        {
+          "text": "him",
+          "start": 7.57,
+          "end": 7.75
+        },
+        {
+          "text": "dry",
+          "start": 7.75,
+          "end": 7.99
+        },
+        {
+          "text": "as",
+          "start": 7.99,
+          "end": 8.19
+        },
+        {
+          "text": "hay:",
+          "start": 8.19,
+          "end": 8.51
+        },
+        {
+          "text": "Sleep",
+          "start": 8.51,
+          "end": 9.19
+        },
+        {
+          "text": "shall",
+          "start": 9.19,
+          "end": 9.41
+        },
+        {
+          "text": "neither",
+          "start": 9.41,
+          "end": 9.59
+        },
+        {
+          "text": "night",
+          "start": 9.59,
+          "end": 9.91
+        },
+        {
+          "text": "nor",
+          "start": 9.91,
+          "end": 10.11
+        },
+        {
+          "text": "day",
+          "start": 10.11,
+          "end": 10.43
+        },
+        {
+          "text": "Hang",
+          "start": 10.43,
+          "end": 10.65
+        },
+        {
+          "text": "upon",
+          "start": 10.65,
+          "end": 10.93
+        },
+        {
+          "text": "his",
+          "start": 10.93,
+          "end": 11.11
+        },
+        {
+          "text": "pent-house",
+          "start": 11.11,
+          "end": 11.61
+        },
+        {
+          "text": "lid;",
+          "start": 11.61,
+          "end": 11.89
+        },
+        {
+          "text": "He",
+          "start": 11.89,
+          "end": 12.35
+        },
+        {
+          "text": "shall",
+          "start": 12.35,
+          "end": 12.53
+        },
+        {
+          "text": "live",
+          "start": 12.53,
+          "end": 12.67
+        },
+        {
+          "text": "a",
+          "start": 12.67,
+          "end": 12.77
+        },
+        {
+          "text": "man",
+          "start": 12.77,
+          "end": 12.99
+        },
+        {
+          "text": "forbid.",
+          "start": 12.99,
+          "end": 13.39
+        },
+        {
+          "text": "Weary",
+          "start": 13.39,
+          "end": 14.35
+        },
+        {
+          "text": "sev'n-nights",
+          "start": 14.35,
+          "end": 14.7
+        },
+        {
+          "text": "nine",
+          "start": 15.05,
+          "end": 15.35
+        },
+        {
+          "text": "times",
+          "start": 15.35,
+          "end": 15.71
+        },
+        {
+          "text": "nine,",
+          "start": 15.71,
+          "end": 16.11
+        },
+        {
+          "text": "Shall",
+          "start": 16.11,
+          "end": 16.47
+        },
+        {
+          "text": "he",
+          "start": 16.47,
+          "end": 16.61
+        },
+        {
+          "text": "dwindle,",
+          "start": 16.61,
+          "end": 17.11
+        },
+        {
+          "text": "peak,",
+          "start": 17.11,
+          "end": 17.47
+        },
+        {
+          "text": "and",
+          "start": 17.47,
+          "end": 17.71
+        },
+        {
+          "text": "pine:",
+          "start": 17.71,
+          "end": 18.05
+        },
+        {
+          "text": "Though",
+          "start": 18.05,
+          "end": 18.61
+        },
+        {
+          "text": "his",
+          "start": 18.61,
+          "end": 18.79
+        },
+        {
+          "text": "bark",
+          "start": 18.79,
+          "end": 19.05
+        },
+        {
+          "text": "cannot",
+          "start": 19.05,
+          "end": 19.31
+        },
+        {
+          "text": "be",
+          "start": 19.31,
+          "end": 19.59
+        },
+        {
+          "text": "lost,",
+          "start": 19.59,
+          "end": 19.97
+        },
+        {
+          "text": "Yet",
+          "start": 19.97,
+          "end": 20.25
+        },
+        {
+          "text": "it",
+          "start": 20.27,
+          "end": 20.35
+        },
+        {
+          "text": "shall",
+          "start": 20.35,
+          "end": 20.49
+        },
+        {
+          "text": "be",
+          "start": 20.49,
+          "end": 20.67
+        },
+        {
+          "text": "tempest-tost.",
+          "start": 20.67,
+          "end": 21.07
+        },
+        {
+          "text": "Look",
+          "start": 21.47,
+          "end": 22.09
+        },
+        {
+          "text": "what",
+          "start": 22.09,
+          "end": 22.25
+        },
+        {
+          "text": "I",
+          "start": 22.25,
+          "end": 22.39
+        },
+        {
+          "text": "have.",
+          "start": 22.39,
+          "end": 22.75
+        }
+      ],
+      "stats": {
+        "expected_words": 74,
+        "heard_words": 76,
+        "matched_words": 70
+      },
+      "match_ratio": 0.9459459459459459,
+      "rejection_reasons": [],
+      "seconds": 0.5853899531066418
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c326e719f7ca58e207c26bcfb987ee51376fad9e5e7480c113b92eae903b86d3",
+  "selected_reasons": []
+}

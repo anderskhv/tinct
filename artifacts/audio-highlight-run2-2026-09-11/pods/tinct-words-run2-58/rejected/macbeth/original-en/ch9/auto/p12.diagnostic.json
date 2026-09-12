@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "623558b81f1a629340c8555dfd3edf9ad4bdd786a0b7fca5cb20cb36ed20f74d",
+  "attempts": [
+    {
+      "asr_seconds": 0.17480307538062334,
+      "alignment_seconds": 0.0002725338563323021,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lady Macbeth. Donalbain.",
+        "hotwords": "Lady, Macbeth, Donalbain"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lady Macbeth. Donalbain.",
+          "start": 0.08,
+          "end": 2.04,
+          "words": [
+            {
+              "text": " Lady",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.9130859375
+            },
+            {
+              "text": " Macbeth.",
+              "start": 0.64,
+              "end": 1.26,
+              "probability": 0.90673828125
+            },
+            {
+              "text": " Donalbain.",
+              "start": 1.56,
+              "end": 2.04,
+              "probability": 0.6283197402954102
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lady",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "Macbeth.",
+          "start": 0.64,
+          "end": 1.26
+        },
+        {
+          "raw": "Donalbain.",
+          "start": 1.56,
+          "end": 2.04
+        }
+      ],
+      "expected_tokens": [
+        "Lady",
+        "Macbeth.",
+        "Donalbain."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lady",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "lady",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Macbeth.",
+          "start": 0.64,
+          "end": 1.26,
+          "key": "macbeth",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Donalbain.",
+          "start": 1.56,
+          "end": 2.04,
+          "key": "donalbain",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lady",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "Macbeth.",
+          "start": 0.64,
+          "end": 1.26
+        },
+        {
+          "text": "Donalbain.",
+          "start": 1.56,
+          "end": 2.04
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17517332173883915
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f1b09e1ddc0ed258ee9c7a0ee7efd8c8fe3d8fc72579cdd687eb8b51ce55722b",
+  "selected_reasons": []
+}

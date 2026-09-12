@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "fc5bc96cb51b343fd906080650e36a2b2f27ab42d446449a7265591b5a870377",
+  "attempts": [
+    {
+      "asr_seconds": 0.2792910607531667,
+      "alignment_seconds": 0.0004391521215438843,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Anne. Fouler than heart can think thee, thou canst make No excuse current but to hang thyself.",
+        "hotwords": "Anne, Fouler, No"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Anne, Fouler than heart can think thee, thou canst make No excuse current but to hang thyself.",
+          "start": 0.02,
+          "end": 5.82,
+          "words": [
+            {
+              "text": " Anne,",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 0.26123046875
+            },
+            {
+              "text": " Fouler",
+              "start": 1.22,
+              "end": 1.44,
+              "probability": 0.475372314453125
+            },
+            {
+              "text": " than",
+              "start": 1.44,
+              "end": 1.58,
+              "probability": 0.92578125
+            },
+            {
+              "text": " heart",
+              "start": 1.58,
+              "end": 1.78,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " can",
+              "start": 1.78,
+              "end": 1.96,
+              "probability": 0.978515625
+            },
+            {
+              "text": " think",
+              "start": 1.96,
+              "end": 2.18,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " thee,",
+              "start": 2.18,
+              "end": 2.42,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " thou",
+              "start": 3.04,
+              "end": 3.08,
+              "probability": 0.25830078125
+            },
+            {
+              "text": " canst",
+              "start": 3.08,
+              "end": 3.48,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " make",
+              "start": 3.48,
+              "end": 3.64,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " No",
+              "start": 3.64,
+              "end": 3.9,
+              "probability": 0.0038814544677734375
+            },
+            {
+              "text": " excuse",
+              "start": 3.9,
+              "end": 4.28,
+              "probability": 0.986328125
+            },
+            {
+              "text": " current",
+              "start": 4.28,
+              "end": 4.74,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " but",
+              "start": 4.74,
+              "end": 5.02,
+              "probability": 0.962890625
+            },
+            {
+              "text": " to",
+              "start": 5.02,
+              "end": 5.16,
+              "probability": 0.9921875
+            },
+            {
+              "text": " hang",
+              "start": 5.16,
+              "end": 5.3,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " thyself.",
+              "start": 5.3,
+              "end": 5.82,
+              "probability": 0.988037109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Anne,",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "raw": "Fouler",
+          "start": 1.22,
+          "end": 1.44
+        },
+        {
+          "raw": "than",
+          "start": 1.44,
+          "end": 1.58
+        },
+        {
+          "raw": "heart",
+          "start": 1.58,
+          "end": 1.78
+        },
+        {
+          "raw": "can",
+          "start": 1.78,
+          "end": 1.96
+        },
+        {
+          "raw": "think",
+          "start": 1.96,
+          "end": 2.18
+        },
+        {
+          "raw": "thee,",
+          "start": 2.18,
+          "end": 2.42
+        },
+        {
+          "raw": "thou",
+          "start": 3.04,
+          "end": 3.08
+        },
+        {
+          "raw": "canst",
+          "start": 3.08,
+          "end": 3.48
+        },
+        {
+          "raw": "make",
+          "start": 3.48,
+          "end": 3.64
+        },
+        {
+          "raw": "No",
+          "start": 3.64,
+          "end": 3.9
+        },
+        {
+          "raw": "excuse",
+          "start": 3.9,
+          "end": 4.28
+        },
+        {
+          "raw": "current",
+          "start": 4.28,
+          "end": 4.74
+        },
+        {
+          "raw": "but",
+          "start": 4.74,
+          "end": 5.02
+        },
+        {
+          "raw": "to",
+          "start": 5.02,
+          "end": 5.16
+        },
+        {
+          "raw": "hang",
+          "start": 5.16,
+          "end": 5.3
+        },
+        {
+          "raw": "thyself.",
+          "start": 5.3,
+          "end": 5.82
+        }
+      ],
+      "expected_tokens": [
+        "Anne.",
+        "Fouler",
+        "than",
+        "heart",
+        "can",
+        "think",
+        "thee,",
+        "thou",
+        "canst",
+        "make",
+        "No",
+        "excuse",
+        "current",
+        "but",
+        "to",
+        "hang",
+        "thyself."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Anne,",
+          "start": 0.02,
+          "end": 0.72,
+          "key": "anne",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Fouler",
+          "start": 1.22,
+          "end": 1.44,
+          "key": "fouler",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 1.44,
+          "end": 1.58,
+          "key": "than",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "heart",
+          "start": 1.58,
+          "end": 1.78,
+          "key": "heart",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 1.78,
+          "end": 1.96,
+          "key": "can",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 1.96,
+          "end": 2.18,
+          "key": "think",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "thee,",
+          "start": 2.18,
+          "end": 2.42,
+          "key": "thee",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 3.04,
+          "end": 3.08,
+          "key": "thou",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "canst",
+          "start": 3.08,
+          "end": 3.48,
+          "key": "canst",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 3.48,
+          "end": 3.64,
+          "key": "make",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "No",
+          "start": 3.64,
+          "end": 3.9,
+          "key": "no",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "excuse",
+          "start": 3.9,
+          "end": 4.28,
+          "key": "excuse",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "current",
+          "start": 4.28,
+          "end": 4.74,
+          "key": "current",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 4.74,
+          "end": 5.02,
+          "key": "but",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.02,
+          "end": 5.16,
+          "key": "to",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "hang",
+          "start": 5.16,
+          "end": 5.3,
+          "key": "hang",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "thyself.",
+          "start": 5.3,
+          "end": 5.82,
+          "key": "thyself",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Anne.",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "text": "Fouler",
+          "start": 1.22,
+          "end": 1.44
+        },
+        {
+          "text": "than",
+          "start": 1.44,
+          "end": 1.58
+        },
+        {
+          "text": "heart",
+          "start": 1.58,
+          "end": 1.78
+        },
+        {
+          "text": "can",
+          "start": 1.78,
+          "end": 1.96
+        },
+        {
+          "text": "think",
+          "start": 1.96,
+          "end": 2.18
+        },
+        {
+          "text": "thee,",
+          "start": 2.18,
+          "end": 2.42
+        },
+        {
+          "text": "thou",
+          "start": 3.04,
+          "end": 3.08
+        },
+        {
+          "text": "canst",
+          "start": 3.08,
+          "end": 3.48
+        },
+        {
+          "text": "make",
+          "start": 3.48,
+          "end": 3.64
+        },
+        {
+          "text": "No",
+          "start": 3.64,
+          "end": 3.9
+        },
+        {
+          "text": "excuse",
+          "start": 3.9,
+          "end": 4.28
+        },
+        {
+          "text": "current",
+          "start": 4.28,
+          "end": 4.74
+        },
+        {
+          "text": "but",
+          "start": 4.74,
+          "end": 5.02
+        },
+        {
+          "text": "to",
+          "start": 5.02,
+          "end": 5.16
+        },
+        {
+          "text": "hang",
+          "start": 5.16,
+          "end": 5.3
+        },
+        {
+          "text": "thyself.",
+          "start": 5.3,
+          "end": 5.82
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.27992336731404066
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4226c6e4759694742d7d23da2fd829e04ebeb32febd3f8a4025e1a65e1f09d0b",
+  "selected_reasons": []
+}

@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "e9dbad07cba9ff3635ea64b02f0af01a815119ce97dc92ddc661e2eb78a4744f",
+  "attempts": [
+    {
+      "asr_seconds": 0.20292751863598824,
+      "alignment_seconds": 0.00035845208913087845,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exeunt Lady Anne, Tressel, and Berkeley.",
+          "start": 0.05,
+          "end": 2.39,
+          "words": [
+            {
+              "text": " Exeunt",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.5777384440104166
+            },
+            {
+              "text": " Lady",
+              "start": 0.77,
+              "end": 0.89,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " Anne,",
+              "start": 0.89,
+              "end": 1.27,
+              "probability": 0.8681640625
+            },
+            {
+              "text": " Tressel,",
+              "start": 1.69,
+              "end": 1.91,
+              "probability": 0.658447265625
+            },
+            {
+              "text": " and",
+              "start": 2.01,
+              "end": 2.09,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " Berkeley.",
+              "start": 2.09,
+              "end": 2.39,
+              "probability": 0.859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "Lady",
+          "start": 0.77,
+          "end": 0.89
+        },
+        {
+          "raw": "Anne,",
+          "start": 0.89,
+          "end": 1.27
+        },
+        {
+          "raw": "Tressel,",
+          "start": 1.69,
+          "end": 1.91
+        },
+        {
+          "raw": "and",
+          "start": 2.01,
+          "end": 2.09
+        },
+        {
+          "raw": "Berkeley.",
+          "start": 2.09,
+          "end": 2.39
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Lady",
+        "Anne,",
+        "Tressel",
+        "and",
+        "Berkeley._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lady",
+          "start": 0.77,
+          "end": 0.89,
+          "key": "lady",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Anne,",
+          "start": 0.89,
+          "end": 1.27,
+          "key": "anne",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Tressel,",
+          "start": 1.69,
+          "end": 1.91,
+          "key": "tressel",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.01,
+          "end": 2.09,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Berkeley.",
+          "start": 2.09,
+          "end": 2.39,
+          "key": "berkeley",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "Lady",
+          "start": 0.77,
+          "end": 0.89
+        },
+        {
+          "text": "Anne,",
+          "start": 0.89,
+          "end": 1.27
+        },
+        {
+          "text": "Tressel",
+          "start": 1.69,
+          "end": 1.91
+        },
+        {
+          "text": "and",
+          "start": 2.01,
+          "end": 2.09
+        },
+        {
+          "text": "Berkeley._]",
+          "start": 2.09,
+          "end": 2.39
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20340867806226015
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cc7383c20095240120edcd95a538e5b0c122eb9da5d9f7327574d8bc2f533272",
+  "selected_reasons": []
+}

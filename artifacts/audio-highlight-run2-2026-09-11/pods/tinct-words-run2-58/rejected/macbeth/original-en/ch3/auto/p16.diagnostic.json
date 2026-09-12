@@ -1,0 +1,7610 @@
+{
+  "complete": true,
+  "signature": "483152b6ea3c344f85a6cca3ea4a880585cc394376a36b1bf615b77de21e07df",
+  "attempts": [
+    {
+      "asr_seconds": 0.6838760990649462,
+      "alignment_seconds": 0.0007681548595428467,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Banquo. How far is't call'd to Forres?—What are these, So wither'd, and so wild in their attire, That look not like the inhabitants o' th' earth, And yet are on't?—Live you? or are you aught That man may question? You seem to understand me, By each at once her choppy finger laying Upon her skinny lips. You should be women, And yet your beards forbid me to interpret That you are so.",
+        "hotwords": "Banquo, How, Forres?—What, That, By, Upon"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Banquo, How far is't call'd to Forres?—What are these, So wither'd, and so wild in their attire, That look not like the inhabitants o' th' earth, And yet are on't?—Live you? or are you aught That man may question? You seem to understand me, By each at once her choppy finger laying Upon her skinny lips. You should be women, And yet your beards forbid me to interpret That you are so.",
+          "start": 0.21,
+          "end": 22.65,
+          "words": [
+            {
+              "text": " Banquo,",
+              "start": 0.21,
+              "end": 0.93,
+              "probability": 0.766845703125
+            },
+            {
+              "text": " How",
+              "start": 1.07,
+              "end": 1.19,
+              "probability": 0.046478271484375
+            },
+            {
+              "text": " far",
+              "start": 1.19,
+              "end": 1.43,
+              "probability": 0.85888671875
+            },
+            {
+              "text": " is't",
+              "start": 1.43,
+              "end": 1.75,
+              "probability": 0.51434326171875
+            },
+            {
+              "text": " call'd",
+              "start": 1.75,
+              "end": 2.03,
+              "probability": 0.487152099609375
+            },
+            {
+              "text": " to",
+              "start": 2.03,
+              "end": 2.13,
+              "probability": 0.90478515625
+            },
+            {
+              "text": " Forres",
+              "start": 2.13,
+              "end": 2.65,
+              "probability": 0.11398506164550781
+            },
+            {
+              "text": "?—What",
+              "start": 2.65,
+              "end": 3.29,
+              "probability": 0.44040552775065106
+            },
+            {
+              "text": " are",
+              "start": 3.29,
+              "end": 3.41,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " these,",
+              "start": 3.41,
+              "end": 3.67,
+              "probability": 0.822265625
+            },
+            {
+              "text": " So",
+              "start": 3.93,
+              "end": 4.19,
+              "probability": 0.23046875
+            },
+            {
+              "text": " wither'd,",
+              "start": 4.19,
+              "end": 4.59,
+              "probability": 0.5810674031575521
+            },
+            {
+              "text": " and",
+              "start": 4.63,
+              "end": 4.75,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " so",
+              "start": 4.75,
+              "end": 4.99,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " wild",
+              "start": 4.99,
+              "end": 5.25,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " in",
+              "start": 5.25,
+              "end": 5.49,
+              "probability": 0.873046875
+            },
+            {
+              "text": " their",
+              "start": 5.49,
+              "end": 5.59,
+              "probability": 0.9453125
+            },
+            {
+              "text": " attire,",
+              "start": 5.59,
+              "end": 5.91,
+              "probability": 0.8857421875
+            },
+            {
+              "text": " That",
+              "start": 6.27,
+              "end": 6.41,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " look",
+              "start": 6.41,
+              "end": 6.57,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " not",
+              "start": 6.57,
+              "end": 6.77,
+              "probability": 0.68505859375
+            },
+            {
+              "text": " like",
+              "start": 6.77,
+              "end": 6.91,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " the",
+              "start": 6.91,
+              "end": 7.07,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " inhabitants",
+              "start": 7.07,
+              "end": 7.47,
+              "probability": 0.70751953125
+            },
+            {
+              "text": " o'",
+              "start": 7.47,
+              "end": 7.93,
+              "probability": 0.08050537109375
+            },
+            {
+              "text": " th'",
+              "start": 8.11,
+              "end": 8.37,
+              "probability": 0.1287841796875
+            },
+            {
+              "text": " earth,",
+              "start": 8.73,
+              "end": 8.87,
+              "probability": 0.8271484375
+            },
+            {
+              "text": " And",
+              "start": 9.25,
+              "end": 9.37,
+              "probability": 0.88623046875
+            },
+            {
+              "text": " yet",
+              "start": 9.37,
+              "end": 9.53,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " are",
+              "start": 9.53,
+              "end": 9.65,
+              "probability": 0.7177734375
+            },
+            {
+              "text": " on't",
+              "start": 9.65,
+              "end": 10.09,
+              "probability": 0.4540233612060547
+            },
+            {
+              "text": "?—Live",
+              "start": 10.09,
+              "end": 10.87,
+              "probability": 0.6365152994791666
+            },
+            {
+              "text": " you?",
+              "start": 10.87,
+              "end": 11.15,
+              "probability": 0.87060546875
+            },
+            {
+              "text": " or",
+              "start": 11.59,
+              "end": 11.83,
+              "probability": 0.11865234375
+            },
+            {
+              "text": " are",
+              "start": 11.83,
+              "end": 11.97,
+              "probability": 0.7109375
+            },
+            {
+              "text": " you",
+              "start": 11.97,
+              "end": 12.11,
+              "probability": 0.953125
+            },
+            {
+              "text": " aught",
+              "start": 12.11,
+              "end": 12.33,
+              "probability": 0.525390625
+            },
+            {
+              "text": " That",
+              "start": 12.33,
+              "end": 12.51,
+              "probability": 0.0204315185546875
+            },
+            {
+              "text": " man",
+              "start": 12.51,
+              "end": 12.71,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " may",
+              "start": 12.71,
+              "end": 12.91,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " question?",
+              "start": 12.91,
+              "end": 13.17,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " You",
+              "start": 13.83,
+              "end": 14.01,
+              "probability": 0.51123046875
+            },
+            {
+              "text": " seem",
+              "start": 14.01,
+              "end": 14.15,
+              "probability": 0.919921875
+            },
+            {
+              "text": " to",
+              "start": 14.15,
+              "end": 14.31,
+              "probability": 0.982421875
+            },
+            {
+              "text": " understand",
+              "start": 14.31,
+              "end": 14.69,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " me,",
+              "start": 14.69,
+              "end": 14.99,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " By",
+              "start": 15.09,
+              "end": 15.21,
+              "probability": 0.7783203125
+            },
+            {
+              "text": " each",
+              "start": 15.21,
+              "end": 15.41,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " at",
+              "start": 15.41,
+              "end": 15.55,
+              "probability": 0.98046875
+            },
+            {
+              "text": " once",
+              "start": 15.55,
+              "end": 15.73,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " her",
+              "start": 15.73,
+              "end": 15.93,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " choppy",
+              "start": 15.93,
+              "end": 16.31,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " finger",
+              "start": 16.31,
+              "end": 16.67,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " laying",
+              "start": 16.67,
+              "end": 16.93,
+              "probability": 0.106689453125
+            },
+            {
+              "text": " Upon",
+              "start": 16.93,
+              "end": 17.25,
+              "probability": 0.26123046875
+            },
+            {
+              "text": " her",
+              "start": 17.25,
+              "end": 17.43,
+              "probability": 0.998046875
+            },
+            {
+              "text": " skinny",
+              "start": 17.43,
+              "end": 17.75,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " lips.",
+              "start": 17.75,
+              "end": 18.13,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " You",
+              "start": 18.71,
+              "end": 18.85,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " should",
+              "start": 18.85,
+              "end": 18.99,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " be",
+              "start": 18.99,
+              "end": 19.15,
+              "probability": 0.998046875
+            },
+            {
+              "text": " women,",
+              "start": 19.15,
+              "end": 19.43,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " And",
+              "start": 19.73,
+              "end": 19.91,
+              "probability": 0.58251953125
+            },
+            {
+              "text": " yet",
+              "start": 19.91,
+              "end": 20.05,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " your",
+              "start": 20.05,
+              "end": 20.25,
+              "probability": 0.98046875
+            },
+            {
+              "text": " beards",
+              "start": 20.25,
+              "end": 20.65,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " forbid",
+              "start": 20.65,
+              "end": 20.91,
+              "probability": 0.9140625
+            },
+            {
+              "text": " me",
+              "start": 20.91,
+              "end": 21.19,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " to",
+              "start": 21.19,
+              "end": 21.37,
+              "probability": 0.058563232421875
+            },
+            {
+              "text": " interpret",
+              "start": 21.37,
+              "end": 21.79,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " That",
+              "start": 21.79,
+              "end": 22.05,
+              "probability": 0.849609375
+            },
+            {
+              "text": " you",
+              "start": 22.05,
+              "end": 22.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " are",
+              "start": 22.23,
+              "end": 22.39,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " so.",
+              "start": 22.39,
+              "end": 22.65,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Banquo,",
+          "start": 0.21,
+          "end": 0.93
+        },
+        {
+          "raw": "How",
+          "start": 1.07,
+          "end": 1.19
+        },
+        {
+          "raw": "far",
+          "start": 1.19,
+          "end": 1.43
+        },
+        {
+          "raw": "is't",
+          "start": 1.43,
+          "end": 1.75
+        },
+        {
+          "raw": "call'd",
+          "start": 1.75,
+          "end": 2.03
+        },
+        {
+          "raw": "to",
+          "start": 2.03,
+          "end": 2.13
+        },
+        {
+          "raw": "Forres",
+          "start": 2.13,
+          "end": 2.65
+        },
+        {
+          "raw": "?—What",
+          "start": 2.65,
+          "end": 3.29
+        },
+        {
+          "raw": "are",
+          "start": 3.29,
+          "end": 3.41
+        },
+        {
+          "raw": "these,",
+          "start": 3.41,
+          "end": 3.67
+        },
+        {
+          "raw": "So",
+          "start": 3.93,
+          "end": 4.19
+        },
+        {
+          "raw": "wither'd,",
+          "start": 4.19,
+          "end": 4.59
+        },
+        {
+          "raw": "and",
+          "start": 4.63,
+          "end": 4.75
+        },
+        {
+          "raw": "so",
+          "start": 4.75,
+          "end": 4.99
+        },
+        {
+          "raw": "wild",
+          "start": 4.99,
+          "end": 5.25
+        },
+        {
+          "raw": "in",
+          "start": 5.25,
+          "end": 5.49
+        },
+        {
+          "raw": "their",
+          "start": 5.49,
+          "end": 5.59
+        },
+        {
+          "raw": "attire,",
+          "start": 5.59,
+          "end": 5.91
+        },
+        {
+          "raw": "That",
+          "start": 6.27,
+          "end": 6.41
+        },
+        {
+          "raw": "look",
+          "start": 6.41,
+          "end": 6.57
+        },
+        {
+          "raw": "not",
+          "start": 6.57,
+          "end": 6.77
+        },
+        {
+          "raw": "like",
+          "start": 6.77,
+          "end": 6.91
+        },
+        {
+          "raw": "the",
+          "start": 6.91,
+          "end": 7.07
+        },
+        {
+          "raw": "inhabitants",
+          "start": 7.07,
+          "end": 7.47
+        },
+        {
+          "raw": "o'",
+          "start": 7.47,
+          "end": 7.93
+        },
+        {
+          "raw": "th'",
+          "start": 8.11,
+          "end": 8.37
+        },
+        {
+          "raw": "earth,",
+          "start": 8.73,
+          "end": 8.87
+        },
+        {
+          "raw": "And",
+          "start": 9.25,
+          "end": 9.37
+        },
+        {
+          "raw": "yet",
+          "start": 9.37,
+          "end": 9.53
+        },
+        {
+          "raw": "are",
+          "start": 9.53,
+          "end": 9.65
+        },
+        {
+          "raw": "on't",
+          "start": 9.65,
+          "end": 10.09
+        },
+        {
+          "raw": "?—Live",
+          "start": 10.09,
+          "end": 10.87
+        },
+        {
+          "raw": "you?",
+          "start": 10.87,
+          "end": 11.15
+        },
+        {
+          "raw": "or",
+          "start": 11.59,
+          "end": 11.83
+        },
+        {
+          "raw": "are",
+          "start": 11.83,
+          "end": 11.97
+        },
+        {
+          "raw": "you",
+          "start": 11.97,
+          "end": 12.11
+        },
+        {
+          "raw": "aught",
+          "start": 12.11,
+          "end": 12.33
+        },
+        {
+          "raw": "That",
+          "start": 12.33,
+          "end": 12.51
+        },
+        {
+          "raw": "man",
+          "start": 12.51,
+          "end": 12.71
+        },
+        {
+          "raw": "may",
+          "start": 12.71,
+          "end": 12.91
+        },
+        {
+          "raw": "question?",
+          "start": 12.91,
+          "end": 13.17
+        },
+        {
+          "raw": "You",
+          "start": 13.83,
+          "end": 14.01
+        },
+        {
+          "raw": "seem",
+          "start": 14.01,
+          "end": 14.15
+        },
+        {
+          "raw": "to",
+          "start": 14.15,
+          "end": 14.31
+        },
+        {
+          "raw": "understand",
+          "start": 14.31,
+          "end": 14.69
+        },
+        {
+          "raw": "me,",
+          "start": 14.69,
+          "end": 14.99
+        },
+        {
+          "raw": "By",
+          "start": 15.09,
+          "end": 15.21
+        },
+        {
+          "raw": "each",
+          "start": 15.21,
+          "end": 15.41
+        },
+        {
+          "raw": "at",
+          "start": 15.41,
+          "end": 15.55
+        },
+        {
+          "raw": "once",
+          "start": 15.55,
+          "end": 15.73
+        },
+        {
+          "raw": "her",
+          "start": 15.73,
+          "end": 15.93
+        },
+        {
+          "raw": "choppy",
+          "start": 15.93,
+          "end": 16.31
+        },
+        {
+          "raw": "finger",
+          "start": 16.31,
+          "end": 16.67
+        },
+        {
+          "raw": "laying",
+          "start": 16.67,
+          "end": 16.93
+        },
+        {
+          "raw": "Upon",
+          "start": 16.93,
+          "end": 17.25
+        },
+        {
+          "raw": "her",
+          "start": 17.25,
+          "end": 17.43
+        },
+        {
+          "raw": "skinny",
+          "start": 17.43,
+          "end": 17.75
+        },
+        {
+          "raw": "lips.",
+          "start": 17.75,
+          "end": 18.13
+        },
+        {
+          "raw": "You",
+          "start": 18.71,
+          "end": 18.85
+        },
+        {
+          "raw": "should",
+          "start": 18.85,
+          "end": 18.99
+        },
+        {
+          "raw": "be",
+          "start": 18.99,
+          "end": 19.15
+        },
+        {
+          "raw": "women,",
+          "start": 19.15,
+          "end": 19.43
+        },
+        {
+          "raw": "And",
+          "start": 19.73,
+          "end": 19.91
+        },
+        {
+          "raw": "yet",
+          "start": 19.91,
+          "end": 20.05
+        },
+        {
+          "raw": "your",
+          "start": 20.05,
+          "end": 20.25
+        },
+        {
+          "raw": "beards",
+          "start": 20.25,
+          "end": 20.65
+        },
+        {
+          "raw": "forbid",
+          "start": 20.65,
+          "end": 20.91
+        },
+        {
+          "raw": "me",
+          "start": 20.91,
+          "end": 21.19
+        },
+        {
+          "raw": "to",
+          "start": 21.19,
+          "end": 21.37
+        },
+        {
+          "raw": "interpret",
+          "start": 21.37,
+          "end": 21.79
+        },
+        {
+          "raw": "That",
+          "start": 21.79,
+          "end": 22.05
+        },
+        {
+          "raw": "you",
+          "start": 22.05,
+          "end": 22.23
+        },
+        {
+          "raw": "are",
+          "start": 22.23,
+          "end": 22.39
+        },
+        {
+          "raw": "so.",
+          "start": 22.39,
+          "end": 22.65
+        }
+      ],
+      "expected_tokens": [
+        "Banquo.",
+        "How",
+        "far",
+        "is't",
+        "call'd",
+        "to",
+        "Forres?—What",
+        "are",
+        "these,",
+        "So",
+        "wither'd,",
+        "and",
+        "so",
+        "wild",
+        "in",
+        "their",
+        "attire,",
+        "That",
+        "look",
+        "not",
+        "like",
+        "the",
+        "inhabitants",
+        "o'",
+        "th'",
+        "earth,",
+        "And",
+        "yet",
+        "are",
+        "on't?—Live",
+        "you?",
+        "or",
+        "are",
+        "you",
+        "aught",
+        "That",
+        "man",
+        "may",
+        "question?",
+        "You",
+        "seem",
+        "to",
+        "understand",
+        "me,",
+        "By",
+        "each",
+        "at",
+        "once",
+        "her",
+        "choppy",
+        "finger",
+        "laying",
+        "Upon",
+        "her",
+        "skinny",
+        "lips.",
+        "You",
+        "should",
+        "be",
+        "women,",
+        "And",
+        "yet",
+        "your",
+        "beards",
+        "forbid",
+        "me",
+        "to",
+        "interpret",
+        "That",
+        "you",
+        "are",
+        "so."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ],
+        [
+          "equal",
+          7,
+          29,
+          8,
+          30
+        ],
+        [
+          "replace",
+          29,
+          30,
+          30,
+          32
+        ],
+        [
+          "equal",
+          30,
+          72,
+          32,
+          74
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 73
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ],
+        [
+          "replace",
+          29,
+          30,
+          30,
+          32
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Banquo,",
+          "start": 0.21,
+          "end": 0.93,
+          "key": "banquo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 1.07,
+          "end": 1.19,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "far",
+          "start": 1.19,
+          "end": 1.43,
+          "key": "far",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is't",
+          "start": 1.43,
+          "end": 1.75,
+          "key": "ist",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "call'd",
+          "start": 1.75,
+          "end": 2.03,
+          "key": "calld",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.03,
+          "end": 2.13,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Forres",
+          "start": 2.13,
+          "end": 2.65,
+          "key": "forres",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "?—What",
+          "start": 2.65,
+          "end": 3.29,
+          "key": "what",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 3.29,
+          "end": 3.41,
+          "key": "are",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "these,",
+          "start": 3.41,
+          "end": 3.67,
+          "key": "these",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "So",
+          "start": 3.93,
+          "end": 4.19,
+          "key": "so",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "wither'd,",
+          "start": 4.19,
+          "end": 4.59,
+          "key": "witherd",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.63,
+          "end": 4.75,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 4.75,
+          "end": 4.99,
+          "key": "so",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "wild",
+          "start": 4.99,
+          "end": 5.25,
+          "key": "wild",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.25,
+          "end": 5.49,
+          "key": "in",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 5.49,
+          "end": 5.59,
+          "key": "their",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "attire,",
+          "start": 5.59,
+          "end": 5.91,
+          "key": "attire",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 6.27,
+          "end": 6.41,
+          "key": "that",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 6.41,
+          "end": 6.57,
+          "key": "look",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 6.57,
+          "end": 6.77,
+          "key": "not",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 6.77,
+          "end": 6.91,
+          "key": "like",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.91,
+          "end": 7.07,
+          "key": "the",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "inhabitants",
+          "start": 7.07,
+          "end": 7.47,
+          "key": "inhabitants",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "o'",
+          "start": 7.47,
+          "end": 7.93,
+          "key": "o",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "th'",
+          "start": 8.11,
+          "end": 8.37,
+          "key": "th",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "earth,",
+          "start": 8.73,
+          "end": 8.87,
+          "key": "earth",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 9.25,
+          "end": 9.37,
+          "key": "and",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "yet",
+          "start": 9.37,
+          "end": 9.53,
+          "key": "yet",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 9.53,
+          "end": 9.65,
+          "key": "are",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "on't",
+          "start": 9.65,
+          "end": 10.09,
+          "key": "ont",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "?—Live",
+          "start": 10.09,
+          "end": 10.87,
+          "key": "live",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "you?",
+          "start": 10.87,
+          "end": 11.15,
+          "key": "you",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 11.59,
+          "end": 11.83,
+          "key": "or",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 11.83,
+          "end": 11.97,
+          "key": "are",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 11.97,
+          "end": 12.11,
+          "key": "you",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "aught",
+          "start": 12.11,
+          "end": 12.33,
+          "key": "aught",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 12.33,
+          "end": 12.51,
+          "key": "that",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 12.51,
+          "end": 12.71,
+          "key": "man",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 12.71,
+          "end": 12.91,
+          "key": "may",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "question?",
+          "start": 12.91,
+          "end": 13.17,
+          "key": "question",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 13.83,
+          "end": 14.01,
+          "key": "you",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "seem",
+          "start": 14.01,
+          "end": 14.15,
+          "key": "seem",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 14.15,
+          "end": 14.31,
+          "key": "to",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "understand",
+          "start": 14.31,
+          "end": 14.69,
+          "key": "understand",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 14.69,
+          "end": 14.99,
+          "key": "me",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "By",
+          "start": 15.09,
+          "end": 15.21,
+          "key": "by",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "each",
+          "start": 15.21,
+          "end": 15.41,
+          "key": "each",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 15.41,
+          "end": 15.55,
+          "key": "at",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "once",
+          "start": 15.55,
+          "end": 15.73,
+          "key": "once",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 15.73,
+          "end": 15.93,
+          "key": "her",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "choppy",
+          "start": 15.93,
+          "end": 16.31,
+          "key": "choppy",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "finger",
+          "start": 16.31,
+          "end": 16.67,
+          "key": "finger",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "laying",
+          "start": 16.67,
+          "end": 16.93,
+          "key": "laying",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "Upon",
+          "start": 16.93,
+          "end": 17.25,
+          "key": "upon",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 17.25,
+          "end": 17.43,
+          "key": "her",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "skinny",
+          "start": 17.43,
+          "end": 17.75,
+          "key": "skinny",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "lips.",
+          "start": 17.75,
+          "end": 18.13,
+          "key": "lips",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 18.71,
+          "end": 18.85,
+          "key": "you",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 18.85,
+          "end": 18.99,
+          "key": "should",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 18.99,
+          "end": 19.15,
+          "key": "be",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "women,",
+          "start": 19.15,
+          "end": 19.43,
+          "key": "women",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 19.73,
+          "end": 19.91,
+          "key": "and",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "yet",
+          "start": 19.91,
+          "end": 20.05,
+          "key": "yet",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 20.05,
+          "end": 20.25,
+          "key": "your",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "beards",
+          "start": 20.25,
+          "end": 20.65,
+          "key": "beards",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "forbid",
+          "start": 20.65,
+          "end": 20.91,
+          "key": "forbid",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 20.91,
+          "end": 21.19,
+          "key": "me",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 21.19,
+          "end": 21.37,
+          "key": "to",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "interpret",
+          "start": 21.37,
+          "end": 21.79,
+          "key": "interpret",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 21.79,
+          "end": 22.05,
+          "key": "that",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 22.05,
+          "end": 22.23,
+          "key": "you",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 22.23,
+          "end": 22.39,
+          "key": "are",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "so.",
+          "start": 22.39,
+          "end": 22.65,
+          "key": "so",
+          "pieces": [
+            73
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Banquo.",
+          "start": 0.21,
+          "end": 0.93
+        },
+        {
+          "text": "How",
+          "start": 1.07,
+          "end": 1.19
+        },
+        {
+          "text": "far",
+          "start": 1.19,
+          "end": 1.43
+        },
+        {
+          "text": "is't",
+          "start": 1.43,
+          "end": 1.75
+        },
+        {
+          "text": "call'd",
+          "start": 1.75,
+          "end": 2.03
+        },
+        {
+          "text": "to",
+          "start": 2.03,
+          "end": 2.13
+        },
+        {
+          "text": "Forres?—What",
+          "start": 2.13,
+          "end": 2.71
+        },
+        {
+          "text": "are",
+          "start": 3.29,
+          "end": 3.41
+        },
+        {
+          "text": "these,",
+          "start": 3.41,
+          "end": 3.67
+        },
+        {
+          "text": "So",
+          "start": 3.93,
+          "end": 4.19
+        },
+        {
+          "text": "wither'd,",
+          "start": 4.19,
+          "end": 4.59
+        },
+        {
+          "text": "and",
+          "start": 4.63,
+          "end": 4.75
+        },
+        {
+          "text": "so",
+          "start": 4.75,
+          "end": 4.99
+        },
+        {
+          "text": "wild",
+          "start": 4.99,
+          "end": 5.25
+        },
+        {
+          "text": "in",
+          "start": 5.25,
+          "end": 5.49
+        },
+        {
+          "text": "their",
+          "start": 5.49,
+          "end": 5.59
+        },
+        {
+          "text": "attire,",
+          "start": 5.59,
+          "end": 5.91
+        },
+        {
+          "text": "That",
+          "start": 6.27,
+          "end": 6.41
+        },
+        {
+          "text": "look",
+          "start": 6.41,
+          "end": 6.57
+        },
+        {
+          "text": "not",
+          "start": 6.57,
+          "end": 6.77
+        },
+        {
+          "text": "like",
+          "start": 6.77,
+          "end": 6.91
+        },
+        {
+          "text": "the",
+          "start": 6.91,
+          "end": 7.07
+        },
+        {
+          "text": "inhabitants",
+          "start": 7.07,
+          "end": 7.47
+        },
+        {
+          "text": "o'",
+          "start": 7.47,
+          "end": 7.93
+        },
+        {
+          "text": "th'",
+          "start": 8.11,
+          "end": 8.37
+        },
+        {
+          "text": "earth,",
+          "start": 8.73,
+          "end": 8.87
+        },
+        {
+          "text": "And",
+          "start": 9.25,
+          "end": 9.37
+        },
+        {
+          "text": "yet",
+          "start": 9.37,
+          "end": 9.53
+        },
+        {
+          "text": "are",
+          "start": 9.53,
+          "end": 9.65
+        },
+        {
+          "text": "on't?—Live",
+          "start": 9.65,
+          "end": 10.26
+        },
+        {
+          "text": "you?",
+          "start": 10.87,
+          "end": 11.15
+        },
+        {
+          "text": "or",
+          "start": 11.59,
+          "end": 11.83
+        },
+        {
+          "text": "are",
+          "start": 11.83,
+          "end": 11.97
+        },
+        {
+          "text": "you",
+          "start": 11.97,
+          "end": 12.11
+        },
+        {
+          "text": "aught",
+          "start": 12.11,
+          "end": 12.33
+        },
+        {
+          "text": "That",
+          "start": 12.33,
+          "end": 12.51
+        },
+        {
+          "text": "man",
+          "start": 12.51,
+          "end": 12.71
+        },
+        {
+          "text": "may",
+          "start": 12.71,
+          "end": 12.91
+        },
+        {
+          "text": "question?",
+          "start": 12.91,
+          "end": 13.17
+        },
+        {
+          "text": "You",
+          "start": 13.83,
+          "end": 14.01
+        },
+        {
+          "text": "seem",
+          "start": 14.01,
+          "end": 14.15
+        },
+        {
+          "text": "to",
+          "start": 14.15,
+          "end": 14.31
+        },
+        {
+          "text": "understand",
+          "start": 14.31,
+          "end": 14.69
+        },
+        {
+          "text": "me,",
+          "start": 14.69,
+          "end": 14.99
+        },
+        {
+          "text": "By",
+          "start": 15.09,
+          "end": 15.21
+        },
+        {
+          "text": "each",
+          "start": 15.21,
+          "end": 15.41
+        },
+        {
+          "text": "at",
+          "start": 15.41,
+          "end": 15.55
+        },
+        {
+          "text": "once",
+          "start": 15.55,
+          "end": 15.73
+        },
+        {
+          "text": "her",
+          "start": 15.73,
+          "end": 15.93
+        },
+        {
+          "text": "choppy",
+          "start": 15.93,
+          "end": 16.31
+        },
+        {
+          "text": "finger",
+          "start": 16.31,
+          "end": 16.67
+        },
+        {
+          "text": "laying",
+          "start": 16.67,
+          "end": 16.93
+        },
+        {
+          "text": "Upon",
+          "start": 16.93,
+          "end": 17.25
+        },
+        {
+          "text": "her",
+          "start": 17.25,
+          "end": 17.43
+        },
+        {
+          "text": "skinny",
+          "start": 17.43,
+          "end": 17.75
+        },
+        {
+          "text": "lips.",
+          "start": 17.75,
+          "end": 18.13
+        },
+        {
+          "text": "You",
+          "start": 18.71,
+          "end": 18.85
+        },
+        {
+          "text": "should",
+          "start": 18.85,
+          "end": 18.99
+        },
+        {
+          "text": "be",
+          "start": 18.99,
+          "end": 19.15
+        },
+        {
+          "text": "women,",
+          "start": 19.15,
+          "end": 19.43
+        },
+        {
+          "text": "And",
+          "start": 19.73,
+          "end": 19.91
+        },
+        {
+          "text": "yet",
+          "start": 19.91,
+          "end": 20.05
+        },
+        {
+          "text": "your",
+          "start": 20.05,
+          "end": 20.25
+        },
+        {
+          "text": "beards",
+          "start": 20.25,
+          "end": 20.65
+        },
+        {
+          "text": "forbid",
+          "start": 20.65,
+          "end": 20.91
+        },
+        {
+          "text": "me",
+          "start": 20.91,
+          "end": 21.19
+        },
+        {
+          "text": "to",
+          "start": 21.19,
+          "end": 21.37
+        },
+        {
+          "text": "interpret",
+          "start": 21.37,
+          "end": 21.79
+        },
+        {
+          "text": "That",
+          "start": 21.79,
+          "end": 22.05
+        },
+        {
+          "text": "you",
+          "start": 22.05,
+          "end": 22.23
+        },
+        {
+          "text": "are",
+          "start": 22.23,
+          "end": 22.39
+        },
+        {
+          "text": "so.",
+          "start": 22.39,
+          "end": 22.65
+        }
+      ],
+      "stats": {
+        "expected_words": 72,
+        "heard_words": 74,
+        "matched_words": 70
+      },
+      "match_ratio": 0.9722222222222222,
+      "rejection_reasons": [],
+      "seconds": 0.6850091321393847
+    },
+    {
+      "asr_seconds": 0.6390895936638117,
+      "alignment_seconds": 0.0011635329574346542,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Banquo, How, Forres?—What, That, By, Upon"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Banquo, How Far ist Called to Forres?—What are these, so withered and so wild in their",
+          "start": 0.21,
+          "end": 5.59,
+          "words": [
+            {
+              "text": " Banquo,",
+              "start": 0.21,
+              "end": 0.93,
+              "probability": 0.766845703125
+            },
+            {
+              "text": " How",
+              "start": 1.07,
+              "end": 1.19,
+              "probability": 0.046478271484375
+            },
+            {
+              "text": " Far",
+              "start": 1.19,
+              "end": 1.43,
+              "probability": 0.1162109375
+            },
+            {
+              "text": " ist",
+              "start": 1.43,
+              "end": 1.79,
+              "probability": 0.5831298828125
+            },
+            {
+              "text": " Called",
+              "start": 1.79,
+              "end": 1.93,
+              "probability": 0.306396484375
+            },
+            {
+              "text": " to",
+              "start": 1.93,
+              "end": 2.15,
+              "probability": 0.84326171875
+            },
+            {
+              "text": " Forres",
+              "start": 2.15,
+              "end": 2.65,
+              "probability": 0.3459930419921875
+            },
+            {
+              "text": "?—What",
+              "start": 2.65,
+              "end": 3.29,
+              "probability": 0.42901865641276044
+            },
+            {
+              "text": " are",
+              "start": 3.29,
+              "end": 3.41,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " these,",
+              "start": 3.41,
+              "end": 3.67,
+              "probability": 0.84912109375
+            },
+            {
+              "text": " so",
+              "start": 3.95,
+              "end": 4.19,
+              "probability": 0.6875
+            },
+            {
+              "text": " withered",
+              "start": 4.19,
+              "end": 4.53,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " and",
+              "start": 4.53,
+              "end": 4.75,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " so",
+              "start": 4.75,
+              "end": 4.99,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " wild",
+              "start": 4.99,
+              "end": 5.29,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " in",
+              "start": 5.29,
+              "end": 5.47,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " their",
+              "start": 5.47,
+              "end": 5.59,
+              "probability": 0.98388671875
+            }
+          ]
+        },
+        {
+          "text": " attire, that look not like the inhabitants, O, T.H., Earth, and yet our aunt? Live you.",
+          "start": 5.59,
+          "end": 11.15,
+          "words": [
+            {
+              "text": " attire,",
+              "start": 5.59,
+              "end": 5.93,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " that",
+              "start": 6.29,
+              "end": 6.41,
+              "probability": 0.47314453125
+            },
+            {
+              "text": " look",
+              "start": 6.41,
+              "end": 6.55,
+              "probability": 0.94921875
+            },
+            {
+              "text": " not",
+              "start": 6.55,
+              "end": 6.77,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " like",
+              "start": 6.77,
+              "end": 6.91,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 6.91,
+              "end": 7.07,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " inhabitants,",
+              "start": 7.07,
+              "end": 7.49,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " O,",
+              "start": 7.93,
+              "end": 7.93,
+              "probability": 0.7822265625
+            },
+            {
+              "text": " T",
+              "start": 8.23,
+              "end": 8.27,
+              "probability": 0.73828125
+            },
+            {
+              "text": ".H.,",
+              "start": 8.27,
+              "end": 8.71,
+              "probability": 0.6770833333333334
+            },
+            {
+              "text": " Earth,",
+              "start": 8.71,
+              "end": 8.87,
+              "probability": 0.8603515625
+            },
+            {
+              "text": " and",
+              "start": 9.25,
+              "end": 9.39,
+              "probability": 0.91455078125
+            },
+            {
+              "text": " yet",
+              "start": 9.39,
+              "end": 9.51,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " our",
+              "start": 9.51,
+              "end": 9.67,
+              "probability": 0.486572265625
+            },
+            {
+              "text": " aunt?",
+              "start": 9.67,
+              "end": 9.93,
+              "probability": 0.814453125
+            },
+            {
+              "text": " Live",
+              "start": 10.73,
+              "end": 10.89,
+              "probability": 0.72265625
+            },
+            {
+              "text": " you.",
+              "start": 10.89,
+              "end": 11.15,
+              "probability": 0.91748046875
+            }
+          ]
+        },
+        {
+          "text": " Or are you ought that man may question? You seem to understand me by each at once her",
+          "start": 11.67,
+          "end": 15.93,
+          "words": [
+            {
+              "text": " Or",
+              "start": 11.67,
+              "end": 11.83,
+              "probability": 0.85498046875
+            },
+            {
+              "text": " are",
+              "start": 11.83,
+              "end": 11.97,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " you",
+              "start": 11.97,
+              "end": 12.11,
+              "probability": 0.98828125
+            },
+            {
+              "text": " ought",
+              "start": 12.11,
+              "end": 12.29,
+              "probability": 0.7744140625
+            },
+            {
+              "text": " that",
+              "start": 12.29,
+              "end": 12.49,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " man",
+              "start": 12.49,
+              "end": 12.71,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " may",
+              "start": 12.71,
+              "end": 12.89,
+              "probability": 0.88037109375
+            },
+            {
+              "text": " question?",
+              "start": 12.89,
+              "end": 13.23,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " You",
+              "start": 13.83,
+              "end": 14.01,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " seem",
+              "start": 14.01,
+              "end": 14.15,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " to",
+              "start": 14.15,
+              "end": 14.31,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " understand",
+              "start": 14.31,
+              "end": 14.71,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " me",
+              "start": 14.71,
+              "end": 14.99,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " by",
+              "start": 14.99,
+              "end": 15.21,
+              "probability": 0.455078125
+            },
+            {
+              "text": " each",
+              "start": 15.21,
+              "end": 15.41,
+              "probability": 0.994140625
+            },
+            {
+              "text": " at",
+              "start": 15.41,
+              "end": 15.55,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " once",
+              "start": 15.55,
+              "end": 15.73,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " her",
+              "start": 15.73,
+              "end": 15.93,
+              "probability": 0.98681640625
+            }
+          ]
+        },
+        {
+          "text": " choppy finger laying upon her skinny lips. You should be women, and yet your beards forbid",
+          "start": 15.93,
+          "end": 20.91,
+          "words": [
+            {
+              "text": " choppy",
+              "start": 15.93,
+              "end": 16.31,
+              "probability": 0.993896484375
+            },
+            {
+              "text": " finger",
+              "start": 16.31,
+              "end": 16.67,
+              "probability": 0.994140625
+            },
+            {
+              "text": " laying",
+              "start": 16.67,
+              "end": 16.93,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " upon",
+              "start": 16.93,
+              "end": 17.25,
+              "probability": 0.99609375
+            },
+            {
+              "text": " her",
+              "start": 17.25,
+              "end": 17.41,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " skinny",
+              "start": 17.41,
+              "end": 17.77,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " lips.",
+              "start": 17.77,
+              "end": 18.15,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " You",
+              "start": 18.71,
+              "end": 18.85,
+              "probability": 0.990234375
+            },
+            {
+              "text": " should",
+              "start": 18.85,
+              "end": 18.99,
+              "probability": 0.998046875
+            },
+            {
+              "text": " be",
+              "start": 18.99,
+              "end": 19.15,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " women,",
+              "start": 19.15,
+              "end": 19.43,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " and",
+              "start": 19.73,
+              "end": 19.91,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " yet",
+              "start": 19.91,
+              "end": 20.05,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " your",
+              "start": 20.05,
+              "end": 20.25,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " beards",
+              "start": 20.25,
+              "end": 20.65,
+              "probability": 0.979736328125
+            },
+            {
+              "text": " forbid",
+              "start": 20.65,
+              "end": 20.91,
+              "probability": 0.98046875
+            }
+          ]
+        },
+        {
+          "text": " me to interpret that you are so.",
+          "start": 20.91,
+          "end": 22.65,
+          "words": [
+            {
+              "text": " me",
+              "start": 20.91,
+              "end": 21.19,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 21.19,
+              "end": 21.37,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " interpret",
+              "start": 21.37,
+              "end": 21.79,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that",
+              "start": 21.79,
+              "end": 22.07,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " you",
+              "start": 22.07,
+              "end": 22.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " are",
+              "start": 22.23,
+              "end": 22.39,
+              "probability": 0.998046875
+            },
+            {
+              "text": " so.",
+              "start": 22.39,
+              "end": 22.65,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Banquo,",
+          "start": 0.21,
+          "end": 0.93
+        },
+        {
+          "raw": "How",
+          "start": 1.07,
+          "end": 1.19
+        },
+        {
+          "raw": "Far",
+          "start": 1.19,
+          "end": 1.43
+        },
+        {
+          "raw": "ist",
+          "start": 1.43,
+          "end": 1.79
+        },
+        {
+          "raw": "Called",
+          "start": 1.79,
+          "end": 1.93
+        },
+        {
+          "raw": "to",
+          "start": 1.93,
+          "end": 2.15
+        },
+        {
+          "raw": "Forres",
+          "start": 2.15,
+          "end": 2.65
+        },
+        {
+          "raw": "?—What",
+          "start": 2.65,
+          "end": 3.29
+        },
+        {
+          "raw": "are",
+          "start": 3.29,
+          "end": 3.41
+        },
+        {
+          "raw": "these,",
+          "start": 3.41,
+          "end": 3.67
+        },
+        {
+          "raw": "so",
+          "start": 3.95,
+          "end": 4.19
+        },
+        {
+          "raw": "withered",
+          "start": 4.19,
+          "end": 4.53
+        },
+        {
+          "raw": "and",
+          "start": 4.53,
+          "end": 4.75
+        },
+        {
+          "raw": "so",
+          "start": 4.75,
+          "end": 4.99
+        },
+        {
+          "raw": "wild",
+          "start": 4.99,
+          "end": 5.29
+        },
+        {
+          "raw": "in",
+          "start": 5.29,
+          "end": 5.47
+        },
+        {
+          "raw": "their",
+          "start": 5.47,
+          "end": 5.59
+        },
+        {
+          "raw": "attire,",
+          "start": 5.59,
+          "end": 5.93
+        },
+        {
+          "raw": "that",
+          "start": 6.29,
+          "end": 6.41
+        },
+        {
+          "raw": "look",
+          "start": 6.41,
+          "end": 6.55
+        },
+        {
+          "raw": "not",
+          "start": 6.55,
+          "end": 6.77
+        },
+        {
+          "raw": "like",
+          "start": 6.77,
+          "end": 6.91
+        },
+        {
+          "raw": "the",
+          "start": 6.91,
+          "end": 7.07
+        },
+        {
+          "raw": "inhabitants,",
+          "start": 7.07,
+          "end": 7.49
+        },
+        {
+          "raw": "O,",
+          "start": 7.93,
+          "end": 7.93
+        },
+        {
+          "raw": "T",
+          "start": 8.23,
+          "end": 8.27
+        },
+        {
+          "raw": ".H.,",
+          "start": 8.27,
+          "end": 8.71
+        },
+        {
+          "raw": "Earth,",
+          "start": 8.71,
+          "end": 8.87
+        },
+        {
+          "raw": "and",
+          "start": 9.25,
+          "end": 9.39
+        },
+        {
+          "raw": "yet",
+          "start": 9.39,
+          "end": 9.51
+        },
+        {
+          "raw": "our",
+          "start": 9.51,
+          "end": 9.67
+        },
+        {
+          "raw": "aunt?",
+          "start": 9.67,
+          "end": 9.93
+        },
+        {
+          "raw": "Live",
+          "start": 10.73,
+          "end": 10.89
+        },
+        {
+          "raw": "you.",
+          "start": 10.89,
+          "end": 11.15
+        },
+        {
+          "raw": "Or",
+          "start": 11.67,
+          "end": 11.83
+        },
+        {
+          "raw": "are",
+          "start": 11.83,
+          "end": 11.97
+        },
+        {
+          "raw": "you",
+          "start": 11.97,
+          "end": 12.11
+        },
+        {
+          "raw": "ought",
+          "start": 12.11,
+          "end": 12.29
+        },
+        {
+          "raw": "that",
+          "start": 12.29,
+          "end": 12.49
+        },
+        {
+          "raw": "man",
+          "start": 12.49,
+          "end": 12.71
+        },
+        {
+          "raw": "may",
+          "start": 12.71,
+          "end": 12.89
+        },
+        {
+          "raw": "question?",
+          "start": 12.89,
+          "end": 13.23
+        },
+        {
+          "raw": "You",
+          "start": 13.83,
+          "end": 14.01
+        },
+        {
+          "raw": "seem",
+          "start": 14.01,
+          "end": 14.15
+        },
+        {
+          "raw": "to",
+          "start": 14.15,
+          "end": 14.31
+        },
+        {
+          "raw": "understand",
+          "start": 14.31,
+          "end": 14.71
+        },
+        {
+          "raw": "me",
+          "start": 14.71,
+          "end": 14.99
+        },
+        {
+          "raw": "by",
+          "start": 14.99,
+          "end": 15.21
+        },
+        {
+          "raw": "each",
+          "start": 15.21,
+          "end": 15.41
+        },
+        {
+          "raw": "at",
+          "start": 15.41,
+          "end": 15.55
+        },
+        {
+          "raw": "once",
+          "start": 15.55,
+          "end": 15.73
+        },
+        {
+          "raw": "her",
+          "start": 15.73,
+          "end": 15.93
+        },
+        {
+          "raw": "choppy",
+          "start": 15.93,
+          "end": 16.31
+        },
+        {
+          "raw": "finger",
+          "start": 16.31,
+          "end": 16.67
+        },
+        {
+          "raw": "laying",
+          "start": 16.67,
+          "end": 16.93
+        },
+        {
+          "raw": "upon",
+          "start": 16.93,
+          "end": 17.25
+        },
+        {
+          "raw": "her",
+          "start": 17.25,
+          "end": 17.41
+        },
+        {
+          "raw": "skinny",
+          "start": 17.41,
+          "end": 17.77
+        },
+        {
+          "raw": "lips.",
+          "start": 17.77,
+          "end": 18.15
+        },
+        {
+          "raw": "You",
+          "start": 18.71,
+          "end": 18.85
+        },
+        {
+          "raw": "should",
+          "start": 18.85,
+          "end": 18.99
+        },
+        {
+          "raw": "be",
+          "start": 18.99,
+          "end": 19.15
+        },
+        {
+          "raw": "women,",
+          "start": 19.15,
+          "end": 19.43
+        },
+        {
+          "raw": "and",
+          "start": 19.73,
+          "end": 19.91
+        },
+        {
+          "raw": "yet",
+          "start": 19.91,
+          "end": 20.05
+        },
+        {
+          "raw": "your",
+          "start": 20.05,
+          "end": 20.25
+        },
+        {
+          "raw": "beards",
+          "start": 20.25,
+          "end": 20.65
+        },
+        {
+          "raw": "forbid",
+          "start": 20.65,
+          "end": 20.91
+        },
+        {
+          "raw": "me",
+          "start": 20.91,
+          "end": 21.19
+        },
+        {
+          "raw": "to",
+          "start": 21.19,
+          "end": 21.37
+        },
+        {
+          "raw": "interpret",
+          "start": 21.37,
+          "end": 21.79
+        },
+        {
+          "raw": "that",
+          "start": 21.79,
+          "end": 22.07
+        },
+        {
+          "raw": "you",
+          "start": 22.07,
+          "end": 22.23
+        },
+        {
+          "raw": "are",
+          "start": 22.23,
+          "end": 22.39
+        },
+        {
+          "raw": "so.",
+          "start": 22.39,
+          "end": 22.65
+        }
+      ],
+      "expected_tokens": [
+        "Banquo.",
+        "How",
+        "far",
+        "is't",
+        "call'd",
+        "to",
+        "Forres?—What",
+        "are",
+        "these,",
+        "So",
+        "wither'd,",
+        "and",
+        "so",
+        "wild",
+        "in",
+        "their",
+        "attire,",
+        "That",
+        "look",
+        "not",
+        "like",
+        "the",
+        "inhabitants",
+        "o'",
+        "th'",
+        "earth,",
+        "And",
+        "yet",
+        "are",
+        "on't?—Live",
+        "you?",
+        "or",
+        "are",
+        "you",
+        "aught",
+        "That",
+        "man",
+        "may",
+        "question?",
+        "You",
+        "seem",
+        "to",
+        "understand",
+        "me,",
+        "By",
+        "each",
+        "at",
+        "once",
+        "her",
+        "choppy",
+        "finger",
+        "laying",
+        "Upon",
+        "her",
+        "skinny",
+        "lips.",
+        "You",
+        "should",
+        "be",
+        "women,",
+        "And",
+        "yet",
+        "your",
+        "beards",
+        "forbid",
+        "me",
+        "to",
+        "interpret",
+        "That",
+        "you",
+        "are",
+        "so."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ],
+        [
+          "equal",
+          7,
+          10,
+          8,
+          11
+        ],
+        [
+          "replace",
+          10,
+          11,
+          11,
+          12
+        ],
+        [
+          "equal",
+          11,
+          24,
+          12,
+          25
+        ],
+        [
+          "replace",
+          24,
+          25,
+          25,
+          27
+        ],
+        [
+          "equal",
+          25,
+          28,
+          27,
+          30
+        ],
+        [
+          "replace",
+          28,
+          30,
+          30,
+          33
+        ],
+        [
+          "equal",
+          30,
+          34,
+          33,
+          37
+        ],
+        [
+          "replace",
+          34,
+          35,
+          37,
+          38
+        ],
+        [
+          "equal",
+          35,
+          72,
+          38,
+          75
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 34,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 74
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ],
+        [
+          "replace",
+          10,
+          11,
+          11,
+          12
+        ],
+        [
+          "replace",
+          24,
+          25,
+          25,
+          27
+        ],
+        [
+          "replace",
+          28,
+          30,
+          30,
+          33
+        ],
+        [
+          "replace",
+          34,
+          35,
+          37,
+          38
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Banquo,",
+          "start": 0.21,
+          "end": 0.93,
+          "key": "banquo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 1.07,
+          "end": 1.19,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Far",
+          "start": 1.19,
+          "end": 1.43,
+          "key": "far",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "ist",
+          "start": 1.43,
+          "end": 1.79,
+          "key": "ist",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Called",
+          "start": 1.79,
+          "end": 1.93,
+          "key": "called",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.93,
+          "end": 2.15,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Forres",
+          "start": 2.15,
+          "end": 2.65,
+          "key": "forres",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "?—What",
+          "start": 2.65,
+          "end": 3.29,
+          "key": "what",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 3.29,
+          "end": 3.41,
+          "key": "are",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "these,",
+          "start": 3.41,
+          "end": 3.67,
+          "key": "these",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 3.95,
+          "end": 4.19,
+          "key": "so",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "withered",
+          "start": 4.19,
+          "end": 4.53,
+          "key": "withered",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.53,
+          "end": 4.75,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 4.75,
+          "end": 4.99,
+          "key": "so",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "wild",
+          "start": 4.99,
+          "end": 5.29,
+          "key": "wild",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.29,
+          "end": 5.47,
+          "key": "in",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 5.47,
+          "end": 5.59,
+          "key": "their",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "attire,",
+          "start": 5.59,
+          "end": 5.93,
+          "key": "attire",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 6.29,
+          "end": 6.41,
+          "key": "that",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 6.41,
+          "end": 6.55,
+          "key": "look",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 6.55,
+          "end": 6.77,
+          "key": "not",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 6.77,
+          "end": 6.91,
+          "key": "like",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.91,
+          "end": 7.07,
+          "key": "the",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "inhabitants,",
+          "start": 7.07,
+          "end": 7.49,
+          "key": "inhabitants",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "O,",
+          "start": 7.93,
+          "end": 7.93,
+          "key": "o",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "T",
+          "start": 8.23,
+          "end": 8.27,
+          "key": "t",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": ".H.,",
+          "start": 8.27,
+          "end": 8.71,
+          "key": "h",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "Earth,",
+          "start": 8.71,
+          "end": 8.87,
+          "key": "earth",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 9.25,
+          "end": 9.39,
+          "key": "and",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "yet",
+          "start": 9.39,
+          "end": 9.51,
+          "key": "yet",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 9.51,
+          "end": 9.67,
+          "key": "our",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "aunt?",
+          "start": 9.67,
+          "end": 9.93,
+          "key": "aunt",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "Live",
+          "start": 10.73,
+          "end": 10.89,
+          "key": "live",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 10.89,
+          "end": 11.15,
+          "key": "you",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "Or",
+          "start": 11.67,
+          "end": 11.83,
+          "key": "or",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 11.83,
+          "end": 11.97,
+          "key": "are",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 11.97,
+          "end": 12.11,
+          "key": "you",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "ought",
+          "start": 12.11,
+          "end": 12.29,
+          "key": "ought",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 12.29,
+          "end": 12.49,
+          "key": "that",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 12.49,
+          "end": 12.71,
+          "key": "man",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 12.71,
+          "end": 12.89,
+          "key": "may",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "question?",
+          "start": 12.89,
+          "end": 13.23,
+          "key": "question",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 13.83,
+          "end": 14.01,
+          "key": "you",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "seem",
+          "start": 14.01,
+          "end": 14.15,
+          "key": "seem",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 14.15,
+          "end": 14.31,
+          "key": "to",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "understand",
+          "start": 14.31,
+          "end": 14.71,
+          "key": "understand",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 14.71,
+          "end": 14.99,
+          "key": "me",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 14.99,
+          "end": 15.21,
+          "key": "by",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "each",
+          "start": 15.21,
+          "end": 15.41,
+          "key": "each",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 15.41,
+          "end": 15.55,
+          "key": "at",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "once",
+          "start": 15.55,
+          "end": 15.73,
+          "key": "once",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 15.73,
+          "end": 15.93,
+          "key": "her",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "choppy",
+          "start": 15.93,
+          "end": 16.31,
+          "key": "choppy",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "finger",
+          "start": 16.31,
+          "end": 16.67,
+          "key": "finger",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "laying",
+          "start": 16.67,
+          "end": 16.93,
+          "key": "laying",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 16.93,
+          "end": 17.25,
+          "key": "upon",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 17.25,
+          "end": 17.41,
+          "key": "her",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "skinny",
+          "start": 17.41,
+          "end": 17.77,
+          "key": "skinny",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "lips.",
+          "start": 17.77,
+          "end": 18.15,
+          "key": "lips",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 18.71,
+          "end": 18.85,
+          "key": "you",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 18.85,
+          "end": 18.99,
+          "key": "should",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 18.99,
+          "end": 19.15,
+          "key": "be",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "women,",
+          "start": 19.15,
+          "end": 19.43,
+          "key": "women",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 19.73,
+          "end": 19.91,
+          "key": "and",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "yet",
+          "start": 19.91,
+          "end": 20.05,
+          "key": "yet",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 20.05,
+          "end": 20.25,
+          "key": "your",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "beards",
+          "start": 20.25,
+          "end": 20.65,
+          "key": "beards",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "forbid",
+          "start": 20.65,
+          "end": 20.91,
+          "key": "forbid",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 20.91,
+          "end": 21.19,
+          "key": "me",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 21.19,
+          "end": 21.37,
+          "key": "to",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "interpret",
+          "start": 21.37,
+          "end": 21.79,
+          "key": "interpret",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 21.79,
+          "end": 22.07,
+          "key": "that",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 22.07,
+          "end": 22.23,
+          "key": "you",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 22.23,
+          "end": 22.39,
+          "key": "are",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "so.",
+          "start": 22.39,
+          "end": 22.65,
+          "key": "so",
+          "pieces": [
+            74
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Banquo.",
+          "start": 0.21,
+          "end": 0.93
+        },
+        {
+          "text": "How",
+          "start": 1.07,
+          "end": 1.19
+        },
+        {
+          "text": "far",
+          "start": 1.19,
+          "end": 1.43
+        },
+        {
+          "text": "is't",
+          "start": 1.43,
+          "end": 1.79
+        },
+        {
+          "text": "call'd",
+          "start": 1.79,
+          "end": 1.86
+        },
+        {
+          "text": "to",
+          "start": 1.93,
+          "end": 2.15
+        },
+        {
+          "text": "Forres?—What",
+          "start": 2.15,
+          "end": 2.72
+        },
+        {
+          "text": "are",
+          "start": 3.29,
+          "end": 3.41
+        },
+        {
+          "text": "these,",
+          "start": 3.41,
+          "end": 3.67
+        },
+        {
+          "text": "So",
+          "start": 3.95,
+          "end": 4.19
+        },
+        {
+          "text": "wither'd,",
+          "start": 4.19,
+          "end": 4.36
+        },
+        {
+          "text": "and",
+          "start": 4.53,
+          "end": 4.75
+        },
+        {
+          "text": "so",
+          "start": 4.75,
+          "end": 4.99
+        },
+        {
+          "text": "wild",
+          "start": 4.99,
+          "end": 5.29
+        },
+        {
+          "text": "in",
+          "start": 5.29,
+          "end": 5.47
+        },
+        {
+          "text": "their",
+          "start": 5.47,
+          "end": 5.59
+        },
+        {
+          "text": "attire,",
+          "start": 5.59,
+          "end": 5.93
+        },
+        {
+          "text": "That",
+          "start": 6.29,
+          "end": 6.41
+        },
+        {
+          "text": "look",
+          "start": 6.41,
+          "end": 6.55
+        },
+        {
+          "text": "not",
+          "start": 6.55,
+          "end": 6.77
+        },
+        {
+          "text": "like",
+          "start": 6.77,
+          "end": 6.91
+        },
+        {
+          "text": "the",
+          "start": 6.91,
+          "end": 7.07
+        },
+        {
+          "text": "inhabitants",
+          "start": 7.07,
+          "end": 7.49
+        },
+        {
+          "text": "o'",
+          "start": 7.93,
+          "end": 7.93
+        },
+        {
+          "text": "th'",
+          "start": 7.93,
+          "end": 8.32
+        },
+        {
+          "text": "earth,",
+          "start": 8.71,
+          "end": 8.87
+        },
+        {
+          "text": "And",
+          "start": 9.25,
+          "end": 9.39
+        },
+        {
+          "text": "yet",
+          "start": 9.39,
+          "end": 9.51
+        },
+        {
+          "text": "are",
+          "start": 9.51,
+          "end": 10.2
+        },
+        {
+          "text": "on't?—Live",
+          "start": 10.2,
+          "end": 10.545
+        },
+        {
+          "text": "you?",
+          "start": 10.89,
+          "end": 11.15
+        },
+        {
+          "text": "or",
+          "start": 11.67,
+          "end": 11.83
+        },
+        {
+          "text": "are",
+          "start": 11.83,
+          "end": 11.97
+        },
+        {
+          "text": "you",
+          "start": 11.97,
+          "end": 12.11
+        },
+        {
+          "text": "aught",
+          "start": 12.11,
+          "end": 12.2
+        },
+        {
+          "text": "That",
+          "start": 12.29,
+          "end": 12.49
+        },
+        {
+          "text": "man",
+          "start": 12.49,
+          "end": 12.71
+        },
+        {
+          "text": "may",
+          "start": 12.71,
+          "end": 12.89
+        },
+        {
+          "text": "question?",
+          "start": 12.89,
+          "end": 13.23
+        },
+        {
+          "text": "You",
+          "start": 13.83,
+          "end": 14.01
+        },
+        {
+          "text": "seem",
+          "start": 14.01,
+          "end": 14.15
+        },
+        {
+          "text": "to",
+          "start": 14.15,
+          "end": 14.31
+        },
+        {
+          "text": "understand",
+          "start": 14.31,
+          "end": 14.71
+        },
+        {
+          "text": "me,",
+          "start": 14.71,
+          "end": 14.99
+        },
+        {
+          "text": "By",
+          "start": 14.99,
+          "end": 15.21
+        },
+        {
+          "text": "each",
+          "start": 15.21,
+          "end": 15.41
+        },
+        {
+          "text": "at",
+          "start": 15.41,
+          "end": 15.55
+        },
+        {
+          "text": "once",
+          "start": 15.55,
+          "end": 15.73
+        },
+        {
+          "text": "her",
+          "start": 15.73,
+          "end": 15.93
+        },
+        {
+          "text": "choppy",
+          "start": 15.93,
+          "end": 16.31
+        },
+        {
+          "text": "finger",
+          "start": 16.31,
+          "end": 16.67
+        },
+        {
+          "text": "laying",
+          "start": 16.67,
+          "end": 16.93
+        },
+        {
+          "text": "Upon",
+          "start": 16.93,
+          "end": 17.25
+        },
+        {
+          "text": "her",
+          "start": 17.25,
+          "end": 17.41
+        },
+        {
+          "text": "skinny",
+          "start": 17.41,
+          "end": 17.77
+        },
+        {
+          "text": "lips.",
+          "start": 17.77,
+          "end": 18.15
+        },
+        {
+          "text": "You",
+          "start": 18.71,
+          "end": 18.85
+        },
+        {
+          "text": "should",
+          "start": 18.85,
+          "end": 18.99
+        },
+        {
+          "text": "be",
+          "start": 18.99,
+          "end": 19.15
+        },
+        {
+          "text": "women,",
+          "start": 19.15,
+          "end": 19.43
+        },
+        {
+          "text": "And",
+          "start": 19.73,
+          "end": 19.91
+        },
+        {
+          "text": "yet",
+          "start": 19.91,
+          "end": 20.05
+        },
+        {
+          "text": "your",
+          "start": 20.05,
+          "end": 20.25
+        },
+        {
+          "text": "beards",
+          "start": 20.25,
+          "end": 20.65
+        },
+        {
+          "text": "forbid",
+          "start": 20.65,
+          "end": 20.91
+        },
+        {
+          "text": "me",
+          "start": 20.91,
+          "end": 21.19
+        },
+        {
+          "text": "to",
+          "start": 21.19,
+          "end": 21.37
+        },
+        {
+          "text": "interpret",
+          "start": 21.37,
+          "end": 21.79
+        },
+        {
+          "text": "That",
+          "start": 21.79,
+          "end": 22.07
+        },
+        {
+          "text": "you",
+          "start": 22.07,
+          "end": 22.23
+        },
+        {
+          "text": "are",
+          "start": 22.23,
+          "end": 22.39
+        },
+        {
+          "text": "so.",
+          "start": 22.39,
+          "end": 22.65
+        }
+      ],
+      "stats": {
+        "expected_words": 72,
+        "heard_words": 75,
+        "matched_words": 65
+      },
+      "match_ratio": 0.9027777777777778,
+      "rejection_reasons": [],
+      "seconds": 0.640814796090126
+    },
+    {
+      "asr_seconds": 0.6758710788562894,
+      "alignment_seconds": 0.0009608305990695953,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Banquo, how far ist called to for us? What are these, so withered and so wild in their",
+          "start": 0.21,
+          "end": 5.59,
+          "words": [
+            {
+              "text": " Banquo,",
+              "start": 0.21,
+              "end": 0.93,
+              "probability": 0.766845703125
+            },
+            {
+              "text": " how",
+              "start": 1.07,
+              "end": 1.19,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " far",
+              "start": 1.19,
+              "end": 1.43,
+              "probability": 0.99609375
+            },
+            {
+              "text": " ist",
+              "start": 1.43,
+              "end": 1.77,
+              "probability": 0.82666015625
+            },
+            {
+              "text": " called",
+              "start": 1.77,
+              "end": 1.95,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " to",
+              "start": 1.95,
+              "end": 2.13,
+              "probability": 0.91259765625
+            },
+            {
+              "text": " for",
+              "start": 2.13,
+              "end": 2.35,
+              "probability": 0.65625
+            },
+            {
+              "text": " us?",
+              "start": 2.35,
+              "end": 2.65,
+              "probability": 0.5859375
+            },
+            {
+              "text": " What",
+              "start": 3.15,
+              "end": 3.29,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " are",
+              "start": 3.29,
+              "end": 3.41,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " these,",
+              "start": 3.41,
+              "end": 3.67,
+              "probability": 0.935546875
+            },
+            {
+              "text": " so",
+              "start": 3.93,
+              "end": 4.19,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " withered",
+              "start": 4.19,
+              "end": 4.53,
+              "probability": 0.993896484375
+            },
+            {
+              "text": " and",
+              "start": 4.53,
+              "end": 4.75,
+              "probability": 0.966796875
+            },
+            {
+              "text": " so",
+              "start": 4.75,
+              "end": 4.99,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " wild",
+              "start": 4.99,
+              "end": 5.29,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " in",
+              "start": 5.29,
+              "end": 5.49,
+              "probability": 0.9921875
+            },
+            {
+              "text": " their",
+              "start": 5.49,
+              "end": 5.59,
+              "probability": 0.98828125
+            }
+          ]
+        },
+        {
+          "text": " attire, that look not like the inhabitants, O, T.H., Earth, and yet our aunt? Live you.",
+          "start": 5.59,
+          "end": 11.15,
+          "words": [
+            {
+              "text": " attire,",
+              "start": 5.59,
+              "end": 5.95,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " that",
+              "start": 6.29,
+              "end": 6.41,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " look",
+              "start": 6.41,
+              "end": 6.55,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " not",
+              "start": 6.55,
+              "end": 6.77,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " like",
+              "start": 6.77,
+              "end": 6.91,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 6.91,
+              "end": 7.05,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " inhabitants,",
+              "start": 7.05,
+              "end": 7.49,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " O,",
+              "start": 7.93,
+              "end": 7.93,
+              "probability": 0.60205078125
+            },
+            {
+              "text": " T",
+              "start": 8.23,
+              "end": 8.27,
+              "probability": 0.76171875
+            },
+            {
+              "text": ".H.,",
+              "start": 8.27,
+              "end": 8.75,
+              "probability": 0.6245930989583334
+            },
+            {
+              "text": " Earth,",
+              "start": 8.75,
+              "end": 8.87,
+              "probability": 0.806640625
+            },
+            {
+              "text": " and",
+              "start": 9.27,
+              "end": 9.37,
+              "probability": 0.982421875
+            },
+            {
+              "text": " yet",
+              "start": 9.37,
+              "end": 9.51,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " our",
+              "start": 9.51,
+              "end": 9.65,
+              "probability": 0.65869140625
+            },
+            {
+              "text": " aunt?",
+              "start": 9.65,
+              "end": 9.93,
+              "probability": 0.8525390625
+            },
+            {
+              "text": " Live",
+              "start": 10.77,
+              "end": 10.89,
+              "probability": 0.74658203125
+            },
+            {
+              "text": " you.",
+              "start": 10.89,
+              "end": 11.15,
+              "probability": 0.9365234375
+            }
+          ]
+        },
+        {
+          "text": " Or are you ought that man may question? You seem to understand me by each at once her",
+          "start": 11.69,
+          "end": 15.93,
+          "words": [
+            {
+              "text": " Or",
+              "start": 11.69,
+              "end": 11.83,
+              "probability": 0.90625
+            },
+            {
+              "text": " are",
+              "start": 11.83,
+              "end": 11.97,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " you",
+              "start": 11.97,
+              "end": 12.11,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " ought",
+              "start": 12.11,
+              "end": 12.29,
+              "probability": 0.79150390625
+            },
+            {
+              "text": " that",
+              "start": 12.29,
+              "end": 12.49,
+              "probability": 0.96484375
+            },
+            {
+              "text": " man",
+              "start": 12.49,
+              "end": 12.71,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " may",
+              "start": 12.71,
+              "end": 12.89,
+              "probability": 0.8662109375
+            },
+            {
+              "text": " question?",
+              "start": 12.89,
+              "end": 13.23,
+              "probability": 0.998046875
+            },
+            {
+              "text": " You",
+              "start": 13.83,
+              "end": 14.01,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " seem",
+              "start": 14.01,
+              "end": 14.15,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " to",
+              "start": 14.15,
+              "end": 14.29,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " understand",
+              "start": 14.29,
+              "end": 14.71,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me",
+              "start": 14.71,
+              "end": 14.99,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " by",
+              "start": 14.99,
+              "end": 15.21,
+              "probability": 0.59912109375
+            },
+            {
+              "text": " each",
+              "start": 15.21,
+              "end": 15.41,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " at",
+              "start": 15.41,
+              "end": 15.55,
+              "probability": 0.990234375
+            },
+            {
+              "text": " once",
+              "start": 15.55,
+              "end": 15.73,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " her",
+              "start": 15.73,
+              "end": 15.93,
+              "probability": 0.994140625
+            }
+          ]
+        },
+        {
+          "text": " choppy finger laying upon her skinny lips. You should be women, and yet your beards forbid",
+          "start": 15.93,
+          "end": 20.91,
+          "words": [
+            {
+              "text": " choppy",
+              "start": 15.93,
+              "end": 16.31,
+              "probability": 0.994140625
+            },
+            {
+              "text": " finger",
+              "start": 16.31,
+              "end": 16.69,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " laying",
+              "start": 16.69,
+              "end": 16.93,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " upon",
+              "start": 16.93,
+              "end": 17.25,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " her",
+              "start": 17.25,
+              "end": 17.41,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " skinny",
+              "start": 17.41,
+              "end": 17.75,
+              "probability": 0.990234375
+            },
+            {
+              "text": " lips.",
+              "start": 17.75,
+              "end": 18.17,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " You",
+              "start": 18.73,
+              "end": 18.85,
+              "probability": 0.994140625
+            },
+            {
+              "text": " should",
+              "start": 18.85,
+              "end": 18.99,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " be",
+              "start": 18.99,
+              "end": 19.15,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " women,",
+              "start": 19.15,
+              "end": 19.45,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " and",
+              "start": 19.75,
+              "end": 19.89,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " yet",
+              "start": 19.89,
+              "end": 20.05,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " your",
+              "start": 20.05,
+              "end": 20.25,
+              "probability": 0.9921875
+            },
+            {
+              "text": " beards",
+              "start": 20.25,
+              "end": 20.65,
+              "probability": 0.988525390625
+            },
+            {
+              "text": " forbid",
+              "start": 20.65,
+              "end": 20.91,
+              "probability": 0.98486328125
+            }
+          ]
+        },
+        {
+          "text": " me to interpret that you are so.",
+          "start": 20.91,
+          "end": 22.65,
+          "words": [
+            {
+              "text": " me",
+              "start": 20.91,
+              "end": 21.19,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 21.19,
+              "end": 21.37,
+              "probability": 0.998046875
+            },
+            {
+              "text": " interpret",
+              "start": 21.37,
+              "end": 21.79,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that",
+              "start": 21.79,
+              "end": 22.07,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you",
+              "start": 22.07,
+              "end": 22.23,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " are",
+              "start": 22.23,
+              "end": 22.39,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " so.",
+              "start": 22.39,
+              "end": 22.65,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Banquo,",
+          "start": 0.21,
+          "end": 0.93
+        },
+        {
+          "raw": "how",
+          "start": 1.07,
+          "end": 1.19
+        },
+        {
+          "raw": "far",
+          "start": 1.19,
+          "end": 1.43
+        },
+        {
+          "raw": "ist",
+          "start": 1.43,
+          "end": 1.77
+        },
+        {
+          "raw": "called",
+          "start": 1.77,
+          "end": 1.95
+        },
+        {
+          "raw": "to",
+          "start": 1.95,
+          "end": 2.13
+        },
+        {
+          "raw": "for",
+          "start": 2.13,
+          "end": 2.35
+        },
+        {
+          "raw": "us?",
+          "start": 2.35,
+          "end": 2.65
+        },
+        {
+          "raw": "What",
+          "start": 3.15,
+          "end": 3.29
+        },
+        {
+          "raw": "are",
+          "start": 3.29,
+          "end": 3.41
+        },
+        {
+          "raw": "these,",
+          "start": 3.41,
+          "end": 3.67
+        },
+        {
+          "raw": "so",
+          "start": 3.93,
+          "end": 4.19
+        },
+        {
+          "raw": "withered",
+          "start": 4.19,
+          "end": 4.53
+        },
+        {
+          "raw": "and",
+          "start": 4.53,
+          "end": 4.75
+        },
+        {
+          "raw": "so",
+          "start": 4.75,
+          "end": 4.99
+        },
+        {
+          "raw": "wild",
+          "start": 4.99,
+          "end": 5.29
+        },
+        {
+          "raw": "in",
+          "start": 5.29,
+          "end": 5.49
+        },
+        {
+          "raw": "their",
+          "start": 5.49,
+          "end": 5.59
+        },
+        {
+          "raw": "attire,",
+          "start": 5.59,
+          "end": 5.95
+        },
+        {
+          "raw": "that",
+          "start": 6.29,
+          "end": 6.41
+        },
+        {
+          "raw": "look",
+          "start": 6.41,
+          "end": 6.55
+        },
+        {
+          "raw": "not",
+          "start": 6.55,
+          "end": 6.77
+        },
+        {
+          "raw": "like",
+          "start": 6.77,
+          "end": 6.91
+        },
+        {
+          "raw": "the",
+          "start": 6.91,
+          "end": 7.05
+        },
+        {
+          "raw": "inhabitants,",
+          "start": 7.05,
+          "end": 7.49
+        },
+        {
+          "raw": "O,",
+          "start": 7.93,
+          "end": 7.93
+        },
+        {
+          "raw": "T",
+          "start": 8.23,
+          "end": 8.27
+        },
+        {
+          "raw": ".H.,",
+          "start": 8.27,
+          "end": 8.75
+        },
+        {
+          "raw": "Earth,",
+          "start": 8.75,
+          "end": 8.87
+        },
+        {
+          "raw": "and",
+          "start": 9.27,
+          "end": 9.37
+        },
+        {
+          "raw": "yet",
+          "start": 9.37,
+          "end": 9.51
+        },
+        {
+          "raw": "our",
+          "start": 9.51,
+          "end": 9.65
+        },
+        {
+          "raw": "aunt?",
+          "start": 9.65,
+          "end": 9.93
+        },
+        {
+          "raw": "Live",
+          "start": 10.77,
+          "end": 10.89
+        },
+        {
+          "raw": "you.",
+          "start": 10.89,
+          "end": 11.15
+        },
+        {
+          "raw": "Or",
+          "start": 11.69,
+          "end": 11.83
+        },
+        {
+          "raw": "are",
+          "start": 11.83,
+          "end": 11.97
+        },
+        {
+          "raw": "you",
+          "start": 11.97,
+          "end": 12.11
+        },
+        {
+          "raw": "ought",
+          "start": 12.11,
+          "end": 12.29
+        },
+        {
+          "raw": "that",
+          "start": 12.29,
+          "end": 12.49
+        },
+        {
+          "raw": "man",
+          "start": 12.49,
+          "end": 12.71
+        },
+        {
+          "raw": "may",
+          "start": 12.71,
+          "end": 12.89
+        },
+        {
+          "raw": "question?",
+          "start": 12.89,
+          "end": 13.23
+        },
+        {
+          "raw": "You",
+          "start": 13.83,
+          "end": 14.01
+        },
+        {
+          "raw": "seem",
+          "start": 14.01,
+          "end": 14.15
+        },
+        {
+          "raw": "to",
+          "start": 14.15,
+          "end": 14.29
+        },
+        {
+          "raw": "understand",
+          "start": 14.29,
+          "end": 14.71
+        },
+        {
+          "raw": "me",
+          "start": 14.71,
+          "end": 14.99
+        },
+        {
+          "raw": "by",
+          "start": 14.99,
+          "end": 15.21
+        },
+        {
+          "raw": "each",
+          "start": 15.21,
+          "end": 15.41
+        },
+        {
+          "raw": "at",
+          "start": 15.41,
+          "end": 15.55
+        },
+        {
+          "raw": "once",
+          "start": 15.55,
+          "end": 15.73
+        },
+        {
+          "raw": "her",
+          "start": 15.73,
+          "end": 15.93
+        },
+        {
+          "raw": "choppy",
+          "start": 15.93,
+          "end": 16.31
+        },
+        {
+          "raw": "finger",
+          "start": 16.31,
+          "end": 16.69
+        },
+        {
+          "raw": "laying",
+          "start": 16.69,
+          "end": 16.93
+        },
+        {
+          "raw": "upon",
+          "start": 16.93,
+          "end": 17.25
+        },
+        {
+          "raw": "her",
+          "start": 17.25,
+          "end": 17.41
+        },
+        {
+          "raw": "skinny",
+          "start": 17.41,
+          "end": 17.75
+        },
+        {
+          "raw": "lips.",
+          "start": 17.75,
+          "end": 18.17
+        },
+        {
+          "raw": "You",
+          "start": 18.73,
+          "end": 18.85
+        },
+        {
+          "raw": "should",
+          "start": 18.85,
+          "end": 18.99
+        },
+        {
+          "raw": "be",
+          "start": 18.99,
+          "end": 19.15
+        },
+        {
+          "raw": "women,",
+          "start": 19.15,
+          "end": 19.45
+        },
+        {
+          "raw": "and",
+          "start": 19.75,
+          "end": 19.89
+        },
+        {
+          "raw": "yet",
+          "start": 19.89,
+          "end": 20.05
+        },
+        {
+          "raw": "your",
+          "start": 20.05,
+          "end": 20.25
+        },
+        {
+          "raw": "beards",
+          "start": 20.25,
+          "end": 20.65
+        },
+        {
+          "raw": "forbid",
+          "start": 20.65,
+          "end": 20.91
+        },
+        {
+          "raw": "me",
+          "start": 20.91,
+          "end": 21.19
+        },
+        {
+          "raw": "to",
+          "start": 21.19,
+          "end": 21.37
+        },
+        {
+          "raw": "interpret",
+          "start": 21.37,
+          "end": 21.79
+        },
+        {
+          "raw": "that",
+          "start": 21.79,
+          "end": 22.07
+        },
+        {
+          "raw": "you",
+          "start": 22.07,
+          "end": 22.23
+        },
+        {
+          "raw": "are",
+          "start": 22.23,
+          "end": 22.39
+        },
+        {
+          "raw": "so.",
+          "start": 22.39,
+          "end": 22.65
+        }
+      ],
+      "expected_tokens": [
+        "Banquo.",
+        "How",
+        "far",
+        "is't",
+        "call'd",
+        "to",
+        "Forres?—What",
+        "are",
+        "these,",
+        "So",
+        "wither'd,",
+        "and",
+        "so",
+        "wild",
+        "in",
+        "their",
+        "attire,",
+        "That",
+        "look",
+        "not",
+        "like",
+        "the",
+        "inhabitants",
+        "o'",
+        "th'",
+        "earth,",
+        "And",
+        "yet",
+        "are",
+        "on't?—Live",
+        "you?",
+        "or",
+        "are",
+        "you",
+        "aught",
+        "That",
+        "man",
+        "may",
+        "question?",
+        "You",
+        "seem",
+        "to",
+        "understand",
+        "me,",
+        "By",
+        "each",
+        "at",
+        "once",
+        "her",
+        "choppy",
+        "finger",
+        "laying",
+        "Upon",
+        "her",
+        "skinny",
+        "lips.",
+        "You",
+        "should",
+        "be",
+        "women,",
+        "And",
+        "yet",
+        "your",
+        "beards",
+        "forbid",
+        "me",
+        "to",
+        "interpret",
+        "That",
+        "you",
+        "are",
+        "so."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          9
+        ],
+        [
+          "equal",
+          7,
+          10,
+          9,
+          12
+        ],
+        [
+          "replace",
+          10,
+          11,
+          12,
+          13
+        ],
+        [
+          "equal",
+          11,
+          24,
+          13,
+          26
+        ],
+        [
+          "replace",
+          24,
+          25,
+          26,
+          28
+        ],
+        [
+          "equal",
+          25,
+          28,
+          28,
+          31
+        ],
+        [
+          "replace",
+          28,
+          30,
+          31,
+          34
+        ],
+        [
+          "equal",
+          30,
+          34,
+          34,
+          38
+        ],
+        [
+          "replace",
+          34,
+          35,
+          38,
+          39
+        ],
+        [
+          "equal",
+          35,
+          72,
+          39,
+          76
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 34,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 75
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          9
+        ],
+        [
+          "replace",
+          10,
+          11,
+          12,
+          13
+        ],
+        [
+          "replace",
+          24,
+          25,
+          26,
+          28
+        ],
+        [
+          "replace",
+          28,
+          30,
+          31,
+          34
+        ],
+        [
+          "replace",
+          34,
+          35,
+          38,
+          39
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Banquo,",
+          "start": 0.21,
+          "end": 0.93,
+          "key": "banquo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 1.07,
+          "end": 1.19,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "far",
+          "start": 1.19,
+          "end": 1.43,
+          "key": "far",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "ist",
+          "start": 1.43,
+          "end": 1.77,
+          "key": "ist",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "called",
+          "start": 1.77,
+          "end": 1.95,
+          "key": "called",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.95,
+          "end": 2.13,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.13,
+          "end": 2.35,
+          "key": "for",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "us?",
+          "start": 2.35,
+          "end": 2.65,
+          "key": "us",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 3.15,
+          "end": 3.29,
+          "key": "what",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 3.29,
+          "end": 3.41,
+          "key": "are",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "these,",
+          "start": 3.41,
+          "end": 3.67,
+          "key": "these",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 3.93,
+          "end": 4.19,
+          "key": "so",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "withered",
+          "start": 4.19,
+          "end": 4.53,
+          "key": "withered",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.53,
+          "end": 4.75,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 4.75,
+          "end": 4.99,
+          "key": "so",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "wild",
+          "start": 4.99,
+          "end": 5.29,
+          "key": "wild",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.29,
+          "end": 5.49,
+          "key": "in",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 5.49,
+          "end": 5.59,
+          "key": "their",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "attire,",
+          "start": 5.59,
+          "end": 5.95,
+          "key": "attire",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 6.29,
+          "end": 6.41,
+          "key": "that",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 6.41,
+          "end": 6.55,
+          "key": "look",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 6.55,
+          "end": 6.77,
+          "key": "not",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 6.77,
+          "end": 6.91,
+          "key": "like",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.91,
+          "end": 7.05,
+          "key": "the",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "inhabitants,",
+          "start": 7.05,
+          "end": 7.49,
+          "key": "inhabitants",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "O,",
+          "start": 7.93,
+          "end": 7.93,
+          "key": "o",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "T",
+          "start": 8.23,
+          "end": 8.27,
+          "key": "t",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": ".H.,",
+          "start": 8.27,
+          "end": 8.75,
+          "key": "h",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "Earth,",
+          "start": 8.75,
+          "end": 8.87,
+          "key": "earth",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 9.27,
+          "end": 9.37,
+          "key": "and",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "yet",
+          "start": 9.37,
+          "end": 9.51,
+          "key": "yet",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 9.51,
+          "end": 9.65,
+          "key": "our",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "aunt?",
+          "start": 9.65,
+          "end": 9.93,
+          "key": "aunt",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "Live",
+          "start": 10.77,
+          "end": 10.89,
+          "key": "live",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 10.89,
+          "end": 11.15,
+          "key": "you",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "Or",
+          "start": 11.69,
+          "end": 11.83,
+          "key": "or",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 11.83,
+          "end": 11.97,
+          "key": "are",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 11.97,
+          "end": 12.11,
+          "key": "you",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "ought",
+          "start": 12.11,
+          "end": 12.29,
+          "key": "ought",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 12.29,
+          "end": 12.49,
+          "key": "that",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 12.49,
+          "end": 12.71,
+          "key": "man",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 12.71,
+          "end": 12.89,
+          "key": "may",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "question?",
+          "start": 12.89,
+          "end": 13.23,
+          "key": "question",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 13.83,
+          "end": 14.01,
+          "key": "you",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "seem",
+          "start": 14.01,
+          "end": 14.15,
+          "key": "seem",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 14.15,
+          "end": 14.29,
+          "key": "to",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "understand",
+          "start": 14.29,
+          "end": 14.71,
+          "key": "understand",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 14.71,
+          "end": 14.99,
+          "key": "me",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 14.99,
+          "end": 15.21,
+          "key": "by",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "each",
+          "start": 15.21,
+          "end": 15.41,
+          "key": "each",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 15.41,
+          "end": 15.55,
+          "key": "at",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "once",
+          "start": 15.55,
+          "end": 15.73,
+          "key": "once",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 15.73,
+          "end": 15.93,
+          "key": "her",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "choppy",
+          "start": 15.93,
+          "end": 16.31,
+          "key": "choppy",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "finger",
+          "start": 16.31,
+          "end": 16.69,
+          "key": "finger",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "laying",
+          "start": 16.69,
+          "end": 16.93,
+          "key": "laying",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 16.93,
+          "end": 17.25,
+          "key": "upon",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 17.25,
+          "end": 17.41,
+          "key": "her",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "skinny",
+          "start": 17.41,
+          "end": 17.75,
+          "key": "skinny",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "lips.",
+          "start": 17.75,
+          "end": 18.17,
+          "key": "lips",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 18.73,
+          "end": 18.85,
+          "key": "you",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 18.85,
+          "end": 18.99,
+          "key": "should",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 18.99,
+          "end": 19.15,
+          "key": "be",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "women,",
+          "start": 19.15,
+          "end": 19.45,
+          "key": "women",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 19.75,
+          "end": 19.89,
+          "key": "and",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "yet",
+          "start": 19.89,
+          "end": 20.05,
+          "key": "yet",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 20.05,
+          "end": 20.25,
+          "key": "your",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "beards",
+          "start": 20.25,
+          "end": 20.65,
+          "key": "beards",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "forbid",
+          "start": 20.65,
+          "end": 20.91,
+          "key": "forbid",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 20.91,
+          "end": 21.19,
+          "key": "me",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 21.19,
+          "end": 21.37,
+          "key": "to",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "interpret",
+          "start": 21.37,
+          "end": 21.79,
+          "key": "interpret",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 21.79,
+          "end": 22.07,
+          "key": "that",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 22.07,
+          "end": 22.23,
+          "key": "you",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 22.23,
+          "end": 22.39,
+          "key": "are",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "so.",
+          "start": 22.39,
+          "end": 22.65,
+          "key": "so",
+          "pieces": [
+            75
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Banquo.",
+          "start": 0.21,
+          "end": 0.93
+        },
+        {
+          "text": "How",
+          "start": 1.07,
+          "end": 1.19
+        },
+        {
+          "text": "far",
+          "start": 1.19,
+          "end": 1.43
+        },
+        {
+          "text": "is't",
+          "start": 1.43,
+          "end": 1.77
+        },
+        {
+          "text": "call'd",
+          "start": 1.77,
+          "end": 1.86
+        },
+        {
+          "text": "to",
+          "start": 1.95,
+          "end": 2.13
+        },
+        {
+          "text": "Forres?—What",
+          "start": 2.13,
+          "end": 2.71
+        },
+        {
+          "text": "are",
+          "start": 3.29,
+          "end": 3.41
+        },
+        {
+          "text": "these,",
+          "start": 3.41,
+          "end": 3.67
+        },
+        {
+          "text": "So",
+          "start": 3.93,
+          "end": 4.19
+        },
+        {
+          "text": "wither'd,",
+          "start": 4.19,
+          "end": 4.36
+        },
+        {
+          "text": "and",
+          "start": 4.53,
+          "end": 4.75
+        },
+        {
+          "text": "so",
+          "start": 4.75,
+          "end": 4.99
+        },
+        {
+          "text": "wild",
+          "start": 4.99,
+          "end": 5.29
+        },
+        {
+          "text": "in",
+          "start": 5.29,
+          "end": 5.49
+        },
+        {
+          "text": "their",
+          "start": 5.49,
+          "end": 5.59
+        },
+        {
+          "text": "attire,",
+          "start": 5.59,
+          "end": 5.95
+        },
+        {
+          "text": "That",
+          "start": 6.29,
+          "end": 6.41
+        },
+        {
+          "text": "look",
+          "start": 6.41,
+          "end": 6.55
+        },
+        {
+          "text": "not",
+          "start": 6.55,
+          "end": 6.77
+        },
+        {
+          "text": "like",
+          "start": 6.77,
+          "end": 6.91
+        },
+        {
+          "text": "the",
+          "start": 6.91,
+          "end": 7.05
+        },
+        {
+          "text": "inhabitants",
+          "start": 7.05,
+          "end": 7.49
+        },
+        {
+          "text": "o'",
+          "start": 7.93,
+          "end": 7.93
+        },
+        {
+          "text": "th'",
+          "start": 7.93,
+          "end": 8.34
+        },
+        {
+          "text": "earth,",
+          "start": 8.75,
+          "end": 8.87
+        },
+        {
+          "text": "And",
+          "start": 9.27,
+          "end": 9.37
+        },
+        {
+          "text": "yet",
+          "start": 9.37,
+          "end": 9.51
+        },
+        {
+          "text": "are",
+          "start": 9.51,
+          "end": 10.2
+        },
+        {
+          "text": "on't?—Live",
+          "start": 10.2,
+          "end": 10.545
+        },
+        {
+          "text": "you?",
+          "start": 10.89,
+          "end": 11.15
+        },
+        {
+          "text": "or",
+          "start": 11.69,
+          "end": 11.83
+        },
+        {
+          "text": "are",
+          "start": 11.83,
+          "end": 11.97
+        },
+        {
+          "text": "you",
+          "start": 11.97,
+          "end": 12.11
+        },
+        {
+          "text": "aught",
+          "start": 12.11,
+          "end": 12.2
+        },
+        {
+          "text": "That",
+          "start": 12.29,
+          "end": 12.49
+        },
+        {
+          "text": "man",
+          "start": 12.49,
+          "end": 12.71
+        },
+        {
+          "text": "may",
+          "start": 12.71,
+          "end": 12.89
+        },
+        {
+          "text": "question?",
+          "start": 12.89,
+          "end": 13.23
+        },
+        {
+          "text": "You",
+          "start": 13.83,
+          "end": 14.01
+        },
+        {
+          "text": "seem",
+          "start": 14.01,
+          "end": 14.15
+        },
+        {
+          "text": "to",
+          "start": 14.15,
+          "end": 14.29
+        },
+        {
+          "text": "understand",
+          "start": 14.29,
+          "end": 14.71
+        },
+        {
+          "text": "me,",
+          "start": 14.71,
+          "end": 14.99
+        },
+        {
+          "text": "By",
+          "start": 14.99,
+          "end": 15.21
+        },
+        {
+          "text": "each",
+          "start": 15.21,
+          "end": 15.41
+        },
+        {
+          "text": "at",
+          "start": 15.41,
+          "end": 15.55
+        },
+        {
+          "text": "once",
+          "start": 15.55,
+          "end": 15.73
+        },
+        {
+          "text": "her",
+          "start": 15.73,
+          "end": 15.93
+        },
+        {
+          "text": "choppy",
+          "start": 15.93,
+          "end": 16.31
+        },
+        {
+          "text": "finger",
+          "start": 16.31,
+          "end": 16.69
+        },
+        {
+          "text": "laying",
+          "start": 16.69,
+          "end": 16.93
+        },
+        {
+          "text": "Upon",
+          "start": 16.93,
+          "end": 17.25
+        },
+        {
+          "text": "her",
+          "start": 17.25,
+          "end": 17.41
+        },
+        {
+          "text": "skinny",
+          "start": 17.41,
+          "end": 17.75
+        },
+        {
+          "text": "lips.",
+          "start": 17.75,
+          "end": 18.17
+        },
+        {
+          "text": "You",
+          "start": 18.73,
+          "end": 18.85
+        },
+        {
+          "text": "should",
+          "start": 18.85,
+          "end": 18.99
+        },
+        {
+          "text": "be",
+          "start": 18.99,
+          "end": 19.15
+        },
+        {
+          "text": "women,",
+          "start": 19.15,
+          "end": 19.45
+        },
+        {
+          "text": "And",
+          "start": 19.75,
+          "end": 19.89
+        },
+        {
+          "text": "yet",
+          "start": 19.89,
+          "end": 20.05
+        },
+        {
+          "text": "your",
+          "start": 20.05,
+          "end": 20.25
+        },
+        {
+          "text": "beards",
+          "start": 20.25,
+          "end": 20.65
+        },
+        {
+          "text": "forbid",
+          "start": 20.65,
+          "end": 20.91
+        },
+        {
+          "text": "me",
+          "start": 20.91,
+          "end": 21.19
+        },
+        {
+          "text": "to",
+          "start": 21.19,
+          "end": 21.37
+        },
+        {
+          "text": "interpret",
+          "start": 21.37,
+          "end": 21.79
+        },
+        {
+          "text": "That",
+          "start": 21.79,
+          "end": 22.07
+        },
+        {
+          "text": "you",
+          "start": 22.07,
+          "end": 22.23
+        },
+        {
+          "text": "are",
+          "start": 22.23,
+          "end": 22.39
+        },
+        {
+          "text": "so.",
+          "start": 22.39,
+          "end": 22.65
+        }
+      ],
+      "stats": {
+        "expected_words": 72,
+        "heard_words": 76,
+        "matched_words": 65
+      },
+      "match_ratio": 0.9027777777777778,
+      "rejection_reasons": [],
+      "seconds": 0.6772964801639318
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5f801c794b57624c3d34df4c4153c43ab31c3fa4d2ebb3df612232a79e16757d",
+  "selected_reasons": []
+}

@@ -1,0 +1,271 @@
+{
+  "complete": true,
+  "signature": "3dc00fa89debd7bfd566a0f591ce0c9cd4c9b3fa4fdc4440831776bba98ae7ec",
+  "attempts": [
+    {
+      "asr_seconds": 0.20166389737278223,
+      "alignment_seconds": 0.00037128105759620667,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " McDuff, what's the disease he means?",
+          "start": 0.05,
+          "end": 2.25,
+          "words": [
+            {
+              "text": " McDuff,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.60302734375
+            },
+            {
+              "text": " what's",
+              "start": 1.17,
+              "end": 1.41,
+              "probability": 0.970458984375
+            },
+            {
+              "text": " the",
+              "start": 1.41,
+              "end": 1.49,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " disease",
+              "start": 1.49,
+              "end": 1.77,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " he",
+              "start": 1.77,
+              "end": 1.99,
+              "probability": 0.99609375
+            },
+            {
+              "text": " means?",
+              "start": 1.99,
+              "end": 2.25,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "McDuff,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "what's",
+          "start": 1.17,
+          "end": 1.41
+        },
+        {
+          "raw": "the",
+          "start": 1.41,
+          "end": 1.49
+        },
+        {
+          "raw": "disease",
+          "start": 1.49,
+          "end": 1.77
+        },
+        {
+          "raw": "he",
+          "start": 1.77,
+          "end": 1.99
+        },
+        {
+          "raw": "means?",
+          "start": 1.99,
+          "end": 2.25
+        }
+      ],
+      "expected_tokens": [
+        "Macduff.",
+        "What's",
+        "the",
+        "disease",
+        "he",
+        "means?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          6,
+          1,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "McDuff,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "mcduff",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what's",
+          "start": 1.17,
+          "end": 1.41,
+          "key": "whats",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.41,
+          "end": 1.49,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "disease",
+          "start": 1.49,
+          "end": 1.77,
+          "key": "disease",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.77,
+          "end": 1.99,
+          "key": "he",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "means?",
+          "start": 1.99,
+          "end": 2.25,
+          "key": "means",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Macduff.",
+          "start": 0.0,
+          "end": 0.585
+        },
+        {
+          "text": "What's",
+          "start": 1.17,
+          "end": 1.41
+        },
+        {
+          "text": "the",
+          "start": 1.41,
+          "end": 1.49
+        },
+        {
+          "text": "disease",
+          "start": 1.49,
+          "end": 1.77
+        },
+        {
+          "text": "he",
+          "start": 1.77,
+          "end": 1.99
+        },
+        {
+          "text": "means?",
+          "start": 1.99,
+          "end": 2.25
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20216398686170578
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7425853c171f2fdd35ac578963e7033f061096d2a270105d952c859ad4855152",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

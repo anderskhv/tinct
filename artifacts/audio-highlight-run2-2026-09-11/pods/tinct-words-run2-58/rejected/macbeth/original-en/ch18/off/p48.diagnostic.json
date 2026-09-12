@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "69741f07eb2d7674c1855cb7bf7db9405a1280d30338f07dad821d029749e1d6",
+  "attempts": [
+    {
+      "asr_seconds": 0.11907168664038181,
+      "alignment_seconds": 0.0002849064767360687,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " First witch show",
+          "start": 0.08,
+          "end": 1.52,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.69091796875
+            },
+            {
+              "text": " witch",
+              "start": 0.7,
+              "end": 0.98,
+              "probability": 0.341796875
+            },
+            {
+              "text": " show",
+              "start": 0.98,
+              "end": 1.52,
+              "probability": 0.447021484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "witch",
+          "start": 0.7,
+          "end": 0.98
+        },
+        {
+          "raw": "show",
+          "start": 0.98,
+          "end": 1.52
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Witch.",
+        "Show!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "witch",
+          "start": 0.7,
+          "end": 0.98,
+          "key": "witch",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "show",
+          "start": 0.98,
+          "end": 1.52,
+          "key": "show",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "Witch.",
+          "start": 0.7,
+          "end": 0.98
+        },
+        {
+          "text": "Show!",
+          "start": 0.98,
+          "end": 1.52
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11946152430027723
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "19c44250b3733630b926088195ee3ae8c761d8ffe8bc43833eaf9a4b80d4e0b1",
+  "selected_reasons": []
+}

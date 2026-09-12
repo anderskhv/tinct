@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "a55fbd554e41cdd4641633b04d1c2cf38eb0e539dfe2622b0d9eafc28c435f63",
+  "attempts": [
+    {
+      "asr_seconds": 0.21023735869675875,
+      "alignment_seconds": 0.0004785023629665375,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Richard. Nay, he is dead, and slain by Edward's hand.",
+        "hotwords": "Richard, Nay, Edward's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Richard, Nay, he is dead, and slain by Edward's hand.",
+          "start": 0.05,
+          "end": 3.61,
+          "words": [
+            {
+              "text": " Richard,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.76904296875
+            },
+            {
+              "text": " Nay,",
+              "start": 1.37,
+              "end": 1.47,
+              "probability": 0.032958984375
+            },
+            {
+              "text": " he",
+              "start": 1.63,
+              "end": 1.65,
+              "probability": 0.78125
+            },
+            {
+              "text": " is",
+              "start": 1.65,
+              "end": 1.79,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " dead,",
+              "start": 1.79,
+              "end": 2.05,
+              "probability": 0.96484375
+            },
+            {
+              "text": " and",
+              "start": 2.29,
+              "end": 2.37,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " slain",
+              "start": 2.37,
+              "end": 2.65,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " by",
+              "start": 2.65,
+              "end": 2.93,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " Edward's",
+              "start": 2.93,
+              "end": 3.37,
+              "probability": 0.9609375
+            },
+            {
+              "text": " hand.",
+              "start": 3.37,
+              "end": 3.61,
+              "probability": 0.94287109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Richard,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "Nay,",
+          "start": 1.37,
+          "end": 1.47
+        },
+        {
+          "raw": "he",
+          "start": 1.63,
+          "end": 1.65
+        },
+        {
+          "raw": "is",
+          "start": 1.65,
+          "end": 1.79
+        },
+        {
+          "raw": "dead,",
+          "start": 1.79,
+          "end": 2.05
+        },
+        {
+          "raw": "and",
+          "start": 2.29,
+          "end": 2.37
+        },
+        {
+          "raw": "slain",
+          "start": 2.37,
+          "end": 2.65
+        },
+        {
+          "raw": "by",
+          "start": 2.65,
+          "end": 2.93
+        },
+        {
+          "raw": "Edward's",
+          "start": 2.93,
+          "end": 3.37
+        },
+        {
+          "raw": "hand.",
+          "start": 3.37,
+          "end": 3.61
+        }
+      ],
+      "expected_tokens": [
+        "Richard.",
+        "Nay,",
+        "he",
+        "is",
+        "dead,",
+        "and",
+        "slain",
+        "by",
+        "Edward's",
+        "hand."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Richard,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "richard",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Nay,",
+          "start": 1.37,
+          "end": 1.47,
+          "key": "nay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.63,
+          "end": 1.65,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.65,
+          "end": 1.79,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "dead,",
+          "start": 1.79,
+          "end": 2.05,
+          "key": "dead",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.29,
+          "end": 2.37,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "slain",
+          "start": 2.37,
+          "end": 2.65,
+          "key": "slain",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 2.65,
+          "end": 2.93,
+          "key": "by",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Edward's",
+          "start": 2.93,
+          "end": 3.37,
+          "key": "edwards",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "hand.",
+          "start": 3.37,
+          "end": 3.61,
+          "key": "hand",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Richard.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "Nay,",
+          "start": 1.37,
+          "end": 1.47
+        },
+        {
+          "text": "he",
+          "start": 1.63,
+          "end": 1.65
+        },
+        {
+          "text": "is",
+          "start": 1.65,
+          "end": 1.79
+        },
+        {
+          "text": "dead,",
+          "start": 1.79,
+          "end": 2.05
+        },
+        {
+          "text": "and",
+          "start": 2.29,
+          "end": 2.37
+        },
+        {
+          "text": "slain",
+          "start": 2.37,
+          "end": 2.65
+        },
+        {
+          "text": "by",
+          "start": 2.65,
+          "end": 2.93
+        },
+        {
+          "text": "Edward's",
+          "start": 2.93,
+          "end": 3.37
+        },
+        {
+          "text": "hand.",
+          "start": 3.37,
+          "end": 3.61
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2109164111316204
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "617a9e3dbc2658071b39e83a377e02cee7a408ba5b88800c70257d86501a715b",
+  "selected_reasons": []
+}

@@ -1,0 +1,697 @@
+{
+  "complete": true,
+  "signature": "196649b4bf665e51743c1817498aaede6867960be2d1c8c06d9bd8a11b7f9f97",
+  "attempts": [
+    {
+      "asr_seconds": 0.28845094610005617,
+      "alignment_seconds": 0.0006283484399318695,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Macbeth into the air and what seemed corporal melted his breath into the wind would they had stayed",
+          "start": 0.02,
+          "end": 6.48,
+          "words": [
+            {
+              "text": " Macbeth",
+              "start": 0.02,
+              "end": 0.96,
+              "probability": 0.9119466145833334
+            },
+            {
+              "text": " into",
+              "start": 0.96,
+              "end": 1.5,
+              "probability": 0.1632080078125
+            },
+            {
+              "text": " the",
+              "start": 1.5,
+              "end": 1.66,
+              "probability": 0.998046875
+            },
+            {
+              "text": " air",
+              "start": 1.66,
+              "end": 1.98,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " and",
+              "start": 1.98,
+              "end": 2.42,
+              "probability": 0.87744140625
+            },
+            {
+              "text": " what",
+              "start": 2.42,
+              "end": 2.56,
+              "probability": 0.99609375
+            },
+            {
+              "text": " seemed",
+              "start": 2.56,
+              "end": 2.9,
+              "probability": 0.99609375
+            },
+            {
+              "text": " corporal",
+              "start": 2.9,
+              "end": 3.52,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " melted",
+              "start": 3.52,
+              "end": 3.88,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " his",
+              "start": 3.88,
+              "end": 4.16,
+              "probability": 0.91455078125
+            },
+            {
+              "text": " breath",
+              "start": 4.16,
+              "end": 4.42,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " into",
+              "start": 4.42,
+              "end": 4.66,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 4.66,
+              "end": 4.84,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " wind",
+              "start": 4.84,
+              "end": 5.22,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " would",
+              "start": 5.22,
+              "end": 5.84,
+              "probability": 0.4248046875
+            },
+            {
+              "text": " they",
+              "start": 5.84,
+              "end": 5.98,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " had",
+              "start": 5.98,
+              "end": 6.16,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " stayed",
+              "start": 6.16,
+              "end": 6.48,
+              "probability": 0.9775390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Macbeth",
+          "start": 0.02,
+          "end": 0.96
+        },
+        {
+          "raw": "into",
+          "start": 0.96,
+          "end": 1.5
+        },
+        {
+          "raw": "the",
+          "start": 1.5,
+          "end": 1.66
+        },
+        {
+          "raw": "air",
+          "start": 1.66,
+          "end": 1.98
+        },
+        {
+          "raw": "and",
+          "start": 1.98,
+          "end": 2.42
+        },
+        {
+          "raw": "what",
+          "start": 2.42,
+          "end": 2.56
+        },
+        {
+          "raw": "seemed",
+          "start": 2.56,
+          "end": 2.9
+        },
+        {
+          "raw": "corporal",
+          "start": 2.9,
+          "end": 3.52
+        },
+        {
+          "raw": "melted",
+          "start": 3.52,
+          "end": 3.88
+        },
+        {
+          "raw": "his",
+          "start": 3.88,
+          "end": 4.16
+        },
+        {
+          "raw": "breath",
+          "start": 4.16,
+          "end": 4.42
+        },
+        {
+          "raw": "into",
+          "start": 4.42,
+          "end": 4.66
+        },
+        {
+          "raw": "the",
+          "start": 4.66,
+          "end": 4.84
+        },
+        {
+          "raw": "wind",
+          "start": 4.84,
+          "end": 5.22
+        },
+        {
+          "raw": "would",
+          "start": 5.22,
+          "end": 5.84
+        },
+        {
+          "raw": "they",
+          "start": 5.84,
+          "end": 5.98
+        },
+        {
+          "raw": "had",
+          "start": 5.98,
+          "end": 6.16
+        },
+        {
+          "raw": "stayed",
+          "start": 6.16,
+          "end": 6.48
+        }
+      ],
+      "expected_tokens": [
+        "Macbeth.",
+        "Into",
+        "the",
+        "air;",
+        "and",
+        "what",
+        "seem'd",
+        "corporal,",
+        "Melted",
+        "as",
+        "breath",
+        "into",
+        "the",
+        "wind.",
+        "Would",
+        "they",
+        "had",
+        "stay'd!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          9,
+          7,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "equal",
+          10,
+          17,
+          10,
+          17
+        ],
+        [
+          "replace",
+          17,
+          18,
+          17,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "replace",
+          17,
+          18,
+          17,
+          18
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Macbeth",
+          "start": 0.02,
+          "end": 0.96,
+          "key": "macbeth",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 0.96,
+          "end": 1.5,
+          "key": "into",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.5,
+          "end": 1.66,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "air",
+          "start": 1.66,
+          "end": 1.98,
+          "key": "air",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.98,
+          "end": 2.42,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 2.42,
+          "end": 2.56,
+          "key": "what",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "seemed",
+          "start": 2.56,
+          "end": 2.9,
+          "key": "seemed",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "corporal",
+          "start": 2.9,
+          "end": 3.52,
+          "key": "corporal",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "melted",
+          "start": 3.52,
+          "end": 3.88,
+          "key": "melted",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.88,
+          "end": 4.16,
+          "key": "his",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "breath",
+          "start": 4.16,
+          "end": 4.42,
+          "key": "breath",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 4.42,
+          "end": 4.66,
+          "key": "into",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.66,
+          "end": 4.84,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "wind",
+          "start": 4.84,
+          "end": 5.22,
+          "key": "wind",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 5.22,
+          "end": 5.84,
+          "key": "would",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 5.84,
+          "end": 5.98,
+          "key": "they",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 5.98,
+          "end": 6.16,
+          "key": "had",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "stayed",
+          "start": 6.16,
+          "end": 6.48,
+          "key": "stayed",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Macbeth.",
+          "start": 0.02,
+          "end": 0.96
+        },
+        {
+          "text": "Into",
+          "start": 0.96,
+          "end": 1.5
+        },
+        {
+          "text": "the",
+          "start": 1.5,
+          "end": 1.66
+        },
+        {
+          "text": "air;",
+          "start": 1.66,
+          "end": 1.98
+        },
+        {
+          "text": "and",
+          "start": 1.98,
+          "end": 2.42
+        },
+        {
+          "text": "what",
+          "start": 2.42,
+          "end": 2.56
+        },
+        {
+          "text": "seem'd",
+          "start": 2.56,
+          "end": 2.73
+        },
+        {
+          "text": "corporal,",
+          "start": 2.9,
+          "end": 3.52
+        },
+        {
+          "text": "Melted",
+          "start": 3.52,
+          "end": 3.88
+        },
+        {
+          "text": "as",
+          "start": 3.88,
+          "end": 4.02
+        },
+        {
+          "text": "breath",
+          "start": 4.16,
+          "end": 4.42
+        },
+        {
+          "text": "into",
+          "start": 4.42,
+          "end": 4.66
+        },
+        {
+          "text": "the",
+          "start": 4.66,
+          "end": 4.84
+        },
+        {
+          "text": "wind.",
+          "start": 4.84,
+          "end": 5.22
+        },
+        {
+          "text": "Would",
+          "start": 5.22,
+          "end": 5.84
+        },
+        {
+          "text": "they",
+          "start": 5.84,
+          "end": 5.98
+        },
+        {
+          "text": "had",
+          "start": 5.98,
+          "end": 6.16
+        },
+        {
+          "text": "stay'd!",
+          "start": 6.16,
+          "end": 6.32
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 15
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2893206477165222
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7cb6581a7d027fa0a8f72945560f42723820657636eec3bf4ef7ea1f32549cd3",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

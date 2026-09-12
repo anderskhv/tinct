@@ -1,0 +1,375 @@
+{
+  "complete": true,
+  "signature": "93d1d643d95212b31d008c1ba6d1673c5a0fd44ef182f82c4627cad58d79942a",
+  "attempts": [
+    {
+      "asr_seconds": 0.17615624703466892,
+      "alignment_seconds": 0.00046687014400959015,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Third witch a drama-drama Macbeth does come",
+          "start": 0.05,
+          "end": 3.13,
+          "words": [
+            {
+              "text": " Third",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.744140625
+            },
+            {
+              "text": " witch",
+              "start": 0.59,
+              "end": 0.95,
+              "probability": 0.31103515625
+            },
+            {
+              "text": " a",
+              "start": 0.95,
+              "end": 1.45,
+              "probability": 0.73974609375
+            },
+            {
+              "text": " drama",
+              "start": 1.45,
+              "end": 1.71,
+              "probability": 0.93603515625
+            },
+            {
+              "text": "-drama",
+              "start": 1.71,
+              "end": 2.09,
+              "probability": 0.5978190104166666
+            },
+            {
+              "text": " Macbeth",
+              "start": 2.09,
+              "end": 2.65,
+              "probability": 0.7552897135416666
+            },
+            {
+              "text": " does",
+              "start": 2.65,
+              "end": 2.77,
+              "probability": 0.7724609375
+            },
+            {
+              "text": " come",
+              "start": 2.77,
+              "end": 3.13,
+              "probability": 0.89013671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Third",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "witch",
+          "start": 0.59,
+          "end": 0.95
+        },
+        {
+          "raw": "a",
+          "start": 0.95,
+          "end": 1.45
+        },
+        {
+          "raw": "drama",
+          "start": 1.45,
+          "end": 1.71
+        },
+        {
+          "raw": "-drama",
+          "start": 1.71,
+          "end": 2.09
+        },
+        {
+          "raw": "Macbeth",
+          "start": 2.09,
+          "end": 2.65
+        },
+        {
+          "raw": "does",
+          "start": 2.65,
+          "end": 2.77
+        },
+        {
+          "raw": "come",
+          "start": 2.77,
+          "end": 3.13
+        }
+      ],
+      "expected_tokens": [
+        "Third",
+        "Witch.",
+        "A",
+        "drum,",
+        "a",
+        "drum!",
+        "Macbeth",
+        "doth",
+        "come."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          6,
+          3,
+          5
+        ],
+        [
+          "equal",
+          6,
+          7,
+          5,
+          6
+        ],
+        [
+          "replace",
+          7,
+          8,
+          6,
+          7
+        ],
+        [
+          "equal",
+          8,
+          9,
+          7,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          6,
+          3,
+          5
+        ],
+        [
+          "replace",
+          7,
+          8,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Third",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "third",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "witch",
+          "start": 0.59,
+          "end": 0.95,
+          "key": "witch",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.95,
+          "end": 1.45,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "drama",
+          "start": 1.45,
+          "end": 1.71,
+          "key": "drama",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "-drama",
+          "start": 1.71,
+          "end": 2.09,
+          "key": "drama",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Macbeth",
+          "start": 2.09,
+          "end": 2.65,
+          "key": "macbeth",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 2.65,
+          "end": 2.77,
+          "key": "does",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 2.77,
+          "end": 3.13,
+          "key": "come",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Third",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "Witch.",
+          "start": 0.59,
+          "end": 0.95
+        },
+        {
+          "text": "A",
+          "start": 0.95,
+          "end": 1.45
+        },
+        {
+          "text": "drum,",
+          "start": 1.45,
+          "end": 1.77
+        },
+        {
+          "text": "a",
+          "start": 1.77,
+          "end": 1.93
+        },
+        {
+          "text": "drum!",
+          "start": 1.93,
+          "end": 2.01
+        },
+        {
+          "text": "Macbeth",
+          "start": 2.09,
+          "end": 2.65
+        },
+        {
+          "text": "doth",
+          "start": 2.65,
+          "end": 2.71
+        },
+        {
+          "text": "come.",
+          "start": 2.77,
+          "end": 3.13
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 8,
+        "matched_words": 5
+      },
+      "match_ratio": 0.5555555555555556,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.17677168920636177
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "75757ff8c4b1ce7dbd9eab4825c94fe640647cbbe372ebd9b4f83649bf07bcaa",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

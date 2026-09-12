@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "fad4528ef919c6afa0d56b22b75bc73adc7903937f13ea054d2b85df18369d50",
+  "attempts": [
+    {
+      "asr_seconds": 0.114450060762465,
+      "alignment_seconds": 0.00017960462719202042,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Exeunt, marching.]",
+        "hotwords": "Exeunt"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exeunt, marching.",
+          "start": 0.02,
+          "end": 1.32,
+          "words": [
+            {
+              "text": " Exeunt,",
+              "start": 0.02,
+              "end": 0.86,
+              "probability": 0.6452229817708334
+            },
+            {
+              "text": " marching.",
+              "start": 0.92,
+              "end": 1.32,
+              "probability": 0.9189453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt,",
+          "start": 0.02,
+          "end": 0.86
+        },
+        {
+          "raw": "marching.",
+          "start": 0.92,
+          "end": 1.32
+        }
+      ],
+      "expected_tokens": [
+        "[Exeunt,",
+        "marching.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt,",
+          "start": 0.02,
+          "end": 0.86,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "marching.",
+          "start": 0.92,
+          "end": 1.32,
+          "key": "marching",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Exeunt,",
+          "start": 0.02,
+          "end": 0.86
+        },
+        {
+          "text": "marching.]",
+          "start": 0.92,
+          "end": 1.32
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11468238290399313
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e6e97b7359d3c5f5c6fac50799b6cbbaea4d0b09202aea917d4a7d8c38add3dc",
+  "selected_reasons": []
+}

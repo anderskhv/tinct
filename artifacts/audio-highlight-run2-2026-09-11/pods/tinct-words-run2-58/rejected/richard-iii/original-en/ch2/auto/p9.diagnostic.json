@@ -1,0 +1,221 @@
+{
+  "complete": true,
+  "signature": "65d319d18e906bfb5a0fba4e64ef3f7b4a7fcb1cf0e378c08be1aafd4eba41e7",
+  "attempts": [
+    {
+      "asr_seconds": 0.1250899825245142,
+      "alignment_seconds": 0.0003790445625782013,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_They set down the bier._]"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " They set down the bier.",
+          "start": 0.02,
+          "end": 1.36,
+          "words": [
+            {
+              "text": " They",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.8515625
+            },
+            {
+              "text": " set",
+              "start": 0.5,
+              "end": 0.7,
+              "probability": 0.880859375
+            },
+            {
+              "text": " down",
+              "start": 0.7,
+              "end": 0.9,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 0.9,
+              "end": 1.04,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " bier.",
+              "start": 1.04,
+              "end": 1.36,
+              "probability": 0.4548826217651367
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "They",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "set",
+          "start": 0.5,
+          "end": 0.7
+        },
+        {
+          "raw": "down",
+          "start": 0.7,
+          "end": 0.9
+        },
+        {
+          "raw": "the",
+          "start": 0.9,
+          "end": 1.04
+        },
+        {
+          "raw": "bier.",
+          "start": 1.04,
+          "end": 1.36
+        }
+      ],
+      "expected_tokens": [
+        "[_They",
+        "set",
+        "down",
+        "the",
+        "bier._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "They",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "they",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "set",
+          "start": 0.5,
+          "end": 0.7,
+          "key": "set",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 0.7,
+          "end": 0.9,
+          "key": "down",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.9,
+          "end": 1.04,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "bier.",
+          "start": 1.04,
+          "end": 1.36,
+          "key": "bier",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_They",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "set",
+          "start": 0.5,
+          "end": 0.7
+        },
+        {
+          "text": "down",
+          "start": 0.7,
+          "end": 0.9
+        },
+        {
+          "text": "the",
+          "start": 0.9,
+          "end": 1.04
+        },
+        {
+          "text": "bier._]",
+          "start": 1.04,
+          "end": 1.36
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1255962150171399
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e18e1e3bc0798b75f09759e10fa81995547ceb12a80966c750cf081449b68928",
+  "selected_reasons": []
+}
