@@ -1033,3 +1033,81 @@ the fetched asset:
 
 Report live evidence back to the package `status.json` and the generated
 inventory only after those checks pass. Validated is not deployed.
+
+## Lane A automation batch 6: Aristotle's Politics
+
+Authored on branch `claude/tinct-character-content-1n5iqq` by the Lane A
+automated author per `AUTOMATION-QUEUE.md`. Queued, not production
+verified; this lane never sets `appStatus`.
+
+| Book | Content commit | Original / modern entries | Builder |
+|---|---:|---:|---|
+| Politics | f452fadfe | 158 / 159 | build_aristotle_politics.py |
+
+| Book | original-en | modern-en |
+|---|---|---|
+| Politics | 0bf42e46f4c5c3738c11c437513f104b0e92847432128873d10a49f9fc16c2fc | 8ce0b1f6570584b4ba8168b25cb6ae365afcd0cc157cc4a0f15cd2d3efc62224 |
+
+330 exact mentions in the original, 325 in the modern, across all 8 Books
+and 478 paragraphs per edition. One omitted entity, on original-en only
+(see below). Commands: `python3 books/characters/build_aristotle_politics.py
+--check`, then `python3 -m unittest discover -s books/characters -p
+'test_*.py'`. Shared dependencies: `build_reviewed.py` and
+`reviewed_aliases.py`; neither was changed.
+
+### Release review points
+
+A systematic treatise citing lawgivers, tyrants, and named revolutions --
+per editorial policy's guidance for treatises, 157 of 159 entries are
+Reference. Two are Major for sustained, argued-with engagement across
+multiple Books rather than a single citation: **Socrates** and **Plato**,
+the target of most of Book 2's critique of the Republic and Laws,
+revisited in Books 4 and 7.
+
+Nine genuine namesake collisions, verified against every mention in the
+book, not a sample -- this book earns its queue warning ("watch
+city-versus-person") many times over. Six resolved by location-scoped
+binding: **Dionysius** (I and II, tyrants of Syracuse, father and son),
+**Periander** (Corinth vs. Ambracia, resolved via the same "exclude one
+location from the global alias" pattern used for Beyond Good and Evil's
+Caesar Borgia), **Thrasybulus** (Miletus vs. Syracuse), **Pausanias**
+(a Spartan king, the Plataea regent, and Philip of Macedon's assassin --
+three men, none with a global alias), **Cleisthenes** (grandfather of
+Sicyon vs. grandson of Athens), and **Timophanes** (an unrelated
+Mitylenean citizen vs. a Corinthian general-turned-tyrant). Three more
+resolve cleanly with no location scoping, since at least one name in each
+pair always carries its epithet in the text: **Amyntas** (Archelaus's
+son vs. "Amyntas the little"), **Chares** (an agricultural writer named
+in full vs. a likely general at Aegina), and **Pheidon** (a legislator
+named in full vs. a king of Argos turned tyrant).
+
+### Source defects, one blocking a single entity
+
+original-en (an older, Bekker/Gutenberg-apparatus translation) bleeds
+editorial footnotes, page headers, and cross-reference citations directly
+into the running paragraph text at many points, and OCR has mangled
+several words (Bernays -> "Beriiays", Diocles -> "Diodes"). modern-en,
+translated fresh, carries none of this. Left as printed per the hard
+constraint against editing edition files. Two consequences: "Aristotle"
+appears twice in original-en (7:39, 8:3) as a footnote annotator's own
+cross-reference to the author, never bound to any entity; and at 5:59 the
+sentence naming Sardanapalus is corrupted into an unattributed clause in
+original-en, so `sardanapalus` is bound in modern-en only and is the
+package's one omitted entity.
+
+### Required production checks
+
+Register both English editions, version the immutable asset URL, run the
+normal app gates and deploy, then open the production reader and confirm
+on the fetched asset:
+
+1. A first-encounter card in each edition (1:0, "Hesiod").
+2. That the two Dionysii (1:41 / 5:59), two Perianders (3:54 / 5:54),
+   three Pausaniases (5:2, 5:26, 5:54), and two Cleisthenes (3:5 / 5:74)
+   each show their own distinct, correctly identified card.
+3. That "Aristotle" at 7:39 and 8:3 (original-en only) shows no card.
+4. That Sardanapalus's card appears in modern-en at 5:59 and that
+   original-en shows no card there (the name is absent from that text).
+
+Report live evidence back to the package `status.json` and the generated
+inventory only after those checks pass. Validated is not deployed.
