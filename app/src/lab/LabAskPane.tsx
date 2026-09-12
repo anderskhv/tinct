@@ -370,6 +370,11 @@ export function LabAskPane({
     onSubmit(value)
   }
 
+  // Above the composer, not inside the thread: the thread opens scrolled to
+  // its end, so a line at the top of it is the one thing the reader cannot see.
+  const syncingNode = syncing && !empty && (
+    <p className="lab-ask-syncing" data-testid="lab-ask-syncing" role="status">{LAB_COPY.askHistorySyncing}</p>
+  )
   const noticeNode = (notice || localError) && (
     <p className="lab-ask-notice" data-testid="lab-ask-notice">{notice || localError}{onRetry && !typedLoading && <button type="button" className="lab-text-btn" onClick={onRetry}>Try again</button>}</p>
   )
@@ -534,9 +539,6 @@ export function LabAskPane({
         <p className="lab-ask-greeting">{syncing ? LAB_COPY.askHistoryLoading : LAB_COPY.askGreeting}</p>
       ) : (
         <div className="lab-ask-thread" data-testid="lab-ask-thread" ref={threadRef} onScroll={onThreadScroll} data-hidden-turns={hidden}>
-          {syncing && (
-            <p className="lab-ask-syncing" data-testid="lab-ask-syncing" role="status">{LAB_COPY.askHistorySyncing}</p>
-          )}
           {hidden > 0 && (
             <button
               type="button"
@@ -597,6 +599,7 @@ export function LabAskPane({
       )}
       {phoneSheet ? (
         <div className="lab-ask-chrome" data-testid="lab-ask-chrome">
+          {syncingNode}
           {noticeNode}
           {dictationNode}
           {statusNode}
@@ -604,6 +607,7 @@ export function LabAskPane({
         </div>
       ) : (
         <>
+          {syncingNode}
           {noticeNode}
           {dictationNode}
           {statusNode}
