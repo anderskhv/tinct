@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "f09c7589d513d7ca9c91e255768b669ffb3533d0d5b920f4b2c539d53158db12",
+  "attempts": [
+    {
+      "asr_seconds": 0.12143325991928577,
+      "alignment_seconds": 0.00029748864471912384,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"In the dark?\"",
+        "hotwords": "In"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " In the dark?",
+          "start": 0.02,
+          "end": 0.94,
+          "words": [
+            {
+              "text": " In",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.447021484375
+            },
+            {
+              "text": " the",
+              "start": 0.54,
+              "end": 0.64,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " dark?",
+              "start": 0.64,
+              "end": 0.94,
+              "probability": 0.7158203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "In",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "the",
+          "start": 0.54,
+          "end": 0.64
+        },
+        {
+          "raw": "dark?",
+          "start": 0.64,
+          "end": 0.94
+        }
+      ],
+      "expected_tokens": [
+        "\"In",
+        "the",
+        "dark?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "In",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "in",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.54,
+          "end": 0.64,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "dark?",
+          "start": 0.64,
+          "end": 0.94,
+          "key": "dark",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"In",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "the",
+          "start": 0.54,
+          "end": 0.64
+        },
+        {
+          "text": "dark?\"",
+          "start": 0.64,
+          "end": 0.94
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12184157967567444
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7e48436f0718ca825046c96bb920dca08c3aa73a6c89efaec3609e466e5a9336",
+  "selected_reasons": []
+}

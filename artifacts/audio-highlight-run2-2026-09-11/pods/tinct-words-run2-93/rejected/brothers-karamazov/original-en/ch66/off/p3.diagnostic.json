@@ -1,0 +1,444 @@
+{
+  "complete": true,
+  "signature": "a935edfe375e4e8409896b21049e41879bfe1b50a1a33d2d433bb343e6ca36cd",
+  "attempts": [
+    {
+      "asr_seconds": 0.3816027622669935,
+      "alignment_seconds": 0.00042569637298583984,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Here you are at last how anxious we've been to see you",
+          "start": 0.05,
+          "end": 3.17,
+          "words": [
+            {
+              "text": " Here",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.962890625
+            },
+            {
+              "text": " you",
+              "start": 0.53,
+              "end": 0.65,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " are",
+              "start": 0.65,
+              "end": 0.75,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " at",
+              "start": 0.75,
+              "end": 0.85,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " last",
+              "start": 0.85,
+              "end": 1.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " how",
+              "start": 1.23,
+              "end": 1.73,
+              "probability": 0.30810546875
+            },
+            {
+              "text": " anxious",
+              "start": 1.73,
+              "end": 2.09,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " we've",
+              "start": 2.09,
+              "end": 2.41,
+              "probability": 0.959716796875
+            },
+            {
+              "text": " been",
+              "start": 2.41,
+              "end": 2.53,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 2.53,
+              "end": 2.69,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " see",
+              "start": 2.69,
+              "end": 2.89,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you",
+              "start": 2.89,
+              "end": 3.17,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Here",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "you",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "raw": "are",
+          "start": 0.65,
+          "end": 0.75
+        },
+        {
+          "raw": "at",
+          "start": 0.75,
+          "end": 0.85
+        },
+        {
+          "raw": "last",
+          "start": 0.85,
+          "end": 1.23
+        },
+        {
+          "raw": "how",
+          "start": 1.23,
+          "end": 1.73
+        },
+        {
+          "raw": "anxious",
+          "start": 1.73,
+          "end": 2.09
+        },
+        {
+          "raw": "we've",
+          "start": 2.09,
+          "end": 2.41
+        },
+        {
+          "raw": "been",
+          "start": 2.41,
+          "end": 2.53
+        },
+        {
+          "raw": "to",
+          "start": 2.53,
+          "end": 2.69
+        },
+        {
+          "raw": "see",
+          "start": 2.69,
+          "end": 2.89
+        },
+        {
+          "raw": "you",
+          "start": 2.89,
+          "end": 3.17
+        }
+      ],
+      "expected_tokens": [
+        "\"Here",
+        "you",
+        "are",
+        "at",
+        "last!",
+        "How",
+        "anxious",
+        "we've",
+        "been",
+        "to",
+        "see",
+        "you!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Here",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "here",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.53,
+          "end": 0.65,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 0.65,
+          "end": 0.75,
+          "key": "are",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 0.75,
+          "end": 0.85,
+          "key": "at",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "last",
+          "start": 0.85,
+          "end": 1.23,
+          "key": "last",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 1.23,
+          "end": 1.73,
+          "key": "how",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "anxious",
+          "start": 1.73,
+          "end": 2.09,
+          "key": "anxious",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "we've",
+          "start": 2.09,
+          "end": 2.41,
+          "key": "weve",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 2.41,
+          "end": 2.53,
+          "key": "been",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.53,
+          "end": 2.69,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 2.69,
+          "end": 2.89,
+          "key": "see",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.89,
+          "end": 3.17,
+          "key": "you",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Here",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "you",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "text": "are",
+          "start": 0.65,
+          "end": 0.75
+        },
+        {
+          "text": "at",
+          "start": 0.75,
+          "end": 0.85
+        },
+        {
+          "text": "last!",
+          "start": 0.85,
+          "end": 1.23
+        },
+        {
+          "text": "How",
+          "start": 1.23,
+          "end": 1.73
+        },
+        {
+          "text": "anxious",
+          "start": 1.73,
+          "end": 2.09
+        },
+        {
+          "text": "we've",
+          "start": 2.09,
+          "end": 2.41
+        },
+        {
+          "text": "been",
+          "start": 2.41,
+          "end": 2.53
+        },
+        {
+          "text": "to",
+          "start": 2.53,
+          "end": 2.69
+        },
+        {
+          "text": "see",
+          "start": 2.69,
+          "end": 2.89
+        },
+        {
+          "text": "you!\"",
+          "start": 2.89,
+          "end": 3.17
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.38219733349978924
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "32bc2e63653998777192ba2446e09b146c07d9eec544be9c3a38971d3c85c301",
+  "selected_reasons": []
+}

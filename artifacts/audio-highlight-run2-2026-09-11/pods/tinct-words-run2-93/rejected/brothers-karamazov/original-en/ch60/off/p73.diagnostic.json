@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "c925dc94fffdff9ab5b140bc5d7f521b08aa94c80e280e94160a4abdc7e8eb82",
+  "attempts": [
+    {
+      "asr_seconds": 0.39001414366066456,
+      "alignment_seconds": 0.00036013685166835785,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Where was it exactly?",
+          "start": 0.02,
+          "end": 1.26,
+          "words": [
+            {
+              "text": " Where",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.81884765625
+            },
+            {
+              "text": " was",
+              "start": 0.52,
+              "end": 0.7,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it",
+              "start": 0.7,
+              "end": 0.86,
+              "probability": 0.998046875
+            },
+            {
+              "text": " exactly?",
+              "start": 0.86,
+              "end": 1.26,
+              "probability": 0.90673828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Where",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "was",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "raw": "it",
+          "start": 0.7,
+          "end": 0.86
+        },
+        {
+          "raw": "exactly?",
+          "start": 0.86,
+          "end": 1.26
+        }
+      ],
+      "expected_tokens": [
+        "\"Where",
+        "was",
+        "it,",
+        "exactly?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Where",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "where",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.52,
+          "end": 0.7,
+          "key": "was",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 0.7,
+          "end": 0.86,
+          "key": "it",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "exactly?",
+          "start": 0.86,
+          "end": 1.26,
+          "key": "exactly",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Where",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "was",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "text": "it,",
+          "start": 0.7,
+          "end": 0.86
+        },
+        {
+          "text": "exactly?\"",
+          "start": 0.86,
+          "end": 1.26
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.39049985632300377
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c873d50300a7dde9a3b1f704398d61c18428aa732d50650690964efdfed402e2",
+  "selected_reasons": []
+}

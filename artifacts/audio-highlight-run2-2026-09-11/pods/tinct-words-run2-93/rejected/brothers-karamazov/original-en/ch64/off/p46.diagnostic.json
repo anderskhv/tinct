@@ -1,0 +1,306 @@
+{
+  "complete": true,
+  "signature": "12d87c726277a1ef8bd27d883e5297cd0d12e4e3601939b07ef64894f6564400",
+  "attempts": [
+    {
+      "asr_seconds": 0.20087210647761822,
+      "alignment_seconds": 0.0003488529473543167,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Only think a dog, Agafia observed sententiously.",
+          "start": 0.02,
+          "end": 3.58,
+          "words": [
+            {
+              "text": " Only",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.48974609375
+            },
+            {
+              "text": " think",
+              "start": 0.64,
+              "end": 0.9,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " a",
+              "start": 0.9,
+              "end": 1.06,
+              "probability": 0.974609375
+            },
+            {
+              "text": " dog,",
+              "start": 1.06,
+              "end": 1.44,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Agafia",
+              "start": 2.06,
+              "end": 2.34,
+              "probability": 0.5867513020833334
+            },
+            {
+              "text": " observed",
+              "start": 2.34,
+              "end": 2.84,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " sententiously.",
+              "start": 2.84,
+              "end": 3.58,
+              "probability": 0.8523763020833334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Only",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "think",
+          "start": 0.64,
+          "end": 0.9
+        },
+        {
+          "raw": "a",
+          "start": 0.9,
+          "end": 1.06
+        },
+        {
+          "raw": "dog,",
+          "start": 1.06,
+          "end": 1.44
+        },
+        {
+          "raw": "Agafia",
+          "start": 2.06,
+          "end": 2.34
+        },
+        {
+          "raw": "observed",
+          "start": 2.34,
+          "end": 2.84
+        },
+        {
+          "raw": "sententiously.",
+          "start": 2.84,
+          "end": 3.58
+        }
+      ],
+      "expected_tokens": [
+        "\"Only",
+        "think,",
+        "a",
+        "dog!\"",
+        "Agafya",
+        "observed",
+        "sententiously."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          7,
+          5,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Only",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "only",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 0.64,
+          "end": 0.9,
+          "key": "think",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.9,
+          "end": 1.06,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "dog,",
+          "start": 1.06,
+          "end": 1.44,
+          "key": "dog",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Agafia",
+          "start": 2.06,
+          "end": 2.34,
+          "key": "agafia",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "observed",
+          "start": 2.34,
+          "end": 2.84,
+          "key": "observed",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sententiously.",
+          "start": 2.84,
+          "end": 3.58,
+          "key": "sententiously",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Only",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "think,",
+          "start": 0.64,
+          "end": 0.9
+        },
+        {
+          "text": "a",
+          "start": 0.9,
+          "end": 1.06
+        },
+        {
+          "text": "dog!\"",
+          "start": 1.06,
+          "end": 1.44
+        },
+        {
+          "text": "Agafya",
+          "start": 1.44,
+          "end": 1.89
+        },
+        {
+          "text": "observed",
+          "start": 2.34,
+          "end": 2.84
+        },
+        {
+          "text": "sententiously.",
+          "start": 2.84,
+          "end": 3.58
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.20133449137210846
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "53856b37c930394ba02e28ecf5e55e46dea65693b1e4c2dd9ba599397638e4b6",
+  "selected_reasons": []
+}

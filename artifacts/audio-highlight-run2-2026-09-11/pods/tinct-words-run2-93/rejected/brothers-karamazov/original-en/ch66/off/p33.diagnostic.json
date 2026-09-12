@@ -1,0 +1,682 @@
+{
+  "complete": true,
+  "signature": "84a56bcfcf21f995ae2a984d3824347ad7828fbd34ddea3f71435f2354271b48",
+  "attempts": [
+    {
+      "asr_seconds": 2.7604066617786884,
+      "alignment_seconds": 0.000858798623085022,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I'll show you something directly, Karamazov.",
+          "start": 0.05,
+          "end": 2.61,
+          "words": [
+            {
+              "text": " I'll",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.6181640625
+            },
+            {
+              "text": " show",
+              "start": 0.61,
+              "end": 0.77,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " you",
+              "start": 0.77,
+              "end": 0.95,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " something",
+              "start": 0.95,
+              "end": 1.15,
+              "probability": 0.998046875
+            },
+            {
+              "text": " directly,",
+              "start": 1.15,
+              "end": 1.73,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Karamazov.",
+              "start": 2.13,
+              "end": 2.61,
+              "probability": 0.8697916666666666
+            }
+          ]
+        },
+        {
+          "text": " It's a theatrical performance, too,\" he said, laughing nervously.",
+          "start": 2.99,
+          "end": 6.47,
+          "words": [
+            {
+              "text": " It's",
+              "start": 2.99,
+              "end": 3.11,
+              "probability": 0.992919921875
+            },
+            {
+              "text": " a",
+              "start": 3.11,
+              "end": 3.21,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " theatrical",
+              "start": 3.21,
+              "end": 3.61,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " performance,",
+              "start": 3.61,
+              "end": 4.17,
+              "probability": 0.998046875
+            },
+            {
+              "text": " too,\"",
+              "start": 4.49,
+              "end": 4.95,
+              "probability": 0.907470703125
+            },
+            {
+              "text": " he",
+              "start": 4.95,
+              "end": 5.17,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " said,",
+              "start": 5.17,
+              "end": 5.47,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " laughing",
+              "start": 5.75,
+              "end": 6.09,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " nervously.",
+              "start": 6.09,
+              "end": 6.47,
+              "probability": 0.990234375
+            }
+          ]
+        },
+        {
+          "text": " That's why I've come.",
+          "start": 7.07,
+          "end": 8.31,
+          "words": [
+            {
+              "text": " That's",
+              "start": 7.07,
+              "end": 7.63,
+              "probability": 0.87646484375
+            },
+            {
+              "text": " why",
+              "start": 7.63,
+              "end": 7.77,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " I've",
+              "start": 7.77,
+              "end": 8.03,
+              "probability": 0.992431640625
+            },
+            {
+              "text": " come.",
+              "start": 8.03,
+              "end": 8.31,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I'll",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "show",
+          "start": 0.61,
+          "end": 0.77
+        },
+        {
+          "raw": "you",
+          "start": 0.77,
+          "end": 0.95
+        },
+        {
+          "raw": "something",
+          "start": 0.95,
+          "end": 1.15
+        },
+        {
+          "raw": "directly,",
+          "start": 1.15,
+          "end": 1.73
+        },
+        {
+          "raw": "Karamazov.",
+          "start": 2.13,
+          "end": 2.61
+        },
+        {
+          "raw": "It's",
+          "start": 2.99,
+          "end": 3.11
+        },
+        {
+          "raw": "a",
+          "start": 3.11,
+          "end": 3.21
+        },
+        {
+          "raw": "theatrical",
+          "start": 3.21,
+          "end": 3.61
+        },
+        {
+          "raw": "performance,",
+          "start": 3.61,
+          "end": 4.17
+        },
+        {
+          "raw": "too,\"",
+          "start": 4.49,
+          "end": 4.95
+        },
+        {
+          "raw": "he",
+          "start": 4.95,
+          "end": 5.17
+        },
+        {
+          "raw": "said,",
+          "start": 5.17,
+          "end": 5.47
+        },
+        {
+          "raw": "laughing",
+          "start": 5.75,
+          "end": 6.09
+        },
+        {
+          "raw": "nervously.",
+          "start": 6.09,
+          "end": 6.47
+        },
+        {
+          "raw": "That's",
+          "start": 7.07,
+          "end": 7.63
+        },
+        {
+          "raw": "why",
+          "start": 7.63,
+          "end": 7.77
+        },
+        {
+          "raw": "I've",
+          "start": 7.77,
+          "end": 8.03
+        },
+        {
+          "raw": "come.",
+          "start": 8.03,
+          "end": 8.31
+        }
+      ],
+      "expected_tokens": [
+        "\"I'll",
+        "show",
+        "you",
+        "something",
+        "directly,",
+        "Karamazov;",
+        "it's",
+        "a",
+        "theatrical",
+        "performance,",
+        "too,\"",
+        "he",
+        "said,",
+        "laughing",
+        "nervously.",
+        "\"That's",
+        "why",
+        "I've",
+        "come.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I'll",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "ill",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "show",
+          "start": 0.61,
+          "end": 0.77,
+          "key": "show",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.77,
+          "end": 0.95,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "something",
+          "start": 0.95,
+          "end": 1.15,
+          "key": "something",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "directly,",
+          "start": 1.15,
+          "end": 1.73,
+          "key": "directly",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Karamazov.",
+          "start": 2.13,
+          "end": 2.61,
+          "key": "karamazov",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "It's",
+          "start": 2.99,
+          "end": 3.11,
+          "key": "its",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.11,
+          "end": 3.21,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "theatrical",
+          "start": 3.21,
+          "end": 3.61,
+          "key": "theatrical",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "performance,",
+          "start": 3.61,
+          "end": 4.17,
+          "key": "performance",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "too,\"",
+          "start": 4.49,
+          "end": 4.95,
+          "key": "too",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 4.95,
+          "end": 5.17,
+          "key": "he",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 5.17,
+          "end": 5.47,
+          "key": "said",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "laughing",
+          "start": 5.75,
+          "end": 6.09,
+          "key": "laughing",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "nervously.",
+          "start": 6.09,
+          "end": 6.47,
+          "key": "nervously",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "That's",
+          "start": 7.07,
+          "end": 7.63,
+          "key": "thats",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "why",
+          "start": 7.63,
+          "end": 7.77,
+          "key": "why",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "I've",
+          "start": 7.77,
+          "end": 8.03,
+          "key": "ive",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "come.",
+          "start": 8.03,
+          "end": 8.31,
+          "key": "come",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I'll",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "show",
+          "start": 0.61,
+          "end": 0.77
+        },
+        {
+          "text": "you",
+          "start": 0.77,
+          "end": 0.95
+        },
+        {
+          "text": "something",
+          "start": 0.95,
+          "end": 1.15
+        },
+        {
+          "text": "directly,",
+          "start": 1.15,
+          "end": 1.73
+        },
+        {
+          "text": "Karamazov;",
+          "start": 2.13,
+          "end": 2.61
+        },
+        {
+          "text": "it's",
+          "start": 2.99,
+          "end": 3.11
+        },
+        {
+          "text": "a",
+          "start": 3.11,
+          "end": 3.21
+        },
+        {
+          "text": "theatrical",
+          "start": 3.21,
+          "end": 3.61
+        },
+        {
+          "text": "performance,",
+          "start": 3.61,
+          "end": 4.17
+        },
+        {
+          "text": "too,\"",
+          "start": 4.49,
+          "end": 4.95
+        },
+        {
+          "text": "he",
+          "start": 4.95,
+          "end": 5.17
+        },
+        {
+          "text": "said,",
+          "start": 5.17,
+          "end": 5.47
+        },
+        {
+          "text": "laughing",
+          "start": 5.75,
+          "end": 6.09
+        },
+        {
+          "text": "nervously.",
+          "start": 6.09,
+          "end": 6.47
+        },
+        {
+          "text": "\"That's",
+          "start": 7.07,
+          "end": 7.63
+        },
+        {
+          "text": "why",
+          "start": 7.63,
+          "end": 7.77
+        },
+        {
+          "text": "I've",
+          "start": 7.77,
+          "end": 8.03
+        },
+        {
+          "text": "come.\"",
+          "start": 8.03,
+          "end": 8.31
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.7615829054266214
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "efb7d19169ef6904903d2f825ce7e136c62e70a4778ec9428721fdaa7545255c",
+  "selected_reasons": []
+}

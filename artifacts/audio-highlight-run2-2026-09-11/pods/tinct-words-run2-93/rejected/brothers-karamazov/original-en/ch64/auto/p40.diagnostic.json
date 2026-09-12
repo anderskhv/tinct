@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "dcf6a5fbcd453446d4fafab763fa46401d3cb37234faa17330be0ab733633446",
+  "attempts": [
+    {
+      "asr_seconds": 0.21834131330251694,
+      "alignment_seconds": 0.00042424723505973816,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"We sha—all cry,\" drawled Kostya, on the verge of tears already.",
+        "hotwords": "We, Kostya"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " We sha—all cry, drawled Kostya, on the verge of tears already.",
+          "start": 0.02,
+          "end": 4.06,
+          "words": [
+            {
+              "text": " We",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " sha—all",
+              "start": 0.56,
+              "end": 1.1,
+              "probability": 0.47178927063941956
+            },
+            {
+              "text": " cry,",
+              "start": 1.1,
+              "end": 1.44,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " drawled",
+              "start": 2.1,
+              "end": 2.3,
+              "probability": 0.671142578125
+            },
+            {
+              "text": " Kostya,",
+              "start": 2.3,
+              "end": 2.78,
+              "probability": 0.445068359375
+            },
+            {
+              "text": " on",
+              "start": 2.92,
+              "end": 3.0,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " the",
+              "start": 3.0,
+              "end": 3.14,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " verge",
+              "start": 3.14,
+              "end": 3.24,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of",
+              "start": 3.24,
+              "end": 3.44,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " tears",
+              "start": 3.44,
+              "end": 3.64,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " already.",
+              "start": 3.64,
+              "end": 4.06,
+              "probability": 0.908203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "We",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "sha—all",
+          "start": 0.56,
+          "end": 1.1
+        },
+        {
+          "raw": "cry,",
+          "start": 1.1,
+          "end": 1.44
+        },
+        {
+          "raw": "drawled",
+          "start": 2.1,
+          "end": 2.3
+        },
+        {
+          "raw": "Kostya,",
+          "start": 2.3,
+          "end": 2.78
+        },
+        {
+          "raw": "on",
+          "start": 2.92,
+          "end": 3.0
+        },
+        {
+          "raw": "the",
+          "start": 3.0,
+          "end": 3.14
+        },
+        {
+          "raw": "verge",
+          "start": 3.14,
+          "end": 3.24
+        },
+        {
+          "raw": "of",
+          "start": 3.24,
+          "end": 3.44
+        },
+        {
+          "raw": "tears",
+          "start": 3.44,
+          "end": 3.64
+        },
+        {
+          "raw": "already.",
+          "start": 3.64,
+          "end": 4.06
+        }
+      ],
+      "expected_tokens": [
+        "\"We",
+        "sha—all",
+        "cry,\"",
+        "drawled",
+        "Kostya,",
+        "on",
+        "the",
+        "verge",
+        "of",
+        "tears",
+        "already."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "We",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "we",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sha—all",
+          "start": 0.56,
+          "end": 1.1,
+          "key": "shaall",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "cry,",
+          "start": 1.1,
+          "end": 1.44,
+          "key": "cry",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "drawled",
+          "start": 2.1,
+          "end": 2.3,
+          "key": "drawled",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Kostya,",
+          "start": 2.3,
+          "end": 2.78,
+          "key": "kostya",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.92,
+          "end": 3.0,
+          "key": "on",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.0,
+          "end": 3.14,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "verge",
+          "start": 3.14,
+          "end": 3.24,
+          "key": "verge",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.24,
+          "end": 3.44,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "tears",
+          "start": 3.44,
+          "end": 3.64,
+          "key": "tears",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "already.",
+          "start": 3.64,
+          "end": 4.06,
+          "key": "already",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"We",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "sha—all",
+          "start": 0.56,
+          "end": 1.1
+        },
+        {
+          "text": "cry,\"",
+          "start": 1.1,
+          "end": 1.44
+        },
+        {
+          "text": "drawled",
+          "start": 2.1,
+          "end": 2.3
+        },
+        {
+          "text": "Kostya,",
+          "start": 2.3,
+          "end": 2.78
+        },
+        {
+          "text": "on",
+          "start": 2.92,
+          "end": 3.0
+        },
+        {
+          "text": "the",
+          "start": 3.0,
+          "end": 3.14
+        },
+        {
+          "text": "verge",
+          "start": 3.14,
+          "end": 3.24
+        },
+        {
+          "text": "of",
+          "start": 3.24,
+          "end": 3.44
+        },
+        {
+          "text": "tears",
+          "start": 3.44,
+          "end": 3.64
+        },
+        {
+          "text": "already.",
+          "start": 3.64,
+          "end": 4.06
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.218919450417161
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2bcfa26693608f838580ae2cebf06a665fdf35b7c9b720696ee70556011e6651",
+  "selected_reasons": []
+}

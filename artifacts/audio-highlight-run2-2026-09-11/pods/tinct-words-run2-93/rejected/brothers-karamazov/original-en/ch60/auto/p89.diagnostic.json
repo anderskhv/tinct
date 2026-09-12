@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "3e768823058c02563316d18d752e6487a7d8e9c712a39ae320008055da436432",
+  "attempts": [
+    {
+      "asr_seconds": 0.11863033473491669,
+      "alignment_seconds": 0.00037314556539058685,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"How did you get it?\"",
+        "hotwords": "How"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " How did you get it?",
+          "start": 0.05,
+          "end": 1.13,
+          "words": [
+            {
+              "text": " How",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.86572265625
+            },
+            {
+              "text": " did",
+              "start": 0.53,
+              "end": 0.63,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " you",
+              "start": 0.63,
+              "end": 0.77,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " get",
+              "start": 0.77,
+              "end": 0.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it?",
+              "start": 0.95,
+              "end": 1.13,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "How",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "did",
+          "start": 0.53,
+          "end": 0.63
+        },
+        {
+          "raw": "you",
+          "start": 0.63,
+          "end": 0.77
+        },
+        {
+          "raw": "get",
+          "start": 0.77,
+          "end": 0.95
+        },
+        {
+          "raw": "it?",
+          "start": 0.95,
+          "end": 1.13
+        }
+      ],
+      "expected_tokens": [
+        "\"How",
+        "did",
+        "you",
+        "get",
+        "it?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "How",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "how",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 0.53,
+          "end": 0.63,
+          "key": "did",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.63,
+          "end": 0.77,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "get",
+          "start": 0.77,
+          "end": 0.95,
+          "key": "get",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it?",
+          "start": 0.95,
+          "end": 1.13,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"How",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "did",
+          "start": 0.53,
+          "end": 0.63
+        },
+        {
+          "text": "you",
+          "start": 0.63,
+          "end": 0.77
+        },
+        {
+          "text": "get",
+          "start": 0.77,
+          "end": 0.95
+        },
+        {
+          "text": "it?\"",
+          "start": 0.95,
+          "end": 1.13
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11913223564624786
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8f2145e7ad388e2a06d0ca657f878c4cb8cdb7121a5679c74387b3b43acc1b93",
+  "selected_reasons": []
+}

@@ -1,0 +1,478 @@
+{
+  "complete": true,
+  "signature": "623ea256d1c51c8b4f95593a2e7623806715ab7efa5ae40fa038d81b1fdbabb0",
+  "attempts": [
+    {
+      "asr_seconds": 0.33146325685083866,
+      "alignment_seconds": 0.0004455726593732834,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Come, kiddies,\" said Kolya, stepping into the room. \"You're terrible people, I see.\"",
+        "hotwords": "Come, Kolya, You're, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Come, kiddies, said Kolya, stepping into the room. You're, terrible people, I see.",
+          "start": 0.05,
+          "end": 4.99,
+          "words": [
+            {
+              "text": " Come,",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.325927734375
+            },
+            {
+              "text": " kiddies,",
+              "start": 0.73,
+              "end": 1.15,
+              "probability": 0.8875325520833334
+            },
+            {
+              "text": " said",
+              "start": 1.35,
+              "end": 1.63,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Kolya,",
+              "start": 1.63,
+              "end": 2.11,
+              "probability": 0.40239842732747394
+            },
+            {
+              "text": " stepping",
+              "start": 2.17,
+              "end": 2.45,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " into",
+              "start": 2.45,
+              "end": 2.65,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 2.65,
+              "end": 2.79,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " room.",
+              "start": 2.79,
+              "end": 3.03,
+              "probability": 0.998046875
+            },
+            {
+              "text": " You're,",
+              "start": 3.67,
+              "end": 3.83,
+              "probability": 0.952392578125
+            },
+            {
+              "text": " terrible",
+              "start": 3.87,
+              "end": 4.09,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " people,",
+              "start": 4.09,
+              "end": 4.47,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " I",
+              "start": 4.67,
+              "end": 4.71,
+              "probability": 0.72705078125
+            },
+            {
+              "text": " see.",
+              "start": 4.71,
+              "end": 4.99,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Come,",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "kiddies,",
+          "start": 0.73,
+          "end": 1.15
+        },
+        {
+          "raw": "said",
+          "start": 1.35,
+          "end": 1.63
+        },
+        {
+          "raw": "Kolya,",
+          "start": 1.63,
+          "end": 2.11
+        },
+        {
+          "raw": "stepping",
+          "start": 2.17,
+          "end": 2.45
+        },
+        {
+          "raw": "into",
+          "start": 2.45,
+          "end": 2.65
+        },
+        {
+          "raw": "the",
+          "start": 2.65,
+          "end": 2.79
+        },
+        {
+          "raw": "room.",
+          "start": 2.79,
+          "end": 3.03
+        },
+        {
+          "raw": "You're,",
+          "start": 3.67,
+          "end": 3.83
+        },
+        {
+          "raw": "terrible",
+          "start": 3.87,
+          "end": 4.09
+        },
+        {
+          "raw": "people,",
+          "start": 4.09,
+          "end": 4.47
+        },
+        {
+          "raw": "I",
+          "start": 4.67,
+          "end": 4.71
+        },
+        {
+          "raw": "see.",
+          "start": 4.71,
+          "end": 4.99
+        }
+      ],
+      "expected_tokens": [
+        "\"Come,",
+        "kiddies,\"",
+        "said",
+        "Kolya,",
+        "stepping",
+        "into",
+        "the",
+        "room.",
+        "\"You're",
+        "terrible",
+        "people,",
+        "I",
+        "see.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Come,",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "come",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "kiddies,",
+          "start": 0.73,
+          "end": 1.15,
+          "key": "kiddies",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.35,
+          "end": 1.63,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Kolya,",
+          "start": 1.63,
+          "end": 2.11,
+          "key": "kolya",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "stepping",
+          "start": 2.17,
+          "end": 2.45,
+          "key": "stepping",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 2.45,
+          "end": 2.65,
+          "key": "into",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.65,
+          "end": 2.79,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "room.",
+          "start": 2.79,
+          "end": 3.03,
+          "key": "room",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "You're,",
+          "start": 3.67,
+          "end": 3.83,
+          "key": "youre",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "terrible",
+          "start": 3.87,
+          "end": 4.09,
+          "key": "terrible",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "people,",
+          "start": 4.09,
+          "end": 4.47,
+          "key": "people",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.67,
+          "end": 4.71,
+          "key": "i",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "see.",
+          "start": 4.71,
+          "end": 4.99,
+          "key": "see",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Come,",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "kiddies,\"",
+          "start": 0.73,
+          "end": 1.15
+        },
+        {
+          "text": "said",
+          "start": 1.35,
+          "end": 1.63
+        },
+        {
+          "text": "Kolya,",
+          "start": 1.63,
+          "end": 2.11
+        },
+        {
+          "text": "stepping",
+          "start": 2.17,
+          "end": 2.45
+        },
+        {
+          "text": "into",
+          "start": 2.45,
+          "end": 2.65
+        },
+        {
+          "text": "the",
+          "start": 2.65,
+          "end": 2.79
+        },
+        {
+          "text": "room.",
+          "start": 2.79,
+          "end": 3.03
+        },
+        {
+          "text": "\"You're",
+          "start": 3.67,
+          "end": 3.83
+        },
+        {
+          "text": "terrible",
+          "start": 3.87,
+          "end": 4.09
+        },
+        {
+          "text": "people,",
+          "start": 4.09,
+          "end": 4.47
+        },
+        {
+          "text": "I",
+          "start": 4.67,
+          "end": 4.71
+        },
+        {
+          "text": "see.\"",
+          "start": 4.71,
+          "end": 4.99
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3320942297577858
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a4eb66395897940d72d087e2077a20738565c73f23afc7f741f47599046d1af3",
+  "selected_reasons": []
+}

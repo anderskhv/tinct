@@ -1,0 +1,1245 @@
+{
+  "complete": true,
+  "signature": "8f5c20326d1b15c88439a98cfe21ecdb1d76a4e38a4f9195440062c814276f62",
+  "attempts": [
+    {
+      "asr_seconds": 0.4958724305033684,
+      "alignment_seconds": 0.0006575062870979309,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"We quite understand that you made that statement just now through exasperation with us and the questions we put to you, which you consider trivial, though they are, in fact, essential,\" the prosecutor remarked dryly in reply."
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " We quite understand that you made that statement just now through exasperation with us and the questions we put to you, which you consider trivial, though they are, in fact, essential,\" the prosecutor remarked dryly in reply.",
+          "start": 0.02,
+          "end": 13.9,
+          "words": [
+            {
+              "text": " We",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.0621337890625
+            },
+            {
+              "text": " quite",
+              "start": 0.52,
+              "end": 0.74,
+              "probability": 0.994140625
+            },
+            {
+              "text": " understand",
+              "start": 0.74,
+              "end": 1.3,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " that",
+              "start": 1.3,
+              "end": 1.54,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " you",
+              "start": 1.54,
+              "end": 1.7,
+              "probability": 0.998046875
+            },
+            {
+              "text": " made",
+              "start": 1.7,
+              "end": 1.88,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " that",
+              "start": 1.88,
+              "end": 2.14,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " statement",
+              "start": 2.14,
+              "end": 2.56,
+              "probability": 0.998046875
+            },
+            {
+              "text": " just",
+              "start": 2.56,
+              "end": 2.88,
+              "probability": 0.958984375
+            },
+            {
+              "text": " now",
+              "start": 2.88,
+              "end": 3.24,
+              "probability": 0.998046875
+            },
+            {
+              "text": " through",
+              "start": 3.24,
+              "end": 3.54,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " exasperation",
+              "start": 3.54,
+              "end": 4.48,
+              "probability": 0.982421875
+            },
+            {
+              "text": " with",
+              "start": 4.48,
+              "end": 4.62,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " us",
+              "start": 4.62,
+              "end": 4.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 4.86,
+              "end": 5.36,
+              "probability": 0.5576171875
+            },
+            {
+              "text": " the",
+              "start": 5.36,
+              "end": 5.48,
+              "probability": 0.99609375
+            },
+            {
+              "text": " questions",
+              "start": 5.48,
+              "end": 5.86,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " we",
+              "start": 5.86,
+              "end": 6.18,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " put",
+              "start": 6.18,
+              "end": 6.38,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 6.38,
+              "end": 6.56,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you,",
+              "start": 6.56,
+              "end": 6.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " which",
+              "start": 7.1,
+              "end": 7.34,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " you",
+              "start": 7.34,
+              "end": 7.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " consider",
+              "start": 7.54,
+              "end": 7.88,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " trivial,",
+              "start": 7.88,
+              "end": 8.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " though",
+              "start": 8.9,
+              "end": 9.08,
+              "probability": 0.99609375
+            },
+            {
+              "text": " they",
+              "start": 9.08,
+              "end": 9.26,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " are,",
+              "start": 9.26,
+              "end": 9.54,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " in",
+              "start": 9.62,
+              "end": 9.86,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " fact,",
+              "start": 9.86,
+              "end": 10.2,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " essential,\"",
+              "start": 10.92,
+              "end": 11.46,
+              "probability": 0.6331787109375
+            },
+            {
+              "text": " the",
+              "start": 11.46,
+              "end": 11.74,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " prosecutor",
+              "start": 11.74,
+              "end": 12.22,
+              "probability": 0.970703125
+            },
+            {
+              "text": " remarked",
+              "start": 12.22,
+              "end": 12.76,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " dryly",
+              "start": 12.76,
+              "end": 13.3,
+              "probability": 0.857421875
+            },
+            {
+              "text": " in",
+              "start": 13.3,
+              "end": 13.48,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " reply.",
+              "start": 13.48,
+              "end": 13.9,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "We",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "quite",
+          "start": 0.52,
+          "end": 0.74
+        },
+        {
+          "raw": "understand",
+          "start": 0.74,
+          "end": 1.3
+        },
+        {
+          "raw": "that",
+          "start": 1.3,
+          "end": 1.54
+        },
+        {
+          "raw": "you",
+          "start": 1.54,
+          "end": 1.7
+        },
+        {
+          "raw": "made",
+          "start": 1.7,
+          "end": 1.88
+        },
+        {
+          "raw": "that",
+          "start": 1.88,
+          "end": 2.14
+        },
+        {
+          "raw": "statement",
+          "start": 2.14,
+          "end": 2.56
+        },
+        {
+          "raw": "just",
+          "start": 2.56,
+          "end": 2.88
+        },
+        {
+          "raw": "now",
+          "start": 2.88,
+          "end": 3.24
+        },
+        {
+          "raw": "through",
+          "start": 3.24,
+          "end": 3.54
+        },
+        {
+          "raw": "exasperation",
+          "start": 3.54,
+          "end": 4.48
+        },
+        {
+          "raw": "with",
+          "start": 4.48,
+          "end": 4.62
+        },
+        {
+          "raw": "us",
+          "start": 4.62,
+          "end": 4.86
+        },
+        {
+          "raw": "and",
+          "start": 4.86,
+          "end": 5.36
+        },
+        {
+          "raw": "the",
+          "start": 5.36,
+          "end": 5.48
+        },
+        {
+          "raw": "questions",
+          "start": 5.48,
+          "end": 5.86
+        },
+        {
+          "raw": "we",
+          "start": 5.86,
+          "end": 6.18
+        },
+        {
+          "raw": "put",
+          "start": 6.18,
+          "end": 6.38
+        },
+        {
+          "raw": "to",
+          "start": 6.38,
+          "end": 6.56
+        },
+        {
+          "raw": "you,",
+          "start": 6.56,
+          "end": 6.9
+        },
+        {
+          "raw": "which",
+          "start": 7.1,
+          "end": 7.34
+        },
+        {
+          "raw": "you",
+          "start": 7.34,
+          "end": 7.54
+        },
+        {
+          "raw": "consider",
+          "start": 7.54,
+          "end": 7.88
+        },
+        {
+          "raw": "trivial,",
+          "start": 7.88,
+          "end": 8.4
+        },
+        {
+          "raw": "though",
+          "start": 8.9,
+          "end": 9.08
+        },
+        {
+          "raw": "they",
+          "start": 9.08,
+          "end": 9.26
+        },
+        {
+          "raw": "are,",
+          "start": 9.26,
+          "end": 9.54
+        },
+        {
+          "raw": "in",
+          "start": 9.62,
+          "end": 9.86
+        },
+        {
+          "raw": "fact,",
+          "start": 9.86,
+          "end": 10.2
+        },
+        {
+          "raw": "essential,\"",
+          "start": 10.92,
+          "end": 11.46
+        },
+        {
+          "raw": "the",
+          "start": 11.46,
+          "end": 11.74
+        },
+        {
+          "raw": "prosecutor",
+          "start": 11.74,
+          "end": 12.22
+        },
+        {
+          "raw": "remarked",
+          "start": 12.22,
+          "end": 12.76
+        },
+        {
+          "raw": "dryly",
+          "start": 12.76,
+          "end": 13.3
+        },
+        {
+          "raw": "in",
+          "start": 13.3,
+          "end": 13.48
+        },
+        {
+          "raw": "reply.",
+          "start": 13.48,
+          "end": 13.9
+        }
+      ],
+      "expected_tokens": [
+        "\"We",
+        "quite",
+        "understand",
+        "that",
+        "you",
+        "made",
+        "that",
+        "statement",
+        "just",
+        "now",
+        "through",
+        "exasperation",
+        "with",
+        "us",
+        "and",
+        "the",
+        "questions",
+        "we",
+        "put",
+        "to",
+        "you,",
+        "which",
+        "you",
+        "consider",
+        "trivial,",
+        "though",
+        "they",
+        "are,",
+        "in",
+        "fact,",
+        "essential,\"",
+        "the",
+        "prosecutor",
+        "remarked",
+        "dryly",
+        "in",
+        "reply."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          37,
+          0,
+          37
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "We",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "we",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "quite",
+          "start": 0.52,
+          "end": 0.74,
+          "key": "quite",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "understand",
+          "start": 0.74,
+          "end": 1.3,
+          "key": "understand",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.3,
+          "end": 1.54,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.54,
+          "end": 1.7,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "made",
+          "start": 1.7,
+          "end": 1.88,
+          "key": "made",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.88,
+          "end": 2.14,
+          "key": "that",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "statement",
+          "start": 2.14,
+          "end": 2.56,
+          "key": "statement",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 2.56,
+          "end": 2.88,
+          "key": "just",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 2.88,
+          "end": 3.24,
+          "key": "now",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "through",
+          "start": 3.24,
+          "end": 3.54,
+          "key": "through",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "exasperation",
+          "start": 3.54,
+          "end": 4.48,
+          "key": "exasperation",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.48,
+          "end": 4.62,
+          "key": "with",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 4.62,
+          "end": 4.86,
+          "key": "us",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.86,
+          "end": 5.36,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.36,
+          "end": 5.48,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "questions",
+          "start": 5.48,
+          "end": 5.86,
+          "key": "questions",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 5.86,
+          "end": 6.18,
+          "key": "we",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "put",
+          "start": 6.18,
+          "end": 6.38,
+          "key": "put",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 6.38,
+          "end": 6.56,
+          "key": "to",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 6.56,
+          "end": 6.9,
+          "key": "you",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 7.1,
+          "end": 7.34,
+          "key": "which",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 7.34,
+          "end": 7.54,
+          "key": "you",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "consider",
+          "start": 7.54,
+          "end": 7.88,
+          "key": "consider",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "trivial,",
+          "start": 7.88,
+          "end": 8.4,
+          "key": "trivial",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "though",
+          "start": 8.9,
+          "end": 9.08,
+          "key": "though",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 9.08,
+          "end": 9.26,
+          "key": "they",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "are,",
+          "start": 9.26,
+          "end": 9.54,
+          "key": "are",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 9.62,
+          "end": 9.86,
+          "key": "in",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "fact,",
+          "start": 9.86,
+          "end": 10.2,
+          "key": "fact",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "essential,\"",
+          "start": 10.92,
+          "end": 11.46,
+          "key": "essential",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.46,
+          "end": 11.74,
+          "key": "the",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "prosecutor",
+          "start": 11.74,
+          "end": 12.22,
+          "key": "prosecutor",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "remarked",
+          "start": 12.22,
+          "end": 12.76,
+          "key": "remarked",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "dryly",
+          "start": 12.76,
+          "end": 13.3,
+          "key": "dryly",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 13.3,
+          "end": 13.48,
+          "key": "in",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "reply.",
+          "start": 13.48,
+          "end": 13.9,
+          "key": "reply",
+          "pieces": [
+            36
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"We",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "quite",
+          "start": 0.52,
+          "end": 0.74
+        },
+        {
+          "text": "understand",
+          "start": 0.74,
+          "end": 1.3
+        },
+        {
+          "text": "that",
+          "start": 1.3,
+          "end": 1.54
+        },
+        {
+          "text": "you",
+          "start": 1.54,
+          "end": 1.7
+        },
+        {
+          "text": "made",
+          "start": 1.7,
+          "end": 1.88
+        },
+        {
+          "text": "that",
+          "start": 1.88,
+          "end": 2.14
+        },
+        {
+          "text": "statement",
+          "start": 2.14,
+          "end": 2.56
+        },
+        {
+          "text": "just",
+          "start": 2.56,
+          "end": 2.88
+        },
+        {
+          "text": "now",
+          "start": 2.88,
+          "end": 3.24
+        },
+        {
+          "text": "through",
+          "start": 3.24,
+          "end": 3.54
+        },
+        {
+          "text": "exasperation",
+          "start": 3.54,
+          "end": 4.48
+        },
+        {
+          "text": "with",
+          "start": 4.48,
+          "end": 4.62
+        },
+        {
+          "text": "us",
+          "start": 4.62,
+          "end": 4.86
+        },
+        {
+          "text": "and",
+          "start": 4.86,
+          "end": 5.36
+        },
+        {
+          "text": "the",
+          "start": 5.36,
+          "end": 5.48
+        },
+        {
+          "text": "questions",
+          "start": 5.48,
+          "end": 5.86
+        },
+        {
+          "text": "we",
+          "start": 5.86,
+          "end": 6.18
+        },
+        {
+          "text": "put",
+          "start": 6.18,
+          "end": 6.38
+        },
+        {
+          "text": "to",
+          "start": 6.38,
+          "end": 6.56
+        },
+        {
+          "text": "you,",
+          "start": 6.56,
+          "end": 6.9
+        },
+        {
+          "text": "which",
+          "start": 7.1,
+          "end": 7.34
+        },
+        {
+          "text": "you",
+          "start": 7.34,
+          "end": 7.54
+        },
+        {
+          "text": "consider",
+          "start": 7.54,
+          "end": 7.88
+        },
+        {
+          "text": "trivial,",
+          "start": 7.88,
+          "end": 8.4
+        },
+        {
+          "text": "though",
+          "start": 8.9,
+          "end": 9.08
+        },
+        {
+          "text": "they",
+          "start": 9.08,
+          "end": 9.26
+        },
+        {
+          "text": "are,",
+          "start": 9.26,
+          "end": 9.54
+        },
+        {
+          "text": "in",
+          "start": 9.62,
+          "end": 9.86
+        },
+        {
+          "text": "fact,",
+          "start": 9.86,
+          "end": 10.2
+        },
+        {
+          "text": "essential,\"",
+          "start": 10.92,
+          "end": 11.46
+        },
+        {
+          "text": "the",
+          "start": 11.46,
+          "end": 11.74
+        },
+        {
+          "text": "prosecutor",
+          "start": 11.74,
+          "end": 12.22
+        },
+        {
+          "text": "remarked",
+          "start": 12.22,
+          "end": 12.76
+        },
+        {
+          "text": "dryly",
+          "start": 12.76,
+          "end": 13.3
+        },
+        {
+          "text": "in",
+          "start": 13.3,
+          "end": 13.48
+        },
+        {
+          "text": "reply.",
+          "start": 13.48,
+          "end": 13.9
+        }
+      ],
+      "stats": {
+        "expected_words": 37,
+        "heard_words": 37,
+        "matched_words": 37
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4968237951397896
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fc4c5319952d990d3adacd77ad5b85efc6315dfe9b0207028881353f4380b1f1",
+  "selected_reasons": []
+}

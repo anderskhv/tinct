@@ -1,0 +1,239 @@
+{
+  "complete": true,
+  "signature": "fd53233fac75c1bca70a987fee4675144a47d6ff699b813a4d37f25a96df1167",
+  "attempts": [
+    {
+      "asr_seconds": 0.44588168896734715,
+      "alignment_seconds": 0.00040200725197792053,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " You are 13. Ask Daliosha.",
+          "start": 0.05,
+          "end": 2.45,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.63427734375
+            },
+            {
+              "text": " are",
+              "start": 0.55,
+              "end": 0.67,
+              "probability": 0.98828125
+            },
+            {
+              "text": " 13.",
+              "start": 0.67,
+              "end": 1.13,
+              "probability": 0.6630859375
+            },
+            {
+              "text": " Ask",
+              "start": 1.75,
+              "end": 1.75,
+              "probability": 0.89892578125
+            },
+            {
+              "text": " Daliosha.",
+              "start": 1.75,
+              "end": 2.45,
+              "probability": 0.54022216796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "are",
+          "start": 0.55,
+          "end": 0.67
+        },
+        {
+          "raw": "13.",
+          "start": 0.67,
+          "end": 1.13
+        },
+        {
+          "raw": "Ask",
+          "start": 1.75,
+          "end": 1.75
+        },
+        {
+          "raw": "Daliosha.",
+          "start": 1.75,
+          "end": 2.45
+        }
+      ],
+      "expected_tokens": [
+        "\"You",
+        "are",
+        "thirteen?\"",
+        "asked",
+        "Alyosha."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          5,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 0.55,
+          "end": 0.67,
+          "key": "are",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "13.",
+          "start": 0.67,
+          "end": 1.13,
+          "key": "thirteen",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Ask",
+          "start": 1.75,
+          "end": 1.75,
+          "key": "ask",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Daliosha.",
+          "start": 1.75,
+          "end": 2.45,
+          "key": "daliosha",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"You",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "are",
+          "start": 0.55,
+          "end": 0.67
+        },
+        {
+          "text": "thirteen?\"",
+          "start": 0.67,
+          "end": 1.13
+        },
+        {
+          "text": "asked",
+          "start": 1.13,
+          "end": 1.79
+        },
+        {
+          "text": "Alyosha.",
+          "start": 1.79,
+          "end": 2.12
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 3
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.4464141856878996
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ecd59b061d50a65e346fa92ad0a4f47f92cf4869d593dc797b18243a7f81f01b",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

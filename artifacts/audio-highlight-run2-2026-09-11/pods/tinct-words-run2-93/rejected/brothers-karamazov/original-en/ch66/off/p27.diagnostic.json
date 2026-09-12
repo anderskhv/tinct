@@ -1,0 +1,508 @@
+{
+  "complete": true,
+  "signature": "4a82c16745dfd5e9701041a099317bb59105b0bd9d80ed13a8b52506b00cddb9",
+  "attempts": [
+    {
+      "asr_seconds": 0.22197013348340988,
+      "alignment_seconds": 0.0004497803747653961,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " But what if you had been playing for your own amusement? What's the harm?",
+          "start": 0.3,
+          "end": 3.74,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.3,
+              "end": 0.56,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " what",
+              "start": 0.56,
+              "end": 0.84,
+              "probability": 0.79150390625
+            },
+            {
+              "text": " if",
+              "start": 0.84,
+              "end": 0.96,
+              "probability": 0.99609375
+            },
+            {
+              "text": " you",
+              "start": 0.96,
+              "end": 1.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " had",
+              "start": 1.08,
+              "end": 1.18,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " been",
+              "start": 1.18,
+              "end": 1.32,
+              "probability": 0.998046875
+            },
+            {
+              "text": " playing",
+              "start": 1.32,
+              "end": 1.64,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " for",
+              "start": 1.64,
+              "end": 1.88,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " your",
+              "start": 1.88,
+              "end": 2.0,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " own",
+              "start": 2.0,
+              "end": 2.2,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " amusement?",
+              "start": 2.2,
+              "end": 2.62,
+              "probability": 0.99609375
+            },
+            {
+              "text": " What's",
+              "start": 3.16,
+              "end": 3.36,
+              "probability": 0.989990234375
+            },
+            {
+              "text": " the",
+              "start": 3.36,
+              "end": 3.46,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " harm?",
+              "start": 3.46,
+              "end": 3.74,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.3,
+          "end": 0.56
+        },
+        {
+          "raw": "what",
+          "start": 0.56,
+          "end": 0.84
+        },
+        {
+          "raw": "if",
+          "start": 0.84,
+          "end": 0.96
+        },
+        {
+          "raw": "you",
+          "start": 0.96,
+          "end": 1.08
+        },
+        {
+          "raw": "had",
+          "start": 1.08,
+          "end": 1.18
+        },
+        {
+          "raw": "been",
+          "start": 1.18,
+          "end": 1.32
+        },
+        {
+          "raw": "playing",
+          "start": 1.32,
+          "end": 1.64
+        },
+        {
+          "raw": "for",
+          "start": 1.64,
+          "end": 1.88
+        },
+        {
+          "raw": "your",
+          "start": 1.88,
+          "end": 2.0
+        },
+        {
+          "raw": "own",
+          "start": 2.0,
+          "end": 2.2
+        },
+        {
+          "raw": "amusement?",
+          "start": 2.2,
+          "end": 2.62
+        },
+        {
+          "raw": "What's",
+          "start": 3.16,
+          "end": 3.36
+        },
+        {
+          "raw": "the",
+          "start": 3.36,
+          "end": 3.46
+        },
+        {
+          "raw": "harm?",
+          "start": 3.46,
+          "end": 3.74
+        }
+      ],
+      "expected_tokens": [
+        "\"But",
+        "what",
+        "if",
+        "you",
+        "had",
+        "been",
+        "playing",
+        "for",
+        "your",
+        "own",
+        "amusement,",
+        "what's",
+        "the",
+        "harm?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.3,
+          "end": 0.56,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 0.56,
+          "end": 0.84,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 0.84,
+          "end": 0.96,
+          "key": "if",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.96,
+          "end": 1.08,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 1.08,
+          "end": 1.18,
+          "key": "had",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 1.18,
+          "end": 1.32,
+          "key": "been",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "playing",
+          "start": 1.32,
+          "end": 1.64,
+          "key": "playing",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.64,
+          "end": 1.88,
+          "key": "for",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.88,
+          "end": 2.0,
+          "key": "your",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "own",
+          "start": 2.0,
+          "end": 2.2,
+          "key": "own",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "amusement?",
+          "start": 2.2,
+          "end": 2.62,
+          "key": "amusement",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "What's",
+          "start": 3.16,
+          "end": 3.36,
+          "key": "whats",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.36,
+          "end": 3.46,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "harm?",
+          "start": 3.46,
+          "end": 3.74,
+          "key": "harm",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"But",
+          "start": 0.3,
+          "end": 0.56
+        },
+        {
+          "text": "what",
+          "start": 0.56,
+          "end": 0.84
+        },
+        {
+          "text": "if",
+          "start": 0.84,
+          "end": 0.96
+        },
+        {
+          "text": "you",
+          "start": 0.96,
+          "end": 1.08
+        },
+        {
+          "text": "had",
+          "start": 1.08,
+          "end": 1.18
+        },
+        {
+          "text": "been",
+          "start": 1.18,
+          "end": 1.32
+        },
+        {
+          "text": "playing",
+          "start": 1.32,
+          "end": 1.64
+        },
+        {
+          "text": "for",
+          "start": 1.64,
+          "end": 1.88
+        },
+        {
+          "text": "your",
+          "start": 1.88,
+          "end": 2.0
+        },
+        {
+          "text": "own",
+          "start": 2.0,
+          "end": 2.2
+        },
+        {
+          "text": "amusement,",
+          "start": 2.2,
+          "end": 2.62
+        },
+        {
+          "text": "what's",
+          "start": 3.16,
+          "end": 3.36
+        },
+        {
+          "text": "the",
+          "start": 3.36,
+          "end": 3.46
+        },
+        {
+          "text": "harm?\"",
+          "start": 3.46,
+          "end": 3.74
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2226124443113804
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0ef7f3e2b636e90f97353217b7bf1d7c2126ce1cdac1528f6f1aca9887256cf0",
+  "selected_reasons": []
+}

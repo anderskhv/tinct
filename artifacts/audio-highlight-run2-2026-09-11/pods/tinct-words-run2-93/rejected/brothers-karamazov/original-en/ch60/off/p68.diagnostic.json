@@ -1,0 +1,572 @@
+{
+  "complete": true,
+  "signature": "b052ab75f25b5f24ef13845fd75f8350f4a5baa88be8fb374cf79f7a95c6962f",
+  "attempts": [
+    {
+      "asr_seconds": 0.23663553223013878,
+      "alignment_seconds": 0.0005304906517267227,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " What should I want a light for? I did it with my fingers in one minute.",
+          "start": 0.02,
+          "end": 3.86,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.8984375
+            },
+            {
+              "text": " should",
+              "start": 0.56,
+              "end": 0.76,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " I",
+              "start": 0.76,
+              "end": 0.9,
+              "probability": 0.990234375
+            },
+            {
+              "text": " want",
+              "start": 0.9,
+              "end": 1.06,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " a",
+              "start": 1.06,
+              "end": 1.18,
+              "probability": 0.6884765625
+            },
+            {
+              "text": " light",
+              "start": 1.18,
+              "end": 1.36,
+              "probability": 0.998046875
+            },
+            {
+              "text": " for?",
+              "start": 1.36,
+              "end": 1.7,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " I",
+              "start": 2.08,
+              "end": 2.26,
+              "probability": 0.990234375
+            },
+            {
+              "text": " did",
+              "start": 2.26,
+              "end": 2.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it",
+              "start": 2.4,
+              "end": 2.5,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " with",
+              "start": 2.5,
+              "end": 2.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " my",
+              "start": 2.6,
+              "end": 2.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " fingers",
+              "start": 2.76,
+              "end": 3.06,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 3.06,
+              "end": 3.34,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " one",
+              "start": 3.34,
+              "end": 3.56,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " minute.",
+              "start": 3.56,
+              "end": 3.86,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "should",
+          "start": 0.56,
+          "end": 0.76
+        },
+        {
+          "raw": "I",
+          "start": 0.76,
+          "end": 0.9
+        },
+        {
+          "raw": "want",
+          "start": 0.9,
+          "end": 1.06
+        },
+        {
+          "raw": "a",
+          "start": 1.06,
+          "end": 1.18
+        },
+        {
+          "raw": "light",
+          "start": 1.18,
+          "end": 1.36
+        },
+        {
+          "raw": "for?",
+          "start": 1.36,
+          "end": 1.7
+        },
+        {
+          "raw": "I",
+          "start": 2.08,
+          "end": 2.26
+        },
+        {
+          "raw": "did",
+          "start": 2.26,
+          "end": 2.4
+        },
+        {
+          "raw": "it",
+          "start": 2.4,
+          "end": 2.5
+        },
+        {
+          "raw": "with",
+          "start": 2.5,
+          "end": 2.6
+        },
+        {
+          "raw": "my",
+          "start": 2.6,
+          "end": 2.76
+        },
+        {
+          "raw": "fingers",
+          "start": 2.76,
+          "end": 3.06
+        },
+        {
+          "raw": "in",
+          "start": 3.06,
+          "end": 3.34
+        },
+        {
+          "raw": "one",
+          "start": 3.34,
+          "end": 3.56
+        },
+        {
+          "raw": "minute.",
+          "start": 3.56,
+          "end": 3.86
+        }
+      ],
+      "expected_tokens": [
+        "\"What",
+        "should",
+        "I",
+        "want",
+        "a",
+        "light",
+        "for?",
+        "I",
+        "did",
+        "it",
+        "with",
+        "my",
+        "fingers",
+        "in",
+        "one",
+        "minute.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 0.56,
+          "end": 0.76,
+          "key": "should",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.76,
+          "end": 0.9,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "want",
+          "start": 0.9,
+          "end": 1.06,
+          "key": "want",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.06,
+          "end": 1.18,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "light",
+          "start": 1.18,
+          "end": 1.36,
+          "key": "light",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "for?",
+          "start": 1.36,
+          "end": 1.7,
+          "key": "for",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.08,
+          "end": 2.26,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 2.26,
+          "end": 2.4,
+          "key": "did",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.4,
+          "end": 2.5,
+          "key": "it",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.5,
+          "end": 2.6,
+          "key": "with",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.6,
+          "end": 2.76,
+          "key": "my",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "fingers",
+          "start": 2.76,
+          "end": 3.06,
+          "key": "fingers",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.06,
+          "end": 3.34,
+          "key": "in",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 3.34,
+          "end": 3.56,
+          "key": "one",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "minute.",
+          "start": 3.56,
+          "end": 3.86,
+          "key": "minute",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"What",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "should",
+          "start": 0.56,
+          "end": 0.76
+        },
+        {
+          "text": "I",
+          "start": 0.76,
+          "end": 0.9
+        },
+        {
+          "text": "want",
+          "start": 0.9,
+          "end": 1.06
+        },
+        {
+          "text": "a",
+          "start": 1.06,
+          "end": 1.18
+        },
+        {
+          "text": "light",
+          "start": 1.18,
+          "end": 1.36
+        },
+        {
+          "text": "for?",
+          "start": 1.36,
+          "end": 1.7
+        },
+        {
+          "text": "I",
+          "start": 2.08,
+          "end": 2.26
+        },
+        {
+          "text": "did",
+          "start": 2.26,
+          "end": 2.4
+        },
+        {
+          "text": "it",
+          "start": 2.4,
+          "end": 2.5
+        },
+        {
+          "text": "with",
+          "start": 2.5,
+          "end": 2.6
+        },
+        {
+          "text": "my",
+          "start": 2.6,
+          "end": 2.76
+        },
+        {
+          "text": "fingers",
+          "start": 2.76,
+          "end": 3.06
+        },
+        {
+          "text": "in",
+          "start": 3.06,
+          "end": 3.34
+        },
+        {
+          "text": "one",
+          "start": 3.34,
+          "end": 3.56
+        },
+        {
+          "text": "minute.\"",
+          "start": 3.56,
+          "end": 3.86
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23738554120063782
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a68005aa5e2b5520b69d02478de5dd309e903a13a34b51a9bbbb35cd5df40365",
+  "selected_reasons": []
+}

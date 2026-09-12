@@ -1,0 +1,478 @@
+{
+  "complete": true,
+  "signature": "4ffd3be09e45ccee5b0d927bb3ef1c73fefc5a52eb885b039f1372c557443765",
+  "attempts": [
+    {
+      "asr_seconds": 0.23833023197948933,
+      "alignment_seconds": 0.000435730442404747,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Not at all. And we are in no mood for laughing, Dmitri Fyodorovitch.\"",
+        "hotwords": "Not, And, Dmitri, Fyodorovitch"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Not at all. And we are in no mood for laughing, Dmitri Fyodorovitch.",
+          "start": 0.08,
+          "end": 4.44,
+          "words": [
+            {
+              "text": " Not",
+              "start": 0.08,
+              "end": 0.6,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " at",
+              "start": 0.6,
+              "end": 0.7,
+              "probability": 0.99609375
+            },
+            {
+              "text": " all.",
+              "start": 0.7,
+              "end": 1.0,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " And",
+              "start": 1.46,
+              "end": 1.54,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " we",
+              "start": 1.54,
+              "end": 1.68,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " are",
+              "start": 1.68,
+              "end": 1.82,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " in",
+              "start": 1.82,
+              "end": 1.92,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " no",
+              "start": 1.92,
+              "end": 2.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " mood",
+              "start": 2.06,
+              "end": 2.28,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " for",
+              "start": 2.28,
+              "end": 2.52,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " laughing,",
+              "start": 2.52,
+              "end": 2.94,
+              "probability": 0.984375
+            },
+            {
+              "text": " Dmitri",
+              "start": 3.2,
+              "end": 3.6,
+              "probability": 0.67333984375
+            },
+            {
+              "text": " Fyodorovitch.",
+              "start": 3.6,
+              "end": 4.44,
+              "probability": 0.73388671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Not",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "raw": "at",
+          "start": 0.6,
+          "end": 0.7
+        },
+        {
+          "raw": "all.",
+          "start": 0.7,
+          "end": 1.0
+        },
+        {
+          "raw": "And",
+          "start": 1.46,
+          "end": 1.54
+        },
+        {
+          "raw": "we",
+          "start": 1.54,
+          "end": 1.68
+        },
+        {
+          "raw": "are",
+          "start": 1.68,
+          "end": 1.82
+        },
+        {
+          "raw": "in",
+          "start": 1.82,
+          "end": 1.92
+        },
+        {
+          "raw": "no",
+          "start": 1.92,
+          "end": 2.06
+        },
+        {
+          "raw": "mood",
+          "start": 2.06,
+          "end": 2.28
+        },
+        {
+          "raw": "for",
+          "start": 2.28,
+          "end": 2.52
+        },
+        {
+          "raw": "laughing,",
+          "start": 2.52,
+          "end": 2.94
+        },
+        {
+          "raw": "Dmitri",
+          "start": 3.2,
+          "end": 3.6
+        },
+        {
+          "raw": "Fyodorovitch.",
+          "start": 3.6,
+          "end": 4.44
+        }
+      ],
+      "expected_tokens": [
+        "\"Not",
+        "at",
+        "all.",
+        "And",
+        "we",
+        "are",
+        "in",
+        "no",
+        "mood",
+        "for",
+        "laughing,",
+        "Dmitri",
+        "Fyodorovitch.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Not",
+          "start": 0.08,
+          "end": 0.6,
+          "key": "not",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 0.6,
+          "end": 0.7,
+          "key": "at",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "all.",
+          "start": 0.7,
+          "end": 1.0,
+          "key": "all",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 1.46,
+          "end": 1.54,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 1.54,
+          "end": 1.68,
+          "key": "we",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.68,
+          "end": 1.82,
+          "key": "are",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.82,
+          "end": 1.92,
+          "key": "in",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 1.92,
+          "end": 2.06,
+          "key": "no",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "mood",
+          "start": 2.06,
+          "end": 2.28,
+          "key": "mood",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.28,
+          "end": 2.52,
+          "key": "for",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "laughing,",
+          "start": 2.52,
+          "end": 2.94,
+          "key": "laughing",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Dmitri",
+          "start": 3.2,
+          "end": 3.6,
+          "key": "dmitri",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Fyodorovitch.",
+          "start": 3.6,
+          "end": 4.44,
+          "key": "fyodorovitch",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Not",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "text": "at",
+          "start": 0.6,
+          "end": 0.7
+        },
+        {
+          "text": "all.",
+          "start": 0.7,
+          "end": 1.0
+        },
+        {
+          "text": "And",
+          "start": 1.46,
+          "end": 1.54
+        },
+        {
+          "text": "we",
+          "start": 1.54,
+          "end": 1.68
+        },
+        {
+          "text": "are",
+          "start": 1.68,
+          "end": 1.82
+        },
+        {
+          "text": "in",
+          "start": 1.82,
+          "end": 1.92
+        },
+        {
+          "text": "no",
+          "start": 1.92,
+          "end": 2.06
+        },
+        {
+          "text": "mood",
+          "start": 2.06,
+          "end": 2.28
+        },
+        {
+          "text": "for",
+          "start": 2.28,
+          "end": 2.52
+        },
+        {
+          "text": "laughing,",
+          "start": 2.52,
+          "end": 2.94
+        },
+        {
+          "text": "Dmitri",
+          "start": 3.2,
+          "end": 3.6
+        },
+        {
+          "text": "Fyodorovitch.\"",
+          "start": 3.6,
+          "end": 4.44
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2389385998249054
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9adcfbfa05b33e2ce236d7475d8bdfc58f6df085179e201af0605841f2347569",
+  "selected_reasons": []
+}

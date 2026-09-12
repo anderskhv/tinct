@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "ed27d1d9c4c635498c2802d71bbf3a302e522bc3948996b2530292accb34f9a6",
+  "attempts": [
+    {
+      "asr_seconds": 0.21082689985632896,
+      "alignment_seconds": 0.0004501454532146454,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I don't know where I got the rag from—somewhere, I suppose.\"",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I don't know where I got the rag from—somewhere, I suppose.",
+          "start": 0.11,
+          "end": 3.09,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.11,
+              "end": 0.51,
+              "probability": 0.84521484375
+            },
+            {
+              "text": " don't",
+              "start": 0.51,
+              "end": 0.65,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " know",
+              "start": 0.65,
+              "end": 0.77,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " where",
+              "start": 0.77,
+              "end": 0.93,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " I",
+              "start": 0.93,
+              "end": 1.05,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " got",
+              "start": 1.05,
+              "end": 1.19,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 1.19,
+              "end": 1.31,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " rag",
+              "start": 1.31,
+              "end": 1.55,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " from—somewhere,",
+              "start": 1.55,
+              "end": 2.57,
+              "probability": 0.7598724365234375
+            },
+            {
+              "text": " I",
+              "start": 2.65,
+              "end": 2.75,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " suppose.",
+              "start": 2.75,
+              "end": 3.09,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.11,
+          "end": 0.51
+        },
+        {
+          "raw": "don't",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "raw": "know",
+          "start": 0.65,
+          "end": 0.77
+        },
+        {
+          "raw": "where",
+          "start": 0.77,
+          "end": 0.93
+        },
+        {
+          "raw": "I",
+          "start": 0.93,
+          "end": 1.05
+        },
+        {
+          "raw": "got",
+          "start": 1.05,
+          "end": 1.19
+        },
+        {
+          "raw": "the",
+          "start": 1.19,
+          "end": 1.31
+        },
+        {
+          "raw": "rag",
+          "start": 1.31,
+          "end": 1.55
+        },
+        {
+          "raw": "from—somewhere,",
+          "start": 1.55,
+          "end": 2.57
+        },
+        {
+          "raw": "I",
+          "start": 2.65,
+          "end": 2.75
+        },
+        {
+          "raw": "suppose.",
+          "start": 2.75,
+          "end": 3.09
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "don't",
+        "know",
+        "where",
+        "I",
+        "got",
+        "the",
+        "rag",
+        "from—somewhere,",
+        "I",
+        "suppose.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.11,
+          "end": 0.51,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 0.51,
+          "end": 0.65,
+          "key": "dont",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 0.65,
+          "end": 0.77,
+          "key": "know",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 0.77,
+          "end": 0.93,
+          "key": "where",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.93,
+          "end": 1.05,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "got",
+          "start": 1.05,
+          "end": 1.19,
+          "key": "got",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.19,
+          "end": 1.31,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "rag",
+          "start": 1.31,
+          "end": 1.55,
+          "key": "rag",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "from—somewhere,",
+          "start": 1.55,
+          "end": 2.57,
+          "key": "fromsomewhere",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.65,
+          "end": 2.75,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "suppose.",
+          "start": 2.75,
+          "end": 3.09,
+          "key": "suppose",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.11,
+          "end": 0.51
+        },
+        {
+          "text": "don't",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "text": "know",
+          "start": 0.65,
+          "end": 0.77
+        },
+        {
+          "text": "where",
+          "start": 0.77,
+          "end": 0.93
+        },
+        {
+          "text": "I",
+          "start": 0.93,
+          "end": 1.05
+        },
+        {
+          "text": "got",
+          "start": 1.05,
+          "end": 1.19
+        },
+        {
+          "text": "the",
+          "start": 1.19,
+          "end": 1.31
+        },
+        {
+          "text": "rag",
+          "start": 1.31,
+          "end": 1.55
+        },
+        {
+          "text": "from—somewhere,",
+          "start": 1.55,
+          "end": 2.57
+        },
+        {
+          "text": "I",
+          "start": 2.65,
+          "end": 2.75
+        },
+        {
+          "text": "suppose.\"",
+          "start": 2.75,
+          "end": 3.09
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21144562400877476
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8874624f0ae7fada04baa1da065b035c3de24e5330994a987a8006ece699d7c0",
+  "selected_reasons": []
+}

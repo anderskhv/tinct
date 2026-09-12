@@ -1,0 +1,732 @@
+{
+  "complete": true,
+  "signature": "66572f62d9ccf3a86cadb4fe01cdf010d8c6853eaba2f5a4edba20aa39374473",
+  "attempts": [
+    {
+      "asr_seconds": 0.2670555841177702,
+      "alignment_seconds": 0.0005063340067863464,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " We should have met anyway. I've heard a great deal about you too, but you've been a long time coming here",
+          "start": 0.02,
+          "end": 5.9,
+          "words": [
+            {
+              "text": " We",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " should",
+              "start": 0.54,
+              "end": 0.72,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " have",
+              "start": 0.72,
+              "end": 0.82,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " met",
+              "start": 0.82,
+              "end": 1.02,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " anyway.",
+              "start": 1.02,
+              "end": 1.36,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " I've",
+              "start": 1.98,
+              "end": 2.12,
+              "probability": 0.996337890625
+            },
+            {
+              "text": " heard",
+              "start": 2.12,
+              "end": 2.24,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 2.24,
+              "end": 2.36,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " great",
+              "start": 2.36,
+              "end": 2.56,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " deal",
+              "start": 2.56,
+              "end": 2.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " about",
+              "start": 2.74,
+              "end": 3.0,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " you",
+              "start": 3.0,
+              "end": 3.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " too,",
+              "start": 3.28,
+              "end": 3.62,
+              "probability": 0.60400390625
+            },
+            {
+              "text": " but",
+              "start": 3.62,
+              "end": 4.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you've",
+              "start": 4.2,
+              "end": 4.42,
+              "probability": 0.999267578125
+            },
+            {
+              "text": " been",
+              "start": 4.42,
+              "end": 4.54,
+              "probability": 1.0
+            },
+            {
+              "text": " a",
+              "start": 4.54,
+              "end": 4.7,
+              "probability": 0.998046875
+            },
+            {
+              "text": " long",
+              "start": 4.7,
+              "end": 4.9,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " time",
+              "start": 4.9,
+              "end": 5.22,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " coming",
+              "start": 5.22,
+              "end": 5.56,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " here",
+              "start": 5.56,
+              "end": 5.9,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "We",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "should",
+          "start": 0.54,
+          "end": 0.72
+        },
+        {
+          "raw": "have",
+          "start": 0.72,
+          "end": 0.82
+        },
+        {
+          "raw": "met",
+          "start": 0.82,
+          "end": 1.02
+        },
+        {
+          "raw": "anyway.",
+          "start": 1.02,
+          "end": 1.36
+        },
+        {
+          "raw": "I've",
+          "start": 1.98,
+          "end": 2.12
+        },
+        {
+          "raw": "heard",
+          "start": 2.12,
+          "end": 2.24
+        },
+        {
+          "raw": "a",
+          "start": 2.24,
+          "end": 2.36
+        },
+        {
+          "raw": "great",
+          "start": 2.36,
+          "end": 2.56
+        },
+        {
+          "raw": "deal",
+          "start": 2.56,
+          "end": 2.74
+        },
+        {
+          "raw": "about",
+          "start": 2.74,
+          "end": 3.0
+        },
+        {
+          "raw": "you",
+          "start": 3.0,
+          "end": 3.28
+        },
+        {
+          "raw": "too,",
+          "start": 3.28,
+          "end": 3.62
+        },
+        {
+          "raw": "but",
+          "start": 3.62,
+          "end": 4.2
+        },
+        {
+          "raw": "you've",
+          "start": 4.2,
+          "end": 4.42
+        },
+        {
+          "raw": "been",
+          "start": 4.42,
+          "end": 4.54
+        },
+        {
+          "raw": "a",
+          "start": 4.54,
+          "end": 4.7
+        },
+        {
+          "raw": "long",
+          "start": 4.7,
+          "end": 4.9
+        },
+        {
+          "raw": "time",
+          "start": 4.9,
+          "end": 5.22
+        },
+        {
+          "raw": "coming",
+          "start": 5.22,
+          "end": 5.56
+        },
+        {
+          "raw": "here",
+          "start": 5.56,
+          "end": 5.9
+        }
+      ],
+      "expected_tokens": [
+        "\"We",
+        "should",
+        "have",
+        "met",
+        "anyway.",
+        "I've",
+        "heard",
+        "a",
+        "great",
+        "deal",
+        "about",
+        "you,",
+        "too;",
+        "but",
+        "you've",
+        "been",
+        "a",
+        "long",
+        "time",
+        "coming",
+        "here.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "We",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "we",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 0.54,
+          "end": 0.72,
+          "key": "should",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 0.72,
+          "end": 0.82,
+          "key": "have",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "met",
+          "start": 0.82,
+          "end": 1.02,
+          "key": "met",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "anyway.",
+          "start": 1.02,
+          "end": 1.36,
+          "key": "anyway",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I've",
+          "start": 1.98,
+          "end": 2.12,
+          "key": "ive",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 2.12,
+          "end": 2.24,
+          "key": "heard",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.24,
+          "end": 2.36,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 2.36,
+          "end": 2.56,
+          "key": "great",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "deal",
+          "start": 2.56,
+          "end": 2.74,
+          "key": "deal",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 2.74,
+          "end": 3.0,
+          "key": "about",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.0,
+          "end": 3.28,
+          "key": "you",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "too,",
+          "start": 3.28,
+          "end": 3.62,
+          "key": "too",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 3.62,
+          "end": 4.2,
+          "key": "but",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "you've",
+          "start": 4.2,
+          "end": 4.42,
+          "key": "youve",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 4.42,
+          "end": 4.54,
+          "key": "been",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.54,
+          "end": 4.7,
+          "key": "a",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "long",
+          "start": 4.7,
+          "end": 4.9,
+          "key": "long",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 4.9,
+          "end": 5.22,
+          "key": "time",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "coming",
+          "start": 5.22,
+          "end": 5.56,
+          "key": "coming",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 5.56,
+          "end": 5.9,
+          "key": "here",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"We",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "should",
+          "start": 0.54,
+          "end": 0.72
+        },
+        {
+          "text": "have",
+          "start": 0.72,
+          "end": 0.82
+        },
+        {
+          "text": "met",
+          "start": 0.82,
+          "end": 1.02
+        },
+        {
+          "text": "anyway.",
+          "start": 1.02,
+          "end": 1.36
+        },
+        {
+          "text": "I've",
+          "start": 1.98,
+          "end": 2.12
+        },
+        {
+          "text": "heard",
+          "start": 2.12,
+          "end": 2.24
+        },
+        {
+          "text": "a",
+          "start": 2.24,
+          "end": 2.36
+        },
+        {
+          "text": "great",
+          "start": 2.36,
+          "end": 2.56
+        },
+        {
+          "text": "deal",
+          "start": 2.56,
+          "end": 2.74
+        },
+        {
+          "text": "about",
+          "start": 2.74,
+          "end": 3.0
+        },
+        {
+          "text": "you,",
+          "start": 3.0,
+          "end": 3.28
+        },
+        {
+          "text": "too;",
+          "start": 3.28,
+          "end": 3.62
+        },
+        {
+          "text": "but",
+          "start": 3.62,
+          "end": 4.2
+        },
+        {
+          "text": "you've",
+          "start": 4.2,
+          "end": 4.42
+        },
+        {
+          "text": "been",
+          "start": 4.42,
+          "end": 4.54
+        },
+        {
+          "text": "a",
+          "start": 4.54,
+          "end": 4.7
+        },
+        {
+          "text": "long",
+          "start": 4.7,
+          "end": 4.9
+        },
+        {
+          "text": "time",
+          "start": 4.9,
+          "end": 5.22
+        },
+        {
+          "text": "coming",
+          "start": 5.22,
+          "end": 5.56
+        },
+        {
+          "text": "here.\"",
+          "start": 5.56,
+          "end": 5.9
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.26781144738197327
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "dc9e81c6978dfe34b2453d8af467a28669efa08fd4dead3a9dab96af18118f49",
+  "selected_reasons": []
+}

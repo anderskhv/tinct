@@ -1,0 +1,508 @@
+{
+  "complete": true,
+  "signature": "385836c790963b3b8643461698f2720a64399402236c918e87bb69d4e8c0d2f3",
+  "attempts": [
+    {
+      "asr_seconds": 0.3972782716155052,
+      "alignment_seconds": 0.0005603209137916565,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " But what object had you in view in arming yourself with such a weapon?",
+          "start": 0.21,
+          "end": 3.77,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.21,
+              "end": 0.55,
+              "probability": 0.826171875
+            },
+            {
+              "text": " what",
+              "start": 0.55,
+              "end": 0.79,
+              "probability": 0.89501953125
+            },
+            {
+              "text": " object",
+              "start": 0.79,
+              "end": 1.21,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " had",
+              "start": 1.21,
+              "end": 1.61,
+              "probability": 0.966796875
+            },
+            {
+              "text": " you",
+              "start": 1.61,
+              "end": 1.77,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 1.77,
+              "end": 1.91,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " view",
+              "start": 1.91,
+              "end": 2.13,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " in",
+              "start": 2.13,
+              "end": 2.39,
+              "probability": 0.9921875
+            },
+            {
+              "text": " arming",
+              "start": 2.39,
+              "end": 2.67,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " yourself",
+              "start": 2.67,
+              "end": 3.03,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " with",
+              "start": 3.03,
+              "end": 3.27,
+              "probability": 0.998046875
+            },
+            {
+              "text": " such",
+              "start": 3.27,
+              "end": 3.45,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 3.45,
+              "end": 3.61,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " weapon?",
+              "start": 3.61,
+              "end": 3.77,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.21,
+          "end": 0.55
+        },
+        {
+          "raw": "what",
+          "start": 0.55,
+          "end": 0.79
+        },
+        {
+          "raw": "object",
+          "start": 0.79,
+          "end": 1.21
+        },
+        {
+          "raw": "had",
+          "start": 1.21,
+          "end": 1.61
+        },
+        {
+          "raw": "you",
+          "start": 1.61,
+          "end": 1.77
+        },
+        {
+          "raw": "in",
+          "start": 1.77,
+          "end": 1.91
+        },
+        {
+          "raw": "view",
+          "start": 1.91,
+          "end": 2.13
+        },
+        {
+          "raw": "in",
+          "start": 2.13,
+          "end": 2.39
+        },
+        {
+          "raw": "arming",
+          "start": 2.39,
+          "end": 2.67
+        },
+        {
+          "raw": "yourself",
+          "start": 2.67,
+          "end": 3.03
+        },
+        {
+          "raw": "with",
+          "start": 3.03,
+          "end": 3.27
+        },
+        {
+          "raw": "such",
+          "start": 3.27,
+          "end": 3.45
+        },
+        {
+          "raw": "a",
+          "start": 3.45,
+          "end": 3.61
+        },
+        {
+          "raw": "weapon?",
+          "start": 3.61,
+          "end": 3.77
+        }
+      ],
+      "expected_tokens": [
+        "\"But",
+        "what",
+        "object",
+        "had",
+        "you",
+        "in",
+        "view",
+        "in",
+        "arming",
+        "yourself",
+        "with",
+        "such",
+        "a",
+        "weapon?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.21,
+          "end": 0.55,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 0.55,
+          "end": 0.79,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "object",
+          "start": 0.79,
+          "end": 1.21,
+          "key": "object",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 1.21,
+          "end": 1.61,
+          "key": "had",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.61,
+          "end": 1.77,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.77,
+          "end": 1.91,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "view",
+          "start": 1.91,
+          "end": 2.13,
+          "key": "view",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.13,
+          "end": 2.39,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "arming",
+          "start": 2.39,
+          "end": 2.67,
+          "key": "arming",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "yourself",
+          "start": 2.67,
+          "end": 3.03,
+          "key": "yourself",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.03,
+          "end": 3.27,
+          "key": "with",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 3.27,
+          "end": 3.45,
+          "key": "such",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.45,
+          "end": 3.61,
+          "key": "a",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "weapon?",
+          "start": 3.61,
+          "end": 3.77,
+          "key": "weapon",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"But",
+          "start": 0.21,
+          "end": 0.55
+        },
+        {
+          "text": "what",
+          "start": 0.55,
+          "end": 0.79
+        },
+        {
+          "text": "object",
+          "start": 0.79,
+          "end": 1.21
+        },
+        {
+          "text": "had",
+          "start": 1.21,
+          "end": 1.61
+        },
+        {
+          "text": "you",
+          "start": 1.61,
+          "end": 1.77
+        },
+        {
+          "text": "in",
+          "start": 1.77,
+          "end": 1.91
+        },
+        {
+          "text": "view",
+          "start": 1.91,
+          "end": 2.13
+        },
+        {
+          "text": "in",
+          "start": 2.13,
+          "end": 2.39
+        },
+        {
+          "text": "arming",
+          "start": 2.39,
+          "end": 2.67
+        },
+        {
+          "text": "yourself",
+          "start": 2.67,
+          "end": 3.03
+        },
+        {
+          "text": "with",
+          "start": 3.03,
+          "end": 3.27
+        },
+        {
+          "text": "such",
+          "start": 3.27,
+          "end": 3.45
+        },
+        {
+          "text": "a",
+          "start": 3.45,
+          "end": 3.61
+        },
+        {
+          "text": "weapon?\"",
+          "start": 3.61,
+          "end": 3.77
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3980622962117195
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3e75c559a5d49f77d0a5370aef9f62f77d566ba043135183ebac6d93c7b57d31",
+  "selected_reasons": []
+}

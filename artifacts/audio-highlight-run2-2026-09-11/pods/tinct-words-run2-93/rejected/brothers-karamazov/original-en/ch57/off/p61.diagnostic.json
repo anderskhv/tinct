@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "e1694a9b11a13f0e22d2c01f45df43ae4a688e7e9569c4d0214316434b709e88",
+  "attempts": [
+    {
+      "asr_seconds": 0.20035814493894577,
+      "alignment_seconds": 0.00042190589010715485,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Well, shall I go on? He broke off gloomily.",
+          "start": 0.02,
+          "end": 2.7,
+          "words": [
+            {
+              "text": " Well,",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.6240234375
+            },
+            {
+              "text": " shall",
+              "start": 0.64,
+              "end": 0.8,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " I",
+              "start": 0.8,
+              "end": 0.92,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " go",
+              "start": 0.92,
+              "end": 1.04,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " on?",
+              "start": 1.04,
+              "end": 1.3,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " He",
+              "start": 1.74,
+              "end": 1.84,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " broke",
+              "start": 1.84,
+              "end": 2.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " off",
+              "start": 2.02,
+              "end": 2.26,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " gloomily.",
+              "start": 2.26,
+              "end": 2.7,
+              "probability": 0.98828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Well,",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "shall",
+          "start": 0.64,
+          "end": 0.8
+        },
+        {
+          "raw": "I",
+          "start": 0.8,
+          "end": 0.92
+        },
+        {
+          "raw": "go",
+          "start": 0.92,
+          "end": 1.04
+        },
+        {
+          "raw": "on?",
+          "start": 1.04,
+          "end": 1.3
+        },
+        {
+          "raw": "He",
+          "start": 1.74,
+          "end": 1.84
+        },
+        {
+          "raw": "broke",
+          "start": 1.84,
+          "end": 2.02
+        },
+        {
+          "raw": "off",
+          "start": 2.02,
+          "end": 2.26
+        },
+        {
+          "raw": "gloomily.",
+          "start": 2.26,
+          "end": 2.7
+        }
+      ],
+      "expected_tokens": [
+        "Well,",
+        "shall",
+        "I",
+        "go",
+        "on?\"",
+        "he",
+        "broke",
+        "off",
+        "gloomily."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Well,",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "well",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 0.64,
+          "end": 0.8,
+          "key": "shall",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.8,
+          "end": 0.92,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 0.92,
+          "end": 1.04,
+          "key": "go",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "on?",
+          "start": 1.04,
+          "end": 1.3,
+          "key": "on",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 1.74,
+          "end": 1.84,
+          "key": "he",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "broke",
+          "start": 1.84,
+          "end": 2.02,
+          "key": "broke",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "off",
+          "start": 2.02,
+          "end": 2.26,
+          "key": "off",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "gloomily.",
+          "start": 2.26,
+          "end": 2.7,
+          "key": "gloomily",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Well,",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "shall",
+          "start": 0.64,
+          "end": 0.8
+        },
+        {
+          "text": "I",
+          "start": 0.8,
+          "end": 0.92
+        },
+        {
+          "text": "go",
+          "start": 0.92,
+          "end": 1.04
+        },
+        {
+          "text": "on?\"",
+          "start": 1.04,
+          "end": 1.3
+        },
+        {
+          "text": "he",
+          "start": 1.74,
+          "end": 1.84
+        },
+        {
+          "text": "broke",
+          "start": 1.84,
+          "end": 2.02
+        },
+        {
+          "text": "off",
+          "start": 2.02,
+          "end": 2.26
+        },
+        {
+          "text": "gloomily.",
+          "start": 2.26,
+          "end": 2.7
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20094424672424793
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5545ff9f6f5c76abae0eb927b115c4ef5ce712fe9e4a55e400ee3f39dc9de111",
+  "selected_reasons": []
+}

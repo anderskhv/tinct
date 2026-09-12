@@ -1,0 +1,758 @@
+{
+  "complete": true,
+  "signature": "5c327311ee6884a507c9667a11d785e865116b423b847e253b36aae77f56220f",
+  "attempts": [
+    {
+      "asr_seconds": 0.35583242401480675,
+      "alignment_seconds": 0.0007501952350139618,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The children gazed at the powder with an awe-stricken alarm that only intensified their enjoyment. But Kostya liked the shot better.",
+        "hotwords": "But, Kostya"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The children gazed at the powder with an awe-stricken alarm that only intensified their enjoyment. But Kostya liked the shot better.",
+          "start": 0.02,
+          "end": 7.98,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " children",
+              "start": 0.5,
+              "end": 0.88,
+              "probability": 0.98828125
+            },
+            {
+              "text": " gazed",
+              "start": 0.88,
+              "end": 1.3,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " at",
+              "start": 1.3,
+              "end": 1.56,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 1.56,
+              "end": 1.66,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " powder",
+              "start": 1.66,
+              "end": 1.9,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " with",
+              "start": 1.9,
+              "end": 2.16,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " an",
+              "start": 2.16,
+              "end": 2.36,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " awe",
+              "start": 2.36,
+              "end": 2.52,
+              "probability": 0.102783203125
+            },
+            {
+              "text": "-stricken",
+              "start": 2.52,
+              "end": 2.86,
+              "probability": 0.9781901041666666
+            },
+            {
+              "text": " alarm",
+              "start": 2.86,
+              "end": 3.3,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " that",
+              "start": 3.3,
+              "end": 3.82,
+              "probability": 0.958984375
+            },
+            {
+              "text": " only",
+              "start": 3.82,
+              "end": 4.12,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " intensified",
+              "start": 4.12,
+              "end": 4.82,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " their",
+              "start": 4.82,
+              "end": 5.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " enjoyment.",
+              "start": 5.16,
+              "end": 5.66,
+              "probability": 0.9921875
+            },
+            {
+              "text": " But",
+              "start": 6.42,
+              "end": 6.5,
+              "probability": 0.82080078125
+            },
+            {
+              "text": " Kostya",
+              "start": 6.5,
+              "end": 7.0,
+              "probability": 0.481201171875
+            },
+            {
+              "text": " liked",
+              "start": 7.0,
+              "end": 7.24,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " the",
+              "start": 7.24,
+              "end": 7.42,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " shot",
+              "start": 7.42,
+              "end": 7.64,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " better.",
+              "start": 7.64,
+              "end": 7.98,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "children",
+          "start": 0.5,
+          "end": 0.88
+        },
+        {
+          "raw": "gazed",
+          "start": 0.88,
+          "end": 1.3
+        },
+        {
+          "raw": "at",
+          "start": 1.3,
+          "end": 1.56
+        },
+        {
+          "raw": "the",
+          "start": 1.56,
+          "end": 1.66
+        },
+        {
+          "raw": "powder",
+          "start": 1.66,
+          "end": 1.9
+        },
+        {
+          "raw": "with",
+          "start": 1.9,
+          "end": 2.16
+        },
+        {
+          "raw": "an",
+          "start": 2.16,
+          "end": 2.36
+        },
+        {
+          "raw": "awe",
+          "start": 2.36,
+          "end": 2.52
+        },
+        {
+          "raw": "-stricken",
+          "start": 2.52,
+          "end": 2.86
+        },
+        {
+          "raw": "alarm",
+          "start": 2.86,
+          "end": 3.3
+        },
+        {
+          "raw": "that",
+          "start": 3.3,
+          "end": 3.82
+        },
+        {
+          "raw": "only",
+          "start": 3.82,
+          "end": 4.12
+        },
+        {
+          "raw": "intensified",
+          "start": 4.12,
+          "end": 4.82
+        },
+        {
+          "raw": "their",
+          "start": 4.82,
+          "end": 5.16
+        },
+        {
+          "raw": "enjoyment.",
+          "start": 5.16,
+          "end": 5.66
+        },
+        {
+          "raw": "But",
+          "start": 6.42,
+          "end": 6.5
+        },
+        {
+          "raw": "Kostya",
+          "start": 6.5,
+          "end": 7.0
+        },
+        {
+          "raw": "liked",
+          "start": 7.0,
+          "end": 7.24
+        },
+        {
+          "raw": "the",
+          "start": 7.24,
+          "end": 7.42
+        },
+        {
+          "raw": "shot",
+          "start": 7.42,
+          "end": 7.64
+        },
+        {
+          "raw": "better.",
+          "start": 7.64,
+          "end": 7.98
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "children",
+        "gazed",
+        "at",
+        "the",
+        "powder",
+        "with",
+        "an",
+        "awe-stricken",
+        "alarm",
+        "that",
+        "only",
+        "intensified",
+        "their",
+        "enjoyment.",
+        "But",
+        "Kostya",
+        "liked",
+        "the",
+        "shot",
+        "better."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "children",
+          "start": 0.5,
+          "end": 0.88,
+          "key": "children",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "gazed",
+          "start": 0.88,
+          "end": 1.3,
+          "key": "gazed",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.3,
+          "end": 1.56,
+          "key": "at",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.56,
+          "end": 1.66,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "powder",
+          "start": 1.66,
+          "end": 1.9,
+          "key": "powder",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.9,
+          "end": 2.16,
+          "key": "with",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 2.16,
+          "end": 2.36,
+          "key": "an",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "awe -stricken",
+          "start": 2.36,
+          "end": 2.86,
+          "key": "awestricken",
+          "pieces": [
+            8,
+            9
+          ]
+        },
+        {
+          "raw": "alarm",
+          "start": 2.86,
+          "end": 3.3,
+          "key": "alarm",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.3,
+          "end": 3.82,
+          "key": "that",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 3.82,
+          "end": 4.12,
+          "key": "only",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "intensified",
+          "start": 4.12,
+          "end": 4.82,
+          "key": "intensified",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 4.82,
+          "end": 5.16,
+          "key": "their",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "enjoyment.",
+          "start": 5.16,
+          "end": 5.66,
+          "key": "enjoyment",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 6.42,
+          "end": 6.5,
+          "key": "but",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Kostya",
+          "start": 6.5,
+          "end": 7.0,
+          "key": "kostya",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "liked",
+          "start": 7.0,
+          "end": 7.24,
+          "key": "liked",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.24,
+          "end": 7.42,
+          "key": "the",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "shot",
+          "start": 7.42,
+          "end": 7.64,
+          "key": "shot",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "better.",
+          "start": 7.64,
+          "end": 7.98,
+          "key": "better",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 8,
+          "text": "awe-stricken",
+          "heard": "awe -stricken",
+          "heard_indexes": [
+            8,
+            9
+          ],
+          "start": 2.36,
+          "end": 2.86
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "children",
+          "start": 0.5,
+          "end": 0.88
+        },
+        {
+          "text": "gazed",
+          "start": 0.88,
+          "end": 1.3
+        },
+        {
+          "text": "at",
+          "start": 1.3,
+          "end": 1.56
+        },
+        {
+          "text": "the",
+          "start": 1.56,
+          "end": 1.66
+        },
+        {
+          "text": "powder",
+          "start": 1.66,
+          "end": 1.9
+        },
+        {
+          "text": "with",
+          "start": 1.9,
+          "end": 2.16
+        },
+        {
+          "text": "an",
+          "start": 2.16,
+          "end": 2.36
+        },
+        {
+          "text": "awe-stricken",
+          "start": 2.36,
+          "end": 2.86
+        },
+        {
+          "text": "alarm",
+          "start": 2.86,
+          "end": 3.3
+        },
+        {
+          "text": "that",
+          "start": 3.3,
+          "end": 3.82
+        },
+        {
+          "text": "only",
+          "start": 3.82,
+          "end": 4.12
+        },
+        {
+          "text": "intensified",
+          "start": 4.12,
+          "end": 4.82
+        },
+        {
+          "text": "their",
+          "start": 4.82,
+          "end": 5.16
+        },
+        {
+          "text": "enjoyment.",
+          "start": 5.16,
+          "end": 5.66
+        },
+        {
+          "text": "But",
+          "start": 6.42,
+          "end": 6.5
+        },
+        {
+          "text": "Kostya",
+          "start": 6.5,
+          "end": 7.0
+        },
+        {
+          "text": "liked",
+          "start": 7.0,
+          "end": 7.24
+        },
+        {
+          "text": "the",
+          "start": 7.24,
+          "end": 7.42
+        },
+        {
+          "text": "shot",
+          "start": 7.42,
+          "end": 7.64
+        },
+        {
+          "text": "better.",
+          "start": 7.64,
+          "end": 7.98
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3568409737199545
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3c47fcc32c6857c22694828830df65d4161ca9c81c23e9e258da35647bec3b93",
+  "selected_reasons": []
+}

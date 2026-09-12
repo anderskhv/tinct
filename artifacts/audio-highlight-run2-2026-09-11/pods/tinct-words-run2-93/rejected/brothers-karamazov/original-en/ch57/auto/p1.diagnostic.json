@@ -1,0 +1,549 @@
+{
+  "complete": true,
+  "signature": "c876c87ef5372bdf6649eff66e30e7a8ffe0bac6beac93c3969134962f6e9067",
+  "attempts": [
+    {
+      "asr_seconds": 0.39760058745741844,
+      "alignment_seconds": 0.00047404319047927856,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Oh, undoubtedly,\" replied the prosecutor. His tone was somewhat cold, compared with Nikolay Parfenovitch's impulsiveness.",
+        "hotwords": "Oh, His, Nikolay, Parfenovitch's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Oh, undoubtedly,\" replied the prosecutor. His tone was somewhat cold, compared with",
+          "start": 0.08,
+          "end": 6.2,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.0227813720703125
+            },
+            {
+              "text": " undoubtedly,\"",
+              "start": 1.14,
+              "end": 1.9,
+              "probability": 0.812744140625
+            },
+            {
+              "text": " replied",
+              "start": 1.9,
+              "end": 2.28,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 2.28,
+              "end": 2.54,
+              "probability": 0.99609375
+            },
+            {
+              "text": " prosecutor.",
+              "start": 2.54,
+              "end": 2.98,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " His",
+              "start": 3.72,
+              "end": 3.86,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " tone",
+              "start": 3.86,
+              "end": 4.14,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " was",
+              "start": 4.14,
+              "end": 4.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " somewhat",
+              "start": 4.4,
+              "end": 4.74,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " cold,",
+              "start": 4.74,
+              "end": 5.22,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " compared",
+              "start": 5.64,
+              "end": 5.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 5.96,
+              "end": 6.2,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " Nikolay Parfenovitch's impulsiveness.",
+          "start": 6.2,
+          "end": 8.12,
+          "words": [
+            {
+              "text": " Nikolay",
+              "start": 6.2,
+              "end": 6.62,
+              "probability": 0.6661376953125
+            },
+            {
+              "text": " Parfenovitch's",
+              "start": 6.62,
+              "end": 7.46,
+              "probability": 0.5417236328125
+            },
+            {
+              "text": " impulsiveness.",
+              "start": 7.46,
+              "end": 8.12,
+              "probability": 0.98779296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oh,",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "undoubtedly,\"",
+          "start": 1.14,
+          "end": 1.9
+        },
+        {
+          "raw": "replied",
+          "start": 1.9,
+          "end": 2.28
+        },
+        {
+          "raw": "the",
+          "start": 2.28,
+          "end": 2.54
+        },
+        {
+          "raw": "prosecutor.",
+          "start": 2.54,
+          "end": 2.98
+        },
+        {
+          "raw": "His",
+          "start": 3.72,
+          "end": 3.86
+        },
+        {
+          "raw": "tone",
+          "start": 3.86,
+          "end": 4.14
+        },
+        {
+          "raw": "was",
+          "start": 4.14,
+          "end": 4.4
+        },
+        {
+          "raw": "somewhat",
+          "start": 4.4,
+          "end": 4.74
+        },
+        {
+          "raw": "cold,",
+          "start": 4.74,
+          "end": 5.22
+        },
+        {
+          "raw": "compared",
+          "start": 5.64,
+          "end": 5.96
+        },
+        {
+          "raw": "with",
+          "start": 5.96,
+          "end": 6.2
+        },
+        {
+          "raw": "Nikolay",
+          "start": 6.2,
+          "end": 6.62
+        },
+        {
+          "raw": "Parfenovitch's",
+          "start": 6.62,
+          "end": 7.46
+        },
+        {
+          "raw": "impulsiveness.",
+          "start": 7.46,
+          "end": 8.12
+        }
+      ],
+      "expected_tokens": [
+        "\"Oh,",
+        "undoubtedly,\"",
+        "replied",
+        "the",
+        "prosecutor.",
+        "His",
+        "tone",
+        "was",
+        "somewhat",
+        "cold,",
+        "compared",
+        "with",
+        "Nikolay",
+        "Parfenovitch's",
+        "impulsiveness."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oh,",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "oh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "undoubtedly,\"",
+          "start": 1.14,
+          "end": 1.9,
+          "key": "undoubtedly",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "replied",
+          "start": 1.9,
+          "end": 2.28,
+          "key": "replied",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.28,
+          "end": 2.54,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "prosecutor.",
+          "start": 2.54,
+          "end": 2.98,
+          "key": "prosecutor",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "His",
+          "start": 3.72,
+          "end": 3.86,
+          "key": "his",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "tone",
+          "start": 3.86,
+          "end": 4.14,
+          "key": "tone",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 4.14,
+          "end": 4.4,
+          "key": "was",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "somewhat",
+          "start": 4.4,
+          "end": 4.74,
+          "key": "somewhat",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "cold,",
+          "start": 4.74,
+          "end": 5.22,
+          "key": "cold",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "compared",
+          "start": 5.64,
+          "end": 5.96,
+          "key": "compared",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 5.96,
+          "end": 6.2,
+          "key": "with",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Nikolay",
+          "start": 6.2,
+          "end": 6.62,
+          "key": "nikolay",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Parfenovitch's",
+          "start": 6.62,
+          "end": 7.46,
+          "key": "parfenovitchs",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "impulsiveness.",
+          "start": 7.46,
+          "end": 8.12,
+          "key": "impulsiveness",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Oh,",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "undoubtedly,\"",
+          "start": 1.14,
+          "end": 1.9
+        },
+        {
+          "text": "replied",
+          "start": 1.9,
+          "end": 2.28
+        },
+        {
+          "text": "the",
+          "start": 2.28,
+          "end": 2.54
+        },
+        {
+          "text": "prosecutor.",
+          "start": 2.54,
+          "end": 2.98
+        },
+        {
+          "text": "His",
+          "start": 3.72,
+          "end": 3.86
+        },
+        {
+          "text": "tone",
+          "start": 3.86,
+          "end": 4.14
+        },
+        {
+          "text": "was",
+          "start": 4.14,
+          "end": 4.4
+        },
+        {
+          "text": "somewhat",
+          "start": 4.4,
+          "end": 4.74
+        },
+        {
+          "text": "cold,",
+          "start": 4.74,
+          "end": 5.22
+        },
+        {
+          "text": "compared",
+          "start": 5.64,
+          "end": 5.96
+        },
+        {
+          "text": "with",
+          "start": 5.96,
+          "end": 6.2
+        },
+        {
+          "text": "Nikolay",
+          "start": 6.2,
+          "end": 6.62
+        },
+        {
+          "text": "Parfenovitch's",
+          "start": 6.62,
+          "end": 7.46
+        },
+        {
+          "text": "impulsiveness.",
+          "start": 7.46,
+          "end": 8.12
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.39825355261564255
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b3183931a2795bd87c639bd478ce932c15b3fb1f0f22b662afd0893c74780c12",
+  "selected_reasons": []
+}

@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "be265e57a3d57d79bf13af177b47defde3bef214bfcfc8d781b35824fdb4d3d5",
+  "attempts": [
+    {
+      "asr_seconds": 0.26447807624936104,
+      "alignment_seconds": 0.0004071332514286041,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Be silent, heart, Be patient, humble, hold thy peace.",
+        "hotwords": "Be"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Be silent, heart, Be patient, humble, hold thy peace.",
+          "start": 0.02,
+          "end": 3.32,
+          "words": [
+            {
+              "text": " Be",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.908203125
+            },
+            {
+              "text": " silent,",
+              "start": 0.52,
+              "end": 0.92,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " heart,",
+              "start": 1.26,
+              "end": 1.38,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " Be",
+              "start": 1.66,
+              "end": 1.7,
+              "probability": 0.0080413818359375
+            },
+            {
+              "text": " patient,",
+              "start": 1.7,
+              "end": 2.06,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " humble,",
+              "start": 2.5,
+              "end": 2.5,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " hold",
+              "start": 2.76,
+              "end": 2.8,
+              "probability": 0.625
+            },
+            {
+              "text": " thy",
+              "start": 2.8,
+              "end": 3.0,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " peace.",
+              "start": 3.0,
+              "end": 3.32,
+              "probability": 0.9755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Be",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "silent,",
+          "start": 0.52,
+          "end": 0.92
+        },
+        {
+          "raw": "heart,",
+          "start": 1.26,
+          "end": 1.38
+        },
+        {
+          "raw": "Be",
+          "start": 1.66,
+          "end": 1.7
+        },
+        {
+          "raw": "patient,",
+          "start": 1.7,
+          "end": 2.06
+        },
+        {
+          "raw": "humble,",
+          "start": 2.5,
+          "end": 2.5
+        },
+        {
+          "raw": "hold",
+          "start": 2.76,
+          "end": 2.8
+        },
+        {
+          "raw": "thy",
+          "start": 2.8,
+          "end": 3.0
+        },
+        {
+          "raw": "peace.",
+          "start": 3.0,
+          "end": 3.32
+        }
+      ],
+      "expected_tokens": [
+        "Be",
+        "silent,",
+        "heart,",
+        "Be",
+        "patient,",
+        "humble,",
+        "hold",
+        "thy",
+        "peace."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Be",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "be",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "silent,",
+          "start": 0.52,
+          "end": 0.92,
+          "key": "silent",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "heart,",
+          "start": 1.26,
+          "end": 1.38,
+          "key": "heart",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Be",
+          "start": 1.66,
+          "end": 1.7,
+          "key": "be",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "patient,",
+          "start": 1.7,
+          "end": 2.06,
+          "key": "patient",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "humble,",
+          "start": 2.5,
+          "end": 2.5,
+          "key": "humble",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "hold",
+          "start": 2.76,
+          "end": 2.8,
+          "key": "hold",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 2.8,
+          "end": 3.0,
+          "key": "thy",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "peace.",
+          "start": 3.0,
+          "end": 3.32,
+          "key": "peace",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Be",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "silent,",
+          "start": 0.52,
+          "end": 0.92
+        },
+        {
+          "text": "heart,",
+          "start": 1.26,
+          "end": 1.38
+        },
+        {
+          "text": "Be",
+          "start": 1.66,
+          "end": 1.7
+        },
+        {
+          "text": "patient,",
+          "start": 1.7,
+          "end": 2.06
+        },
+        {
+          "text": "humble,",
+          "start": 2.5,
+          "end": 2.5
+        },
+        {
+          "text": "hold",
+          "start": 2.76,
+          "end": 2.8
+        },
+        {
+          "text": "thy",
+          "start": 2.8,
+          "end": 3.0
+        },
+        {
+          "text": "peace.",
+          "start": 3.0,
+          "end": 3.32
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.26504572480916977
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f71d85303e80e1ea77f784c2b9f63a40081013e160cb7cc1394f8973c9c67bba",
+  "selected_reasons": []
+}
