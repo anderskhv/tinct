@@ -1,0 +1,16 @@
+clause 0: source-book7.json IS the served chapter 7 (29 paragraphs, whitespace-normalized), and carries no digit of its own
+clause 1: the chapter's case shape is 3347 bits (7.5% capitalized) and occurs 1 time(s) in PG #1727's body; verdict pair (1, 35508)
+clause 2: characters restored at tokens 32162…35508 — 0 of 3347 tokens differ from the served chapter after trailing footnote numerals are removed
+clause 3: the longest case shape this chapter shares with any part of PG outside a guard band of its own length on each side is **114 bits**, against the chapter's 3347 — reported, not bounded
+clause 4: the apparatus numbers 1…187 contiguously — but note 29's opener is transposed, `29[]` for `[29]`, the only one of the 187 (finding I-1). It carries 8 note-to-note cross-references, every target in range and none self-referential (72→64, 73→43, 111→64, 128→75, 132→83, 157→156, 163→175, 183→156). The markers inside the located span are 57…64, contiguous and ascending — a gap would mean the span had jumped a Book.
+  controls under D18: 6 fired on BOTH clauses
+    ✓ a paragraph replaced by the served MODERN edition's own paragraph — the B03-P038 splice, planted
+    ✓ a paragraph of Butler's own Book VI put into Book VII
+    ✓ a capital inside a sentence is lowered — case IS the channel
+    ✓ one token deleted — the bit count changes
+    ✓ two paragraphs swapped — ORDER is in the bitstring
+    ✓ a capitalized and a lower-case word exchange places
+    ! blind to one lower-case word replaced by another lower-case word (the bit is taken from the token's first letter's case alone, so any lower-for-lower substitution of any length leaves the bitstring identical); carried by clause 2, which restores the characters at the located span and compares them token for token
+    ! blind to a punctuation mark changed, added or removed (punctuation is destroyed before a bit is emitted, and a token containing no letter emits none at all); carried by clause 2, and independently by the NINTH rule, whose whole instrument is the pointing
+
+Book 7's source is verified by an eleventh kind of rule: the case shape locates it uniquely, the characters confirm it, the neighbourhood is reported, and the apparatus's own internal structure corroborates the span.
