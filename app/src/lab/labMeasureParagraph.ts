@@ -1,4 +1,5 @@
 import { isLabVerseMarker, labVerseMarkerDisplay } from './labHearing'
+import { verseLineRanges } from './labVerseLines'
 
 export interface MeasurableWord {
   text: string
@@ -31,7 +32,11 @@ export function labMeasuredWordSpacing(
  * match what the reader saw — a column that overflowed its box, or one that
  * stopped a line short of the bottom. One builder, two call sites, one layout.
  */
-export function labMeasureParagraphInto(p: HTMLElement, words: MeasurableWord[]): HTMLElement {
+export function labMeasureParagraphInto(
+  p: HTMLElement,
+  words: MeasurableWord[],
+  lineation?: { text?: string; from: number },
+): HTMLElement {
   const makeWord = (index: number): HTMLElement => {
     const span = document.createElement('span')
     span.className = 'lab-hearing-word'
@@ -53,16 +58,34 @@ export function labMeasureParagraphInto(p: HTMLElement, words: MeasurableWord[])
     } else span.append(content)
     return span
   }
-  const children: Node[] = []
+  const children: Array<{ at: number; node: Node }> = []
   for (let index = 0; index < words.length; index += 1) {
     if (isLabVerseMarker(words[index].text) && words[index + 1]) {
       const unit = document.createElement('span')
       unit.className = 'lab-verse-unit'
       unit.append(makeWord(index), makeWord(index + 1))
-      children.push(unit)
+      children.push({ at: index, node: unit })
       index += 1
-    } else children.push(makeWord(index))
+    } else children.push({ at: index, node: makeWord(index) })
   }
-  p.replaceChildren(...children)
+  // Verse lineation is a block per line, and a block is taller and narrower
+  // than the same words run together. The measured page has to carry it for
+  // the same reason it carries verse-marker markup (see above): a paginator
+  // that packs against a paragraph shape the reader never sees puts the page
+  // breaks in the wrong places.
+  const ranges = lineation
+    ? verseLineRanges(lineation.text, lineation.from, lineation.from + words.length)
+    : null
+  if (!ranges) {
+    p.replaceChildren(...children.map(child => child.node))
+    return p
+  }
+  const base = lineation!.from
+  p.replaceChildren(...ranges.map(([start, end]) => {
+    const line = document.createElement('span')
+    line.className = 'lab-verse-line'
+    line.append(...children.filter(child => base + child.at >= start && base + child.at < end).map(child => child.node))
+    return line
+  }))
   return p
 }

@@ -23,6 +23,14 @@ export interface Edition {
   aligned: boolean
   /** Whether audiobook is available for this edition */
   hasAudio?: boolean
+  /**
+   * Whether `/data/editions/{bookId}-lines.json` carries this edition's verse
+   * lineation. The plays store a speech as one run-together paragraph; the
+   * sidecar says where its lines fall, and the reader inserts them at render
+   * time without touching the stored text. Absent for every prose edition,
+   * which is why no other book pays for the request.
+   */
+  hasVerseLines?: boolean
 }
 
 export interface Chapter {

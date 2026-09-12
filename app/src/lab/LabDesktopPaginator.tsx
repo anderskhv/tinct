@@ -101,7 +101,7 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
           const page = host.querySelector<HTMLElement>('.lab-desktop-measure-page')!
           const header = host.querySelector<HTMLElement>('.lab-passage-header')!
           const rows = host.querySelector<HTMLElement>('.lab-desktop-measure-rows')!
-          const makeParagraph = (segment: ChapterPageSegment, words: ReturnType<typeof tokenizeHearingWords>[]) => {
+          const makeParagraph = (segment: ChapterPageSegment, words: ReturnType<typeof tokenizeHearingWords>[], texts: string[]) => {
             const p = document.createElement('p')
             p.className = 'lab-hearing-line'
             // The measured and visible desktop pages both use ordinary word
@@ -110,7 +110,11 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
             // body digits in a strut-height line; painted it is a small
             // superscript inside a taller inline-block, so pages were packed
             // against a line box that was the wrong width and the wrong height.
-            return labMeasureParagraphInto(p, (words[segment.paragraphIndex] || []).slice(segment.from, segment.to))
+            return labMeasureParagraphInto(
+              p,
+              (words[segment.paragraphIndex] || []).slice(segment.from, segment.to),
+              { text: texts[segment.paragraphIndex], from: segment.from },
+            )
           }
           const pages = measuredDesktopPages(source.map(words => words.length), (segments, first) => {
             header.hidden = !first
@@ -118,8 +122,8 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
             for (const segment of segments) {
               const row = document.createElement('div')
               row.className = 'lab-desktop-measure-row'
-              row.append(makeParagraph(segment, source))
-              if (comparison && target) row.append(makeParagraph(comparisonSegment(segment, paragraphs, comparison), target))
+              row.append(makeParagraph(segment, source, paragraphs))
+              if (comparison && target) row.append(makeParagraph(comparisonSegment(segment, paragraphs, comparison), target, comparison))
               rows.append(row)
             }
             const bottom = rows.getBoundingClientRect().bottom

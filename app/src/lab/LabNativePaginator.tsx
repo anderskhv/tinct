@@ -16,6 +16,7 @@ import {
 } from './labHearing'
 import { labPageFitsPaint, nextPaintShrinkTo } from './labChrome'
 import { measuredDesktopPages } from './LabDesktopPaginator'
+import { verseLineRanges } from './labVerseLines'
 
 export interface LabNativeWordPlacement {
   pageIndex: number
@@ -194,7 +195,7 @@ function NativeWord({
 
 function NativeParagraph({ text, paragraphIndex }: { text: string; paragraphIndex: number }) {
   const words = tokenizeHearingWords(text)
-  const rendered: ReactNode[] = []
+  const rendered: Array<{ at: number; node: ReactNode }> = []
   for (let wordIndex = 0; wordIndex < words.length; wordIndex += 1) {
     const word = words[wordIndex]
     const node = (
@@ -209,7 +210,7 @@ function NativeParagraph({ text, paragraphIndex }: { text: string; paragraphInde
     )
     if (isLabVerseMarker(word.text) && words[wordIndex + 1]) {
       const nextIndex = wordIndex + 1
-      rendered.push(
+      rendered.push({ at: wordIndex, node: (
         <Fragment key={`verse-${wordIndex}`}>
           {nativeWordSpacing(word, wordIndex, words[wordIndex - 1])}
           <span className="lab-verse-unit">
@@ -228,14 +229,29 @@ function NativeParagraph({ text, paragraphIndex }: { text: string; paragraphInde
               hasFollowingWord={nextIndex < words.length - 1}
             />
           </span>
-        </Fragment>,
-      )
+        </Fragment>
+      ) })
       wordIndex = nextIndex
     } else {
-      rendered.push(node)
+      rendered.push({ at: wordIndex, node })
     }
   }
-  return <p className="lab-hearing-line">{rendered}</p>
+  return <p className="lab-hearing-line">{nativeVerseLines(text, rendered)}</p>
+}
+
+/**
+ * Group a whole painted paragraph into one block per verse line, or leave it
+ * exactly as it was for prose. The phone paints whole paragraphs, so the slice
+ * always starts at word 0.
+ */
+function nativeVerseLines(text: string, rendered: Array<{ at: number; node: ReactNode }>): ReactNode[] {
+  const ranges = verseLineRanges(text, 0, rendered.length ? rendered[rendered.length - 1].at + 1 : 0)
+  if (!ranges) return rendered.map(item => item.node)
+  return ranges.map(([start, end], index) => (
+    <span className="lab-verse-line" key={`verse-line-${index}`}>
+      {rendered.filter(item => item.at >= start && item.at < end).map(item => item.node)}
+    </span>
+  ))
 }
 
 export const LabNativePaginator = memo(function LabNativePaginator({
@@ -314,14 +330,31 @@ export const LabNativePaginator = memo(function LabNativePaginator({
               } else span.append(words[index].text)
               return span
             }
+            const children: Array<{ at: number; node: Node }> = []
             for (let index = 0; index < words.length; index++) {
               if (isLabVerseMarker(words[index].text) && words[index + 1]) {
                 const unit = document.createElement('span')
                 unit.className = 'lab-verse-unit'
                 unit.append(makeWord(index), makeWord(index + 1))
-                p.append(unit)
+                children.push({ at: index, node: unit })
                 index++
-              } else p.append(makeWord(index))
+              } else children.push({ at: index, node: makeWord(index) })
+            }
+            // The hidden copy has to carry the verse blocks too, or the phone
+            // packs its pages against a paragraph shape the reader never sees.
+            const ranges = verseLineRanges(
+              paragraphs[segment.paragraphIndex],
+              segment.from,
+              segment.from + words.length,
+            )
+            if (!ranges) p.append(...children.map(child => child.node))
+            else for (const [start, end] of ranges) {
+              const verseLine = document.createElement('span')
+              verseLine.className = 'lab-verse-line'
+              verseLine.append(...children
+                .filter(child => segment.from + child.at >= start && segment.from + child.at < end)
+                .map(child => child.node))
+              p.append(verseLine)
             }
             stage.append(p)
           }

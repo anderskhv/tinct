@@ -5,6 +5,7 @@ import { loadEditionWindow, loadEditionChapterList } from '../data/editionLoader
 import { followParagraphFromManifest, type FollowParagraph, type ManifestParagraph } from './labFollow'
 import { labAudioManifestUrl, type LabAudioTitleClip } from './labListen'
 import { LAB_COPY } from './labCopy'
+import { loadVerseLines, registerVerseLines } from './labVerseLines'
 
 export const LAB_BOOK_ID = 'bible'
 export const LAB_EDITION_KEY = 'kjv-en'
@@ -440,6 +441,43 @@ export interface LabBookSourceSelection {
  * This deliberately returns the same LabSource shape as the Bible loader so
  * pagination, Compare, highlighting and navigation keep one state path.
  */
+/**
+ * Load this book's verse lineation, if it has any, and register the chapter
+ * now on screen. Only the edition the sidecar was built against is lineated;
+ * a modern prose translation of the same play is left as it is. A book with
+ * no sidecar -- every book but the plays -- costs one cached 404 and nothing
+ * else, and a failed load simply leaves the reader as it is today.
+ */
+const verseLineSidecars = new Map<string, Promise<Awaited<ReturnType<typeof loadVerseLines>>>>()
+
+export function resetLabVerseLineCache(): void {
+  verseLineSidecars.clear()
+}
+
+function verseLineSidecar(bookId: string, editions: Edition[]) {
+  if (!editions.some(edition => edition.hasVerseLines)) return null
+  let pending = verseLineSidecars.get(bookId)
+  if (!pending) {
+    pending = loadVerseLines(bookId, labBuildVersion())
+    verseLineSidecars.set(bookId, pending)
+  }
+  return pending
+}
+
+async function applyVerseLines(
+  pending: ReturnType<typeof verseLineSidecar>,
+  chapterNumber: number,
+  editions: ReadonlyArray<readonly [string, string[]]>,
+): Promise<void> {
+  const sidecar = await pending
+  if (!sidecar) return
+  for (const [editionKey, paragraphs] of editions) {
+    if (editionKey === sidecar.edition) {
+      registerVerseLines(paragraphs, sidecar.chapters[String(chapterNumber)])
+    }
+  }
+}
+
 export async function loadLabBookSource(input: LabBookSourceSelection): Promise<LabSource> {
   // One migration for every caller, before the book id is even dispatched on:
   // no reader of this function can aim it at a withdrawn edition.
@@ -483,6 +521,8 @@ export async function loadLabBookSource(input: LabBookSourceSelection): Promise<
   }
 
   const requestedChapter = selection.chapterNumber ?? 1
+  // Started before the text request so it costs no wall time of its own.
+  const linesPromise = verseLineSidecar(registryBook.id, registryBook.editions)
   const threadsPromise = selection.readingFirst ? undefined : loadBookThreadsJson(registryBook.id)
   const [primaryData, compareData] = await Promise.all([
     loadEditionWindow(registryBook.id, primaryEdition.key, requestedChapter),
@@ -496,6 +536,10 @@ export async function loadLabBookSource(input: LabBookSourceSelection): Promise<
     throw new Error(`Edition ${registryBook.id}-${primaryEdition.key} has no readable chapter ${requestedChapter}`)
   }
   const compareParagraphs = compareData?.chapters.find(chapter => chapter.number === entry.number)?.paragraphs ?? []
+  await applyVerseLines(linesPromise, entry.number, [
+    [primaryEdition.key, entry.paragraphs],
+    ...(compareEdition ? [[compareEdition.key, compareParagraphs] as const] : []),
+  ])
   const supplement = Promise.all([
     audioEdition
       ? loadAudioFollowMetadata(entry.paragraphs, entry.number, audioEdition.key, registryBook.id)
