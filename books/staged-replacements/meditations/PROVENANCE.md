@@ -291,7 +291,7 @@ reproducible by running the script):
   so no running head, page number or catchword. **One finding about method, not
   about the text:** PG 6886 is indented **nine** spaces, so the Book XI reviewer's
   own alternative rule — "drop the four-space runs" — would have kept it and
-  leaked `[Greek: Sphairos kykloteres monie perigethei gaion.]` into XII.3. A
+  leaked `[Greek: Sphairos kykloteres monie perigethei gaion.]` into **XII.4** (corrected from "XII.3" at Book XII acceptance, finding C1: the round-1 reviewer implemented the alternative rule and ran it, and the block at PG 6886 stands between the end of XII.4 at PG 6881 and the start of XII.5 at PG 6890). A
   number taken from one book does not transfer to the next; the *shape* of the
   rule does. **D14 checked**: the space-before-punctuation rule fires nowhere in
   this range and is reproduced in the reconstruction regardless, so the two are

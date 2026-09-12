@@ -1,4 +1,11 @@
-# Continuity sheet — Meditations, Book XII (candidate v1, frozen)
+# Continuity sheet — Meditations, Book XII (accepted candidate v2)
+
+**Updated at acceptance (2026-09-12) to describe `candidate-v2.json`**, the
+accepted file, after the round-1 independent review (`review/findings-v1.md`).
+Ten substitutions in eight paragraphs and seven record corrections are marked
+**[v2]** at the entries they change; `changes-v1-to-v2.md` lists every one by
+paragraph ID against the finding it answers. `candidate-v1.json` stays frozen at
+sha256 `8665adc8…` and is never edited.
 
 Written alongside drafting `candidate-v1.json`, after Books II, I, III, IV, V,
 VI, VII, VIII, IX, X and XI were accepted, and describing what the frozen draft
@@ -63,7 +70,13 @@ Class by class, over PG lines 6818–7174 (after the `XII.` header at 6817, befo
   reviewer's own alternative rule — "classify maximal indented runs by
   indentation and drop the **four-space** runs as footnotes" — would have kept it
   and leaked `[Greek: Sphairos kykloteres monie perigethei gaion.]` into the body
-  of XII.3. The rule used here drops every run whose minimum indentation is four
+  of **XII.4** — **[v2, finding C1]**, corrected from "XII.3", which this sheet,
+  `README.md`, `review-instructions.md` and `../PROVENANCE.md` §4 all carried. The
+  round-1 reviewer did not reason about the alternative rule; it implemented it
+  and ran it on the range, and the block at PG 6886 stands between the end of
+  XII.4 (PG 6881, "of ourselves.") and the start of XII.5 (PG 6890), so "the
+  paragraph before it" is XII.4. XII.3 ends at PG 6872 and the whole of XII.4
+  stands between. **The conclusion is unchanged and is kept verbatim.** The rule used here drops every run whose minimum indentation is four
   **or more**, and then checks, run by run and by content, that each such run is
   either a footnote opener or the continuation of the run before it with only
   blank lines between. Both continuations are accounted for that way. A number
@@ -185,6 +198,26 @@ same construction, and a reviewer may prefer both as "will".
   and declined: it reads more naturally, but "is to be" carries an appointment or
   obligation that Long's plain future does not, and the rule directs "will".
 
+**Long's "wilt" — decided once for the book at v2 [finding 1.1 with 3.2].**
+The "shall" rule governs "shall / shalt" and says nothing about "wilt", so
+neither of v1's two treatments broke a rule; but v1 dropped it at XII.1 ("if thou
+wilt take no notice of all the past" → "if you take no notice") and kept it at
+XII.3 ("if thou wilt separate, I say" → "if you will separate, I say"; "and wilt
+make thyself" → "and will make yourself"), which is the same modal in the same
+position decided two ways two sections apart. **v2 aligns on the present**, which
+is what English uses in an if-clause and what XII.1 already had: XII.3 reads "if
+you separate, I say, from this ruling part" and "and make yourself like
+Empedocles' sphere". "If you will separate" reads as volitional — *if you are
+willing to* — which imports a shade Long's plain future does not carry, and "and
+will make yourself" inside a protasis is marked English. Long's three "wilt" in
+Book XII are therefore all rendered by the plain present, and the class is
+recorded here so that it is not left unruled.
+
+**After finding 4.1 the candidate keeps none of Long's ten "shall / shalt".**
+XII.4's first-person "shall" — the one v1 kept — becomes "will"; see the XII.4
+entry. The rule's other instances, all of them unpaired, stand untouched in the
+accepted books.
+
 **Book XII adds no new case to the three third-person plain futures already
 standing in accepted books** (III.9, VII.8, VII.24), which stay in
 `../00-progress-ledger.md` under "Open, not blocking" and are not reopened.
@@ -283,10 +316,18 @@ standing in accepted books** (III.9, VII.8, VII.24), which stay in
   confusion without **a** governor"; SE omits the article. PG followed.
 - **XII.15** — "**[Before thy death]**" **FOLDED** — the completion Long's own
   question needs, and without it the question loses the comparison with the lamp,
-  which burns to the end. **Two commas added**, marking off the long relative and
-  the list before the verb: "will the truth which is in you**,** and justice and
-  temperance**,** be extinguished before your death?" Without them "the truth
-  which is in you and justice and temperance" reads as one relative clause.
+  which burns to the end. **One comma added [v2, finding 15.1; v1 added two]**, marking off the long
+  relative: "will the truth which is in you**,** and justice and temperance be
+  extinguished before your death?" Without it, "the truth which is in you and
+  justice and temperance" reads as one relative clause with three objects of
+  "in". **v1's second comma is removed**: it closed a parenthesis, making "and
+  justice and temperance" an aside about the truth rather than two further
+  subjects of "be extinguished", and it sat between a compound subject and its
+  verb — exactly the comma this book removes at XII.2 and XII.16, so the XI.21
+  ruling (decide two identical constructions alike) was being applied against
+  itself. Dropping both and leaving Long unpunctuated was weighed and declined on
+  the reviewer's own ground: the first comma resolves a genuine ambiguity, not an
+  unevenness (Book IX finding 7.1).
   "**Shall** … be extinguished" → "**will**" (a rhetorical future; see the
   inventory).
 - **XII.16** — One dagger mark, inside the clause "If then thou art irritable,
@@ -312,8 +353,12 @@ standing in accepted books** (III.9, VII.8, VII.24), which stay in
   because it is the first time the XI.26 class is applied to a bracket that is a
   whole clause rather than a word.
 - **XII.18** — "Into **the formal, the material**, the purpose, and the time" →
-  "into **its form, its matter**, its purpose, and the time" (glossary; XII.18 is
-  named in the row).
+  "into **the form, the matter**, the purpose, and the time" (glossary; XII.18 is
+  named in the row). **[v2, finding 18.1]** v1 read "its form, its matter, its
+  purpose": the row licenses "form" and "matter" for Long's nominalised
+  adjectives, but not the change of determiner. Long's articles are kept — one
+  fewer departure for the same clarity, and it matches XII.29, where "its" is
+  Long's own word.
 - **XII.19** — "The various **affects**" → "the various **feelings**" (glossary;
   XII.19 is named in the row). **One comma before an em dash removed** ("in my
   mind,—is it fear" → "in my mind—is it fear"). Cross-reference "(v. 11)"
@@ -333,8 +378,15 @@ standing in accepted books** (III.9, VII.8, VII.24), which stay in
   act suffer** any evil", and "nor he who has terminated this series at the proper
   time, has he been ill dealt with" → "**nor has he who has terminated this series
   at the proper time been** ill dealt with". Long is reproducing Greek word order
-  with a resumptive pronoun, which modern English does not have; no word is added
-  or dropped, and the two commas that held the resumptions open go with them. "If
+  with a resumptive pronoun, which modern English does not have. **[v2, finding
+  23.1] The ground recorded in v1 — "no word is added or dropped" — was false and
+  is withdrawn.** Long's resumptive pronoun is removed with the construction it
+  belongs to: **two words in all, "he" in each clause** ("nor he who has done this
+  act, **does he** suffer"; "nor he who has terminated this series at the proper
+  time, **has he** been ill dealt with"). No other word is added, dropped or
+  reordered beyond the fronting the repair requires, and the two commas that held
+  the resumptions open go with them. The repairs themselves are allowed at round
+  1; it was their stated reason that was checkable and wrong. "If
   it **cease** at its proper time" → "if it **ceases**" (the archaic subjunctive).
   "Useful to **the universal**" and "congruent with **the universal**" → "**the
   whole**" (glossary, Long's bare noun). "Not opposed to the **general interest**"
@@ -350,7 +402,11 @@ standing in accepted books** (III.9, VII.8, VII.24), which stay in
   "all". PG followed.
 - **XII.25** — "Thou art saved" → "you are saved". Long's colon kept.
 - **XII.26** — "Is a god and **is an efflux of** the Deity" → "is a god and
-  **flows out from** the divine": "efflux" is now a technical word for a discharge
+  **an outflow from** the divine" (**[v2, finding 26.1]**; v1 had "flows out
+  from", which turned the second of Long's two parallel predicate nominals into a
+  finite verb phrase and lost the parallel — "outflow" keeps his noun, is one word
+  for one word, and leaves the II.4 precedent untouched, since II.4 renders a
+  different sentence): "efflux" is now a technical word for a discharge
   of fluid or gas, and the accepted Book II already renders Long's same noun as a
   flowing ("what administrator of the universe your existence **flows from**",
   II.4). "The universal nature" and "the present time" are as the glossary has
@@ -365,9 +421,15 @@ standing in accepted books** (III.9, VII.8, VII.24), which stay in
   a place, Baiae is the Roman seaside resort that belongs in exactly this list of
   retreats beside Tiberius at Capreae, and a single-letter slip is the ordinary
   explanation. **Flagged below.** PG "Fabius **Catellinus**"; SE "**Catullinus**".
-  **PG kept** under D6 and the X.27 ruling on Latin name forms: both are possible
-  Roman cognomina, nothing in the sentence decides between them, and unlike Briae
-  neither is impossible. The names of Lucius Lupus, Stertinius, Tiberius and
+  **PG kept** under D6 and the X.27 ruling on Latin name forms. **[v2, finding
+  27.1] The reason is restated:** v1 said "nothing in the sentence decides between
+  them", which invites a later editor to reopen it as an oversight. Nothing in the
+  *sentence* does — but Catullinus is the form the standard editions carry and an
+  attested cognomen of the gens Fabia, and Catellinus is not attested. **The
+  departure threshold is what settles it**: the package departs from its base text
+  where the printed word names nothing (Briae) or makes the sentence say the
+  opposite of its argument (XII.29), and "Catellinus" meets neither — it is a
+  possible Latin formation and the sentence works with it. PG stands under D6. The names of Lucius Lupus, Stertinius, Tiberius and
   Velius Rufus stand as Long prints them.
 - **XII.28** — "Where **hast thou seen** the gods, or how **dost thou
   comprehend** … and so **worshippest** them" → "where **have you seen** … how
@@ -397,7 +459,16 @@ standing in accepted books** (III.9, VII.8, VII.24), which stay in
 - **XII.32** — "On what a small clod of the whole earth **thou creepest**" → "you
   **creep**". Long's exclamation marks kept where he has them.
 - **XII.33** — "The ruling **faculty**" → "the ruling **part**" (glossary).
-- **XII.34** — **Byte-identical to Long.**
+- **XII.34** — **[v2, finding 34.1] "Most adapted to move" → "best suited to
+  move".** v1 left the paragraph byte-identical to Long, and this was the one dead
+  usage among the five: "adapted to" in the sense *suited to* is no longer the
+  live sense, which is *altered to fit*, so a reader can take the sentence as
+  "this reflection has been most altered in order to move us" — not merely obscure
+  but wrong. It survived because the paragraph carried no thou-form to force a
+  second look. Two words for two; the rest of the sentence untouched. **The class
+  is wider than this book**: "adapted to" in the dead sense also stands at V.8,
+  VI.16 and X.11 in accepted books, and the decision is carried to the cross-book
+  pass rather than taken for XII.34 alone.
 - **XII.35** — "Acts **conformable to** right reason" → "acts **in accordance
   with** right reason" (the XII.1 rule for Long's non-nature "conformably").
   Cross-reference "(iii. 7; vi. 23; x. 20; xii. 23)" dropped, with a full stop
@@ -410,9 +481,19 @@ standing in accepted books** (III.9, VII.8, VII.24), which stay in
   finished the five acts, but only three of them"). "That which is **conformable
   to** the laws" → "**in accordance with** the laws". "**Thou sayest** well" →
   "**you say** well". "What **shall** be a complete drama" → "what **will** be"
-  (the "shall" rule). **Two capitalisations**: Long prints "? for that which is
-  conformable" and "? the same as if a praetor", lowercase after his question
-  marks; the candidate has "For" and "The same", which is the only change.
+  (the "shall" rule). **[v2, finding 36.1] Long's lowercase after both question marks is restored**:
+  the candidate reads "? **for** that which is in accordance with the laws" and
+  "? **the** same as if a praetor". v1 capitalised both and recorded that as "the
+  only change" in those two places. But lowercase after a question mark is Long's
+  settled habit and the package's settled practice — it stands twice in Book XII
+  itself (XII.15 "? and will the truth", XII.33 "? for all lies in this") and at
+  VIII.17, VIII.36, IX.40, X.1 ×2, X.24 ×5 and X.30 in the accepted books,
+  including three accepted instances of the very construction capitalised here, a
+  question mark followed by "for". Capitalising twice in the last paragraph of the
+  last book would have punctuated one construction two ways inside one book and
+  one way in every other, against Book IX's finding 7.1 (Long's uneven punctuation
+  is not normalised for evenness alone). **No capitalisation of Long's is now
+  changed anywhere in Book XII.**
   "Praetor" is kept as Long prints it, with the Latin name forms of X.27.
 
 ## Apparatus dropped or folded
@@ -470,37 +551,67 @@ staged original has it.
 
 - **Two of Long's commas before em dashes removed** (XII.3, XII.19), which is the
   practice of nine accepted books.
-- **One comma removed between a long subject and its verb** (XII.16, "he who
-  would not have the bad man do wrong**,** is like"). The X.6 / X.20 / X.33 /
-  XI.10 / XI.21 class.
+- **Two commas removed between a long subject and its verb** (**[v2, finding
+  2.1]**; v1's tally said one): XII.2, "he who regards not the poor flesh which
+  envelops him**,** surely will not trouble himself", and XII.16, "he who would
+  not have the bad man do wrong**,** is like". The X.6 / X.20 / X.33 / XI.10 /
+  XI.21 class.
 - **Two commas removed with the two resumptive constructions they held open**
   (XII.23; see the paragraph entry). Not stylistic removals: the commas exist only
   to support a resumptive pronoun that the repair removes.
-- **Five commas added**, each one required by a fold or by a real ambiguity, and
-  each listed at its paragraph: XII.1 ×1 (after "In accordance with piety",
-  making Long's two parallel sentences agree, as Standard Ebooks does), XII.15 ×2
-  (marking off the relative and the list before the verb), XII.16 ×1 (before the
-  folded "say"), XII.30 ×1 (before Long's elliptical second subject), XII.36 ×1
-  (the apposition fold). This is more than any earlier book, and every one is
-  recorded here rather than left to be found.
+- **Six commas added** (**[v2, findings 2.1 and 15.1]**; v1's tally said five and
+  was one short as well as one too many), each required by a fold or by a real
+  ambiguity and each listed at its paragraph: XII.1 ×1 (after "In accordance with
+  piety", making Long's two parallel sentences agree, as Standard Ebooks does),
+  XII.2 ×1 (before the last member of Long's polysyndetic list, unrecorded in v1),
+  XII.15 ×1 (marking off the long relative — v1 added two, and the second is
+  removed under finding 15.1), XII.16 ×1 (before the folded "say"), XII.30 ×1
+  (before Long's elliptical second subject), XII.36 ×1 (the apposition fold). This
+  is more than any earlier book, and every one is recorded here rather than left
+  to be found.
+- **Two of Long's own commas relocated**, both at XII.3, onto the word before,
+  because the bracket they followed is dropped under D11: "a little breath
+  [life]**,** intelligence" → "a little breath**,** intelligence", and "in the
+  breath [life]**,** which is by nature" → "in the breath**,** which is by
+  nature". Neither is an added comma and neither is a removed one; they are
+  recorded because a positional check sees them.
+- **How the tally is now asserted.** `../scripts/build_book12_v2.py` and the
+  `README.md` check block compare **comma positions** — the two paragraphs are
+  aligned word by word and the comma following each aligned pair is compared —
+  rather than net comma counts per paragraph, which is what let XII.2's swap pass
+  unseen in v1 (finding 2.1). Ten comma differences fall inside text otherwise
+  identical to Long and are enumerated in the script; the two remaining added
+  commas (XII.2's and XII.15's) lie inside spans whose wording was modernised,
+  cannot be aligned, and are enumerated separately with their source and candidate
+  forms.
 - **Six terminal marks supplied** where a dropped cross-reference carried the
   sentence's own punctuation — five full stops (XII.3, XII.12, XII.14, XII.21,
   XII.35) and one question mark (XII.19, where Long prints "(v. 11)?").
-- **Two capitalisations** at XII.36, after Long's own question marks.
+- **No capitalisation of Long's is changed** (**[v2, finding 36.1]**; v1
+  capitalised twice at XII.36 after Long's own question marks, and his lowercase is
+  restored in both places).
 - **No other punctuation of Long's is touched**, and his comma inside the XII.16
   dagger clause is kept.
 
-**No expansion.** The short meditations stay at Long's length, and **five
-paragraphs are byte-identical to Long** — XII.7, XII.10, XII.11, XII.13 and
-XII.34. The word ratio for the book is **0.984** (3,131 → 3,082), and the
+**No expansion.** The short meditations stay at Long's length, and **four
+paragraphs are byte-identical to Long** — XII.7, XII.10, XII.11 and XII.13.
+**[v2, finding 34.1]** XII.34 was the fifth; a byte-identical paragraph is a
+result and not a target, and the finding was right to take it. The word ratio for
+the book is **0.983** (3,131 → 3,078, v1 was 0.9844), and the
 shortfall is apparatus: the six cross-reference spans are 33 words between them,
 and the seven D11 brackets 15 more. The minimum paragraph ratio is **XII.12 at
 0.81**, whose entire difference is its nine-word cross-reference; then XII.35
-(0.90, a seven-word cross-reference) and XII.3 (0.95, a nine-word cross-reference
-and four dropped bracket-words in a 259-word meditation). Of the paragraphs that
-carry no apparatus at all, **none is below 0.96** — the lowest are XII.19 (0.96,
-which is its cross-reference) and XII.21 (0.96, likewise). The maximum is 1.05 at
-XII.20, where "inconsiderately" becomes three words.
+(0.90, a seven-word cross-reference) and XII.3 (**0.93** at v2, a nine-word
+cross-reference, four dropped bracket-words and the three words findings 1.1/3.2
+and 3.1 remove, in a 259-word meditation). **[v2, finding C2, and the figures recomputed against v2 rather than carried
+over.]** Of the paragraphs that carry no apparatus at all, **none is below 0.98**;
+the lowest is **XII.29 at 0.983**, whose entire difference is the base-text
+correction and the glossary row, then XII.5 and XII.4 (0.990) and XII.23 (0.991).
+XII.19 (0.96) and XII.21 (0.96) are the lowest paragraphs **whose only apparatus
+is a cross-reference** — v1's sheet named those two as the lowest carrying *no*
+apparatus, which contradicted itself in its own sentence and understated a claim
+that is true. The maximum is 1.04 at XII.20, where "inconsiderately" becomes
+three words.
 
 ## Nothing imported from other translations
 
@@ -585,10 +696,44 @@ blocking", because a reader collating the twelve books would find them):
   ("their several parts of the universe"), while Book XI rendered it "separate"
   at XI.2 and Book XII follows XI at XII.30. Same class, same disposition.
 
-## Decisions flagged for the reviewer
+## Decisions flagged for the reviewer — all ruled at round 1
 
-Five, each argued above and each open to an explicit ruling. Book XII is the last
-book, so a ruling here also closes the question for the package.
+**[v2] Every one of the five was ruled, the point offered for confirmation was
+confirmed, and the two points put with reasons were answered. Every substantive
+call stands; the only ruling that went against the draft is finding 4.1, which is
+a ruling on a rule and not an error.** The rulings, in the reviewer's order:
+
+1. **XII.27 "Baiae" and XII.29 "what" — both confirmed**, each on its own
+   evidence, neither leaning on the other or on Standard Ebooks (which only
+   corroborates). XII.29 is "the stronger evidence of the two". **The number of
+   departures in a book is a symptom, not a standard.**
+2. **XII.3's "[to the god that is within thee]" under D11 — route and outcome
+   confirmed.** The VII.17 alternative is declined: VII.13 and VII.17 keep Long's
+   Greek because those meditations *are* arguments about the Greek words, and
+   XII.3 contains no such argument. The circularity worry is answerable — the
+   glossary row cites XII.3 as evidence of Long's own understanding of the word,
+   which is what makes "the god within" his rendering rather than an editorial
+   choice.
+3. **XII.17's "[For let thy efforts be—]" as a mark of textual doubt —
+   confirmed**, and D13's own Book XI amendment ("voice and subject, **not
+   length**") supports extending the class from a word to a clause. **The ledger's
+   D13 row is widened at acceptance to "a word or a clause", naming XI.26 and
+   XII.17** (finding C3).
+4. **XII.4's "shall" beside "will" — ruled for "will" in both** (finding 4.1);
+   applied at v2.
+5. **XII.27's "[or Rufus at Velia]" under D11 — confirmed.** D11 reaches an
+   alternative *construal*: Long's own "or" is inside the bracket, and unlike the
+   XI.26 / XII.17 class the words cannot stand as text once the mark is removed.
+6. **"Pancratiast" at XII.9 — confirmed.**
+7. **XII.23's two resumptive repairs — allowed**, with finding 23.1 correcting
+   their stated ground.
+8. **The added commas — four of the five earned**, XII.15's second not (finding
+   15.1), and there are six, not five (finding 2.1).
+9. **D13 fires nowhere in Book XII — agreed**, tested bracket by bracket against
+   the row's own voice-and-subject test. X.23 remains D13's only instance in the
+   work.
+
+The five as they were put, for the record:
 
 1. **XII.27's "Baiae" for PG's "Briae", and XII.29's "what" for PG's "that" —
    two departures from PG's letters in one book.** Every earlier book had at most

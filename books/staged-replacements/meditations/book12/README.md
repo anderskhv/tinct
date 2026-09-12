@@ -1,12 +1,31 @@
-# Meditations, Book XII — package (frozen for independent review)
+# Meditations, Book XII — package (accepted as candidate v2)
 
-Steps 1–3 of `../WORKFLOW.md` are done for Book XII. `candidate-v1.json`
-(sha256 `8665adc8…`) is **frozen**; corrections from the review will go to
-`candidate-v2.json`, never to v1. Step 4 (independent review) is the
-coordinator's reviewer session, not this agent.
+All eight steps of `../WORKFLOW.md` are done for Book XII. The accepted text is
+`candidate-v2.json` (sha256 `8510a04f…`), see `ACCEPTANCE.md`.
+`candidate-v1.json` (sha256 `8665adc8…`) stays **frozen** and was never edited.
+Step 4 (independent review) was the coordinator's reviewer session, not this
+agent; its findings are under `review/`: *Accept after corrections*, **0
+substantive**, **11 minor** (1.1, 2.1, 3.2, 4.1, 5.1, 15.1, 23.1, 34.1, 36.1 and
+the chapter-level C1, C2) and **6 optional** (3.1, 14.1, 18.1, 26.1, 27.1, C3),
+every one of the 36 paragraphs covered exactly once. "Nothing is missing, nothing
+is added, nothing is softened, nothing is expanded, nothing is imported, and the
+last meditation carries no valedictory colour that Long does not have."
+**All eleven minor findings are applied, and all six optional findings are
+answered and applied** — three to the text (3.1, 18.1, 26.1) and three to the
+record (14.1, 27.1, C3), so none is declined. **All five flagged decisions, the
+point offered for confirmation and the two points put with reasons were ruled on,
+and every substantive call stands** — "Baiae" and "what" both confirmed on their
+own evidence, XII.3's D11 route confirmed, XII.17's whole-clause textual-doubt
+application confirmed (and **D13's sentence widened at acceptance to "a word or a
+clause"**, finding C3), XII.27's "[or Rufus at Velia]" confirmed under D11,
+"pancratiast" confirmed, XII.23's repairs allowed, D13 confirmed to fire nowhere
+in the book, and the XII.12 stray "18" confirmed never to reach the candidate.
+The one ruling against the draft is **4.1**, which rules a rule rather than
+correcting an error: XII.4 now reads "will" in both halves of its comparison, so
+the candidate keeps **none** of Long's ten "shall / shalt".
 
 **Book XII is the last book of the Meditations and the last book of this
-package.** Eleven books are accepted before it.
+package. With its acceptance, twelve of twelve are accepted.**
 
 Step 1 verified the source and **did not rebuild** the staged original. The
 check was **not** a re-run of the build script; the reconstruction's own **rules**
@@ -60,7 +79,7 @@ worded as it is.** PG 6886 is the second half of footnote [A]'s body and is
 indented **nine** spaces, not four. The Book XI reviewer's own alternative rule
 — "classify maximal indented runs by indentation and drop the **four-space**
 runs" — would have kept it and leaked `[Greek: Sphairos kykloteres monie
-perigethei gaion.]` into the body of XII.3. The rule used here drops every run
+perigethei gaion.]` into **XII.4** (corrected from "XII.3" at Book XII acceptance, finding C1: the round-1 reviewer implemented the alternative rule and ran it, and the block at PG 6886 stands between the end of XII.4 at PG 6881 and the start of XII.5 at PG 6890). The rule used here drops every run
 indented four **or more** and then checks each such run by content. **A number
 taken from one book does not transfer to the next; the shape of the rule does.**
 
@@ -197,6 +216,71 @@ PY
 Expected: `8665adc8…` (candidate v1, frozen), `1e7a003b…` (source-book12.json)
 and `7798607d…` (the staged original, unchanged at Book XII step 1).
 
+**The accepted v2, and the ten round-1 substitutions.** Note that the punctuation
+assertion above compares *net* comma counts per paragraph and so cannot see a
+paragraph that removes one comma and adds another — Book XII has one, XII.2
+(finding 2.1). The block below compares comma **positions** instead, which is the
+check `../scripts/build_book12_v2.py` now runs.
+
+```bash
+cd books/staged-replacements/meditations
+python3 - <<'PY'
+import json, hashlib, re, difflib
+src=json.load(open('book12/source-book12.json'))['paragraphs']
+v1=json.load(open('book12/candidate-v1.json'))['paragraphs']
+p2=json.load(open('book12/candidate-v2.json'))['paragraphs']
+assert len(p2)==36 and all(p.startswith(f'{i+1}. ') for i,p in enumerate(p2))
+md2=open('book12/candidate-v2-readable.md').read(); assert all(p in md2 for p in p2)
+assert [i+1 for i,(a,b) in enumerate(zip(v1,p2)) if a!=b]==[3,4,5,15,18,26,34,36]
+assert 'the vortex that flows round from outside' in p2[2]          # 3.1
+assert 'if you separate, I say, from this ruling part' in p2[2]     # 1.1 / 3.2
+assert "and make yourself like Empedocles' sphere" in p2[2]
+assert 'than for what we will think of ourselves' in p2[3]          # 4.1
+assert 'you see for yourself that in this inquiry' in p2[4]         # 5.1
+assert 'and justice and temperance be extinguished' in p2[14]       # 15.1
+assert 'into the form, the matter, the purpose, and the time' in p2[17]   # 18.1
+assert 'is a god and an outflow from the divine' in p2[25]          # 26.1
+assert 'is best suited to move us to contempt of death' in p2[33]   # 34.1
+assert 'or three? for that which is in accordance' in p2[35]        # 36.1
+assert 'into it? the same as if a praetor' in p2[35]
+for gone in ('flows round you from outside','if you will separate','and will make yourself',
+             'we shall think','see even of yourself','and temperance, be extinguished',
+             'into its form','flows out from the divine','most adapted','? For that','? The same'):
+    assert not any(gone in p for p in p2), gone
+# v2 keeps every v1 invariant; and after finding 4.1 the candidate keeps NO "shall"
+assert not any('[' in p for p in p2)
+assert not any(re.search(r'\((?:i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii)\. ',p) for p in p2)
+assert [i+1 for i,p in enumerate(p2) if re.search(r'\bshall\b',p,re.I)]==[]
+assert not any(re.search(r'\b(thou|thy|thee|thyself|shalt|hast|dost|wilt|wast|thine)\b',p) for p in p2)
+assert [i+1 for i,(a,b) in enumerate(zip(src,p2)) if a==b]==[7,10,11,13]   # XII.34 no longer
+assert 'If then you are irritable, cure this man' in p2[15]                # the dagger clause
+assert 'For let your efforts be—' in p2[16]                                # XII.17 stands
+assert 'Stertinius at Baiae' in p2[26] and 'what is its matter' in p2[28]
+# PUNCTUATION BY POSITION (finding 2.1): align word by word, compare the comma
+# that follows each aligned pair. Ten differences, all enumerated.
+def ct(t):
+    return [(w.rstrip().rstrip(',').rstrip(), w.rstrip().endswith(',') or w.rstrip().endswith(',—'))
+            for w in t.split()]
+diff=[]
+for i,(s_,c_) in enumerate(zip(src,p2)):
+    st,cc=ct(s_),ct(c_)
+    sm=difflib.SequenceMatcher(a=[w for w,_ in st],b=[w for w,_ in cc],autojunk=False)
+    for i1,j1,n in sm.get_matching_blocks():
+        diff+=[(i+1,'removed' if st[i1+k][1] else 'added',st[i1+k][0])
+               for k in range(n) if st[i1+k][1]!=cc[j1+k][1]]
+assert diff==[(1,'added','piety'),(2,'removed','him'),(3,'added','breath'),(3,'added','breath'),
+              (16,'added','wrong'),(16,'removed','wrong'),(23,'removed','act'),
+              (23,'removed','time'),(30,'added','together'),(36,'added','state')], diff
+# the two added commas inside modernised wording, enumerated separately
+assert 'the truth which is in thee and justice' in src[14] and 'the truth which is in you, and justice' in p2[14]
+assert 'and such like externals and show' in src[1] and 'and externals of that kind, and show' in p2[1]
+assert sum(p.count(',—') for p in src)==2 and sum(p.count(',—') for p in p2)==0
+print('OK v2'); print(hashlib.sha256(open('book12/candidate-v2.json','rb').read()).hexdigest())
+PY
+```
+
+Expected: `OK v2` and `8510a04f…`.
+
 The step-1 source check is reproducible on its own, and prints its rule audit
 before its diff:
 
@@ -213,16 +297,7 @@ dagger mark.
 
 ## Next action
 
-**Waiting on the coordinator: an independent review of Book XII.** Findings go
-under `book12/review/`. Five decisions are flagged there for an explicit ruling
-(the two departures from PG's letters at XII.27 and XII.29; XII.3's "[to the god
-that is within thee]" dropped under D11 where the bracket is the glossary row's
-own wording; XII.17's "[For let thy efforts be—]" treated as a mark of textual
-doubt, the first application of the XI.26 class to a whole clause; XII.4's
-"shall" standing beside "will" in one comparison; XII.27's "[or Rufus at Velia]"
-dropped under D11 as an alternative *construal*) and one is offered for
-confirmation ("pancratiast" kept untranslated at XII.9). Two further points are
-put to the reviewer with reasons: XII.23's two resumptive repairs, and the five
-added commas. The reviewer is also asked, **because this is the last book**, to
-say what a cross-book pass over all twelve would still owe. This agent does not
-review its own draft.
+**None for Book XII: it is accepted** (`ACCEPTANCE.md`), and it is the last book
+of the work. **Twelve of twelve are accepted.** What follows the twelfth
+acceptance is the whole-work pass — recorded in `../README.md` as the package's
+completion record, and in `../00-progress-ledger.md` under "Next".
