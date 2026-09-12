@@ -327,6 +327,64 @@ Kept current at every push.
   adjacent modifier with it. It is one rendering with two modifiers, not two
   renderings, and no row of that shape should be read as a collision.
 
+- 2026-09-12 — **Book 6 is ACCEPTED at `candidate-v2.json`**, sha256
+  `0e435458f6c30384415559af86b49ee01c402308bd9d36fdfea5462887bde2be`.
+  `book06/ACCEPTANCE.md`. Round 1's verdict *accept after corrections* answered
+  in full: 14 substitutions in 10 of 26 paragraphs by
+  `scripts/build_book06_v2.py`, **every minor finding applied**, 3 declined and
+  asserted still present, **2 optional findings settled as rules** with no
+  change to the text (**O-3**, the inversion rule; **O-4**, the `conduct`
+  family), one flow-read change. Retention **0.93669 → 0.93408**, MOVE-GAP
+  **0.00925 → 0.01156**, displaced runs **1 → 2**, NORM RATE **+6.3% → +7.0%**,
+  raw rate unchanged at +27.6%, semicolons 27 → 5. **The honest numbers moved
+  and the headline did not**, which is the whole of what the round was about.
+  The flow read's **F-1** is the package's cleanest demonstration of **D20**:
+  putting one of Butler's semicolons back moved the raw rate from +28.4% to
+  +27.6% and left NORM RATE at **+7.0% to the decimal**.
+
+- 2026-09-12 — **Book 7 drafted and frozen at `candidate-v1.json`**, sha256
+  `bf8cf2f76f4670daab55daf1da265ba7b1839c0cd6680e3c5691fac8d382dc33`. 29
+  paragraphs, 3347 → 3365 words, ratio 1.00538. Retention **0.93943**, MOVE-GAP
+  **0.01277**, displaced runs 1, sentences **103 → 129 (+25.2% raw)**, **NORM
+  RATE +7.5%**, sixty-word **7 → 0 (100% broken)**, semicolons **30 → 14**.
+  10 packets; `README.md`, `continuity.md`, `provenance.json`,
+  `review-instructions.md` and **`checks-v1.md`** written. **Not
+  self-reviewed.**
+
+  **It is the first candidate in the package that anything gated, and the gates
+  fired twice while it was being drafted.** (i) The **D20** aligned growth gate
+  caught a sentence grown from 51 to 52 words at B07-P021 — a growth the
+  maximum-against-maximum form could not have seen, because the paragraph's
+  maximum did not move. (ii) B07-P024 came out **byte-identical to Butler**.
+  Both repaired rather than declared. Two sixty-word sentences that **passed**
+  the D17 survival gate at 7 → 2 were divided anyway, which took the census to
+  **7 → 0**.
+
+  **And `scripts/rendering_collisions.py` was run during drafting rather than
+  after it**, which is the first time in the package that the collision class
+  has been caught before a reviewer had to find it. Seven repaired before the
+  freeze: `comely`, `midst`, `councilors`, `converse`, `depart`, Butler's own
+  `dwells` flattened into `lives` in a paragraph carrying both, and `filling`
+  for his `due replenishing` against accepted B04-P016's own `filling`. Four
+  kept and handed to the reviewer as question 2.
+
+- 2026-09-12 — **A TENTH kind of source rule**, `scripts/verify_source_book7.py`
+  — **PG #1727 as a published artefact**: the transcriber's hard wrapping,
+  measured as **line counts**. Twenty-nine integers locate the chapter and the
+  locating clause reads **no character of Butler's at all**, which none of the
+  nine earlier rules can say — the ninth destroys every letter but still reads
+  his punctuation and his word lengths. The premise (the served file preserves
+  PG's line breaks inside its paragraph strings) is asserted as clause 0.
+  Signature unique in 1 382 blocks; second-best **reported, not bounded**, at 4
+  blocks; verdict is the **pair** (occurrences, last recovered block); and
+  clause 4 uses **Butler's footnote numbering as an ordinal index** — the span
+  carries 57 … 64, contiguous and ascending, so the apparatus agrees the span is
+  one piece. **The audit failed the rule three times**: a block splitter that
+  kept stray newlines and made the signature occur **zero** times, *reported as
+  a count*; a clause-2 exclusion so narrow that the chapter matched **itself**
+  one block along and the rule announced 28 as its second-best; and a control
+  whose "re-wrap" changed no line count at all.
+
 ## The comparability table — one table, every basis stated (R-1)
 
 **This is the package's only cross-Book instrument, and until 2026-09-12 it was
@@ -355,6 +413,7 @@ accepted files, and every row carries its basis. Nothing here is typed by hand.
 | 5 v1 *(superseded)* | `candidate-v1` | **all 37 paragraphs** | 0.94211 | 153 → 189 | +23.5% | 9 → 3 | 34 → 12 | +7.5% | 0.00721 |
 | **6 v2 (accepted)** | `candidate-v2` | **all 26 paragraphs** | **0.93408** | **116 → 148** | **+27.6%** | **7 → 1** | **27 → 5** | **+7.0%** | **0.01156** |
 | 6 v1 *(superseded)* | `candidate-v1` | **all 26 paragraphs** | 0.93669 | 116 → 148 | +27.6% | 7 → 1 | 27 → 4 | +6.3% | 0.00925 |
+| **7 v1 (frozen draft)** | `candidate-v1` | **all 29 paragraphs** | **0.93943** | **103 → 129** | **+25.2%** | **7 → 0** | **30 → 14** | **+7.5%** | **0.01277** |
 
 **Three further corrections the recomputation surfaced, all in the same class
 as R-1 and none of them previously stated.**
@@ -508,6 +567,15 @@ against Butler's (**D19**). Every control under **D18**; run
 
 - **A4. A fifth successor, and a new dependency — both raised by Book 6's
   round 1.**
+  **(i) is DONE 2026-09-12** — `book04/candidate-v4.json`, sha256
+  `3b88a4da182eccc7f673e392e125295aef05b584c1cc592d405470d5ee86bf95`, built by
+  `scripts/build_fifth_successor.py` from `candidate-v3.json`, with
+  `book04/candidate-v2.json` asserted **byte-unchanged** across the build and
+  arrow B asserted silent afterwards. Book 6 was not changed to match the
+  defect. **(ii) and (iii) remain for Anders**, and (ii) is the one that needs a
+  decision: a vendored English word list is a **new external dependency**. The
+  interim head-noun filter is built and runs in every `checks.py` report.
+  The original text of (i), kept:
   (i) **Accepted Book 4 carries a rendering collision.** B04-P010 renders
   Butler's `doubted whether` as `was in two minds`, which is Butler's *own
   other phrase*, one paragraph before his real `in two minds` at B04-P011 is

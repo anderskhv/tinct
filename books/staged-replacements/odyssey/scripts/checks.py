@@ -383,6 +383,7 @@ ACCEPTED = {
     4: ("book04/source-book4.json", "book04/candidate-v2.json",
         "book04/candidate-v4.json"),
     5: ("book05/source-book5.json", "book05/candidate-v2.json", None),
+    6: ("book06/source-book6.json", "book06/candidate-v2.json", None),
 }
 
 # Every figure the package publishes for an accepted Book, on that Book's own
@@ -401,6 +402,8 @@ PUBLISHED = {
             norm=+2.0, movegap=0.00431),
     5: dict(retention=0.93808, sent=(153, 189), sixty=(9, 1), semi=(34, 13),
             norm=+8.0, movegap=0.00891),
+    6: dict(retention=0.93408, sent=(116, 148), sixty=(7, 1), semi=(27, 5),
+            norm=+7.0, movegap=0.01156),
 }
 
 
