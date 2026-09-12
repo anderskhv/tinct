@@ -1,5 +1,6 @@
 import { useLayoutEffect, useRef } from 'react'
 import { tokenizeHearingWords, type ChapterHearingPage, type ChapterPageSegment } from './labHearing'
+import { labMeasureParagraphInto } from './labMeasureParagraph'
 
 /** Proportional word boundaries preserve all of each aligned paragraph, even
  * when the two editions have different lengths. No translated words are lost. */
@@ -80,9 +81,12 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
             const p = document.createElement('p')
             p.className = 'lab-hearing-line'
             // The measured and visible desktop pages both use ordinary word
-            // wrapping without hyphenation. Text nodes retain exact spacing.
-            p.textContent = (words[segment.paragraphIndex] || []).slice(segment.from, segment.to).map(w => w.text).join(' ')
-            return p
+            // wrapping without hyphenation, and both carry the painted word
+            // markup. A plain-text probe measured a verse number as full-size
+            // body digits in a strut-height line; painted it is a small
+            // superscript inside a taller inline-block, so pages were packed
+            // against a line box that was the wrong width and the wrong height.
+            return labMeasureParagraphInto(p, (words[segment.paragraphIndex] || []).slice(segment.from, segment.to))
           }
           const pages = measuredDesktopPages(source.map(words => words.length), (segments, first) => {
             header.hidden = !first
