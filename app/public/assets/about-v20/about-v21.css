@@ -241,10 +241,10 @@ mark.ask-mark,span.ask-mark{color:inherit;background-color:rgba(255,226,120,var(
    and the five demonstrations). The chapter runs 2460svh instead of 2100, and the beat boundaries in
    the story chunk (the n array in the beat-order patch) are respaced so every other beat keeps the
    scroll distance it has: bridge 105svh -> 240, brand 168, talk 294 -> 520, language 294, character
-   294, recap 336, audio 609 -> 608. Inside the talk beat the page-turn and the answer now arrive at
-   the fractions that keep their old absolute position (reveal .34-.53 -> .17-.30, answer .52-.64 ->
-   .29-.38, both scoped to that beat), so the added distance goes to the answer standing still and
-   readable rather than to a longer wait before it. */
+   294, recap 336, audio 609 -> 608. Inside the talk beat the panel and the spoken answer now arrive at
+   the fractions that keep their old absolute position (panel .34-.53 -> .17-.30, answer at .64 -> .42,
+   both in the story chunk), so the added distance goes to the answer standing still and readable
+   rather than to a longer wait before it. */
 .story-root[data-bookshelf=true] .journey-steps #chapter-introducing{height:2460svh;min-height:2460svh}
 
 /* 3. "Is this really what we want? / …or": its own chapter, 240svh instead of 120. "…or" used to arrive

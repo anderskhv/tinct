@@ -92,11 +92,15 @@ const edits = [
   // chapter grows 2100svh -> 2460 (about-v21.css) and these boundaries hand the whole 360svh to those two:
   // bridge 105 -> 240, brand 168, talk 294 -> 520, language 294, character 294, recap 336, audio 609 -> 608.
   ['story', 'beat order', 'n=[0,.06,.2,.34,.48,.64,.92,1],r=[-1,2,1,3,0,4,5]', 'n=[0,.09756,.16585,.37724,.49675,.61626,.75285,1],r=[-1,5,2,1,3,0,4]', 1],
-  // Inside the talk beat only (Bv; the overview borrows index 2 and must keep its own timing), the page turn
-  // and the answer arrive where they do today in absolute scroll, so the beat's extra distance is spent with
-  // the answer standing still and readable instead of on a longer wait before it.
-  ['story', 'talk beat arrivals', 'u=n.progress,d=Q(u,.34,.53),f=t?0:Q(u,.94,1),p=Q(u,.52,.64)*(1-f),',
-    'u=n.progress,Bv=!t&&n.index===2,d=Q(u,Bv?.17:.34,Bv?.3:.53),f=t?0:Q(u,.94,1),p=Q(u,Bv?.29:.52,Bv?.38:.64)*(1-f),', 1, 'Bv=!t&&n.index===2'],
+  // Inside the talk beat the panel arrives on --reveal (d) and the spoken answer on a hard u>=.64. Both are
+  // respaced for the longer beat so they keep roughly the absolute scroll position they have today and the
+  // added distance is spent with the answer standing still and readable. The panel's d is shared with the
+  // edition gesture of the language beat and with the overview (which borrows index 2), so the new window is
+  // scoped to this beat with Bv; the answer's threshold already sits inside the index-2 branch.
+  ['story', 'talk panel arrival', 'u=n.progress,d=Q(u,.34,.53),f=t?0:Q(u,.94,1),',
+    'u=n.progress,Bv=!t&&n.index===2,d=Q(u,Bv?.17:.34,Bv?.3:.53),f=t?0:Q(u,.94,1),', 1, 'Bv=!t&&n.index===2'],
+  ['story', 'talk answer arrival', '(0,_.jsx)(`h3`,{children:a?`Tinct`:u<.64?`Listening.`:`Speaking.`}),(0,_.jsx)(`p`,{style:{opacity:a||u>=.64?1:0}',
+    '(0,_.jsx)(`h3`,{children:a?`Tinct`:u<.42?`Listening.`:`Speaking.`}),(0,_.jsx)(`p`,{style:{opacity:a||u>=.42?1:0}', 1],
   // Narrow screens skip the audio scene's book opening and start at the car.
   // The audio scene fades in over the first part of its beat instead of cutting from the dark recap.
   ['story', 'audio fades in', '!t&&n.index===4?(0,_.jsx)(eo,{progress:Math.min(1,u/.88)})', '!t&&n.index===4?(0,_.jsx)(eo,{progress:Math.min(1,u/.88),fade:Q(u,0,.12)})', 1],
