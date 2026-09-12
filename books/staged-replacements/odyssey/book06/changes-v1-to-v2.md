@@ -26,6 +26,22 @@ string is asserted to occur exactly once in its paragraph, and every
 | 13 | B06-P011 | O-2 — the repeated `voices` removed, in Butler's own form | `they sound like the voices of the nymphs that haunt mountain tops` | `they sound like those of the nymphs that haunt mountain tops` |
 | 14 | B06-P024 | O-5 — `plied` restored | `so she used her whip with judgment` | `so she plied her whip with judgment` |
 
+## The flow read (step 7)
+
+One change, and it is the one no measure in the package can see —
+blind spot 1 of round 1 §9, *a sentence divided at the wrong seam*.
+
+| # | paragraph | finding | from | to |
+|---|---|---|---|---|
+| 1 | B06-P018 | F-1 (flow read) — the division taken back to Butler's semicolon: it left two consecutive sentences opening `Then` in a paragraph that already opens on `Then` | `and the girl gazed at him in admiration. Then she said to her maids:` | `and the girl gazed at him in admiration; then she said to her maids:` |
+
+Taking this one division back moves the raw D17 rate from
+**+28.4% to +27.6%** and leaves **NORM RATE at +7.0%, unchanged to
+the decimal**. A period turned back into a semicolon is worth zero
+on the normalized denominator and 0.8 points of headline on the raw
+one. It is the cleanest demonstration in the package of why **D20**
+exists.
+
 ## Findings not applied, and why
 
 Each is asserted **still present** in the built file, so a decline

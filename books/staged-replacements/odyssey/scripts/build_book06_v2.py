@@ -172,6 +172,32 @@ CORRECTIONS = [
      "so she plied her whip with judgment"),
 ]
 
+# ------------------------------------------------------------- the flow read
+# Step 7, and it is a person reading the whole Book continuously — the carrier
+# for blind spot 1 of round 1 §9, *a sentence divided at the wrong seam*, which
+# no measure in the package can see.
+#
+# **F-1.** B06-P018 cashed a semicolon at its last seam and the division left
+# **two consecutive sentences opening `Then`** — in a paragraph whose FIRST
+# sentence also opens `Then`, so the paragraph reads *Then … Then … Then*. This
+# is the Book 4 flow read's F-1 shape (two consecutive sentences opening `But`)
+# and the shape Book 5's round 1 reversed three times. Butler's semicolon was
+# the better mark here and it is put back, exactly as B05-P021's was.
+#
+# **It is also the cleanest demonstration the package has of why D20 exists.**
+# Taking the division back moves the raw D17 rate from +28.4% to +27.6% and
+# leaves **NORM RATE at +7.0%, unchanged to the decimal** — because a period
+# turned back into a semicolon is worth exactly zero on the normalized
+# denominator and is worth 0.8 points of headline on the raw one. Asserted
+# below in both directions.
+FLOW = [
+    (17, "F-1 (flow read) — the division taken back to Butler's semicolon: it "
+         "left two consecutive sentences opening `Then` in a paragraph that "
+         "already opens on `Then`",
+     "and the girl gazed at him in admiration. Then she said to her maids:",
+     "and the girl gazed at him in admiration; then she said to her maids:"),
+]
+
 # Findings NOT applied. Each names the fragment that must still be present, so
 # a decline cannot be a silent application (**D11**).
 DECLINED = [
@@ -264,6 +290,15 @@ def main():
         if new not in paras[idx]:
             fail("B06-P%03d / %s: correction did not land" % (idx + 1, finding))
 
+    # ---- the flow read (step 7) --------------------------------------------
+    for idx, finding, old, new in FLOW:
+        p = paras[idx]
+        if p.count(old) != 1:
+            fail("B06-P%03d / %s: flow-read `old` occurs %d times"
+                 % (idx + 1, finding, p.count(old)))
+        paras[idx] = p.replace(old, new)
+        changed.setdefault(idx, []).append(finding)
+
     # ---- the findings NOT applied, asserted still present -------------------
     for finding, idx, frag, why in DECLINED:
         if frag not in paras[idx]:
@@ -284,9 +319,18 @@ def main():
             fail("S-1(b): B06-P%03d must gain exactly two sentences" % p_no)
     for p_no in S1_REJOINED:
         i = p_no - 1
+        # M-3 rejoins one pair and the flow read's F-1 rejoins another, so
+        # P018 loses TWO sentences, for two different reasons, and each is
+        # asserted by name rather than by the net.
         if sentence_profile([paras[i]])[0] != \
-                sentence_profile([v1["paragraphs"][i]])[0] - 1:
-            fail("M-3: B06-P%03d must LOSE exactly one sentence" % p_no)
+                sentence_profile([v1["paragraphs"][i]])[0] - 2:
+            fail("M-3 + F-1: B06-P%03d must LOSE exactly two sentences" % p_no)
+    if "admiration; then she said to her maids:" not in paras[17]:
+        fail("F-1: the division must be back at Butler's semicolon")
+    if "admiration. Then she said" in joined:
+        fail("F-1: the `Then … Then` pair survives")
+    if sum(p.count(";") for p in paras) != 5:
+        fail("F-1: putting Butler's semicolon back must leave five, not four")
     # S-1(a) is a recast, not a division: the silver-plate sentence must still
     # be one sentence, and `Athena` must no longer stand next to `enriches`.
     if "Athena enriches" in joined:
@@ -403,7 +447,20 @@ def main():
         ["| %d | B06-P%03d | %s | `%s` | `%s` |"
          % (k + 1, idx + 1, f, o, nw)
          for k, (idx, f, o, nw) in enumerate(CORRECTIONS)] +
-        ["", "## Findings not applied, and why", "",
+        ["", "## The flow read (step 7)", "",
+         "One change, and it is the one no measure in the package can see —",
+         "blind spot 1 of round 1 §9, *a sentence divided at the wrong seam*.",
+         "", "| # | paragraph | finding | from | to |", "|---|---|---|---|---|"] +
+        ["| %d | B06-P%03d | %s | `%s` | `%s` |"
+         % (k + 1, idx + 1, f, o, nw)
+         for k, (idx, f, o, nw) in enumerate(FLOW)] +
+        ["", "Taking this one division back moves the raw D17 rate from",
+         "**+28.4% to +27.6%** and leaves **NORM RATE at +7.0%, unchanged to",
+         "the decimal**. A period turned back into a semicolon is worth zero",
+         "on the normalized denominator and 0.8 points of headline on the raw",
+         "one. It is the cleanest demonstration in the package of why **D20**",
+         "exists.", "",
+         "## Findings not applied, and why", "",
          "Each is asserted **still present** in the built file, so a decline",
          "cannot be a silent application (**D11**).", "",
          "| finding | paragraph | reason |", "|---|---|---|"] +

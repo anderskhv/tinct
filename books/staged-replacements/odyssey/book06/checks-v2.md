@@ -6,7 +6,7 @@ executed for a new Book by anything in the repository** — substantive
 finding **S-2** of `book06/review/findings-v1.md`. Every figure below
 is reproducible by running `python3 scripts/checks.py 6`.
 
-**Subject:** `book06/candidate-v2.json`, sha256 `80e543df727d441f9ac6c6a37d504ee389bd1a0c80e17b322a2a7388617c0dea`.
+**Subject:** `book06/candidate-v2.json`, sha256 `0e435458f6c30384415559af86b49ee01c402308bd9d36fdfea5462887bde2be`.
 
 **Basis — records finding R-1.** all 26 paragraphs. A figure without the paragraph
 set it is computed over is not a figure, and the package published
@@ -27,14 +27,14 @@ one for three Books.
 | order retention (per paragraph, for MOVE-GAP) | 0.93408 |
 | bag retention (order-blind) | 0.94565 |
 | **MOVE-GAP** (bag − order), D20 | **0.01156** |
-| sentences, source → candidate | 116 → 149 |
-| **splitting rate** (D17, raw) | **+28.4%** |
+| sentences, source → candidate | 116 → 148 |
+| **splitting rate** (D17, raw) | **+27.6%** |
 | semicolon-normalized sentences | 143 → 153 |
 | **NORM RATE** (D20) | **+7.0%** |
 | sixty-word sentences | 7 → 1 (86% broken) |
-| **semicolons, Butler → candidate** (D19) | **27 → 4** |
+| **semicolons, Butler → candidate** (D19) | **27 → 5** |
 
-Of the +33 sentences added, at most **23** are a semicolon
+Of the +32 sentences added, at most **22** are a semicolon
 rewritten as a period — the operation that adds a sentence, moves no
 clause, drops no word and costs no retention. That is what NORM RATE
 prices out, and why **D19 is a rate and not a count** (D20).
@@ -49,7 +49,7 @@ prices out, and why **D19 is a rate and not a count** (D20).
 | Book 3 *(all 38)* | all 38 paragraphs (B03-P038 included) | 0.86053 | 176 → 174 | -1.1% | 9 → 6 | 41 → 32 | -5.1% | 0.02065 |
 | Book 4 | all 81 paragraphs | 0.95872 | 281 → 306 | +8.9% | 17 → 3 | 68 → 50 | +2.0% | 0.00431 |
 | Book 5 | all 37 paragraphs | 0.93808 | 153 → 189 | +23.5% | 9 → 1 | 34 → 13 | +8.0% | 0.00891 |
-| Book 6 v2 | all 26 paragraphs | 0.93408 | 116 → 149 | +28.4% | 7 → 1 | 27 → 4 | +7.0% | 0.01156 |
+| Book 6 v2 | all 26 paragraphs | 0.93408 | 116 → 148 | +27.6% | 7 → 1 | 27 → 5 | +7.0% | 0.01156 |
 
 Book 3's row is the reason this column exists. Its published figures
 are computed on **37 of its 38 paragraphs** — B03-P038, the **D14**
@@ -62,7 +62,7 @@ vacuous. The exclusion is right; its silence was not.
 
 Floor **+2.7%**, half accepted Book 3's +5.5% — computed from
 the accepted files on each Book's own basis, never re-pasted from
-prose. This candidate: **+28.4%**. Sixty-word survival gate:
+prose. This candidate: **+27.6%**. Sixty-word survival gate:
 1 of 7 survive, and the gate fails above 5.25.
 
 ## 5. The growth gate, aligned sentence to sentence (D20)

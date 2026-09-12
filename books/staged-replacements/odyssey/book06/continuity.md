@@ -317,8 +317,18 @@ the set phrase.
 
 ## 10. The splitting rate and the semicolon count (D17, D19)
 
-**116 → 148 sentences (+27.6%), and six of Butler's seven sixty-word periods
-are broken. Butler's 27 semicolons become 4.**
+**v1: 116 → 148 sentences (+27.6%), six of Butler's seven sixty-word periods
+broken, Butler's 27 semicolons become 4. Accepted v2: 116 → 148 (+27.6%), 7 → 1,
+semicolons 27 → 5** — the flow read put one of Butler's back (`flow-read.md`,
+F-1). **Basis: all 26 paragraphs** (records finding **R-1**: a rate without its
+paragraph set is not a rate).
+
+**And the number that matters beside them is the NORM RATE, not the raw rate**
+(**D20**): **+6.3%** for v1 and **+7.0%** for v2. Adding each text's own
+semicolon count to its own sentence count on both sides makes a semicolon and a
+period score the same, so converting one into the other is worth exactly zero.
+F-1 is the demonstration: taking one division back moved the raw rate from
++28.4% to +27.6% and left NORM RATE at +7.0% to the decimal.
 
 The two numbers must be read together, and **D19 exists because of Book 5's
 S-1**: a semicolon rewritten as a period adds a sentence, moves no clause,
@@ -326,13 +336,46 @@ drops no word and costs no retention, so it scores at full value on both of
 D17's axes while leaving the architecture exactly as Butler built it. **23 of
 this Book's 32 added sentences are at most that operation.**
 
-**What says the rest is real is the retention figure: 0.93669** — below Book 5
-v1's 0.94211, which was convicted of doing nothing *but* convert, and below the
-accepted Book 5 v2's 0.93808, which was corrected for it. Division costs no
-retention; only moving clauses does. The four paragraphs where Butler's period
-still governs and real recasting was owed are **P004** (the dropped `but`),
-**P005** (the referential `she`), **P012** (the deliberation) and **P013** (the
-57-word close of the speech), and they are named in §5.
+> **CORRECTED 2026-09-12 at round 1 (§2, and records finding R-4). The
+> paragraph below was the drafter's argument, and it is invalid. It is kept
+> rather than deleted so the reversal is legible.**
+>
+> ~~What says the rest is real is the retention figure: 0.93669 — below Book 5
+> v1's 0.94211, which was convicted of doing nothing *but* convert, and below
+> the accepted Book 5 v2's 0.93808, which was corrected for it. Division costs
+> no retention; only moving clauses does. The four paragraphs where Butler's
+> period still governs and real recasting was owed are P004, P005, P012 and
+> P013.~~
+
+**Why it does not follow.** Division costs no retention, true. But **D17 was
+written about the *other* thing that costs retention and moves nothing**: a
+thorough vocabulary swap with no syntax work at all, which is exactly what Book
+4 v1 was convicted of. A single retention number cannot tell a moved clause from
+a replaced word, so it cannot be the evidence that clauses moved. **Decomposed,
+Book 6 v1's deficit of 0.06331 is 0.05406 substitution and deletion against
+0.00925 movement — 85% vocabulary**, and of the 0.00542 by which it sat below
+Book 5 v1, only 0.00204 was clause movement.
+
+**The conclusion survives, on the right measure.** **MOVE-GAP** (bag retention
+minus order retention, so substitution cancels; **D20**) was 0.00925 for v1,
+already past accepted Book 5 v2's 0.00891, and is **0.01156** for the accepted
+v2 — 30% above it. **And the raw rate was inflated by a factor of 4.4: +27.6%
+is +6.3% once semicolon conversion is priced out** (NORM RATE, D20), which is
+third in the package, not first. **Seventeen of twenty-six paragraphs gained no
+sentence boundary a semicolon did not pay for**, and P012 alone supplied four of
+the nine that were real.
+
+**The list of four is a list of three** (records finding **R-4**). P004, P012
+and P013 hold up. **P005's clause movement is exactly 0.0000**: supplying
+`Nausicaa` for a referential `she` is a repair, not a recast, and the two claims
+should not be made of the same paragraph. Stricter still — P004's figure is
+almost entirely a dative shift and a stranded preposition, which are
+phrase-internal — the **displaced-runs** witness returns **P013 alone** for v1,
+and **P013 and P018** for the accepted v2.
+
+**The accepted v2's figures**, all of them written by `scripts/checks.py`:
+retention **0.93408**, MOVE-GAP **0.01156**, sentences **116 → 148 (+27.6%
+raw)**, **NORM RATE +7.0%**, sixty-word **7 → 1**, semicolons **27 → 5**.
 
 **One sixty-word sentence is left long**, B06-P009's Artemis simile, at 60
 words against Butler's 67 — shorter than his, not longer.
@@ -363,7 +406,28 @@ drafter cannot certify about its own draft.
 
 **No paragraph is byte-identical to Butler**, and the empty list is asserted.
 
-The one-word-two-ways report returns **75 rows**, almost all function words.
-The content-word rows were read; the three that are real are recorded in §5
-(`herbage`, `skilful`/`skilled`, `scion`/`creature`). That report is
-noise-heavy by design and is a reader's instrument, not an assertion.
+**The one-word-two-ways report, and what it can and cannot see** (records
+finding **R-5**; the sentence this replaces said the report "returns 75 rows,
+almost all function words … the three that are real are recorded", and that was
+a count of what one reader found, stated as a property of the report).
+
+It returns **75 rows** — reproduced exactly at round 1 — and it is a reader's
+instrument, not an assertion. **Its two limits are structural, not a matter of
+how carefully the rows are read:**
+
+1. **It keys on Butler's side only.** It can see one Butler word rendered two
+   ways. It cannot see the opposite arrow — **one *rendering* made to carry two
+   Butler words** — which is the package's characteristic defect and has now
+   cost five calls: `scion`/`creature` (refused by reading), `grass`/`herbage`
+   (**M-1**), `topes`/`drinks` (**M-2**), `young`/`youngster`, and the one in
+   **accepted Book 4**, where `doubted whether` is rendered `was in two minds`,
+   Butler's own other phrase, one paragraph before his real `in two minds`
+   becomes `still undecided`.
+2. **It runs inside one Book.** `herbage` is Butler's word in Book 5 *and* Book
+   6, and no single-Book report can compare its two renderings.
+
+Both arrows, across all Books, are `scripts/rendering_collisions.py`. Run over
+the six Books it returns 97 rows on arrow A and 124 on arrow B, of which 47
+touch this Book. **Three of the five calls above were found by it and not by
+reading**, including the defect in accepted Book 4, which is ledger item
+**A4**(i).

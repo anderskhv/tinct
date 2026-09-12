@@ -292,7 +292,7 @@ accepted files, and every row carries its basis. Nothing here is typed by hand.
 | 4 | `candidate-v2` | **all 81 paragraphs** | 0.95872 | 281 → 306 | +8.9% | 17 → 3 | 68 → 50 | +2.0% | 0.00431 |
 | 5 | `candidate-v2` | **all 37 paragraphs** | 0.93808 | 153 → 189 | +23.5% | 9 → 1 | 34 → 13 | +8.0% | 0.00891 |
 | 5 v1 *(superseded)* | `candidate-v1` | **all 37 paragraphs** | 0.94211 | 153 → 189 | +23.5% | 9 → 3 | 34 → 12 | +7.5% | 0.00721 |
-| **6 v2 (accepted)** | `candidate-v2` | **all 26 paragraphs** | **0.93408** | **116 → 149** | **+28.4%** | **7 → 1** | **27 → 4** | **+7.0%** | **0.01156** |
+| **6 v2 (accepted)** | `candidate-v2` | **all 26 paragraphs** | **0.93408** | **116 → 148** | **+27.6%** | **7 → 1** | **27 → 5** | **+7.0%** | **0.01156** |
 | 6 v1 *(superseded)* | `candidate-v1` | **all 26 paragraphs** | 0.93669 | 116 → 148 | +27.6% | 7 → 1 | 27 → 4 | +6.3% | 0.00925 |
 
 **Three further corrections the recomputation surfaced, all in the same class
