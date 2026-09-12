@@ -295,7 +295,7 @@ text:
 
 | Book 1, `candidate-v3.json` | Book 2, `candidate-v2.json` | **Book 3, `candidate-v1.json`** |
 |---|---|---|
-| 0.721 | 0.902 | **0.895** |
+| 0.728 | 0.902 | **0.895** |
 
 Book 3 sits with Book 2 rather than with Book 1, and for the same reason: it
 is mostly speech in plain argument — Nestor talking — and Butler's prose there

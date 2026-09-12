@@ -185,7 +185,70 @@ Three classes of difference, and only three:
    to `app/public/data/editions/` is outside this package's scope and is a
    coordinator's call.
 
-## 5. Reproduction
+## 5. The served file's paragraph division is PG's own (R7)
+
+*Added 2026-09-12 from records finding **R7** of Book 4's round 1. The package
+had not claimed this, and it is the property the product's alignment contract
+actually rests on.*
+
+Four of the package's five source-verification rules establish that the served
+text's **words** are Project Gutenberg's, in PG's order, inside a region
+located without assumption. None of them establishes where the **paragraph
+breaks** fall, because breaks are not tokens: a contiguous-token-block rule is
+blind to them by construction, and a needle-and-region rule proves only the
+boundaries of the region, never its interior.
+
+The fifth rule does establish it. `book04/review/verify_source_book4_review.py`
+(global per-paragraph fingerprint alignment, added by Book 4's round-1
+reviewer) cuts the **whole** PG file into blank-line blocks with the apparatus
+still in — **1,382 blocks, an output** — fingerprints every block and every
+served paragraph as a lowercase letters-only token tuple, and asks three
+questions whose answers are outputs:
+
+```
+all 81 served paragraphs have a fingerprint match somewhere in PG
+each of the 81 matches is UNIQUE among the 1382 blocks of the whole file
+the 81 matched blocks are STRICTLY CONSECUTIVE, blocks 164..244
+region: PG lines 1551..2269   (an OUTPUT, never an assumption)
+```
+
+Consecutive **unique per-paragraph** matches prove the interior boundaries:
+
+> **The served `original-en`'s paragraph division, in Book 4, is Project
+> Gutenberg's own blank-line division — paragraph for paragraph, 81 for 81.**
+
+**Why this is the claim worth making.** The served editions are
+paragraph-aligned across `original-en` / `modern-en` / `modern-da`, and the
+audio manifest, the Cast data and every saved reading position key on the
+paragraph **index**. "The paragraph count matches" is a weaker statement than
+the product needs; "each paragraph is PG's own block, in PG's order, with no
+merge and no split anywhere in the Book" is the statement the contract rests
+on. It is demonstrated for Book 4 and it is cheap to demonstrate for the rest
+of the file with the same script.
+
+Six negative controls fail as they should, including two the earlier rules
+could not run: two paragraphs **merged** is detected, because a merged
+paragraph's fingerprint matches no single block, and a changed **number-word**
+is detected. The declared limit is paid for rather than waved away — a
+letters-only fingerprint is blind to numerals, and the same script shows that
+**every digit run inside the located region is one of the fourteen classified
+footnote markers**, so Butler writes all of Book 4's quantities in words and
+there is no numeral of his for the fingerprint to be blind to.
+
+### The doubled space at B04-P050 is faithful, and is not a defect to repair
+
+Recorded so that a later worker meeting it does not open a repair ticket
+against `odyssey-original-en.json` under **A3**. PG line 2055 *begins*
+`48 None of our islands have much level ground…`. Removing the glued marker
+leaves a line beginning with a space, so the served B04-P050 contains
+`\n None of our islands`, which flattens to a doubled space for display,
+search and audio. **PG minus the digits is exactly that**, so the served file
+is faithful here; it is a property of the base text, not a corruption of the
+served one. The modern column silently normalizes it to a single space, and
+`book04/README.md`'s check block asserts **both halves** — the artefact in the
+source and its absence in the candidate. It is the only instance in Books 3–4.
+
+## 6. Reproduction
 
 ```bash
 cd books/staged-replacements/odyssey

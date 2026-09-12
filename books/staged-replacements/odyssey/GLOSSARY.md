@@ -55,13 +55,40 @@ modern edition is not Butler and does not owe them.
 | 11 | **Vulcan** | **Hephaestus** | 0 in Book 1 | *Added 2026-09-12 at Book 4 step 2 (B04-P051).* |
 
 **The table is extended by enumeration when a Book meets a Roman name it does
-not yet carry, and never generated** (hazard 1). Rows 9–11 were added on D5's
-own evidence method — what the product already calls these figures: the served
-`modern-en` being replaced prints **Aphrodite 14 / Venus 0**, **Hera 6 /
-Juno 0**, **Hephaestus 20 / Vulcan 0**; the Cast (`odyssey-threads.json`)
-carries Hephaestus and neither of the other two. Each addition is recorded here
+not yet carry, and never generated** (hazard 1). Each addition is recorded here
 with the Book and paragraph that forced it, so the table's growth is legible
 and no row ever arrives from a general deity list.
+
+**The warrant for rows 9–11, corrected 2026-09-12** (records finding **R3** of
+Book 4's round 1; the rows themselves were **upheld**, and every hazard
+assertion with them). They were first recorded as resting on "D5's own evidence
+method: the served `modern-en` being replaced prints Aphrodite 14 / Venus 0,
+Hera 6 / Juno 0, Hephaestus 20 / Vulcan 0." Those six counts are true and they
+are **the wrong evidence**:
+
+- **D5's evidence was never the served `modern-en`** — it is the **Cast**
+  (`odyssey-threads.json`: Odysseus 319, Athena 21, Zeus 24, Poseidon 19,
+  Hermes 12) and the **Book Onboarding** (Odysseus 21), the two surfaces the
+  reader meets *beside* and *before* the text. The served `modern-en` is the
+  file this package exists to replace.
+- **On D5's actual evidence, two of the three rows have no support at all.**
+  The Cast names **Hephaestus once** and is silent on Aphrodite and Hera
+  (Aphrodite 0, Venus 0, Hera 0, Juno 0). The onboarding is silent on all
+  three — and still prints **`Ulysses` twice** beside its 21 `Odysseus`, so
+  D5's "two names for one man on the same screen" argument does not reach
+  Venus or Juno.
+- **The file cited is not itself consistent**: the same served `modern-en`
+  prints **`Diana` 1, `Saturn` 1 and `Ops` 2**. (Its two `Ops` are useful from
+  a third direction: the replaced file also left Ops a man, which corroborates
+  hazard 1's disposition.)
+
+**The warrant, as it should be read by the next Book's drafter:** *D5's rule
+reaches these three directly.* D5 says in terms that the modern edition uses
+the Greek forms for **the Olympians who have Roman ones**, and Aphrodite, Hera
+and Hephaestus are inside that class by any reading. The served `modern-en`'s
+counts are **corroboration**, and the Cast corroborates **Hephaestus alone**.
+A drafter meeting `Mars` or `Ceres` applies D5 and does **not** go looking for
+permission in the file being replaced.
 
 **Chapter titles are remapped too.** The candidate's `title` field carries the
 served original's chapter title; in the modern edition it takes the Greek
@@ -370,7 +397,10 @@ inside the sentence (class B).
    bracketed lines are "almost always genuine"; fns 36, 82, 91 and 107 claim
    the opposite of spuriousness — same author, later stage.
 2. **Five of the six are footnoted about the bracket**, not three: fn 49 and
-   fn 82 are both about their own brackets.
+   fn 82 are both about their own brackets. **Both of Book 4's instances were
+   confirmed by direct reading at Book 4's round 1** (PG 1552 / fn 36, and
+   PG 2067–2070 / fn 49), so the count now stands at five of six with two
+   confirmed and is not to be re-derived a third time.
 3. **PG 6016's brackets are not Butler's** (fn 122).
 4. The first class-C bracket opens at **PG 1552**, not PG 1551.
 
@@ -564,3 +594,107 @@ collapsed into one.
   understand are kept to the shortest useful explanation, folded into the
   sentence at first use, following the Book 10 pilot's model (cubit →
   "roughly eighteen inches"). None was needed in Book 1.
+
+---
+
+## Recurring words the edition holds steady — added at Book 4
+
+| Butler | Modern edition | Why it is fixed |
+|---|---|---|
+| `whereon` (×5) and the **sentential** `on which` (×1) | **`at that`** | One connective rendered four ways in one Book — `at which` (B04-P003, P064), `and` (P036, P043, P048) and `on which` left standing (P038) — with `and` at P043 dropping the consequence Butler's connective carries. Finding **64.2**. Applied at B04-P003, P036, P038, P043, P048, P064, and asserted one per Butler instance. |
+| `On this` (×4), Butler's *other* sentential connective | **`At this`** | The accepted Book 3 row, unchanged. Two Butler forms, two renderings: the package does not flatten a difference Butler wrote, and does not invent one he did not. B04-P008, P019, P024, P046. |
+| the relative `on which` with a **nominal** antecedent | **untouched** | `the part on which Ajax was sitting` (B04-P042) is ordinary modern English and is not the connective. Asserted by name so the connective rule cannot swallow it. |
+
+### `tell me, and tell me true` — a flattening the package accepts, on purpose (R6)
+
+Butler writes **two** phrases and the edition renders both `tell me truly`:
+the doubled `tell me, and tell me true`, and the plain `tell me truly`.
+
+| | Butler | accepted / candidate |
+|---|---|---|
+| B01-P013 | "tell me and tell me true, who you are" | **"tell me truly who you are"** |
+| B01-P014 | "But tell me, and tell me true, can Ulysses really have…" | **"But tell me truly—can Odysseus really have…"** |
+| B01-P016 | "But tell me, and tell me true, what is the meaning of…" | **"But tell me truly, what is all this feasting about"** |
+| B03-P021 | "Tell me, therefore, Nestor, and tell me true; how did…" | **"So tell me truly, Nestor: how did…"** |
+| B04-P041 | "but now tell me, and tell me true, whether all the Achaeans…" | **"but now tell me truly, whether all the Achaeans…"** |
+| B03-P011, B04-P027, B04-P055 | "tell me truly" (plain) | **"tell me truly"** |
+
+**It is a package row, not a Book 3 precedent** — accepted Book 1 settled it
+three times before Book 3 met it. **And it is a flattening, recorded as one:**
+the doubling is a formulaic intensifier of oral epic, not a distinction of
+sense, and English has no natural doubling to carry it that is not worse than
+the loss. Written down here because "a Butler difference flattened into
+sameness" is otherwise a finding at every future round. Records finding **R6**
+of Book 4's round 1.
+
+### Compound spelling
+
+See `PUNCTUATION.md` §4 (**D15**). Compound spelling follows the modern
+standard form, in whichever direction that moves Butler's setting; the test for
+whether the change is typographic at all is *does it alter what a reader says
+aloud?* Recorded at Book 4's records finding **R4**, after one Book moved
+compounds in three directions at once.
+
+## The retention measure — what it means, exactly (R1, R2)
+
+The package's retention figure is **Butler token retention in the
+aggregate-join form**: paragraphs joined with a space, lower-cased,
+letters-only tokens, Roman names mapped to their Greek forms on both sides,
+then `difflib.SequenceMatcher` matching-block total divided by the number of
+source tokens. The canonical implementation is `token_retention()` in
+`scripts/build_book02_v2.py`, reproduced unchanged in
+`scripts/build_book04_v2.py`.
+
+**Use that form and no other.** A per-paragraph variant of the same measure
+differs by about 0.006 on Book 1, and dropping the name map moves it by about
+0.010 in the other direction. Someone will implement the wrong one.
+
+**Corrections of record, both from Book 4's round 1:**
+
+- **R1.** Book 4 v1's retention was printed as **0.960** in four places and
+  **0.961** in two headings. Computed exactly it is **0.95958**. Corrected
+  everywhere in the package on 2026-09-12; the figure is now carried to five
+  decimal places wherever it is quoted, because it was rounded twice, two ways.
+- **R2.** Book 1's quoted baseline of **0.721 is not reproducible.** The
+  canonical function gives **0.72703** for accepted `book01/candidate-v2.json`
+  and **0.72751** for the successor `candidate-v3.json`. The figure 0.721 came
+  from the Book 2 reviewer's own implementation and was quoted onward into
+  `RESUME.md`, three `provenance.json` files, two `continuity.md` files, two
+  `ACCEPTANCE.md` files and two `review-instructions.md`. Corrected everywhere
+  on 2026-09-12. **No ranking changes**: Book 1 is still by far the lowest
+  (0.727/0.728 against 0.902, 0.897 and 0.959), and every argument the package
+  has built on the ordering survives unchanged. The two round-1 findings sheets
+  that carry 0.721 (`book02/review/`) are **not** rewritten — they are dated
+  records of another session, and this row supersedes them.
+
+## The splitting rate — the second number, added at Book 4 (D17)
+
+Retention alone cannot tell a modernization from a touch-up, and Book 4 v1
+proved it: it satisfied every mechanical check in the package **perfectly**
+while breaking one of its source's seventeen sixty-word sentences and adding
+0.4% to its sentence count. Nothing in the checks counted a sentence.
+
+Every Book from Book 4 onward reports, beside its retention:
+
+- **sentences, source → candidate, as a percentage added** (the accepted
+  Books: **+20.5%**, **+16.1%**, **+5.5%**);
+- **sentences of sixty words or more, source → candidate, and the percentage
+  broken** (the accepted Books: **100%**, **43%**, **33%**).
+
+`scripts/build_book04_v2.py` implements both in four lines around one splitter
+(taken verbatim from the round-1 reviewer's `retention_measure.py`, so the
+numbers stay comparable) and **fails the build** if the rate falls below half
+the weakest accepted Book's, or if more than three quarters of the source's
+sixty-word sentences survive.
+
+**Two limits, stated rather than left to be rediscovered.**
+
+1. The gate is a **floor to clear, not a target**. Book 4's flow read reverted
+   a division that the gate would happily have counted, because dividing both
+   semicolons of one sentence left two consecutive sentences opening `But`.
+2. The measure convicts on **sentence division only**. The reviewer's own audit
+   found that chain load predicts splitting in accepted work (ρ = +0.380,
+   n = 98) and does **not** predict clause order (ρ = +0.048), so order
+   retention was refused as grounds for a finding. A draft that divides Butler's
+   sentences and leaves every clause in his order passes the gate. Only a
+   continuous read sees that.

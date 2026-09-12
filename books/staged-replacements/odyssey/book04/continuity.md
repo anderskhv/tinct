@@ -11,7 +11,7 @@ decision rows D1–D14).
 | Candidate | `candidate-v1.json`, sha256 `9c7d54af4bc6e32fefe5d3946a08565820b76d3d3c58a9fc45ec138b912e6553` — **frozen** |
 | Paragraphs | 81, one-to-one with the source, in order |
 | Words | 8,041 against the source's 8,042 — **ratio 0.9999** |
-| Butler token retention | **0.960** (Book 1 v3 0.721, Book 2 v2 0.902, Book 3 v2 0.897) — read in §6, and put to the reviewer as a question |
+| Butler token retention | **0.960** (Book 1 v3 0.728, Book 2 v2 0.902, Book 3 v2 0.897) — read in §6, and put to the reviewer as a question |
 | Packets | 27 (26×3 + 1×3), coverage `B04-P001`…`B04-P081` |
 
 Book 4 is the longest Book the package has drafted — 8,042 source words, more
@@ -79,9 +79,21 @@ The census matches the source exactly, name for name:
 and `Vulcan`, and D5 requires the Greek forms for the Olympians who have them.
 The table is **extended by enumeration, never generated** (D6 — a general
 Roman→Greek list is exactly what would turn Butler's `Ops` into Rhea), and
-extended on D5's own evidence method: the served `modern-en` being replaced
-prints **Aphrodite 14 / Venus 0**, **Hera 6 / Juno 0**, **Hephaestus 20 /
-Vulcan 0**. The rows are added to `../GLOSSARY.md`.
+extended on D5's own rule. The rows are added to `../GLOSSARY.md`.
+
+**The warrant recorded here at drafting was the wrong evidence, and is
+corrected** (records finding **R3** of round 1; the rows and every hazard
+assertion were **upheld**). This paragraph read: *"extended on D5's own
+evidence method: the served `modern-en` being replaced prints Aphrodite 14 /
+Venus 0, Hera 6 / Juno 0, Hephaestus 20 / Vulcan 0."* Those counts reproduce
+exactly and they are not D5's evidence. D5 rests on the **Cast** and the
+**Book Onboarding** — the surfaces the reader meets beside and before the text
+— and the served `modern-en` is the file this package exists to replace. On
+D5's actual evidence the Cast corroborates **Hephaestus alone** (Aphrodite 0,
+Hera 0), the onboarding is silent on all three and still prints `Ulysses`
+twice, and the cited file itself prints `Diana` 1, `Saturn` 1 and `Ops` 2.
+**The rows stand on D5's rule, which reaches all three Olympians directly;**
+the counts are corroboration only. Full statement in `../GLOSSARY.md`.
 
 **D8 fires for the second time**: Butler's `Euryclea` (B04-P066) takes the
 Cast's display name **Eurycleia**, as it did in the Book 1 package.
@@ -229,7 +241,16 @@ repeats them:**
   renamed, and the edition prints it one way (D7's principle). Flagged for the
   reviewer as a genuine choice.
 - **B04-P050 — `a piece of plate`** kept. It is Telemachus's own distinction
-  between metalwork and horses, and accepted Book 1 already carries `plate`.
+  between metalwork and horses, and **the text glosses itself at the point of
+  need**: Menelaus names the object in the very next paragraph — *"the finest
+  and most precious piece of plate in all my house. It is a mixing-bowl… of
+  pure silver"*. **The reason first recorded here was a false cross-reference
+  and is withdrawn** (finding 50.1): this note said "accepted Book 1 already
+  carries `plate`", and it does not — accepted B01-P011's `plates` are the
+  dinner plates the carver brings, a different word in a different sense. The
+  decision is right; the reason was wrong, and it would have misled whoever
+  next met `plate`. Habit adopted from this: **when a continuity note cites
+  another Book, quote the sentence it cites.**
 - **B04-P072 — `thole pins`** kept, unglossed and unhyphenated: it is a
   concrete object, and the sentence explains it (the oars are bound to them).
   `all in due course` becomes **"each in its place"**, not Book 3's `in due
@@ -250,10 +271,10 @@ repeats them:**
   brother's murder, the third of his wealth he would trade, the one man he
   grieves for above all, and the three at home.
 
-## 6. The retention figure, 0.961 — stated as a risk, not as a pass
+## 6. The retention figure, 0.95958 — stated as a risk, not as a pass
 
-**0.960 is the highest retention in the package, and it is the first number a
-reviewer should test.** Books 1–3 are 0.721, 0.902 and 0.897.
+**0.95958 is the highest retention in the package, and it is the first number a
+reviewer should test.** Books 1–3 are 0.728, 0.902 and 0.897.
 
 What can be said for it, with evidence rather than assertion:
 
@@ -269,11 +290,11 @@ What can be said for it, with evidence rather than assertion:
   comparison in kind, is **1.8× more archaic per word**.
 - **Density does not explain the whole gap, and this sheet does not pretend it
   does.** Book 1 has the *lowest* archaism density of the four and the
-  *lowest* retention by a wide margin (0.721), so retention is not a function
+  *lowest* retention by a wide margin (0.728), so retention is not a function
   of the source alone; it is also a function of how freely the drafter recast
   syntax. On that measure this draft is lighter-handed than Book 1's.
 - **Two further drafting passes were made before freezing, and are why the
-  number is 0.960 rather than 0.967.** The first pass left thirty dated or stiff forms
+  number is 0.95958 rather than 0.967.** The first pass left thirty dated or stiff forms
   standing — `whereupon` (which is on the package's own archaism list and
   would have failed the guard), `hereabouts`, `if you so will`, `by means of
   which`, `be pleased to`, `nor yet`, `in the toils`, `bereft of thought and

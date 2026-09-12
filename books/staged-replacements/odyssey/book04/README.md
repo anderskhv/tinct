@@ -11,7 +11,7 @@ packets are pushed. Book 4 was **not** self-reviewed.
 | Source | `source-book4.json`, sha256 `b4899064632724ca5847868fc28f4261a1693293405af0280911e508889eec70` |
 | Paragraphs | 81 — the longest Book the package has drafted, more than Books 1 and 2 together |
 | Words | 8,041 against 8,042 — **ratio 0.9999** |
-| Butler token retention | **0.960** — the package's highest, and recorded as a **risk**, not a pass |
+| Butler token retention | **0.95958** — the package's highest, and recorded as a **risk**, not a pass |
 | Packets | 27, coverage `B04-P001`…`B04-P081` |
 
 **Book 4 was blocked until Book 3's round 1 settled D12's class C.** It is
@@ -211,10 +211,10 @@ NM = {'ulysses':'odysseus','minerva':'athena','jove':'zeus','neptune':'poseidon'
 def toks(t): return [NM.get(w, w) for w in re.findall(r'[a-z]+', t.replace('\n',' ').lower())]
 a, b = toks(s), toks(joined)
 ret = sum(x.size for x in difflib.SequenceMatcher(a=a, b=b, autojunk=False).get_matching_blocks()) / len(a)
-assert abs(ret - 0.960) < 0.001, f'retention {ret:.3f}'
+assert abs(ret - 0.95958) < 0.000005, f'retention {ret:.5f}'
 
 print('OK — 81 paragraphs, coverage exact, packets verbatim, names and hazards held')
-print('OK — ratio', f'{ratio:.4f}', '| Butler token retention', f'{ret:.3f}',
+print('OK — ratio', f'{ratio:.4f}', '| Butler token retention', f'{ret:.5f}',
       '| D4 unbalanced paragraphs', len(unbal))
 for f in ('book04/source-book4.json','book04/candidate-v1.json',
           '../../../app/public/data/editions/odyssey-original-en.json'):
@@ -226,7 +226,7 @@ Expected:
 
 ```
 OK — 81 paragraphs, coverage exact, packets verbatim, names and hazards held
-OK — ratio 0.9999 | Butler token retention 0.960 | D4 unbalanced paragraphs 21
+OK — ratio 0.9999 | Butler token retention 0.95958 | D4 unbalanced paragraphs 21
 b4899064632724ca5847868fc28f4261a1693293405af0280911e508889eec70  book04/source-book4.json
 9c7d54af4bc6e32fefe5d3946a08565820b76d3d3c58a9fc45ec138b912e6553  book04/candidate-v1.json
 da03f6ac9dfd5a19b9912adabfb9b0b48ed66bd85d8e1507a6b323a374822f07  ../../../app/public/data/editions/odyssey-original-en.json
@@ -252,7 +252,7 @@ session, following `review-instructions.md`. Findings go under `book04/review/`.
 On findings: `candidate-v2.json` via a change script in the established
 pattern, verification, flow read, `ACCEPTANCE.md` — steps 5–8.
 
-**The first thing to put to that reviewer is the retention figure, 0.960.** It
+**The first thing to put to that reviewer is the retention figure, 0.95958.** It
 is the highest in the package, the drafter says so rather than defending it,
 and `continuity.md` §6 sets out the evidence on both sides — including the
 archaism-density measure (Book 4 is 3.98 dead forms per 1,000 words against

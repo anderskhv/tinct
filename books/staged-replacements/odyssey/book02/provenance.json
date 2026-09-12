@@ -39,7 +39,7 @@
   "max_paragraph_id_v1": "B02-P003",
   "butler_token_retention_v1": 0.889,
   "butler_token_retention_v2": 0.902,
-  "butler_token_retention_book1_v2_accepted": 0.721,
+  "butler_token_retention_book1_v2_accepted": 0.72703,
   "note": "Screening signal only; not evidence of semantic completeness, in either direction. Book 2 sits far closer to 1.0 than Book 1 (0.9462) because it is a Book of speeches in plain argument with much less of the long Victorian sentence-chaining Book 1's narration carries. THE RATIO IS SUPERSEDED AS THE PRIMARY SIGNAL by the retention measure the round-1 reviewer introduced: the fraction of Butler's word tokens the candidate carries over unchanged AND in order (name mapping normalized, punctuation and case stripped, difflib matching blocks over word tokens; computed by scripts/build_book02_v2.py's token_retention()). It says what the ratio cannot - Book 2 is a substantially lighter rewrite than accepted Book 1 (0.889 against 0.721) at a near-identical word ratio. The reviewer then read the paragraphs it points at and ruled the lightness is the source's, not the drafter's: the least-changed paragraphs are plain dialogue and plain concrete narration where Butler is already modern English. Its one catch is finding 26.1, in the Book's HIGHEST-retention paragraph. The two counter-checks v1 offered - no paragraph byte-identical to Butler, and 22 dead words gone - are retained as floors but are weak: a rewrite changing one word per paragraph satisfies both. Retention rose from v1 to v2 because 19 of the 23 corrections put a word of Butler's back; a round that moved it down would be a warning."
  },
  "naming": {

@@ -15,7 +15,7 @@
 | Second round | **Not run, and not required**: round 1 returned zero substantive findings, every paragraph-level finding it raised was applied, and none was declined. |
 | Paragraphs | 38, one-to-one with the source, in order |
 | Word ratio | **0.9559** (4,682 / 4,898); **0.9957 excluding B03-P038**; v1 was 0.9561 / 0.9959 |
-| Butler token retention | **0.897**; v1 was 0.895. Accepted Book 1 is 0.721, accepted Book 2 is 0.902 |
+| Butler token retention | **0.897**; v1 was 0.895. Accepted Book 1 is 0.727 (corrected at R2, Book 4 round 1), accepted Book 2 is 0.902 |
 | Built by | `../scripts/build_book3_v2.py` |
 
 All hashes, ratios and the retention figure above were **recomputed

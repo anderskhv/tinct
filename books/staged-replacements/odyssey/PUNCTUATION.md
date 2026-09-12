@@ -74,3 +74,67 @@ fewer than the source (30/29 against 31/30). **The rule: a quotation
 convention that a modern reader would misread as an error is normalized and
 recorded here; a convention that carries information — D4's continuous
 speech — is preserved.**
+
+---
+
+## 4. Compound spelling — the rule (D15), written at Book 4's round 1
+
+Records finding **R4** of Book 4's round 1. The package had no compound rule
+and was running on a single precedent (`sweet meats` → `sweetmeats`, accepted
+at Book 3 and upheld at Book 4 as typographic normalization). One Book then
+moved compounds in **three directions at once** — four closed, three
+hyphenated, four opened, of which three were recorded decisions and the rest
+silent — and two of the opened ones landed on a form that is neither Butler's
+nor modern English's. This is the class that already cost the package a whole
+successor version at Book 2 (`mixing bowl` → `mixing-bowl`, finding 27.1).
+
+**The rule.** Compound spelling follows the **modern standard form of the
+compound**, whichever direction that moves Butler's Victorian setting — closed,
+hyphenated or open. The change is typographic and is made **silently**.
+
+**The test that decides whether a change is typographic at all:** *does it
+alter what a reader would say aloud?* If it does not, it is normalization and
+needs no record. If it does — or if it renames the object (`work-box` →
+*basket*) or moves its sense — it is a **rendering decision**, and it is
+recorded in the Book's `continuity.md` like any other.
+
+**The failure mode the rule exists to prevent** is landing on a third form.
+`sea-side` → `sea side` is neither Butler's hyphen nor modern English's
+`seaside`; it was corrected to `seaside` at Book 4 (finding 37.1, both
+instances). A compound that is open in one accepted Book and hyphenated in
+another is the same defect across Books, and
+`scripts/build_book3_v2.py`'s `hyphen_drift()` already asserts against it.
+
+Applied in Book 4, and asserted by `scripts/build_book04_v2.py`:
+
+| direction | Butler | edition |
+|---|---|---|
+| closed | `maid-servant`, `man-servant`, `to-morrow`, `bath room`, `sea-side`, `broken hearted` | `maidservant`, `manservant`, `tomorrow`, `bathroom`, `seaside`, `heartbroken` |
+| hyphenated | `fine spun`, `violet coloured`, `mixing bowl` | `fine-spun`, `violet-colored`, `mixing-bowl` |
+| open, and kept open **with the reason recorded** | `drink-offering`, `thole-pins`, `work-box`/`work box`, `sea shore` | `drink offering` (the standard open form of the religious term), `thole pins` (an attested open setting of a nautical term the sentence itself explains), `work box` (Butler's own second setting in the same paragraph), `sea shore` |
+
+## 5. One rule for Butler's punctuation slips (D16)
+
+Round 1 of Book 4 found three marks of the same family disposed of three ways
+— one repaired, one kept, one not ruled on — and said the state to avoid is
+not any particular disposition but *two dispositions for one class*. The rule:
+
+> **A Victorian mark is repaired when a modern reader reads it as an error,
+> and kept when it is merely old-fashioned but correct.**
+
+- **Repaired.** B04-P040's `“Then,’ he said, ‘if…` — a double opening mark
+  where the nested speech needs a single one. In this edition's typography a
+  bare `“` there tells the reader *Menelaus* has started speaking, and Proteus
+  has; under **D4** the opening marks of this Book are load-bearing across
+  twenty-one consecutive paragraphs, so a wrong one is a wrong speaker. The
+  repair is asserted by name, not hidden inside a total.
+- **Repaired.** B04-P046's `…unable to get home? or is he dead?` — a lower-case
+  sentence opening after a question mark. It is not a sentence opening at all
+  to a modern eye. `Or is he dead?` (finding 46.1).
+- **Kept.** B04-P039's request punctuated as a question — `…how I may sail the
+  sea so as to reach my home?’`. It is a genuine indirect question and the mark
+  is correct, only dated (finding 39.1, declined with this reason).
+
+This sits beside §2 and §3: a convention that carries information (D4's
+continuous speech) is preserved; a convention a modern reader would misread as
+an error is normalized; a mark that *is* an error is repaired and named.

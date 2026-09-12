@@ -15,7 +15,7 @@
 | Second round | **Not run, and not required**: round 1 returned zero substantive findings, and every paragraph-level finding it did raise was applied. No finding was declined. |
 | Paragraphs | 35, one-to-one with the source, in order |
 | Word ratio | **1.0002** (4,185 / 4,184); v1 was 0.9993 |
-| Butler token retention | **0.902**; v1 was 0.889, accepted Book 1 is 0.721 |
+| Butler token retention | **0.902**; v1 was 0.889, accepted Book 1 is 0.727 (corrected at R2, Book 4 round 1; quoted here as 0.721 until 2026-09-12) |
 | Built by | `../scripts/build_book02_v2.py` |
 
 ## Step 1 — the source, verified twice and independently

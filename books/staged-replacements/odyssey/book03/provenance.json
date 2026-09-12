@@ -38,7 +38,7 @@
   "max_paragraph_id": "B03-P010",
   "butler_token_retention": 0.895,
   "butler_token_retention_including_B03_P038": 0.859,
-  "butler_token_retention_book1_v3": 0.721,
+  "butler_token_retention_book1_v3": 0.72751,
   "butler_token_retention_book2_v2": 0.902,
   "note": "TWO ratios, because B03-P038 distorts one of them: its source text is 208 words of which only 12 are Butler's, and the candidate renders the 12. The figure to read is the one EXCLUDING it - 0.9959 - since including it makes the Book look compressed by 4% when it is not compressed at all. The primary signal is not the ratio but RETENTION: the fraction of Butler's word tokens carried over unchanged AND in order (name mapping normalized, punctuation and case stripped, difflib matching blocks over word tokens), introduced by Book 2's round-1 reviewer because the word-count ratio is satisfied by a light touch-up and this is not. Book 3's 0.895 sits with Book 2's 0.902 rather than with Book 1's 0.721, for the same reason: the Book is mostly speech in plain argument, where Butler is already modern English. The reviewer is asked to treat it as a QUESTION rather than as a pass and read the least-changed paragraphs."
  },
