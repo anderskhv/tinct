@@ -332,3 +332,39 @@ it('rejects the verified stale Bible duplicate but keeps its original War and Pe
   const original = conversation('original', 'war-and-peace', 5, [message({ id: 'question', content: 'Is he French?' }), reply])
   expect(parseChatConversations([original], 'war-and-peace')[0].messages).toHaveLength(2)
 })
+
+describe('display order of a stored thread', () => {
+  const message = (id: string, timestamp: number, role: 'user' | 'assistant' = 'user') => ({
+    id, role, content: `${id} content`, timestamp, bookId: 'bible',
+  })
+  const conversation = (id: string, startTimestamp: number, chapterNumber: number) => ({
+    id,
+    bookId: 'bible',
+    chapterNumber,
+    startTimestamp,
+    endTimestamp: startTimestamp + 1000,
+    preview: id,
+    messages: [message(`${id}-u`, startTimestamp), message(`${id}-a`, startTimestamp + 1000, 'assistant')],
+  })
+
+  it('reads oldest first and newest last however the row happens to be stored', () => {
+    const may = Date.parse('2026-05-25T10:00:00Z')
+    const september = Date.parse('2026-09-12T06:04:00Z')
+    // `appendLabChatTurn` moves a continued conversation to the end of the
+    // stored array, and the classic reader writes this same row: stored order
+    // is not chronological, so the last stored turn is not the newest turn.
+    const stored = [conversation('c-sep', september, 774), conversation('c-may', may, 930)]
+    const turns = turnsFromConversations(stored)
+    expect(turns.map(turn => turn.id)).toEqual(['c-may-u', 'c-may-a', 'c-sep-u', 'c-sep-a'])
+    expect(turns[turns.length - 1].timestamp).toBe(september + 1000)
+  })
+
+  it('orders the messages inside a conversation by time', () => {
+    const base = Date.parse('2026-09-12T06:04:00Z')
+    const stored = [{
+      ...conversation('c', base, 774),
+      messages: [message('late', base + 2000, 'assistant'), message('early', base)],
+    }]
+    expect(turnsFromConversations(stored).map(turn => turn.id)).toEqual(['early', 'late'])
+  })
+})

@@ -4374,8 +4374,10 @@ describe('lab ask history persist', () => {
       expect.stringContaining('beginning'),
       expect.stringContaining('Keller'),
     ])
-    // The fixture's chapter list only labels Genesis; a labelled chapter change shows as a divider.
-    expect(screen.getAllByTestId('lab-ask-location').map(node => node.textContent)).toContain('Genesis 1')
+    // The fixture's chapter list only labels Genesis; a labelled chapter change
+    // shows as a divider, dated when its turns are not from today.
+    expect(screen.getAllByTestId('lab-ask-location').map(node => node.textContent))
+      .toEqual(expect.arrayContaining([expect.stringContaining('Genesis 1')]))
     cleanup()
 
     render(<LabApp pathname="/lab/desktop" source={bibleFallbackSource()} authToken={null} />)

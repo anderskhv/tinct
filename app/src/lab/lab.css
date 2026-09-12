@@ -856,6 +856,34 @@
   overflow-wrap: anywhere;
 }
 
+.lab-ask-location-date {
+  opacity: 0.72;
+}
+
+/* The device's copy of the thread is not reconciled with the account yet. */
+.lab-ask-syncing {
+  display: block;
+  margin: 0.15rem auto 0.9rem;
+  padding: 0;
+  text-align: center;
+  color: #8a8172;
+  font: 0.62rem/1.35 'IBM Plex Mono', ui-monospace, monospace;
+  letter-spacing: 0.05em;
+}
+
+.lab.is-night .lab-ask-syncing,
+.lab.is-night .lab-ask-unanswered {
+  color: var(--lab-ink-muted);
+}
+
+.lab-ask-unanswered {
+  display: block;
+  margin: 0.3rem 0 0;
+  color: #8a8172;
+  font: 0.62rem/1.35 'IBM Plex Mono', ui-monospace, monospace;
+  letter-spacing: 0.04em;
+}
+
 .lab-ask-location::before,
 .lab-ask-location::after {
   content: '';

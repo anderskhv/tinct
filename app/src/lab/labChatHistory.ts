@@ -185,8 +185,22 @@ export function sameChatConversations(a: ChatConversation[], b: ChatConversation
   return JSON.stringify(a) === JSON.stringify(b)
 }
 
+/**
+ * Conversation order for display: oldest first, newest last, whatever order
+ * the row happens to be stored in. `appendLabChatTurn` moves a continued
+ * conversation to the end of the stored array, and the classic reader writes
+ * this same row, so stored order is not reliably chronological — only the
+ * merge sorts. Sorting here is what makes "the last turn in the thread" mean
+ * "the most recent turn" for every reader of a stored row.
+ */
+export function sortConversationsByTime(conversations: ChatConversation[]): ChatConversation[] {
+  return [...conversations].sort((x, y) => x.startTimestamp - y.startTimestamp || x.id.localeCompare(y.id))
+}
+
 export function turnsFromConversations(conversations: ChatConversation[]): LabAskTurn[] {
-  return conversations.flatMap(conversation => conversation.messages.map(message => ({
+  return sortConversationsByTime(conversations).flatMap(conversation => [...conversation.messages]
+    .sort((x, y) => x.timestamp - y.timestamp)
+    .map(message => ({
     id: message.id,
     bookId: conversation.bookId,
     chapterAction: message.chapterAction,

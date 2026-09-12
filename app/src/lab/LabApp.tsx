@@ -4031,6 +4031,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             voiceActive={ask.voiceActive}
             typedLoading={ask.typedLoading}
             turns={ask.turns}
+            historyStatus={ask.historyStatus}
             draft={draft}
             onDraftChange={(text) => { dictation.stop(); setDraft(text) }}
             onSubmit={(text) => { dictation.stop(); handleAsk(text) }}

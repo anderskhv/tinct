@@ -28,6 +28,13 @@ interface LabAskPaneProps {
   inputRef?: Ref<HTMLInputElement | HTMLTextAreaElement>
   chapterLabels?: Record<number, string>
   desktopCompanion?: 'chat' | 'talk'
+  /**
+   * Where this device's copy of the thread stands against the account's row.
+   * `loading` means the cloud history has not come back yet, so what is on
+   * screen is only what this device happens to have stored — months out of
+   * date when the newer turns were had on another device.
+   */
+  historyStatus?: 'loading' | 'ready' | 'unavailable'
 }
 
 /** Within this many pixels of the bottom counts as "at the bottom". */
@@ -40,6 +47,37 @@ export const LAB_ASK_LOAD_MORE_PX = 120
 export const LAB_ASK_MAX_COMPOSER_PX = 180
 /** Breathing room above a reply pinned to the top of the viewport. */
 export const LAB_ASK_REPLY_TOP_GAP = 8
+
+const DAY_MS = 24 * 60 * 60 * 1000
+
+/**
+ * The day a divider's turns belong to, when that is not today. The Bible is
+ * one thread across all 1,189 chapters, so the turn above a divider can be
+ * months old; the date is what tells the reader so at a glance.
+ */
+export function labAskDividerDate(timestamp: number | undefined, now = Date.now()): string | null {
+  if (timestamp == null || !Number.isFinite(timestamp)) return null
+  const day = new Date(timestamp)
+  const today = new Date(now)
+  if (day.toDateString() === today.toDateString()) return null
+  if (day.toDateString() === new Date(now - DAY_MS).toDateString()) return 'Yesterday'
+  const sameYear = day.getFullYear() === today.getFullYear()
+  return new Intl.DateTimeFormat(undefined, { day: 'numeric', month: 'short', ...(sameYear ? {} : { year: 'numeric' }) }).format(day)
+}
+
+/**
+ * A question that never got an answer: the turn after it is another question,
+ * or it is the end of the thread and nothing is in flight. Stored history
+ * keeps these (they are what the reader asked), but unmarked they read as a
+ * question the companion ignored.
+ */
+export function labAskTurnUnanswered(turns: LabAskTurn[], index: number, typedLoading: boolean): boolean {
+  const turn = turns[index]
+  if (!turn || turn.role !== 'user') return false
+  const next = turns[index + 1]
+  if (next) return next.role !== 'assistant'
+  return !typedLoading
+}
 
 function isNearBottom(node: HTMLElement): boolean {
   return node.scrollHeight - node.scrollTop - node.clientHeight <= LAB_ASK_FOLLOW_PX
@@ -88,6 +126,7 @@ export function LabAskPane({
   inputRef,
   chapterLabels = {},
   desktopCompanion,
+  historyStatus = 'ready',
 }: LabAskPaneProps) {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null)
   const [copiedTurn, setCopiedTurn] = useState<string | null>(null)
@@ -130,6 +169,19 @@ export function LabAskPane({
     oldestTurnIdRef.current = turns[0]?.id
     setHiddenCount(Math.max(0, turns.length - LAB_ASK_WINDOW))
   }
+  // The cloud history landed and replaced what was on screen: show the newest
+  // window of the reconciled thread, wherever the reader had scrolled to in
+  // the stale copy. Leaving them parked in an old conversation that is no
+  // longer the end of the thread is the bug this exists to prevent.
+  const historyStatusRef = useRef(historyStatus)
+  const repinRef = useRef(false)
+  if (historyStatusRef.current !== historyStatus) {
+    if (historyStatusRef.current === 'loading') {
+      repinRef.current = true
+      setHiddenCount(Math.max(0, turns.length - LAB_ASK_WINDOW))
+    }
+    historyStatusRef.current = historyStatus
+  }
   const hidden = Math.min(hiddenCount, Math.max(0, turns.length - 1))
   const visibleTurns = hidden > 0 ? turns.slice(hidden) : turns
   // Height before older turns were prepended, so the message under the
@@ -150,6 +202,7 @@ export function LabAskPane({
   const spacerRef = useRef<HTMLDivElement | null>(null)
   const canSend = draft.trim().length > 0
   const empty = turns.length === 0 && !typedLoading
+  const syncing = historyStatus === 'loading'
 
   const lastReplyOf = (node: HTMLDivElement): HTMLElement | null => {
     const replies = node.querySelectorAll<HTMLElement>('[data-testid="lab-ask-turn-assistant"]')
@@ -241,7 +294,7 @@ export function LabAskPane({
     if (!node) return
     const lastTurn = turns[turns.length - 1]
     const newTurn = !!lastTurn && lastTurn.id !== lastTurnIdRef.current
-    const justOpened = !didPositionThreadRef.current
+    const justOpened = !didPositionThreadRef.current || repinRef.current
     // Detect scrolling that did not raise a scroll event (tests, programmatic).
     const scrolledSincePin = pinnedScrollTopRef.current !== null && node.scrollTop !== pinnedScrollTopRef.current
     if (scrolledSincePin) {
@@ -268,8 +321,9 @@ export function LabAskPane({
       if (shouldFollow) pinToBottom(node)
     }
     didPositionThreadRef.current = true
+    repinRef.current = false
     lastTurnIdRef.current = lastTurn?.id ?? null
-  }, [holdReplyTop, pinToBottom, pinToReplyTop, setSpacer, turns, typedLoading])
+  }, [hidden, holdReplyTop, pinToBottom, pinToReplyTop, setSpacer, turns, typedLoading])
 
   const focusedTurnRef = useRef<string | null>(null)
   useLayoutEffect(() => {
@@ -477,9 +531,12 @@ export function LabAskPane({
       )}
       {chromeV2 && onBackToContents && <button className="lab-ask-back-contents" onClick={onBackToContents}>← Back to contents</button>}
       {empty ? (
-        <p className="lab-ask-greeting">{LAB_COPY.askGreeting}</p>
+        <p className="lab-ask-greeting">{syncing ? LAB_COPY.askHistoryLoading : LAB_COPY.askGreeting}</p>
       ) : (
         <div className="lab-ask-thread" data-testid="lab-ask-thread" ref={threadRef} onScroll={onThreadScroll} data-hidden-turns={hidden}>
+          {syncing && (
+            <p className="lab-ask-syncing" data-testid="lab-ask-syncing" role="status">{LAB_COPY.askHistorySyncing}</p>
+          )}
           {hidden > 0 && (
             <button
               type="button"
@@ -494,9 +551,15 @@ export function LabAskPane({
             const previousChapter = visibleTurns[index - 1]?.chapterNumber
             const chapterLabel = turn.chapterNumber != null ? chapterLabels[turn.chapterNumber] : undefined
             const showChapter = !!chapterLabel && turn.chapterNumber !== previousChapter
+            const dividerDate = showChapter ? labAskDividerDate(turn.timestamp) : null
+            const unanswered = labAskTurnUnanswered(visibleTurns, index, typedLoading)
             return (
               <Fragment key={turn.id}>
-                {showChapter && <p className="lab-ask-location" data-testid="lab-ask-location">{chapterLabel}</p>}
+                {showChapter && (
+                  <p className="lab-ask-location" data-testid="lab-ask-location">
+                    <span>{chapterLabel}{dividerDate ? <span className="lab-ask-location-date"> · {dividerDate}</span> : null}</span>
+                  </p>
+                )}
                 <div
                   className={`lab-ask-turn is-${turn.role}`}
                   data-testid={`lab-ask-turn-${turn.role}`}
@@ -511,6 +574,7 @@ export function LabAskPane({
                     <p className="lab-ask-user">
                       <span className="lab-ask-user-label">{LAB_COPY.youLabel}</span>
                       {turn.content}
+                      {unanswered && <span className="lab-ask-unanswered" data-testid="lab-ask-unanswered">{LAB_COPY.askUnanswered}</span>}
                     </p>
                   ) : (
                     <div className="lab-ask-reply">
