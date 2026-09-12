@@ -1,0 +1,478 @@
+{
+  "complete": true,
+  "signature": "e3fb1243627da4c58c1e0ca368800ecd6e09db6942f0bcdcb430f77a2d0b9c15",
+  "attempts": [
+    {
+      "asr_seconds": 0.3081143391318619,
+      "alignment_seconds": 0.0004072519950568676,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "She rose and closed her reading, rose of Castile: fretted, forlorn, dreamily rose.",
+        "hotwords": "She, Castile"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " She rose and closed her reading, rose of Castile, fretted, forlorn, dreamily rose.",
+          "start": 0.08,
+          "end": 5.48,
+          "words": [
+            {
+              "text": " She",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " rose",
+              "start": 0.54,
+              "end": 0.82,
+              "probability": 0.97265625
+            },
+            {
+              "text": " and",
+              "start": 0.82,
+              "end": 1.08,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " closed",
+              "start": 1.08,
+              "end": 1.36,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " her",
+              "start": 1.36,
+              "end": 1.52,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " reading,",
+              "start": 1.52,
+              "end": 1.82,
+              "probability": 0.998046875
+            },
+            {
+              "text": " rose",
+              "start": 2.46,
+              "end": 2.46,
+              "probability": 0.01708984375
+            },
+            {
+              "text": " of",
+              "start": 2.46,
+              "end": 2.66,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Castile,",
+              "start": 2.66,
+              "end": 3.22,
+              "probability": 0.802734375
+            },
+            {
+              "text": " fretted,",
+              "start": 3.7,
+              "end": 4.08,
+              "probability": 0.87841796875
+            },
+            {
+              "text": " forlorn,",
+              "start": 4.28,
+              "end": 4.64,
+              "probability": 0.9222005208333334
+            },
+            {
+              "text": " dreamily",
+              "start": 4.86,
+              "end": 5.16,
+              "probability": 0.9765625
+            },
+            {
+              "text": " rose.",
+              "start": 5.16,
+              "end": 5.48,
+              "probability": 0.7060546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "She",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "rose",
+          "start": 0.54,
+          "end": 0.82
+        },
+        {
+          "raw": "and",
+          "start": 0.82,
+          "end": 1.08
+        },
+        {
+          "raw": "closed",
+          "start": 1.08,
+          "end": 1.36
+        },
+        {
+          "raw": "her",
+          "start": 1.36,
+          "end": 1.52
+        },
+        {
+          "raw": "reading,",
+          "start": 1.52,
+          "end": 1.82
+        },
+        {
+          "raw": "rose",
+          "start": 2.46,
+          "end": 2.46
+        },
+        {
+          "raw": "of",
+          "start": 2.46,
+          "end": 2.66
+        },
+        {
+          "raw": "Castile,",
+          "start": 2.66,
+          "end": 3.22
+        },
+        {
+          "raw": "fretted,",
+          "start": 3.7,
+          "end": 4.08
+        },
+        {
+          "raw": "forlorn,",
+          "start": 4.28,
+          "end": 4.64
+        },
+        {
+          "raw": "dreamily",
+          "start": 4.86,
+          "end": 5.16
+        },
+        {
+          "raw": "rose.",
+          "start": 5.16,
+          "end": 5.48
+        }
+      ],
+      "expected_tokens": [
+        "She",
+        "rose",
+        "and",
+        "closed",
+        "her",
+        "reading,",
+        "rose",
+        "of",
+        "Castile:",
+        "fretted,",
+        "forlorn,",
+        "dreamily",
+        "rose."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "She",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "she",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "rose",
+          "start": 0.54,
+          "end": 0.82,
+          "key": "rose",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.82,
+          "end": 1.08,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "closed",
+          "start": 1.08,
+          "end": 1.36,
+          "key": "closed",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 1.36,
+          "end": 1.52,
+          "key": "her",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "reading,",
+          "start": 1.52,
+          "end": 1.82,
+          "key": "reading",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "rose",
+          "start": 2.46,
+          "end": 2.46,
+          "key": "rose",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.46,
+          "end": 2.66,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Castile,",
+          "start": 2.66,
+          "end": 3.22,
+          "key": "castile",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "fretted,",
+          "start": 3.7,
+          "end": 4.08,
+          "key": "fretted",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "forlorn,",
+          "start": 4.28,
+          "end": 4.64,
+          "key": "forlorn",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "dreamily",
+          "start": 4.86,
+          "end": 5.16,
+          "key": "dreamily",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "rose.",
+          "start": 5.16,
+          "end": 5.48,
+          "key": "rose",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "She",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "rose",
+          "start": 0.54,
+          "end": 0.82
+        },
+        {
+          "text": "and",
+          "start": 0.82,
+          "end": 1.08
+        },
+        {
+          "text": "closed",
+          "start": 1.08,
+          "end": 1.36
+        },
+        {
+          "text": "her",
+          "start": 1.36,
+          "end": 1.52
+        },
+        {
+          "text": "reading,",
+          "start": 1.52,
+          "end": 1.82
+        },
+        {
+          "text": "rose",
+          "start": 2.46,
+          "end": 2.46
+        },
+        {
+          "text": "of",
+          "start": 2.46,
+          "end": 2.66
+        },
+        {
+          "text": "Castile:",
+          "start": 2.66,
+          "end": 3.22
+        },
+        {
+          "text": "fretted,",
+          "start": 3.7,
+          "end": 4.08
+        },
+        {
+          "text": "forlorn,",
+          "start": 4.28,
+          "end": 4.64
+        },
+        {
+          "text": "dreamily",
+          "start": 4.86,
+          "end": 5.16
+        },
+        {
+          "text": "rose.",
+          "start": 5.16,
+          "end": 5.48
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.30868408316746354
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bb40b2a6c924e934a86701d6d060d388f2e56da37268c0c09564abb346f1e7e1",
+  "selected_reasons": []
+}

@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "ccc5568072c7b4418c3419217544b9e16d3c829d3f1413b68249e647eb8450f9",
+  "attempts": [
+    {
+      "asr_seconds": 0.2878040657378733,
+      "alignment_seconds": 0.00040081609040498734,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Alas, the voice rose, sighing changed, loud, full, shining, proud.",
+          "start": 0.08,
+          "end": 4.44,
+          "words": [
+            {
+              "text": " Alas,",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.88720703125
+            },
+            {
+              "text": " the",
+              "start": 0.9,
+              "end": 0.9,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " voice",
+              "start": 0.9,
+              "end": 1.1,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " rose,",
+              "start": 1.1,
+              "end": 1.54,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " sighing",
+              "start": 2.0,
+              "end": 2.18,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " changed,",
+              "start": 2.18,
+              "end": 2.62,
+              "probability": 0.904296875
+            },
+            {
+              "text": " loud,",
+              "start": 3.22,
+              "end": 3.32,
+              "probability": 0.896484375
+            },
+            {
+              "text": " full,",
+              "start": 3.58,
+              "end": 3.66,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " shining,",
+              "start": 3.78,
+              "end": 4.06,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " proud.",
+              "start": 4.3,
+              "end": 4.44,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Alas,",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "the",
+          "start": 0.9,
+          "end": 0.9
+        },
+        {
+          "raw": "voice",
+          "start": 0.9,
+          "end": 1.1
+        },
+        {
+          "raw": "rose,",
+          "start": 1.1,
+          "end": 1.54
+        },
+        {
+          "raw": "sighing",
+          "start": 2.0,
+          "end": 2.18
+        },
+        {
+          "raw": "changed,",
+          "start": 2.18,
+          "end": 2.62
+        },
+        {
+          "raw": "loud,",
+          "start": 3.22,
+          "end": 3.32
+        },
+        {
+          "raw": "full,",
+          "start": 3.58,
+          "end": 3.66
+        },
+        {
+          "raw": "shining,",
+          "start": 3.78,
+          "end": 4.06
+        },
+        {
+          "raw": "proud.",
+          "start": 4.3,
+          "end": 4.44
+        }
+      ],
+      "expected_tokens": [
+        "Alas",
+        "the",
+        "voice",
+        "rose,",
+        "sighing,",
+        "changed:",
+        "loud,",
+        "full,",
+        "shining,",
+        "proud."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Alas,",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "alas",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.9,
+          "end": 0.9,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "voice",
+          "start": 0.9,
+          "end": 1.1,
+          "key": "voice",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "rose,",
+          "start": 1.1,
+          "end": 1.54,
+          "key": "rose",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sighing",
+          "start": 2.0,
+          "end": 2.18,
+          "key": "sighing",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "changed,",
+          "start": 2.18,
+          "end": 2.62,
+          "key": "changed",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "loud,",
+          "start": 3.22,
+          "end": 3.32,
+          "key": "loud",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "full,",
+          "start": 3.58,
+          "end": 3.66,
+          "key": "full",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "shining,",
+          "start": 3.78,
+          "end": 4.06,
+          "key": "shining",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "proud.",
+          "start": 4.3,
+          "end": 4.44,
+          "key": "proud",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Alas",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "the",
+          "start": 0.9,
+          "end": 0.9
+        },
+        {
+          "text": "voice",
+          "start": 0.9,
+          "end": 1.1
+        },
+        {
+          "text": "rose,",
+          "start": 1.1,
+          "end": 1.54
+        },
+        {
+          "text": "sighing,",
+          "start": 2.0,
+          "end": 2.18
+        },
+        {
+          "text": "changed:",
+          "start": 2.18,
+          "end": 2.62
+        },
+        {
+          "text": "loud,",
+          "start": 3.22,
+          "end": 3.32
+        },
+        {
+          "text": "full,",
+          "start": 3.58,
+          "end": 3.66
+        },
+        {
+          "text": "shining,",
+          "start": 3.78,
+          "end": 4.06
+        },
+        {
+          "text": "proud.",
+          "start": 4.3,
+          "end": 4.44
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2883577439934015
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0cb09237f1f357d0378a5f96d7992193355e62dce9294085daf20fa2ca4aa2ab",
+  "selected_reasons": []
+}

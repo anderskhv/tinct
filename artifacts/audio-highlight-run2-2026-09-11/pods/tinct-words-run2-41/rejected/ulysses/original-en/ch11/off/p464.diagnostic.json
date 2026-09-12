@@ -1,0 +1,658 @@
+{
+  "complete": true,
+  "signature": "37e0ead965b267e5a72ec4f4957b58ab6005a8417ecb782353321cdfc98009f0",
+  "attempts": [
+    {
+      "asr_seconds": 0.3102685152553022,
+      "alignment_seconds": 0.0003537307493388653,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Boar this. Board bloom tambourined gently with I am just reflecting fingers on flat pad pat brat.",
+          "start": 0.05,
+          "end": 6.65,
+          "words": [
+            {
+              "text": " Boar",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.47271728515625
+            },
+            {
+              "text": " this.",
+              "start": 0.67,
+              "end": 0.99,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " Board",
+              "start": 1.75,
+              "end": 1.81,
+              "probability": 0.6865234375
+            },
+            {
+              "text": " bloom",
+              "start": 1.81,
+              "end": 2.13,
+              "probability": 0.8310546875
+            },
+            {
+              "text": " tambourined",
+              "start": 2.13,
+              "end": 2.89,
+              "probability": 0.7930908203125
+            },
+            {
+              "text": " gently",
+              "start": 2.89,
+              "end": 3.35,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " with",
+              "start": 3.35,
+              "end": 3.61,
+              "probability": 0.84228515625
+            },
+            {
+              "text": " I",
+              "start": 3.61,
+              "end": 3.77,
+              "probability": 0.68603515625
+            },
+            {
+              "text": " am",
+              "start": 3.77,
+              "end": 3.91,
+              "probability": 0.81787109375
+            },
+            {
+              "text": " just",
+              "start": 3.91,
+              "end": 4.11,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " reflecting",
+              "start": 4.11,
+              "end": 4.61,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " fingers",
+              "start": 4.61,
+              "end": 5.05,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " on",
+              "start": 5.05,
+              "end": 5.31,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " flat",
+              "start": 5.31,
+              "end": 5.65,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " pad",
+              "start": 5.65,
+              "end": 5.97,
+              "probability": 0.79345703125
+            },
+            {
+              "text": " pat",
+              "start": 5.97,
+              "end": 6.25,
+              "probability": 0.59423828125
+            },
+            {
+              "text": " brat.",
+              "start": 6.25,
+              "end": 6.65,
+              "probability": 0.6265869140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Boar",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "this.",
+          "start": 0.67,
+          "end": 0.99
+        },
+        {
+          "raw": "Board",
+          "start": 1.75,
+          "end": 1.81
+        },
+        {
+          "raw": "bloom",
+          "start": 1.81,
+          "end": 2.13
+        },
+        {
+          "raw": "tambourined",
+          "start": 2.13,
+          "end": 2.89
+        },
+        {
+          "raw": "gently",
+          "start": 2.89,
+          "end": 3.35
+        },
+        {
+          "raw": "with",
+          "start": 3.35,
+          "end": 3.61
+        },
+        {
+          "raw": "I",
+          "start": 3.61,
+          "end": 3.77
+        },
+        {
+          "raw": "am",
+          "start": 3.77,
+          "end": 3.91
+        },
+        {
+          "raw": "just",
+          "start": 3.91,
+          "end": 4.11
+        },
+        {
+          "raw": "reflecting",
+          "start": 4.11,
+          "end": 4.61
+        },
+        {
+          "raw": "fingers",
+          "start": 4.61,
+          "end": 5.05
+        },
+        {
+          "raw": "on",
+          "start": 5.05,
+          "end": 5.31
+        },
+        {
+          "raw": "flat",
+          "start": 5.31,
+          "end": 5.65
+        },
+        {
+          "raw": "pad",
+          "start": 5.65,
+          "end": 5.97
+        },
+        {
+          "raw": "pat",
+          "start": 5.97,
+          "end": 6.25
+        },
+        {
+          "raw": "brat.",
+          "start": 6.25,
+          "end": 6.65
+        }
+      ],
+      "expected_tokens": [
+        "Bore",
+        "this.",
+        "Bored",
+        "Bloom",
+        "tambourined",
+        "gently",
+        "with",
+        "I",
+        "am",
+        "just",
+        "reflecting",
+        "fingers",
+        "on",
+        "flat",
+        "pad",
+        "Pat",
+        "brought."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          16,
+          3,
+          16
+        ],
+        [
+          "replace",
+          16,
+          17,
+          16,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          16,
+          17,
+          16,
+          17
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Boar",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "boar",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "this.",
+          "start": 0.67,
+          "end": 0.99,
+          "key": "this",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Board",
+          "start": 1.75,
+          "end": 1.81,
+          "key": "board",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "bloom",
+          "start": 1.81,
+          "end": 2.13,
+          "key": "bloom",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "tambourined",
+          "start": 2.13,
+          "end": 2.89,
+          "key": "tambourined",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "gently",
+          "start": 2.89,
+          "end": 3.35,
+          "key": "gently",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.35,
+          "end": 3.61,
+          "key": "with",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.61,
+          "end": 3.77,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 3.77,
+          "end": 3.91,
+          "key": "am",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 3.91,
+          "end": 4.11,
+          "key": "just",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "reflecting",
+          "start": 4.11,
+          "end": 4.61,
+          "key": "reflecting",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "fingers",
+          "start": 4.61,
+          "end": 5.05,
+          "key": "fingers",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 5.05,
+          "end": 5.31,
+          "key": "on",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "flat",
+          "start": 5.31,
+          "end": 5.65,
+          "key": "flat",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "pad",
+          "start": 5.65,
+          "end": 5.97,
+          "key": "pad",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "pat",
+          "start": 5.97,
+          "end": 6.25,
+          "key": "pat",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "brat.",
+          "start": 6.25,
+          "end": 6.65,
+          "key": "brat",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Bore",
+          "start": 0.0,
+          "end": 0.335
+        },
+        {
+          "text": "this.",
+          "start": 0.67,
+          "end": 0.99
+        },
+        {
+          "text": "Bored",
+          "start": 0.99,
+          "end": 1.4
+        },
+        {
+          "text": "Bloom",
+          "start": 1.81,
+          "end": 2.13
+        },
+        {
+          "text": "tambourined",
+          "start": 2.13,
+          "end": 2.89
+        },
+        {
+          "text": "gently",
+          "start": 2.89,
+          "end": 3.35
+        },
+        {
+          "text": "with",
+          "start": 3.35,
+          "end": 3.61
+        },
+        {
+          "text": "I",
+          "start": 3.61,
+          "end": 3.77
+        },
+        {
+          "text": "am",
+          "start": 3.77,
+          "end": 3.91
+        },
+        {
+          "text": "just",
+          "start": 3.91,
+          "end": 4.11
+        },
+        {
+          "text": "reflecting",
+          "start": 4.11,
+          "end": 4.61
+        },
+        {
+          "text": "fingers",
+          "start": 4.61,
+          "end": 5.05
+        },
+        {
+          "text": "on",
+          "start": 5.05,
+          "end": 5.31
+        },
+        {
+          "text": "flat",
+          "start": 5.31,
+          "end": 5.65
+        },
+        {
+          "text": "pad",
+          "start": 5.65,
+          "end": 5.97
+        },
+        {
+          "text": "Pat",
+          "start": 5.97,
+          "end": 6.25
+        },
+        {
+          "text": "brought.",
+          "start": 6.25,
+          "end": 6.45
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 14
+      },
+      "match_ratio": 0.8235294117647058,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.31074913311749697
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4ece4e6a6b61a1dffdddf7efc1f5be44e5195921e3d13ac49fd04955bb259bd8",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

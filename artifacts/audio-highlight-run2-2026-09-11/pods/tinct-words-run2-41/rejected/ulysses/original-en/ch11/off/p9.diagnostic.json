@@ -1,0 +1,279 @@
+{
+  "complete": true,
+  "signature": "657cbfc28d97124c49a591b0fd8905d5a31ea2837c7daaffced5e3605a4880b3",
+  "attempts": [
+    {
+      "asr_seconds": 0.2232763832435012,
+      "alignment_seconds": 0.000224321149289608,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Peep who's in the peep of gold",
+          "start": 0.05,
+          "end": 1.97,
+          "words": [
+            {
+              "text": " Peep",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.847412109375
+            },
+            {
+              "text": " who's",
+              "start": 0.67,
+              "end": 0.95,
+              "probability": 0.778076171875
+            },
+            {
+              "text": " in",
+              "start": 0.95,
+              "end": 1.07,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 1.07,
+              "end": 1.23,
+              "probability": 0.955078125
+            },
+            {
+              "text": " peep",
+              "start": 1.23,
+              "end": 1.57,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " of",
+              "start": 1.57,
+              "end": 1.69,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " gold",
+              "start": 1.69,
+              "end": 1.97,
+              "probability": 0.9892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Peep",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "who's",
+          "start": 0.67,
+          "end": 0.95
+        },
+        {
+          "raw": "in",
+          "start": 0.95,
+          "end": 1.07
+        },
+        {
+          "raw": "the",
+          "start": 1.07,
+          "end": 1.23
+        },
+        {
+          "raw": "peep",
+          "start": 1.23,
+          "end": 1.57
+        },
+        {
+          "raw": "of",
+          "start": 1.57,
+          "end": 1.69
+        },
+        {
+          "raw": "gold",
+          "start": 1.69,
+          "end": 1.97
+        }
+      ],
+      "expected_tokens": [
+        "Peep!",
+        "Who's",
+        "in",
+        "the...",
+        "peepofgold?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Peep",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "peep",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "who's",
+          "start": 0.67,
+          "end": 0.95,
+          "key": "whos",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.95,
+          "end": 1.07,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.07,
+          "end": 1.23,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "peep",
+          "start": 1.23,
+          "end": 1.57,
+          "key": "peep",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.57,
+          "end": 1.69,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "gold",
+          "start": 1.69,
+          "end": 1.97,
+          "key": "gold",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Peep!",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Who's",
+          "start": 0.67,
+          "end": 0.95
+        },
+        {
+          "text": "in",
+          "start": 0.95,
+          "end": 1.07
+        },
+        {
+          "text": "the...",
+          "start": 1.07,
+          "end": 1.23
+        },
+        {
+          "text": "peepofgold?",
+          "start": 1.23,
+          "end": 1.6
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 7,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.22361064795404673
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "727ab11b364aa81ac5bed4930e3cea76b706bd287e43ca4b886691c6f3de2ef7",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

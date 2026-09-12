@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "fc2a48e56cf1665ff15f416d68fe200a16b9ffd2aa3024a1657b7ff9cbb167c2",
+  "attempts": [
+    {
+      "asr_seconds": 0.09522484289482236,
+      "alignment_seconds": 0.00011880602687597275,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Admiring.",
+          "start": 0.02,
+          "end": 0.9,
+          "words": [
+            {
+              "text": " Admiring.",
+              "start": 0.02,
+              "end": 0.9,
+              "probability": 0.83203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Admiring.",
+          "start": 0.02,
+          "end": 0.9
+        }
+      ],
+      "expected_tokens": [
+        "Admiring."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Admiring.",
+          "start": 0.02,
+          "end": 0.9,
+          "key": "admiring",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Admiring.",
+          "start": 0.02,
+          "end": 0.9
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09538335399702191
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0b92ea9417c454a2dc7e3ea87893aed57fae990b586a15a5607e401896e78da0",
+  "selected_reasons": []
+}

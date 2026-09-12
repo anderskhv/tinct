@@ -1,0 +1,278 @@
+{
+  "complete": true,
+  "signature": "2b7c3454e61356003ac708abd5190283ce07d81f03659bd6c6c91a194a021166",
+  "attempts": [
+    {
+      "asr_seconds": 0.11103558912873268,
+      "alignment_seconds": 0.00039734598249197006,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sorrow for me seemed to depart.",
+          "start": 0.11,
+          "end": 1.69,
+          "words": [
+            {
+              "text": " Sorrow",
+              "start": 0.11,
+              "end": 0.69,
+              "probability": 0.83837890625
+            },
+            {
+              "text": " for",
+              "start": 0.69,
+              "end": 0.87,
+              "probability": 0.623046875
+            },
+            {
+              "text": " me",
+              "start": 0.87,
+              "end": 1.01,
+              "probability": 0.998046875
+            },
+            {
+              "text": " seemed",
+              "start": 1.01,
+              "end": 1.25,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " to",
+              "start": 1.25,
+              "end": 1.39,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " depart.",
+              "start": 1.39,
+              "end": 1.69,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sorrow",
+          "start": 0.11,
+          "end": 0.69
+        },
+        {
+          "raw": "for",
+          "start": 0.69,
+          "end": 0.87
+        },
+        {
+          "raw": "me",
+          "start": 0.87,
+          "end": 1.01
+        },
+        {
+          "raw": "seemed",
+          "start": 1.01,
+          "end": 1.25
+        },
+        {
+          "raw": "to",
+          "start": 1.25,
+          "end": 1.39
+        },
+        {
+          "raw": "depart.",
+          "start": 1.39,
+          "end": 1.69
+        }
+      ],
+      "expected_tokens": [
+        "—_Sorrow",
+        "from",
+        "me",
+        "seemed",
+        "to",
+        "depart._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          6,
+          2,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sorrow",
+          "start": 0.11,
+          "end": 0.69,
+          "key": "sorrow",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 0.69,
+          "end": 0.87,
+          "key": "for",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 0.87,
+          "end": 1.01,
+          "key": "me",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "seemed",
+          "start": 1.01,
+          "end": 1.25,
+          "key": "seemed",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.25,
+          "end": 1.39,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "depart.",
+          "start": 1.39,
+          "end": 1.69,
+          "key": "depart",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—_Sorrow",
+          "start": 0.11,
+          "end": 0.69
+        },
+        {
+          "text": "from",
+          "start": 0.69,
+          "end": 0.78
+        },
+        {
+          "text": "me",
+          "start": 0.87,
+          "end": 1.01
+        },
+        {
+          "text": "seemed",
+          "start": 1.01,
+          "end": 1.25
+        },
+        {
+          "text": "to",
+          "start": 1.25,
+          "end": 1.39
+        },
+        {
+          "text": "depart._",
+          "start": 1.39,
+          "end": 1.69
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1115846149623394
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "04c3ac3b7df7ffb998cc780d213b13ab1a3be592fd4e1cd016bb0f672028539e",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

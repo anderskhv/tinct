@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "e897283c2ea2703fb1f5d236ed7fec91d90b973b56db0619cf6a1f8471eabe1e",
+  "attempts": [
+    {
+      "asr_seconds": 0.15272638062015176,
+      "alignment_seconds": 0.0003568562678992748,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Goodgod henev erheard inall.",
+        "hotwords": "Goodgod"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Goodgod henev erheard inall.",
+          "start": 0.05,
+          "end": 1.79,
+          "words": [
+            {
+              "text": " Goodgod",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.43143430352211
+            },
+            {
+              "text": " henev",
+              "start": 0.75,
+              "end": 1.09,
+              "probability": 0.3893585205078125
+            },
+            {
+              "text": " erheard",
+              "start": 1.09,
+              "end": 1.45,
+              "probability": 0.2264420986175537
+            },
+            {
+              "text": " inall.",
+              "start": 1.45,
+              "end": 1.79,
+              "probability": 0.149444580078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Goodgod",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "henev",
+          "start": 0.75,
+          "end": 1.09
+        },
+        {
+          "raw": "erheard",
+          "start": 1.09,
+          "end": 1.45
+        },
+        {
+          "raw": "inall.",
+          "start": 1.45,
+          "end": 1.79
+        }
+      ],
+      "expected_tokens": [
+        "Goodgod",
+        "henev",
+        "erheard",
+        "inall."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Goodgod",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "goodgod",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "henev",
+          "start": 0.75,
+          "end": 1.09,
+          "key": "henev",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "erheard",
+          "start": 1.09,
+          "end": 1.45,
+          "key": "erheard",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "inall.",
+          "start": 1.45,
+          "end": 1.79,
+          "key": "inall",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Goodgod",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "henev",
+          "start": 0.75,
+          "end": 1.09
+        },
+        {
+          "text": "erheard",
+          "start": 1.09,
+          "end": 1.45
+        },
+        {
+          "text": "inall.",
+          "start": 1.45,
+          "end": 1.79
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15320272091776133
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2697ec7201eacd2bbd09c81fed98ed3802f8138e9587b55fe3be08bd511e9166",
+  "selected_reasons": []
+}

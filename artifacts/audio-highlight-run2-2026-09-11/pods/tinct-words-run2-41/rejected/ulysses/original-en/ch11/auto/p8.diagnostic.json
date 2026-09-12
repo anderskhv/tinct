@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "cd73165951e85c9adc57b654a08723f9fc5e0b28967794590049e58a0b601fa5",
+  "attempts": [
+    {
+      "asr_seconds": 0.15685975598171353,
+      "alignment_seconds": 0.0003196881152689457,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Trilling, trilling: Idolores.",
+        "hotwords": "Idolores"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Trilling, trilling. Idolores.",
+          "start": 0.05,
+          "end": 1.93,
+          "words": [
+            {
+              "text": " Trilling,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " trilling.",
+              "start": 0.89,
+              "end": 1.15,
+              "probability": 0.60382080078125
+            },
+            {
+              "text": " Idolores.",
+              "start": 1.49,
+              "end": 1.93,
+              "probability": 0.3496246337890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Trilling,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "trilling.",
+          "start": 0.89,
+          "end": 1.15
+        },
+        {
+          "raw": "Idolores.",
+          "start": 1.49,
+          "end": 1.93
+        }
+      ],
+      "expected_tokens": [
+        "Trilling,",
+        "trilling:",
+        "Idolores."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Trilling,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "trilling",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "trilling.",
+          "start": 0.89,
+          "end": 1.15,
+          "key": "trilling",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Idolores.",
+          "start": 1.49,
+          "end": 1.93,
+          "key": "idolores",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Trilling,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "trilling:",
+          "start": 0.89,
+          "end": 1.15
+        },
+        {
+          "text": "Idolores.",
+          "start": 1.49,
+          "end": 1.93
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15728963585570455
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "164e91d420220d7cd4898754208b8fbc8384f9c69c8be38ff0a5a912fc325a4a",
+  "selected_reasons": []
+}

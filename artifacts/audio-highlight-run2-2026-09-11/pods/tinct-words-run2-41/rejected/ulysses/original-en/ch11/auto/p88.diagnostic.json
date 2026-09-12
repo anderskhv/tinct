@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "be43c913a56140d0fe91233febe989c8fe514b1d2daed7cf96562abfe2971ccb",
+  "attempts": [
+    {
+      "asr_seconds": 0.08902021497488022,
+      "alignment_seconds": 0.0002123001031577587,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Bloom.",
+        "hotwords": "Bloom"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Bloom.",
+          "start": 0.02,
+          "end": 0.68,
+          "words": [
+            {
+              "text": " Bloom.",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.8134765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bloom.",
+          "start": 0.02,
+          "end": 0.68
+        }
+      ],
+      "expected_tokens": [
+        "Bloom."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bloom.",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "bloom",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Bloom.",
+          "start": 0.02,
+          "end": 0.68
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08931693900376558
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9df32c8118c5a2ce037acfc5b9623ed55cb19b2439f63d417ea3124368a82ab5",
+  "selected_reasons": []
+}

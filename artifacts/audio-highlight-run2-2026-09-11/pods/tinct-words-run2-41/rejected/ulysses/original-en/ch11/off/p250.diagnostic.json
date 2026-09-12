@@ -1,0 +1,746 @@
+{
+  "complete": true,
+  "signature": "7b0d6d5ff4a8aefcd38c042e95d63bee3b3d975a2a860a7e55a23fa2029769d3",
+  "attempts": [
+    {
+      "asr_seconds": 0.3661696230992675,
+      "alignment_seconds": 0.0009880070574581623,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I plunged a bit, said Boylan, winking and drinking.",
+          "start": 0.08,
+          "end": 2.96,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.212158203125
+            },
+            {
+              "text": " plunged",
+              "start": 0.54,
+              "end": 0.82,
+              "probability": 0.978515625
+            },
+            {
+              "text": " a",
+              "start": 0.82,
+              "end": 1.02,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " bit,",
+              "start": 1.02,
+              "end": 1.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " said",
+              "start": 1.42,
+              "end": 1.56,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Boylan,",
+              "start": 1.56,
+              "end": 1.94,
+              "probability": 0.675537109375
+            },
+            {
+              "text": " winking",
+              "start": 2.02,
+              "end": 2.28,
+              "probability": 0.990966796875
+            },
+            {
+              "text": " and",
+              "start": 2.28,
+              "end": 2.6,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " drinking.",
+              "start": 2.6,
+              "end": 2.96,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " Not on my own, you know.",
+          "start": 3.62,
+          "end": 4.58,
+          "words": [
+            {
+              "text": " Not",
+              "start": 3.62,
+              "end": 3.74,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " on",
+              "start": 3.74,
+              "end": 3.86,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " my",
+              "start": 3.86,
+              "end": 4.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " own,",
+              "start": 4.0,
+              "end": 4.24,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " you",
+              "start": 4.38,
+              "end": 4.4,
+              "probability": 0.88671875
+            },
+            {
+              "text": " know.",
+              "start": 4.4,
+              "end": 4.58,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " Fancy of a friend of mine.",
+          "start": 5.1,
+          "end": 6.3,
+          "words": [
+            {
+              "text": " Fancy",
+              "start": 5.1,
+              "end": 5.28,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " of",
+              "start": 5.28,
+              "end": 5.52,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " a",
+              "start": 5.52,
+              "end": 5.64,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " friend",
+              "start": 5.64,
+              "end": 5.82,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " of",
+              "start": 5.82,
+              "end": 6.0,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " mine.",
+              "start": 6.0,
+              "end": 6.3,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "plunged",
+          "start": 0.54,
+          "end": 0.82
+        },
+        {
+          "raw": "a",
+          "start": 0.82,
+          "end": 1.02
+        },
+        {
+          "raw": "bit,",
+          "start": 1.02,
+          "end": 1.22
+        },
+        {
+          "raw": "said",
+          "start": 1.42,
+          "end": 1.56
+        },
+        {
+          "raw": "Boylan,",
+          "start": 1.56,
+          "end": 1.94
+        },
+        {
+          "raw": "winking",
+          "start": 2.02,
+          "end": 2.28
+        },
+        {
+          "raw": "and",
+          "start": 2.28,
+          "end": 2.6
+        },
+        {
+          "raw": "drinking.",
+          "start": 2.6,
+          "end": 2.96
+        },
+        {
+          "raw": "Not",
+          "start": 3.62,
+          "end": 3.74
+        },
+        {
+          "raw": "on",
+          "start": 3.74,
+          "end": 3.86
+        },
+        {
+          "raw": "my",
+          "start": 3.86,
+          "end": 4.0
+        },
+        {
+          "raw": "own,",
+          "start": 4.0,
+          "end": 4.24
+        },
+        {
+          "raw": "you",
+          "start": 4.38,
+          "end": 4.4
+        },
+        {
+          "raw": "know.",
+          "start": 4.4,
+          "end": 4.58
+        },
+        {
+          "raw": "Fancy",
+          "start": 5.1,
+          "end": 5.28
+        },
+        {
+          "raw": "of",
+          "start": 5.28,
+          "end": 5.52
+        },
+        {
+          "raw": "a",
+          "start": 5.52,
+          "end": 5.64
+        },
+        {
+          "raw": "friend",
+          "start": 5.64,
+          "end": 5.82
+        },
+        {
+          "raw": "of",
+          "start": 5.82,
+          "end": 6.0
+        },
+        {
+          "raw": "mine.",
+          "start": 6.0,
+          "end": 6.3
+        }
+      ],
+      "expected_tokens": [
+        "—I",
+        "plunged",
+        "a",
+        "bit,",
+        "said",
+        "Boylan",
+        "winking",
+        "and",
+        "drinking.",
+        "Not",
+        "on",
+        "my",
+        "own,",
+        "you",
+        "know.",
+        "Fancy",
+        "of",
+        "a",
+        "friend",
+        "of",
+        "mine."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "plunged",
+          "start": 0.54,
+          "end": 0.82,
+          "key": "plunged",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.82,
+          "end": 1.02,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "bit,",
+          "start": 1.02,
+          "end": 1.22,
+          "key": "bit",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.42,
+          "end": 1.56,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Boylan,",
+          "start": 1.56,
+          "end": 1.94,
+          "key": "boylan",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "winking",
+          "start": 2.02,
+          "end": 2.28,
+          "key": "winking",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.28,
+          "end": 2.6,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "drinking.",
+          "start": 2.6,
+          "end": 2.96,
+          "key": "drinking",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Not",
+          "start": 3.62,
+          "end": 3.74,
+          "key": "not",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 3.74,
+          "end": 3.86,
+          "key": "on",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.86,
+          "end": 4.0,
+          "key": "my",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "own,",
+          "start": 4.0,
+          "end": 4.24,
+          "key": "own",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.38,
+          "end": 4.4,
+          "key": "you",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "know.",
+          "start": 4.4,
+          "end": 4.58,
+          "key": "know",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Fancy",
+          "start": 5.1,
+          "end": 5.28,
+          "key": "fancy",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.28,
+          "end": 5.52,
+          "key": "of",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.52,
+          "end": 5.64,
+          "key": "a",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "friend",
+          "start": 5.64,
+          "end": 5.82,
+          "key": "friend",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.82,
+          "end": 6.0,
+          "key": "of",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "mine.",
+          "start": 6.0,
+          "end": 6.3,
+          "key": "mine",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "plunged",
+          "start": 0.54,
+          "end": 0.82
+        },
+        {
+          "text": "a",
+          "start": 0.82,
+          "end": 1.02
+        },
+        {
+          "text": "bit,",
+          "start": 1.02,
+          "end": 1.22
+        },
+        {
+          "text": "said",
+          "start": 1.42,
+          "end": 1.56
+        },
+        {
+          "text": "Boylan",
+          "start": 1.56,
+          "end": 1.94
+        },
+        {
+          "text": "winking",
+          "start": 2.02,
+          "end": 2.28
+        },
+        {
+          "text": "and",
+          "start": 2.28,
+          "end": 2.6
+        },
+        {
+          "text": "drinking.",
+          "start": 2.6,
+          "end": 2.96
+        },
+        {
+          "text": "Not",
+          "start": 3.62,
+          "end": 3.74
+        },
+        {
+          "text": "on",
+          "start": 3.74,
+          "end": 3.86
+        },
+        {
+          "text": "my",
+          "start": 3.86,
+          "end": 4.0
+        },
+        {
+          "text": "own,",
+          "start": 4.0,
+          "end": 4.24
+        },
+        {
+          "text": "you",
+          "start": 4.38,
+          "end": 4.4
+        },
+        {
+          "text": "know.",
+          "start": 4.4,
+          "end": 4.58
+        },
+        {
+          "text": "Fancy",
+          "start": 5.1,
+          "end": 5.28
+        },
+        {
+          "text": "of",
+          "start": 5.28,
+          "end": 5.52
+        },
+        {
+          "text": "a",
+          "start": 5.52,
+          "end": 5.64
+        },
+        {
+          "text": "friend",
+          "start": 5.64,
+          "end": 5.82
+        },
+        {
+          "text": "of",
+          "start": 5.82,
+          "end": 6.0
+        },
+        {
+          "text": "mine.",
+          "start": 6.0,
+          "end": 6.3
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3676318768411875
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bbe8635591ba5eef98966d935b0bcfe7743306a3a50faacabc89c005d4a18184",
+  "selected_reasons": []
+}

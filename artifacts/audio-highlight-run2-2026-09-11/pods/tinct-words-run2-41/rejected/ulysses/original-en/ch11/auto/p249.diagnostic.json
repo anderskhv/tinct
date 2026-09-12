@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "8c6c5295e748f1c8e0d3300c26871a43ffd921031388ebb1f1f23c03242e7753",
+  "attempts": [
+    {
+      "asr_seconds": 0.20190611388534307,
+      "alignment_seconds": 0.00046393973752856255,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Sceptre will win in a canter, he said.",
+        "hotwords": "Sceptre"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sceptre will win in a canter, he said.",
+          "start": 0.49,
+          "end": 2.11,
+          "words": [
+            {
+              "text": " Sceptre",
+              "start": 0.49,
+              "end": 0.77,
+              "probability": 0.4212748209635417
+            },
+            {
+              "text": " will",
+              "start": 0.77,
+              "end": 0.87,
+              "probability": 0.9921875
+            },
+            {
+              "text": " win",
+              "start": 0.87,
+              "end": 1.01,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 1.01,
+              "end": 1.13,
+              "probability": 0.53515625
+            },
+            {
+              "text": " a",
+              "start": 1.13,
+              "end": 1.19,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " canter,",
+              "start": 1.19,
+              "end": 1.61,
+              "probability": 0.78466796875
+            },
+            {
+              "text": " he",
+              "start": 1.69,
+              "end": 1.83,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " said.",
+              "start": 1.83,
+              "end": 2.11,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sceptre",
+          "start": 0.49,
+          "end": 0.77
+        },
+        {
+          "raw": "will",
+          "start": 0.77,
+          "end": 0.87
+        },
+        {
+          "raw": "win",
+          "start": 0.87,
+          "end": 1.01
+        },
+        {
+          "raw": "in",
+          "start": 1.01,
+          "end": 1.13
+        },
+        {
+          "raw": "a",
+          "start": 1.13,
+          "end": 1.19
+        },
+        {
+          "raw": "canter,",
+          "start": 1.19,
+          "end": 1.61
+        },
+        {
+          "raw": "he",
+          "start": 1.69,
+          "end": 1.83
+        },
+        {
+          "raw": "said.",
+          "start": 1.83,
+          "end": 2.11
+        }
+      ],
+      "expected_tokens": [
+        "—Sceptre",
+        "will",
+        "win",
+        "in",
+        "a",
+        "canter,",
+        "he",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sceptre",
+          "start": 0.49,
+          "end": 0.77,
+          "key": "sceptre",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 0.77,
+          "end": 0.87,
+          "key": "will",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "win",
+          "start": 0.87,
+          "end": 1.01,
+          "key": "win",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.01,
+          "end": 1.13,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.13,
+          "end": 1.19,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "canter,",
+          "start": 1.19,
+          "end": 1.61,
+          "key": "canter",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.69,
+          "end": 1.83,
+          "key": "he",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 1.83,
+          "end": 2.11,
+          "key": "said",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Sceptre",
+          "start": 0.49,
+          "end": 0.77
+        },
+        {
+          "text": "will",
+          "start": 0.77,
+          "end": 0.87
+        },
+        {
+          "text": "win",
+          "start": 0.87,
+          "end": 1.01
+        },
+        {
+          "text": "in",
+          "start": 1.01,
+          "end": 1.13
+        },
+        {
+          "text": "a",
+          "start": 1.13,
+          "end": 1.19
+        },
+        {
+          "text": "canter,",
+          "start": 1.19,
+          "end": 1.61
+        },
+        {
+          "text": "he",
+          "start": 1.69,
+          "end": 1.83
+        },
+        {
+          "text": "said.",
+          "start": 1.83,
+          "end": 2.11
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2025391128845513
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2d4a097fd95f5081c3930e0bbb2b13dd537c6a354384ea535f91ca7b8e3265c8",
+  "selected_reasons": []
+}

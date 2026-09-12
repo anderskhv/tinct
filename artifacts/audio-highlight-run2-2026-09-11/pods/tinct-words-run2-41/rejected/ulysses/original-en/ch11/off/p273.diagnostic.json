@@ -1,0 +1,104 @@
+{
+  "complete": true,
+  "signature": "f7d09a931d5e9c459eb240618049b29aca68abc8221005bd941266c72b392755",
+  "attempts": [
+    {
+      "asr_seconds": 0.10007821908220649,
+      "alignment_seconds": 0.00023125996813178062,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Saunas.",
+          "start": 0.11,
+          "end": 0.91,
+          "words": [
+            {
+              "text": " Saunas.",
+              "start": 0.11,
+              "end": 0.91,
+              "probability": 0.4017740885416667
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Saunas.",
+          "start": 0.11,
+          "end": 0.91
+        }
+      ],
+      "expected_tokens": [
+        "_—Sonnez!_"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Saunas.",
+          "start": 0.11,
+          "end": 0.91,
+          "key": "saunas",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_—Sonnez!_",
+          "start": 0.0,
+          "end": 0.455
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10037379013374448
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "72d47f2866d80e5a4b68f1410a198691f552ab50801c99340c21492015a554c9",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,642 @@
+{
+  "complete": true,
+  "signature": "4e4bc94cd15d3d770061a4080b3a7c6d061f900ec1ede772c2e05a2fa51a2325",
+  "attempts": [
+    {
+      "asr_seconds": 0.36613212479278445,
+      "alignment_seconds": 0.000516221858561039,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Mr. Daedalus laid his pipe to rest beside the tuning fork, and sitting, touched the",
+          "start": 0.05,
+          "end": 5.35,
+          "words": [
+            {
+              "text": " Mr.",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " Daedalus",
+              "start": 0.87,
+              "end": 1.13,
+              "probability": 0.5806477864583334
+            },
+            {
+              "text": " laid",
+              "start": 1.13,
+              "end": 1.49,
+              "probability": 0.98828125
+            },
+            {
+              "text": " his",
+              "start": 1.49,
+              "end": 1.69,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " pipe",
+              "start": 1.69,
+              "end": 1.93,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 1.93,
+              "end": 2.13,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " rest",
+              "start": 2.13,
+              "end": 2.39,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " beside",
+              "start": 2.39,
+              "end": 2.75,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 2.75,
+              "end": 2.91,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " tuning",
+              "start": 2.91,
+              "end": 3.17,
+              "probability": 0.986328125
+            },
+            {
+              "text": " fork,",
+              "start": 3.17,
+              "end": 3.55,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " and",
+              "start": 3.87,
+              "end": 4.09,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " sitting,",
+              "start": 4.09,
+              "end": 4.39,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " touched",
+              "start": 4.85,
+              "end": 5.09,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 5.09,
+              "end": 5.35,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " obedient keys.",
+          "start": 5.35,
+          "end": 6.15,
+          "words": [
+            {
+              "text": " obedient",
+              "start": 5.35,
+              "end": 5.79,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " keys.",
+              "start": 5.79,
+              "end": 6.15,
+              "probability": 0.982421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mr.",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "Daedalus",
+          "start": 0.87,
+          "end": 1.13
+        },
+        {
+          "raw": "laid",
+          "start": 1.13,
+          "end": 1.49
+        },
+        {
+          "raw": "his",
+          "start": 1.49,
+          "end": 1.69
+        },
+        {
+          "raw": "pipe",
+          "start": 1.69,
+          "end": 1.93
+        },
+        {
+          "raw": "to",
+          "start": 1.93,
+          "end": 2.13
+        },
+        {
+          "raw": "rest",
+          "start": 2.13,
+          "end": 2.39
+        },
+        {
+          "raw": "beside",
+          "start": 2.39,
+          "end": 2.75
+        },
+        {
+          "raw": "the",
+          "start": 2.75,
+          "end": 2.91
+        },
+        {
+          "raw": "tuning",
+          "start": 2.91,
+          "end": 3.17
+        },
+        {
+          "raw": "fork,",
+          "start": 3.17,
+          "end": 3.55
+        },
+        {
+          "raw": "and",
+          "start": 3.87,
+          "end": 4.09
+        },
+        {
+          "raw": "sitting,",
+          "start": 4.09,
+          "end": 4.39
+        },
+        {
+          "raw": "touched",
+          "start": 4.85,
+          "end": 5.09
+        },
+        {
+          "raw": "the",
+          "start": 5.09,
+          "end": 5.35
+        },
+        {
+          "raw": "obedient",
+          "start": 5.35,
+          "end": 5.79
+        },
+        {
+          "raw": "keys.",
+          "start": 5.79,
+          "end": 6.15
+        }
+      ],
+      "expected_tokens": [
+        "Mr",
+        "Dedalus",
+        "laid",
+        "his",
+        "pipe",
+        "to",
+        "rest",
+        "beside",
+        "the",
+        "tuningfork",
+        "and,",
+        "sitting,",
+        "touched",
+        "the",
+        "obedient",
+        "keys."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          9,
+          2,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ],
+        [
+          "equal",
+          10,
+          16,
+          11,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mr.",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "mr",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Daedalus",
+          "start": 0.87,
+          "end": 1.13,
+          "key": "daedalus",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "laid",
+          "start": 1.13,
+          "end": 1.49,
+          "key": "laid",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.49,
+          "end": 1.69,
+          "key": "his",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "pipe",
+          "start": 1.69,
+          "end": 1.93,
+          "key": "pipe",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.93,
+          "end": 2.13,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "rest",
+          "start": 2.13,
+          "end": 2.39,
+          "key": "rest",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "beside",
+          "start": 2.39,
+          "end": 2.75,
+          "key": "beside",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.75,
+          "end": 2.91,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "tuning",
+          "start": 2.91,
+          "end": 3.17,
+          "key": "tuning",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "fork,",
+          "start": 3.17,
+          "end": 3.55,
+          "key": "fork",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.87,
+          "end": 4.09,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "sitting,",
+          "start": 4.09,
+          "end": 4.39,
+          "key": "sitting",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "touched",
+          "start": 4.85,
+          "end": 5.09,
+          "key": "touched",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.09,
+          "end": 5.35,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "obedient",
+          "start": 5.35,
+          "end": 5.79,
+          "key": "obedient",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "keys.",
+          "start": 5.79,
+          "end": 6.15,
+          "key": "keys",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Mr",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "Dedalus",
+          "start": 0.69,
+          "end": 0.91
+        },
+        {
+          "text": "laid",
+          "start": 1.13,
+          "end": 1.49
+        },
+        {
+          "text": "his",
+          "start": 1.49,
+          "end": 1.69
+        },
+        {
+          "text": "pipe",
+          "start": 1.69,
+          "end": 1.93
+        },
+        {
+          "text": "to",
+          "start": 1.93,
+          "end": 2.13
+        },
+        {
+          "text": "rest",
+          "start": 2.13,
+          "end": 2.39
+        },
+        {
+          "text": "beside",
+          "start": 2.39,
+          "end": 2.75
+        },
+        {
+          "text": "the",
+          "start": 2.75,
+          "end": 2.91
+        },
+        {
+          "text": "tuningfork",
+          "start": 2.91,
+          "end": 3.39
+        },
+        {
+          "text": "and,",
+          "start": 3.87,
+          "end": 4.09
+        },
+        {
+          "text": "sitting,",
+          "start": 4.09,
+          "end": 4.39
+        },
+        {
+          "text": "touched",
+          "start": 4.85,
+          "end": 5.09
+        },
+        {
+          "text": "the",
+          "start": 5.09,
+          "end": 5.35
+        },
+        {
+          "text": "obedient",
+          "start": 5.35,
+          "end": 5.79
+        },
+        {
+          "text": "keys.",
+          "start": 5.79,
+          "end": 6.15
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 17,
+        "matched_words": 14
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.36684798495844007
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1020562f0b31f0ec930513ffe20bab09c7450c10696882197a08cf62eaaee36c",
+  "selected_reasons": []
+}

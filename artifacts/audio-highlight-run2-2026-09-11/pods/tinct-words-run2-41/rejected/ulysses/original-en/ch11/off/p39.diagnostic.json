@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "c7ea45af2eabbb16adc0b5623a15a1ac870fd892ea87155aaf4a7b75a6c8a224",
+  "attempts": [
+    {
+      "asr_seconds": 0.15786763094365597,
+      "alignment_seconds": 0.0001869318075478077,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Low in Dark Middle Earth, Embedded Ore.",
+          "start": 0.05,
+          "end": 2.67,
+          "words": [
+            {
+              "text": " Low",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.66162109375
+            },
+            {
+              "text": " in",
+              "start": 0.63,
+              "end": 0.83,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " Dark",
+              "start": 0.83,
+              "end": 1.05,
+              "probability": 0.51513671875
+            },
+            {
+              "text": " Middle",
+              "start": 1.05,
+              "end": 1.27,
+              "probability": 0.984375
+            },
+            {
+              "text": " Earth,",
+              "start": 1.27,
+              "end": 1.71,
+              "probability": 0.79052734375
+            },
+            {
+              "text": " Embedded",
+              "start": 2.07,
+              "end": 2.43,
+              "probability": 0.824951171875
+            },
+            {
+              "text": " Ore.",
+              "start": 2.43,
+              "end": 2.67,
+              "probability": 0.64013671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Low",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "in",
+          "start": 0.63,
+          "end": 0.83
+        },
+        {
+          "raw": "Dark",
+          "start": 0.83,
+          "end": 1.05
+        },
+        {
+          "raw": "Middle",
+          "start": 1.05,
+          "end": 1.27
+        },
+        {
+          "raw": "Earth,",
+          "start": 1.27,
+          "end": 1.71
+        },
+        {
+          "raw": "Embedded",
+          "start": 2.07,
+          "end": 2.43
+        },
+        {
+          "raw": "Ore.",
+          "start": 2.43,
+          "end": 2.67
+        }
+      ],
+      "expected_tokens": [
+        "Low",
+        "in",
+        "dark",
+        "middle",
+        "earth.",
+        "Embedded",
+        "ore."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Low",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "low",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.63,
+          "end": 0.83,
+          "key": "in",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Dark",
+          "start": 0.83,
+          "end": 1.05,
+          "key": "dark",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Middle",
+          "start": 1.05,
+          "end": 1.27,
+          "key": "middle",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Earth,",
+          "start": 1.27,
+          "end": 1.71,
+          "key": "earth",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Embedded",
+          "start": 2.07,
+          "end": 2.43,
+          "key": "embedded",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Ore.",
+          "start": 2.43,
+          "end": 2.67,
+          "key": "ore",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Low",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "in",
+          "start": 0.63,
+          "end": 0.83
+        },
+        {
+          "text": "dark",
+          "start": 0.83,
+          "end": 1.05
+        },
+        {
+          "text": "middle",
+          "start": 1.05,
+          "end": 1.27
+        },
+        {
+          "text": "earth.",
+          "start": 1.27,
+          "end": 1.71
+        },
+        {
+          "text": "Embedded",
+          "start": 2.07,
+          "end": 2.43
+        },
+        {
+          "text": "ore.",
+          "start": 2.43,
+          "end": 2.67
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15812613675370812
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "29516248e4d8d1947d1d5bb7896923c97f590823c3ae27b4787cdfb9a398c30a",
+  "selected_reasons": []
+}

@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "ca75251b0fb8fb3e8df228cdb751a7b8a861f4ad221357329aa539c8e8efe236",
+  "attempts": [
+    {
+      "asr_seconds": 0.22689224407076836,
+      "alignment_seconds": 0.00039111310616135597,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Miss Kennedy, pouring now a fulldrawn tea, grimaced and prayed:",
+        "hotwords": "Miss, Kennedy"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Miss, Kennedy, pouring now a fulldrawn tea, grimaced and prayed.",
+          "start": 0.02,
+          "end": 3.7,
+          "words": [
+            {
+              "text": " Miss,",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.7548828125
+            },
+            {
+              "text": " Kennedy,",
+              "start": 0.88,
+              "end": 0.94,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " pouring",
+              "start": 1.32,
+              "end": 1.56,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " now",
+              "start": 1.56,
+              "end": 1.78,
+              "probability": 0.958984375
+            },
+            {
+              "text": " a",
+              "start": 1.78,
+              "end": 1.88,
+              "probability": 0.017242431640625
+            },
+            {
+              "text": " fulldrawn",
+              "start": 1.88,
+              "end": 2.18,
+              "probability": 0.48926299810409546
+            },
+            {
+              "text": " tea,",
+              "start": 2.18,
+              "end": 2.52,
+              "probability": 0.89697265625
+            },
+            {
+              "text": " grimaced",
+              "start": 2.96,
+              "end": 3.26,
+              "probability": 0.939697265625
+            },
+            {
+              "text": " and",
+              "start": 3.26,
+              "end": 3.42,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " prayed.",
+              "start": 3.42,
+              "end": 3.7,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Miss,",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "Kennedy,",
+          "start": 0.88,
+          "end": 0.94
+        },
+        {
+          "raw": "pouring",
+          "start": 1.32,
+          "end": 1.56
+        },
+        {
+          "raw": "now",
+          "start": 1.56,
+          "end": 1.78
+        },
+        {
+          "raw": "a",
+          "start": 1.78,
+          "end": 1.88
+        },
+        {
+          "raw": "fulldrawn",
+          "start": 1.88,
+          "end": 2.18
+        },
+        {
+          "raw": "tea,",
+          "start": 2.18,
+          "end": 2.52
+        },
+        {
+          "raw": "grimaced",
+          "start": 2.96,
+          "end": 3.26
+        },
+        {
+          "raw": "and",
+          "start": 3.26,
+          "end": 3.42
+        },
+        {
+          "raw": "prayed.",
+          "start": 3.42,
+          "end": 3.7
+        }
+      ],
+      "expected_tokens": [
+        "Miss",
+        "Kennedy,",
+        "pouring",
+        "now",
+        "a",
+        "fulldrawn",
+        "tea,",
+        "grimaced",
+        "and",
+        "prayed:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Miss,",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "miss",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Kennedy,",
+          "start": 0.88,
+          "end": 0.94,
+          "key": "kennedy",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "pouring",
+          "start": 1.32,
+          "end": 1.56,
+          "key": "pouring",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 1.56,
+          "end": 1.78,
+          "key": "now",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.78,
+          "end": 1.88,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "fulldrawn",
+          "start": 1.88,
+          "end": 2.18,
+          "key": "fulldrawn",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "tea,",
+          "start": 2.18,
+          "end": 2.52,
+          "key": "tea",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "grimaced",
+          "start": 2.96,
+          "end": 3.26,
+          "key": "grimaced",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.26,
+          "end": 3.42,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "prayed.",
+          "start": 3.42,
+          "end": 3.7,
+          "key": "prayed",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Miss",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "Kennedy,",
+          "start": 0.88,
+          "end": 0.94
+        },
+        {
+          "text": "pouring",
+          "start": 1.32,
+          "end": 1.56
+        },
+        {
+          "text": "now",
+          "start": 1.56,
+          "end": 1.78
+        },
+        {
+          "text": "a",
+          "start": 1.78,
+          "end": 1.88
+        },
+        {
+          "text": "fulldrawn",
+          "start": 1.88,
+          "end": 2.18
+        },
+        {
+          "text": "tea,",
+          "start": 2.18,
+          "end": 2.52
+        },
+        {
+          "text": "grimaced",
+          "start": 2.96,
+          "end": 3.26
+        },
+        {
+          "text": "and",
+          "start": 3.26,
+          "end": 3.42
+        },
+        {
+          "text": "prayed:",
+          "start": 3.42,
+          "end": 3.7
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22742971824482083
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8af262affa32bc0bf83090448069c679f3150017501db70975cc3aaac0a84f11",
+  "selected_reasons": []
+}

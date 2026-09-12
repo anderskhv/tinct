@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "3a22d0af7295bd5ceadbec15972af46822278f2c92fc6b3b54593b54a04c4d30",
+  "attempts": [
+    {
+      "asr_seconds": 0.21479837829247117,
+      "alignment_seconds": 0.0002999231219291687,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Gaily miss Douce polished a tumbler, trilling:",
+        "hotwords": "Gaily, Douce"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Gaily miss Douce polished a tumbler, trilling.",
+          "start": 0.05,
+          "end": 2.61,
+          "words": [
+            {
+              "text": " Gaily",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.343017578125
+            },
+            {
+              "text": " miss",
+              "start": 0.73,
+              "end": 0.97,
+              "probability": 0.04986572265625
+            },
+            {
+              "text": " Douce",
+              "start": 0.97,
+              "end": 1.27,
+              "probability": 0.39374446868896484
+            },
+            {
+              "text": " polished",
+              "start": 1.27,
+              "end": 1.57,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " a",
+              "start": 1.57,
+              "end": 1.75,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " tumbler,",
+              "start": 1.75,
+              "end": 2.13,
+              "probability": 0.8849283854166666
+            },
+            {
+              "text": " trilling.",
+              "start": 2.37,
+              "end": 2.61,
+              "probability": 0.905517578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gaily",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "miss",
+          "start": 0.73,
+          "end": 0.97
+        },
+        {
+          "raw": "Douce",
+          "start": 0.97,
+          "end": 1.27
+        },
+        {
+          "raw": "polished",
+          "start": 1.27,
+          "end": 1.57
+        },
+        {
+          "raw": "a",
+          "start": 1.57,
+          "end": 1.75
+        },
+        {
+          "raw": "tumbler,",
+          "start": 1.75,
+          "end": 2.13
+        },
+        {
+          "raw": "trilling.",
+          "start": 2.37,
+          "end": 2.61
+        }
+      ],
+      "expected_tokens": [
+        "Gaily",
+        "miss",
+        "Douce",
+        "polished",
+        "a",
+        "tumbler,",
+        "trilling:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gaily",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "gaily",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "miss",
+          "start": 0.73,
+          "end": 0.97,
+          "key": "miss",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Douce",
+          "start": 0.97,
+          "end": 1.27,
+          "key": "douce",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "polished",
+          "start": 1.27,
+          "end": 1.57,
+          "key": "polished",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.57,
+          "end": 1.75,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "tumbler,",
+          "start": 1.75,
+          "end": 2.13,
+          "key": "tumbler",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "trilling.",
+          "start": 2.37,
+          "end": 2.61,
+          "key": "trilling",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gaily",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "miss",
+          "start": 0.73,
+          "end": 0.97
+        },
+        {
+          "text": "Douce",
+          "start": 0.97,
+          "end": 1.27
+        },
+        {
+          "text": "polished",
+          "start": 1.27,
+          "end": 1.57
+        },
+        {
+          "text": "a",
+          "start": 1.57,
+          "end": 1.75
+        },
+        {
+          "text": "tumbler,",
+          "start": 1.75,
+          "end": 2.13
+        },
+        {
+          "text": "trilling:",
+          "start": 2.37,
+          "end": 2.61
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2152164070867002
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "35acb9b2e7b97dc0a2079858d5bc3182d079aded257dd77564715029556a2610",
+  "selected_reasons": []
+}

@@ -1,0 +1,542 @@
+{
+  "complete": true,
+  "signature": "a9d565674ff6a3af76d9e01869e9bb9ab19c41587ff9ec63081575a52148a68c",
+  "attempts": [
+    {
+      "asr_seconds": 0.3414399502798915,
+      "alignment_seconds": 0.0004269559867680073,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Bronzedouce communing with her rose that sank and rose sought Blazes Boylan's flower and eyes.",
+        "hotwords": "Bronzedouce, Blazes, Boylan's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Bronzedouce communing with her rose that sank and rose sought Blazes Boylan's flower and eyes.",
+          "start": 0.05,
+          "end": 5.85,
+          "words": [
+            {
+              "text": " Bronzedouce",
+              "start": 0.05,
+              "end": 1.07,
+              "probability": 0.33845090866088867
+            },
+            {
+              "text": " communing",
+              "start": 1.07,
+              "end": 1.45,
+              "probability": 0.888427734375
+            },
+            {
+              "text": " with",
+              "start": 1.45,
+              "end": 1.55,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " her",
+              "start": 1.55,
+              "end": 1.69,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " rose",
+              "start": 1.69,
+              "end": 1.95,
+              "probability": 0.880859375
+            },
+            {
+              "text": " that",
+              "start": 1.95,
+              "end": 2.21,
+              "probability": 0.8583984375
+            },
+            {
+              "text": " sank",
+              "start": 2.21,
+              "end": 2.55,
+              "probability": 0.994140625
+            },
+            {
+              "text": " and",
+              "start": 2.55,
+              "end": 2.75,
+              "probability": 0.744140625
+            },
+            {
+              "text": " rose",
+              "start": 2.75,
+              "end": 3.17,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " sought",
+              "start": 3.17,
+              "end": 3.79,
+              "probability": 0.10125732421875
+            },
+            {
+              "text": " Blazes",
+              "start": 3.79,
+              "end": 4.41,
+              "probability": 0.48798513412475586
+            },
+            {
+              "text": " Boylan's",
+              "start": 4.41,
+              "end": 4.97,
+              "probability": 0.6793619791666666
+            },
+            {
+              "text": " flower",
+              "start": 4.97,
+              "end": 5.21,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " and",
+              "start": 5.21,
+              "end": 5.49,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " eyes.",
+              "start": 5.49,
+              "end": 5.85,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bronzedouce",
+          "start": 0.05,
+          "end": 1.07
+        },
+        {
+          "raw": "communing",
+          "start": 1.07,
+          "end": 1.45
+        },
+        {
+          "raw": "with",
+          "start": 1.45,
+          "end": 1.55
+        },
+        {
+          "raw": "her",
+          "start": 1.55,
+          "end": 1.69
+        },
+        {
+          "raw": "rose",
+          "start": 1.69,
+          "end": 1.95
+        },
+        {
+          "raw": "that",
+          "start": 1.95,
+          "end": 2.21
+        },
+        {
+          "raw": "sank",
+          "start": 2.21,
+          "end": 2.55
+        },
+        {
+          "raw": "and",
+          "start": 2.55,
+          "end": 2.75
+        },
+        {
+          "raw": "rose",
+          "start": 2.75,
+          "end": 3.17
+        },
+        {
+          "raw": "sought",
+          "start": 3.17,
+          "end": 3.79
+        },
+        {
+          "raw": "Blazes",
+          "start": 3.79,
+          "end": 4.41
+        },
+        {
+          "raw": "Boylan's",
+          "start": 4.41,
+          "end": 4.97
+        },
+        {
+          "raw": "flower",
+          "start": 4.97,
+          "end": 5.21
+        },
+        {
+          "raw": "and",
+          "start": 5.21,
+          "end": 5.49
+        },
+        {
+          "raw": "eyes.",
+          "start": 5.49,
+          "end": 5.85
+        }
+      ],
+      "expected_tokens": [
+        "Bronzedouce",
+        "communing",
+        "with",
+        "her",
+        "rose",
+        "that",
+        "sank",
+        "and",
+        "rose",
+        "sought",
+        "Blazes",
+        "Boylan's",
+        "flower",
+        "and",
+        "eyes."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bronzedouce",
+          "start": 0.05,
+          "end": 1.07,
+          "key": "bronzedouce",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "communing",
+          "start": 1.07,
+          "end": 1.45,
+          "key": "communing",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.45,
+          "end": 1.55,
+          "key": "with",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 1.55,
+          "end": 1.69,
+          "key": "her",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "rose",
+          "start": 1.69,
+          "end": 1.95,
+          "key": "rose",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.95,
+          "end": 2.21,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sank",
+          "start": 2.21,
+          "end": 2.55,
+          "key": "sank",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.55,
+          "end": 2.75,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "rose",
+          "start": 2.75,
+          "end": 3.17,
+          "key": "rose",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "sought",
+          "start": 3.17,
+          "end": 3.79,
+          "key": "sought",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Blazes",
+          "start": 3.79,
+          "end": 4.41,
+          "key": "blazes",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Boylan's",
+          "start": 4.41,
+          "end": 4.97,
+          "key": "boylans",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "flower",
+          "start": 4.97,
+          "end": 5.21,
+          "key": "flower",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.21,
+          "end": 5.49,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "eyes.",
+          "start": 5.49,
+          "end": 5.85,
+          "key": "eyes",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Bronzedouce",
+          "start": 0.05,
+          "end": 1.07
+        },
+        {
+          "text": "communing",
+          "start": 1.07,
+          "end": 1.45
+        },
+        {
+          "text": "with",
+          "start": 1.45,
+          "end": 1.55
+        },
+        {
+          "text": "her",
+          "start": 1.55,
+          "end": 1.69
+        },
+        {
+          "text": "rose",
+          "start": 1.69,
+          "end": 1.95
+        },
+        {
+          "text": "that",
+          "start": 1.95,
+          "end": 2.21
+        },
+        {
+          "text": "sank",
+          "start": 2.21,
+          "end": 2.55
+        },
+        {
+          "text": "and",
+          "start": 2.55,
+          "end": 2.75
+        },
+        {
+          "text": "rose",
+          "start": 2.75,
+          "end": 3.17
+        },
+        {
+          "text": "sought",
+          "start": 3.17,
+          "end": 3.79
+        },
+        {
+          "text": "Blazes",
+          "start": 3.79,
+          "end": 4.41
+        },
+        {
+          "text": "Boylan's",
+          "start": 4.41,
+          "end": 4.97
+        },
+        {
+          "text": "flower",
+          "start": 4.97,
+          "end": 5.21
+        },
+        {
+          "text": "and",
+          "start": 5.21,
+          "end": 5.49
+        },
+        {
+          "text": "eyes.",
+          "start": 5.49,
+          "end": 5.85
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.34205525927245617
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c71a12ef9698eb108dec52af1189c98a5c72a06b6d44ba0f946dde1f2d03612f",
+  "selected_reasons": []
+}

@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "044d18dff48381e1288dc7c78030a01351e4ec95352f9f17c4b0cf47ffc226f9",
+  "attempts": [
+    {
+      "asr_seconds": 0.12428537011146545,
+      "alignment_seconds": 0.00021594297140836716,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Listen!",
+        "hotwords": "Listen"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Listen!",
+          "start": 0.02,
+          "end": 0.78,
+          "words": [
+            {
+              "text": " Listen!",
+              "start": 0.02,
+              "end": 0.78,
+              "probability": 0.88525390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Listen!",
+          "start": 0.02,
+          "end": 0.78
+        }
+      ],
+      "expected_tokens": [
+        "Listen!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Listen!",
+          "start": 0.02,
+          "end": 0.78,
+          "key": "listen",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Listen!",
+          "start": 0.02,
+          "end": 0.78
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12457641027867794
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c47d713dd9b03d54414e2164839f39b5209f768281163271de38dbe753bd414f",
+  "selected_reasons": []
+}

@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "8e6999f4c9357fa5aa497a5047d10d466362c50d0a3a05adf519adf51d088774",
+  "attempts": [
+    {
+      "asr_seconds": 0.130724695045501,
+      "alignment_seconds": 0.00028201425448060036,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Martha, ah Martha.",
+          "start": 0.02,
+          "end": 1.54,
+          "words": [
+            {
+              "text": " Martha,",
+              "start": 0.02,
+              "end": 0.82,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " ah",
+              "start": 1.22,
+              "end": 1.26,
+              "probability": 0.4716796875
+            },
+            {
+              "text": " Martha.",
+              "start": 1.26,
+              "end": 1.54,
+              "probability": 0.7138671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Martha,",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "raw": "ah",
+          "start": 1.22,
+          "end": 1.26
+        },
+        {
+          "raw": "Martha.",
+          "start": 1.26,
+          "end": 1.54
+        }
+      ],
+      "expected_tokens": [
+        "—_Martha!",
+        "Ah,",
+        "Martha!_"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Martha,",
+          "start": 0.02,
+          "end": 0.82,
+          "key": "martha",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "ah",
+          "start": 1.22,
+          "end": 1.26,
+          "key": "ah",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Martha.",
+          "start": 1.26,
+          "end": 1.54,
+          "key": "martha",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—_Martha!",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "text": "Ah,",
+          "start": 1.22,
+          "end": 1.26
+        },
+        {
+          "text": "Martha!_",
+          "start": 1.26,
+          "end": 1.54
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13111723214387894
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7562b3e3401ce25e3e1507fd872759ecf6e3ee866664da815e69352552a1fbc9",
+  "selected_reasons": []
+}

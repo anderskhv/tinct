@@ -1,0 +1,187 @@
+{
+  "complete": true,
+  "signature": "3ffbe8dbed8f16f2d19276dbfd163d73f2443e3c9d3c3b506e059bd64388bd5d",
+  "attempts": [
+    {
+      "asr_seconds": 0.1581856799311936,
+      "alignment_seconds": 0.00013651512563228607,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " It is Bloomsad.",
+          "start": 0.05,
+          "end": 1.37,
+          "words": [
+            {
+              "text": " It",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.85400390625
+            },
+            {
+              "text": " is",
+              "start": 0.51,
+              "end": 0.73,
+              "probability": 0.986328125
+            },
+            {
+              "text": " Bloomsad.",
+              "start": 0.73,
+              "end": 1.37,
+              "probability": 0.600982666015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "is",
+          "start": 0.51,
+          "end": 0.73
+        },
+        {
+          "raw": "Bloomsad.",
+          "start": 0.73,
+          "end": 1.37
+        }
+      ],
+      "expected_tokens": [
+        "—It",
+        "is,",
+        "Bloom",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          4,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "it",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.51,
+          "end": 0.73,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Bloomsad.",
+          "start": 0.73,
+          "end": 1.37,
+          "key": "bloomsad",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—It",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "is,",
+          "start": 0.51,
+          "end": 0.73
+        },
+        {
+          "text": "Bloom",
+          "start": 0.73,
+          "end": 1.05
+        },
+        {
+          "text": "said.",
+          "start": 1.05,
+          "end": 1.21
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1583584169857204
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "031b31c7f02c1408f9636ad519ae5eadeb0e9b5ec39732358b3a94f7d9cae005",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

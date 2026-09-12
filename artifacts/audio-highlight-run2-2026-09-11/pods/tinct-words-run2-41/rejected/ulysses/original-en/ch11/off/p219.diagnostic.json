@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "1ec37968fda2179c012b2a2322ab8f6d2caa8367bf621389ff3d1da8faeb7b8e",
+  "attempts": [
+    {
+      "asr_seconds": 0.1740491259843111,
+      "alignment_seconds": 0.00040985504165291786,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " But look this way, he said, Rose of Castile.",
+          "start": 0.08,
+          "end": 2.84,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.08,
+              "end": 0.5,
+              "probability": 0.50732421875
+            },
+            {
+              "text": " look",
+              "start": 0.5,
+              "end": 0.66,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " this",
+              "start": 0.66,
+              "end": 0.88,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " way,",
+              "start": 0.88,
+              "end": 1.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " he",
+              "start": 1.3,
+              "end": 1.38,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " said,",
+              "start": 1.38,
+              "end": 1.66,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Rose",
+              "start": 2.04,
+              "end": 2.14,
+              "probability": 0.31689453125
+            },
+            {
+              "text": " of",
+              "start": 2.14,
+              "end": 2.32,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Castile.",
+              "start": 2.32,
+              "end": 2.84,
+              "probability": 0.8583984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "raw": "look",
+          "start": 0.5,
+          "end": 0.66
+        },
+        {
+          "raw": "this",
+          "start": 0.66,
+          "end": 0.88
+        },
+        {
+          "raw": "way,",
+          "start": 0.88,
+          "end": 1.16
+        },
+        {
+          "raw": "he",
+          "start": 1.3,
+          "end": 1.38
+        },
+        {
+          "raw": "said,",
+          "start": 1.38,
+          "end": 1.66
+        },
+        {
+          "raw": "Rose",
+          "start": 2.04,
+          "end": 2.14
+        },
+        {
+          "raw": "of",
+          "start": 2.14,
+          "end": 2.32
+        },
+        {
+          "raw": "Castile.",
+          "start": 2.32,
+          "end": 2.84
+        }
+      ],
+      "expected_tokens": [
+        "—But",
+        "look",
+        "this",
+        "way,",
+        "he",
+        "said,",
+        "rose",
+        "of",
+        "Castile."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.08,
+          "end": 0.5,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 0.5,
+          "end": 0.66,
+          "key": "look",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 0.66,
+          "end": 0.88,
+          "key": "this",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "way,",
+          "start": 0.88,
+          "end": 1.16,
+          "key": "way",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.3,
+          "end": 1.38,
+          "key": "he",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 1.38,
+          "end": 1.66,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Rose",
+          "start": 2.04,
+          "end": 2.14,
+          "key": "rose",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.14,
+          "end": 2.32,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Castile.",
+          "start": 2.32,
+          "end": 2.84,
+          "key": "castile",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—But",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "text": "look",
+          "start": 0.5,
+          "end": 0.66
+        },
+        {
+          "text": "this",
+          "start": 0.66,
+          "end": 0.88
+        },
+        {
+          "text": "way,",
+          "start": 0.88,
+          "end": 1.16
+        },
+        {
+          "text": "he",
+          "start": 1.3,
+          "end": 1.38
+        },
+        {
+          "text": "said,",
+          "start": 1.38,
+          "end": 1.66
+        },
+        {
+          "text": "rose",
+          "start": 2.04,
+          "end": 2.14
+        },
+        {
+          "text": "of",
+          "start": 2.14,
+          "end": 2.32
+        },
+        {
+          "text": "Castile.",
+          "start": 2.32,
+          "end": 2.84
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17460692394524813
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8e828168013ae371bbd564a877a0c2dbf56d14a7bd593669fdeb2bde0d9c2eba",
+  "selected_reasons": []
+}

@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "680739101469c59459a2aa17cc0e3ced984e8b4f04d1475546677d7fdacf693b",
+  "attempts": [
+    {
+      "asr_seconds": 0.19354299269616604,
+      "alignment_seconds": 0.0002244049683213234,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Exquisite contrast, miss Kennedy said.",
+        "hotwords": "Exquisite, Kennedy"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exquisite contrast, miss Kennedy said.",
+          "start": 0.08,
+          "end": 2.66,
+          "words": [
+            {
+              "text": " Exquisite",
+              "start": 0.08,
+              "end": 0.88,
+              "probability": 0.7809244791666666
+            },
+            {
+              "text": " contrast,",
+              "start": 0.88,
+              "end": 1.42,
+              "probability": 0.8740234375
+            },
+            {
+              "text": " miss",
+              "start": 1.88,
+              "end": 1.98,
+              "probability": 0.00446319580078125
+            },
+            {
+              "text": " Kennedy",
+              "start": 1.98,
+              "end": 2.28,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " said.",
+              "start": 2.28,
+              "end": 2.66,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exquisite",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "raw": "contrast,",
+          "start": 0.88,
+          "end": 1.42
+        },
+        {
+          "raw": "miss",
+          "start": 1.88,
+          "end": 1.98
+        },
+        {
+          "raw": "Kennedy",
+          "start": 1.98,
+          "end": 2.28
+        },
+        {
+          "raw": "said.",
+          "start": 2.28,
+          "end": 2.66
+        }
+      ],
+      "expected_tokens": [
+        "—Exquisite",
+        "contrast,",
+        "miss",
+        "Kennedy",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exquisite",
+          "start": 0.08,
+          "end": 0.88,
+          "key": "exquisite",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "contrast,",
+          "start": 0.88,
+          "end": 1.42,
+          "key": "contrast",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "miss",
+          "start": 1.88,
+          "end": 1.98,
+          "key": "miss",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Kennedy",
+          "start": 1.98,
+          "end": 2.28,
+          "key": "kennedy",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 2.28,
+          "end": 2.66,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Exquisite",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "text": "contrast,",
+          "start": 0.88,
+          "end": 1.42
+        },
+        {
+          "text": "miss",
+          "start": 1.88,
+          "end": 1.98
+        },
+        {
+          "text": "Kennedy",
+          "start": 1.98,
+          "end": 2.28
+        },
+        {
+          "text": "said.",
+          "start": 2.28,
+          "end": 2.66
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19384751981124282
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ca6697ca645b0f84e851b018565e317144ea80d39554e95ac6f2bb7912c996e9",
+  "selected_reasons": []
+}

@@ -1,0 +1,195 @@
+{
+  "complete": true,
+  "signature": "0dd9ed9d565bfcc5d74389ef3f561d47600c28eb34fdbe4862688fad431ad35d",
+  "attempts": [
+    {
+      "asr_seconds": 0.11350887315347791,
+      "alignment_seconds": 0.00022818101570010185,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Like lady lady like",
+          "start": 0.05,
+          "end": 1.67,
+          "words": [
+            {
+              "text": " Like",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.634765625
+            },
+            {
+              "text": " lady",
+              "start": 0.59,
+              "end": 0.95,
+              "probability": 0.658203125
+            },
+            {
+              "text": " lady",
+              "start": 0.95,
+              "end": 1.33,
+              "probability": 0.334228515625
+            },
+            {
+              "text": " like",
+              "start": 1.33,
+              "end": 1.67,
+              "probability": 0.70703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Like",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "lady",
+          "start": 0.59,
+          "end": 0.95
+        },
+        {
+          "raw": "lady",
+          "start": 0.95,
+          "end": 1.33
+        },
+        {
+          "raw": "like",
+          "start": 1.33,
+          "end": 1.67
+        }
+      ],
+      "expected_tokens": [
+        "Like",
+        "lady,",
+        "ladylike."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Like",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "like",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "lady",
+          "start": 0.59,
+          "end": 0.95,
+          "key": "lady",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lady",
+          "start": 0.95,
+          "end": 1.33,
+          "key": "lady",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 1.33,
+          "end": 1.67,
+          "key": "like",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Like",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "lady,",
+          "start": 0.59,
+          "end": 0.95
+        },
+        {
+          "text": "ladylike.",
+          "start": 0.95,
+          "end": 1.31
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11382059007883072
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "27dc55696bcdcf5594c2952961b88a5e945911eafe3bf74d8fc18c7a1bc02415",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

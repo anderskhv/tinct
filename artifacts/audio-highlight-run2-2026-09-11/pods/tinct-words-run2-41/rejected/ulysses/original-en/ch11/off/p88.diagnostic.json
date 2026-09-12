@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "b66023f2ace8a0a6c7af00ce0438f95aba34b2d886f19f19e5ed7ef263e388fb",
+  "attempts": [
+    {
+      "asr_seconds": 0.09325130702927709,
+      "alignment_seconds": 8.662184700369835e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Bloom",
+          "start": 0.02,
+          "end": 0.68,
+          "words": [
+            {
+              "text": " Bloom",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.8134765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bloom",
+          "start": 0.02,
+          "end": 0.68
+        }
+      ],
+      "expected_tokens": [
+        "Bloom."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bloom",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "bloom",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Bloom.",
+          "start": 0.02,
+          "end": 0.68
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0933664720505476
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9df32c8118c5a2ce037acfc5b9623ed55cb19b2439f63d417ea3124368a82ab5",
+  "selected_reasons": []
+}

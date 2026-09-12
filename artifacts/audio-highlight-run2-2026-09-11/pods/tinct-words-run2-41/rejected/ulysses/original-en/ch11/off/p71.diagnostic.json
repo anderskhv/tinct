@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "fb58c2ff2ae417ddbb8222db5ff6b6ded1f45d049d4de689aed4bdcbf85af7a3",
+  "attempts": [
+    {
+      "asr_seconds": 0.1306632119230926,
+      "alignment_seconds": 0.00030404189601540565,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He's killed looking back",
+          "start": 0.05,
+          "end": 1.49,
+          "words": [
+            {
+              "text": " He's",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.970947265625
+            },
+            {
+              "text": " killed",
+              "start": 0.63,
+              "end": 0.83,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " looking",
+              "start": 0.83,
+              "end": 1.09,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " back",
+              "start": 1.09,
+              "end": 1.49,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He's",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "killed",
+          "start": 0.63,
+          "end": 0.83
+        },
+        {
+          "raw": "looking",
+          "start": 0.83,
+          "end": 1.09
+        },
+        {
+          "raw": "back",
+          "start": 1.09,
+          "end": 1.49
+        }
+      ],
+      "expected_tokens": [
+        "—He's",
+        "killed",
+        "looking",
+        "back."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He's",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "hes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "killed",
+          "start": 0.63,
+          "end": 0.83,
+          "key": "killed",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "looking",
+          "start": 0.83,
+          "end": 1.09,
+          "key": "looking",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "back",
+          "start": 1.09,
+          "end": 1.49,
+          "key": "back",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—He's",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "killed",
+          "start": 0.63,
+          "end": 0.83
+        },
+        {
+          "text": "looking",
+          "start": 0.83,
+          "end": 1.09
+        },
+        {
+          "text": "back.",
+          "start": 1.09,
+          "end": 1.49
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1310755186714232
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "300d71e0b93dcf781b21b037c493e135d01eaec2e103dceb1e8512ae3d741a2f",
+  "selected_reasons": []
+}

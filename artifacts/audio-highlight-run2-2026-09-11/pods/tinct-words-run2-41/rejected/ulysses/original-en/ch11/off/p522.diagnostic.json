@@ -1,0 +1,214 @@
+{
+  "complete": true,
+  "signature": "b82f76e5a10c8f2da196342d020f965b356bb9486a7112e987b56f7d10f4a4d3",
+  "attempts": [
+    {
+      "asr_seconds": 0.11388294911012053,
+      "alignment_seconds": 0.00024408474564552307,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The cords harp slower.",
+          "start": 0.02,
+          "end": 1.34,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.7880859375
+            },
+            {
+              "text": " cords",
+              "start": 0.48,
+              "end": 0.72,
+              "probability": 0.77880859375
+            },
+            {
+              "text": " harp",
+              "start": 0.72,
+              "end": 1.0,
+              "probability": 0.88330078125
+            },
+            {
+              "text": " slower.",
+              "start": 1.0,
+              "end": 1.34,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "cords",
+          "start": 0.48,
+          "end": 0.72
+        },
+        {
+          "raw": "harp",
+          "start": 0.72,
+          "end": 1.0
+        },
+        {
+          "raw": "slower.",
+          "start": 1.0,
+          "end": 1.34
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "chords",
+        "harped",
+        "slower."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "equal",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          3,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "cords",
+          "start": 0.48,
+          "end": 0.72,
+          "key": "cords",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "harp",
+          "start": 0.72,
+          "end": 1.0,
+          "key": "harp",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "slower.",
+          "start": 1.0,
+          "end": 1.34,
+          "key": "slower",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "chords",
+          "start": 0.48,
+          "end": 0.74
+        },
+        {
+          "text": "harped",
+          "start": 0.74,
+          "end": 0.87
+        },
+        {
+          "text": "slower.",
+          "start": 1.0,
+          "end": 1.34
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11420318111777306
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "716ac8b2e8ab35f7b75dbdeb98341dc7ce945895d6a822710805770fe10016e2",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

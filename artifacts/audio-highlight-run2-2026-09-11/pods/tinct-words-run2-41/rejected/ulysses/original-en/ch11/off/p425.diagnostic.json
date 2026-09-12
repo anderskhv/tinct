@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "df2ae8ab9fee40b4acc47f27a6cc9640b156702081d926b6648ab80866da9215",
+  "attempts": [
+    {
+      "asr_seconds": 0.10183637123554945,
+      "alignment_seconds": 0.00023648701608181,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Come",
+          "start": 0.08,
+          "end": 0.64,
+          "words": [
+            {
+              "text": " Come",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.72314453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Come",
+          "start": 0.08,
+          "end": 0.64
+        }
+      ],
+      "expected_tokens": [
+        "_—Come!_"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Come",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "come",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_—Come!_",
+          "start": 0.08,
+          "end": 0.64
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.102151770144701
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "999bc88cf0592c1ab04c0f1e512a13f4145ee863bcb121f034a61dd31ca28c75",
+  "selected_reasons": []
+}

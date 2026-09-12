@@ -1,0 +1,175 @@
+{
+  "complete": true,
+  "signature": "6264e63a5cf299511a0a5e901201f4756950c0b4ad1054c39f286d2e6381a223",
+  "attempts": [
+    {
+      "asr_seconds": 0.13944545900449157,
+      "alignment_seconds": 0.0002654655836522579,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " She answered, sliding.",
+          "start": 0.08,
+          "end": 1.28,
+          "words": [
+            {
+              "text": " She",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.8798828125
+            },
+            {
+              "text": " answered,",
+              "start": 0.54,
+              "end": 0.94,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sliding.",
+              "start": 1.04,
+              "end": 1.28,
+              "probability": 0.068603515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "She",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "answered,",
+          "start": 0.54,
+          "end": 0.94
+        },
+        {
+          "raw": "sliding.",
+          "start": 1.04,
+          "end": 1.28
+        }
+      ],
+      "expected_tokens": [
+        "She",
+        "answered,",
+        "slighting:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "She",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "she",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "answered,",
+          "start": 0.54,
+          "end": 0.94,
+          "key": "answered",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sliding.",
+          "start": 1.04,
+          "end": 1.28,
+          "key": "sliding",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "She",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "answered,",
+          "start": 0.54,
+          "end": 0.94
+        },
+        {
+          "text": "slighting:",
+          "start": 0.94,
+          "end": 1.11
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13979028863832355
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a44ab6951c5e7b9e7e95cb49100faae8a136e7cf2e05a4ac761a18e1bab8a092",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

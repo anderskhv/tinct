@@ -1,0 +1,1971 @@
+{
+  "complete": true,
+  "signature": "ed08b61035783293239b7b78b4a2cd81d52ecb9ccfef7b75fc75eab6d19a2840",
+  "attempts": [
+    {
+      "asr_seconds": 0.728124869056046,
+      "alignment_seconds": 0.0009781229309737682,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Boylan, eyed, eyed. Tossed to fat lips his chalice, drank off his chalice tiny, sucking the last fat violet syrupy drops. His spellbound eyes went after, after her gliding head as it went down the bar by mirrors, gilded arch for ginger ale, hock and claret glasses shimmering, a spiky shell, where it concerted, mirrored, bronze with sunnier bronze.",
+        "hotwords": "Boylan, Tossed"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Boylan, eyed, eyed. Tossed to fat lips his chalice, drank off his chalice tiny, sucking",
+          "start": 0.08,
+          "end": 5.98,
+          "words": [
+            {
+              "text": " Boylan,",
+              "start": 0.08,
+              "end": 0.86,
+              "probability": 0.496337890625
+            },
+            {
+              "text": " eyed,",
+              "start": 1.1,
+              "end": 1.3,
+              "probability": 0.8505859375
+            },
+            {
+              "text": " eyed.",
+              "start": 1.5,
+              "end": 1.76,
+              "probability": 0.966796875
+            },
+            {
+              "text": " Tossed",
+              "start": 2.42,
+              "end": 2.68,
+              "probability": 0.9318033854166666
+            },
+            {
+              "text": " to",
+              "start": 2.68,
+              "end": 2.72,
+              "probability": 0.55810546875
+            },
+            {
+              "text": " fat",
+              "start": 2.72,
+              "end": 2.96,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " lips",
+              "start": 2.96,
+              "end": 3.2,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " his",
+              "start": 3.2,
+              "end": 3.4,
+              "probability": 0.9765625
+            },
+            {
+              "text": " chalice,",
+              "start": 3.4,
+              "end": 3.9,
+              "probability": 0.9856770833333334
+            },
+            {
+              "text": " drank",
+              "start": 4.12,
+              "end": 4.18,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " off",
+              "start": 4.18,
+              "end": 4.4,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " his",
+              "start": 4.4,
+              "end": 4.58,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " chalice",
+              "start": 4.58,
+              "end": 5.02,
+              "probability": 0.9964192708333334
+            },
+            {
+              "text": " tiny,",
+              "start": 5.02,
+              "end": 5.28,
+              "probability": 0.9072265625
+            },
+            {
+              "text": " sucking",
+              "start": 5.98,
+              "end": 5.98,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " the last fat violet syrupy drops. His spellbound eyes went after, after her gliding head as",
+          "start": 5.98,
+          "end": 12.1,
+          "words": [
+            {
+              "text": " the",
+              "start": 5.98,
+              "end": 6.2,
+              "probability": 0.998046875
+            },
+            {
+              "text": " last",
+              "start": 6.2,
+              "end": 6.48,
+              "probability": 0.998046875
+            },
+            {
+              "text": " fat",
+              "start": 6.48,
+              "end": 6.82,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " violet",
+              "start": 6.82,
+              "end": 7.26,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " syrupy",
+              "start": 7.26,
+              "end": 7.76,
+              "probability": 0.9695638020833334
+            },
+            {
+              "text": " drops.",
+              "start": 7.76,
+              "end": 8.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " His",
+              "start": 8.94,
+              "end": 9.08,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " spellbound",
+              "start": 9.08,
+              "end": 9.6,
+              "probability": 0.923828125
+            },
+            {
+              "text": " eyes",
+              "start": 9.6,
+              "end": 10.0,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " went",
+              "start": 10.0,
+              "end": 10.24,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " after,",
+              "start": 10.24,
+              "end": 10.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " after",
+              "start": 10.98,
+              "end": 11.18,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " her",
+              "start": 11.18,
+              "end": 11.34,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " gliding",
+              "start": 11.34,
+              "end": 11.64,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " head",
+              "start": 11.64,
+              "end": 11.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " as",
+              "start": 11.94,
+              "end": 12.1,
+              "probability": 0.9931640625
+            }
+          ]
+        },
+        {
+          "text": " it went down the bar by mirrors, gilded arch for ginger ale, hock and claret glasses shimmering,",
+          "start": 12.1,
+          "end": 17.74,
+          "words": [
+            {
+              "text": " it",
+              "start": 12.1,
+              "end": 12.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " went",
+              "start": 12.2,
+              "end": 12.34,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " down",
+              "start": 12.34,
+              "end": 12.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 12.54,
+              "end": 12.68,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " bar",
+              "start": 12.68,
+              "end": 12.9,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " by",
+              "start": 12.9,
+              "end": 13.14,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " mirrors,",
+              "start": 13.14,
+              "end": 13.56,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " gilded",
+              "start": 14.12,
+              "end": 14.28,
+              "probability": 0.987060546875
+            },
+            {
+              "text": " arch",
+              "start": 14.28,
+              "end": 14.58,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " for",
+              "start": 14.58,
+              "end": 14.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " ginger",
+              "start": 14.82,
+              "end": 15.16,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " ale,",
+              "start": 15.16,
+              "end": 15.46,
+              "probability": 0.998046875
+            },
+            {
+              "text": " hock",
+              "start": 16.04,
+              "end": 16.12,
+              "probability": 0.4895782470703125
+            },
+            {
+              "text": " and",
+              "start": 16.12,
+              "end": 16.3,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " claret",
+              "start": 16.3,
+              "end": 16.58,
+              "probability": 0.6090087890625
+            },
+            {
+              "text": " glasses",
+              "start": 16.58,
+              "end": 17.1,
+              "probability": 0.94140625
+            },
+            {
+              "text": " shimmering,",
+              "start": 17.1,
+              "end": 17.74,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " a spiky shell, where it concerted, mirrored, bronze with sunnier bronze.",
+          "start": 18.0,
+          "end": 22.02,
+          "words": [
+            {
+              "text": " a",
+              "start": 18.0,
+              "end": 18.14,
+              "probability": 0.99609375
+            },
+            {
+              "text": " spiky",
+              "start": 18.14,
+              "end": 18.54,
+              "probability": 0.96875
+            },
+            {
+              "text": " shell,",
+              "start": 18.54,
+              "end": 18.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " where",
+              "start": 19.1,
+              "end": 19.22,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " it",
+              "start": 19.22,
+              "end": 19.32,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " concerted,",
+              "start": 19.32,
+              "end": 19.78,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " mirrored,",
+              "start": 20.04,
+              "end": 20.34,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " bronze",
+              "start": 20.62,
+              "end": 20.9,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " with",
+              "start": 20.9,
+              "end": 21.18,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " sunnier",
+              "start": 21.18,
+              "end": 21.6,
+              "probability": 0.9959309895833334
+            },
+            {
+              "text": " bronze.",
+              "start": 21.6,
+              "end": 22.02,
+              "probability": 0.98193359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Boylan,",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "raw": "eyed,",
+          "start": 1.1,
+          "end": 1.3
+        },
+        {
+          "raw": "eyed.",
+          "start": 1.5,
+          "end": 1.76
+        },
+        {
+          "raw": "Tossed",
+          "start": 2.42,
+          "end": 2.68
+        },
+        {
+          "raw": "to",
+          "start": 2.68,
+          "end": 2.72
+        },
+        {
+          "raw": "fat",
+          "start": 2.72,
+          "end": 2.96
+        },
+        {
+          "raw": "lips",
+          "start": 2.96,
+          "end": 3.2
+        },
+        {
+          "raw": "his",
+          "start": 3.2,
+          "end": 3.4
+        },
+        {
+          "raw": "chalice,",
+          "start": 3.4,
+          "end": 3.9
+        },
+        {
+          "raw": "drank",
+          "start": 4.12,
+          "end": 4.18
+        },
+        {
+          "raw": "off",
+          "start": 4.18,
+          "end": 4.4
+        },
+        {
+          "raw": "his",
+          "start": 4.4,
+          "end": 4.58
+        },
+        {
+          "raw": "chalice",
+          "start": 4.58,
+          "end": 5.02
+        },
+        {
+          "raw": "tiny,",
+          "start": 5.02,
+          "end": 5.28
+        },
+        {
+          "raw": "sucking",
+          "start": 5.98,
+          "end": 5.98
+        },
+        {
+          "raw": "the",
+          "start": 5.98,
+          "end": 6.2
+        },
+        {
+          "raw": "last",
+          "start": 6.2,
+          "end": 6.48
+        },
+        {
+          "raw": "fat",
+          "start": 6.48,
+          "end": 6.82
+        },
+        {
+          "raw": "violet",
+          "start": 6.82,
+          "end": 7.26
+        },
+        {
+          "raw": "syrupy",
+          "start": 7.26,
+          "end": 7.76
+        },
+        {
+          "raw": "drops.",
+          "start": 7.76,
+          "end": 8.16
+        },
+        {
+          "raw": "His",
+          "start": 8.94,
+          "end": 9.08
+        },
+        {
+          "raw": "spellbound",
+          "start": 9.08,
+          "end": 9.6
+        },
+        {
+          "raw": "eyes",
+          "start": 9.6,
+          "end": 10.0
+        },
+        {
+          "raw": "went",
+          "start": 10.0,
+          "end": 10.24
+        },
+        {
+          "raw": "after,",
+          "start": 10.24,
+          "end": 10.6
+        },
+        {
+          "raw": "after",
+          "start": 10.98,
+          "end": 11.18
+        },
+        {
+          "raw": "her",
+          "start": 11.18,
+          "end": 11.34
+        },
+        {
+          "raw": "gliding",
+          "start": 11.34,
+          "end": 11.64
+        },
+        {
+          "raw": "head",
+          "start": 11.64,
+          "end": 11.94
+        },
+        {
+          "raw": "as",
+          "start": 11.94,
+          "end": 12.1
+        },
+        {
+          "raw": "it",
+          "start": 12.1,
+          "end": 12.2
+        },
+        {
+          "raw": "went",
+          "start": 12.2,
+          "end": 12.34
+        },
+        {
+          "raw": "down",
+          "start": 12.34,
+          "end": 12.54
+        },
+        {
+          "raw": "the",
+          "start": 12.54,
+          "end": 12.68
+        },
+        {
+          "raw": "bar",
+          "start": 12.68,
+          "end": 12.9
+        },
+        {
+          "raw": "by",
+          "start": 12.9,
+          "end": 13.14
+        },
+        {
+          "raw": "mirrors,",
+          "start": 13.14,
+          "end": 13.56
+        },
+        {
+          "raw": "gilded",
+          "start": 14.12,
+          "end": 14.28
+        },
+        {
+          "raw": "arch",
+          "start": 14.28,
+          "end": 14.58
+        },
+        {
+          "raw": "for",
+          "start": 14.58,
+          "end": 14.82
+        },
+        {
+          "raw": "ginger",
+          "start": 14.82,
+          "end": 15.16
+        },
+        {
+          "raw": "ale,",
+          "start": 15.16,
+          "end": 15.46
+        },
+        {
+          "raw": "hock",
+          "start": 16.04,
+          "end": 16.12
+        },
+        {
+          "raw": "and",
+          "start": 16.12,
+          "end": 16.3
+        },
+        {
+          "raw": "claret",
+          "start": 16.3,
+          "end": 16.58
+        },
+        {
+          "raw": "glasses",
+          "start": 16.58,
+          "end": 17.1
+        },
+        {
+          "raw": "shimmering,",
+          "start": 17.1,
+          "end": 17.74
+        },
+        {
+          "raw": "a",
+          "start": 18.0,
+          "end": 18.14
+        },
+        {
+          "raw": "spiky",
+          "start": 18.14,
+          "end": 18.54
+        },
+        {
+          "raw": "shell,",
+          "start": 18.54,
+          "end": 18.9
+        },
+        {
+          "raw": "where",
+          "start": 19.1,
+          "end": 19.22
+        },
+        {
+          "raw": "it",
+          "start": 19.22,
+          "end": 19.32
+        },
+        {
+          "raw": "concerted,",
+          "start": 19.32,
+          "end": 19.78
+        },
+        {
+          "raw": "mirrored,",
+          "start": 20.04,
+          "end": 20.34
+        },
+        {
+          "raw": "bronze",
+          "start": 20.62,
+          "end": 20.9
+        },
+        {
+          "raw": "with",
+          "start": 20.9,
+          "end": 21.18
+        },
+        {
+          "raw": "sunnier",
+          "start": 21.18,
+          "end": 21.6
+        },
+        {
+          "raw": "bronze.",
+          "start": 21.6,
+          "end": 22.02
+        }
+      ],
+      "expected_tokens": [
+        "Boylan,",
+        "eyed,",
+        "eyed.",
+        "Tossed",
+        "to",
+        "fat",
+        "lips",
+        "his",
+        "chalice,",
+        "drank",
+        "off",
+        "his",
+        "chalice",
+        "tiny,",
+        "sucking",
+        "the",
+        "last",
+        "fat",
+        "violet",
+        "syrupy",
+        "drops.",
+        "His",
+        "spellbound",
+        "eyes",
+        "went",
+        "after,",
+        "after",
+        "her",
+        "gliding",
+        "head",
+        "as",
+        "it",
+        "went",
+        "down",
+        "the",
+        "bar",
+        "by",
+        "mirrors,",
+        "gilded",
+        "arch",
+        "for",
+        "ginger",
+        "ale,",
+        "hock",
+        "and",
+        "claret",
+        "glasses",
+        "shimmering,",
+        "a",
+        "spiky",
+        "shell,",
+        "where",
+        "it",
+        "concerted,",
+        "mirrored,",
+        "bronze",
+        "with",
+        "sunnier",
+        "bronze."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          59,
+          0,
+          59
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Boylan,",
+          "start": 0.08,
+          "end": 0.86,
+          "key": "boylan",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "eyed,",
+          "start": 1.1,
+          "end": 1.3,
+          "key": "eyed",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "eyed.",
+          "start": 1.5,
+          "end": 1.76,
+          "key": "eyed",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Tossed",
+          "start": 2.42,
+          "end": 2.68,
+          "key": "tossed",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.68,
+          "end": 2.72,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "fat",
+          "start": 2.72,
+          "end": 2.96,
+          "key": "fat",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "lips",
+          "start": 2.96,
+          "end": 3.2,
+          "key": "lips",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.2,
+          "end": 3.4,
+          "key": "his",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "chalice,",
+          "start": 3.4,
+          "end": 3.9,
+          "key": "chalice",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "drank",
+          "start": 4.12,
+          "end": 4.18,
+          "key": "drank",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "off",
+          "start": 4.18,
+          "end": 4.4,
+          "key": "off",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.4,
+          "end": 4.58,
+          "key": "his",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "chalice",
+          "start": 4.58,
+          "end": 5.02,
+          "key": "chalice",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "tiny,",
+          "start": 5.02,
+          "end": 5.28,
+          "key": "tiny",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "sucking",
+          "start": 5.98,
+          "end": 5.98,
+          "key": "sucking",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.98,
+          "end": 6.2,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "last",
+          "start": 6.2,
+          "end": 6.48,
+          "key": "last",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "fat",
+          "start": 6.48,
+          "end": 6.82,
+          "key": "fat",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "violet",
+          "start": 6.82,
+          "end": 7.26,
+          "key": "violet",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "syrupy",
+          "start": 7.26,
+          "end": 7.76,
+          "key": "syrupy",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "drops.",
+          "start": 7.76,
+          "end": 8.16,
+          "key": "drops",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "His",
+          "start": 8.94,
+          "end": 9.08,
+          "key": "his",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "spellbound",
+          "start": 9.08,
+          "end": 9.6,
+          "key": "spellbound",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "eyes",
+          "start": 9.6,
+          "end": 10.0,
+          "key": "eyes",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "went",
+          "start": 10.0,
+          "end": 10.24,
+          "key": "went",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "after,",
+          "start": 10.24,
+          "end": 10.6,
+          "key": "after",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 10.98,
+          "end": 11.18,
+          "key": "after",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 11.18,
+          "end": 11.34,
+          "key": "her",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "gliding",
+          "start": 11.34,
+          "end": 11.64,
+          "key": "gliding",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "head",
+          "start": 11.64,
+          "end": 11.94,
+          "key": "head",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 11.94,
+          "end": 12.1,
+          "key": "as",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 12.1,
+          "end": 12.2,
+          "key": "it",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "went",
+          "start": 12.2,
+          "end": 12.34,
+          "key": "went",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 12.34,
+          "end": 12.54,
+          "key": "down",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 12.54,
+          "end": 12.68,
+          "key": "the",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "bar",
+          "start": 12.68,
+          "end": 12.9,
+          "key": "bar",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 12.9,
+          "end": 13.14,
+          "key": "by",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "mirrors,",
+          "start": 13.14,
+          "end": 13.56,
+          "key": "mirrors",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "gilded",
+          "start": 14.12,
+          "end": 14.28,
+          "key": "gilded",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "arch",
+          "start": 14.28,
+          "end": 14.58,
+          "key": "arch",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 14.58,
+          "end": 14.82,
+          "key": "for",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "ginger",
+          "start": 14.82,
+          "end": 15.16,
+          "key": "ginger",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "ale,",
+          "start": 15.16,
+          "end": 15.46,
+          "key": "ale",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "hock",
+          "start": 16.04,
+          "end": 16.12,
+          "key": "hock",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 16.12,
+          "end": 16.3,
+          "key": "and",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "claret",
+          "start": 16.3,
+          "end": 16.58,
+          "key": "claret",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "glasses",
+          "start": 16.58,
+          "end": 17.1,
+          "key": "glasses",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "shimmering,",
+          "start": 17.1,
+          "end": 17.74,
+          "key": "shimmering",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 18.0,
+          "end": 18.14,
+          "key": "a",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "spiky",
+          "start": 18.14,
+          "end": 18.54,
+          "key": "spiky",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "shell,",
+          "start": 18.54,
+          "end": 18.9,
+          "key": "shell",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 19.1,
+          "end": 19.22,
+          "key": "where",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 19.22,
+          "end": 19.32,
+          "key": "it",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "concerted,",
+          "start": 19.32,
+          "end": 19.78,
+          "key": "concerted",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "mirrored,",
+          "start": 20.04,
+          "end": 20.34,
+          "key": "mirrored",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "bronze",
+          "start": 20.62,
+          "end": 20.9,
+          "key": "bronze",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 20.9,
+          "end": 21.18,
+          "key": "with",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "sunnier",
+          "start": 21.18,
+          "end": 21.6,
+          "key": "sunnier",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "bronze.",
+          "start": 21.6,
+          "end": 22.02,
+          "key": "bronze",
+          "pieces": [
+            58
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Boylan,",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "text": "eyed,",
+          "start": 1.1,
+          "end": 1.3
+        },
+        {
+          "text": "eyed.",
+          "start": 1.5,
+          "end": 1.76
+        },
+        {
+          "text": "Tossed",
+          "start": 2.42,
+          "end": 2.68
+        },
+        {
+          "text": "to",
+          "start": 2.68,
+          "end": 2.72
+        },
+        {
+          "text": "fat",
+          "start": 2.72,
+          "end": 2.96
+        },
+        {
+          "text": "lips",
+          "start": 2.96,
+          "end": 3.2
+        },
+        {
+          "text": "his",
+          "start": 3.2,
+          "end": 3.4
+        },
+        {
+          "text": "chalice,",
+          "start": 3.4,
+          "end": 3.9
+        },
+        {
+          "text": "drank",
+          "start": 4.12,
+          "end": 4.18
+        },
+        {
+          "text": "off",
+          "start": 4.18,
+          "end": 4.4
+        },
+        {
+          "text": "his",
+          "start": 4.4,
+          "end": 4.58
+        },
+        {
+          "text": "chalice",
+          "start": 4.58,
+          "end": 5.02
+        },
+        {
+          "text": "tiny,",
+          "start": 5.02,
+          "end": 5.28
+        },
+        {
+          "text": "sucking",
+          "start": 5.98,
+          "end": 5.98
+        },
+        {
+          "text": "the",
+          "start": 5.98,
+          "end": 6.2
+        },
+        {
+          "text": "last",
+          "start": 6.2,
+          "end": 6.48
+        },
+        {
+          "text": "fat",
+          "start": 6.48,
+          "end": 6.82
+        },
+        {
+          "text": "violet",
+          "start": 6.82,
+          "end": 7.26
+        },
+        {
+          "text": "syrupy",
+          "start": 7.26,
+          "end": 7.76
+        },
+        {
+          "text": "drops.",
+          "start": 7.76,
+          "end": 8.16
+        },
+        {
+          "text": "His",
+          "start": 8.94,
+          "end": 9.08
+        },
+        {
+          "text": "spellbound",
+          "start": 9.08,
+          "end": 9.6
+        },
+        {
+          "text": "eyes",
+          "start": 9.6,
+          "end": 10.0
+        },
+        {
+          "text": "went",
+          "start": 10.0,
+          "end": 10.24
+        },
+        {
+          "text": "after,",
+          "start": 10.24,
+          "end": 10.6
+        },
+        {
+          "text": "after",
+          "start": 10.98,
+          "end": 11.18
+        },
+        {
+          "text": "her",
+          "start": 11.18,
+          "end": 11.34
+        },
+        {
+          "text": "gliding",
+          "start": 11.34,
+          "end": 11.64
+        },
+        {
+          "text": "head",
+          "start": 11.64,
+          "end": 11.94
+        },
+        {
+          "text": "as",
+          "start": 11.94,
+          "end": 12.1
+        },
+        {
+          "text": "it",
+          "start": 12.1,
+          "end": 12.2
+        },
+        {
+          "text": "went",
+          "start": 12.2,
+          "end": 12.34
+        },
+        {
+          "text": "down",
+          "start": 12.34,
+          "end": 12.54
+        },
+        {
+          "text": "the",
+          "start": 12.54,
+          "end": 12.68
+        },
+        {
+          "text": "bar",
+          "start": 12.68,
+          "end": 12.9
+        },
+        {
+          "text": "by",
+          "start": 12.9,
+          "end": 13.14
+        },
+        {
+          "text": "mirrors,",
+          "start": 13.14,
+          "end": 13.56
+        },
+        {
+          "text": "gilded",
+          "start": 14.12,
+          "end": 14.28
+        },
+        {
+          "text": "arch",
+          "start": 14.28,
+          "end": 14.58
+        },
+        {
+          "text": "for",
+          "start": 14.58,
+          "end": 14.82
+        },
+        {
+          "text": "ginger",
+          "start": 14.82,
+          "end": 15.16
+        },
+        {
+          "text": "ale,",
+          "start": 15.16,
+          "end": 15.46
+        },
+        {
+          "text": "hock",
+          "start": 16.04,
+          "end": 16.12
+        },
+        {
+          "text": "and",
+          "start": 16.12,
+          "end": 16.3
+        },
+        {
+          "text": "claret",
+          "start": 16.3,
+          "end": 16.58
+        },
+        {
+          "text": "glasses",
+          "start": 16.58,
+          "end": 17.1
+        },
+        {
+          "text": "shimmering,",
+          "start": 17.1,
+          "end": 17.74
+        },
+        {
+          "text": "a",
+          "start": 18.0,
+          "end": 18.14
+        },
+        {
+          "text": "spiky",
+          "start": 18.14,
+          "end": 18.54
+        },
+        {
+          "text": "shell,",
+          "start": 18.54,
+          "end": 18.9
+        },
+        {
+          "text": "where",
+          "start": 19.1,
+          "end": 19.22
+        },
+        {
+          "text": "it",
+          "start": 19.22,
+          "end": 19.32
+        },
+        {
+          "text": "concerted,",
+          "start": 19.32,
+          "end": 19.78
+        },
+        {
+          "text": "mirrored,",
+          "start": 20.04,
+          "end": 20.34
+        },
+        {
+          "text": "bronze",
+          "start": 20.62,
+          "end": 20.9
+        },
+        {
+          "text": "with",
+          "start": 20.9,
+          "end": 21.18
+        },
+        {
+          "text": "sunnier",
+          "start": 21.18,
+          "end": 21.6
+        },
+        {
+          "text": "bronze.",
+          "start": 21.6,
+          "end": 22.02
+        }
+      ],
+      "stats": {
+        "expected_words": 59,
+        "heard_words": 59,
+        "matched_words": 59
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.7295710206963122
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b4ae0f7cd1f91e9b3f9f5b3f59d2e6174e6682e291a3d2618bf581fc1eff665b",
+  "selected_reasons": []
+}

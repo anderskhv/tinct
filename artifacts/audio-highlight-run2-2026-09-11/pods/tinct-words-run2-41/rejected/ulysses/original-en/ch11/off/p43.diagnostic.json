@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "d38c3e034d7b00926802f0db34fb32be398cff9668a5ed07e78798697d212605",
+  "attempts": [
+    {
+      "asr_seconds": 0.1747005651704967,
+      "alignment_seconds": 0.0003400561399757862,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Amen, he gnashed in fury.",
+          "start": 0.11,
+          "end": 1.89,
+          "words": [
+            {
+              "text": " Amen,",
+              "start": 0.11,
+              "end": 0.77,
+              "probability": 0.705078125
+            },
+            {
+              "text": " he",
+              "start": 1.21,
+              "end": 1.25,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " gnashed",
+              "start": 1.25,
+              "end": 1.53,
+              "probability": 0.7626953125
+            },
+            {
+              "text": " in",
+              "start": 1.53,
+              "end": 1.65,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " fury.",
+              "start": 1.65,
+              "end": 1.89,
+              "probability": 0.9892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Amen,",
+          "start": 0.11,
+          "end": 0.77
+        },
+        {
+          "raw": "he",
+          "start": 1.21,
+          "end": 1.25
+        },
+        {
+          "raw": "gnashed",
+          "start": 1.25,
+          "end": 1.53
+        },
+        {
+          "raw": "in",
+          "start": 1.53,
+          "end": 1.65
+        },
+        {
+          "raw": "fury.",
+          "start": 1.65,
+          "end": 1.89
+        }
+      ],
+      "expected_tokens": [
+        "Amen!",
+        "He",
+        "gnashed",
+        "in",
+        "fury."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Amen,",
+          "start": 0.11,
+          "end": 0.77,
+          "key": "amen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.21,
+          "end": 1.25,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "gnashed",
+          "start": 1.25,
+          "end": 1.53,
+          "key": "gnashed",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.53,
+          "end": 1.65,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "fury.",
+          "start": 1.65,
+          "end": 1.89,
+          "key": "fury",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Amen!",
+          "start": 0.11,
+          "end": 0.77
+        },
+        {
+          "text": "He",
+          "start": 1.21,
+          "end": 1.25
+        },
+        {
+          "text": "gnashed",
+          "start": 1.25,
+          "end": 1.53
+        },
+        {
+          "text": "in",
+          "start": 1.53,
+          "end": 1.65
+        },
+        {
+          "text": "fury.",
+          "start": 1.65,
+          "end": 1.89
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1751584899611771
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "994ebcde941f26c3d6d5d901fbbd93881db700828c77fa866bd2dbc21c07d8d9",
+  "selected_reasons": []
+}

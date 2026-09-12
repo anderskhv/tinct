@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "6a8692dc689b92a44d36ae8be5ad030729b42c85f38f34ff147cf3fb61efc5d0",
+  "attempts": [
+    {
+      "asr_seconds": 0.13220895919948816,
+      "alignment_seconds": 0.000345379114151001,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Peep! Who's in the corner?",
+        "hotwords": "Peep, Who's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Peep, Who's in the corner?",
+          "start": 0.05,
+          "end": 1.57,
+          "words": [
+            {
+              "text": " Peep,",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.877197265625
+            },
+            {
+              "text": " Who's",
+              "start": 0.85,
+              "end": 1.17,
+              "probability": 0.500823974609375
+            },
+            {
+              "text": " in",
+              "start": 1.17,
+              "end": 1.27,
+              "probability": 0.84765625
+            },
+            {
+              "text": " the",
+              "start": 1.27,
+              "end": 1.37,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " corner?",
+              "start": 1.37,
+              "end": 1.57,
+              "probability": 0.115478515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Peep,",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "Who's",
+          "start": 0.85,
+          "end": 1.17
+        },
+        {
+          "raw": "in",
+          "start": 1.17,
+          "end": 1.27
+        },
+        {
+          "raw": "the",
+          "start": 1.27,
+          "end": 1.37
+        },
+        {
+          "raw": "corner?",
+          "start": 1.37,
+          "end": 1.57
+        }
+      ],
+      "expected_tokens": [
+        "—Peep!",
+        "Who's",
+        "in",
+        "the",
+        "corner?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Peep,",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "peep",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Who's",
+          "start": 0.85,
+          "end": 1.17,
+          "key": "whos",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.17,
+          "end": 1.27,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.27,
+          "end": 1.37,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "corner?",
+          "start": 1.37,
+          "end": 1.57,
+          "key": "corner",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Peep!",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "Who's",
+          "start": 0.85,
+          "end": 1.17
+        },
+        {
+          "text": "in",
+          "start": 1.17,
+          "end": 1.27
+        },
+        {
+          "text": "the",
+          "start": 1.27,
+          "end": 1.37
+        },
+        {
+          "text": "corner?",
+          "start": 1.37,
+          "end": 1.57
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1327000241726637
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a7fa1f9778c2e50954bb7ea2916070a63b0b84cb9643808ca8739a2351aa9ac7",
+  "selected_reasons": []
+}

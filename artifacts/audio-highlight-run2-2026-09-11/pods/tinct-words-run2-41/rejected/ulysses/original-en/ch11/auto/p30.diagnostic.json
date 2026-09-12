@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "e28551f80a14e2530a212f9ee496a9d5c651d269ccaabca3a38aa583378fc156",
+  "attempts": [
+    {
+      "asr_seconds": 0.20294921565800905,
+      "alignment_seconds": 0.0004607420414686203,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "I feel so sad. P. S. So lonely blooming.",
+        "hotwords": "I, P, S"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I feel so sad. P. S. So lonely blooming.",
+          "start": 0.08,
+          "end": 2.86,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.8994140625
+            },
+            {
+              "text": " feel",
+              "start": 0.52,
+              "end": 0.7,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " so",
+              "start": 0.7,
+              "end": 0.94,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " sad.",
+              "start": 0.94,
+              "end": 1.32,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " P.",
+              "start": 1.72,
+              "end": 1.82,
+              "probability": 0.52392578125
+            },
+            {
+              "text": " S.",
+              "start": 1.86,
+              "end": 1.98,
+              "probability": 0.0303955078125
+            },
+            {
+              "text": " So",
+              "start": 2.06,
+              "end": 2.14,
+              "probability": 0.484375
+            },
+            {
+              "text": " lonely",
+              "start": 2.14,
+              "end": 2.38,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " blooming.",
+              "start": 2.38,
+              "end": 2.86,
+              "probability": 0.90283203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "feel",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "raw": "so",
+          "start": 0.7,
+          "end": 0.94
+        },
+        {
+          "raw": "sad.",
+          "start": 0.94,
+          "end": 1.32
+        },
+        {
+          "raw": "P.",
+          "start": 1.72,
+          "end": 1.82
+        },
+        {
+          "raw": "S.",
+          "start": 1.86,
+          "end": 1.98
+        },
+        {
+          "raw": "So",
+          "start": 2.06,
+          "end": 2.14
+        },
+        {
+          "raw": "lonely",
+          "start": 2.14,
+          "end": 2.38
+        },
+        {
+          "raw": "blooming.",
+          "start": 2.38,
+          "end": 2.86
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "feel",
+        "so",
+        "sad.",
+        "P.",
+        "S.",
+        "So",
+        "lonely",
+        "blooming."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "feel",
+          "start": 0.52,
+          "end": 0.7,
+          "key": "feel",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 0.7,
+          "end": 0.94,
+          "key": "so",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sad.",
+          "start": 0.94,
+          "end": 1.32,
+          "key": "sad",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "P.",
+          "start": 1.72,
+          "end": 1.82,
+          "key": "p",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "S.",
+          "start": 1.86,
+          "end": 1.98,
+          "key": "s",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "So",
+          "start": 2.06,
+          "end": 2.14,
+          "key": "so",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "lonely",
+          "start": 2.14,
+          "end": 2.38,
+          "key": "lonely",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "blooming.",
+          "start": 2.38,
+          "end": 2.86,
+          "key": "blooming",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "feel",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "text": "so",
+          "start": 0.7,
+          "end": 0.94
+        },
+        {
+          "text": "sad.",
+          "start": 0.94,
+          "end": 1.32
+        },
+        {
+          "text": "P.",
+          "start": 1.72,
+          "end": 1.82
+        },
+        {
+          "text": "S.",
+          "start": 1.86,
+          "end": 1.98
+        },
+        {
+          "text": "So",
+          "start": 2.06,
+          "end": 2.14
+        },
+        {
+          "text": "lonely",
+          "start": 2.14,
+          "end": 2.38
+        },
+        {
+          "text": "blooming.",
+          "start": 2.38,
+          "end": 2.86
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20359176583588123
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a5287699ab1568c880fcaacd7c33961a1e508a2a71d78a174d6b5cfb09214d26",
+  "selected_reasons": []
+}

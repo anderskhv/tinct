@@ -1,0 +1,466 @@
+{
+  "complete": true,
+  "signature": "9cf02eb0b982885039b8d91e4c1d0fe4287983f5f0a5eda33e95f1220491c66b",
+  "attempts": [
+    {
+      "asr_seconds": 0.23801193898543715,
+      "alignment_seconds": 0.00026437873020768166,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sighing Mr. Deadalis came through the saloon, a finger soothing an eyelid.",
+          "start": 0.08,
+          "end": 4.5,
+          "words": [
+            {
+              "text": " Sighing",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.7923990885416666
+            },
+            {
+              "text": " Mr.",
+              "start": 0.78,
+              "end": 0.98,
+              "probability": 0.572265625
+            },
+            {
+              "text": " Deadalis",
+              "start": 1.2,
+              "end": 1.44,
+              "probability": 0.412841796875
+            },
+            {
+              "text": " came",
+              "start": 1.44,
+              "end": 1.72,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " through",
+              "start": 1.72,
+              "end": 1.96,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " the",
+              "start": 1.96,
+              "end": 2.12,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " saloon,",
+              "start": 2.12,
+              "end": 2.62,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " a",
+              "start": 3.02,
+              "end": 3.12,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " finger",
+              "start": 3.12,
+              "end": 3.4,
+              "probability": 0.998046875
+            },
+            {
+              "text": " soothing",
+              "start": 3.4,
+              "end": 3.78,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " an",
+              "start": 3.78,
+              "end": 3.98,
+              "probability": 0.990234375
+            },
+            {
+              "text": " eyelid.",
+              "start": 3.98,
+              "end": 4.5,
+              "probability": 0.992919921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sighing",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "raw": "Mr.",
+          "start": 0.78,
+          "end": 0.98
+        },
+        {
+          "raw": "Deadalis",
+          "start": 1.2,
+          "end": 1.44
+        },
+        {
+          "raw": "came",
+          "start": 1.44,
+          "end": 1.72
+        },
+        {
+          "raw": "through",
+          "start": 1.72,
+          "end": 1.96
+        },
+        {
+          "raw": "the",
+          "start": 1.96,
+          "end": 2.12
+        },
+        {
+          "raw": "saloon,",
+          "start": 2.12,
+          "end": 2.62
+        },
+        {
+          "raw": "a",
+          "start": 3.02,
+          "end": 3.12
+        },
+        {
+          "raw": "finger",
+          "start": 3.12,
+          "end": 3.4
+        },
+        {
+          "raw": "soothing",
+          "start": 3.4,
+          "end": 3.78
+        },
+        {
+          "raw": "an",
+          "start": 3.78,
+          "end": 3.98
+        },
+        {
+          "raw": "eyelid.",
+          "start": 3.98,
+          "end": 4.5
+        }
+      ],
+      "expected_tokens": [
+        "Sighing",
+        "Mr",
+        "Dedalus",
+        "came",
+        "through",
+        "the",
+        "saloon,",
+        "a",
+        "finger",
+        "soothing",
+        "an",
+        "eyelid."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          12,
+          3,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sighing",
+          "start": 0.08,
+          "end": 0.78,
+          "key": "sighing",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 0.78,
+          "end": 0.98,
+          "key": "mr",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Deadalis",
+          "start": 1.2,
+          "end": 1.44,
+          "key": "deadalis",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "came",
+          "start": 1.44,
+          "end": 1.72,
+          "key": "came",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "through",
+          "start": 1.72,
+          "end": 1.96,
+          "key": "through",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.96,
+          "end": 2.12,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "saloon,",
+          "start": 2.12,
+          "end": 2.62,
+          "key": "saloon",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.02,
+          "end": 3.12,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "finger",
+          "start": 3.12,
+          "end": 3.4,
+          "key": "finger",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "soothing",
+          "start": 3.4,
+          "end": 3.78,
+          "key": "soothing",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 3.78,
+          "end": 3.98,
+          "key": "an",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "eyelid.",
+          "start": 3.98,
+          "end": 4.5,
+          "key": "eyelid",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sighing",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "text": "Mr",
+          "start": 0.78,
+          "end": 0.98
+        },
+        {
+          "text": "Dedalus",
+          "start": 0.98,
+          "end": 1.21
+        },
+        {
+          "text": "came",
+          "start": 1.44,
+          "end": 1.72
+        },
+        {
+          "text": "through",
+          "start": 1.72,
+          "end": 1.96
+        },
+        {
+          "text": "the",
+          "start": 1.96,
+          "end": 2.12
+        },
+        {
+          "text": "saloon,",
+          "start": 2.12,
+          "end": 2.62
+        },
+        {
+          "text": "a",
+          "start": 3.02,
+          "end": 3.12
+        },
+        {
+          "text": "finger",
+          "start": 3.12,
+          "end": 3.4
+        },
+        {
+          "text": "soothing",
+          "start": 3.4,
+          "end": 3.78
+        },
+        {
+          "text": "an",
+          "start": 3.78,
+          "end": 3.98
+        },
+        {
+          "text": "eyelid.",
+          "start": 3.98,
+          "end": 4.5
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.23837579181417823
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9f7c2c1748d1f8b86592d68975a589a490d95af07495c00feda1997bb17a4d36",
+  "selected_reasons": []
+}

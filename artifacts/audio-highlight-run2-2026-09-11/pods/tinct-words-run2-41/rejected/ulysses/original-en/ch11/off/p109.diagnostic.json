@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "349ab83af698f051cd108627a3d00c7786c54528c6ecfb0587e30481b09495fd",
+  "attempts": [
+    {
+      "asr_seconds": 0.10651898477226496,
+      "alignment_seconds": 0.0001809396781027317,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " But bloom",
+          "start": 0.02,
+          "end": 0.82,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.52294921875
+            },
+            {
+              "text": " bloom",
+              "start": 0.52,
+              "end": 0.82,
+              "probability": 0.7060546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "bloom",
+          "start": 0.52,
+          "end": 0.82
+        }
+      ],
+      "expected_tokens": [
+        "But",
+        "Bloom?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "bloom",
+          "start": 0.52,
+          "end": 0.82,
+          "key": "bloom",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "But",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "Bloom?",
+          "start": 0.52,
+          "end": 0.82
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10675493394955993
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2e42eb2061723ad2bd3564be32e6cef66866e4943c3eacbc7b2f988e55f69427",
+  "selected_reasons": []
+}

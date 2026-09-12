@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "62a8fb29e4262ac4d207dce3a4c17397d2a22e5e0d238a6540a827ffa2895bb4",
+  "attempts": [
+    {
+      "asr_seconds": 0.11457485193386674,
+      "alignment_seconds": 0.00024232594296336174,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " and kicking.",
+          "start": 0.08,
+          "end": 0.9,
+          "words": [
+            {
+              "text": " and",
+              "start": 0.08,
+              "end": 0.56,
+              "probability": 0.625
+            },
+            {
+              "text": " kicking.",
+              "start": 0.56,
+              "end": 0.9,
+              "probability": 0.86083984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "and",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "raw": "kicking.",
+          "start": 0.56,
+          "end": 0.9
+        }
+      ],
+      "expected_tokens": [
+        "—And",
+        "kicking."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "and",
+          "start": 0.08,
+          "end": 0.56,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "kicking.",
+          "start": 0.56,
+          "end": 0.9,
+          "key": "kicking",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—And",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "text": "kicking.",
+          "start": 0.56,
+          "end": 0.9
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11489979876205325
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3a94e47e5495ac1edbe35ceb6e2e45b06e3a2fda36daf11665324d9d99a1df3f",
+  "selected_reasons": []
+}

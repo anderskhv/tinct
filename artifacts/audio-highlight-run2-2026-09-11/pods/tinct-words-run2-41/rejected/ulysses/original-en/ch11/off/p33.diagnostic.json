@@ -1,0 +1,292 @@
+{
+  "complete": true,
+  "signature": "313d2bc9ab3fd8686f9d74e6c7673bb3ae2b88c019a69868b95288cbfd1bd241",
+  "attempts": [
+    {
+      "asr_seconds": 0.2413463876582682,
+      "alignment_seconds": 0.00044623296707868576,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Pearls when she list rhapsodies hiss.",
+          "start": 0.05,
+          "end": 2.75,
+          "words": [
+            {
+              "text": " Pearls",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.7724609375
+            },
+            {
+              "text": " when",
+              "start": 0.79,
+              "end": 0.93,
+              "probability": 0.75390625
+            },
+            {
+              "text": " she",
+              "start": 0.93,
+              "end": 1.17,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " list",
+              "start": 1.17,
+              "end": 1.51,
+              "probability": 0.447021484375
+            },
+            {
+              "text": " rhapsodies",
+              "start": 1.51,
+              "end": 2.11,
+              "probability": 0.798828125
+            },
+            {
+              "text": " hiss.",
+              "start": 2.11,
+              "end": 2.75,
+              "probability": 0.801513671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pearls",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "when",
+          "start": 0.79,
+          "end": 0.93
+        },
+        {
+          "raw": "she",
+          "start": 0.93,
+          "end": 1.17
+        },
+        {
+          "raw": "list",
+          "start": 1.17,
+          "end": 1.51
+        },
+        {
+          "raw": "rhapsodies",
+          "start": 1.51,
+          "end": 2.11
+        },
+        {
+          "raw": "hiss.",
+          "start": 2.11,
+          "end": 2.75
+        }
+      ],
+      "expected_tokens": [
+        "Pearls:",
+        "when",
+        "she.",
+        "Liszt's",
+        "rhapsodies.",
+        "Hissss."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pearls",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "pearls",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 0.79,
+          "end": 0.93,
+          "key": "when",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 0.93,
+          "end": 1.17,
+          "key": "she",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "list",
+          "start": 1.17,
+          "end": 1.51,
+          "key": "list",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "rhapsodies",
+          "start": 1.51,
+          "end": 2.11,
+          "key": "rhapsodies",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "hiss.",
+          "start": 2.11,
+          "end": 2.75,
+          "key": "hiss",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Pearls:",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "when",
+          "start": 0.79,
+          "end": 0.93
+        },
+        {
+          "text": "she.",
+          "start": 0.93,
+          "end": 1.17
+        },
+        {
+          "text": "Liszt's",
+          "start": 1.17,
+          "end": 1.34
+        },
+        {
+          "text": "rhapsodies.",
+          "start": 1.51,
+          "end": 2.11
+        },
+        {
+          "text": "Hissss.",
+          "start": 2.11,
+          "end": 2.43
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2419219659641385
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b2069cbe710226c8da03195be06620a39d207883c00c944bef6537a23e873317",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

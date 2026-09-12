@@ -1,0 +1,454 @@
+{
+  "complete": true,
+  "signature": "afc155a992391cc934c2be07bd8df430211cb397bd0debeaad16845020af049f",
+  "attempts": [
+    {
+      "asr_seconds": 0.19278833968564868,
+      "alignment_seconds": 0.00030730199068784714,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Better write it here quills in the post office chewed and twisted",
+          "start": 0.05,
+          "end": 3.73,
+          "words": [
+            {
+              "text": " Better",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.7392578125
+            },
+            {
+              "text": " write",
+              "start": 0.65,
+              "end": 0.91,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " it",
+              "start": 0.91,
+              "end": 1.03,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " here",
+              "start": 1.03,
+              "end": 1.31,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " quills",
+              "start": 1.31,
+              "end": 2.01,
+              "probability": 0.5938720703125
+            },
+            {
+              "text": " in",
+              "start": 2.01,
+              "end": 2.11,
+              "probability": 0.966796875
+            },
+            {
+              "text": " the",
+              "start": 2.11,
+              "end": 2.19,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " post",
+              "start": 2.19,
+              "end": 2.41,
+              "probability": 0.9765625
+            },
+            {
+              "text": " office",
+              "start": 2.41,
+              "end": 2.73,
+              "probability": 0.98828125
+            },
+            {
+              "text": " chewed",
+              "start": 2.73,
+              "end": 3.25,
+              "probability": 0.989013671875
+            },
+            {
+              "text": " and",
+              "start": 3.25,
+              "end": 3.39,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " twisted",
+              "start": 3.39,
+              "end": 3.73,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Better",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "write",
+          "start": 0.65,
+          "end": 0.91
+        },
+        {
+          "raw": "it",
+          "start": 0.91,
+          "end": 1.03
+        },
+        {
+          "raw": "here",
+          "start": 1.03,
+          "end": 1.31
+        },
+        {
+          "raw": "quills",
+          "start": 1.31,
+          "end": 2.01
+        },
+        {
+          "raw": "in",
+          "start": 2.01,
+          "end": 2.11
+        },
+        {
+          "raw": "the",
+          "start": 2.11,
+          "end": 2.19
+        },
+        {
+          "raw": "post",
+          "start": 2.19,
+          "end": 2.41
+        },
+        {
+          "raw": "office",
+          "start": 2.41,
+          "end": 2.73
+        },
+        {
+          "raw": "chewed",
+          "start": 2.73,
+          "end": 3.25
+        },
+        {
+          "raw": "and",
+          "start": 3.25,
+          "end": 3.39
+        },
+        {
+          "raw": "twisted",
+          "start": 3.39,
+          "end": 3.73
+        }
+      ],
+      "expected_tokens": [
+        "Better",
+        "write",
+        "it",
+        "here.",
+        "Quills",
+        "in",
+        "the",
+        "postoffice",
+        "chewed",
+        "and",
+        "twisted."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ],
+        [
+          "equal",
+          8,
+          11,
+          9,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Better",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "better",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "write",
+          "start": 0.65,
+          "end": 0.91,
+          "key": "write",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 0.91,
+          "end": 1.03,
+          "key": "it",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 1.03,
+          "end": 1.31,
+          "key": "here",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "quills",
+          "start": 1.31,
+          "end": 2.01,
+          "key": "quills",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.01,
+          "end": 2.11,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.11,
+          "end": 2.19,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "post",
+          "start": 2.19,
+          "end": 2.41,
+          "key": "post",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "office",
+          "start": 2.41,
+          "end": 2.73,
+          "key": "office",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "chewed",
+          "start": 2.73,
+          "end": 3.25,
+          "key": "chewed",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.25,
+          "end": 3.39,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "twisted",
+          "start": 3.39,
+          "end": 3.73,
+          "key": "twisted",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Better",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "write",
+          "start": 0.65,
+          "end": 0.91
+        },
+        {
+          "text": "it",
+          "start": 0.91,
+          "end": 1.03
+        },
+        {
+          "text": "here.",
+          "start": 1.03,
+          "end": 1.31
+        },
+        {
+          "text": "Quills",
+          "start": 1.31,
+          "end": 2.01
+        },
+        {
+          "text": "in",
+          "start": 2.01,
+          "end": 2.11
+        },
+        {
+          "text": "the",
+          "start": 2.11,
+          "end": 2.19
+        },
+        {
+          "text": "postoffice",
+          "start": 2.19,
+          "end": 2.46
+        },
+        {
+          "text": "chewed",
+          "start": 2.73,
+          "end": 3.25
+        },
+        {
+          "text": "and",
+          "start": 3.25,
+          "end": 3.39
+        },
+        {
+          "text": "twisted.",
+          "start": 3.39,
+          "end": 3.73
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 12,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.19322214787825942
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5ac52ceb7f8e9179c9a892008738326ab30995e021f08a9261b6b6519f2b826b",
+  "selected_reasons": []
+}

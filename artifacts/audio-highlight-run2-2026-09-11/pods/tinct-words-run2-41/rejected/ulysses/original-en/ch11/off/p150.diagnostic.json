@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "fd9bbaf2157b2df442c7808eeeba2786e90001a3b605a010117905d520471c00",
+  "attempts": [
+    {
+      "asr_seconds": 0.11781782889738679,
+      "alignment_seconds": 0.00022417306900024414,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Jingle",
+          "start": 0.02,
+          "end": 0.76,
+          "words": [
+            {
+              "text": " Jingle",
+              "start": 0.02,
+              "end": 0.76,
+              "probability": 0.79443359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Jingle",
+          "start": 0.02,
+          "end": 0.76
+        }
+      ],
+      "expected_tokens": [
+        "Jingle."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Jingle",
+          "start": 0.02,
+          "end": 0.76,
+          "key": "jingle",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Jingle.",
+          "start": 0.02,
+          "end": 0.76
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11811462882906199
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "16eaa0567df164224165a67ad8a844cb405c07e07764516954e05c89caef60c1",
+  "selected_reasons": []
+}

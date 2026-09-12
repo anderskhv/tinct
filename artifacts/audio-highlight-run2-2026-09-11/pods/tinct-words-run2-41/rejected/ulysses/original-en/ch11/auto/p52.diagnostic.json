@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "46339a539e61e8269b9487dcf654adcf87daeddc9988cc1e73d4c64785f29cea",
+  "attempts": [
+    {
+      "asr_seconds": 0.19371593603864312,
+      "alignment_seconds": 0.0002757469192147255,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Pwee! Little wind piped wee.",
+        "hotwords": "Pwee, Little"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Pwee, Little wind piped wee.",
+          "start": 0.05,
+          "end": 2.03,
+          "words": [
+            {
+              "text": " Pwee,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.1748631795247396
+            },
+            {
+              "text": " Little",
+              "start": 0.95,
+              "end": 1.21,
+              "probability": 0.173095703125
+            },
+            {
+              "text": " wind",
+              "start": 1.21,
+              "end": 1.49,
+              "probability": 0.2471923828125
+            },
+            {
+              "text": " piped",
+              "start": 1.49,
+              "end": 1.85,
+              "probability": 0.890625
+            },
+            {
+              "text": " wee.",
+              "start": 1.85,
+              "end": 2.03,
+              "probability": 0.04193115234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pwee,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "Little",
+          "start": 0.95,
+          "end": 1.21
+        },
+        {
+          "raw": "wind",
+          "start": 1.21,
+          "end": 1.49
+        },
+        {
+          "raw": "piped",
+          "start": 1.49,
+          "end": 1.85
+        },
+        {
+          "raw": "wee.",
+          "start": 1.85,
+          "end": 2.03
+        }
+      ],
+      "expected_tokens": [
+        "Pwee!",
+        "Little",
+        "wind",
+        "piped",
+        "wee."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pwee,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "pwee",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Little",
+          "start": 0.95,
+          "end": 1.21,
+          "key": "little",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "wind",
+          "start": 1.21,
+          "end": 1.49,
+          "key": "wind",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "piped",
+          "start": 1.49,
+          "end": 1.85,
+          "key": "piped",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "wee.",
+          "start": 1.85,
+          "end": 2.03,
+          "key": "wee",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Pwee!",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "Little",
+          "start": 0.95,
+          "end": 1.21
+        },
+        {
+          "text": "wind",
+          "start": 1.21,
+          "end": 1.49
+        },
+        {
+          "text": "piped",
+          "start": 1.49,
+          "end": 1.85
+        },
+        {
+          "text": "wee.",
+          "start": 1.85,
+          "end": 2.03
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19410845777019858
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2a083074d62fd1c087640dd936cc73e61636d0c49ce56a463e85ef9c0b9d6869",
+  "selected_reasons": []
+}

@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "222264352032e9ab58ef0d262bc57ba417401e8dc1c4aad395fb9ee2223e0d3c",
+  "attempts": [
+    {
+      "asr_seconds": 0.0884290337562561,
+      "alignment_seconds": 0.00024044420570135117,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Tip top",
+          "start": 0.05,
+          "end": 0.89,
+          "words": [
+            {
+              "text": " Tip",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.75927734375
+            },
+            {
+              "text": " top",
+              "start": 0.57,
+              "end": 0.89,
+              "probability": 0.5283203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Tip",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "top",
+          "start": 0.57,
+          "end": 0.89
+        }
+      ],
+      "expected_tokens": [
+        "—Tiptop."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Tip",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "tip",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "top",
+          "start": 0.57,
+          "end": 0.89,
+          "key": "top",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Tiptop.",
+          "start": 0.0,
+          "end": 0.445
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 2,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.08874465292319655
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "29c94015279da1e2ce7a0bddfd7b03d42d9e41538f2188301f278ab969bc4465",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

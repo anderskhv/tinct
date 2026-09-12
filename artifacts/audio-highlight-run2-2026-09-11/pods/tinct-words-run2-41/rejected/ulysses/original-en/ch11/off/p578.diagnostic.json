@@ -1,0 +1,661 @@
+{
+  "complete": true,
+  "signature": "4b3f7a738a32073e446c44b8d7201814c5b8cec5e2bd15a87afe469093587dd1",
+  "attempts": [
+    {
+      "asr_seconds": 0.40903684962540865,
+      "alignment_seconds": 0.0004798201844096184,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Richie Rift in the loot alone sat,",
+          "start": 0.05,
+          "end": 2.09,
+          "words": [
+            {
+              "text": " Richie",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.708984375
+            },
+            {
+              "text": " Rift",
+              "start": 0.65,
+              "end": 0.97,
+              "probability": 0.1961669921875
+            },
+            {
+              "text": " in",
+              "start": 0.97,
+              "end": 1.15,
+              "probability": 0.68505859375
+            },
+            {
+              "text": " the",
+              "start": 1.15,
+              "end": 1.27,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " loot",
+              "start": 1.27,
+              "end": 1.41,
+              "probability": 0.4775390625
+            },
+            {
+              "text": " alone",
+              "start": 1.41,
+              "end": 1.67,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " sat,",
+              "start": 1.67,
+              "end": 2.09,
+              "probability": 0.9306640625
+            }
+          ]
+        },
+        {
+          "text": " Gooding Collie's ward.",
+          "start": 2.51,
+          "end": 3.61,
+          "words": [
+            {
+              "text": " Gooding",
+              "start": 2.51,
+              "end": 2.75,
+              "probability": 0.806396484375
+            },
+            {
+              "text": " Collie's",
+              "start": 2.75,
+              "end": 3.29,
+              "probability": 0.7588704427083334
+            },
+            {
+              "text": " ward.",
+              "start": 3.29,
+              "end": 3.61,
+              "probability": 0.7548828125
+            }
+          ]
+        },
+        {
+          "text": " Uncertainty he waited.",
+          "start": 4.21,
+          "end": 5.13,
+          "words": [
+            {
+              "text": " Uncertainty",
+              "start": 4.21,
+              "end": 4.69,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " he",
+              "start": 4.69,
+              "end": 4.81,
+              "probability": 0.87158203125
+            },
+            {
+              "text": " waited.",
+              "start": 4.81,
+              "end": 5.13,
+              "probability": 0.98876953125
+            }
+          ]
+        },
+        {
+          "text": " Unpaid Pat, too.",
+          "start": 5.69,
+          "end": 6.67,
+          "words": [
+            {
+              "text": " Unpaid",
+              "start": 5.69,
+              "end": 6.03,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " Pat,",
+              "start": 6.03,
+              "end": 6.33,
+              "probability": 0.77587890625
+            },
+            {
+              "text": " too.",
+              "start": 6.65,
+              "end": 6.67,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Richie",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Rift",
+          "start": 0.65,
+          "end": 0.97
+        },
+        {
+          "raw": "in",
+          "start": 0.97,
+          "end": 1.15
+        },
+        {
+          "raw": "the",
+          "start": 1.15,
+          "end": 1.27
+        },
+        {
+          "raw": "loot",
+          "start": 1.27,
+          "end": 1.41
+        },
+        {
+          "raw": "alone",
+          "start": 1.41,
+          "end": 1.67
+        },
+        {
+          "raw": "sat,",
+          "start": 1.67,
+          "end": 2.09
+        },
+        {
+          "raw": "Gooding",
+          "start": 2.51,
+          "end": 2.75
+        },
+        {
+          "raw": "Collie's",
+          "start": 2.75,
+          "end": 3.29
+        },
+        {
+          "raw": "ward.",
+          "start": 3.29,
+          "end": 3.61
+        },
+        {
+          "raw": "Uncertainty",
+          "start": 4.21,
+          "end": 4.69
+        },
+        {
+          "raw": "he",
+          "start": 4.69,
+          "end": 4.81
+        },
+        {
+          "raw": "waited.",
+          "start": 4.81,
+          "end": 5.13
+        },
+        {
+          "raw": "Unpaid",
+          "start": 5.69,
+          "end": 6.03
+        },
+        {
+          "raw": "Pat,",
+          "start": 6.03,
+          "end": 6.33
+        },
+        {
+          "raw": "too.",
+          "start": 6.65,
+          "end": 6.67
+        }
+      ],
+      "expected_tokens": [
+        "Richie",
+        "rift",
+        "in",
+        "the",
+        "lute",
+        "alone",
+        "sat:",
+        "Goulding,",
+        "Collis,",
+        "Ward.",
+        "Uncertainly",
+        "he",
+        "waited.",
+        "Unpaid",
+        "Pat",
+        "too."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          7,
+          5,
+          7
+        ],
+        [
+          "replace",
+          7,
+          9,
+          7,
+          9
+        ],
+        [
+          "equal",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "equal",
+          11,
+          16,
+          11,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "replace",
+          7,
+          9,
+          7,
+          9
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Richie",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "richie",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Rift",
+          "start": 0.65,
+          "end": 0.97,
+          "key": "rift",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.97,
+          "end": 1.15,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.15,
+          "end": 1.27,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "loot",
+          "start": 1.27,
+          "end": 1.41,
+          "key": "loot",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "alone",
+          "start": 1.41,
+          "end": 1.67,
+          "key": "alone",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sat,",
+          "start": 1.67,
+          "end": 2.09,
+          "key": "sat",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Gooding",
+          "start": 2.51,
+          "end": 2.75,
+          "key": "gooding",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Collie's",
+          "start": 2.75,
+          "end": 3.29,
+          "key": "collies",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "ward.",
+          "start": 3.29,
+          "end": 3.61,
+          "key": "ward",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Uncertainty",
+          "start": 4.21,
+          "end": 4.69,
+          "key": "uncertainty",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 4.69,
+          "end": 4.81,
+          "key": "he",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "waited.",
+          "start": 4.81,
+          "end": 5.13,
+          "key": "waited",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Unpaid",
+          "start": 5.69,
+          "end": 6.03,
+          "key": "unpaid",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Pat,",
+          "start": 6.03,
+          "end": 6.33,
+          "key": "pat",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "too.",
+          "start": 6.65,
+          "end": 6.67,
+          "key": "too",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Richie",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "rift",
+          "start": 0.65,
+          "end": 0.97
+        },
+        {
+          "text": "in",
+          "start": 0.97,
+          "end": 1.15
+        },
+        {
+          "text": "the",
+          "start": 1.15,
+          "end": 1.27
+        },
+        {
+          "text": "lute",
+          "start": 1.27,
+          "end": 1.34
+        },
+        {
+          "text": "alone",
+          "start": 1.41,
+          "end": 1.67
+        },
+        {
+          "text": "sat:",
+          "start": 1.67,
+          "end": 2.09
+        },
+        {
+          "text": "Goulding,",
+          "start": 2.09,
+          "end": 2.69
+        },
+        {
+          "text": "Collis,",
+          "start": 2.69,
+          "end": 2.99
+        },
+        {
+          "text": "Ward.",
+          "start": 3.29,
+          "end": 3.61
+        },
+        {
+          "text": "Uncertainly",
+          "start": 3.61,
+          "end": 4.15
+        },
+        {
+          "text": "he",
+          "start": 4.69,
+          "end": 4.81
+        },
+        {
+          "text": "waited.",
+          "start": 4.81,
+          "end": 5.13
+        },
+        {
+          "text": "Unpaid",
+          "start": 5.69,
+          "end": 6.03
+        },
+        {
+          "text": "Pat",
+          "start": 6.03,
+          "end": 6.33
+        },
+        {
+          "text": "too.",
+          "start": 6.65,
+          "end": 6.67
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 12
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.40969040198251605
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7ff18702612d61dbe318629b13ec521c9e123f314cbc4c94803dd8ee4e463a17",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

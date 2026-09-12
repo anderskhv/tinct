@@ -1,0 +1,385 @@
+{
+  "complete": true,
+  "signature": "51aa12464c21aebe156462ec31e94417b268a1a5f09e8d185b6d8ea58ba90c43",
+  "attempts": [
+    {
+      "asr_seconds": 0.21924190828576684,
+      "alignment_seconds": 0.00041143083944916725,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—O, don't remind me of him for mercy' sake!",
+        "hotwords": "O"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " O —O, don't remind me of him for mercy' sake!",
+          "start": 0.11,
+          "end": 2.67,
+          "words": [
+            {
+              "text": " O",
+              "start": 0.11,
+              "end": 0.61,
+              "probability": 0.007709503173828125
+            },
+            {
+              "text": " —O,",
+              "start": 0.61,
+              "end": 0.91,
+              "probability": 8.401274681091309e-05
+            },
+            {
+              "text": " don't",
+              "start": 1.01,
+              "end": 1.17,
+              "probability": 0.922119140625
+            },
+            {
+              "text": " remind",
+              "start": 1.17,
+              "end": 1.41,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " me",
+              "start": 1.41,
+              "end": 1.59,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " of",
+              "start": 1.59,
+              "end": 1.69,
+              "probability": 0.99609375
+            },
+            {
+              "text": " him",
+              "start": 1.69,
+              "end": 1.81,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " for",
+              "start": 1.81,
+              "end": 2.01,
+              "probability": 0.88818359375
+            },
+            {
+              "text": " mercy'",
+              "start": 2.01,
+              "end": 2.27,
+              "probability": 0.485107421875
+            },
+            {
+              "text": " sake!",
+              "start": 2.27,
+              "end": 2.67,
+              "probability": 0.97216796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "O",
+          "start": 0.11,
+          "end": 0.61
+        },
+        {
+          "raw": "—O,",
+          "start": 0.61,
+          "end": 0.91
+        },
+        {
+          "raw": "don't",
+          "start": 1.01,
+          "end": 1.17
+        },
+        {
+          "raw": "remind",
+          "start": 1.17,
+          "end": 1.41
+        },
+        {
+          "raw": "me",
+          "start": 1.41,
+          "end": 1.59
+        },
+        {
+          "raw": "of",
+          "start": 1.59,
+          "end": 1.69
+        },
+        {
+          "raw": "him",
+          "start": 1.69,
+          "end": 1.81
+        },
+        {
+          "raw": "for",
+          "start": 1.81,
+          "end": 2.01
+        },
+        {
+          "raw": "mercy'",
+          "start": 2.01,
+          "end": 2.27
+        },
+        {
+          "raw": "sake!",
+          "start": 2.27,
+          "end": 2.67
+        }
+      ],
+      "expected_tokens": [
+        "—O,",
+        "don't",
+        "remind",
+        "me",
+        "of",
+        "him",
+        "for",
+        "mercy'",
+        "sake!"
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          9,
+          1,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "O",
+          "start": 0.11,
+          "end": 0.61,
+          "key": "o",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "—O,",
+          "start": 0.61,
+          "end": 0.91,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 1.01,
+          "end": 1.17,
+          "key": "dont",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "remind",
+          "start": 1.17,
+          "end": 1.41,
+          "key": "remind",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.41,
+          "end": 1.59,
+          "key": "me",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.59,
+          "end": 1.69,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 1.69,
+          "end": 1.81,
+          "key": "him",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.81,
+          "end": 2.01,
+          "key": "for",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "mercy'",
+          "start": 2.01,
+          "end": 2.27,
+          "key": "mercy",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "sake!",
+          "start": 2.27,
+          "end": 2.67,
+          "key": "sake",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—O,",
+          "start": 0.61,
+          "end": 0.91
+        },
+        {
+          "text": "don't",
+          "start": 1.01,
+          "end": 1.17
+        },
+        {
+          "text": "remind",
+          "start": 1.17,
+          "end": 1.41
+        },
+        {
+          "text": "me",
+          "start": 1.41,
+          "end": 1.59
+        },
+        {
+          "text": "of",
+          "start": 1.59,
+          "end": 1.69
+        },
+        {
+          "text": "him",
+          "start": 1.69,
+          "end": 1.81
+        },
+        {
+          "text": "for",
+          "start": 1.81,
+          "end": 2.01
+        },
+        {
+          "text": "mercy'",
+          "start": 2.01,
+          "end": 2.27
+        },
+        {
+          "text": "sake!",
+          "start": 2.27,
+          "end": 2.67
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21973925828933716
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8d831da67a07cf39d6f9563e8fec2419d007e8c72b1b003758baeaf98b73dd32",
+  "selected_reasons": []
+}

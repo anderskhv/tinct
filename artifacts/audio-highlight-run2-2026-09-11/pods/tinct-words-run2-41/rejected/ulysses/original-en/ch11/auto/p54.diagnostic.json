@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "405bfe754569a19dc118d5c2daa7a8a1fc05fe4e0e3b46c4d9c90a40f8d982c5",
+  "attempts": [
+    {
+      "asr_seconds": 0.3393330881372094,
+      "alignment_seconds": 0.00012466870248317719,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Fff! Oo!",
+        "hotwords": "Fff, Oo"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Fff, Oo!",
+          "start": 0.02,
+          "end": 1.34,
+          "words": [
+            {
+              "text": " Fff,",
+              "start": 0.02,
+              "end": 0.76,
+              "probability": 0.0691375732421875
+            },
+            {
+              "text": " Oo!",
+              "start": 1.34,
+              "end": 1.34,
+              "probability": 0.00798797607421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fff,",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "raw": "Oo!",
+          "start": 1.34,
+          "end": 1.34
+        }
+      ],
+      "expected_tokens": [
+        "Fff!",
+        "Oo!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fff,",
+          "start": 0.02,
+          "end": 0.76,
+          "key": "fff",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Oo!",
+          "start": 1.34,
+          "end": 1.34,
+          "key": "oo",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Fff!",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "text": "Oo!",
+          "start": 1.34,
+          "end": 1.34
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3394970032386482
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "66b535ba8682656679d49181e1f7c28ea56dfb382dd17e99243f0a60da248c56",
+  "selected_reasons": []
+}

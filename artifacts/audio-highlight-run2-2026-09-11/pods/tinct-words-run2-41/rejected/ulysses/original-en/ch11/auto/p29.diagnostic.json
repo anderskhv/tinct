@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "49d78795db648380fe626a9793fc6d1672e1952c86a7ceb23d1cf655e0e6eb8a",
+  "attempts": [
+    {
+      "asr_seconds": 0.20276283659040928,
+      "alignment_seconds": 0.00037162285298109055,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "A moonlit nightcall: far, far.",
+        "hotwords": "A"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " A moonlit nightcall, far, far.",
+          "start": 0.05,
+          "end": 2.11,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.80078125
+            },
+            {
+              "text": " moonlit",
+              "start": 0.53,
+              "end": 0.81,
+              "probability": 0.939453125
+            },
+            {
+              "text": " nightcall,",
+              "start": 0.81,
+              "end": 1.31,
+              "probability": 0.5133819580078125
+            },
+            {
+              "text": " far,",
+              "start": 1.67,
+              "end": 1.77,
+              "probability": 0.89013671875
+            },
+            {
+              "text": " far.",
+              "start": 1.95,
+              "end": 2.11,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "moonlit",
+          "start": 0.53,
+          "end": 0.81
+        },
+        {
+          "raw": "nightcall,",
+          "start": 0.81,
+          "end": 1.31
+        },
+        {
+          "raw": "far,",
+          "start": 1.67,
+          "end": 1.77
+        },
+        {
+          "raw": "far.",
+          "start": 1.95,
+          "end": 2.11
+        }
+      ],
+      "expected_tokens": [
+        "A",
+        "moonlit",
+        "nightcall:",
+        "far,",
+        "far."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "moonlit",
+          "start": 0.53,
+          "end": 0.81,
+          "key": "moonlit",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "nightcall,",
+          "start": 0.81,
+          "end": 1.31,
+          "key": "nightcall",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "far,",
+          "start": 1.67,
+          "end": 1.77,
+          "key": "far",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "far.",
+          "start": 1.95,
+          "end": 2.11,
+          "key": "far",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "A",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "moonlit",
+          "start": 0.53,
+          "end": 0.81
+        },
+        {
+          "text": "nightcall:",
+          "start": 0.81,
+          "end": 1.31
+        },
+        {
+          "text": "far,",
+          "start": 1.67,
+          "end": 1.77
+        },
+        {
+          "text": "far.",
+          "start": 1.95,
+          "end": 2.11
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2032641489058733
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f6612916198fcc848010b3c73c3e213b1aa9c2e4e0a8d7ba76d204a2c77b1d1a",
+  "selected_reasons": []
+}

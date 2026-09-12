@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "9a1d57733d2ddfaa96b7c56a61a959af60d447dfd8cee230e5bf7e4adbbafae8",
+  "attempts": [
+    {
+      "asr_seconds": 0.20851020980626345,
+      "alignment_seconds": 0.0003190930001437664,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Clapclap. Clipclap. Clappyclap.",
+        "hotwords": "Clapclap, Clipclap, Clappyclap"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Clapclap, Clipclap, Clappyclap.",
+          "start": 0.05,
+          "end": 2.39,
+          "words": [
+            {
+              "text": " Clapclap,",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.6588843464851379
+            },
+            {
+              "text": " Clipclap,",
+              "start": 1.13,
+              "end": 1.51,
+              "probability": 0.5180867513020834
+            },
+            {
+              "text": " Clappyclap.",
+              "start": 1.83,
+              "end": 2.39,
+              "probability": 0.669189453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clapclap,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "Clipclap,",
+          "start": 1.13,
+          "end": 1.51
+        },
+        {
+          "raw": "Clappyclap.",
+          "start": 1.83,
+          "end": 2.39
+        }
+      ],
+      "expected_tokens": [
+        "Clapclap.",
+        "Clipclap.",
+        "Clappyclap."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clapclap,",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "clapclap",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Clipclap,",
+          "start": 1.13,
+          "end": 1.51,
+          "key": "clipclap",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Clappyclap.",
+          "start": 1.83,
+          "end": 2.39,
+          "key": "clappyclap",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clapclap.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "Clipclap.",
+          "start": 1.13,
+          "end": 1.51
+        },
+        {
+          "text": "Clappyclap.",
+          "start": 1.83,
+          "end": 2.39
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2089420291595161
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c9898344ebba3462661eee1e618f36d65fa2589752e852b30c7b9352b4119e0e",
+  "selected_reasons": []
+}

@@ -1,0 +1,862 @@
+{
+  "complete": true,
+  "signature": "2bb1bce6c3fe3bf10d97466a93c0acd56164b7efe0b92ae4d7fe3c9861cbc316",
+  "attempts": [
+    {
+      "asr_seconds": 0.3004870368167758,
+      "alignment_seconds": 0.0006516617722809315,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Bald padded a sign drew nigh a pen and ink he went a pad he went a pad to blot he heard deaf pat",
+          "start": 0.05,
+          "end": 7.59,
+          "words": [
+            {
+              "text": " Bald",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.77294921875
+            },
+            {
+              "text": " padded",
+              "start": 0.61,
+              "end": 0.93,
+              "probability": 0.2479248046875
+            },
+            {
+              "text": " a",
+              "start": 0.93,
+              "end": 1.09,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " sign",
+              "start": 1.09,
+              "end": 1.33,
+              "probability": 0.80078125
+            },
+            {
+              "text": " drew",
+              "start": 1.33,
+              "end": 1.57,
+              "probability": 0.857421875
+            },
+            {
+              "text": " nigh",
+              "start": 1.57,
+              "end": 1.97,
+              "probability": 0.850830078125
+            },
+            {
+              "text": " a",
+              "start": 1.97,
+              "end": 2.39,
+              "probability": 0.546875
+            },
+            {
+              "text": " pen",
+              "start": 2.39,
+              "end": 2.61,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " and",
+              "start": 2.61,
+              "end": 2.77,
+              "probability": 0.85595703125
+            },
+            {
+              "text": " ink",
+              "start": 2.77,
+              "end": 3.07,
+              "probability": 0.94140625
+            },
+            {
+              "text": " he",
+              "start": 3.07,
+              "end": 3.63,
+              "probability": 0.6240234375
+            },
+            {
+              "text": " went",
+              "start": 3.63,
+              "end": 3.89,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 3.89,
+              "end": 4.27,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " pad",
+              "start": 4.27,
+              "end": 4.63,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " he",
+              "start": 4.63,
+              "end": 5.03,
+              "probability": 0.50732421875
+            },
+            {
+              "text": " went",
+              "start": 5.03,
+              "end": 5.33,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 5.33,
+              "end": 5.65,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " pad",
+              "start": 5.65,
+              "end": 5.89,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " to",
+              "start": 5.89,
+              "end": 6.03,
+              "probability": 0.50244140625
+            },
+            {
+              "text": " blot",
+              "start": 6.03,
+              "end": 6.31,
+              "probability": 0.978515625
+            },
+            {
+              "text": " he",
+              "start": 6.31,
+              "end": 6.71,
+              "probability": 0.7099609375
+            },
+            {
+              "text": " heard",
+              "start": 6.71,
+              "end": 6.99,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " deaf",
+              "start": 6.99,
+              "end": 7.29,
+              "probability": 0.62939453125
+            },
+            {
+              "text": " pat",
+              "start": 7.29,
+              "end": 7.59,
+              "probability": 0.44384765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bald",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "padded",
+          "start": 0.61,
+          "end": 0.93
+        },
+        {
+          "raw": "a",
+          "start": 0.93,
+          "end": 1.09
+        },
+        {
+          "raw": "sign",
+          "start": 1.09,
+          "end": 1.33
+        },
+        {
+          "raw": "drew",
+          "start": 1.33,
+          "end": 1.57
+        },
+        {
+          "raw": "nigh",
+          "start": 1.57,
+          "end": 1.97
+        },
+        {
+          "raw": "a",
+          "start": 1.97,
+          "end": 2.39
+        },
+        {
+          "raw": "pen",
+          "start": 2.39,
+          "end": 2.61
+        },
+        {
+          "raw": "and",
+          "start": 2.61,
+          "end": 2.77
+        },
+        {
+          "raw": "ink",
+          "start": 2.77,
+          "end": 3.07
+        },
+        {
+          "raw": "he",
+          "start": 3.07,
+          "end": 3.63
+        },
+        {
+          "raw": "went",
+          "start": 3.63,
+          "end": 3.89
+        },
+        {
+          "raw": "a",
+          "start": 3.89,
+          "end": 4.27
+        },
+        {
+          "raw": "pad",
+          "start": 4.27,
+          "end": 4.63
+        },
+        {
+          "raw": "he",
+          "start": 4.63,
+          "end": 5.03
+        },
+        {
+          "raw": "went",
+          "start": 5.03,
+          "end": 5.33
+        },
+        {
+          "raw": "a",
+          "start": 5.33,
+          "end": 5.65
+        },
+        {
+          "raw": "pad",
+          "start": 5.65,
+          "end": 5.89
+        },
+        {
+          "raw": "to",
+          "start": 5.89,
+          "end": 6.03
+        },
+        {
+          "raw": "blot",
+          "start": 6.03,
+          "end": 6.31
+        },
+        {
+          "raw": "he",
+          "start": 6.31,
+          "end": 6.71
+        },
+        {
+          "raw": "heard",
+          "start": 6.71,
+          "end": 6.99
+        },
+        {
+          "raw": "deaf",
+          "start": 6.99,
+          "end": 7.29
+        },
+        {
+          "raw": "pat",
+          "start": 7.29,
+          "end": 7.59
+        }
+      ],
+      "expected_tokens": [
+        "Bald",
+        "Pat",
+        "at",
+        "a",
+        "sign",
+        "drew",
+        "nigh.",
+        "A",
+        "pen",
+        "and",
+        "ink.",
+        "He",
+        "went.",
+        "A",
+        "pad.",
+        "He",
+        "went.",
+        "A",
+        "pad",
+        "to",
+        "blot.",
+        "He",
+        "heard,",
+        "deaf",
+        "Pat."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          3,
+          1,
+          2
+        ],
+        [
+          "equal",
+          3,
+          25,
+          2,
+          24
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 23
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          3,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bald",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "bald",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "padded",
+          "start": 0.61,
+          "end": 0.93,
+          "key": "padded",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.93,
+          "end": 1.09,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sign",
+          "start": 1.09,
+          "end": 1.33,
+          "key": "sign",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "drew",
+          "start": 1.33,
+          "end": 1.57,
+          "key": "drew",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "nigh",
+          "start": 1.57,
+          "end": 1.97,
+          "key": "nigh",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.97,
+          "end": 2.39,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "pen",
+          "start": 2.39,
+          "end": 2.61,
+          "key": "pen",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.61,
+          "end": 2.77,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "ink",
+          "start": 2.77,
+          "end": 3.07,
+          "key": "ink",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.07,
+          "end": 3.63,
+          "key": "he",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "went",
+          "start": 3.63,
+          "end": 3.89,
+          "key": "went",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.89,
+          "end": 4.27,
+          "key": "a",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "pad",
+          "start": 4.27,
+          "end": 4.63,
+          "key": "pad",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 4.63,
+          "end": 5.03,
+          "key": "he",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "went",
+          "start": 5.03,
+          "end": 5.33,
+          "key": "went",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.33,
+          "end": 5.65,
+          "key": "a",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "pad",
+          "start": 5.65,
+          "end": 5.89,
+          "key": "pad",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.89,
+          "end": 6.03,
+          "key": "to",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "blot",
+          "start": 6.03,
+          "end": 6.31,
+          "key": "blot",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 6.31,
+          "end": 6.71,
+          "key": "he",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 6.71,
+          "end": 6.99,
+          "key": "heard",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "deaf",
+          "start": 6.99,
+          "end": 7.29,
+          "key": "deaf",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "pat",
+          "start": 7.29,
+          "end": 7.59,
+          "key": "pat",
+          "pieces": [
+            23
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Bald",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "Pat",
+          "start": 0.61,
+          "end": 0.77
+        },
+        {
+          "text": "at",
+          "start": 0.77,
+          "end": 0.85
+        },
+        {
+          "text": "a",
+          "start": 0.93,
+          "end": 1.09
+        },
+        {
+          "text": "sign",
+          "start": 1.09,
+          "end": 1.33
+        },
+        {
+          "text": "drew",
+          "start": 1.33,
+          "end": 1.57
+        },
+        {
+          "text": "nigh.",
+          "start": 1.57,
+          "end": 1.97
+        },
+        {
+          "text": "A",
+          "start": 1.97,
+          "end": 2.39
+        },
+        {
+          "text": "pen",
+          "start": 2.39,
+          "end": 2.61
+        },
+        {
+          "text": "and",
+          "start": 2.61,
+          "end": 2.77
+        },
+        {
+          "text": "ink.",
+          "start": 2.77,
+          "end": 3.07
+        },
+        {
+          "text": "He",
+          "start": 3.07,
+          "end": 3.63
+        },
+        {
+          "text": "went.",
+          "start": 3.63,
+          "end": 3.89
+        },
+        {
+          "text": "A",
+          "start": 3.89,
+          "end": 4.27
+        },
+        {
+          "text": "pad.",
+          "start": 4.27,
+          "end": 4.63
+        },
+        {
+          "text": "He",
+          "start": 4.63,
+          "end": 5.03
+        },
+        {
+          "text": "went.",
+          "start": 5.03,
+          "end": 5.33
+        },
+        {
+          "text": "A",
+          "start": 5.33,
+          "end": 5.65
+        },
+        {
+          "text": "pad",
+          "start": 5.65,
+          "end": 5.89
+        },
+        {
+          "text": "to",
+          "start": 5.89,
+          "end": 6.03
+        },
+        {
+          "text": "blot.",
+          "start": 6.03,
+          "end": 6.31
+        },
+        {
+          "text": "He",
+          "start": 6.31,
+          "end": 6.71
+        },
+        {
+          "text": "heard,",
+          "start": 6.71,
+          "end": 6.99
+        },
+        {
+          "text": "deaf",
+          "start": 6.99,
+          "end": 7.29
+        },
+        {
+          "text": "Pat.",
+          "start": 7.29,
+          "end": 7.59
+        }
+      ],
+      "stats": {
+        "expected_words": 25,
+        "heard_words": 24,
+        "matched_words": 23
+      },
+      "match_ratio": 0.92,
+      "rejection_reasons": [],
+      "seconds": 0.3013803409412503
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "96e90cfb46039b744acf42266584e863f39dcd91c7201838b2418b1faf45d22a",
+  "selected_reasons": []
+}

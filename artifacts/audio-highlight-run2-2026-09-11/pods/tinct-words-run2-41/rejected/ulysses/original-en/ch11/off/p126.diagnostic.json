@@ -1,0 +1,658 @@
+{
+  "complete": true,
+  "signature": "e61103cc43a698059141cc0fe2e830fe24cfdc4f42c4112d9e72fc7fd2e9e2b2",
+  "attempts": [
+    {
+      "asr_seconds": 0.2873482257127762,
+      "alignment_seconds": 0.0003368300385773182,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Oh, greasy eyes, imagine being married to a man like that,\" she cried with his bit",
+          "start": 0.02,
+          "end": 5.4,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.468994140625
+            },
+            {
+              "text": " greasy",
+              "start": 0.66,
+              "end": 0.92,
+              "probability": 0.986328125
+            },
+            {
+              "text": " eyes,",
+              "start": 0.92,
+              "end": 1.32,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " imagine",
+              "start": 1.86,
+              "end": 1.98,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " being",
+              "start": 1.98,
+              "end": 2.34,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " married",
+              "start": 2.34,
+              "end": 2.66,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 2.66,
+              "end": 2.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 2.84,
+              "end": 2.9,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " man",
+              "start": 2.9,
+              "end": 3.08,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " like",
+              "start": 3.08,
+              "end": 3.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that,\"",
+              "start": 3.28,
+              "end": 4.08,
+              "probability": 0.60699462890625
+            },
+            {
+              "text": " she",
+              "start": 4.08,
+              "end": 4.16,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " cried",
+              "start": 4.16,
+              "end": 4.62,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 4.62,
+              "end": 5.1,
+              "probability": 0.7451171875
+            },
+            {
+              "text": " his",
+              "start": 5.1,
+              "end": 5.26,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " bit",
+              "start": 5.26,
+              "end": 5.4,
+              "probability": 0.96728515625
+            }
+          ]
+        },
+        {
+          "text": " of beard.",
+          "start": 5.4,
+          "end": 5.84,
+          "words": [
+            {
+              "text": " of",
+              "start": 5.4,
+              "end": 5.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " beard.",
+              "start": 5.54,
+              "end": 5.84,
+              "probability": 0.98388671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oh,",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "greasy",
+          "start": 0.66,
+          "end": 0.92
+        },
+        {
+          "raw": "eyes,",
+          "start": 0.92,
+          "end": 1.32
+        },
+        {
+          "raw": "imagine",
+          "start": 1.86,
+          "end": 1.98
+        },
+        {
+          "raw": "being",
+          "start": 1.98,
+          "end": 2.34
+        },
+        {
+          "raw": "married",
+          "start": 2.34,
+          "end": 2.66
+        },
+        {
+          "raw": "to",
+          "start": 2.66,
+          "end": 2.84
+        },
+        {
+          "raw": "a",
+          "start": 2.84,
+          "end": 2.9
+        },
+        {
+          "raw": "man",
+          "start": 2.9,
+          "end": 3.08
+        },
+        {
+          "raw": "like",
+          "start": 3.08,
+          "end": 3.28
+        },
+        {
+          "raw": "that,\"",
+          "start": 3.28,
+          "end": 4.08
+        },
+        {
+          "raw": "she",
+          "start": 4.08,
+          "end": 4.16
+        },
+        {
+          "raw": "cried",
+          "start": 4.16,
+          "end": 4.62
+        },
+        {
+          "raw": "with",
+          "start": 4.62,
+          "end": 5.1
+        },
+        {
+          "raw": "his",
+          "start": 5.1,
+          "end": 5.26
+        },
+        {
+          "raw": "bit",
+          "start": 5.26,
+          "end": 5.4
+        },
+        {
+          "raw": "of",
+          "start": 5.4,
+          "end": 5.54
+        },
+        {
+          "raw": "beard.",
+          "start": 5.54,
+          "end": 5.84
+        }
+      ],
+      "expected_tokens": [
+        "—O",
+        "greasy",
+        "eyes!",
+        "Imagine",
+        "being",
+        "married",
+        "to",
+        "a",
+        "man",
+        "like",
+        "that!",
+        "she",
+        "cried.",
+        "With",
+        "his",
+        "bit",
+        "of",
+        "beard!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          18,
+          1,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oh,",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "oh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "greasy",
+          "start": 0.66,
+          "end": 0.92,
+          "key": "greasy",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "eyes,",
+          "start": 0.92,
+          "end": 1.32,
+          "key": "eyes",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "imagine",
+          "start": 1.86,
+          "end": 1.98,
+          "key": "imagine",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "being",
+          "start": 1.98,
+          "end": 2.34,
+          "key": "being",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "married",
+          "start": 2.34,
+          "end": 2.66,
+          "key": "married",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.66,
+          "end": 2.84,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.84,
+          "end": 2.9,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 2.9,
+          "end": 3.08,
+          "key": "man",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 3.08,
+          "end": 3.28,
+          "key": "like",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "that,\"",
+          "start": 3.28,
+          "end": 4.08,
+          "key": "that",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 4.08,
+          "end": 4.16,
+          "key": "she",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 4.16,
+          "end": 4.62,
+          "key": "cried",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.62,
+          "end": 5.1,
+          "key": "with",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 5.1,
+          "end": 5.26,
+          "key": "his",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "bit",
+          "start": 5.26,
+          "end": 5.4,
+          "key": "bit",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.4,
+          "end": 5.54,
+          "key": "of",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "beard.",
+          "start": 5.54,
+          "end": 5.84,
+          "key": "beard",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—O",
+          "start": 0.0,
+          "end": 0.33
+        },
+        {
+          "text": "greasy",
+          "start": 0.66,
+          "end": 0.92
+        },
+        {
+          "text": "eyes!",
+          "start": 0.92,
+          "end": 1.32
+        },
+        {
+          "text": "Imagine",
+          "start": 1.86,
+          "end": 1.98
+        },
+        {
+          "text": "being",
+          "start": 1.98,
+          "end": 2.34
+        },
+        {
+          "text": "married",
+          "start": 2.34,
+          "end": 2.66
+        },
+        {
+          "text": "to",
+          "start": 2.66,
+          "end": 2.84
+        },
+        {
+          "text": "a",
+          "start": 2.84,
+          "end": 2.9
+        },
+        {
+          "text": "man",
+          "start": 2.9,
+          "end": 3.08
+        },
+        {
+          "text": "like",
+          "start": 3.08,
+          "end": 3.28
+        },
+        {
+          "text": "that!",
+          "start": 3.28,
+          "end": 4.08
+        },
+        {
+          "text": "she",
+          "start": 4.08,
+          "end": 4.16
+        },
+        {
+          "text": "cried.",
+          "start": 4.16,
+          "end": 4.62
+        },
+        {
+          "text": "With",
+          "start": 4.62,
+          "end": 5.1
+        },
+        {
+          "text": "his",
+          "start": 5.1,
+          "end": 5.26
+        },
+        {
+          "text": "bit",
+          "start": 5.26,
+          "end": 5.4
+        },
+        {
+          "text": "of",
+          "start": 5.4,
+          "end": 5.54
+        },
+        {
+          "text": "beard!",
+          "start": 5.54,
+          "end": 5.84
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 17
+      },
+      "match_ratio": 0.9444444444444444,
+      "rejection_reasons": [],
+      "seconds": 0.287809687666595
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5412283b2af791437571423fdafbbe493066ba45e4e81a8294fca075522ce8c2",
+  "selected_reasons": []
+}
