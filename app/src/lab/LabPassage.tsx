@@ -730,13 +730,18 @@ export function LabPassage({
               {renderReadingLines(readingLines)}
             </div>
           )}
-          {!compare && (!desktopSpread || !nextReadingPage) && !chapterEndPage && chapterEnd}
+          {!compare && !desktopSpread && !chapterEndPage && chapterEnd}
         </div>
         {desktopSpread && <div className="lab-book-col lab-book-col-next" data-testid="lab-next-page-col">
           <div className="lab-hearing-stage" data-testid="lab-next-reading-stage">
             {nextReadingPage && renderReadingLines(readingPageLines(paragraphs, nextReadingPage), true)}
           </div>
-          {nextReadingPage && !chapterEndPage && chapterEnd}
+          {/* On the spread the end-of-chapter card always belongs to the
+              second leaf. When the chapter's last text ends on the first leaf
+              the second is empty, and the card fills it — the reader sees the
+              text end and the card in one spread instead of turning a page to
+              a card floating beside a blank leaf. */}
+          {!chapterEndPage && chapterEnd}
         </div>}
         {compare && (
           <div className="lab-book-col lab-book-col-compare" data-testid="lab-compare-col">

@@ -396,6 +396,43 @@ it('marks the active paragraph in desktop inline audio when word timings are una
 })
 
 
+describe('the end-of-chapter card on the desktop spread', () => {
+  const text = ['one two three four']
+  const card = <div className="lab-chapter-end" data-testid="end-card">End of chapter</div>
+  const props = () => passageProps(text, { paragraphIndex: 0, from: 0, to: 4 })
+
+  it('fills the empty facing leaf when the chapter ends on the first one', () => {
+    render(<LabPassage {...props()} desktopSpread chapterEnd={card} />)
+    const found = screen.getByTestId('end-card')
+    expect(found.closest('.lab-book-col-next')).toBeTruthy()
+    // The reader sees the text end and the card in one spread: no page turn
+    // to a card floating beside a blank leaf.
+    expect(screen.getByTestId('lab-next-page-col').contains(found)).toBe(true)
+  })
+
+  it('stays on the second leaf when that leaf carries the next page of text', () => {
+    render(<LabPassage {...props()} desktopSpread chapterEnd={card}
+      nextReadingPage={{ paragraphIndex: 0, from: 0, to: 4 }} />)
+    expect(screen.getByTestId('end-card').closest('.lab-book-col-next')).toBeTruthy()
+  })
+
+  it('is left in the single column on the phone', () => {
+    render(<LabPassage {...props()} chapterEnd={card} />)
+    const found = screen.getByTestId('end-card')
+    expect(found.closest('.lab-book-col-next')).toBeNull()
+    expect(found.closest('.lab-book-col')).toBeTruthy()
+  })
+
+  it('takes its own page when one is asked for, on either surface', () => {
+    const { unmount } = render(<LabPassage {...props()} desktopSpread chapterEndPage chapterEnd={card} />)
+    expect(screen.getByTestId('end-card').closest('[data-testid="lab-chapter-end-page"]')).toBeTruthy()
+    expect(screen.getByTestId('lab-next-page-col').querySelector('[data-testid="end-card"]')).toBeNull()
+    unmount()
+    render(<LabPassage {...props()} chapterEndPage chapterEnd={card} />)
+    expect(screen.getByTestId('end-card').closest('[data-testid="lab-chapter-end-page"]')).toBeTruthy()
+  })
+})
+
 describe('mouse word lookup and dragging', () => {
   const text = ['one two three four']
   const props = () => passageProps(text, { paragraphIndex: 0, from: 0, to: 4 })
