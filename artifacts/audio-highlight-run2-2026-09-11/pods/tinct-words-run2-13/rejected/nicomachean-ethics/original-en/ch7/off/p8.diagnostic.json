@@ -1,0 +1,882 @@
+{
+  "complete": true,
+  "signature": "902eb61c4220349162b4fd40cad24e8683f1429ec926246497c79abcd3be3607",
+  "attempts": [
+    {
+      "asr_seconds": 0.3145526936277747,
+      "alignment_seconds": 0.0007191849872469902,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " V some confound the two characters of the man who has no self-control, and the man of",
+          "start": 0.05,
+          "end": 5.65,
+          "words": [
+            {
+              "text": " V",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.496826171875
+            },
+            {
+              "text": " some",
+              "start": 0.61,
+              "end": 0.87,
+              "probability": 0.615234375
+            },
+            {
+              "text": " confound",
+              "start": 0.87,
+              "end": 1.47,
+              "probability": 0.949462890625
+            },
+            {
+              "text": " the",
+              "start": 1.47,
+              "end": 1.65,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " two",
+              "start": 1.65,
+              "end": 1.85,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " characters",
+              "start": 1.85,
+              "end": 2.23,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " of",
+              "start": 2.23,
+              "end": 2.55,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 2.55,
+              "end": 2.65,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " man",
+              "start": 2.65,
+              "end": 2.91,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " who",
+              "start": 2.91,
+              "end": 3.15,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " has",
+              "start": 3.15,
+              "end": 3.35,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " no",
+              "start": 3.35,
+              "end": 3.63,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " self",
+              "start": 3.63,
+              "end": 3.93,
+              "probability": 0.9951171875
+            },
+            {
+              "text": "-control,",
+              "start": 3.93,
+              "end": 4.39,
+              "probability": 0.889404296875
+            },
+            {
+              "text": " and",
+              "start": 4.89,
+              "end": 5.13,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " the",
+              "start": 5.13,
+              "end": 5.21,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " man",
+              "start": 5.21,
+              "end": 5.47,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " of",
+              "start": 5.47,
+              "end": 5.65,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " imperfect self-control, while others distinguish between them.",
+          "start": 5.65,
+          "end": 9.33,
+          "words": [
+            {
+              "text": " imperfect",
+              "start": 5.65,
+              "end": 6.09,
+              "probability": 0.984375
+            },
+            {
+              "text": " self",
+              "start": 6.09,
+              "end": 6.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": "-control,",
+              "start": 6.55,
+              "end": 7.03,
+              "probability": 0.97265625
+            },
+            {
+              "text": " while",
+              "start": 7.55,
+              "end": 7.71,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " others",
+              "start": 7.71,
+              "end": 8.05,
+              "probability": 0.994140625
+            },
+            {
+              "text": " distinguish",
+              "start": 8.05,
+              "end": 8.57,
+              "probability": 0.96484375
+            },
+            {
+              "text": " between",
+              "start": 8.57,
+              "end": 9.03,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " them.",
+              "start": 9.03,
+              "end": 9.33,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "V",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "some",
+          "start": 0.61,
+          "end": 0.87
+        },
+        {
+          "raw": "confound",
+          "start": 0.87,
+          "end": 1.47
+        },
+        {
+          "raw": "the",
+          "start": 1.47,
+          "end": 1.65
+        },
+        {
+          "raw": "two",
+          "start": 1.65,
+          "end": 1.85
+        },
+        {
+          "raw": "characters",
+          "start": 1.85,
+          "end": 2.23
+        },
+        {
+          "raw": "of",
+          "start": 2.23,
+          "end": 2.55
+        },
+        {
+          "raw": "the",
+          "start": 2.55,
+          "end": 2.65
+        },
+        {
+          "raw": "man",
+          "start": 2.65,
+          "end": 2.91
+        },
+        {
+          "raw": "who",
+          "start": 2.91,
+          "end": 3.15
+        },
+        {
+          "raw": "has",
+          "start": 3.15,
+          "end": 3.35
+        },
+        {
+          "raw": "no",
+          "start": 3.35,
+          "end": 3.63
+        },
+        {
+          "raw": "self",
+          "start": 3.63,
+          "end": 3.93
+        },
+        {
+          "raw": "-control,",
+          "start": 3.93,
+          "end": 4.39
+        },
+        {
+          "raw": "and",
+          "start": 4.89,
+          "end": 5.13
+        },
+        {
+          "raw": "the",
+          "start": 5.13,
+          "end": 5.21
+        },
+        {
+          "raw": "man",
+          "start": 5.21,
+          "end": 5.47
+        },
+        {
+          "raw": "of",
+          "start": 5.47,
+          "end": 5.65
+        },
+        {
+          "raw": "imperfect",
+          "start": 5.65,
+          "end": 6.09
+        },
+        {
+          "raw": "self",
+          "start": 6.09,
+          "end": 6.55
+        },
+        {
+          "raw": "-control,",
+          "start": 6.55,
+          "end": 7.03
+        },
+        {
+          "raw": "while",
+          "start": 7.55,
+          "end": 7.71
+        },
+        {
+          "raw": "others",
+          "start": 7.71,
+          "end": 8.05
+        },
+        {
+          "raw": "distinguish",
+          "start": 8.05,
+          "end": 8.57
+        },
+        {
+          "raw": "between",
+          "start": 8.57,
+          "end": 9.03
+        },
+        {
+          "raw": "them.",
+          "start": 9.03,
+          "end": 9.33
+        }
+      ],
+      "expected_tokens": [
+        "V.",
+        "Some",
+        "confound",
+        "the",
+        "two",
+        "characters",
+        "of",
+        "the",
+        "man",
+        "who",
+        "has",
+        "_no_",
+        "Self-Control,",
+        "and",
+        "the",
+        "man",
+        "of",
+        "_Imperfect",
+        "Self-Control_,",
+        "while",
+        "others",
+        "distinguish",
+        "between",
+        "them."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          24,
+          0,
+          24
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "V",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "v",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 0.61,
+          "end": 0.87,
+          "key": "some",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "confound",
+          "start": 0.87,
+          "end": 1.47,
+          "key": "confound",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.47,
+          "end": 1.65,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 1.65,
+          "end": 1.85,
+          "key": "two",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "characters",
+          "start": 1.85,
+          "end": 2.23,
+          "key": "characters",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.23,
+          "end": 2.55,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.55,
+          "end": 2.65,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 2.65,
+          "end": 2.91,
+          "key": "man",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 2.91,
+          "end": 3.15,
+          "key": "who",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 3.15,
+          "end": 3.35,
+          "key": "has",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 3.35,
+          "end": 3.63,
+          "key": "no",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "self -control,",
+          "start": 3.63,
+          "end": 4.39,
+          "key": "selfcontrol",
+          "pieces": [
+            12,
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.89,
+          "end": 5.13,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.13,
+          "end": 5.21,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 5.21,
+          "end": 5.47,
+          "key": "man",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.47,
+          "end": 5.65,
+          "key": "of",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "imperfect",
+          "start": 5.65,
+          "end": 6.09,
+          "key": "imperfect",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "self -control,",
+          "start": 6.09,
+          "end": 7.03,
+          "key": "selfcontrol",
+          "pieces": [
+            19,
+            20
+          ]
+        },
+        {
+          "raw": "while",
+          "start": 7.55,
+          "end": 7.71,
+          "key": "while",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "others",
+          "start": 7.71,
+          "end": 8.05,
+          "key": "others",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "distinguish",
+          "start": 8.05,
+          "end": 8.57,
+          "key": "distinguish",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "between",
+          "start": 8.57,
+          "end": 9.03,
+          "key": "between",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 9.03,
+          "end": 9.33,
+          "key": "them",
+          "pieces": [
+            25
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 12,
+          "text": "Self-Control,",
+          "heard": "self -control,",
+          "heard_indexes": [
+            12,
+            13
+          ],
+          "start": 3.63,
+          "end": 4.39
+        },
+        {
+          "expected_index": 18,
+          "text": "Self-Control_,",
+          "heard": "self -control,",
+          "heard_indexes": [
+            19,
+            20
+          ],
+          "start": 6.09,
+          "end": 7.03
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "V.",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "Some",
+          "start": 0.61,
+          "end": 0.87
+        },
+        {
+          "text": "confound",
+          "start": 0.87,
+          "end": 1.47
+        },
+        {
+          "text": "the",
+          "start": 1.47,
+          "end": 1.65
+        },
+        {
+          "text": "two",
+          "start": 1.65,
+          "end": 1.85
+        },
+        {
+          "text": "characters",
+          "start": 1.85,
+          "end": 2.23
+        },
+        {
+          "text": "of",
+          "start": 2.23,
+          "end": 2.55
+        },
+        {
+          "text": "the",
+          "start": 2.55,
+          "end": 2.65
+        },
+        {
+          "text": "man",
+          "start": 2.65,
+          "end": 2.91
+        },
+        {
+          "text": "who",
+          "start": 2.91,
+          "end": 3.15
+        },
+        {
+          "text": "has",
+          "start": 3.15,
+          "end": 3.35
+        },
+        {
+          "text": "_no_",
+          "start": 3.35,
+          "end": 3.63
+        },
+        {
+          "text": "Self-Control,",
+          "start": 3.63,
+          "end": 4.39
+        },
+        {
+          "text": "and",
+          "start": 4.89,
+          "end": 5.13
+        },
+        {
+          "text": "the",
+          "start": 5.13,
+          "end": 5.21
+        },
+        {
+          "text": "man",
+          "start": 5.21,
+          "end": 5.47
+        },
+        {
+          "text": "of",
+          "start": 5.47,
+          "end": 5.65
+        },
+        {
+          "text": "_Imperfect",
+          "start": 5.65,
+          "end": 6.09
+        },
+        {
+          "text": "Self-Control_,",
+          "start": 6.09,
+          "end": 7.03
+        },
+        {
+          "text": "while",
+          "start": 7.55,
+          "end": 7.71
+        },
+        {
+          "text": "others",
+          "start": 7.71,
+          "end": 8.05
+        },
+        {
+          "text": "distinguish",
+          "start": 8.05,
+          "end": 8.57
+        },
+        {
+          "text": "between",
+          "start": 8.57,
+          "end": 9.03
+        },
+        {
+          "text": "them.",
+          "start": 9.03,
+          "end": 9.33
+        }
+      ],
+      "stats": {
+        "expected_words": 24,
+        "heard_words": 24,
+        "matched_words": 24
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3155490830540657
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1f8c5ab403466b69b3f65b33aec33a309acc966183a2d1466d980706eefb37b0",
+  "selected_reasons": []
+}

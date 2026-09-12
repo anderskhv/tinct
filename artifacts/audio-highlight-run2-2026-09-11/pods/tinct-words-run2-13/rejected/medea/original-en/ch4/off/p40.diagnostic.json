@@ -1,0 +1,422 @@
+{
+  "complete": true,
+  "signature": "a864b9f14ef78974d4f7c07dd00ab952d0b658eb0ec2d8ccc1aae1803a307d6f",
+  "attempts": [
+    {
+      "asr_seconds": 0.2533712927252054,
+      "alignment_seconds": 0.00035877525806427,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Egeus, one pithius knows d'thou, High Lord of Trozan.",
+          "start": 0.02,
+          "end": 3.92,
+          "words": [
+            {
+              "text": " Egeus,",
+              "start": 0.02,
+              "end": 0.96,
+              "probability": 0.5191650390625
+            },
+            {
+              "text": " one",
+              "start": 1.38,
+              "end": 1.5,
+              "probability": 0.76318359375
+            },
+            {
+              "text": " pithius",
+              "start": 1.5,
+              "end": 1.92,
+              "probability": 0.5152994791666666
+            },
+            {
+              "text": " knows",
+              "start": 1.92,
+              "end": 2.2,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " d",
+              "start": 2.2,
+              "end": 2.42,
+              "probability": 0.349609375
+            },
+            {
+              "text": "'thou,",
+              "start": 2.42,
+              "end": 2.74,
+              "probability": 0.502685546875
+            },
+            {
+              "text": " High",
+              "start": 2.96,
+              "end": 3.1,
+              "probability": 0.572265625
+            },
+            {
+              "text": " Lord",
+              "start": 3.1,
+              "end": 3.3,
+              "probability": 0.8837890625
+            },
+            {
+              "text": " of",
+              "start": 3.3,
+              "end": 3.44,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Trozan.",
+              "start": 3.44,
+              "end": 3.92,
+              "probability": 0.3291015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Egeus,",
+          "start": 0.02,
+          "end": 0.96
+        },
+        {
+          "raw": "one",
+          "start": 1.38,
+          "end": 1.5
+        },
+        {
+          "raw": "pithius",
+          "start": 1.5,
+          "end": 1.92
+        },
+        {
+          "raw": "knows",
+          "start": 1.92,
+          "end": 2.2
+        },
+        {
+          "raw": "d",
+          "start": 2.2,
+          "end": 2.42
+        },
+        {
+          "raw": "'thou,",
+          "start": 2.42,
+          "end": 2.74
+        },
+        {
+          "raw": "High",
+          "start": 2.96,
+          "end": 3.1
+        },
+        {
+          "raw": "Lord",
+          "start": 3.1,
+          "end": 3.3
+        },
+        {
+          "raw": "of",
+          "start": 3.3,
+          "end": 3.44
+        },
+        {
+          "raw": "Trozan.",
+          "start": 3.44,
+          "end": 3.92
+        }
+      ],
+      "expected_tokens": [
+        "Aegeus.",
+        "One",
+        "Pittheus",
+        "know'st",
+        "thou,",
+        "high",
+        "lord",
+        "of",
+        "Trozen?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          5
+        ],
+        [
+          "equal",
+          4,
+          8,
+          5,
+          9
+        ],
+        [
+          "replace",
+          8,
+          9,
+          9,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          5
+        ],
+        [
+          "replace",
+          8,
+          9,
+          9,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Egeus,",
+          "start": 0.02,
+          "end": 0.96,
+          "key": "egeus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 1.38,
+          "end": 1.5,
+          "key": "one",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "pithius",
+          "start": 1.5,
+          "end": 1.92,
+          "key": "pithius",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "knows",
+          "start": 1.92,
+          "end": 2.2,
+          "key": "knows",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "d",
+          "start": 2.2,
+          "end": 2.42,
+          "key": "d",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "'thou,",
+          "start": 2.42,
+          "end": 2.74,
+          "key": "thou",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "High",
+          "start": 2.96,
+          "end": 3.1,
+          "key": "high",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Lord",
+          "start": 3.1,
+          "end": 3.3,
+          "key": "lord",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.3,
+          "end": 3.44,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Trozan.",
+          "start": 3.44,
+          "end": 3.92,
+          "key": "trozan",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Aegeus.",
+          "start": 0.0,
+          "end": 0.69
+        },
+        {
+          "text": "One",
+          "start": 1.38,
+          "end": 1.5
+        },
+        {
+          "text": "Pittheus",
+          "start": 1.5,
+          "end": 1.96
+        },
+        {
+          "text": "know'st",
+          "start": 1.96,
+          "end": 2.19
+        },
+        {
+          "text": "thou,",
+          "start": 2.42,
+          "end": 2.74
+        },
+        {
+          "text": "high",
+          "start": 2.96,
+          "end": 3.1
+        },
+        {
+          "text": "lord",
+          "start": 3.1,
+          "end": 3.3
+        },
+        {
+          "text": "of",
+          "start": 3.3,
+          "end": 3.44
+        },
+        {
+          "text": "Trozen?",
+          "start": 3.44,
+          "end": 3.68
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 10,
+        "matched_words": 5
+      },
+      "match_ratio": 0.5555555555555556,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2538521634414792
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "73392af50c706c0eadef9df226a1fc6b65805d48c889e28a44eff8979ca9b128",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

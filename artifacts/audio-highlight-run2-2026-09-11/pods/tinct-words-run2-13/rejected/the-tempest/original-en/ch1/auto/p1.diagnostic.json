@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "6f5edff7d398fb3de9b59dd056fbcb4aa7336abc5735b19e5294f1f45fbcdb5c",
+  "attempts": [
+    {
+      "asr_seconds": 0.12945369444787502,
+      "alignment_seconds": 0.00026700180023908615,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Master. Boatswain!",
+        "hotwords": "Master, Boatswain"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Master Boatswain.",
+          "start": 0.02,
+          "end": 1.44,
+          "words": [
+            {
+              "text": " Master",
+              "start": 0.02,
+              "end": 0.8,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " Boatswain.",
+              "start": 0.8,
+              "end": 1.44,
+              "probability": 0.2467801570892334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Master",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "raw": "Boatswain.",
+          "start": 0.8,
+          "end": 1.44
+        }
+      ],
+      "expected_tokens": [
+        "Master.",
+        "Boatswain!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Master",
+          "start": 0.02,
+          "end": 0.8,
+          "key": "master",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Boatswain.",
+          "start": 0.8,
+          "end": 1.44,
+          "key": "boatswain",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Master.",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "text": "Boatswain!",
+          "start": 0.8,
+          "end": 1.44
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12981716264039278
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "37637baa61c62bd62608a7770d4dc05fdd5361a60644c3788a9e4dd55232989e",
+  "selected_reasons": []
+}

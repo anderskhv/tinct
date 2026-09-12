@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "0e14dac39d11ddd096179b36d878202e49e20bfac87883ff60a3e8a661455de3",
+  "attempts": [
+    {
+      "asr_seconds": 0.12673670426011086,
+      "alignment_seconds": 0.0003219339996576309,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " My dear sister.",
+          "start": 0.02,
+          "end": 1.08,
+          "words": [
+            {
+              "text": " My",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.787109375
+            },
+            {
+              "text": " dear",
+              "start": 0.58,
+              "end": 0.74,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " sister.",
+              "start": 0.74,
+              "end": 1.08,
+              "probability": 0.97119140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "My",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "dear",
+          "start": 0.58,
+          "end": 0.74
+        },
+        {
+          "raw": "sister.",
+          "start": 0.74,
+          "end": 1.08
+        }
+      ],
+      "expected_tokens": [
+        "My",
+        "dear",
+        "Sister,"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "My",
+          "start": 0.02,
+          "end": 0.58,
+          "key": "my",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "dear",
+          "start": 0.58,
+          "end": 0.74,
+          "key": "dear",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sister.",
+          "start": 0.74,
+          "end": 1.08,
+          "key": "sister",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "My",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "dear",
+          "start": 0.58,
+          "end": 0.74
+        },
+        {
+          "text": "Sister,",
+          "start": 0.74,
+          "end": 1.08
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12716820277273655
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "855090536c4bcb835c14146609921f142bffaade0a64b46dbfe8a6f822ba5848",
+  "selected_reasons": []
+}

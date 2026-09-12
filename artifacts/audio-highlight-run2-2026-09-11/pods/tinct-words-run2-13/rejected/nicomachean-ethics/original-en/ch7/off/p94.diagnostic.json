@@ -1,0 +1,875 @@
+{
+  "complete": true,
+  "signature": "54c8a0e4b7412fd93f82df224daf88d807daaf397f46a35abdc2cf6c29017755",
+  "attempts": [
+    {
+      "asr_seconds": 0.4780155625194311,
+      "alignment_seconds": 0.0006668111309409142,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " We have now said then what self-control is, what imperfection of self-control, what endurance and what softness, and how these states are mutually related.",
+          "start": 0.02,
+          "end": 9.66,
+          "words": [
+            {
+              "text": " We",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " have",
+              "start": 0.5,
+              "end": 0.6,
+              "probability": 0.98828125
+            },
+            {
+              "text": " now",
+              "start": 0.6,
+              "end": 0.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " said",
+              "start": 0.78,
+              "end": 1.06,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " then",
+              "start": 1.06,
+              "end": 1.3,
+              "probability": 0.82275390625
+            },
+            {
+              "text": " what",
+              "start": 1.3,
+              "end": 1.52,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " self",
+              "start": 1.52,
+              "end": 1.8,
+              "probability": 0.9853515625
+            },
+            {
+              "text": "-control",
+              "start": 1.8,
+              "end": 2.2,
+              "probability": 0.953125
+            },
+            {
+              "text": " is,",
+              "start": 2.2,
+              "end": 2.68,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " what",
+              "start": 3.16,
+              "end": 3.3,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " imperfection",
+              "start": 3.3,
+              "end": 3.94,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " of",
+              "start": 3.94,
+              "end": 4.08,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " self",
+              "start": 4.08,
+              "end": 4.34,
+              "probability": 0.9990234375
+            },
+            {
+              "text": "-control,",
+              "start": 4.34,
+              "end": 4.8,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " what",
+              "start": 5.34,
+              "end": 5.44,
+              "probability": 0.994140625
+            },
+            {
+              "text": " endurance",
+              "start": 5.44,
+              "end": 5.88,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 5.88,
+              "end": 6.4,
+              "probability": 0.62060546875
+            },
+            {
+              "text": " what",
+              "start": 6.4,
+              "end": 6.58,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " softness,",
+              "start": 6.58,
+              "end": 7.22,
+              "probability": 0.998291015625
+            },
+            {
+              "text": " and",
+              "start": 7.64,
+              "end": 7.74,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " how",
+              "start": 7.74,
+              "end": 7.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " these",
+              "start": 7.94,
+              "end": 8.18,
+              "probability": 0.998046875
+            },
+            {
+              "text": " states",
+              "start": 8.18,
+              "end": 8.5,
+              "probability": 0.98046875
+            },
+            {
+              "text": " are",
+              "start": 8.5,
+              "end": 8.74,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " mutually",
+              "start": 8.74,
+              "end": 9.12,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " related.",
+              "start": 9.12,
+              "end": 9.66,
+              "probability": 0.98779296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "We",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "have",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "raw": "now",
+          "start": 0.6,
+          "end": 0.78
+        },
+        {
+          "raw": "said",
+          "start": 0.78,
+          "end": 1.06
+        },
+        {
+          "raw": "then",
+          "start": 1.06,
+          "end": 1.3
+        },
+        {
+          "raw": "what",
+          "start": 1.3,
+          "end": 1.52
+        },
+        {
+          "raw": "self",
+          "start": 1.52,
+          "end": 1.8
+        },
+        {
+          "raw": "-control",
+          "start": 1.8,
+          "end": 2.2
+        },
+        {
+          "raw": "is,",
+          "start": 2.2,
+          "end": 2.68
+        },
+        {
+          "raw": "what",
+          "start": 3.16,
+          "end": 3.3
+        },
+        {
+          "raw": "imperfection",
+          "start": 3.3,
+          "end": 3.94
+        },
+        {
+          "raw": "of",
+          "start": 3.94,
+          "end": 4.08
+        },
+        {
+          "raw": "self",
+          "start": 4.08,
+          "end": 4.34
+        },
+        {
+          "raw": "-control,",
+          "start": 4.34,
+          "end": 4.8
+        },
+        {
+          "raw": "what",
+          "start": 5.34,
+          "end": 5.44
+        },
+        {
+          "raw": "endurance",
+          "start": 5.44,
+          "end": 5.88
+        },
+        {
+          "raw": "and",
+          "start": 5.88,
+          "end": 6.4
+        },
+        {
+          "raw": "what",
+          "start": 6.4,
+          "end": 6.58
+        },
+        {
+          "raw": "softness,",
+          "start": 6.58,
+          "end": 7.22
+        },
+        {
+          "raw": "and",
+          "start": 7.64,
+          "end": 7.74
+        },
+        {
+          "raw": "how",
+          "start": 7.74,
+          "end": 7.94
+        },
+        {
+          "raw": "these",
+          "start": 7.94,
+          "end": 8.18
+        },
+        {
+          "raw": "states",
+          "start": 8.18,
+          "end": 8.5
+        },
+        {
+          "raw": "are",
+          "start": 8.5,
+          "end": 8.74
+        },
+        {
+          "raw": "mutually",
+          "start": 8.74,
+          "end": 9.12
+        },
+        {
+          "raw": "related.",
+          "start": 9.12,
+          "end": 9.66
+        }
+      ],
+      "expected_tokens": [
+        "We",
+        "have",
+        "now",
+        "said",
+        "then",
+        "what",
+        "Self-Control",
+        "is,",
+        "what",
+        "Imperfection",
+        "of",
+        "Self-Control,",
+        "what",
+        "Endurance,",
+        "and",
+        "what",
+        "Softness,",
+        "and",
+        "how",
+        "these",
+        "states",
+        "are",
+        "mutually",
+        "related."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          24,
+          0,
+          24
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "We",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "we",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 0.5,
+          "end": 0.6,
+          "key": "have",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 0.6,
+          "end": 0.78,
+          "key": "now",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 0.78,
+          "end": 1.06,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 1.06,
+          "end": 1.3,
+          "key": "then",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.3,
+          "end": 1.52,
+          "key": "what",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "self -control",
+          "start": 1.52,
+          "end": 2.2,
+          "key": "selfcontrol",
+          "pieces": [
+            6,
+            7
+          ]
+        },
+        {
+          "raw": "is,",
+          "start": 2.2,
+          "end": 2.68,
+          "key": "is",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 3.16,
+          "end": 3.3,
+          "key": "what",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "imperfection",
+          "start": 3.3,
+          "end": 3.94,
+          "key": "imperfection",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.94,
+          "end": 4.08,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "self -control,",
+          "start": 4.08,
+          "end": 4.8,
+          "key": "selfcontrol",
+          "pieces": [
+            12,
+            13
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 5.34,
+          "end": 5.44,
+          "key": "what",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "endurance",
+          "start": 5.44,
+          "end": 5.88,
+          "key": "endurance",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.88,
+          "end": 6.4,
+          "key": "and",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 6.4,
+          "end": 6.58,
+          "key": "what",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "softness,",
+          "start": 6.58,
+          "end": 7.22,
+          "key": "softness",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 7.64,
+          "end": 7.74,
+          "key": "and",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 7.74,
+          "end": 7.94,
+          "key": "how",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 7.94,
+          "end": 8.18,
+          "key": "these",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "states",
+          "start": 8.18,
+          "end": 8.5,
+          "key": "states",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 8.5,
+          "end": 8.74,
+          "key": "are",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "mutually",
+          "start": 8.74,
+          "end": 9.12,
+          "key": "mutually",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "related.",
+          "start": 9.12,
+          "end": 9.66,
+          "key": "related",
+          "pieces": [
+            25
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 6,
+          "text": "Self-Control",
+          "heard": "self -control",
+          "heard_indexes": [
+            6,
+            7
+          ],
+          "start": 1.52,
+          "end": 2.2
+        },
+        {
+          "expected_index": 11,
+          "text": "Self-Control,",
+          "heard": "self -control,",
+          "heard_indexes": [
+            12,
+            13
+          ],
+          "start": 4.08,
+          "end": 4.8
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "We",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "have",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "text": "now",
+          "start": 0.6,
+          "end": 0.78
+        },
+        {
+          "text": "said",
+          "start": 0.78,
+          "end": 1.06
+        },
+        {
+          "text": "then",
+          "start": 1.06,
+          "end": 1.3
+        },
+        {
+          "text": "what",
+          "start": 1.3,
+          "end": 1.52
+        },
+        {
+          "text": "Self-Control",
+          "start": 1.52,
+          "end": 2.2
+        },
+        {
+          "text": "is,",
+          "start": 2.2,
+          "end": 2.68
+        },
+        {
+          "text": "what",
+          "start": 3.16,
+          "end": 3.3
+        },
+        {
+          "text": "Imperfection",
+          "start": 3.3,
+          "end": 3.94
+        },
+        {
+          "text": "of",
+          "start": 3.94,
+          "end": 4.08
+        },
+        {
+          "text": "Self-Control,",
+          "start": 4.08,
+          "end": 4.8
+        },
+        {
+          "text": "what",
+          "start": 5.34,
+          "end": 5.44
+        },
+        {
+          "text": "Endurance,",
+          "start": 5.44,
+          "end": 5.88
+        },
+        {
+          "text": "and",
+          "start": 5.88,
+          "end": 6.4
+        },
+        {
+          "text": "what",
+          "start": 6.4,
+          "end": 6.58
+        },
+        {
+          "text": "Softness,",
+          "start": 6.58,
+          "end": 7.22
+        },
+        {
+          "text": "and",
+          "start": 7.64,
+          "end": 7.74
+        },
+        {
+          "text": "how",
+          "start": 7.74,
+          "end": 7.94
+        },
+        {
+          "text": "these",
+          "start": 7.94,
+          "end": 8.18
+        },
+        {
+          "text": "states",
+          "start": 8.18,
+          "end": 8.5
+        },
+        {
+          "text": "are",
+          "start": 8.5,
+          "end": 8.74
+        },
+        {
+          "text": "mutually",
+          "start": 8.74,
+          "end": 9.12
+        },
+        {
+          "text": "related.",
+          "start": 9.12,
+          "end": 9.66
+        }
+      ],
+      "stats": {
+        "expected_words": 24,
+        "heard_words": 24,
+        "matched_words": 24
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.47893317230045795
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ab87cd01dfd1c4746a47c9cc9ab05f5da71c55121ddcb4ea9743b77f03538179",
+  "selected_reasons": []
+}

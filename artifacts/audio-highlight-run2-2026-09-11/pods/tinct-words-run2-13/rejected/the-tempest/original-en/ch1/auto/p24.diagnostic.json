@@ -1,0 +1,2191 @@
+{
+  "complete": true,
+  "signature": "06d07cff124f3d15fde2f529c03169fdee94593227839a06f8b373d3b82fba84",
+  "attempts": [
+    {
+      "asr_seconds": 0.38836838118731976,
+      "alignment_seconds": 0.0005803080275654793,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Boatswain. Yet again! what do you here? Shall we give o'er and drown? Have you a mind to sink?",
+        "hotwords": "Boatswain, Yet, Shall, Have"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Boatswain, Yet again! what do you here? Shall we give o'er and drown? Have you a mind to sink?",
+          "start": 0.59,
+          "end": 5.17,
+          "words": [
+            {
+              "text": " Boatswain,",
+              "start": 0.59,
+              "end": 0.91,
+              "probability": 0.2522144317626953
+            },
+            {
+              "text": " Yet",
+              "start": 1.13,
+              "end": 1.23,
+              "probability": 0.005985260009765625
+            },
+            {
+              "text": " again!",
+              "start": 1.23,
+              "end": 1.53,
+              "probability": 0.70556640625
+            },
+            {
+              "text": " what",
+              "start": 1.93,
+              "end": 1.99,
+              "probability": 0.10430908203125
+            },
+            {
+              "text": " do",
+              "start": 1.99,
+              "end": 2.09,
+              "probability": 0.81689453125
+            },
+            {
+              "text": " you",
+              "start": 2.09,
+              "end": 2.17,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " here?",
+              "start": 2.17,
+              "end": 2.43,
+              "probability": 0.0146331787109375
+            },
+            {
+              "text": " Shall",
+              "start": 2.75,
+              "end": 2.81,
+              "probability": 0.744140625
+            },
+            {
+              "text": " we",
+              "start": 2.81,
+              "end": 2.95,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " give",
+              "start": 2.95,
+              "end": 3.11,
+              "probability": 0.974609375
+            },
+            {
+              "text": " o",
+              "start": 3.11,
+              "end": 3.33,
+              "probability": 0.6416015625
+            },
+            {
+              "text": "'er",
+              "start": 3.33,
+              "end": 3.41,
+              "probability": 0.843017578125
+            },
+            {
+              "text": " and",
+              "start": 3.41,
+              "end": 3.57,
+              "probability": 0.8896484375
+            },
+            {
+              "text": " drown?",
+              "start": 3.57,
+              "end": 3.83,
+              "probability": 0.95703125
+            },
+            {
+              "text": " Have",
+              "start": 4.31,
+              "end": 4.37,
+              "probability": 0.83203125
+            },
+            {
+              "text": " you",
+              "start": 4.37,
+              "end": 4.51,
+              "probability": 0.0830078125
+            },
+            {
+              "text": " a",
+              "start": 4.51,
+              "end": 4.59,
+              "probability": 0.955078125
+            },
+            {
+              "text": " mind",
+              "start": 4.59,
+              "end": 4.75,
+              "probability": 0.9453125
+            },
+            {
+              "text": " to",
+              "start": 4.75,
+              "end": 4.95,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " sink?",
+              "start": 4.95,
+              "end": 5.17,
+              "probability": 0.919921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Boatswain,",
+          "start": 0.59,
+          "end": 0.91
+        },
+        {
+          "raw": "Yet",
+          "start": 1.13,
+          "end": 1.23
+        },
+        {
+          "raw": "again!",
+          "start": 1.23,
+          "end": 1.53
+        },
+        {
+          "raw": "what",
+          "start": 1.93,
+          "end": 1.99
+        },
+        {
+          "raw": "do",
+          "start": 1.99,
+          "end": 2.09
+        },
+        {
+          "raw": "you",
+          "start": 2.09,
+          "end": 2.17
+        },
+        {
+          "raw": "here?",
+          "start": 2.17,
+          "end": 2.43
+        },
+        {
+          "raw": "Shall",
+          "start": 2.75,
+          "end": 2.81
+        },
+        {
+          "raw": "we",
+          "start": 2.81,
+          "end": 2.95
+        },
+        {
+          "raw": "give",
+          "start": 2.95,
+          "end": 3.11
+        },
+        {
+          "raw": "o",
+          "start": 3.11,
+          "end": 3.33
+        },
+        {
+          "raw": "'er",
+          "start": 3.33,
+          "end": 3.41
+        },
+        {
+          "raw": "and",
+          "start": 3.41,
+          "end": 3.57
+        },
+        {
+          "raw": "drown?",
+          "start": 3.57,
+          "end": 3.83
+        },
+        {
+          "raw": "Have",
+          "start": 4.31,
+          "end": 4.37
+        },
+        {
+          "raw": "you",
+          "start": 4.37,
+          "end": 4.51
+        },
+        {
+          "raw": "a",
+          "start": 4.51,
+          "end": 4.59
+        },
+        {
+          "raw": "mind",
+          "start": 4.59,
+          "end": 4.75
+        },
+        {
+          "raw": "to",
+          "start": 4.75,
+          "end": 4.95
+        },
+        {
+          "raw": "sink?",
+          "start": 4.95,
+          "end": 5.17
+        }
+      ],
+      "expected_tokens": [
+        "Boatswain.",
+        "Yet",
+        "again!",
+        "what",
+        "do",
+        "you",
+        "here?",
+        "Shall",
+        "we",
+        "give",
+        "o'er",
+        "and",
+        "drown?",
+        "Have",
+        "you",
+        "a",
+        "mind",
+        "to",
+        "sink?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          12
+        ],
+        [
+          "equal",
+          11,
+          19,
+          12,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          10,
+          11,
+          10,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Boatswain,",
+          "start": 0.59,
+          "end": 0.91,
+          "key": "boatswain",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Yet",
+          "start": 1.13,
+          "end": 1.23,
+          "key": "yet",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "again!",
+          "start": 1.23,
+          "end": 1.53,
+          "key": "again",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.93,
+          "end": 1.99,
+          "key": "what",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.99,
+          "end": 2.09,
+          "key": "do",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.09,
+          "end": 2.17,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "here?",
+          "start": 2.17,
+          "end": 2.43,
+          "key": "here",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Shall",
+          "start": 2.75,
+          "end": 2.81,
+          "key": "shall",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 2.81,
+          "end": 2.95,
+          "key": "we",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 2.95,
+          "end": 3.11,
+          "key": "give",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "o",
+          "start": 3.11,
+          "end": 3.33,
+          "key": "o",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "'er",
+          "start": 3.33,
+          "end": 3.41,
+          "key": "er",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.41,
+          "end": 3.57,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "drown?",
+          "start": 3.57,
+          "end": 3.83,
+          "key": "drown",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Have",
+          "start": 4.31,
+          "end": 4.37,
+          "key": "have",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.37,
+          "end": 4.51,
+          "key": "you",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.51,
+          "end": 4.59,
+          "key": "a",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "mind",
+          "start": 4.59,
+          "end": 4.75,
+          "key": "mind",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.75,
+          "end": 4.95,
+          "key": "to",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "sink?",
+          "start": 4.95,
+          "end": 5.17,
+          "key": "sink",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Boatswain.",
+          "start": 0.59,
+          "end": 0.91
+        },
+        {
+          "text": "Yet",
+          "start": 1.13,
+          "end": 1.23
+        },
+        {
+          "text": "again!",
+          "start": 1.23,
+          "end": 1.53
+        },
+        {
+          "text": "what",
+          "start": 1.93,
+          "end": 1.99
+        },
+        {
+          "text": "do",
+          "start": 1.99,
+          "end": 2.09
+        },
+        {
+          "text": "you",
+          "start": 2.09,
+          "end": 2.17
+        },
+        {
+          "text": "here?",
+          "start": 2.17,
+          "end": 2.43
+        },
+        {
+          "text": "Shall",
+          "start": 2.75,
+          "end": 2.81
+        },
+        {
+          "text": "we",
+          "start": 2.81,
+          "end": 2.95
+        },
+        {
+          "text": "give",
+          "start": 2.95,
+          "end": 3.11
+        },
+        {
+          "text": "o'er",
+          "start": 3.11,
+          "end": 3.26
+        },
+        {
+          "text": "and",
+          "start": 3.41,
+          "end": 3.57
+        },
+        {
+          "text": "drown?",
+          "start": 3.57,
+          "end": 3.83
+        },
+        {
+          "text": "Have",
+          "start": 4.31,
+          "end": 4.37
+        },
+        {
+          "text": "you",
+          "start": 4.37,
+          "end": 4.51
+        },
+        {
+          "text": "a",
+          "start": 4.51,
+          "end": 4.59
+        },
+        {
+          "text": "mind",
+          "start": 4.59,
+          "end": 4.75
+        },
+        {
+          "text": "to",
+          "start": 4.75,
+          "end": 4.95
+        },
+        {
+          "text": "sink?",
+          "start": 4.95,
+          "end": 5.17
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 20,
+        "matched_words": 18
+      },
+      "match_ratio": 0.9473684210526315,
+      "rejection_reasons": [],
+      "seconds": 0.38919222448021173
+    },
+    {
+      "asr_seconds": 0.3937230631709099,
+      "alignment_seconds": 0.0006176242604851723,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Boatswain, Yet, Shall, Have"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Boatswain, Yet, Again, What do you hear? Shall we give o'er and drown? Have your mind to sink?",
+          "start": 0.51,
+          "end": 5.17,
+          "words": [
+            {
+              "text": " Boatswain,",
+              "start": 0.51,
+              "end": 0.91,
+              "probability": 0.2522144317626953
+            },
+            {
+              "text": " Yet,",
+              "start": 1.11,
+              "end": 1.23,
+              "probability": 0.005985260009765625
+            },
+            {
+              "text": " Again,",
+              "start": 1.47,
+              "end": 1.49,
+              "probability": 0.310546875
+            },
+            {
+              "text": " What",
+              "start": 1.87,
+              "end": 1.99,
+              "probability": 0.845703125
+            },
+            {
+              "text": " do",
+              "start": 1.99,
+              "end": 2.09,
+              "probability": 0.50830078125
+            },
+            {
+              "text": " you",
+              "start": 2.09,
+              "end": 2.17,
+              "probability": 0.900390625
+            },
+            {
+              "text": " hear?",
+              "start": 2.17,
+              "end": 2.43,
+              "probability": 0.7666015625
+            },
+            {
+              "text": " Shall",
+              "start": 2.75,
+              "end": 2.81,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " we",
+              "start": 2.81,
+              "end": 2.95,
+              "probability": 0.90478515625
+            },
+            {
+              "text": " give",
+              "start": 2.95,
+              "end": 3.09,
+              "probability": 0.88330078125
+            },
+            {
+              "text": " o",
+              "start": 3.09,
+              "end": 3.33,
+              "probability": 0.69091796875
+            },
+            {
+              "text": "'er",
+              "start": 3.33,
+              "end": 3.41,
+              "probability": 0.8857421875
+            },
+            {
+              "text": " and",
+              "start": 3.41,
+              "end": 3.57,
+              "probability": 0.86376953125
+            },
+            {
+              "text": " drown?",
+              "start": 3.57,
+              "end": 3.83,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " Have",
+              "start": 4.31,
+              "end": 4.37,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " your",
+              "start": 4.37,
+              "end": 4.53,
+              "probability": 0.86181640625
+            },
+            {
+              "text": " mind",
+              "start": 4.53,
+              "end": 4.73,
+              "probability": 0.931640625
+            },
+            {
+              "text": " to",
+              "start": 4.73,
+              "end": 4.93,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " sink?",
+              "start": 4.93,
+              "end": 5.17,
+              "probability": 0.89697265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Boatswain,",
+          "start": 0.51,
+          "end": 0.91
+        },
+        {
+          "raw": "Yet,",
+          "start": 1.11,
+          "end": 1.23
+        },
+        {
+          "raw": "Again,",
+          "start": 1.47,
+          "end": 1.49
+        },
+        {
+          "raw": "What",
+          "start": 1.87,
+          "end": 1.99
+        },
+        {
+          "raw": "do",
+          "start": 1.99,
+          "end": 2.09
+        },
+        {
+          "raw": "you",
+          "start": 2.09,
+          "end": 2.17
+        },
+        {
+          "raw": "hear?",
+          "start": 2.17,
+          "end": 2.43
+        },
+        {
+          "raw": "Shall",
+          "start": 2.75,
+          "end": 2.81
+        },
+        {
+          "raw": "we",
+          "start": 2.81,
+          "end": 2.95
+        },
+        {
+          "raw": "give",
+          "start": 2.95,
+          "end": 3.09
+        },
+        {
+          "raw": "o",
+          "start": 3.09,
+          "end": 3.33
+        },
+        {
+          "raw": "'er",
+          "start": 3.33,
+          "end": 3.41
+        },
+        {
+          "raw": "and",
+          "start": 3.41,
+          "end": 3.57
+        },
+        {
+          "raw": "drown?",
+          "start": 3.57,
+          "end": 3.83
+        },
+        {
+          "raw": "Have",
+          "start": 4.31,
+          "end": 4.37
+        },
+        {
+          "raw": "your",
+          "start": 4.37,
+          "end": 4.53
+        },
+        {
+          "raw": "mind",
+          "start": 4.53,
+          "end": 4.73
+        },
+        {
+          "raw": "to",
+          "start": 4.73,
+          "end": 4.93
+        },
+        {
+          "raw": "sink?",
+          "start": 4.93,
+          "end": 5.17
+        }
+      ],
+      "expected_tokens": [
+        "Boatswain.",
+        "Yet",
+        "again!",
+        "what",
+        "do",
+        "you",
+        "here?",
+        "Shall",
+        "we",
+        "give",
+        "o'er",
+        "and",
+        "drown?",
+        "Have",
+        "you",
+        "a",
+        "mind",
+        "to",
+        "sink?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          10,
+          7,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          12
+        ],
+        [
+          "equal",
+          11,
+          14,
+          12,
+          15
+        ],
+        [
+          "replace",
+          14,
+          16,
+          15,
+          16
+        ],
+        [
+          "equal",
+          16,
+          19,
+          16,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          12
+        ],
+        [
+          "replace",
+          14,
+          16,
+          15,
+          16
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Boatswain,",
+          "start": 0.51,
+          "end": 0.91,
+          "key": "boatswain",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Yet,",
+          "start": 1.11,
+          "end": 1.23,
+          "key": "yet",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Again,",
+          "start": 1.47,
+          "end": 1.49,
+          "key": "again",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.87,
+          "end": 1.99,
+          "key": "what",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.99,
+          "end": 2.09,
+          "key": "do",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.09,
+          "end": 2.17,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "hear?",
+          "start": 2.17,
+          "end": 2.43,
+          "key": "hear",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Shall",
+          "start": 2.75,
+          "end": 2.81,
+          "key": "shall",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 2.81,
+          "end": 2.95,
+          "key": "we",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 2.95,
+          "end": 3.09,
+          "key": "give",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "o",
+          "start": 3.09,
+          "end": 3.33,
+          "key": "o",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "'er",
+          "start": 3.33,
+          "end": 3.41,
+          "key": "er",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.41,
+          "end": 3.57,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "drown?",
+          "start": 3.57,
+          "end": 3.83,
+          "key": "drown",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Have",
+          "start": 4.31,
+          "end": 4.37,
+          "key": "have",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 4.37,
+          "end": 4.53,
+          "key": "your",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "mind",
+          "start": 4.53,
+          "end": 4.73,
+          "key": "mind",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.73,
+          "end": 4.93,
+          "key": "to",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "sink?",
+          "start": 4.93,
+          "end": 5.17,
+          "key": "sink",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Boatswain.",
+          "start": 0.51,
+          "end": 0.91
+        },
+        {
+          "text": "Yet",
+          "start": 1.11,
+          "end": 1.23
+        },
+        {
+          "text": "again!",
+          "start": 1.47,
+          "end": 1.49
+        },
+        {
+          "text": "what",
+          "start": 1.87,
+          "end": 1.99
+        },
+        {
+          "text": "do",
+          "start": 1.99,
+          "end": 2.09
+        },
+        {
+          "text": "you",
+          "start": 2.09,
+          "end": 2.17
+        },
+        {
+          "text": "here?",
+          "start": 2.17,
+          "end": 2.46
+        },
+        {
+          "text": "Shall",
+          "start": 2.75,
+          "end": 2.81
+        },
+        {
+          "text": "we",
+          "start": 2.81,
+          "end": 2.95
+        },
+        {
+          "text": "give",
+          "start": 2.95,
+          "end": 3.09
+        },
+        {
+          "text": "o'er",
+          "start": 3.09,
+          "end": 3.25
+        },
+        {
+          "text": "and",
+          "start": 3.41,
+          "end": 3.57
+        },
+        {
+          "text": "drown?",
+          "start": 3.57,
+          "end": 3.83
+        },
+        {
+          "text": "Have",
+          "start": 4.31,
+          "end": 4.37
+        },
+        {
+          "text": "you",
+          "start": 4.37,
+          "end": 4.45
+        },
+        {
+          "text": "a",
+          "start": 4.45,
+          "end": 4.49
+        },
+        {
+          "text": "mind",
+          "start": 4.53,
+          "end": 4.73
+        },
+        {
+          "text": "to",
+          "start": 4.73,
+          "end": 4.93
+        },
+        {
+          "text": "sink?",
+          "start": 4.93,
+          "end": 5.17
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 15
+      },
+      "match_ratio": 0.7894736842105263,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.394572040066123
+    },
+    {
+      "asr_seconds": 0.4001136962324381,
+      "alignment_seconds": 0.0005261758342385292,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Boson, yet again, what do you hear?",
+          "start": 0.53,
+          "end": 2.43,
+          "words": [
+            {
+              "text": " Boson,",
+              "start": 0.53,
+              "end": 0.91,
+              "probability": 0.21270751953125
+            },
+            {
+              "text": " yet",
+              "start": 1.03,
+              "end": 1.23,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " again,",
+              "start": 1.23,
+              "end": 1.53,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " what",
+              "start": 1.89,
+              "end": 1.99,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " do",
+              "start": 1.99,
+              "end": 2.09,
+              "probability": 0.916015625
+            },
+            {
+              "text": " you",
+              "start": 2.09,
+              "end": 2.17,
+              "probability": 0.998046875
+            },
+            {
+              "text": " hear?",
+              "start": 2.17,
+              "end": 2.43,
+              "probability": 0.990234375
+            }
+          ]
+        },
+        {
+          "text": " Shall we give o'er and drown?",
+          "start": 2.79,
+          "end": 3.83,
+          "words": [
+            {
+              "text": " Shall",
+              "start": 2.79,
+              "end": 2.81,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " we",
+              "start": 2.81,
+              "end": 2.95,
+              "probability": 0.998046875
+            },
+            {
+              "text": " give",
+              "start": 2.95,
+              "end": 3.11,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " o",
+              "start": 3.11,
+              "end": 3.33,
+              "probability": 0.61328125
+            },
+            {
+              "text": "'er",
+              "start": 3.33,
+              "end": 3.41,
+              "probability": 0.801025390625
+            },
+            {
+              "text": " and",
+              "start": 3.41,
+              "end": 3.57,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " drown?",
+              "start": 3.57,
+              "end": 3.83,
+              "probability": 0.9912109375
+            }
+          ]
+        },
+        {
+          "text": " Have your mind to sink.",
+          "start": 4.31,
+          "end": 5.17,
+          "words": [
+            {
+              "text": " Have",
+              "start": 4.31,
+              "end": 4.37,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " your",
+              "start": 4.37,
+              "end": 4.53,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " mind",
+              "start": 4.53,
+              "end": 4.75,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 4.75,
+              "end": 4.93,
+              "probability": 0.998046875
+            },
+            {
+              "text": " sink.",
+              "start": 4.93,
+              "end": 5.17,
+              "probability": 0.869140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Boson,",
+          "start": 0.53,
+          "end": 0.91
+        },
+        {
+          "raw": "yet",
+          "start": 1.03,
+          "end": 1.23
+        },
+        {
+          "raw": "again,",
+          "start": 1.23,
+          "end": 1.53
+        },
+        {
+          "raw": "what",
+          "start": 1.89,
+          "end": 1.99
+        },
+        {
+          "raw": "do",
+          "start": 1.99,
+          "end": 2.09
+        },
+        {
+          "raw": "you",
+          "start": 2.09,
+          "end": 2.17
+        },
+        {
+          "raw": "hear?",
+          "start": 2.17,
+          "end": 2.43
+        },
+        {
+          "raw": "Shall",
+          "start": 2.79,
+          "end": 2.81
+        },
+        {
+          "raw": "we",
+          "start": 2.81,
+          "end": 2.95
+        },
+        {
+          "raw": "give",
+          "start": 2.95,
+          "end": 3.11
+        },
+        {
+          "raw": "o",
+          "start": 3.11,
+          "end": 3.33
+        },
+        {
+          "raw": "'er",
+          "start": 3.33,
+          "end": 3.41
+        },
+        {
+          "raw": "and",
+          "start": 3.41,
+          "end": 3.57
+        },
+        {
+          "raw": "drown?",
+          "start": 3.57,
+          "end": 3.83
+        },
+        {
+          "raw": "Have",
+          "start": 4.31,
+          "end": 4.37
+        },
+        {
+          "raw": "your",
+          "start": 4.37,
+          "end": 4.53
+        },
+        {
+          "raw": "mind",
+          "start": 4.53,
+          "end": 4.75
+        },
+        {
+          "raw": "to",
+          "start": 4.75,
+          "end": 4.93
+        },
+        {
+          "raw": "sink.",
+          "start": 4.93,
+          "end": 5.17
+        }
+      ],
+      "expected_tokens": [
+        "Boatswain.",
+        "Yet",
+        "again!",
+        "what",
+        "do",
+        "you",
+        "here?",
+        "Shall",
+        "we",
+        "give",
+        "o'er",
+        "and",
+        "drown?",
+        "Have",
+        "you",
+        "a",
+        "mind",
+        "to",
+        "sink?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          6,
+          1,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          10,
+          7,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          12
+        ],
+        [
+          "equal",
+          11,
+          14,
+          12,
+          15
+        ],
+        [
+          "replace",
+          14,
+          16,
+          15,
+          16
+        ],
+        [
+          "equal",
+          16,
+          19,
+          16,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          12
+        ],
+        [
+          "replace",
+          14,
+          16,
+          15,
+          16
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Boson,",
+          "start": 0.53,
+          "end": 0.91,
+          "key": "boson",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "yet",
+          "start": 1.03,
+          "end": 1.23,
+          "key": "yet",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "again,",
+          "start": 1.23,
+          "end": 1.53,
+          "key": "again",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.89,
+          "end": 1.99,
+          "key": "what",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.99,
+          "end": 2.09,
+          "key": "do",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.09,
+          "end": 2.17,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "hear?",
+          "start": 2.17,
+          "end": 2.43,
+          "key": "hear",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Shall",
+          "start": 2.79,
+          "end": 2.81,
+          "key": "shall",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 2.81,
+          "end": 2.95,
+          "key": "we",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 2.95,
+          "end": 3.11,
+          "key": "give",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "o",
+          "start": 3.11,
+          "end": 3.33,
+          "key": "o",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "'er",
+          "start": 3.33,
+          "end": 3.41,
+          "key": "er",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.41,
+          "end": 3.57,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "drown?",
+          "start": 3.57,
+          "end": 3.83,
+          "key": "drown",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Have",
+          "start": 4.31,
+          "end": 4.37,
+          "key": "have",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 4.37,
+          "end": 4.53,
+          "key": "your",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "mind",
+          "start": 4.53,
+          "end": 4.75,
+          "key": "mind",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.75,
+          "end": 4.93,
+          "key": "to",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "sink.",
+          "start": 4.93,
+          "end": 5.17,
+          "key": "sink",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Boatswain.",
+          "start": 0.0,
+          "end": 0.515
+        },
+        {
+          "text": "Yet",
+          "start": 1.03,
+          "end": 1.23
+        },
+        {
+          "text": "again!",
+          "start": 1.23,
+          "end": 1.53
+        },
+        {
+          "text": "what",
+          "start": 1.89,
+          "end": 1.99
+        },
+        {
+          "text": "do",
+          "start": 1.99,
+          "end": 2.09
+        },
+        {
+          "text": "you",
+          "start": 2.09,
+          "end": 2.17
+        },
+        {
+          "text": "here?",
+          "start": 2.17,
+          "end": 2.48
+        },
+        {
+          "text": "Shall",
+          "start": 2.79,
+          "end": 2.81
+        },
+        {
+          "text": "we",
+          "start": 2.81,
+          "end": 2.95
+        },
+        {
+          "text": "give",
+          "start": 2.95,
+          "end": 3.11
+        },
+        {
+          "text": "o'er",
+          "start": 3.11,
+          "end": 3.26
+        },
+        {
+          "text": "and",
+          "start": 3.41,
+          "end": 3.57
+        },
+        {
+          "text": "drown?",
+          "start": 3.57,
+          "end": 3.83
+        },
+        {
+          "text": "Have",
+          "start": 4.31,
+          "end": 4.37
+        },
+        {
+          "text": "you",
+          "start": 4.37,
+          "end": 4.45
+        },
+        {
+          "text": "a",
+          "start": 4.45,
+          "end": 4.49
+        },
+        {
+          "text": "mind",
+          "start": 4.53,
+          "end": 4.75
+        },
+        {
+          "text": "to",
+          "start": 4.75,
+          "end": 4.93
+        },
+        {
+          "text": "sink?",
+          "start": 4.93,
+          "end": 5.17
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 14
+      },
+      "match_ratio": 0.7368421052631579,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.40083629358559847
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "273882cc84befae9c635534c186e21b0163873a71ec7c7ac5382ce7368a0314a",
+  "selected_reasons": []
+}

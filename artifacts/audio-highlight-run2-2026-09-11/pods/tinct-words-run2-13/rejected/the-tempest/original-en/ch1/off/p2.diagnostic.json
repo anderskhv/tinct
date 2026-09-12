@@ -1,0 +1,239 @@
+{
+  "complete": true,
+  "signature": "9b33df774efd9b2b2e2f7b4342922030786143e4c4a407436ff4a2e8417d3b26",
+  "attempts": [
+    {
+      "asr_seconds": 0.15550125110894442,
+      "alignment_seconds": 0.0003924686461687088,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Bosun, here master, what cheer.",
+          "start": 0.05,
+          "end": 2.09,
+          "words": [
+            {
+              "text": " Bosun,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.36444091796875
+            },
+            {
+              "text": " here",
+              "start": 1.03,
+              "end": 1.17,
+              "probability": 0.39111328125
+            },
+            {
+              "text": " master,",
+              "start": 1.17,
+              "end": 1.47,
+              "probability": 0.697265625
+            },
+            {
+              "text": " what",
+              "start": 1.75,
+              "end": 1.81,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " cheer.",
+              "start": 1.81,
+              "end": 2.09,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bosun,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "here",
+          "start": 1.03,
+          "end": 1.17
+        },
+        {
+          "raw": "master,",
+          "start": 1.17,
+          "end": 1.47
+        },
+        {
+          "raw": "what",
+          "start": 1.75,
+          "end": 1.81
+        },
+        {
+          "raw": "cheer.",
+          "start": 1.81,
+          "end": 2.09
+        }
+      ],
+      "expected_tokens": [
+        "Boatswain.",
+        "Here,",
+        "master:",
+        "what",
+        "cheer?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bosun,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "bosun",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 1.03,
+          "end": 1.17,
+          "key": "here",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "master,",
+          "start": 1.17,
+          "end": 1.47,
+          "key": "master",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.75,
+          "end": 1.81,
+          "key": "what",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "cheer.",
+          "start": 1.81,
+          "end": 2.09,
+          "key": "cheer",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Boatswain.",
+          "start": 0.0,
+          "end": 0.515
+        },
+        {
+          "text": "Here,",
+          "start": 1.03,
+          "end": 1.17
+        },
+        {
+          "text": "master:",
+          "start": 1.17,
+          "end": 1.47
+        },
+        {
+          "text": "what",
+          "start": 1.75,
+          "end": 1.81
+        },
+        {
+          "text": "cheer?",
+          "start": 1.81,
+          "end": 2.09
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.15602248162031174
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8ecebd98f9022ca66b520c3609c6a38b324396e1c2a2e1cc26e78724247fbc2e",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

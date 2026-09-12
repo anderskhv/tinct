@@ -1,0 +1,3446 @@
+{
+  "complete": true,
+  "signature": "16c2bf2069605b2ca9a9fb7d71748be91f513ef71e8d6bf3d2a2fa567bcd3322",
+  "attempts": [
+    {
+      "asr_seconds": 0.401740662753582,
+      "alignment_seconds": 0.0006899815052747726,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Aegeus. Have joy, Medea! 'Tis the homeliest Word that old friends can greet with, and the best. Medea (_looking up, surprised_). Oh, joy on thee, too, Aegeus, gentle king Of Athens!--But whence com'st thou journeying?",
+        "hotwords": "Aegeus, Have, Medea, Tis, Word, Oh, Of, Athens!--But"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Oh, joy on thee, too, Aegeus, gentle king Of Athens!--But whence com'st thou journeying?",
+          "start": 5.88,
+          "end": 14.12,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 5.88,
+              "end": 6.44,
+              "probability": 0.0006113052368164062
+            },
+            {
+              "text": " joy",
+              "start": 6.68,
+              "end": 6.68,
+              "probability": 0.6455078125
+            },
+            {
+              "text": " on",
+              "start": 6.68,
+              "end": 9.38,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " thee,",
+              "start": 9.38,
+              "end": 9.64,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " too,",
+              "start": 10.0,
+              "end": 10.02,
+              "probability": 0.9052734375
+            },
+            {
+              "text": " Aegeus,",
+              "start": 10.28,
+              "end": 10.58,
+              "probability": 0.653350830078125
+            },
+            {
+              "text": " gentle",
+              "start": 10.74,
+              "end": 10.9,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " king",
+              "start": 10.9,
+              "end": 11.26,
+              "probability": 0.798828125
+            },
+            {
+              "text": " Of",
+              "start": 11.26,
+              "end": 11.42,
+              "probability": 0.0022487640380859375
+            },
+            {
+              "text": " Athens!--But",
+              "start": 11.42,
+              "end": 12.52,
+              "probability": 0.42773620287577313
+            },
+            {
+              "text": " whence",
+              "start": 12.52,
+              "end": 12.76,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " com'st",
+              "start": 12.76,
+              "end": 13.34,
+              "probability": 0.423583984375
+            },
+            {
+              "text": " thou",
+              "start": 13.34,
+              "end": 13.46,
+              "probability": 0.463134765625
+            },
+            {
+              "text": " journeying?",
+              "start": 13.46,
+              "end": 14.12,
+              "probability": 0.765625
+            }
+          ]
+        },
+        {
+          "text": " Oh, joy on thee, too.",
+          "start": 14.12,
+          "end": 14.64,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 14.12,
+              "end": 14.64,
+              "probability": 0.00040411949157714844
+            },
+            {
+              "text": " joy",
+              "start": 14.64,
+              "end": 14.64,
+              "probability": 2.4497509002685547e-05
+            },
+            {
+              "text": " on",
+              "start": 14.64,
+              "end": 14.64,
+              "probability": 0.0015106201171875
+            },
+            {
+              "text": " thee,",
+              "start": 14.64,
+              "end": 14.64,
+              "probability": 2.187490463256836e-05
+            },
+            {
+              "text": " too.",
+              "start": 14.64,
+              "end": 14.64,
+              "probability": 0.0006718635559082031
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oh,",
+          "start": 5.88,
+          "end": 6.44
+        },
+        {
+          "raw": "joy",
+          "start": 6.68,
+          "end": 6.68
+        },
+        {
+          "raw": "on",
+          "start": 6.68,
+          "end": 9.38
+        },
+        {
+          "raw": "thee,",
+          "start": 9.38,
+          "end": 9.64
+        },
+        {
+          "raw": "too,",
+          "start": 10.0,
+          "end": 10.02
+        },
+        {
+          "raw": "Aegeus,",
+          "start": 10.28,
+          "end": 10.58
+        },
+        {
+          "raw": "gentle",
+          "start": 10.74,
+          "end": 10.9
+        },
+        {
+          "raw": "king",
+          "start": 10.9,
+          "end": 11.26
+        },
+        {
+          "raw": "Of",
+          "start": 11.26,
+          "end": 11.42
+        },
+        {
+          "raw": "Athens!--But",
+          "start": 11.42,
+          "end": 12.52
+        },
+        {
+          "raw": "whence",
+          "start": 12.52,
+          "end": 12.76
+        },
+        {
+          "raw": "com'st",
+          "start": 12.76,
+          "end": 13.34
+        },
+        {
+          "raw": "thou",
+          "start": 13.34,
+          "end": 13.46
+        },
+        {
+          "raw": "journeying?",
+          "start": 13.46,
+          "end": 14.12
+        },
+        {
+          "raw": "Oh,",
+          "start": 14.12,
+          "end": 14.64
+        },
+        {
+          "raw": "joy",
+          "start": 14.64,
+          "end": 14.64
+        },
+        {
+          "raw": "on",
+          "start": 14.64,
+          "end": 14.64
+        },
+        {
+          "raw": "thee,",
+          "start": 14.64,
+          "end": 14.64
+        },
+        {
+          "raw": "too.",
+          "start": 14.64,
+          "end": 14.64
+        }
+      ],
+      "expected_tokens": [
+        "Aegeus.",
+        "Have",
+        "joy,",
+        "Medea!",
+        "'Tis",
+        "the",
+        "homeliest",
+        "Word",
+        "that",
+        "old",
+        "friends",
+        "can",
+        "greet",
+        "with,",
+        "and",
+        "the",
+        "best.",
+        "Medea",
+        "(_looking",
+        "up,",
+        "surprised_).",
+        "Oh,",
+        "joy",
+        "on",
+        "thee,",
+        "too,",
+        "Aegeus,",
+        "gentle",
+        "king",
+        "Of",
+        "Athens!--But",
+        "whence",
+        "com'st",
+        "thou",
+        "journeying?"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          21,
+          0,
+          0
+        ],
+        [
+          "equal",
+          21,
+          35,
+          0,
+          14
+        ],
+        [
+          "insert",
+          35,
+          35,
+          14,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          21,
+          0,
+          0
+        ],
+        [
+          "insert",
+          35,
+          35,
+          14,
+          19
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oh,",
+          "start": 5.88,
+          "end": 6.44,
+          "key": "oh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "joy",
+          "start": 6.68,
+          "end": 6.68,
+          "key": "joy",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 6.68,
+          "end": 9.38,
+          "key": "on",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thee,",
+          "start": 9.38,
+          "end": 9.64,
+          "key": "thee",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "too,",
+          "start": 10.0,
+          "end": 10.02,
+          "key": "too",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Aegeus,",
+          "start": 10.28,
+          "end": 10.58,
+          "key": "aegeus",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "gentle",
+          "start": 10.74,
+          "end": 10.9,
+          "key": "gentle",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "king",
+          "start": 10.9,
+          "end": 11.26,
+          "key": "king",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 11.26,
+          "end": 11.42,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Athens!--But",
+          "start": 11.42,
+          "end": 12.52,
+          "key": "athensbut",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "whence",
+          "start": 12.52,
+          "end": 12.76,
+          "key": "whence",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "com'st",
+          "start": 12.76,
+          "end": 13.34,
+          "key": "comst",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 13.34,
+          "end": 13.46,
+          "key": "thou",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "journeying?",
+          "start": 13.46,
+          "end": 14.12,
+          "key": "journeying",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 14.12,
+          "end": 14.64,
+          "key": "oh",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "joy",
+          "start": 14.64,
+          "end": 14.64,
+          "key": "joy",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 14.64,
+          "end": 14.64,
+          "key": "on",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "thee,",
+          "start": 14.64,
+          "end": 14.64,
+          "key": "thee",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "too.",
+          "start": 14.64,
+          "end": 14.64,
+          "key": "too",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Aegeus.",
+          "start": 0.0,
+          "end": 2.94
+        },
+        {
+          "text": "Have",
+          "start": 2.94,
+          "end": 4.41
+        },
+        {
+          "text": "joy,",
+          "start": 4.41,
+          "end": 5.145
+        },
+        {
+          "text": "Medea!",
+          "start": 5.145,
+          "end": 5.512
+        },
+        {
+          "text": "'Tis",
+          "start": 5.512,
+          "end": 5.696
+        },
+        {
+          "text": "the",
+          "start": 5.696,
+          "end": 5.788
+        },
+        {
+          "text": "homeliest",
+          "start": 5.788,
+          "end": 5.834
+        },
+        {
+          "text": "Word",
+          "start": 5.834,
+          "end": 5.857
+        },
+        {
+          "text": "that",
+          "start": 5.857,
+          "end": 5.869
+        },
+        {
+          "text": "old",
+          "start": 5.869,
+          "end": 5.874
+        },
+        {
+          "text": "friends",
+          "start": 5.874,
+          "end": 5.877
+        },
+        {
+          "text": "can",
+          "start": 5.877,
+          "end": 5.878
+        },
+        {
+          "text": "greet",
+          "start": 5.878,
+          "end": 5.879
+        },
+        {
+          "text": "with,",
+          "start": 5.879,
+          "end": 5.88
+        },
+        {
+          "text": "and",
+          "start": 5.88,
+          "end": 5.88
+        },
+        {
+          "text": "the",
+          "start": 5.88,
+          "end": 5.88
+        },
+        {
+          "text": "best.",
+          "start": 5.88,
+          "end": 5.88
+        },
+        {
+          "text": "Medea",
+          "start": 5.88,
+          "end": 5.88
+        },
+        {
+          "text": "(_looking",
+          "start": 5.88,
+          "end": 5.88
+        },
+        {
+          "text": "up,",
+          "start": 5.88,
+          "end": 5.88
+        },
+        {
+          "text": "surprised_).",
+          "start": 5.88,
+          "end": 5.88
+        },
+        {
+          "text": "Oh,",
+          "start": 5.88,
+          "end": 6.44
+        },
+        {
+          "text": "joy",
+          "start": 6.68,
+          "end": 6.68
+        },
+        {
+          "text": "on",
+          "start": 6.68,
+          "end": 9.38
+        },
+        {
+          "text": "thee,",
+          "start": 9.38,
+          "end": 9.64
+        },
+        {
+          "text": "too,",
+          "start": 10.0,
+          "end": 10.02
+        },
+        {
+          "text": "Aegeus,",
+          "start": 10.28,
+          "end": 10.58
+        },
+        {
+          "text": "gentle",
+          "start": 10.74,
+          "end": 10.9
+        },
+        {
+          "text": "king",
+          "start": 10.9,
+          "end": 11.26
+        },
+        {
+          "text": "Of",
+          "start": 11.26,
+          "end": 11.42
+        },
+        {
+          "text": "Athens!--But",
+          "start": 11.42,
+          "end": 12.52
+        },
+        {
+          "text": "whence",
+          "start": 12.52,
+          "end": 12.76
+        },
+        {
+          "text": "com'st",
+          "start": 12.76,
+          "end": 13.34
+        },
+        {
+          "text": "thou",
+          "start": 13.34,
+          "end": 13.46
+        },
+        {
+          "text": "journeying?",
+          "start": 13.46,
+          "end": 14.12
+        }
+      ],
+      "stats": {
+        "expected_words": 35,
+        "heard_words": 19,
+        "matched_words": 14
+      },
+      "match_ratio": 0.4,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.40260083321481943
+    },
+    {
+      "asr_seconds": 0.6263531018048525,
+      "alignment_seconds": 0.000938178040087223,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Aegeus, Have, Medea, Tis, Word, Oh, Of, Athens!--But"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Aegeus, Have, Joy, Medea, Tis, The Homeliest Word, That Old Friends Can Greet With, And",
+          "start": 0.02,
+          "end": 5.36,
+          "words": [
+            {
+              "text": " Aegeus,",
+              "start": 0.02,
+              "end": 0.9,
+              "probability": 0.6531931559244791
+            },
+            {
+              "text": " Have,",
+              "start": 0.92,
+              "end": 1.14,
+              "probability": 0.06805419921875
+            },
+            {
+              "text": " Joy,",
+              "start": 1.14,
+              "end": 1.42,
+              "probability": 0.935546875
+            },
+            {
+              "text": " Medea,",
+              "start": 1.56,
+              "end": 1.9,
+              "probability": 0.90673828125
+            },
+            {
+              "text": " Tis,",
+              "start": 2.46,
+              "end": 2.64,
+              "probability": 0.14471435546875
+            },
+            {
+              "text": " The",
+              "start": 2.64,
+              "end": 2.8,
+              "probability": 0.6015625
+            },
+            {
+              "text": " Homeliest",
+              "start": 2.8,
+              "end": 3.32,
+              "probability": 0.6744588216145834
+            },
+            {
+              "text": " Word,",
+              "start": 3.32,
+              "end": 3.6,
+              "probability": 0.76513671875
+            },
+            {
+              "text": " That",
+              "start": 3.7,
+              "end": 3.8,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " Old",
+              "start": 3.8,
+              "end": 3.96,
+              "probability": 0.74169921875
+            },
+            {
+              "text": " Friends",
+              "start": 3.96,
+              "end": 4.28,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " Can",
+              "start": 4.28,
+              "end": 4.6,
+              "probability": 0.87109375
+            },
+            {
+              "text": " Greet",
+              "start": 4.6,
+              "end": 4.88,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " With,",
+              "start": 4.88,
+              "end": 5.14,
+              "probability": 0.9375
+            },
+            {
+              "text": " And",
+              "start": 5.32,
+              "end": 5.36,
+              "probability": 0.74658203125
+            }
+          ]
+        },
+        {
+          "text": " The Best, Medea, Looking Up, Surprised, Oh, Joy, On Thee, Too, Aegeus, Gentle King of Athens,",
+          "start": 5.36,
+          "end": 11.8,
+          "words": [
+            {
+              "text": " The",
+              "start": 5.36,
+              "end": 5.48,
+              "probability": 0.94140625
+            },
+            {
+              "text": " Best,",
+              "start": 5.48,
+              "end": 5.8,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Medea,",
+              "start": 6.36,
+              "end": 6.74,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Looking",
+              "start": 6.84,
+              "end": 7.06,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " Up,",
+              "start": 7.06,
+              "end": 7.34,
+              "probability": 0.923828125
+            },
+            {
+              "text": " Surprised,",
+              "start": 7.54,
+              "end": 8.1,
+              "probability": 0.9837239583333334
+            },
+            {
+              "text": " Oh,",
+              "start": 8.64,
+              "end": 8.84,
+              "probability": 0.19677734375
+            },
+            {
+              "text": " Joy,",
+              "start": 9.1,
+              "end": 9.14,
+              "probability": 0.99609375
+            },
+            {
+              "text": " On",
+              "start": 9.14,
+              "end": 9.38,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " Thee,",
+              "start": 9.38,
+              "end": 9.72,
+              "probability": 0.958251953125
+            },
+            {
+              "text": " Too,",
+              "start": 9.9,
+              "end": 10.02,
+              "probability": 0.62060546875
+            },
+            {
+              "text": " Aegeus,",
+              "start": 10.28,
+              "end": 10.58,
+              "probability": 0.9874674479166666
+            },
+            {
+              "text": " Gentle",
+              "start": 10.96,
+              "end": 10.96,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " King",
+              "start": 10.96,
+              "end": 11.24,
+              "probability": 0.79833984375
+            },
+            {
+              "text": " of",
+              "start": 11.24,
+              "end": 11.46,
+              "probability": 0.50537109375
+            },
+            {
+              "text": " Athens,",
+              "start": 11.46,
+              "end": 11.8,
+              "probability": 0.9736328125
+            }
+          ]
+        },
+        {
+          "text": " But Whence Comstee Thou Journeying?",
+          "start": 12.38,
+          "end": 14.14,
+          "words": [
+            {
+              "text": " But",
+              "start": 12.38,
+              "end": 12.54,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " Whence",
+              "start": 12.54,
+              "end": 12.84,
+              "probability": 0.66845703125
+            },
+            {
+              "text": " Comstee",
+              "start": 12.84,
+              "end": 13.38,
+              "probability": 0.2657877604166667
+            },
+            {
+              "text": " Thou",
+              "start": 13.38,
+              "end": 13.56,
+              "probability": 0.64794921875
+            },
+            {
+              "text": " Journeying?",
+              "start": 13.56,
+              "end": 14.14,
+              "probability": 0.72406005859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aegeus,",
+          "start": 0.02,
+          "end": 0.9
+        },
+        {
+          "raw": "Have,",
+          "start": 0.92,
+          "end": 1.14
+        },
+        {
+          "raw": "Joy,",
+          "start": 1.14,
+          "end": 1.42
+        },
+        {
+          "raw": "Medea,",
+          "start": 1.56,
+          "end": 1.9
+        },
+        {
+          "raw": "Tis,",
+          "start": 2.46,
+          "end": 2.64
+        },
+        {
+          "raw": "The",
+          "start": 2.64,
+          "end": 2.8
+        },
+        {
+          "raw": "Homeliest",
+          "start": 2.8,
+          "end": 3.32
+        },
+        {
+          "raw": "Word,",
+          "start": 3.32,
+          "end": 3.6
+        },
+        {
+          "raw": "That",
+          "start": 3.7,
+          "end": 3.8
+        },
+        {
+          "raw": "Old",
+          "start": 3.8,
+          "end": 3.96
+        },
+        {
+          "raw": "Friends",
+          "start": 3.96,
+          "end": 4.28
+        },
+        {
+          "raw": "Can",
+          "start": 4.28,
+          "end": 4.6
+        },
+        {
+          "raw": "Greet",
+          "start": 4.6,
+          "end": 4.88
+        },
+        {
+          "raw": "With,",
+          "start": 4.88,
+          "end": 5.14
+        },
+        {
+          "raw": "And",
+          "start": 5.32,
+          "end": 5.36
+        },
+        {
+          "raw": "The",
+          "start": 5.36,
+          "end": 5.48
+        },
+        {
+          "raw": "Best,",
+          "start": 5.48,
+          "end": 5.8
+        },
+        {
+          "raw": "Medea,",
+          "start": 6.36,
+          "end": 6.74
+        },
+        {
+          "raw": "Looking",
+          "start": 6.84,
+          "end": 7.06
+        },
+        {
+          "raw": "Up,",
+          "start": 7.06,
+          "end": 7.34
+        },
+        {
+          "raw": "Surprised,",
+          "start": 7.54,
+          "end": 8.1
+        },
+        {
+          "raw": "Oh,",
+          "start": 8.64,
+          "end": 8.84
+        },
+        {
+          "raw": "Joy,",
+          "start": 9.1,
+          "end": 9.14
+        },
+        {
+          "raw": "On",
+          "start": 9.14,
+          "end": 9.38
+        },
+        {
+          "raw": "Thee,",
+          "start": 9.38,
+          "end": 9.72
+        },
+        {
+          "raw": "Too,",
+          "start": 9.9,
+          "end": 10.02
+        },
+        {
+          "raw": "Aegeus,",
+          "start": 10.28,
+          "end": 10.58
+        },
+        {
+          "raw": "Gentle",
+          "start": 10.96,
+          "end": 10.96
+        },
+        {
+          "raw": "King",
+          "start": 10.96,
+          "end": 11.24
+        },
+        {
+          "raw": "of",
+          "start": 11.24,
+          "end": 11.46
+        },
+        {
+          "raw": "Athens,",
+          "start": 11.46,
+          "end": 11.8
+        },
+        {
+          "raw": "But",
+          "start": 12.38,
+          "end": 12.54
+        },
+        {
+          "raw": "Whence",
+          "start": 12.54,
+          "end": 12.84
+        },
+        {
+          "raw": "Comstee",
+          "start": 12.84,
+          "end": 13.38
+        },
+        {
+          "raw": "Thou",
+          "start": 13.38,
+          "end": 13.56
+        },
+        {
+          "raw": "Journeying?",
+          "start": 13.56,
+          "end": 14.14
+        }
+      ],
+      "expected_tokens": [
+        "Aegeus.",
+        "Have",
+        "joy,",
+        "Medea!",
+        "'Tis",
+        "the",
+        "homeliest",
+        "Word",
+        "that",
+        "old",
+        "friends",
+        "can",
+        "greet",
+        "with,",
+        "and",
+        "the",
+        "best.",
+        "Medea",
+        "(_looking",
+        "up,",
+        "surprised_).",
+        "Oh,",
+        "joy",
+        "on",
+        "thee,",
+        "too,",
+        "Aegeus,",
+        "gentle",
+        "king",
+        "Of",
+        "Athens!--But",
+        "whence",
+        "com'st",
+        "thou",
+        "journeying?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          32,
+          0,
+          32
+        ],
+        [
+          "replace",
+          32,
+          33,
+          32,
+          33
+        ],
+        [
+          "equal",
+          33,
+          35,
+          33,
+          35
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          32,
+          33,
+          32,
+          33
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Aegeus,",
+          "start": 0.02,
+          "end": 0.9,
+          "key": "aegeus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Have,",
+          "start": 0.92,
+          "end": 1.14,
+          "key": "have",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Joy,",
+          "start": 1.14,
+          "end": 1.42,
+          "key": "joy",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Medea,",
+          "start": 1.56,
+          "end": 1.9,
+          "key": "medea",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Tis,",
+          "start": 2.46,
+          "end": 2.64,
+          "key": "tis",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 2.64,
+          "end": 2.8,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Homeliest",
+          "start": 2.8,
+          "end": 3.32,
+          "key": "homeliest",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Word,",
+          "start": 3.32,
+          "end": 3.6,
+          "key": "word",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 3.7,
+          "end": 3.8,
+          "key": "that",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Old",
+          "start": 3.8,
+          "end": 3.96,
+          "key": "old",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Friends",
+          "start": 3.96,
+          "end": 4.28,
+          "key": "friends",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Can",
+          "start": 4.28,
+          "end": 4.6,
+          "key": "can",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Greet",
+          "start": 4.6,
+          "end": 4.88,
+          "key": "greet",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "With,",
+          "start": 4.88,
+          "end": 5.14,
+          "key": "with",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 5.32,
+          "end": 5.36,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 5.36,
+          "end": 5.48,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Best,",
+          "start": 5.48,
+          "end": 5.8,
+          "key": "best",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Medea,",
+          "start": 6.36,
+          "end": 6.74,
+          "key": "medea",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Looking",
+          "start": 6.84,
+          "end": 7.06,
+          "key": "looking",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Up,",
+          "start": 7.06,
+          "end": 7.34,
+          "key": "up",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Surprised,",
+          "start": 7.54,
+          "end": 8.1,
+          "key": "surprised",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 8.64,
+          "end": 8.84,
+          "key": "oh",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Joy,",
+          "start": 9.1,
+          "end": 9.14,
+          "key": "joy",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "On",
+          "start": 9.14,
+          "end": 9.38,
+          "key": "on",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Thee,",
+          "start": 9.38,
+          "end": 9.72,
+          "key": "thee",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Too,",
+          "start": 9.9,
+          "end": 10.02,
+          "key": "too",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Aegeus,",
+          "start": 10.28,
+          "end": 10.58,
+          "key": "aegeus",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "Gentle",
+          "start": 10.96,
+          "end": 10.96,
+          "key": "gentle",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "King",
+          "start": 10.96,
+          "end": 11.24,
+          "key": "king",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 11.24,
+          "end": 11.46,
+          "key": "of",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "Athens, But",
+          "start": 11.46,
+          "end": 12.54,
+          "key": "athensbut",
+          "pieces": [
+            30,
+            31
+          ]
+        },
+        {
+          "raw": "Whence",
+          "start": 12.54,
+          "end": 12.84,
+          "key": "whence",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "Comstee",
+          "start": 12.84,
+          "end": 13.38,
+          "key": "comstee",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "Thou",
+          "start": 13.38,
+          "end": 13.56,
+          "key": "thou",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "Journeying?",
+          "start": 13.56,
+          "end": 14.14,
+          "key": "journeying",
+          "pieces": [
+            35
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 30,
+          "text": "Athens!--But",
+          "heard": "Athens, But",
+          "heard_indexes": [
+            30,
+            31
+          ],
+          "start": 11.46,
+          "end": 12.54
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Aegeus.",
+          "start": 0.02,
+          "end": 0.9
+        },
+        {
+          "text": "Have",
+          "start": 0.92,
+          "end": 1.14
+        },
+        {
+          "text": "joy,",
+          "start": 1.14,
+          "end": 1.42
+        },
+        {
+          "text": "Medea!",
+          "start": 1.56,
+          "end": 1.9
+        },
+        {
+          "text": "'Tis",
+          "start": 2.46,
+          "end": 2.64
+        },
+        {
+          "text": "the",
+          "start": 2.64,
+          "end": 2.8
+        },
+        {
+          "text": "homeliest",
+          "start": 2.8,
+          "end": 3.32
+        },
+        {
+          "text": "Word",
+          "start": 3.32,
+          "end": 3.6
+        },
+        {
+          "text": "that",
+          "start": 3.7,
+          "end": 3.8
+        },
+        {
+          "text": "old",
+          "start": 3.8,
+          "end": 3.96
+        },
+        {
+          "text": "friends",
+          "start": 3.96,
+          "end": 4.28
+        },
+        {
+          "text": "can",
+          "start": 4.28,
+          "end": 4.6
+        },
+        {
+          "text": "greet",
+          "start": 4.6,
+          "end": 4.88
+        },
+        {
+          "text": "with,",
+          "start": 4.88,
+          "end": 5.14
+        },
+        {
+          "text": "and",
+          "start": 5.32,
+          "end": 5.36
+        },
+        {
+          "text": "the",
+          "start": 5.36,
+          "end": 5.48
+        },
+        {
+          "text": "best.",
+          "start": 5.48,
+          "end": 5.8
+        },
+        {
+          "text": "Medea",
+          "start": 6.36,
+          "end": 6.74
+        },
+        {
+          "text": "(_looking",
+          "start": 6.84,
+          "end": 7.06
+        },
+        {
+          "text": "up,",
+          "start": 7.06,
+          "end": 7.34
+        },
+        {
+          "text": "surprised_).",
+          "start": 7.54,
+          "end": 8.1
+        },
+        {
+          "text": "Oh,",
+          "start": 8.64,
+          "end": 8.84
+        },
+        {
+          "text": "joy",
+          "start": 9.1,
+          "end": 9.14
+        },
+        {
+          "text": "on",
+          "start": 9.14,
+          "end": 9.38
+        },
+        {
+          "text": "thee,",
+          "start": 9.38,
+          "end": 9.72
+        },
+        {
+          "text": "too,",
+          "start": 9.9,
+          "end": 10.02
+        },
+        {
+          "text": "Aegeus,",
+          "start": 10.28,
+          "end": 10.58
+        },
+        {
+          "text": "gentle",
+          "start": 10.96,
+          "end": 10.96
+        },
+        {
+          "text": "king",
+          "start": 10.96,
+          "end": 11.24
+        },
+        {
+          "text": "Of",
+          "start": 11.24,
+          "end": 11.46
+        },
+        {
+          "text": "Athens!--But",
+          "start": 11.46,
+          "end": 12.54
+        },
+        {
+          "text": "whence",
+          "start": 12.54,
+          "end": 12.84
+        },
+        {
+          "text": "com'st",
+          "start": 12.84,
+          "end": 13.11
+        },
+        {
+          "text": "thou",
+          "start": 13.38,
+          "end": 13.56
+        },
+        {
+          "text": "journeying?",
+          "start": 13.56,
+          "end": 14.14
+        }
+      ],
+      "stats": {
+        "expected_words": 35,
+        "heard_words": 35,
+        "matched_words": 34
+      },
+      "match_ratio": 0.9714285714285714,
+      "rejection_reasons": [],
+      "seconds": 0.6276269936934114
+    },
+    {
+      "asr_seconds": 0.610894643701613,
+      "alignment_seconds": 0.0010003047063946724,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Aegius, have joy, Medea.",
+          "start": 0.02,
+          "end": 1.86,
+          "words": [
+            {
+              "text": " Aegius,",
+              "start": 0.02,
+              "end": 0.88,
+              "probability": 0.449462890625
+            },
+            {
+              "text": " have",
+              "start": 0.92,
+              "end": 1.12,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " joy,",
+              "start": 1.12,
+              "end": 1.42,
+              "probability": 0.826171875
+            },
+            {
+              "text": " Medea.",
+              "start": 1.56,
+              "end": 1.86,
+              "probability": 0.922607421875
+            }
+          ]
+        },
+        {
+          "text": " Tease the homeliest word that old friends can greet with and the best, Medea looking",
+          "start": 2.54,
+          "end": 7.04,
+          "words": [
+            {
+              "text": " Tease",
+              "start": 2.54,
+              "end": 2.66,
+              "probability": 0.595947265625
+            },
+            {
+              "text": " the",
+              "start": 2.66,
+              "end": 2.8,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " homeliest",
+              "start": 2.8,
+              "end": 3.32,
+              "probability": 0.8828125
+            },
+            {
+              "text": " word",
+              "start": 3.32,
+              "end": 3.6,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " that",
+              "start": 3.6,
+              "end": 3.8,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " old",
+              "start": 3.8,
+              "end": 3.98,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " friends",
+              "start": 3.98,
+              "end": 4.32,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " can",
+              "start": 4.32,
+              "end": 4.62,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " greet",
+              "start": 4.62,
+              "end": 4.88,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " with",
+              "start": 4.88,
+              "end": 5.14,
+              "probability": 0.994140625
+            },
+            {
+              "text": " and",
+              "start": 5.14,
+              "end": 5.36,
+              "probability": 0.6455078125
+            },
+            {
+              "text": " the",
+              "start": 5.36,
+              "end": 5.46,
+              "probability": 0.998046875
+            },
+            {
+              "text": " best,",
+              "start": 5.46,
+              "end": 5.8,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Medea",
+              "start": 6.28,
+              "end": 6.74,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " looking",
+              "start": 6.74,
+              "end": 7.04,
+              "probability": 0.5908203125
+            }
+          ]
+        },
+        {
+          "text": " up surprised.",
+          "start": 7.04,
+          "end": 7.88,
+          "words": [
+            {
+              "text": " up",
+              "start": 7.04,
+              "end": 7.36,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " surprised.",
+              "start": 7.36,
+              "end": 7.88,
+              "probability": 0.56884765625
+            }
+          ]
+        },
+        {
+          "text": " Oh, joy on thee, too, Aegius, gentle king of Athens, but whence calms tea thou journeying?",
+          "start": 8.74,
+          "end": 14.1,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 8.74,
+              "end": 8.86,
+              "probability": 0.193115234375
+            },
+            {
+              "text": " joy",
+              "start": 9.1,
+              "end": 9.14,
+              "probability": 0.8828125
+            },
+            {
+              "text": " on",
+              "start": 9.14,
+              "end": 9.38,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " thee,",
+              "start": 9.38,
+              "end": 9.64,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " too,",
+              "start": 9.92,
+              "end": 10.0,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " Aegius,",
+              "start": 10.28,
+              "end": 10.58,
+              "probability": 0.978271484375
+            },
+            {
+              "text": " gentle",
+              "start": 10.74,
+              "end": 10.92,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " king",
+              "start": 10.92,
+              "end": 11.26,
+              "probability": 0.78369140625
+            },
+            {
+              "text": " of",
+              "start": 11.26,
+              "end": 11.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Athens,",
+              "start": 11.46,
+              "end": 11.8,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " but",
+              "start": 12.4,
+              "end": 12.54,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " whence",
+              "start": 12.54,
+              "end": 12.76,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " calms",
+              "start": 12.76,
+              "end": 13.22,
+              "probability": 0.639404296875
+            },
+            {
+              "text": " tea",
+              "start": 13.22,
+              "end": 13.38,
+              "probability": 0.164794921875
+            },
+            {
+              "text": " thou",
+              "start": 13.38,
+              "end": 13.56,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " journeying?",
+              "start": 13.56,
+              "end": 14.1,
+              "probability": 0.9054361979166666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aegius,",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "raw": "have",
+          "start": 0.92,
+          "end": 1.12
+        },
+        {
+          "raw": "joy,",
+          "start": 1.12,
+          "end": 1.42
+        },
+        {
+          "raw": "Medea.",
+          "start": 1.56,
+          "end": 1.86
+        },
+        {
+          "raw": "Tease",
+          "start": 2.54,
+          "end": 2.66
+        },
+        {
+          "raw": "the",
+          "start": 2.66,
+          "end": 2.8
+        },
+        {
+          "raw": "homeliest",
+          "start": 2.8,
+          "end": 3.32
+        },
+        {
+          "raw": "word",
+          "start": 3.32,
+          "end": 3.6
+        },
+        {
+          "raw": "that",
+          "start": 3.6,
+          "end": 3.8
+        },
+        {
+          "raw": "old",
+          "start": 3.8,
+          "end": 3.98
+        },
+        {
+          "raw": "friends",
+          "start": 3.98,
+          "end": 4.32
+        },
+        {
+          "raw": "can",
+          "start": 4.32,
+          "end": 4.62
+        },
+        {
+          "raw": "greet",
+          "start": 4.62,
+          "end": 4.88
+        },
+        {
+          "raw": "with",
+          "start": 4.88,
+          "end": 5.14
+        },
+        {
+          "raw": "and",
+          "start": 5.14,
+          "end": 5.36
+        },
+        {
+          "raw": "the",
+          "start": 5.36,
+          "end": 5.46
+        },
+        {
+          "raw": "best,",
+          "start": 5.46,
+          "end": 5.8
+        },
+        {
+          "raw": "Medea",
+          "start": 6.28,
+          "end": 6.74
+        },
+        {
+          "raw": "looking",
+          "start": 6.74,
+          "end": 7.04
+        },
+        {
+          "raw": "up",
+          "start": 7.04,
+          "end": 7.36
+        },
+        {
+          "raw": "surprised.",
+          "start": 7.36,
+          "end": 7.88
+        },
+        {
+          "raw": "Oh,",
+          "start": 8.74,
+          "end": 8.86
+        },
+        {
+          "raw": "joy",
+          "start": 9.1,
+          "end": 9.14
+        },
+        {
+          "raw": "on",
+          "start": 9.14,
+          "end": 9.38
+        },
+        {
+          "raw": "thee,",
+          "start": 9.38,
+          "end": 9.64
+        },
+        {
+          "raw": "too,",
+          "start": 9.92,
+          "end": 10.0
+        },
+        {
+          "raw": "Aegius,",
+          "start": 10.28,
+          "end": 10.58
+        },
+        {
+          "raw": "gentle",
+          "start": 10.74,
+          "end": 10.92
+        },
+        {
+          "raw": "king",
+          "start": 10.92,
+          "end": 11.26
+        },
+        {
+          "raw": "of",
+          "start": 11.26,
+          "end": 11.46
+        },
+        {
+          "raw": "Athens,",
+          "start": 11.46,
+          "end": 11.8
+        },
+        {
+          "raw": "but",
+          "start": 12.4,
+          "end": 12.54
+        },
+        {
+          "raw": "whence",
+          "start": 12.54,
+          "end": 12.76
+        },
+        {
+          "raw": "calms",
+          "start": 12.76,
+          "end": 13.22
+        },
+        {
+          "raw": "tea",
+          "start": 13.22,
+          "end": 13.38
+        },
+        {
+          "raw": "thou",
+          "start": 13.38,
+          "end": 13.56
+        },
+        {
+          "raw": "journeying?",
+          "start": 13.56,
+          "end": 14.1
+        }
+      ],
+      "expected_tokens": [
+        "Aegeus.",
+        "Have",
+        "joy,",
+        "Medea!",
+        "'Tis",
+        "the",
+        "homeliest",
+        "Word",
+        "that",
+        "old",
+        "friends",
+        "can",
+        "greet",
+        "with,",
+        "and",
+        "the",
+        "best.",
+        "Medea",
+        "(_looking",
+        "up,",
+        "surprised_).",
+        "Oh,",
+        "joy",
+        "on",
+        "thee,",
+        "too,",
+        "Aegeus,",
+        "gentle",
+        "king",
+        "Of",
+        "Athens!--But",
+        "whence",
+        "com'st",
+        "thou",
+        "journeying?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          4,
+          1,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          26,
+          5,
+          26
+        ],
+        [
+          "replace",
+          26,
+          27,
+          26,
+          27
+        ],
+        [
+          "equal",
+          27,
+          32,
+          27,
+          32
+        ],
+        [
+          "replace",
+          32,
+          33,
+          32,
+          34
+        ],
+        [
+          "equal",
+          33,
+          35,
+          34,
+          36
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "replace",
+          26,
+          27,
+          26,
+          27
+        ],
+        [
+          "replace",
+          32,
+          33,
+          32,
+          34
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Aegius,",
+          "start": 0.02,
+          "end": 0.88,
+          "key": "aegius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 0.92,
+          "end": 1.12,
+          "key": "have",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "joy,",
+          "start": 1.12,
+          "end": 1.42,
+          "key": "joy",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Medea.",
+          "start": 1.56,
+          "end": 1.86,
+          "key": "medea",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Tease",
+          "start": 2.54,
+          "end": 2.66,
+          "key": "tease",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.66,
+          "end": 2.8,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "homeliest",
+          "start": 2.8,
+          "end": 3.32,
+          "key": "homeliest",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "word",
+          "start": 3.32,
+          "end": 3.6,
+          "key": "word",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.6,
+          "end": 3.8,
+          "key": "that",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 3.8,
+          "end": 3.98,
+          "key": "old",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "friends",
+          "start": 3.98,
+          "end": 4.32,
+          "key": "friends",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 4.32,
+          "end": 4.62,
+          "key": "can",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "greet",
+          "start": 4.62,
+          "end": 4.88,
+          "key": "greet",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.88,
+          "end": 5.14,
+          "key": "with",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.14,
+          "end": 5.36,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.36,
+          "end": 5.46,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "best,",
+          "start": 5.46,
+          "end": 5.8,
+          "key": "best",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Medea",
+          "start": 6.28,
+          "end": 6.74,
+          "key": "medea",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "looking",
+          "start": 6.74,
+          "end": 7.04,
+          "key": "looking",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 7.04,
+          "end": 7.36,
+          "key": "up",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "surprised.",
+          "start": 7.36,
+          "end": 7.88,
+          "key": "surprised",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 8.74,
+          "end": 8.86,
+          "key": "oh",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "joy",
+          "start": 9.1,
+          "end": 9.14,
+          "key": "joy",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 9.14,
+          "end": 9.38,
+          "key": "on",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "thee,",
+          "start": 9.38,
+          "end": 9.64,
+          "key": "thee",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "too,",
+          "start": 9.92,
+          "end": 10.0,
+          "key": "too",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Aegius,",
+          "start": 10.28,
+          "end": 10.58,
+          "key": "aegius",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "gentle",
+          "start": 10.74,
+          "end": 10.92,
+          "key": "gentle",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "king",
+          "start": 10.92,
+          "end": 11.26,
+          "key": "king",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 11.26,
+          "end": 11.46,
+          "key": "of",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "Athens, but",
+          "start": 11.46,
+          "end": 12.54,
+          "key": "athensbut",
+          "pieces": [
+            30,
+            31
+          ]
+        },
+        {
+          "raw": "whence",
+          "start": 12.54,
+          "end": 12.76,
+          "key": "whence",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "calms",
+          "start": 12.76,
+          "end": 13.22,
+          "key": "calms",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "tea",
+          "start": 13.22,
+          "end": 13.38,
+          "key": "tea",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 13.38,
+          "end": 13.56,
+          "key": "thou",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "journeying?",
+          "start": 13.56,
+          "end": 14.1,
+          "key": "journeying",
+          "pieces": [
+            36
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 30,
+          "text": "Athens!--But",
+          "heard": "Athens, but",
+          "heard_indexes": [
+            30,
+            31
+          ],
+          "start": 11.46,
+          "end": 12.54
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Aegeus.",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "text": "Have",
+          "start": 0.92,
+          "end": 1.12
+        },
+        {
+          "text": "joy,",
+          "start": 1.12,
+          "end": 1.42
+        },
+        {
+          "text": "Medea!",
+          "start": 1.56,
+          "end": 1.86
+        },
+        {
+          "text": "'Tis",
+          "start": 1.86,
+          "end": 2.26
+        },
+        {
+          "text": "the",
+          "start": 2.66,
+          "end": 2.8
+        },
+        {
+          "text": "homeliest",
+          "start": 2.8,
+          "end": 3.32
+        },
+        {
+          "text": "Word",
+          "start": 3.32,
+          "end": 3.6
+        },
+        {
+          "text": "that",
+          "start": 3.6,
+          "end": 3.8
+        },
+        {
+          "text": "old",
+          "start": 3.8,
+          "end": 3.98
+        },
+        {
+          "text": "friends",
+          "start": 3.98,
+          "end": 4.32
+        },
+        {
+          "text": "can",
+          "start": 4.32,
+          "end": 4.62
+        },
+        {
+          "text": "greet",
+          "start": 4.62,
+          "end": 4.88
+        },
+        {
+          "text": "with,",
+          "start": 4.88,
+          "end": 5.14
+        },
+        {
+          "text": "and",
+          "start": 5.14,
+          "end": 5.36
+        },
+        {
+          "text": "the",
+          "start": 5.36,
+          "end": 5.46
+        },
+        {
+          "text": "best.",
+          "start": 5.46,
+          "end": 5.8
+        },
+        {
+          "text": "Medea",
+          "start": 6.28,
+          "end": 6.74
+        },
+        {
+          "text": "(_looking",
+          "start": 6.74,
+          "end": 7.04
+        },
+        {
+          "text": "up,",
+          "start": 7.04,
+          "end": 7.36
+        },
+        {
+          "text": "surprised_).",
+          "start": 7.36,
+          "end": 7.88
+        },
+        {
+          "text": "Oh,",
+          "start": 8.74,
+          "end": 8.86
+        },
+        {
+          "text": "joy",
+          "start": 9.1,
+          "end": 9.14
+        },
+        {
+          "text": "on",
+          "start": 9.14,
+          "end": 9.38
+        },
+        {
+          "text": "thee,",
+          "start": 9.38,
+          "end": 9.64
+        },
+        {
+          "text": "too,",
+          "start": 9.92,
+          "end": 10.0
+        },
+        {
+          "text": "Aegeus,",
+          "start": 10.0,
+          "end": 10.37
+        },
+        {
+          "text": "gentle",
+          "start": 10.74,
+          "end": 10.92
+        },
+        {
+          "text": "king",
+          "start": 10.92,
+          "end": 11.26
+        },
+        {
+          "text": "Of",
+          "start": 11.26,
+          "end": 11.46
+        },
+        {
+          "text": "Athens!--But",
+          "start": 11.46,
+          "end": 12.54
+        },
+        {
+          "text": "whence",
+          "start": 12.54,
+          "end": 12.76
+        },
+        {
+          "text": "com'st",
+          "start": 12.76,
+          "end": 13.07
+        },
+        {
+          "text": "thou",
+          "start": 13.38,
+          "end": 13.56
+        },
+        {
+          "text": "journeying?",
+          "start": 13.56,
+          "end": 14.1
+        }
+      ],
+      "stats": {
+        "expected_words": 35,
+        "heard_words": 36,
+        "matched_words": 31
+      },
+      "match_ratio": 0.8857142857142857,
+      "rejection_reasons": [],
+      "seconds": 0.6122484831139445
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "92be5f81a8476371f75425766258a63fcc45207886d115c68726b1b3960568a7",
+  "selected_reasons": []
+}

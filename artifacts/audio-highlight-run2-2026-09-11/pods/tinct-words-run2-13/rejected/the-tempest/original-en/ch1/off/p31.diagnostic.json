@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "dc0ed2b48efef6403345bb7b26253a99a81ae35543e940aedc912c12ef680717",
+  "attempts": [
+    {
+      "asr_seconds": 0.23600850626826286,
+      "alignment_seconds": 0.0004553999751806259,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Mariners, all lost, to prayers to prayers, all lost.",
+          "start": 0.05,
+          "end": 3.61,
+          "words": [
+            {
+              "text": " Mariners,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.58642578125
+            },
+            {
+              "text": " all",
+              "start": 1.23,
+              "end": 1.27,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " lost,",
+              "start": 1.27,
+              "end": 1.63,
+              "probability": 0.978515625
+            },
+            {
+              "text": " to",
+              "start": 1.99,
+              "end": 2.05,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " prayers",
+              "start": 2.05,
+              "end": 2.31,
+              "probability": 0.9609375
+            },
+            {
+              "text": " to",
+              "start": 2.31,
+              "end": 2.53,
+              "probability": 0.65185546875
+            },
+            {
+              "text": " prayers,",
+              "start": 2.53,
+              "end": 2.83,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " all",
+              "start": 3.11,
+              "end": 3.25,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " lost.",
+              "start": 3.25,
+              "end": 3.61,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mariners,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "all",
+          "start": 1.23,
+          "end": 1.27
+        },
+        {
+          "raw": "lost,",
+          "start": 1.27,
+          "end": 1.63
+        },
+        {
+          "raw": "to",
+          "start": 1.99,
+          "end": 2.05
+        },
+        {
+          "raw": "prayers",
+          "start": 2.05,
+          "end": 2.31
+        },
+        {
+          "raw": "to",
+          "start": 2.31,
+          "end": 2.53
+        },
+        {
+          "raw": "prayers,",
+          "start": 2.53,
+          "end": 2.83
+        },
+        {
+          "raw": "all",
+          "start": 3.11,
+          "end": 3.25
+        },
+        {
+          "raw": "lost.",
+          "start": 3.25,
+          "end": 3.61
+        }
+      ],
+      "expected_tokens": [
+        "Mariners.",
+        "All",
+        "lost!",
+        "to",
+        "prayers,",
+        "to",
+        "prayers!",
+        "all",
+        "lost!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mariners,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "mariners",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.23,
+          "end": 1.27,
+          "key": "all",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lost,",
+          "start": 1.27,
+          "end": 1.63,
+          "key": "lost",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.99,
+          "end": 2.05,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "prayers",
+          "start": 2.05,
+          "end": 2.31,
+          "key": "prayers",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.31,
+          "end": 2.53,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "prayers,",
+          "start": 2.53,
+          "end": 2.83,
+          "key": "prayers",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 3.11,
+          "end": 3.25,
+          "key": "all",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "lost.",
+          "start": 3.25,
+          "end": 3.61,
+          "key": "lost",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Mariners.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "All",
+          "start": 1.23,
+          "end": 1.27
+        },
+        {
+          "text": "lost!",
+          "start": 1.27,
+          "end": 1.63
+        },
+        {
+          "text": "to",
+          "start": 1.99,
+          "end": 2.05
+        },
+        {
+          "text": "prayers,",
+          "start": 2.05,
+          "end": 2.31
+        },
+        {
+          "text": "to",
+          "start": 2.31,
+          "end": 2.53
+        },
+        {
+          "text": "prayers!",
+          "start": 2.53,
+          "end": 2.83
+        },
+        {
+          "text": "all",
+          "start": 3.11,
+          "end": 3.25
+        },
+        {
+          "text": "lost!",
+          "start": 3.25,
+          "end": 3.61
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2366012167185545
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ea0877d7de60bc4ec97223575a2cf77c1bca20dfb6bb096a6c5d7bfb00b85ddf",
+  "selected_reasons": []
+}
