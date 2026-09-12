@@ -1272,3 +1272,94 @@ asset:
 
 Report live evidence back to the package `status.json` and the generated inventory
 only after those checks pass. Validated is not deployed.
+
+## Lane A automation batch 8: Walden
+
+Authored on branch `claude/tinct-character-content-1n5iqq` by the Lane A
+automated author per `AUTOMATION-QUEUE.md`. Queued, not production
+verified; this lane never sets `appStatus`.
+
+| Book | Content commit | Original / modern entries | Builder |
+|---|---:|---:|---|
+| Walden | 8bb32e4ac | 121 / 121 | build_walden.py |
+
+| Book | original-en | modern-en |
+|---|---|---|
+| Walden | 880a909fb8da73db303b4b2ea43be64a1800bdafd82ffcac7cb2847232ed5cb3 | d2d20614cb168f7dac5413213f98d41a9d21bd90ac3126fa592e52b58571f8ec |
+
+206 exact mentions in each edition, across all 18 chapters and 502
+paragraphs per edition. One omitted entity, on both editions alike (see
+below). Commands: `python3 books/characters/build_walden.py --check`,
+then `python3 -m unittest discover -s books/characters -p 'test_*.py'`.
+Shared dependencies: `build_reviewed.py` and `reviewed_aliases.py`;
+neither was changed.
+
+### Release review points
+
+Per editorial policy's guidance for treatises, the great majority of
+bound entries are Reference -- a philosopher or explorer cited once, a
+god named in passing, an old authority quoted for a fact. One entity is
+Central: **Thoreau** himself, the narrator, never named in the running
+text and carrying no bindable alias, making him the package's one
+omitted entity on both sides. No entity reaches Major -- unlike
+Confessions, Walden has no sustained human companion recurring by name
+across many chapters. Nine are Supporting, for a dedicated narrative
+paragraph or scene each: **John Field**, **Cato Ingraham**, **Brister
+Freeman**, **Fenda**, **Zilpha**, **Hugh Quoil** (the real former
+inhabitants and Baker Farm tenant of Chapters 10 and 14), **John Farmer**
+(a parable figure), and the **Hermit** and **Poet** of Chapter 12's
+staged dialogue.
+
+Five namesake/common-word collisions. Three resolved by location-scoped
+`bind()`: **Cato** (the Elder, quoted for farming advice, vs. Cato
+Ingraham, a formerly enslaved Concord resident -- the text itself
+disambiguates them, "Cato, not Uticensis, but Concordiensis"), **Nutting**
+and **Stratton** (each a bare-surname Chapter 14 former-inhabitant family
+vs. a Chapter 15 individual named in full, then referred to again by
+bare surname in the same sentence). Two resolve with no location scoping:
+**Adam** vs. **Adam Smith** (longest-span-first), and **Say** the
+economist, whose surname collides with the ordinary verb "say"
+capitalized at two unrelated sentence-openings -- bound only by a
+location-scoped match, no global alias at all. A sixth edge case is not a
+collision but a markup one: "**_Atropos_**" is printed with
+markdown-style italic underscores, which the ordinary word-boundary-safe
+alias regex cannot match (underscore is a `\w` character); a dedicated
+custom-bind rule matches the underscored form directly.
+
+Notable "person or not" case: **Flint**, the farmer Thoreau spends a full
+paragraph denouncing over the naming of Flint's Pond, is never named by
+bare surname anywhere in the text -- only the possessive place-name and
+pronouns -- so no card is authored for him, the clearest instance in this
+queue so far of the "features named after founders" caution resolving
+against binding rather than for it.
+
+### No source defects
+
+Unlike Aristotle's Politics, this translation shows no footnote-apparatus
+contamination, OCR corruption, or divergence of any kind between
+editions: both render every name identically, down to the exact mention
+count (206 to 206) and the single omitted entity (Thoreau, on both sides
+for the same reason). One edition-specific apostrophe-style variant
+("Chaucer's nun," typographic vs. straight apostrophe) is aliased on both
+forms so the entity binds in both editions. No source edits.
+
+### Required production checks
+
+Register both English editions, version the immutable asset URL, run the
+normal app gates and deploy, then open the production reader and confirm
+on the fetched asset:
+
+1. A first-encounter card in each edition (1:15, "Adam").
+2. That the two Catos (1:102 vs. 14:1), the two Nuttings (14:8 vs.
+   15:10), and the two Strattons (14:0/14:4 vs. 15:10) each show their
+   own distinct, correctly identified card.
+3. That Adam (1:15) and Adam Smith (1:79) show distinct cards, and that
+   Say (1:79) shows a card while the unrelated capitalized "Say" at 12:1
+   and 18:16 shows none.
+4. That "_Atropos_" at 4:10 shows a card reading "Atropos," not
+   "_Atropos_."
+5. That Flint's Pond (9:9 and elsewhere) shows no card for Flint himself
+   anywhere in the book.
+
+Report live evidence back to the package `status.json` and the generated
+inventory only after those checks pass. Validated is not deployed.
