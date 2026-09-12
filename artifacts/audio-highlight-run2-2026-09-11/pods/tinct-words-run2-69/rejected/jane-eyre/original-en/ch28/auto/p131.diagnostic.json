@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "295221859436e25fc743669e2fa2adb174f92dcdcb565ff8387899833996b3a3",
+  "attempts": [
+    {
+      "asr_seconds": 0.21886082645505667,
+      "alignment_seconds": 0.0005792034789919853,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"A little more, St. John—look at the avidity in her eyes.\"",
+        "hotwords": "A, St, John—look"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " A little more, St. John—look at the avidity in her eyes.",
+          "start": 0.05,
+          "end": 3.67,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.453369140625
+            },
+            {
+              "text": " little",
+              "start": 0.53,
+              "end": 0.65,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " more,",
+              "start": 0.65,
+              "end": 1.03,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " St.",
+              "start": 1.27,
+              "end": 1.49,
+              "probability": 0.478271484375
+            },
+            {
+              "text": " John—look",
+              "start": 1.95,
+              "end": 2.49,
+              "probability": 0.6471608479817709
+            },
+            {
+              "text": " at",
+              "start": 2.49,
+              "end": 2.61,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 2.61,
+              "end": 2.71,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " avidity",
+              "start": 2.71,
+              "end": 3.01,
+              "probability": 0.6478271484375
+            },
+            {
+              "text": " in",
+              "start": 3.01,
+              "end": 3.23,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " her",
+              "start": 3.23,
+              "end": 3.35,
+              "probability": 0.998046875
+            },
+            {
+              "text": " eyes.",
+              "start": 3.35,
+              "end": 3.67,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "little",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "raw": "more,",
+          "start": 0.65,
+          "end": 1.03
+        },
+        {
+          "raw": "St.",
+          "start": 1.27,
+          "end": 1.49
+        },
+        {
+          "raw": "John—look",
+          "start": 1.95,
+          "end": 2.49
+        },
+        {
+          "raw": "at",
+          "start": 2.49,
+          "end": 2.61
+        },
+        {
+          "raw": "the",
+          "start": 2.61,
+          "end": 2.71
+        },
+        {
+          "raw": "avidity",
+          "start": 2.71,
+          "end": 3.01
+        },
+        {
+          "raw": "in",
+          "start": 3.01,
+          "end": 3.23
+        },
+        {
+          "raw": "her",
+          "start": 3.23,
+          "end": 3.35
+        },
+        {
+          "raw": "eyes.",
+          "start": 3.35,
+          "end": 3.67
+        }
+      ],
+      "expected_tokens": [
+        "\"A",
+        "little",
+        "more,",
+        "St.",
+        "John—look",
+        "at",
+        "the",
+        "avidity",
+        "in",
+        "her",
+        "eyes.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 0.53,
+          "end": 0.65,
+          "key": "little",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "more,",
+          "start": 0.65,
+          "end": 1.03,
+          "key": "more",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "St.",
+          "start": 1.27,
+          "end": 1.49,
+          "key": "st",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "John—look",
+          "start": 1.95,
+          "end": 2.49,
+          "key": "johnlook",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.49,
+          "end": 2.61,
+          "key": "at",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.61,
+          "end": 2.71,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "avidity",
+          "start": 2.71,
+          "end": 3.01,
+          "key": "avidity",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.01,
+          "end": 3.23,
+          "key": "in",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.23,
+          "end": 3.35,
+          "key": "her",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "eyes.",
+          "start": 3.35,
+          "end": 3.67,
+          "key": "eyes",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"A",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "little",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "text": "more,",
+          "start": 0.65,
+          "end": 1.03
+        },
+        {
+          "text": "St.",
+          "start": 1.27,
+          "end": 1.49
+        },
+        {
+          "text": "John—look",
+          "start": 1.95,
+          "end": 2.49
+        },
+        {
+          "text": "at",
+          "start": 2.49,
+          "end": 2.61
+        },
+        {
+          "text": "the",
+          "start": 2.61,
+          "end": 2.71
+        },
+        {
+          "text": "avidity",
+          "start": 2.71,
+          "end": 3.01
+        },
+        {
+          "text": "in",
+          "start": 3.01,
+          "end": 3.23
+        },
+        {
+          "text": "her",
+          "start": 3.23,
+          "end": 3.35
+        },
+        {
+          "text": "eyes.\"",
+          "start": 3.35,
+          "end": 3.67
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21968331839889288
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6366a5b9a26e61104568759aa33a37deb5ea5a048611b43235785bbad35ba817",
+  "selected_reasons": []
+}

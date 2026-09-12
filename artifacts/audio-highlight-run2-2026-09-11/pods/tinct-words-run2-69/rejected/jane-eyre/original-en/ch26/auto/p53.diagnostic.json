@@ -1,0 +1,821 @@
+{
+  "complete": true,
+  "signature": "9fb1a9b2f2ef17474848e19ec89f213fecd75dbf31e56c976d11fd977a95f140",
+  "attempts": [
+    {
+      "asr_seconds": 0.20771854929625988,
+      "alignment_seconds": 0.0004617292433977127,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Courage,\" urged the lawyer,—\"speak out.\"",
+        "hotwords": "Courage"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Courage, urged the lawyer,—\"speak out.\"",
+          "start": 0.05,
+          "end": 2.91,
+          "words": [
+            {
+              "text": " Courage,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.8603515625
+            },
+            {
+              "text": " urged",
+              "start": 1.19,
+              "end": 1.25,
+              "probability": 0.002124786376953125
+            },
+            {
+              "text": " the",
+              "start": 1.25,
+              "end": 1.43,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " lawyer",
+              "start": 1.43,
+              "end": 1.69,
+              "probability": 0.8740234375
+            },
+            {
+              "text": ",—\"speak",
+              "start": 1.69,
+              "end": 2.07,
+              "probability": 0.35107421875
+            },
+            {
+              "text": " out.\"",
+              "start": 2.07,
+              "end": 2.91,
+              "probability": 0.925048828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Courage,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "urged",
+          "start": 1.19,
+          "end": 1.25
+        },
+        {
+          "raw": "the",
+          "start": 1.25,
+          "end": 1.43
+        },
+        {
+          "raw": "lawyer",
+          "start": 1.43,
+          "end": 1.69
+        },
+        {
+          "raw": ",—\"speak",
+          "start": 1.69,
+          "end": 2.07
+        },
+        {
+          "raw": "out.\"",
+          "start": 2.07,
+          "end": 2.91
+        }
+      ],
+      "expected_tokens": [
+        "\"Courage,\"",
+        "urged",
+        "the",
+        "lawyer,—\"speak",
+        "out.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          5,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Courage,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "courage",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "urged",
+          "start": 1.19,
+          "end": 1.25,
+          "key": "urged",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.25,
+          "end": 1.43,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lawyer",
+          "start": 1.43,
+          "end": 1.69,
+          "key": "lawyer",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": ",—\"speak",
+          "start": 1.69,
+          "end": 2.07,
+          "key": "speak",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "out.\"",
+          "start": 2.07,
+          "end": 2.91,
+          "key": "out",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Courage,\"",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "urged",
+          "start": 1.19,
+          "end": 1.25
+        },
+        {
+          "text": "the",
+          "start": 1.25,
+          "end": 1.43
+        },
+        {
+          "text": "lawyer,—\"speak",
+          "start": 1.43,
+          "end": 1.75
+        },
+        {
+          "text": "out.\"",
+          "start": 2.07,
+          "end": 2.91
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20832351874560118
+    },
+    {
+      "asr_seconds": 0.2069457694888115,
+      "alignment_seconds": 0.0004581129178404808,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Courage"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Courage urge the lawyer speak out",
+          "start": 0.05,
+          "end": 2.61,
+          "words": [
+            {
+              "text": " Courage",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.8603515625
+            },
+            {
+              "text": " urge",
+              "start": 0.71,
+              "end": 1.25,
+              "probability": 0.227783203125
+            },
+            {
+              "text": " the",
+              "start": 1.25,
+              "end": 1.43,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " lawyer",
+              "start": 1.43,
+              "end": 1.69,
+              "probability": 0.74951171875
+            },
+            {
+              "text": " speak",
+              "start": 1.69,
+              "end": 2.07,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " out",
+              "start": 2.07,
+              "end": 2.61,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Courage",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "urge",
+          "start": 0.71,
+          "end": 1.25
+        },
+        {
+          "raw": "the",
+          "start": 1.25,
+          "end": 1.43
+        },
+        {
+          "raw": "lawyer",
+          "start": 1.43,
+          "end": 1.69
+        },
+        {
+          "raw": "speak",
+          "start": 1.69,
+          "end": 2.07
+        },
+        {
+          "raw": "out",
+          "start": 2.07,
+          "end": 2.61
+        }
+      ],
+      "expected_tokens": [
+        "\"Courage,\"",
+        "urged",
+        "the",
+        "lawyer,—\"speak",
+        "out.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          5,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Courage",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "courage",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "urge",
+          "start": 0.71,
+          "end": 1.25,
+          "key": "urge",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.25,
+          "end": 1.43,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lawyer",
+          "start": 1.43,
+          "end": 1.69,
+          "key": "lawyer",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 1.69,
+          "end": 2.07,
+          "key": "speak",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 2.07,
+          "end": 2.61,
+          "key": "out",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Courage,\"",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "urged",
+          "start": 0.71,
+          "end": 0.98
+        },
+        {
+          "text": "the",
+          "start": 1.25,
+          "end": 1.43
+        },
+        {
+          "text": "lawyer,—\"speak",
+          "start": 1.43,
+          "end": 1.75
+        },
+        {
+          "text": "out.\"",
+          "start": 2.07,
+          "end": 2.61
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 3
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2075466914102435
+    },
+    {
+      "asr_seconds": 0.19544815365225077,
+      "alignment_seconds": 0.00046815816313028336,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Courage urge the lawyer speak out",
+          "start": 0.05,
+          "end": 2.61,
+          "words": [
+            {
+              "text": " Courage",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.8603515625
+            },
+            {
+              "text": " urge",
+              "start": 0.71,
+              "end": 1.25,
+              "probability": 0.227783203125
+            },
+            {
+              "text": " the",
+              "start": 1.25,
+              "end": 1.43,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " lawyer",
+              "start": 1.43,
+              "end": 1.69,
+              "probability": 0.74951171875
+            },
+            {
+              "text": " speak",
+              "start": 1.69,
+              "end": 2.07,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " out",
+              "start": 2.07,
+              "end": 2.61,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Courage",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "urge",
+          "start": 0.71,
+          "end": 1.25
+        },
+        {
+          "raw": "the",
+          "start": 1.25,
+          "end": 1.43
+        },
+        {
+          "raw": "lawyer",
+          "start": 1.43,
+          "end": 1.69
+        },
+        {
+          "raw": "speak",
+          "start": 1.69,
+          "end": 2.07
+        },
+        {
+          "raw": "out",
+          "start": 2.07,
+          "end": 2.61
+        }
+      ],
+      "expected_tokens": [
+        "\"Courage,\"",
+        "urged",
+        "the",
+        "lawyer,—\"speak",
+        "out.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          5,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Courage",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "courage",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "urge",
+          "start": 0.71,
+          "end": 1.25,
+          "key": "urge",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.25,
+          "end": 1.43,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lawyer",
+          "start": 1.43,
+          "end": 1.69,
+          "key": "lawyer",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 1.69,
+          "end": 2.07,
+          "key": "speak",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 2.07,
+          "end": 2.61,
+          "key": "out",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Courage,\"",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "urged",
+          "start": 0.71,
+          "end": 0.98
+        },
+        {
+          "text": "the",
+          "start": 1.25,
+          "end": 1.43
+        },
+        {
+          "text": "lawyer,—\"speak",
+          "start": 1.43,
+          "end": 1.75
+        },
+        {
+          "text": "out.\"",
+          "start": 2.07,
+          "end": 2.61
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 3
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1960927676409483
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "94e8846fa144cf3660c5a96fa1dfb1c9d0e87ba6dd025c72b6ed7943ae92b90c",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "4295a37c8b6f2fd7f08ede07aee36c0a890638b65d91cc1c5e51d2e5ae3c3d48",
+  "attempts": [
+    {
+      "asr_seconds": 0.22778914403170347,
+      "alignment_seconds": 0.0005319146439433098,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Ask me something now, Janet,—the least thing: I desire to be entreated—\"",
+        "hotwords": "Ask, Janet,—the, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ask me something now, Janet,—the least thing. I desire to be entreated.",
+          "start": 0.14,
+          "end": 4.14,
+          "words": [
+            {
+              "text": " Ask",
+              "start": 0.14,
+              "end": 0.58,
+              "probability": 0.78271484375
+            },
+            {
+              "text": " me",
+              "start": 0.58,
+              "end": 0.74,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " something",
+              "start": 0.74,
+              "end": 0.92,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " now,",
+              "start": 0.92,
+              "end": 1.3,
+              "probability": 0.986328125
+            },
+            {
+              "text": " Janet,—the",
+              "start": 1.5,
+              "end": 2.12,
+              "probability": 0.6341148416201273
+            },
+            {
+              "text": " least",
+              "start": 2.12,
+              "end": 2.26,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " thing.",
+              "start": 2.26,
+              "end": 2.6,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 2.98,
+              "end": 3.12,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " desire",
+              "start": 3.12,
+              "end": 3.4,
+              "probability": 0.994140625
+            },
+            {
+              "text": " to",
+              "start": 3.4,
+              "end": 3.6,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " be",
+              "start": 3.6,
+              "end": 3.72,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " entreated.",
+              "start": 3.72,
+              "end": 4.14,
+              "probability": 0.8681640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ask",
+          "start": 0.14,
+          "end": 0.58
+        },
+        {
+          "raw": "me",
+          "start": 0.58,
+          "end": 0.74
+        },
+        {
+          "raw": "something",
+          "start": 0.74,
+          "end": 0.92
+        },
+        {
+          "raw": "now,",
+          "start": 0.92,
+          "end": 1.3
+        },
+        {
+          "raw": "Janet,—the",
+          "start": 1.5,
+          "end": 2.12
+        },
+        {
+          "raw": "least",
+          "start": 2.12,
+          "end": 2.26
+        },
+        {
+          "raw": "thing.",
+          "start": 2.26,
+          "end": 2.6
+        },
+        {
+          "raw": "I",
+          "start": 2.98,
+          "end": 3.12
+        },
+        {
+          "raw": "desire",
+          "start": 3.12,
+          "end": 3.4
+        },
+        {
+          "raw": "to",
+          "start": 3.4,
+          "end": 3.6
+        },
+        {
+          "raw": "be",
+          "start": 3.6,
+          "end": 3.72
+        },
+        {
+          "raw": "entreated.",
+          "start": 3.72,
+          "end": 4.14
+        }
+      ],
+      "expected_tokens": [
+        "\"Ask",
+        "me",
+        "something",
+        "now,",
+        "Janet,—the",
+        "least",
+        "thing:",
+        "I",
+        "desire",
+        "to",
+        "be",
+        "entreated—\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ask",
+          "start": 0.14,
+          "end": 0.58,
+          "key": "ask",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 0.58,
+          "end": 0.74,
+          "key": "me",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "something",
+          "start": 0.74,
+          "end": 0.92,
+          "key": "something",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "now,",
+          "start": 0.92,
+          "end": 1.3,
+          "key": "now",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Janet,—the",
+          "start": 1.5,
+          "end": 2.12,
+          "key": "janetthe",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "least",
+          "start": 2.12,
+          "end": 2.26,
+          "key": "least",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "thing.",
+          "start": 2.26,
+          "end": 2.6,
+          "key": "thing",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.98,
+          "end": 3.12,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "desire",
+          "start": 3.12,
+          "end": 3.4,
+          "key": "desire",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.4,
+          "end": 3.6,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.6,
+          "end": 3.72,
+          "key": "be",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "entreated.",
+          "start": 3.72,
+          "end": 4.14,
+          "key": "entreated",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Ask",
+          "start": 0.14,
+          "end": 0.58
+        },
+        {
+          "text": "me",
+          "start": 0.58,
+          "end": 0.74
+        },
+        {
+          "text": "something",
+          "start": 0.74,
+          "end": 0.92
+        },
+        {
+          "text": "now,",
+          "start": 0.92,
+          "end": 1.3
+        },
+        {
+          "text": "Janet,—the",
+          "start": 1.5,
+          "end": 2.12
+        },
+        {
+          "text": "least",
+          "start": 2.12,
+          "end": 2.26
+        },
+        {
+          "text": "thing:",
+          "start": 2.26,
+          "end": 2.6
+        },
+        {
+          "text": "I",
+          "start": 2.98,
+          "end": 3.12
+        },
+        {
+          "text": "desire",
+          "start": 3.12,
+          "end": 3.4
+        },
+        {
+          "text": "to",
+          "start": 3.4,
+          "end": 3.6
+        },
+        {
+          "text": "be",
+          "start": 3.6,
+          "end": 3.72
+        },
+        {
+          "text": "entreated—\"",
+          "start": 3.72,
+          "end": 4.14
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22852195240557194
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "efecf65e14d577f02d91d9d836e3179b2207885204c971051511a4f7bc6fff18",
+  "selected_reasons": []
+}

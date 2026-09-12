@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "e7ea5e306059780670f221e038a51dc78915c45869e6a710acd78e936fa2cc44",
+  "attempts": [
+    {
+      "asr_seconds": 0.1119892643764615,
+      "alignment_seconds": 0.0003063324838876724,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Describe it, Jane.",
+          "start": 0.48,
+          "end": 1.16,
+          "words": [
+            {
+              "text": " Describe",
+              "start": 0.48,
+              "end": 0.8,
+              "probability": 0.960205078125
+            },
+            {
+              "text": " it,",
+              "start": 0.8,
+              "end": 0.96,
+              "probability": 0.97265625
+            },
+            {
+              "text": " Jane.",
+              "start": 1.08,
+              "end": 1.16,
+              "probability": 0.98193359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Describe",
+          "start": 0.48,
+          "end": 0.8
+        },
+        {
+          "raw": "it,",
+          "start": 0.8,
+          "end": 0.96
+        },
+        {
+          "raw": "Jane.",
+          "start": 1.08,
+          "end": 1.16
+        }
+      ],
+      "expected_tokens": [
+        "\"Describe",
+        "it,",
+        "Jane.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Describe",
+          "start": 0.48,
+          "end": 0.8,
+          "key": "describe",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "it,",
+          "start": 0.8,
+          "end": 0.96,
+          "key": "it",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Jane.",
+          "start": 1.08,
+          "end": 1.16,
+          "key": "jane",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Describe",
+          "start": 0.48,
+          "end": 0.8
+        },
+        {
+          "text": "it,",
+          "start": 0.8,
+          "end": 0.96
+        },
+        {
+          "text": "Jane.\"",
+          "start": 1.08,
+          "end": 1.16
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11239878088235855
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e4e42f989d634c6fb1fefbfbfe4863ccc0675d72c805365780d47d4df147e477",
+  "selected_reasons": []
+}

@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "09c19ad5b0de7a128d8718d025e650336dcdadba98c4704f650307226957a070",
+  "attempts": [
+    {
+      "asr_seconds": 0.13326445687562227,
+      "alignment_seconds": 0.00035557616502046585,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Would he be in soon?\"",
+        "hotwords": "Would"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Would he be in soon?",
+          "start": 0.02,
+          "end": 1.22,
+          "words": [
+            {
+              "text": " Would",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.45361328125
+            },
+            {
+              "text": " he",
+              "start": 0.52,
+              "end": 0.66,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " be",
+              "start": 0.66,
+              "end": 0.8,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " in",
+              "start": 0.8,
+              "end": 0.92,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " soon?",
+              "start": 0.92,
+              "end": 1.22,
+              "probability": 0.9814453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Would",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "he",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "raw": "be",
+          "start": 0.66,
+          "end": 0.8
+        },
+        {
+          "raw": "in",
+          "start": 0.8,
+          "end": 0.92
+        },
+        {
+          "raw": "soon?",
+          "start": 0.92,
+          "end": 1.22
+        }
+      ],
+      "expected_tokens": [
+        "\"Would",
+        "he",
+        "be",
+        "in",
+        "soon?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Would",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "would",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.52,
+          "end": 0.66,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 0.66,
+          "end": 0.8,
+          "key": "be",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.8,
+          "end": 0.92,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "soon?",
+          "start": 0.92,
+          "end": 1.22,
+          "key": "soon",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Would",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "he",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "text": "be",
+          "start": 0.66,
+          "end": 0.8
+        },
+        {
+          "text": "in",
+          "start": 0.8,
+          "end": 0.92
+        },
+        {
+          "text": "soon?\"",
+          "start": 0.92,
+          "end": 1.22
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13376852683722973
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a4bd436b1996ca395525dd9e4aca326e20ed48141cd0217afffd6cc70fd90a41",
+  "selected_reasons": []
+}

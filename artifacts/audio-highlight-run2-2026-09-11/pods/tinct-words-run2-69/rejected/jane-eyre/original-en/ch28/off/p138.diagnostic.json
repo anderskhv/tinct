@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "4ad9152e88b1b0827da26631b818d371d91c0997448903d9413da62ed9b005ef",
+  "attempts": [
+    {
+      "asr_seconds": 0.14512434229254723,
+      "alignment_seconds": 0.0004192311316728592,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " What account can you give of yourself?",
+          "start": 0.02,
+          "end": 1.74,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.89111328125
+            },
+            {
+              "text": " account",
+              "start": 0.56,
+              "end": 0.84,
+              "probability": 0.990234375
+            },
+            {
+              "text": " can",
+              "start": 0.84,
+              "end": 1.06,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " you",
+              "start": 1.06,
+              "end": 1.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " give",
+              "start": 1.16,
+              "end": 1.3,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 1.3,
+              "end": 1.4,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " yourself?",
+              "start": 1.4,
+              "end": 1.74,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "account",
+          "start": 0.56,
+          "end": 0.84
+        },
+        {
+          "raw": "can",
+          "start": 0.84,
+          "end": 1.06
+        },
+        {
+          "raw": "you",
+          "start": 1.06,
+          "end": 1.16
+        },
+        {
+          "raw": "give",
+          "start": 1.16,
+          "end": 1.3
+        },
+        {
+          "raw": "of",
+          "start": 1.3,
+          "end": 1.4
+        },
+        {
+          "raw": "yourself?",
+          "start": 1.4,
+          "end": 1.74
+        }
+      ],
+      "expected_tokens": [
+        "\"What",
+        "account",
+        "can",
+        "you",
+        "give",
+        "of",
+        "yourself?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "account",
+          "start": 0.56,
+          "end": 0.84,
+          "key": "account",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 0.84,
+          "end": 1.06,
+          "key": "can",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.06,
+          "end": 1.16,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 1.16,
+          "end": 1.3,
+          "key": "give",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.3,
+          "end": 1.4,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "yourself?",
+          "start": 1.4,
+          "end": 1.74,
+          "key": "yourself",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"What",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "account",
+          "start": 0.56,
+          "end": 0.84
+        },
+        {
+          "text": "can",
+          "start": 0.84,
+          "end": 1.06
+        },
+        {
+          "text": "you",
+          "start": 1.06,
+          "end": 1.16
+        },
+        {
+          "text": "give",
+          "start": 1.16,
+          "end": 1.3
+        },
+        {
+          "text": "of",
+          "start": 1.3,
+          "end": 1.4
+        },
+        {
+          "text": "yourself?\"",
+          "start": 1.4,
+          "end": 1.74
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14569958206266165
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6326e317c8421f4688280e9b25914ef2f53b460bc965078dd04aa570123757f3",
+  "selected_reasons": []
+}

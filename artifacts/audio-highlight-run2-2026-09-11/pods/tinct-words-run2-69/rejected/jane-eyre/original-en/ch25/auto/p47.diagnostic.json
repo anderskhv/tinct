@@ -1,0 +1,670 @@
+{
+  "complete": true,
+  "signature": "ac6b0ad8dc2371d3f75f87fbfe57c52fcdfceb33fa59c40c98d82375e6eb0fe6",
+  "attempts": [
+    {
+      "asr_seconds": 0.34736695140600204,
+      "alignment_seconds": 0.0007533757016062737,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "I looked up at him to read the signs of bliss in his face: it was ardent and flushed.",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I looked up at him to read the signs of bliss in his face. It was ardent and flushed.",
+          "start": 0.08,
+          "end": 4.88,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.900390625
+            },
+            {
+              "text": " looked",
+              "start": 0.52,
+              "end": 0.68,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " up",
+              "start": 0.68,
+              "end": 0.86,
+              "probability": 0.998046875
+            },
+            {
+              "text": " at",
+              "start": 0.86,
+              "end": 1.02,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " him",
+              "start": 1.02,
+              "end": 1.16,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " to",
+              "start": 1.16,
+              "end": 1.36,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " read",
+              "start": 1.36,
+              "end": 1.52,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 1.52,
+              "end": 1.7,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " signs",
+              "start": 1.7,
+              "end": 1.98,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " of",
+              "start": 1.98,
+              "end": 2.2,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " bliss",
+              "start": 2.2,
+              "end": 2.42,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " in",
+              "start": 2.42,
+              "end": 2.6,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " his",
+              "start": 2.6,
+              "end": 2.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " face.",
+              "start": 2.74,
+              "end": 3.06,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " It",
+              "start": 3.66,
+              "end": 3.76,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " was",
+              "start": 3.76,
+              "end": 3.86,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " ardent",
+              "start": 3.86,
+              "end": 4.2,
+              "probability": 0.9609375
+            },
+            {
+              "text": " and",
+              "start": 4.2,
+              "end": 4.54,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " flushed.",
+              "start": 4.54,
+              "end": 4.88,
+              "probability": 0.97607421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "looked",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "raw": "up",
+          "start": 0.68,
+          "end": 0.86
+        },
+        {
+          "raw": "at",
+          "start": 0.86,
+          "end": 1.02
+        },
+        {
+          "raw": "him",
+          "start": 1.02,
+          "end": 1.16
+        },
+        {
+          "raw": "to",
+          "start": 1.16,
+          "end": 1.36
+        },
+        {
+          "raw": "read",
+          "start": 1.36,
+          "end": 1.52
+        },
+        {
+          "raw": "the",
+          "start": 1.52,
+          "end": 1.7
+        },
+        {
+          "raw": "signs",
+          "start": 1.7,
+          "end": 1.98
+        },
+        {
+          "raw": "of",
+          "start": 1.98,
+          "end": 2.2
+        },
+        {
+          "raw": "bliss",
+          "start": 2.2,
+          "end": 2.42
+        },
+        {
+          "raw": "in",
+          "start": 2.42,
+          "end": 2.6
+        },
+        {
+          "raw": "his",
+          "start": 2.6,
+          "end": 2.74
+        },
+        {
+          "raw": "face.",
+          "start": 2.74,
+          "end": 3.06
+        },
+        {
+          "raw": "It",
+          "start": 3.66,
+          "end": 3.76
+        },
+        {
+          "raw": "was",
+          "start": 3.76,
+          "end": 3.86
+        },
+        {
+          "raw": "ardent",
+          "start": 3.86,
+          "end": 4.2
+        },
+        {
+          "raw": "and",
+          "start": 4.2,
+          "end": 4.54
+        },
+        {
+          "raw": "flushed.",
+          "start": 4.54,
+          "end": 4.88
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "looked",
+        "up",
+        "at",
+        "him",
+        "to",
+        "read",
+        "the",
+        "signs",
+        "of",
+        "bliss",
+        "in",
+        "his",
+        "face:",
+        "it",
+        "was",
+        "ardent",
+        "and",
+        "flushed."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 0.52,
+          "end": 0.68,
+          "key": "looked",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 0.68,
+          "end": 0.86,
+          "key": "up",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 0.86,
+          "end": 1.02,
+          "key": "at",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 1.02,
+          "end": 1.16,
+          "key": "him",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.16,
+          "end": 1.36,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "read",
+          "start": 1.36,
+          "end": 1.52,
+          "key": "read",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.52,
+          "end": 1.7,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "signs",
+          "start": 1.7,
+          "end": 1.98,
+          "key": "signs",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.98,
+          "end": 2.2,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "bliss",
+          "start": 2.2,
+          "end": 2.42,
+          "key": "bliss",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.42,
+          "end": 2.6,
+          "key": "in",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.6,
+          "end": 2.74,
+          "key": "his",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "face.",
+          "start": 2.74,
+          "end": 3.06,
+          "key": "face",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 3.66,
+          "end": 3.76,
+          "key": "it",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 3.76,
+          "end": 3.86,
+          "key": "was",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "ardent",
+          "start": 3.86,
+          "end": 4.2,
+          "key": "ardent",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.2,
+          "end": 4.54,
+          "key": "and",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "flushed.",
+          "start": 4.54,
+          "end": 4.88,
+          "key": "flushed",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "looked",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "text": "up",
+          "start": 0.68,
+          "end": 0.86
+        },
+        {
+          "text": "at",
+          "start": 0.86,
+          "end": 1.02
+        },
+        {
+          "text": "him",
+          "start": 1.02,
+          "end": 1.16
+        },
+        {
+          "text": "to",
+          "start": 1.16,
+          "end": 1.36
+        },
+        {
+          "text": "read",
+          "start": 1.36,
+          "end": 1.52
+        },
+        {
+          "text": "the",
+          "start": 1.52,
+          "end": 1.7
+        },
+        {
+          "text": "signs",
+          "start": 1.7,
+          "end": 1.98
+        },
+        {
+          "text": "of",
+          "start": 1.98,
+          "end": 2.2
+        },
+        {
+          "text": "bliss",
+          "start": 2.2,
+          "end": 2.42
+        },
+        {
+          "text": "in",
+          "start": 2.42,
+          "end": 2.6
+        },
+        {
+          "text": "his",
+          "start": 2.6,
+          "end": 2.74
+        },
+        {
+          "text": "face:",
+          "start": 2.74,
+          "end": 3.06
+        },
+        {
+          "text": "it",
+          "start": 3.66,
+          "end": 3.76
+        },
+        {
+          "text": "was",
+          "start": 3.76,
+          "end": 3.86
+        },
+        {
+          "text": "ardent",
+          "start": 3.86,
+          "end": 4.2
+        },
+        {
+          "text": "and",
+          "start": 4.2,
+          "end": 4.54
+        },
+        {
+          "text": "flushed.",
+          "start": 4.54,
+          "end": 4.88
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.34844460245221853
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "42cdf476ee3525ca113a9deaa6772075f135ef70441f40a86b591936818d7186",
+  "selected_reasons": []
+}

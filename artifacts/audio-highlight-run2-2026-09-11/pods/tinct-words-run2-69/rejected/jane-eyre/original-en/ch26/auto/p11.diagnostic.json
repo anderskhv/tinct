@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "b2fdbf8731598b9d2ce21814c68290b2e10e15d7c7705eb70ea256531fb34150",
+  "attempts": [
+    {
+      "asr_seconds": 0.19100825488567352,
+      "alignment_seconds": 0.0005299560725688934,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Mr. Wood is in the vestry, sir, putting on his surplice.\"",
+        "hotwords": "Mr, Wood"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mr. Wood is in the vestry, sir, putting on his surplice.",
+          "start": 0.05,
+          "end": 3.53,
+          "words": [
+            {
+              "text": " Mr.",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.67578125
+            },
+            {
+              "text": " Wood",
+              "start": 0.95,
+              "end": 0.97,
+              "probability": 0.9921875
+            },
+            {
+              "text": " is",
+              "start": 0.97,
+              "end": 1.17,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " in",
+              "start": 1.17,
+              "end": 1.29,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 1.29,
+              "end": 1.39,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " vestry,",
+              "start": 1.39,
+              "end": 1.85,
+              "probability": 0.985595703125
+            },
+            {
+              "text": " sir,",
+              "start": 2.01,
+              "end": 2.09,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " putting",
+              "start": 2.47,
+              "end": 2.63,
+              "probability": 0.994140625
+            },
+            {
+              "text": " on",
+              "start": 2.63,
+              "end": 2.83,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 2.83,
+              "end": 2.99,
+              "probability": 0.998046875
+            },
+            {
+              "text": " surplice.",
+              "start": 2.99,
+              "end": 3.53,
+              "probability": 0.6155001322428385
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mr.",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "Wood",
+          "start": 0.95,
+          "end": 0.97
+        },
+        {
+          "raw": "is",
+          "start": 0.97,
+          "end": 1.17
+        },
+        {
+          "raw": "in",
+          "start": 1.17,
+          "end": 1.29
+        },
+        {
+          "raw": "the",
+          "start": 1.29,
+          "end": 1.39
+        },
+        {
+          "raw": "vestry,",
+          "start": 1.39,
+          "end": 1.85
+        },
+        {
+          "raw": "sir,",
+          "start": 2.01,
+          "end": 2.09
+        },
+        {
+          "raw": "putting",
+          "start": 2.47,
+          "end": 2.63
+        },
+        {
+          "raw": "on",
+          "start": 2.63,
+          "end": 2.83
+        },
+        {
+          "raw": "his",
+          "start": 2.83,
+          "end": 2.99
+        },
+        {
+          "raw": "surplice.",
+          "start": 2.99,
+          "end": 3.53
+        }
+      ],
+      "expected_tokens": [
+        "\"Mr.",
+        "Wood",
+        "is",
+        "in",
+        "the",
+        "vestry,",
+        "sir,",
+        "putting",
+        "on",
+        "his",
+        "surplice.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mr.",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "mr",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Wood",
+          "start": 0.95,
+          "end": 0.97,
+          "key": "wood",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.97,
+          "end": 1.17,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.17,
+          "end": 1.29,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.29,
+          "end": 1.39,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "vestry,",
+          "start": 1.39,
+          "end": 1.85,
+          "key": "vestry",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 2.01,
+          "end": 2.09,
+          "key": "sir",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "putting",
+          "start": 2.47,
+          "end": 2.63,
+          "key": "putting",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.63,
+          "end": 2.83,
+          "key": "on",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.83,
+          "end": 2.99,
+          "key": "his",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "surplice.",
+          "start": 2.99,
+          "end": 3.53,
+          "key": "surplice",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Mr.",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "Wood",
+          "start": 0.95,
+          "end": 0.97
+        },
+        {
+          "text": "is",
+          "start": 0.97,
+          "end": 1.17
+        },
+        {
+          "text": "in",
+          "start": 1.17,
+          "end": 1.29
+        },
+        {
+          "text": "the",
+          "start": 1.29,
+          "end": 1.39
+        },
+        {
+          "text": "vestry,",
+          "start": 1.39,
+          "end": 1.85
+        },
+        {
+          "text": "sir,",
+          "start": 2.01,
+          "end": 2.09
+        },
+        {
+          "text": "putting",
+          "start": 2.47,
+          "end": 2.63
+        },
+        {
+          "text": "on",
+          "start": 2.63,
+          "end": 2.83
+        },
+        {
+          "text": "his",
+          "start": 2.83,
+          "end": 2.99
+        },
+        {
+          "text": "surplice.\"",
+          "start": 2.99,
+          "end": 3.53
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19174362439662218
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "70eea5c167458a041f27b3159ef0fa1630175053167d0f93bbef0c0cb9736728",
+  "selected_reasons": []
+}

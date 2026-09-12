@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "3833aca878a41484c592737be5a9a57f05c82304347862b0502d99a7b473cff9",
+  "attempts": [
+    {
+      "asr_seconds": 0.18142488785088062,
+      "alignment_seconds": 0.0003646165132522583,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I must; the rain is driving in—\"",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I must. The rain is driving in.",
+          "start": 0.08,
+          "end": 2.18,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.88916015625
+            },
+            {
+              "text": " must.",
+              "start": 0.52,
+              "end": 0.74,
+              "probability": 0.986328125
+            },
+            {
+              "text": " The",
+              "start": 1.14,
+              "end": 1.22,
+              "probability": 0.982421875
+            },
+            {
+              "text": " rain",
+              "start": 1.22,
+              "end": 1.4,
+              "probability": 0.9921875
+            },
+            {
+              "text": " is",
+              "start": 1.4,
+              "end": 1.56,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " driving",
+              "start": 1.56,
+              "end": 1.86,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " in.",
+              "start": 1.86,
+              "end": 2.18,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "must.",
+          "start": 0.52,
+          "end": 0.74
+        },
+        {
+          "raw": "The",
+          "start": 1.14,
+          "end": 1.22
+        },
+        {
+          "raw": "rain",
+          "start": 1.22,
+          "end": 1.4
+        },
+        {
+          "raw": "is",
+          "start": 1.4,
+          "end": 1.56
+        },
+        {
+          "raw": "driving",
+          "start": 1.56,
+          "end": 1.86
+        },
+        {
+          "raw": "in.",
+          "start": 1.86,
+          "end": 2.18
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "must;",
+        "the",
+        "rain",
+        "is",
+        "driving",
+        "in—\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "must.",
+          "start": 0.52,
+          "end": 0.74,
+          "key": "must",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.14,
+          "end": 1.22,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "rain",
+          "start": 1.22,
+          "end": 1.4,
+          "key": "rain",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.4,
+          "end": 1.56,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "driving",
+          "start": 1.56,
+          "end": 1.86,
+          "key": "driving",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "in.",
+          "start": 1.86,
+          "end": 2.18,
+          "key": "in",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "must;",
+          "start": 0.52,
+          "end": 0.74
+        },
+        {
+          "text": "the",
+          "start": 1.14,
+          "end": 1.22
+        },
+        {
+          "text": "rain",
+          "start": 1.22,
+          "end": 1.4
+        },
+        {
+          "text": "is",
+          "start": 1.4,
+          "end": 1.56
+        },
+        {
+          "text": "driving",
+          "start": 1.56,
+          "end": 1.86
+        },
+        {
+          "text": "in—\"",
+          "start": 1.86,
+          "end": 2.18
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18192940298467875
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4f7fc25ae2b5198abb5d1d93eed253ac4ddbde2f0f659613914aa22f0ecf9aaf",
+  "selected_reasons": []
+}

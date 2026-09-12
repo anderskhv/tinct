@@ -1,0 +1,709 @@
+{
+  "complete": true,
+  "signature": "bb8d5273aadf960513e334de562165aa59146fc543145f14e2bd189fa5b67e61",
+  "attempts": [
+    {
+      "asr_seconds": 0.37679207883775234,
+      "alignment_seconds": 0.00028323661535978317,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The speaker came forward and leaned on the rails. He continued, uttering each word distinctly, calmly, steadily, but not loudly—",
+        "hotwords": "He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The speaker came forward and leaned on the rails. He continued, uttering each word distinctly,",
+          "start": 0.02,
+          "end": 5.92,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.91748046875
+            },
+            {
+              "text": " speaker",
+              "start": 0.5,
+              "end": 0.8,
+              "probability": 0.974609375
+            },
+            {
+              "text": " came",
+              "start": 0.8,
+              "end": 1.12,
+              "probability": 0.998046875
+            },
+            {
+              "text": " forward",
+              "start": 1.12,
+              "end": 1.56,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 1.56,
+              "end": 1.82,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " leaned",
+              "start": 1.82,
+              "end": 2.0,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " on",
+              "start": 2.0,
+              "end": 2.2,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 2.2,
+              "end": 2.32,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " rails.",
+              "start": 2.32,
+              "end": 2.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " He",
+              "start": 3.42,
+              "end": 3.5,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " continued,",
+              "start": 3.5,
+              "end": 4.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " uttering",
+              "start": 4.48,
+              "end": 4.86,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " each",
+              "start": 4.86,
+              "end": 4.98,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " word",
+              "start": 4.98,
+              "end": 5.3,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " distinctly,",
+              "start": 5.3,
+              "end": 5.92,
+              "probability": 0.99560546875
+            }
+          ]
+        },
+        {
+          "text": " calmly, steadily, but not loudly—",
+          "start": 5.92,
+          "end": 8.44,
+          "words": [
+            {
+              "text": " calmly,",
+              "start": 5.92,
+              "end": 6.64,
+              "probability": 0.86572265625
+            },
+            {
+              "text": " steadily,",
+              "start": 6.88,
+              "end": 7.16,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " but",
+              "start": 7.66,
+              "end": 7.74,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " not",
+              "start": 7.74,
+              "end": 7.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " loudly—",
+              "start": 7.98,
+              "end": 8.44,
+              "probability": 0.4979124069213867
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "speaker",
+          "start": 0.5,
+          "end": 0.8
+        },
+        {
+          "raw": "came",
+          "start": 0.8,
+          "end": 1.12
+        },
+        {
+          "raw": "forward",
+          "start": 1.12,
+          "end": 1.56
+        },
+        {
+          "raw": "and",
+          "start": 1.56,
+          "end": 1.82
+        },
+        {
+          "raw": "leaned",
+          "start": 1.82,
+          "end": 2.0
+        },
+        {
+          "raw": "on",
+          "start": 2.0,
+          "end": 2.2
+        },
+        {
+          "raw": "the",
+          "start": 2.2,
+          "end": 2.32
+        },
+        {
+          "raw": "rails.",
+          "start": 2.32,
+          "end": 2.6
+        },
+        {
+          "raw": "He",
+          "start": 3.42,
+          "end": 3.5
+        },
+        {
+          "raw": "continued,",
+          "start": 3.5,
+          "end": 4.0
+        },
+        {
+          "raw": "uttering",
+          "start": 4.48,
+          "end": 4.86
+        },
+        {
+          "raw": "each",
+          "start": 4.86,
+          "end": 4.98
+        },
+        {
+          "raw": "word",
+          "start": 4.98,
+          "end": 5.3
+        },
+        {
+          "raw": "distinctly,",
+          "start": 5.3,
+          "end": 5.92
+        },
+        {
+          "raw": "calmly,",
+          "start": 5.92,
+          "end": 6.64
+        },
+        {
+          "raw": "steadily,",
+          "start": 6.88,
+          "end": 7.16
+        },
+        {
+          "raw": "but",
+          "start": 7.66,
+          "end": 7.74
+        },
+        {
+          "raw": "not",
+          "start": 7.74,
+          "end": 7.98
+        },
+        {
+          "raw": "loudly—",
+          "start": 7.98,
+          "end": 8.44
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "speaker",
+        "came",
+        "forward",
+        "and",
+        "leaned",
+        "on",
+        "the",
+        "rails.",
+        "He",
+        "continued,",
+        "uttering",
+        "each",
+        "word",
+        "distinctly,",
+        "calmly,",
+        "steadily,",
+        "but",
+        "not",
+        "loudly—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "speaker",
+          "start": 0.5,
+          "end": 0.8,
+          "key": "speaker",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "came",
+          "start": 0.8,
+          "end": 1.12,
+          "key": "came",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "forward",
+          "start": 1.12,
+          "end": 1.56,
+          "key": "forward",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.56,
+          "end": 1.82,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "leaned",
+          "start": 1.82,
+          "end": 2.0,
+          "key": "leaned",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.0,
+          "end": 2.2,
+          "key": "on",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.2,
+          "end": 2.32,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "rails.",
+          "start": 2.32,
+          "end": 2.6,
+          "key": "rails",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 3.42,
+          "end": 3.5,
+          "key": "he",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "continued,",
+          "start": 3.5,
+          "end": 4.0,
+          "key": "continued",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "uttering",
+          "start": 4.48,
+          "end": 4.86,
+          "key": "uttering",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "each",
+          "start": 4.86,
+          "end": 4.98,
+          "key": "each",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "word",
+          "start": 4.98,
+          "end": 5.3,
+          "key": "word",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "distinctly,",
+          "start": 5.3,
+          "end": 5.92,
+          "key": "distinctly",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "calmly,",
+          "start": 5.92,
+          "end": 6.64,
+          "key": "calmly",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "steadily,",
+          "start": 6.88,
+          "end": 7.16,
+          "key": "steadily",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 7.66,
+          "end": 7.74,
+          "key": "but",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 7.74,
+          "end": 7.98,
+          "key": "not",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "loudly—",
+          "start": 7.98,
+          "end": 8.44,
+          "key": "loudly",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "speaker",
+          "start": 0.5,
+          "end": 0.8
+        },
+        {
+          "text": "came",
+          "start": 0.8,
+          "end": 1.12
+        },
+        {
+          "text": "forward",
+          "start": 1.12,
+          "end": 1.56
+        },
+        {
+          "text": "and",
+          "start": 1.56,
+          "end": 1.82
+        },
+        {
+          "text": "leaned",
+          "start": 1.82,
+          "end": 2.0
+        },
+        {
+          "text": "on",
+          "start": 2.0,
+          "end": 2.2
+        },
+        {
+          "text": "the",
+          "start": 2.2,
+          "end": 2.32
+        },
+        {
+          "text": "rails.",
+          "start": 2.32,
+          "end": 2.6
+        },
+        {
+          "text": "He",
+          "start": 3.42,
+          "end": 3.5
+        },
+        {
+          "text": "continued,",
+          "start": 3.5,
+          "end": 4.0
+        },
+        {
+          "text": "uttering",
+          "start": 4.48,
+          "end": 4.86
+        },
+        {
+          "text": "each",
+          "start": 4.86,
+          "end": 4.98
+        },
+        {
+          "text": "word",
+          "start": 4.98,
+          "end": 5.3
+        },
+        {
+          "text": "distinctly,",
+          "start": 5.3,
+          "end": 5.92
+        },
+        {
+          "text": "calmly,",
+          "start": 5.92,
+          "end": 6.64
+        },
+        {
+          "text": "steadily,",
+          "start": 6.88,
+          "end": 7.16
+        },
+        {
+          "text": "but",
+          "start": 7.66,
+          "end": 7.74
+        },
+        {
+          "text": "not",
+          "start": 7.74,
+          "end": 7.98
+        },
+        {
+          "text": "loudly—",
+          "start": 7.98,
+          "end": 8.44
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3771804878488183
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0dba8bb2d1d1a9e3a65ab7c40238e615b5a633d6995595c7e98cbaae4536ed01",
+  "selected_reasons": []
+}

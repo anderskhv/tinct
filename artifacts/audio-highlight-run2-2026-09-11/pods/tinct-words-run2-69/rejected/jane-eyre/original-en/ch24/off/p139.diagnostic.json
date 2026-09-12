@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "8bc8d99d8f974b13ec370af592654f1fe01436f013a6aff2b8f6c3ab6b8c3173",
+  "attempts": [
+    {
+      "asr_seconds": 0.11268188804388046,
+      "alignment_seconds": 0.00033806636929512024,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " No, thank you, sir.",
+          "start": 0.02,
+          "end": 1.38,
+          "words": [
+            {
+              "text": " No,",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.87890625
+            },
+            {
+              "text": " thank",
+              "start": 0.86,
+              "end": 1.0,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " you,",
+              "start": 1.0,
+              "end": 1.2,
+              "probability": 0.99609375
+            },
+            {
+              "text": " sir.",
+              "start": 1.36,
+              "end": 1.38,
+              "probability": 0.85302734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "thank",
+          "start": 0.86,
+          "end": 1.0
+        },
+        {
+          "raw": "you,",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "raw": "sir.",
+          "start": 1.36,
+          "end": 1.38
+        }
+      ],
+      "expected_tokens": [
+        "\"No,",
+        "thank",
+        "you,",
+        "sir.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No,",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "thank",
+          "start": 0.86,
+          "end": 1.0,
+          "key": "thank",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 1.0,
+          "end": 1.2,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 1.36,
+          "end": 1.38,
+          "key": "sir",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"No,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "thank",
+          "start": 0.86,
+          "end": 1.0
+        },
+        {
+          "text": "you,",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "text": "sir.\"",
+          "start": 1.36,
+          "end": 1.38
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11310440022498369
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3b84227fcd671d258690696b139be48f79edd2db9351808a0e81618326ea88c0",
+  "selected_reasons": []
+}

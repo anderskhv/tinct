@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "00dc68625a1d867e19a881e29bbadf6c0fe16f7f1b041e6701ac9188646a1d8e",
+  "attempts": [
+    {
+      "asr_seconds": 0.198498728685081,
+      "alignment_seconds": 0.0002199402078986168,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Do you, sir, feel calm and happy?\"",
+        "hotwords": "Do"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Do you, sir, feel calm and happy?",
+          "start": 0.02,
+          "end": 2.0,
+          "words": [
+            {
+              "text": " Do",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " you,",
+              "start": 0.52,
+              "end": 0.72,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " sir,",
+              "start": 0.88,
+              "end": 0.88,
+              "probability": 0.88427734375
+            },
+            {
+              "text": " feel",
+              "start": 1.18,
+              "end": 1.26,
+              "probability": 0.998046875
+            },
+            {
+              "text": " calm",
+              "start": 1.26,
+              "end": 1.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 1.54,
+              "end": 1.68,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " happy?",
+              "start": 1.68,
+              "end": 2.0,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Do",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "you,",
+          "start": 0.52,
+          "end": 0.72
+        },
+        {
+          "raw": "sir,",
+          "start": 0.88,
+          "end": 0.88
+        },
+        {
+          "raw": "feel",
+          "start": 1.18,
+          "end": 1.26
+        },
+        {
+          "raw": "calm",
+          "start": 1.26,
+          "end": 1.54
+        },
+        {
+          "raw": "and",
+          "start": 1.54,
+          "end": 1.68
+        },
+        {
+          "raw": "happy?",
+          "start": 1.68,
+          "end": 2.0
+        }
+      ],
+      "expected_tokens": [
+        "\"Do",
+        "you,",
+        "sir,",
+        "feel",
+        "calm",
+        "and",
+        "happy?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Do",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "do",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 0.52,
+          "end": 0.72,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 0.88,
+          "end": 0.88,
+          "key": "sir",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "feel",
+          "start": 1.18,
+          "end": 1.26,
+          "key": "feel",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "calm",
+          "start": 1.26,
+          "end": 1.54,
+          "key": "calm",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.54,
+          "end": 1.68,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "happy?",
+          "start": 1.68,
+          "end": 2.0,
+          "key": "happy",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Do",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "you,",
+          "start": 0.52,
+          "end": 0.72
+        },
+        {
+          "text": "sir,",
+          "start": 0.88,
+          "end": 0.88
+        },
+        {
+          "text": "feel",
+          "start": 1.18,
+          "end": 1.26
+        },
+        {
+          "text": "calm",
+          "start": 1.26,
+          "end": 1.54
+        },
+        {
+          "text": "and",
+          "start": 1.54,
+          "end": 1.68
+        },
+        {
+          "text": "happy?\"",
+          "start": 1.68,
+          "end": 2.0
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1988060623407364
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "64bfa003d86d47c55f86f83b0a2baa3ef3fbe6b349757603a5685d5fe424437b",
+  "selected_reasons": []
+}

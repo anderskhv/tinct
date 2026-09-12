@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "369efa8ab2ee86b48b10ddbe58f42e21b18805f574003d5d77e659cb2e785025",
+  "attempts": [
+    {
+      "asr_seconds": 0.14642345812171698,
+      "alignment_seconds": 0.0004265168681740761,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Then Jane you must play the accompaniment",
+          "start": 0.08,
+          "end": 2.9,
+          "words": [
+            {
+              "text": " Then",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.86767578125
+            },
+            {
+              "text": " Jane",
+              "start": 0.7,
+              "end": 1.12,
+              "probability": 0.3564453125
+            },
+            {
+              "text": " you",
+              "start": 1.12,
+              "end": 1.62,
+              "probability": 0.470458984375
+            },
+            {
+              "text": " must",
+              "start": 1.62,
+              "end": 1.76,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " play",
+              "start": 1.76,
+              "end": 2.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 2.04,
+              "end": 2.2,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " accompaniment",
+              "start": 2.2,
+              "end": 2.9,
+              "probability": 0.997802734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Then",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "Jane",
+          "start": 0.7,
+          "end": 1.12
+        },
+        {
+          "raw": "you",
+          "start": 1.12,
+          "end": 1.62
+        },
+        {
+          "raw": "must",
+          "start": 1.62,
+          "end": 1.76
+        },
+        {
+          "raw": "play",
+          "start": 1.76,
+          "end": 2.04
+        },
+        {
+          "raw": "the",
+          "start": 2.04,
+          "end": 2.2
+        },
+        {
+          "raw": "accompaniment",
+          "start": 2.2,
+          "end": 2.9
+        }
+      ],
+      "expected_tokens": [
+        "\"Then,",
+        "Jane,",
+        "you",
+        "must",
+        "play",
+        "the",
+        "accompaniment.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Then",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "then",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Jane",
+          "start": 0.7,
+          "end": 1.12,
+          "key": "jane",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.12,
+          "end": 1.62,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 1.62,
+          "end": 1.76,
+          "key": "must",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "play",
+          "start": 1.76,
+          "end": 2.04,
+          "key": "play",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.04,
+          "end": 2.2,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "accompaniment",
+          "start": 2.2,
+          "end": 2.9,
+          "key": "accompaniment",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Then,",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "Jane,",
+          "start": 0.7,
+          "end": 1.12
+        },
+        {
+          "text": "you",
+          "start": 1.12,
+          "end": 1.62
+        },
+        {
+          "text": "must",
+          "start": 1.62,
+          "end": 1.76
+        },
+        {
+          "text": "play",
+          "start": 1.76,
+          "end": 2.04
+        },
+        {
+          "text": "the",
+          "start": 2.04,
+          "end": 2.2
+        },
+        {
+          "text": "accompaniment.\"",
+          "start": 2.2,
+          "end": 2.9
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1470134351402521
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ce3e4a119793bb12d1df56c1f1769423c9c9695d09adb4d5ba5850f7dfb640b0",
+  "selected_reasons": []
+}

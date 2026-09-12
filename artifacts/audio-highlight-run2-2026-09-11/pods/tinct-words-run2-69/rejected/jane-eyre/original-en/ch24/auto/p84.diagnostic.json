@@ -1,0 +1,1347 @@
+{
+  "complete": true,
+  "signature": "ba884c5ebda6b96e6c16c91a1f2794616357bf9f22833bd91bf0e890a81519c8",
+  "attempts": [
+    {
+      "asr_seconds": 0.5031208517029881,
+      "alignment_seconds": 0.0008856961503624916,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"No, indeed, Mrs. Fairfax!\" exclaimed I, nettled; \"he is nothing like my father! No one, who saw us together, would suppose it for an instant. Mr. Rochester looks as young, and is as young, as some men at five-and-twenty.\"",
+        "hotwords": "No, Mrs, Fairfax, I, Mr, Rochester"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " No, indeed, Mrs. Fairfax! exclaimed I, nettled. He is nothing like my father! No one, who saw us together, would suppose it for an instant. Mr. Rochester looks as young, and is as young, as some men at five-and-twenty.",
+          "start": 0.02,
+          "end": 14.56,
+          "words": [
+            {
+              "text": " No,",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.029937744140625
+            },
+            {
+              "text": " indeed,",
+              "start": 0.84,
+              "end": 1.18,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Mrs.",
+              "start": 1.4,
+              "end": 1.6,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " Fairfax!",
+              "start": 2.08,
+              "end": 2.08,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " exclaimed",
+              "start": 2.8,
+              "end": 3.18,
+              "probability": 0.974609375
+            },
+            {
+              "text": " I,",
+              "start": 3.18,
+              "end": 3.5,
+              "probability": 0.98046875
+            },
+            {
+              "text": " nettled.",
+              "start": 3.6,
+              "end": 3.86,
+              "probability": 0.790771484375
+            },
+            {
+              "text": " He",
+              "start": 4.42,
+              "end": 4.56,
+              "probability": 0.943359375
+            },
+            {
+              "text": " is",
+              "start": 4.56,
+              "end": 4.68,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " nothing",
+              "start": 4.68,
+              "end": 4.92,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " like",
+              "start": 4.92,
+              "end": 5.22,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " my",
+              "start": 5.22,
+              "end": 5.44,
+              "probability": 0.9921875
+            },
+            {
+              "text": " father!",
+              "start": 5.44,
+              "end": 5.8,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " No",
+              "start": 6.36,
+              "end": 6.56,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " one,",
+              "start": 6.56,
+              "end": 6.76,
+              "probability": 0.998046875
+            },
+            {
+              "text": " who",
+              "start": 6.78,
+              "end": 6.94,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " saw",
+              "start": 6.94,
+              "end": 7.18,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " us",
+              "start": 7.18,
+              "end": 7.38,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " together,",
+              "start": 7.38,
+              "end": 7.64,
+              "probability": 0.99609375
+            },
+            {
+              "text": " would",
+              "start": 7.64,
+              "end": 7.9,
+              "probability": 0.986328125
+            },
+            {
+              "text": " suppose",
+              "start": 7.9,
+              "end": 8.28,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " it",
+              "start": 8.28,
+              "end": 8.52,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " for",
+              "start": 8.52,
+              "end": 8.68,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " an",
+              "start": 8.68,
+              "end": 8.8,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " instant.",
+              "start": 8.8,
+              "end": 9.2,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Mr.",
+              "start": 9.88,
+              "end": 10.12,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " Rochester",
+              "start": 10.38,
+              "end": 10.56,
+              "probability": 0.974609375
+            },
+            {
+              "text": " looks",
+              "start": 10.56,
+              "end": 10.96,
+              "probability": 0.99609375
+            },
+            {
+              "text": " as",
+              "start": 10.96,
+              "end": 11.16,
+              "probability": 0.998046875
+            },
+            {
+              "text": " young,",
+              "start": 11.16,
+              "end": 11.48,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 11.8,
+              "end": 11.9,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " is",
+              "start": 11.9,
+              "end": 12.04,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " as",
+              "start": 12.04,
+              "end": 12.24,
+              "probability": 0.99609375
+            },
+            {
+              "text": " young,",
+              "start": 12.24,
+              "end": 12.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " as",
+              "start": 12.84,
+              "end": 13.0,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " some",
+              "start": 13.0,
+              "end": 13.2,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " men",
+              "start": 13.2,
+              "end": 13.4,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " at",
+              "start": 13.4,
+              "end": 13.58,
+              "probability": 0.72412109375
+            },
+            {
+              "text": " five",
+              "start": 13.58,
+              "end": 13.88,
+              "probability": 0.939453125
+            },
+            {
+              "text": "-and",
+              "start": 13.88,
+              "end": 14.1,
+              "probability": 0.51824951171875
+            },
+            {
+              "text": "-twenty.",
+              "start": 14.1,
+              "end": 14.56,
+              "probability": 0.9622395833333334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No,",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "indeed,",
+          "start": 0.84,
+          "end": 1.18
+        },
+        {
+          "raw": "Mrs.",
+          "start": 1.4,
+          "end": 1.6
+        },
+        {
+          "raw": "Fairfax!",
+          "start": 2.08,
+          "end": 2.08
+        },
+        {
+          "raw": "exclaimed",
+          "start": 2.8,
+          "end": 3.18
+        },
+        {
+          "raw": "I,",
+          "start": 3.18,
+          "end": 3.5
+        },
+        {
+          "raw": "nettled.",
+          "start": 3.6,
+          "end": 3.86
+        },
+        {
+          "raw": "He",
+          "start": 4.42,
+          "end": 4.56
+        },
+        {
+          "raw": "is",
+          "start": 4.56,
+          "end": 4.68
+        },
+        {
+          "raw": "nothing",
+          "start": 4.68,
+          "end": 4.92
+        },
+        {
+          "raw": "like",
+          "start": 4.92,
+          "end": 5.22
+        },
+        {
+          "raw": "my",
+          "start": 5.22,
+          "end": 5.44
+        },
+        {
+          "raw": "father!",
+          "start": 5.44,
+          "end": 5.8
+        },
+        {
+          "raw": "No",
+          "start": 6.36,
+          "end": 6.56
+        },
+        {
+          "raw": "one,",
+          "start": 6.56,
+          "end": 6.76
+        },
+        {
+          "raw": "who",
+          "start": 6.78,
+          "end": 6.94
+        },
+        {
+          "raw": "saw",
+          "start": 6.94,
+          "end": 7.18
+        },
+        {
+          "raw": "us",
+          "start": 7.18,
+          "end": 7.38
+        },
+        {
+          "raw": "together,",
+          "start": 7.38,
+          "end": 7.64
+        },
+        {
+          "raw": "would",
+          "start": 7.64,
+          "end": 7.9
+        },
+        {
+          "raw": "suppose",
+          "start": 7.9,
+          "end": 8.28
+        },
+        {
+          "raw": "it",
+          "start": 8.28,
+          "end": 8.52
+        },
+        {
+          "raw": "for",
+          "start": 8.52,
+          "end": 8.68
+        },
+        {
+          "raw": "an",
+          "start": 8.68,
+          "end": 8.8
+        },
+        {
+          "raw": "instant.",
+          "start": 8.8,
+          "end": 9.2
+        },
+        {
+          "raw": "Mr.",
+          "start": 9.88,
+          "end": 10.12
+        },
+        {
+          "raw": "Rochester",
+          "start": 10.38,
+          "end": 10.56
+        },
+        {
+          "raw": "looks",
+          "start": 10.56,
+          "end": 10.96
+        },
+        {
+          "raw": "as",
+          "start": 10.96,
+          "end": 11.16
+        },
+        {
+          "raw": "young,",
+          "start": 11.16,
+          "end": 11.48
+        },
+        {
+          "raw": "and",
+          "start": 11.8,
+          "end": 11.9
+        },
+        {
+          "raw": "is",
+          "start": 11.9,
+          "end": 12.04
+        },
+        {
+          "raw": "as",
+          "start": 12.04,
+          "end": 12.24
+        },
+        {
+          "raw": "young,",
+          "start": 12.24,
+          "end": 12.58
+        },
+        {
+          "raw": "as",
+          "start": 12.84,
+          "end": 13.0
+        },
+        {
+          "raw": "some",
+          "start": 13.0,
+          "end": 13.2
+        },
+        {
+          "raw": "men",
+          "start": 13.2,
+          "end": 13.4
+        },
+        {
+          "raw": "at",
+          "start": 13.4,
+          "end": 13.58
+        },
+        {
+          "raw": "five",
+          "start": 13.58,
+          "end": 13.88
+        },
+        {
+          "raw": "-and",
+          "start": 13.88,
+          "end": 14.1
+        },
+        {
+          "raw": "-twenty.",
+          "start": 14.1,
+          "end": 14.56
+        }
+      ],
+      "expected_tokens": [
+        "\"No,",
+        "indeed,",
+        "Mrs.",
+        "Fairfax!\"",
+        "exclaimed",
+        "I,",
+        "nettled;",
+        "\"he",
+        "is",
+        "nothing",
+        "like",
+        "my",
+        "father!",
+        "No",
+        "one,",
+        "who",
+        "saw",
+        "us",
+        "together,",
+        "would",
+        "suppose",
+        "it",
+        "for",
+        "an",
+        "instant.",
+        "Mr.",
+        "Rochester",
+        "looks",
+        "as",
+        "young,",
+        "and",
+        "is",
+        "as",
+        "young,",
+        "as",
+        "some",
+        "men",
+        "at",
+        "five-and-twenty.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          39,
+          0,
+          39
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No,",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "indeed,",
+          "start": 0.84,
+          "end": 1.18,
+          "key": "indeed",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Mrs.",
+          "start": 1.4,
+          "end": 1.6,
+          "key": "mrs",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Fairfax!",
+          "start": 2.08,
+          "end": 2.08,
+          "key": "fairfax",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "exclaimed",
+          "start": 2.8,
+          "end": 3.18,
+          "key": "exclaimed",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 3.18,
+          "end": 3.5,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "nettled.",
+          "start": 3.6,
+          "end": 3.86,
+          "key": "nettled",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 4.42,
+          "end": 4.56,
+          "key": "he",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.56,
+          "end": 4.68,
+          "key": "is",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "nothing",
+          "start": 4.68,
+          "end": 4.92,
+          "key": "nothing",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 4.92,
+          "end": 5.22,
+          "key": "like",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 5.22,
+          "end": 5.44,
+          "key": "my",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "father!",
+          "start": 5.44,
+          "end": 5.8,
+          "key": "father",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "No",
+          "start": 6.36,
+          "end": 6.56,
+          "key": "no",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "one,",
+          "start": 6.56,
+          "end": 6.76,
+          "key": "one",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 6.78,
+          "end": 6.94,
+          "key": "who",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "saw",
+          "start": 6.94,
+          "end": 7.18,
+          "key": "saw",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 7.18,
+          "end": 7.38,
+          "key": "us",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "together,",
+          "start": 7.38,
+          "end": 7.64,
+          "key": "together",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 7.64,
+          "end": 7.9,
+          "key": "would",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "suppose",
+          "start": 7.9,
+          "end": 8.28,
+          "key": "suppose",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 8.28,
+          "end": 8.52,
+          "key": "it",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 8.52,
+          "end": 8.68,
+          "key": "for",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 8.68,
+          "end": 8.8,
+          "key": "an",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "instant.",
+          "start": 8.8,
+          "end": 9.2,
+          "key": "instant",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 9.88,
+          "end": 10.12,
+          "key": "mr",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Rochester",
+          "start": 10.38,
+          "end": 10.56,
+          "key": "rochester",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "looks",
+          "start": 10.56,
+          "end": 10.96,
+          "key": "looks",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 10.96,
+          "end": 11.16,
+          "key": "as",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "young,",
+          "start": 11.16,
+          "end": 11.48,
+          "key": "young",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 11.8,
+          "end": 11.9,
+          "key": "and",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 11.9,
+          "end": 12.04,
+          "key": "is",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 12.04,
+          "end": 12.24,
+          "key": "as",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "young,",
+          "start": 12.24,
+          "end": 12.58,
+          "key": "young",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 12.84,
+          "end": 13.0,
+          "key": "as",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 13.0,
+          "end": 13.2,
+          "key": "some",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "men",
+          "start": 13.2,
+          "end": 13.4,
+          "key": "men",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 13.4,
+          "end": 13.58,
+          "key": "at",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "five -and -twenty.",
+          "start": 13.58,
+          "end": 14.56,
+          "key": "fiveandtwenty",
+          "pieces": [
+            38,
+            39,
+            40
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 38,
+          "text": "five-and-twenty.\"",
+          "heard": "five -and -twenty.",
+          "heard_indexes": [
+            38,
+            39,
+            40
+          ],
+          "start": 13.58,
+          "end": 14.56
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"No,",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "indeed,",
+          "start": 0.84,
+          "end": 1.18
+        },
+        {
+          "text": "Mrs.",
+          "start": 1.4,
+          "end": 1.6
+        },
+        {
+          "text": "Fairfax!\"",
+          "start": 2.08,
+          "end": 2.08
+        },
+        {
+          "text": "exclaimed",
+          "start": 2.8,
+          "end": 3.18
+        },
+        {
+          "text": "I,",
+          "start": 3.18,
+          "end": 3.5
+        },
+        {
+          "text": "nettled;",
+          "start": 3.6,
+          "end": 3.86
+        },
+        {
+          "text": "\"he",
+          "start": 4.42,
+          "end": 4.56
+        },
+        {
+          "text": "is",
+          "start": 4.56,
+          "end": 4.68
+        },
+        {
+          "text": "nothing",
+          "start": 4.68,
+          "end": 4.92
+        },
+        {
+          "text": "like",
+          "start": 4.92,
+          "end": 5.22
+        },
+        {
+          "text": "my",
+          "start": 5.22,
+          "end": 5.44
+        },
+        {
+          "text": "father!",
+          "start": 5.44,
+          "end": 5.8
+        },
+        {
+          "text": "No",
+          "start": 6.36,
+          "end": 6.56
+        },
+        {
+          "text": "one,",
+          "start": 6.56,
+          "end": 6.76
+        },
+        {
+          "text": "who",
+          "start": 6.78,
+          "end": 6.94
+        },
+        {
+          "text": "saw",
+          "start": 6.94,
+          "end": 7.18
+        },
+        {
+          "text": "us",
+          "start": 7.18,
+          "end": 7.38
+        },
+        {
+          "text": "together,",
+          "start": 7.38,
+          "end": 7.64
+        },
+        {
+          "text": "would",
+          "start": 7.64,
+          "end": 7.9
+        },
+        {
+          "text": "suppose",
+          "start": 7.9,
+          "end": 8.28
+        },
+        {
+          "text": "it",
+          "start": 8.28,
+          "end": 8.52
+        },
+        {
+          "text": "for",
+          "start": 8.52,
+          "end": 8.68
+        },
+        {
+          "text": "an",
+          "start": 8.68,
+          "end": 8.8
+        },
+        {
+          "text": "instant.",
+          "start": 8.8,
+          "end": 9.2
+        },
+        {
+          "text": "Mr.",
+          "start": 9.88,
+          "end": 10.12
+        },
+        {
+          "text": "Rochester",
+          "start": 10.38,
+          "end": 10.56
+        },
+        {
+          "text": "looks",
+          "start": 10.56,
+          "end": 10.96
+        },
+        {
+          "text": "as",
+          "start": 10.96,
+          "end": 11.16
+        },
+        {
+          "text": "young,",
+          "start": 11.16,
+          "end": 11.48
+        },
+        {
+          "text": "and",
+          "start": 11.8,
+          "end": 11.9
+        },
+        {
+          "text": "is",
+          "start": 11.9,
+          "end": 12.04
+        },
+        {
+          "text": "as",
+          "start": 12.04,
+          "end": 12.24
+        },
+        {
+          "text": "young,",
+          "start": 12.24,
+          "end": 12.58
+        },
+        {
+          "text": "as",
+          "start": 12.84,
+          "end": 13.0
+        },
+        {
+          "text": "some",
+          "start": 13.0,
+          "end": 13.2
+        },
+        {
+          "text": "men",
+          "start": 13.2,
+          "end": 13.4
+        },
+        {
+          "text": "at",
+          "start": 13.4,
+          "end": 13.58
+        },
+        {
+          "text": "five-and-twenty.\"",
+          "start": 13.58,
+          "end": 14.56
+        }
+      ],
+      "stats": {
+        "expected_words": 39,
+        "heard_words": 39,
+        "matched_words": 39
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.50440579559654
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "32d9094dd75af3deb3a132d8a7583220f0cb621f76398fa33c465f41bdfffc7b",
+  "selected_reasons": []
+}

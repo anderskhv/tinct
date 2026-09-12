@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "be1fb917cecd4b7c6d0d5342e9d5b1776236c80ba39f6a8885dc29da605ca940",
+  "attempts": [
+    {
+      "asr_seconds": 0.11243248172104359,
+      "alignment_seconds": 0.00016084685921669006,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Jane, are you ready?",
+          "start": 0.05,
+          "end": 1.05,
+          "words": [
+            {
+              "text": " Jane,",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " are",
+              "start": 0.73,
+              "end": 0.77,
+              "probability": 0.994140625
+            },
+            {
+              "text": " you",
+              "start": 0.77,
+              "end": 0.89,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " ready?",
+              "start": 0.89,
+              "end": 1.05,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Jane,",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "are",
+          "start": 0.73,
+          "end": 0.77
+        },
+        {
+          "raw": "you",
+          "start": 0.77,
+          "end": 0.89
+        },
+        {
+          "raw": "ready?",
+          "start": 0.89,
+          "end": 1.05
+        }
+      ],
+      "expected_tokens": [
+        "\"Jane,",
+        "are",
+        "you",
+        "ready?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Jane,",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "jane",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 0.73,
+          "end": 0.77,
+          "key": "are",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.77,
+          "end": 0.89,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "ready?",
+          "start": 0.89,
+          "end": 1.05,
+          "key": "ready",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Jane,",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "are",
+          "start": 0.73,
+          "end": 0.77
+        },
+        {
+          "text": "you",
+          "start": 0.77,
+          "end": 0.89
+        },
+        {
+          "text": "ready?\"",
+          "start": 0.89,
+          "end": 1.05
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11265391949564219
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "169451a5e579753bf454c7aa4e8f0d6b486283f0a80f157375a257a9990d94a9",
+  "selected_reasons": []
+}

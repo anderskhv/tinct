@@ -1,0 +1,2520 @@
+{
+  "complete": true,
+  "signature": "e642c127bcca2137544279ff1e988bd90209f4ebd78ad814a446728e110430e0",
+  "attempts": [
+    {
+      "asr_seconds": 0.4161988301202655,
+      "alignment_seconds": 0.0009509837254881859,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "I care not in this moment sweet, Though all I have rushed o'er Should come on pinion, strong and fleet, Proclaiming vengeance sore:",
+        "hotwords": "I, Though, Should, Proclaiming"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I care not in this moment sweet, Though all I have rushed o'er Should come on pinion, strong and fleet,",
+          "start": 0.02,
+          "end": 5.9,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.79736328125
+            },
+            {
+              "text": " care",
+              "start": 0.52,
+              "end": 0.7,
+              "probability": 0.970703125
+            },
+            {
+              "text": " not",
+              "start": 0.7,
+              "end": 0.94,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " in",
+              "start": 0.94,
+              "end": 1.08,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " this",
+              "start": 1.08,
+              "end": 1.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " moment",
+              "start": 1.22,
+              "end": 1.46,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " sweet,",
+              "start": 1.46,
+              "end": 1.88,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " Though",
+              "start": 2.38,
+              "end": 2.5,
+              "probability": 0.0107269287109375
+            },
+            {
+              "text": " all",
+              "start": 2.5,
+              "end": 2.7,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " I",
+              "start": 2.7,
+              "end": 2.82,
+              "probability": 0.990234375
+            },
+            {
+              "text": " have",
+              "start": 2.82,
+              "end": 2.9,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " rushed",
+              "start": 2.9,
+              "end": 3.2,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " o",
+              "start": 3.2,
+              "end": 3.44,
+              "probability": 0.7421875
+            },
+            {
+              "text": "'er",
+              "start": 3.44,
+              "end": 3.54,
+              "probability": 0.89794921875
+            },
+            {
+              "text": " Should",
+              "start": 3.54,
+              "end": 3.74,
+              "probability": 0.3125
+            },
+            {
+              "text": " come",
+              "start": 3.74,
+              "end": 3.94,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " on",
+              "start": 3.94,
+              "end": 4.14,
+              "probability": 0.990234375
+            },
+            {
+              "text": " pinion,",
+              "start": 4.14,
+              "end": 4.64,
+              "probability": 0.844970703125
+            },
+            {
+              "text": " strong",
+              "start": 5.3,
+              "end": 5.32,
+              "probability": 0.7373046875
+            },
+            {
+              "text": " and",
+              "start": 5.32,
+              "end": 5.58,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " fleet,",
+              "start": 5.58,
+              "end": 5.9,
+              "probability": 0.99267578125
+            }
+          ]
+        },
+        {
+          "text": " Proclaiming vengeance sore.",
+          "start": 5.9,
+          "end": 7.52,
+          "words": [
+            {
+              "text": " Proclaiming",
+              "start": 5.9,
+              "end": 6.86,
+              "probability": 0.68487548828125
+            },
+            {
+              "text": " vengeance",
+              "start": 6.86,
+              "end": 7.14,
+              "probability": 0.09344482421875
+            },
+            {
+              "text": " sore.",
+              "start": 7.14,
+              "end": 7.52,
+              "probability": 0.335693359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "care",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "raw": "not",
+          "start": 0.7,
+          "end": 0.94
+        },
+        {
+          "raw": "in",
+          "start": 0.94,
+          "end": 1.08
+        },
+        {
+          "raw": "this",
+          "start": 1.08,
+          "end": 1.22
+        },
+        {
+          "raw": "moment",
+          "start": 1.22,
+          "end": 1.46
+        },
+        {
+          "raw": "sweet,",
+          "start": 1.46,
+          "end": 1.88
+        },
+        {
+          "raw": "Though",
+          "start": 2.38,
+          "end": 2.5
+        },
+        {
+          "raw": "all",
+          "start": 2.5,
+          "end": 2.7
+        },
+        {
+          "raw": "I",
+          "start": 2.7,
+          "end": 2.82
+        },
+        {
+          "raw": "have",
+          "start": 2.82,
+          "end": 2.9
+        },
+        {
+          "raw": "rushed",
+          "start": 2.9,
+          "end": 3.2
+        },
+        {
+          "raw": "o",
+          "start": 3.2,
+          "end": 3.44
+        },
+        {
+          "raw": "'er",
+          "start": 3.44,
+          "end": 3.54
+        },
+        {
+          "raw": "Should",
+          "start": 3.54,
+          "end": 3.74
+        },
+        {
+          "raw": "come",
+          "start": 3.74,
+          "end": 3.94
+        },
+        {
+          "raw": "on",
+          "start": 3.94,
+          "end": 4.14
+        },
+        {
+          "raw": "pinion,",
+          "start": 4.14,
+          "end": 4.64
+        },
+        {
+          "raw": "strong",
+          "start": 5.3,
+          "end": 5.32
+        },
+        {
+          "raw": "and",
+          "start": 5.32,
+          "end": 5.58
+        },
+        {
+          "raw": "fleet,",
+          "start": 5.58,
+          "end": 5.9
+        },
+        {
+          "raw": "Proclaiming",
+          "start": 5.9,
+          "end": 6.86
+        },
+        {
+          "raw": "vengeance",
+          "start": 6.86,
+          "end": 7.14
+        },
+        {
+          "raw": "sore.",
+          "start": 7.14,
+          "end": 7.52
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "care",
+        "not",
+        "in",
+        "this",
+        "moment",
+        "sweet,",
+        "Though",
+        "all",
+        "I",
+        "have",
+        "rushed",
+        "o'er",
+        "Should",
+        "come",
+        "on",
+        "pinion,",
+        "strong",
+        "and",
+        "fleet,",
+        "Proclaiming",
+        "vengeance",
+        "sore:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          14
+        ],
+        [
+          "equal",
+          13,
+          23,
+          14,
+          24
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          12,
+          13,
+          12,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "care",
+          "start": 0.52,
+          "end": 0.7,
+          "key": "care",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.7,
+          "end": 0.94,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.94,
+          "end": 1.08,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.08,
+          "end": 1.22,
+          "key": "this",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "moment",
+          "start": 1.22,
+          "end": 1.46,
+          "key": "moment",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sweet,",
+          "start": 1.46,
+          "end": 1.88,
+          "key": "sweet",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Though",
+          "start": 2.38,
+          "end": 2.5,
+          "key": "though",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 2.5,
+          "end": 2.7,
+          "key": "all",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.7,
+          "end": 2.82,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.82,
+          "end": 2.9,
+          "key": "have",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "rushed",
+          "start": 2.9,
+          "end": 3.2,
+          "key": "rushed",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "o",
+          "start": 3.2,
+          "end": 3.44,
+          "key": "o",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "'er",
+          "start": 3.44,
+          "end": 3.54,
+          "key": "er",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Should",
+          "start": 3.54,
+          "end": 3.74,
+          "key": "should",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 3.74,
+          "end": 3.94,
+          "key": "come",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 3.94,
+          "end": 4.14,
+          "key": "on",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "pinion,",
+          "start": 4.14,
+          "end": 4.64,
+          "key": "pinion",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "strong",
+          "start": 5.3,
+          "end": 5.32,
+          "key": "strong",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.32,
+          "end": 5.58,
+          "key": "and",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "fleet,",
+          "start": 5.58,
+          "end": 5.9,
+          "key": "fleet",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Proclaiming",
+          "start": 5.9,
+          "end": 6.86,
+          "key": "proclaiming",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "vengeance",
+          "start": 6.86,
+          "end": 7.14,
+          "key": "vengeance",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "sore.",
+          "start": 7.14,
+          "end": 7.52,
+          "key": "sore",
+          "pieces": [
+            23
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "care",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "text": "not",
+          "start": 0.7,
+          "end": 0.94
+        },
+        {
+          "text": "in",
+          "start": 0.94,
+          "end": 1.08
+        },
+        {
+          "text": "this",
+          "start": 1.08,
+          "end": 1.22
+        },
+        {
+          "text": "moment",
+          "start": 1.22,
+          "end": 1.46
+        },
+        {
+          "text": "sweet,",
+          "start": 1.46,
+          "end": 1.88
+        },
+        {
+          "text": "Though",
+          "start": 2.38,
+          "end": 2.5
+        },
+        {
+          "text": "all",
+          "start": 2.5,
+          "end": 2.7
+        },
+        {
+          "text": "I",
+          "start": 2.7,
+          "end": 2.82
+        },
+        {
+          "text": "have",
+          "start": 2.82,
+          "end": 2.9
+        },
+        {
+          "text": "rushed",
+          "start": 2.9,
+          "end": 3.2
+        },
+        {
+          "text": "o'er",
+          "start": 3.2,
+          "end": 3.37
+        },
+        {
+          "text": "Should",
+          "start": 3.54,
+          "end": 3.74
+        },
+        {
+          "text": "come",
+          "start": 3.74,
+          "end": 3.94
+        },
+        {
+          "text": "on",
+          "start": 3.94,
+          "end": 4.14
+        },
+        {
+          "text": "pinion,",
+          "start": 4.14,
+          "end": 4.64
+        },
+        {
+          "text": "strong",
+          "start": 5.3,
+          "end": 5.32
+        },
+        {
+          "text": "and",
+          "start": 5.32,
+          "end": 5.58
+        },
+        {
+          "text": "fleet,",
+          "start": 5.58,
+          "end": 5.9
+        },
+        {
+          "text": "Proclaiming",
+          "start": 5.9,
+          "end": 6.86
+        },
+        {
+          "text": "vengeance",
+          "start": 6.86,
+          "end": 7.14
+        },
+        {
+          "text": "sore:",
+          "start": 7.14,
+          "end": 7.52
+        }
+      ],
+      "stats": {
+        "expected_words": 23,
+        "heard_words": 24,
+        "matched_words": 22
+      },
+      "match_ratio": 0.9565217391304348,
+      "rejection_reasons": [],
+      "seconds": 0.41740724351257086
+    },
+    {
+      "asr_seconds": 0.3271981980651617,
+      "alignment_seconds": 0.0003790268674492836,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "I, Though, Should, Proclaiming"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " I care not in this moment sweet, Though all I have rushed o'er should come",
+          "start": 0.02,
+          "end": 3.94,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.79833984375
+            },
+            {
+              "text": " care",
+              "start": 0.52,
+              "end": 0.7,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " not",
+              "start": 0.7,
+              "end": 0.94,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " in",
+              "start": 0.94,
+              "end": 1.08,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " this",
+              "start": 1.08,
+              "end": 1.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " moment",
+              "start": 1.22,
+              "end": 1.46,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " sweet,",
+              "start": 1.46,
+              "end": 1.88,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " Though",
+              "start": 2.38,
+              "end": 2.5,
+              "probability": 0.01088714599609375
+            },
+            {
+              "text": " all",
+              "start": 2.5,
+              "end": 2.7,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " I",
+              "start": 2.7,
+              "end": 2.82,
+              "probability": 0.990234375
+            },
+            {
+              "text": " have",
+              "start": 2.82,
+              "end": 2.9,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " rushed",
+              "start": 2.9,
+              "end": 3.2,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " o",
+              "start": 3.2,
+              "end": 3.44,
+              "probability": 0.7431640625
+            },
+            {
+              "text": "'er",
+              "start": 3.44,
+              "end": 3.54,
+              "probability": 0.898681640625
+            },
+            {
+              "text": " should",
+              "start": 3.54,
+              "end": 3.74,
+              "probability": 0.66650390625
+            },
+            {
+              "text": " come",
+              "start": 3.74,
+              "end": 3.94,
+              "probability": 0.9794921875
+            }
+          ]
+        },
+        {
+          "text": " on pinion, strong and fleet, proclaiming vengeance sore.",
+          "start": 3.94,
+          "end": 7.54,
+          "words": [
+            {
+              "text": " on",
+              "start": 3.94,
+              "end": 4.14,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " pinion,",
+              "start": 4.14,
+              "end": 4.66,
+              "probability": 0.768310546875
+            },
+            {
+              "text": " strong",
+              "start": 5.3,
+              "end": 5.32,
+              "probability": 0.188720703125
+            },
+            {
+              "text": " and",
+              "start": 5.32,
+              "end": 5.58,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " fleet,",
+              "start": 5.58,
+              "end": 5.9,
+              "probability": 0.9921875
+            },
+            {
+              "text": " proclaiming",
+              "start": 6.58,
+              "end": 6.68,
+              "probability": 0.60009765625
+            },
+            {
+              "text": " vengeance",
+              "start": 6.68,
+              "end": 7.12,
+              "probability": 0.9453125
+            },
+            {
+              "text": " sore.",
+              "start": 7.12,
+              "end": 7.54,
+              "probability": 0.88671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "care",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "raw": "not",
+          "start": 0.7,
+          "end": 0.94
+        },
+        {
+          "raw": "in",
+          "start": 0.94,
+          "end": 1.08
+        },
+        {
+          "raw": "this",
+          "start": 1.08,
+          "end": 1.22
+        },
+        {
+          "raw": "moment",
+          "start": 1.22,
+          "end": 1.46
+        },
+        {
+          "raw": "sweet,",
+          "start": 1.46,
+          "end": 1.88
+        },
+        {
+          "raw": "Though",
+          "start": 2.38,
+          "end": 2.5
+        },
+        {
+          "raw": "all",
+          "start": 2.5,
+          "end": 2.7
+        },
+        {
+          "raw": "I",
+          "start": 2.7,
+          "end": 2.82
+        },
+        {
+          "raw": "have",
+          "start": 2.82,
+          "end": 2.9
+        },
+        {
+          "raw": "rushed",
+          "start": 2.9,
+          "end": 3.2
+        },
+        {
+          "raw": "o",
+          "start": 3.2,
+          "end": 3.44
+        },
+        {
+          "raw": "'er",
+          "start": 3.44,
+          "end": 3.54
+        },
+        {
+          "raw": "should",
+          "start": 3.54,
+          "end": 3.74
+        },
+        {
+          "raw": "come",
+          "start": 3.74,
+          "end": 3.94
+        },
+        {
+          "raw": "on",
+          "start": 3.94,
+          "end": 4.14
+        },
+        {
+          "raw": "pinion,",
+          "start": 4.14,
+          "end": 4.66
+        },
+        {
+          "raw": "strong",
+          "start": 5.3,
+          "end": 5.32
+        },
+        {
+          "raw": "and",
+          "start": 5.32,
+          "end": 5.58
+        },
+        {
+          "raw": "fleet,",
+          "start": 5.58,
+          "end": 5.9
+        },
+        {
+          "raw": "proclaiming",
+          "start": 6.58,
+          "end": 6.68
+        },
+        {
+          "raw": "vengeance",
+          "start": 6.68,
+          "end": 7.12
+        },
+        {
+          "raw": "sore.",
+          "start": 7.12,
+          "end": 7.54
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "care",
+        "not",
+        "in",
+        "this",
+        "moment",
+        "sweet,",
+        "Though",
+        "all",
+        "I",
+        "have",
+        "rushed",
+        "o'er",
+        "Should",
+        "come",
+        "on",
+        "pinion,",
+        "strong",
+        "and",
+        "fleet,",
+        "Proclaiming",
+        "vengeance",
+        "sore:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          14
+        ],
+        [
+          "equal",
+          13,
+          23,
+          14,
+          24
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          12,
+          13,
+          12,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "care",
+          "start": 0.52,
+          "end": 0.7,
+          "key": "care",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.7,
+          "end": 0.94,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.94,
+          "end": 1.08,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.08,
+          "end": 1.22,
+          "key": "this",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "moment",
+          "start": 1.22,
+          "end": 1.46,
+          "key": "moment",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sweet,",
+          "start": 1.46,
+          "end": 1.88,
+          "key": "sweet",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Though",
+          "start": 2.38,
+          "end": 2.5,
+          "key": "though",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 2.5,
+          "end": 2.7,
+          "key": "all",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.7,
+          "end": 2.82,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.82,
+          "end": 2.9,
+          "key": "have",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "rushed",
+          "start": 2.9,
+          "end": 3.2,
+          "key": "rushed",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "o",
+          "start": 3.2,
+          "end": 3.44,
+          "key": "o",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "'er",
+          "start": 3.44,
+          "end": 3.54,
+          "key": "er",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 3.54,
+          "end": 3.74,
+          "key": "should",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 3.74,
+          "end": 3.94,
+          "key": "come",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 3.94,
+          "end": 4.14,
+          "key": "on",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "pinion,",
+          "start": 4.14,
+          "end": 4.66,
+          "key": "pinion",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "strong",
+          "start": 5.3,
+          "end": 5.32,
+          "key": "strong",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.32,
+          "end": 5.58,
+          "key": "and",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "fleet,",
+          "start": 5.58,
+          "end": 5.9,
+          "key": "fleet",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "proclaiming",
+          "start": 6.58,
+          "end": 6.68,
+          "key": "proclaiming",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "vengeance",
+          "start": 6.68,
+          "end": 7.12,
+          "key": "vengeance",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "sore.",
+          "start": 7.12,
+          "end": 7.54,
+          "key": "sore",
+          "pieces": [
+            23
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "care",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "text": "not",
+          "start": 0.7,
+          "end": 0.94
+        },
+        {
+          "text": "in",
+          "start": 0.94,
+          "end": 1.08
+        },
+        {
+          "text": "this",
+          "start": 1.08,
+          "end": 1.22
+        },
+        {
+          "text": "moment",
+          "start": 1.22,
+          "end": 1.46
+        },
+        {
+          "text": "sweet,",
+          "start": 1.46,
+          "end": 1.88
+        },
+        {
+          "text": "Though",
+          "start": 2.38,
+          "end": 2.5
+        },
+        {
+          "text": "all",
+          "start": 2.5,
+          "end": 2.7
+        },
+        {
+          "text": "I",
+          "start": 2.7,
+          "end": 2.82
+        },
+        {
+          "text": "have",
+          "start": 2.82,
+          "end": 2.9
+        },
+        {
+          "text": "rushed",
+          "start": 2.9,
+          "end": 3.2
+        },
+        {
+          "text": "o'er",
+          "start": 3.2,
+          "end": 3.37
+        },
+        {
+          "text": "Should",
+          "start": 3.54,
+          "end": 3.74
+        },
+        {
+          "text": "come",
+          "start": 3.74,
+          "end": 3.94
+        },
+        {
+          "text": "on",
+          "start": 3.94,
+          "end": 4.14
+        },
+        {
+          "text": "pinion,",
+          "start": 4.14,
+          "end": 4.66
+        },
+        {
+          "text": "strong",
+          "start": 5.3,
+          "end": 5.32
+        },
+        {
+          "text": "and",
+          "start": 5.32,
+          "end": 5.58
+        },
+        {
+          "text": "fleet,",
+          "start": 5.58,
+          "end": 5.9
+        },
+        {
+          "text": "Proclaiming",
+          "start": 6.58,
+          "end": 6.68
+        },
+        {
+          "text": "vengeance",
+          "start": 6.68,
+          "end": 7.12
+        },
+        {
+          "text": "sore:",
+          "start": 7.12,
+          "end": 7.54
+        }
+      ],
+      "stats": {
+        "expected_words": 23,
+        "heard_words": 24,
+        "matched_words": 22
+      },
+      "match_ratio": 0.9565217391304348,
+      "rejection_reasons": [],
+      "seconds": 0.3277413547039032
+    },
+    {
+      "asr_seconds": 0.29116466641426086,
+      "alignment_seconds": 0.0005132472142577171,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I care not in this moment sweet, though all I have rushed o'er should come on pinion,",
+          "start": 0.02,
+          "end": 4.64,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.79833984375
+            },
+            {
+              "text": " care",
+              "start": 0.52,
+              "end": 0.7,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " not",
+              "start": 0.7,
+              "end": 0.94,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " in",
+              "start": 0.94,
+              "end": 1.08,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " this",
+              "start": 1.08,
+              "end": 1.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " moment",
+              "start": 1.22,
+              "end": 1.46,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " sweet,",
+              "start": 1.46,
+              "end": 1.88,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " though",
+              "start": 2.38,
+              "end": 2.5,
+              "probability": 0.98046875
+            },
+            {
+              "text": " all",
+              "start": 2.5,
+              "end": 2.68,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " I",
+              "start": 2.68,
+              "end": 2.82,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " have",
+              "start": 2.82,
+              "end": 2.9,
+              "probability": 0.994140625
+            },
+            {
+              "text": " rushed",
+              "start": 2.9,
+              "end": 3.2,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " o",
+              "start": 3.2,
+              "end": 3.44,
+              "probability": 0.609375
+            },
+            {
+              "text": "'er",
+              "start": 3.44,
+              "end": 3.54,
+              "probability": 0.876708984375
+            },
+            {
+              "text": " should",
+              "start": 3.54,
+              "end": 3.74,
+              "probability": 0.97265625
+            },
+            {
+              "text": " come",
+              "start": 3.74,
+              "end": 3.94,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " on",
+              "start": 3.94,
+              "end": 4.14,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " pinion,",
+              "start": 4.14,
+              "end": 4.64,
+              "probability": 0.734130859375
+            }
+          ]
+        },
+        {
+          "text": " strong and fleet, proclaiming vengeance sore.",
+          "start": 5.3,
+          "end": 7.54,
+          "words": [
+            {
+              "text": " strong",
+              "start": 5.3,
+              "end": 5.34,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " and",
+              "start": 5.34,
+              "end": 5.58,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " fleet,",
+              "start": 5.58,
+              "end": 5.88,
+              "probability": 0.994140625
+            },
+            {
+              "text": " proclaiming",
+              "start": 6.38,
+              "end": 6.7,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " vengeance",
+              "start": 6.7,
+              "end": 7.12,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " sore.",
+              "start": 7.12,
+              "end": 7.54,
+              "probability": 0.84130859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "care",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "raw": "not",
+          "start": 0.7,
+          "end": 0.94
+        },
+        {
+          "raw": "in",
+          "start": 0.94,
+          "end": 1.08
+        },
+        {
+          "raw": "this",
+          "start": 1.08,
+          "end": 1.22
+        },
+        {
+          "raw": "moment",
+          "start": 1.22,
+          "end": 1.46
+        },
+        {
+          "raw": "sweet,",
+          "start": 1.46,
+          "end": 1.88
+        },
+        {
+          "raw": "though",
+          "start": 2.38,
+          "end": 2.5
+        },
+        {
+          "raw": "all",
+          "start": 2.5,
+          "end": 2.68
+        },
+        {
+          "raw": "I",
+          "start": 2.68,
+          "end": 2.82
+        },
+        {
+          "raw": "have",
+          "start": 2.82,
+          "end": 2.9
+        },
+        {
+          "raw": "rushed",
+          "start": 2.9,
+          "end": 3.2
+        },
+        {
+          "raw": "o",
+          "start": 3.2,
+          "end": 3.44
+        },
+        {
+          "raw": "'er",
+          "start": 3.44,
+          "end": 3.54
+        },
+        {
+          "raw": "should",
+          "start": 3.54,
+          "end": 3.74
+        },
+        {
+          "raw": "come",
+          "start": 3.74,
+          "end": 3.94
+        },
+        {
+          "raw": "on",
+          "start": 3.94,
+          "end": 4.14
+        },
+        {
+          "raw": "pinion,",
+          "start": 4.14,
+          "end": 4.64
+        },
+        {
+          "raw": "strong",
+          "start": 5.3,
+          "end": 5.34
+        },
+        {
+          "raw": "and",
+          "start": 5.34,
+          "end": 5.58
+        },
+        {
+          "raw": "fleet,",
+          "start": 5.58,
+          "end": 5.88
+        },
+        {
+          "raw": "proclaiming",
+          "start": 6.38,
+          "end": 6.7
+        },
+        {
+          "raw": "vengeance",
+          "start": 6.7,
+          "end": 7.12
+        },
+        {
+          "raw": "sore.",
+          "start": 7.12,
+          "end": 7.54
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "care",
+        "not",
+        "in",
+        "this",
+        "moment",
+        "sweet,",
+        "Though",
+        "all",
+        "I",
+        "have",
+        "rushed",
+        "o'er",
+        "Should",
+        "come",
+        "on",
+        "pinion,",
+        "strong",
+        "and",
+        "fleet,",
+        "Proclaiming",
+        "vengeance",
+        "sore:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          14
+        ],
+        [
+          "equal",
+          13,
+          23,
+          14,
+          24
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          12,
+          13,
+          12,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "care",
+          "start": 0.52,
+          "end": 0.7,
+          "key": "care",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.7,
+          "end": 0.94,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.94,
+          "end": 1.08,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.08,
+          "end": 1.22,
+          "key": "this",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "moment",
+          "start": 1.22,
+          "end": 1.46,
+          "key": "moment",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sweet,",
+          "start": 1.46,
+          "end": 1.88,
+          "key": "sweet",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "though",
+          "start": 2.38,
+          "end": 2.5,
+          "key": "though",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 2.5,
+          "end": 2.68,
+          "key": "all",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.68,
+          "end": 2.82,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.82,
+          "end": 2.9,
+          "key": "have",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "rushed",
+          "start": 2.9,
+          "end": 3.2,
+          "key": "rushed",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "o",
+          "start": 3.2,
+          "end": 3.44,
+          "key": "o",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "'er",
+          "start": 3.44,
+          "end": 3.54,
+          "key": "er",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 3.54,
+          "end": 3.74,
+          "key": "should",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 3.74,
+          "end": 3.94,
+          "key": "come",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 3.94,
+          "end": 4.14,
+          "key": "on",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "pinion,",
+          "start": 4.14,
+          "end": 4.64,
+          "key": "pinion",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "strong",
+          "start": 5.3,
+          "end": 5.34,
+          "key": "strong",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.34,
+          "end": 5.58,
+          "key": "and",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "fleet,",
+          "start": 5.58,
+          "end": 5.88,
+          "key": "fleet",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "proclaiming",
+          "start": 6.38,
+          "end": 6.7,
+          "key": "proclaiming",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "vengeance",
+          "start": 6.7,
+          "end": 7.12,
+          "key": "vengeance",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "sore.",
+          "start": 7.12,
+          "end": 7.54,
+          "key": "sore",
+          "pieces": [
+            23
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "care",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "text": "not",
+          "start": 0.7,
+          "end": 0.94
+        },
+        {
+          "text": "in",
+          "start": 0.94,
+          "end": 1.08
+        },
+        {
+          "text": "this",
+          "start": 1.08,
+          "end": 1.22
+        },
+        {
+          "text": "moment",
+          "start": 1.22,
+          "end": 1.46
+        },
+        {
+          "text": "sweet,",
+          "start": 1.46,
+          "end": 1.88
+        },
+        {
+          "text": "Though",
+          "start": 2.38,
+          "end": 2.5
+        },
+        {
+          "text": "all",
+          "start": 2.5,
+          "end": 2.68
+        },
+        {
+          "text": "I",
+          "start": 2.68,
+          "end": 2.82
+        },
+        {
+          "text": "have",
+          "start": 2.82,
+          "end": 2.9
+        },
+        {
+          "text": "rushed",
+          "start": 2.9,
+          "end": 3.2
+        },
+        {
+          "text": "o'er",
+          "start": 3.2,
+          "end": 3.37
+        },
+        {
+          "text": "Should",
+          "start": 3.54,
+          "end": 3.74
+        },
+        {
+          "text": "come",
+          "start": 3.74,
+          "end": 3.94
+        },
+        {
+          "text": "on",
+          "start": 3.94,
+          "end": 4.14
+        },
+        {
+          "text": "pinion,",
+          "start": 4.14,
+          "end": 4.64
+        },
+        {
+          "text": "strong",
+          "start": 5.3,
+          "end": 5.34
+        },
+        {
+          "text": "and",
+          "start": 5.34,
+          "end": 5.58
+        },
+        {
+          "text": "fleet,",
+          "start": 5.58,
+          "end": 5.88
+        },
+        {
+          "text": "Proclaiming",
+          "start": 6.38,
+          "end": 6.7
+        },
+        {
+          "text": "vengeance",
+          "start": 6.7,
+          "end": 7.12
+        },
+        {
+          "text": "sore:",
+          "start": 7.12,
+          "end": 7.54
+        }
+      ],
+      "stats": {
+        "expected_words": 23,
+        "heard_words": 24,
+        "matched_words": 22
+      },
+      "match_ratio": 0.9565217391304348,
+      "rejection_reasons": [],
+      "seconds": 0.2918741973116994
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "034cd852b2203e07fb5aafdcca2384d7c48d9c8c8fb648341a3f223a3544ecb9",
+  "selected_reasons": []
+}

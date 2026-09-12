@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "2d73f128d129b371a4d73e8a25d7fc203a295771da25fcfb3b9eae540962194b",
+  "attempts": [
+    {
+      "asr_seconds": 0.1244360813871026,
+      "alignment_seconds": 0.00018522702157497406,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Yes, Jane.\"",
+        "hotwords": "Yes, Jane"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, Jane.",
+          "start": 0.02,
+          "end": 0.96,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.82373046875
+            },
+            {
+              "text": " Jane.",
+              "start": 0.78,
+              "end": 0.96,
+              "probability": 0.96630859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "Jane.",
+          "start": 0.78,
+          "end": 0.96
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes,",
+        "Jane.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Jane.",
+          "start": 0.78,
+          "end": 0.96,
+          "key": "jane",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Yes,",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "Jane.\"",
+          "start": 0.78,
+          "end": 0.96
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12467984110116959
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0944779dfce7b8e3ad1266cff18cee21e838df10d5c06c4b4a69b1442978cc63",
+  "selected_reasons": []
+}

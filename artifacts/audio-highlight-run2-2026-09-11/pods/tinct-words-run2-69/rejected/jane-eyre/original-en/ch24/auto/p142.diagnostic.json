@@ -1,0 +1,278 @@
+{
+  "complete": true,
+  "signature": "b1bf3e636d7b9ad080fb2266c3239afc3266ca30ac445b69e41b1b6080a24cf8",
+  "attempts": [
+    {
+      "asr_seconds": 0.21615951042622328,
+      "alignment_seconds": 0.0004799971356987953,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Till what? You delight in half-phrases.\"",
+        "hotwords": "Till, You"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Till what? You delight in half-phrases.",
+          "start": 0.05,
+          "end": 2.29,
+          "words": [
+            {
+              "text": " Till",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.48779296875
+            },
+            {
+              "text": " what?",
+              "start": 0.53,
+              "end": 0.79,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " You",
+              "start": 1.19,
+              "end": 1.29,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " delight",
+              "start": 1.29,
+              "end": 1.53,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " in",
+              "start": 1.53,
+              "end": 1.67,
+              "probability": 0.998046875
+            },
+            {
+              "text": " half",
+              "start": 1.67,
+              "end": 1.87,
+              "probability": 0.9931640625
+            },
+            {
+              "text": "-phrases.",
+              "start": 1.87,
+              "end": 2.29,
+              "probability": 0.7626953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Till",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "what?",
+          "start": 0.53,
+          "end": 0.79
+        },
+        {
+          "raw": "You",
+          "start": 1.19,
+          "end": 1.29
+        },
+        {
+          "raw": "delight",
+          "start": 1.29,
+          "end": 1.53
+        },
+        {
+          "raw": "in",
+          "start": 1.53,
+          "end": 1.67
+        },
+        {
+          "raw": "half",
+          "start": 1.67,
+          "end": 1.87
+        },
+        {
+          "raw": "-phrases.",
+          "start": 1.87,
+          "end": 2.29
+        }
+      ],
+      "expected_tokens": [
+        "\"Till",
+        "what?",
+        "You",
+        "delight",
+        "in",
+        "half-phrases.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Till",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "till",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what?",
+          "start": 0.53,
+          "end": 0.79,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 1.19,
+          "end": 1.29,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "delight",
+          "start": 1.29,
+          "end": 1.53,
+          "key": "delight",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.53,
+          "end": 1.67,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "half -phrases.",
+          "start": 1.67,
+          "end": 2.29,
+          "key": "halfphrases",
+          "pieces": [
+            5,
+            6
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 5,
+          "text": "half-phrases.\"",
+          "heard": "half -phrases.",
+          "heard_indexes": [
+            5,
+            6
+          ],
+          "start": 1.67,
+          "end": 2.29
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Till",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "what?",
+          "start": 0.53,
+          "end": 0.79
+        },
+        {
+          "text": "You",
+          "start": 1.19,
+          "end": 1.29
+        },
+        {
+          "text": "delight",
+          "start": 1.29,
+          "end": 1.53
+        },
+        {
+          "text": "in",
+          "start": 1.53,
+          "end": 1.67
+        },
+        {
+          "text": "half-phrases.\"",
+          "start": 1.67,
+          "end": 2.29
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21678052004426718
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "324815237352a316e55af4fb5d37d99252ed63ffa6bcbabc03a19d8ae8231474",
+  "selected_reasons": []
+}

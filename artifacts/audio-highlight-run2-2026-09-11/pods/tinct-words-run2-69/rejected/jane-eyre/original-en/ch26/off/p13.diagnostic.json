@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "1a6702289646aa5e72e07948159ebb9a5f76da28d8d8c3848ae5dd7baf486747",
+  "attempts": [
+    {
+      "asr_seconds": 0.15568519104272127,
+      "alignment_seconds": 0.0002255430445075035,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The horses are harnessing.",
+          "start": 0.02,
+          "end": 1.6,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.857421875
+            },
+            {
+              "text": " horses",
+              "start": 0.5,
+              "end": 0.76,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " are",
+              "start": 0.76,
+              "end": 1.0,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " harnessing.",
+              "start": 1.0,
+              "end": 1.6,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "horses",
+          "start": 0.5,
+          "end": 0.76
+        },
+        {
+          "raw": "are",
+          "start": 0.76,
+          "end": 1.0
+        },
+        {
+          "raw": "harnessing.",
+          "start": 1.0,
+          "end": 1.6
+        }
+      ],
+      "expected_tokens": [
+        "\"The",
+        "horses",
+        "are",
+        "harnessing.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "horses",
+          "start": 0.5,
+          "end": 0.76,
+          "key": "horses",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 0.76,
+          "end": 1.0,
+          "key": "are",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "harnessing.",
+          "start": 1.0,
+          "end": 1.6,
+          "key": "harnessing",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "horses",
+          "start": 0.5,
+          "end": 0.76
+        },
+        {
+          "text": "are",
+          "start": 0.76,
+          "end": 1.0
+        },
+        {
+          "text": "harnessing.\"",
+          "start": 1.0,
+          "end": 1.6
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15600980166345835
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b5e6949bc21973ffdf6f10913b5ef3e7a671f862894acf710f80e60063f13e91",
+  "selected_reasons": []
+}

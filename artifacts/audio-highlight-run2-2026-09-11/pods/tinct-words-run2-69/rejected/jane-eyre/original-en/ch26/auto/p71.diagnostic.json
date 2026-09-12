@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "6d91b5078b0ad1040fcad6f79fab7bd0a6ece0616d2b4ac5ae21dbadbf23215e",
+  "attempts": [
+    {
+      "asr_seconds": 0.20743837393820286,
+      "alignment_seconds": 0.0005559222772717476,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Only a few moments, Grace: you must allow me a few moments.\"",
+        "hotwords": "Only, Grace"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Only a few moments, Grace. You must allow me a few moments.",
+          "start": 0.02,
+          "end": 3.46,
+          "words": [
+            {
+              "text": " Only",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.642578125
+            },
+            {
+              "text": " a",
+              "start": 0.64,
+              "end": 0.8,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " few",
+              "start": 0.8,
+              "end": 0.92,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " moments,",
+              "start": 0.92,
+              "end": 1.28,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Grace.",
+              "start": 1.5,
+              "end": 1.62,
+              "probability": 0.84814453125
+            },
+            {
+              "text": " You",
+              "start": 2.24,
+              "end": 2.28,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " must",
+              "start": 2.28,
+              "end": 2.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " allow",
+              "start": 2.4,
+              "end": 2.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me",
+              "start": 2.68,
+              "end": 2.86,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 2.86,
+              "end": 2.98,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " few",
+              "start": 2.98,
+              "end": 3.12,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " moments.",
+              "start": 3.12,
+              "end": 3.46,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Only",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "a",
+          "start": 0.64,
+          "end": 0.8
+        },
+        {
+          "raw": "few",
+          "start": 0.8,
+          "end": 0.92
+        },
+        {
+          "raw": "moments,",
+          "start": 0.92,
+          "end": 1.28
+        },
+        {
+          "raw": "Grace.",
+          "start": 1.5,
+          "end": 1.62
+        },
+        {
+          "raw": "You",
+          "start": 2.24,
+          "end": 2.28
+        },
+        {
+          "raw": "must",
+          "start": 2.28,
+          "end": 2.4
+        },
+        {
+          "raw": "allow",
+          "start": 2.4,
+          "end": 2.68
+        },
+        {
+          "raw": "me",
+          "start": 2.68,
+          "end": 2.86
+        },
+        {
+          "raw": "a",
+          "start": 2.86,
+          "end": 2.98
+        },
+        {
+          "raw": "few",
+          "start": 2.98,
+          "end": 3.12
+        },
+        {
+          "raw": "moments.",
+          "start": 3.12,
+          "end": 3.46
+        }
+      ],
+      "expected_tokens": [
+        "\"Only",
+        "a",
+        "few",
+        "moments,",
+        "Grace:",
+        "you",
+        "must",
+        "allow",
+        "me",
+        "a",
+        "few",
+        "moments.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Only",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "only",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.64,
+          "end": 0.8,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "few",
+          "start": 0.8,
+          "end": 0.92,
+          "key": "few",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "moments,",
+          "start": 0.92,
+          "end": 1.28,
+          "key": "moments",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Grace.",
+          "start": 1.5,
+          "end": 1.62,
+          "key": "grace",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 2.24,
+          "end": 2.28,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 2.28,
+          "end": 2.4,
+          "key": "must",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "allow",
+          "start": 2.4,
+          "end": 2.68,
+          "key": "allow",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.68,
+          "end": 2.86,
+          "key": "me",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.86,
+          "end": 2.98,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "few",
+          "start": 2.98,
+          "end": 3.12,
+          "key": "few",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "moments.",
+          "start": 3.12,
+          "end": 3.46,
+          "key": "moments",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Only",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "a",
+          "start": 0.64,
+          "end": 0.8
+        },
+        {
+          "text": "few",
+          "start": 0.8,
+          "end": 0.92
+        },
+        {
+          "text": "moments,",
+          "start": 0.92,
+          "end": 1.28
+        },
+        {
+          "text": "Grace:",
+          "start": 1.5,
+          "end": 1.62
+        },
+        {
+          "text": "you",
+          "start": 2.24,
+          "end": 2.28
+        },
+        {
+          "text": "must",
+          "start": 2.28,
+          "end": 2.4
+        },
+        {
+          "text": "allow",
+          "start": 2.4,
+          "end": 2.68
+        },
+        {
+          "text": "me",
+          "start": 2.68,
+          "end": 2.86
+        },
+        {
+          "text": "a",
+          "start": 2.86,
+          "end": 2.98
+        },
+        {
+          "text": "few",
+          "start": 2.98,
+          "end": 3.12
+        },
+        {
+          "text": "moments.\"",
+          "start": 3.12,
+          "end": 3.46
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20821882970631123
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "eee121f640b93d4ca00a4d03547a70f2a53f8b7a9dbb023dca5c9e707b6257bd",
+  "selected_reasons": []
+}

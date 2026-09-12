@@ -1,0 +1,702 @@
+{
+  "complete": true,
+  "signature": "f9110afc3b04b4ed10b1284f620606c0e2d3fed3c7e9deca23f99d90bf44e385",
+  "attempts": [
+    {
+      "asr_seconds": 0.2967184893786907,
+      "alignment_seconds": 0.0003764741122722626,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I have formed no supposition on the subject, sir; but I want to go on as usual for another month.\"",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I have formed no supposition on the subject, sir, but I want to go on as usual for another month.",
+          "start": 0.08,
+          "end": 5.7,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.82421875
+            },
+            {
+              "text": " have",
+              "start": 0.54,
+              "end": 0.7,
+              "probability": 0.978515625
+            },
+            {
+              "text": " formed",
+              "start": 0.7,
+              "end": 1.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " no",
+              "start": 1.0,
+              "end": 1.34,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " supposition",
+              "start": 1.34,
+              "end": 1.9,
+              "probability": 0.997314453125
+            },
+            {
+              "text": " on",
+              "start": 1.9,
+              "end": 2.16,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 2.16,
+              "end": 2.3,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " subject,",
+              "start": 2.3,
+              "end": 2.66,
+              "probability": 0.994140625
+            },
+            {
+              "text": " sir,",
+              "start": 2.9,
+              "end": 3.0,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " but",
+              "start": 3.5,
+              "end": 3.64,
+              "probability": 0.98828125
+            },
+            {
+              "text": " I",
+              "start": 3.64,
+              "end": 3.76,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " want",
+              "start": 3.76,
+              "end": 3.9,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " to",
+              "start": 3.9,
+              "end": 4.02,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " go",
+              "start": 4.02,
+              "end": 4.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " on",
+              "start": 4.12,
+              "end": 4.32,
+              "probability": 0.994140625
+            },
+            {
+              "text": " as",
+              "start": 4.32,
+              "end": 4.46,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " usual",
+              "start": 4.46,
+              "end": 4.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " for",
+              "start": 4.84,
+              "end": 5.1,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " another",
+              "start": 5.1,
+              "end": 5.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " month.",
+              "start": 5.32,
+              "end": 5.7,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "have",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "raw": "formed",
+          "start": 0.7,
+          "end": 1.0
+        },
+        {
+          "raw": "no",
+          "start": 1.0,
+          "end": 1.34
+        },
+        {
+          "raw": "supposition",
+          "start": 1.34,
+          "end": 1.9
+        },
+        {
+          "raw": "on",
+          "start": 1.9,
+          "end": 2.16
+        },
+        {
+          "raw": "the",
+          "start": 2.16,
+          "end": 2.3
+        },
+        {
+          "raw": "subject,",
+          "start": 2.3,
+          "end": 2.66
+        },
+        {
+          "raw": "sir,",
+          "start": 2.9,
+          "end": 3.0
+        },
+        {
+          "raw": "but",
+          "start": 3.5,
+          "end": 3.64
+        },
+        {
+          "raw": "I",
+          "start": 3.64,
+          "end": 3.76
+        },
+        {
+          "raw": "want",
+          "start": 3.76,
+          "end": 3.9
+        },
+        {
+          "raw": "to",
+          "start": 3.9,
+          "end": 4.02
+        },
+        {
+          "raw": "go",
+          "start": 4.02,
+          "end": 4.12
+        },
+        {
+          "raw": "on",
+          "start": 4.12,
+          "end": 4.32
+        },
+        {
+          "raw": "as",
+          "start": 4.32,
+          "end": 4.46
+        },
+        {
+          "raw": "usual",
+          "start": 4.46,
+          "end": 4.84
+        },
+        {
+          "raw": "for",
+          "start": 4.84,
+          "end": 5.1
+        },
+        {
+          "raw": "another",
+          "start": 5.1,
+          "end": 5.32
+        },
+        {
+          "raw": "month.",
+          "start": 5.32,
+          "end": 5.7
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "have",
+        "formed",
+        "no",
+        "supposition",
+        "on",
+        "the",
+        "subject,",
+        "sir;",
+        "but",
+        "I",
+        "want",
+        "to",
+        "go",
+        "on",
+        "as",
+        "usual",
+        "for",
+        "another",
+        "month.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 0.54,
+          "end": 0.7,
+          "key": "have",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "formed",
+          "start": 0.7,
+          "end": 1.0,
+          "key": "formed",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 1.0,
+          "end": 1.34,
+          "key": "no",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "supposition",
+          "start": 1.34,
+          "end": 1.9,
+          "key": "supposition",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.9,
+          "end": 2.16,
+          "key": "on",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.16,
+          "end": 2.3,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "subject,",
+          "start": 2.3,
+          "end": 2.66,
+          "key": "subject",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 2.9,
+          "end": 3.0,
+          "key": "sir",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 3.5,
+          "end": 3.64,
+          "key": "but",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.64,
+          "end": 3.76,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "want",
+          "start": 3.76,
+          "end": 3.9,
+          "key": "want",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.9,
+          "end": 4.02,
+          "key": "to",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 4.02,
+          "end": 4.12,
+          "key": "go",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 4.12,
+          "end": 4.32,
+          "key": "on",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 4.32,
+          "end": 4.46,
+          "key": "as",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "usual",
+          "start": 4.46,
+          "end": 4.84,
+          "key": "usual",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.84,
+          "end": 5.1,
+          "key": "for",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "another",
+          "start": 5.1,
+          "end": 5.32,
+          "key": "another",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "month.",
+          "start": 5.32,
+          "end": 5.7,
+          "key": "month",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "have",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "text": "formed",
+          "start": 0.7,
+          "end": 1.0
+        },
+        {
+          "text": "no",
+          "start": 1.0,
+          "end": 1.34
+        },
+        {
+          "text": "supposition",
+          "start": 1.34,
+          "end": 1.9
+        },
+        {
+          "text": "on",
+          "start": 1.9,
+          "end": 2.16
+        },
+        {
+          "text": "the",
+          "start": 2.16,
+          "end": 2.3
+        },
+        {
+          "text": "subject,",
+          "start": 2.3,
+          "end": 2.66
+        },
+        {
+          "text": "sir;",
+          "start": 2.9,
+          "end": 3.0
+        },
+        {
+          "text": "but",
+          "start": 3.5,
+          "end": 3.64
+        },
+        {
+          "text": "I",
+          "start": 3.64,
+          "end": 3.76
+        },
+        {
+          "text": "want",
+          "start": 3.76,
+          "end": 3.9
+        },
+        {
+          "text": "to",
+          "start": 3.9,
+          "end": 4.02
+        },
+        {
+          "text": "go",
+          "start": 4.02,
+          "end": 4.12
+        },
+        {
+          "text": "on",
+          "start": 4.12,
+          "end": 4.32
+        },
+        {
+          "text": "as",
+          "start": 4.32,
+          "end": 4.46
+        },
+        {
+          "text": "usual",
+          "start": 4.46,
+          "end": 4.84
+        },
+        {
+          "text": "for",
+          "start": 4.84,
+          "end": 5.1
+        },
+        {
+          "text": "another",
+          "start": 5.1,
+          "end": 5.32
+        },
+        {
+          "text": "month.\"",
+          "start": 5.32,
+          "end": 5.7
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.29725436866283417
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "27235273530cb37eeed072c48769d4133a476c3bc0a156c44f6d60331a34c580",
+  "selected_reasons": []
+}
