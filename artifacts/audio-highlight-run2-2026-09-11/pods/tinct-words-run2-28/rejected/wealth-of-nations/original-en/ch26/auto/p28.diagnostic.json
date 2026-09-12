@@ -1,0 +1,3432 @@
+{
+  "complete": true,
+  "signature": "b2e7716aca79f50ac2b3c0811eec5ef66d2655057c44b40e249350d5694c8049",
+  "attempts": [
+    {
+      "asr_seconds": 0.8438861118629575,
+      "alignment_seconds": 0.003112122882157564,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "A moderate seignorage, therefore, would not, in any case, augment the expense of the bank, or of any other private persons who carry their bullion to the mint in order to be coined; and the want of a moderate seignorage does not in any case diminish it. Whether there is or is not a seignorage, if the currency contains its full standard weight, the coinage costs nothing to anybody; and if it is short of that weight, the coinage must always cost the difference between the quantity of bullion which ought to be contained in it, and that which actually is contained in it.",
+        "hotwords": "Whether"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " A moderate seignorage, therefore, would not, in any case, augment the expense of the bank,",
+          "start": 0.02,
+          "end": 5.46,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.1590576171875
+            },
+            {
+              "text": " moderate",
+              "start": 0.5,
+              "end": 0.86,
+              "probability": 0.890625
+            },
+            {
+              "text": " seignorage,",
+              "start": 0.86,
+              "end": 1.48,
+              "probability": 0.298065185546875
+            },
+            {
+              "text": " therefore,",
+              "start": 1.66,
+              "end": 1.96,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " would",
+              "start": 2.56,
+              "end": 2.64,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " not,",
+              "start": 2.64,
+              "end": 2.9,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 3.02,
+              "end": 3.08,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " any",
+              "start": 3.08,
+              "end": 3.32,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " case,",
+              "start": 3.32,
+              "end": 3.62,
+              "probability": 0.998046875
+            },
+            {
+              "text": " augment",
+              "start": 3.94,
+              "end": 4.16,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " the",
+              "start": 4.16,
+              "end": 4.48,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " expense",
+              "start": 4.48,
+              "end": 4.86,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " of",
+              "start": 4.86,
+              "end": 5.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 5.08,
+              "end": 5.2,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " bank,",
+              "start": 5.2,
+              "end": 5.46,
+              "probability": 0.97412109375
+            }
+          ]
+        },
+        {
+          "text": " or of any other private persons who carry their bullion to the mint in order to be coined,",
+          "start": 5.94,
+          "end": 10.38,
+          "words": [
+            {
+              "text": " or",
+              "start": 5.94,
+              "end": 6.06,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " of",
+              "start": 6.06,
+              "end": 6.18,
+              "probability": 0.986328125
+            },
+            {
+              "text": " any",
+              "start": 6.18,
+              "end": 6.34,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " other",
+              "start": 6.34,
+              "end": 6.62,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " private",
+              "start": 6.62,
+              "end": 6.96,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " persons",
+              "start": 6.96,
+              "end": 7.44,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " who",
+              "start": 7.44,
+              "end": 7.78,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " carry",
+              "start": 7.78,
+              "end": 8.06,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " their",
+              "start": 8.06,
+              "end": 8.32,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " bullion",
+              "start": 8.32,
+              "end": 8.68,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " to",
+              "start": 8.68,
+              "end": 8.84,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 8.84,
+              "end": 8.98,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " mint",
+              "start": 8.98,
+              "end": 9.14,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " in",
+              "start": 9.14,
+              "end": 9.46,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " order",
+              "start": 9.46,
+              "end": 9.66,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 9.66,
+              "end": 9.86,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " be",
+              "start": 9.86,
+              "end": 10.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " coined,",
+              "start": 10.02,
+              "end": 10.38,
+              "probability": 0.97265625
+            }
+          ]
+        },
+        {
+          "text": " and the want of a moderate seignorage does not in any case diminish it. Whether there",
+          "start": 10.92,
+          "end": 16.04,
+          "words": [
+            {
+              "text": " and",
+              "start": 10.92,
+              "end": 11.16,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 11.16,
+              "end": 11.3,
+              "probability": 0.998046875
+            },
+            {
+              "text": " want",
+              "start": 11.3,
+              "end": 11.48,
+              "probability": 0.994140625
+            },
+            {
+              "text": " of",
+              "start": 11.48,
+              "end": 11.64,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 11.64,
+              "end": 11.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " moderate",
+              "start": 11.78,
+              "end": 12.12,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " seignorage",
+              "start": 12.12,
+              "end": 12.72,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " does",
+              "start": 12.72,
+              "end": 13.02,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " not",
+              "start": 13.02,
+              "end": 13.28,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " in",
+              "start": 13.28,
+              "end": 13.38,
+              "probability": 0.5498046875
+            },
+            {
+              "text": " any",
+              "start": 13.38,
+              "end": 13.66,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " case",
+              "start": 13.66,
+              "end": 13.88,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " diminish",
+              "start": 13.88,
+              "end": 14.24,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " it.",
+              "start": 14.24,
+              "end": 14.76,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Whether",
+              "start": 15.58,
+              "end": 15.76,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " there",
+              "start": 15.76,
+              "end": 16.04,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " is or is not a seignorage, if the currency contains its full standard weight, the coinage",
+          "start": 16.04,
+          "end": 21.78,
+          "words": [
+            {
+              "text": " is",
+              "start": 16.04,
+              "end": 16.34,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " or",
+              "start": 16.34,
+              "end": 16.56,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " is",
+              "start": 16.56,
+              "end": 16.76,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " not",
+              "start": 16.76,
+              "end": 16.96,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 16.96,
+              "end": 17.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " seignorage,",
+              "start": 17.12,
+              "end": 17.62,
+              "probability": 0.9544270833333334
+            },
+            {
+              "text": " if",
+              "start": 18.02,
+              "end": 18.24,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 18.24,
+              "end": 18.38,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " currency",
+              "start": 18.38,
+              "end": 18.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " contains",
+              "start": 18.76,
+              "end": 19.3,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " its",
+              "start": 19.3,
+              "end": 19.56,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " full",
+              "start": 19.56,
+              "end": 19.86,
+              "probability": 0.99609375
+            },
+            {
+              "text": " standard",
+              "start": 19.86,
+              "end": 20.34,
+              "probability": 0.78369140625
+            },
+            {
+              "text": " weight,",
+              "start": 20.34,
+              "end": 20.7,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " the",
+              "start": 21.18,
+              "end": 21.34,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " coinage",
+              "start": 21.34,
+              "end": 21.78,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " costs nothing to anybody, and if it is short of that weight, the coinage must always cost",
+          "start": 21.78,
+          "end": 27.26,
+          "words": [
+            {
+              "text": " costs",
+              "start": 21.78,
+              "end": 22.1,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " nothing",
+              "start": 22.1,
+              "end": 22.54,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 22.54,
+              "end": 22.84,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " anybody,",
+              "start": 22.84,
+              "end": 23.28,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 23.9,
+              "end": 24.12,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " if",
+              "start": 24.12,
+              "end": 24.22,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " it",
+              "start": 24.22,
+              "end": 24.32,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " is",
+              "start": 24.32,
+              "end": 24.44,
+              "probability": 0.998046875
+            },
+            {
+              "text": " short",
+              "start": 24.44,
+              "end": 24.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 24.7,
+              "end": 24.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that",
+              "start": 24.84,
+              "end": 25.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " weight,",
+              "start": 25.02,
+              "end": 25.34,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 25.7,
+              "end": 25.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " coinage",
+              "start": 25.86,
+              "end": 26.3,
+              "probability": 0.999755859375
+            },
+            {
+              "text": " must",
+              "start": 26.3,
+              "end": 26.46,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " always",
+              "start": 26.46,
+              "end": 26.9,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " cost",
+              "start": 26.9,
+              "end": 27.26,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " the difference between the quantity of bullion which ought to be contained in it, and that",
+          "start": 27.26,
+          "end": 31.62,
+          "words": [
+            {
+              "text": " the",
+              "start": 27.26,
+              "end": 27.54,
+              "probability": 0.7421875
+            },
+            {
+              "text": " difference",
+              "start": 27.54,
+              "end": 27.9,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " between",
+              "start": 27.9,
+              "end": 28.28,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 28.28,
+              "end": 28.48,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " quantity",
+              "start": 28.48,
+              "end": 28.86,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 28.86,
+              "end": 29.1,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " bullion",
+              "start": 29.1,
+              "end": 29.5,
+              "probability": 0.957275390625
+            },
+            {
+              "text": " which",
+              "start": 29.5,
+              "end": 29.72,
+              "probability": 0.91015625
+            },
+            {
+              "text": " ought",
+              "start": 29.72,
+              "end": 29.9,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 29.9,
+              "end": 30.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " be",
+              "start": 30.06,
+              "end": 30.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " contained",
+              "start": 30.18,
+              "end": 30.56,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 30.56,
+              "end": 30.76,
+              "probability": 0.998046875
+            },
+            {
+              "text": " it,",
+              "start": 30.76,
+              "end": 30.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 31.26,
+              "end": 31.48,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " that",
+              "start": 31.48,
+              "end": 31.62,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " which actually is contained in it.",
+          "start": 31.62,
+          "end": 33.38,
+          "words": [
+            {
+              "text": " which",
+              "start": 31.62,
+              "end": 31.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " actually",
+              "start": 31.78,
+              "end": 32.22,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " is",
+              "start": 32.22,
+              "end": 32.48,
+              "probability": 0.99609375
+            },
+            {
+              "text": " contained",
+              "start": 32.48,
+              "end": 32.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 32.84,
+              "end": 33.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " it.",
+              "start": 33.14,
+              "end": 33.38,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "moderate",
+          "start": 0.5,
+          "end": 0.86
+        },
+        {
+          "raw": "seignorage,",
+          "start": 0.86,
+          "end": 1.48
+        },
+        {
+          "raw": "therefore,",
+          "start": 1.66,
+          "end": 1.96
+        },
+        {
+          "raw": "would",
+          "start": 2.56,
+          "end": 2.64
+        },
+        {
+          "raw": "not,",
+          "start": 2.64,
+          "end": 2.9
+        },
+        {
+          "raw": "in",
+          "start": 3.02,
+          "end": 3.08
+        },
+        {
+          "raw": "any",
+          "start": 3.08,
+          "end": 3.32
+        },
+        {
+          "raw": "case,",
+          "start": 3.32,
+          "end": 3.62
+        },
+        {
+          "raw": "augment",
+          "start": 3.94,
+          "end": 4.16
+        },
+        {
+          "raw": "the",
+          "start": 4.16,
+          "end": 4.48
+        },
+        {
+          "raw": "expense",
+          "start": 4.48,
+          "end": 4.86
+        },
+        {
+          "raw": "of",
+          "start": 4.86,
+          "end": 5.08
+        },
+        {
+          "raw": "the",
+          "start": 5.08,
+          "end": 5.2
+        },
+        {
+          "raw": "bank,",
+          "start": 5.2,
+          "end": 5.46
+        },
+        {
+          "raw": "or",
+          "start": 5.94,
+          "end": 6.06
+        },
+        {
+          "raw": "of",
+          "start": 6.06,
+          "end": 6.18
+        },
+        {
+          "raw": "any",
+          "start": 6.18,
+          "end": 6.34
+        },
+        {
+          "raw": "other",
+          "start": 6.34,
+          "end": 6.62
+        },
+        {
+          "raw": "private",
+          "start": 6.62,
+          "end": 6.96
+        },
+        {
+          "raw": "persons",
+          "start": 6.96,
+          "end": 7.44
+        },
+        {
+          "raw": "who",
+          "start": 7.44,
+          "end": 7.78
+        },
+        {
+          "raw": "carry",
+          "start": 7.78,
+          "end": 8.06
+        },
+        {
+          "raw": "their",
+          "start": 8.06,
+          "end": 8.32
+        },
+        {
+          "raw": "bullion",
+          "start": 8.32,
+          "end": 8.68
+        },
+        {
+          "raw": "to",
+          "start": 8.68,
+          "end": 8.84
+        },
+        {
+          "raw": "the",
+          "start": 8.84,
+          "end": 8.98
+        },
+        {
+          "raw": "mint",
+          "start": 8.98,
+          "end": 9.14
+        },
+        {
+          "raw": "in",
+          "start": 9.14,
+          "end": 9.46
+        },
+        {
+          "raw": "order",
+          "start": 9.46,
+          "end": 9.66
+        },
+        {
+          "raw": "to",
+          "start": 9.66,
+          "end": 9.86
+        },
+        {
+          "raw": "be",
+          "start": 9.86,
+          "end": 10.02
+        },
+        {
+          "raw": "coined,",
+          "start": 10.02,
+          "end": 10.38
+        },
+        {
+          "raw": "and",
+          "start": 10.92,
+          "end": 11.16
+        },
+        {
+          "raw": "the",
+          "start": 11.16,
+          "end": 11.3
+        },
+        {
+          "raw": "want",
+          "start": 11.3,
+          "end": 11.48
+        },
+        {
+          "raw": "of",
+          "start": 11.48,
+          "end": 11.64
+        },
+        {
+          "raw": "a",
+          "start": 11.64,
+          "end": 11.78
+        },
+        {
+          "raw": "moderate",
+          "start": 11.78,
+          "end": 12.12
+        },
+        {
+          "raw": "seignorage",
+          "start": 12.12,
+          "end": 12.72
+        },
+        {
+          "raw": "does",
+          "start": 12.72,
+          "end": 13.02
+        },
+        {
+          "raw": "not",
+          "start": 13.02,
+          "end": 13.28
+        },
+        {
+          "raw": "in",
+          "start": 13.28,
+          "end": 13.38
+        },
+        {
+          "raw": "any",
+          "start": 13.38,
+          "end": 13.66
+        },
+        {
+          "raw": "case",
+          "start": 13.66,
+          "end": 13.88
+        },
+        {
+          "raw": "diminish",
+          "start": 13.88,
+          "end": 14.24
+        },
+        {
+          "raw": "it.",
+          "start": 14.24,
+          "end": 14.76
+        },
+        {
+          "raw": "Whether",
+          "start": 15.58,
+          "end": 15.76
+        },
+        {
+          "raw": "there",
+          "start": 15.76,
+          "end": 16.04
+        },
+        {
+          "raw": "is",
+          "start": 16.04,
+          "end": 16.34
+        },
+        {
+          "raw": "or",
+          "start": 16.34,
+          "end": 16.56
+        },
+        {
+          "raw": "is",
+          "start": 16.56,
+          "end": 16.76
+        },
+        {
+          "raw": "not",
+          "start": 16.76,
+          "end": 16.96
+        },
+        {
+          "raw": "a",
+          "start": 16.96,
+          "end": 17.12
+        },
+        {
+          "raw": "seignorage,",
+          "start": 17.12,
+          "end": 17.62
+        },
+        {
+          "raw": "if",
+          "start": 18.02,
+          "end": 18.24
+        },
+        {
+          "raw": "the",
+          "start": 18.24,
+          "end": 18.38
+        },
+        {
+          "raw": "currency",
+          "start": 18.38,
+          "end": 18.76
+        },
+        {
+          "raw": "contains",
+          "start": 18.76,
+          "end": 19.3
+        },
+        {
+          "raw": "its",
+          "start": 19.3,
+          "end": 19.56
+        },
+        {
+          "raw": "full",
+          "start": 19.56,
+          "end": 19.86
+        },
+        {
+          "raw": "standard",
+          "start": 19.86,
+          "end": 20.34
+        },
+        {
+          "raw": "weight,",
+          "start": 20.34,
+          "end": 20.7
+        },
+        {
+          "raw": "the",
+          "start": 21.18,
+          "end": 21.34
+        },
+        {
+          "raw": "coinage",
+          "start": 21.34,
+          "end": 21.78
+        },
+        {
+          "raw": "costs",
+          "start": 21.78,
+          "end": 22.1
+        },
+        {
+          "raw": "nothing",
+          "start": 22.1,
+          "end": 22.54
+        },
+        {
+          "raw": "to",
+          "start": 22.54,
+          "end": 22.84
+        },
+        {
+          "raw": "anybody,",
+          "start": 22.84,
+          "end": 23.28
+        },
+        {
+          "raw": "and",
+          "start": 23.9,
+          "end": 24.12
+        },
+        {
+          "raw": "if",
+          "start": 24.12,
+          "end": 24.22
+        },
+        {
+          "raw": "it",
+          "start": 24.22,
+          "end": 24.32
+        },
+        {
+          "raw": "is",
+          "start": 24.32,
+          "end": 24.44
+        },
+        {
+          "raw": "short",
+          "start": 24.44,
+          "end": 24.7
+        },
+        {
+          "raw": "of",
+          "start": 24.7,
+          "end": 24.84
+        },
+        {
+          "raw": "that",
+          "start": 24.84,
+          "end": 25.02
+        },
+        {
+          "raw": "weight,",
+          "start": 25.02,
+          "end": 25.34
+        },
+        {
+          "raw": "the",
+          "start": 25.7,
+          "end": 25.86
+        },
+        {
+          "raw": "coinage",
+          "start": 25.86,
+          "end": 26.3
+        },
+        {
+          "raw": "must",
+          "start": 26.3,
+          "end": 26.46
+        },
+        {
+          "raw": "always",
+          "start": 26.46,
+          "end": 26.9
+        },
+        {
+          "raw": "cost",
+          "start": 26.9,
+          "end": 27.26
+        },
+        {
+          "raw": "the",
+          "start": 27.26,
+          "end": 27.54
+        },
+        {
+          "raw": "difference",
+          "start": 27.54,
+          "end": 27.9
+        },
+        {
+          "raw": "between",
+          "start": 27.9,
+          "end": 28.28
+        },
+        {
+          "raw": "the",
+          "start": 28.28,
+          "end": 28.48
+        },
+        {
+          "raw": "quantity",
+          "start": 28.48,
+          "end": 28.86
+        },
+        {
+          "raw": "of",
+          "start": 28.86,
+          "end": 29.1
+        },
+        {
+          "raw": "bullion",
+          "start": 29.1,
+          "end": 29.5
+        },
+        {
+          "raw": "which",
+          "start": 29.5,
+          "end": 29.72
+        },
+        {
+          "raw": "ought",
+          "start": 29.72,
+          "end": 29.9
+        },
+        {
+          "raw": "to",
+          "start": 29.9,
+          "end": 30.06
+        },
+        {
+          "raw": "be",
+          "start": 30.06,
+          "end": 30.18
+        },
+        {
+          "raw": "contained",
+          "start": 30.18,
+          "end": 30.56
+        },
+        {
+          "raw": "in",
+          "start": 30.56,
+          "end": 30.76
+        },
+        {
+          "raw": "it,",
+          "start": 30.76,
+          "end": 30.98
+        },
+        {
+          "raw": "and",
+          "start": 31.26,
+          "end": 31.48
+        },
+        {
+          "raw": "that",
+          "start": 31.48,
+          "end": 31.62
+        },
+        {
+          "raw": "which",
+          "start": 31.62,
+          "end": 31.78
+        },
+        {
+          "raw": "actually",
+          "start": 31.78,
+          "end": 32.22
+        },
+        {
+          "raw": "is",
+          "start": 32.22,
+          "end": 32.48
+        },
+        {
+          "raw": "contained",
+          "start": 32.48,
+          "end": 32.84
+        },
+        {
+          "raw": "in",
+          "start": 32.84,
+          "end": 33.14
+        },
+        {
+          "raw": "it.",
+          "start": 33.14,
+          "end": 33.38
+        }
+      ],
+      "expected_tokens": [
+        "A",
+        "moderate",
+        "seignorage,",
+        "therefore,",
+        "would",
+        "not,",
+        "in",
+        "any",
+        "case,",
+        "augment",
+        "the",
+        "expense",
+        "of",
+        "the",
+        "bank,",
+        "or",
+        "of",
+        "any",
+        "other",
+        "private",
+        "persons",
+        "who",
+        "carry",
+        "their",
+        "bullion",
+        "to",
+        "the",
+        "mint",
+        "in",
+        "order",
+        "to",
+        "be",
+        "coined;",
+        "and",
+        "the",
+        "want",
+        "of",
+        "a",
+        "moderate",
+        "seignorage",
+        "does",
+        "not",
+        "in",
+        "any",
+        "case",
+        "diminish",
+        "it.",
+        "Whether",
+        "there",
+        "is",
+        "or",
+        "is",
+        "not",
+        "a",
+        "seignorage,",
+        "if",
+        "the",
+        "currency",
+        "contains",
+        "its",
+        "full",
+        "standard",
+        "weight,",
+        "the",
+        "coinage",
+        "costs",
+        "nothing",
+        "to",
+        "anybody;",
+        "and",
+        "if",
+        "it",
+        "is",
+        "short",
+        "of",
+        "that",
+        "weight,",
+        "the",
+        "coinage",
+        "must",
+        "always",
+        "cost",
+        "the",
+        "difference",
+        "between",
+        "the",
+        "quantity",
+        "of",
+        "bullion",
+        "which",
+        "ought",
+        "to",
+        "be",
+        "contained",
+        "in",
+        "it,",
+        "and",
+        "that",
+        "which",
+        "actually",
+        "is",
+        "contained",
+        "in",
+        "it."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          104,
+          0,
+          104
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 93
+        },
+        {
+          "index": 94,
+          "source": "observed",
+          "heard_index": 94
+        },
+        {
+          "index": 95,
+          "source": "observed",
+          "heard_index": 95
+        },
+        {
+          "index": 96,
+          "source": "observed",
+          "heard_index": 96
+        },
+        {
+          "index": 97,
+          "source": "observed",
+          "heard_index": 97
+        },
+        {
+          "index": 98,
+          "source": "observed",
+          "heard_index": 98
+        },
+        {
+          "index": 99,
+          "source": "observed",
+          "heard_index": 99
+        },
+        {
+          "index": 100,
+          "source": "observed",
+          "heard_index": 100
+        },
+        {
+          "index": 101,
+          "source": "observed",
+          "heard_index": 101
+        },
+        {
+          "index": 102,
+          "source": "observed",
+          "heard_index": 102
+        },
+        {
+          "index": 103,
+          "source": "observed",
+          "heard_index": 103
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "moderate",
+          "start": 0.5,
+          "end": 0.86,
+          "key": "moderate",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "seignorage,",
+          "start": 0.86,
+          "end": 1.48,
+          "key": "seignorage",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "therefore,",
+          "start": 1.66,
+          "end": 1.96,
+          "key": "therefore",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 2.56,
+          "end": 2.64,
+          "key": "would",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "not,",
+          "start": 2.64,
+          "end": 2.9,
+          "key": "not",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.02,
+          "end": 3.08,
+          "key": "in",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 3.08,
+          "end": 3.32,
+          "key": "any",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "case,",
+          "start": 3.32,
+          "end": 3.62,
+          "key": "case",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "augment",
+          "start": 3.94,
+          "end": 4.16,
+          "key": "augment",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.16,
+          "end": 4.48,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "expense",
+          "start": 4.48,
+          "end": 4.86,
+          "key": "expense",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.86,
+          "end": 5.08,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.08,
+          "end": 5.2,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "bank,",
+          "start": 5.2,
+          "end": 5.46,
+          "key": "bank",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 5.94,
+          "end": 6.06,
+          "key": "or",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.06,
+          "end": 6.18,
+          "key": "of",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 6.18,
+          "end": 6.34,
+          "key": "any",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 6.34,
+          "end": 6.62,
+          "key": "other",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "private",
+          "start": 6.62,
+          "end": 6.96,
+          "key": "private",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "persons",
+          "start": 6.96,
+          "end": 7.44,
+          "key": "persons",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 7.44,
+          "end": 7.78,
+          "key": "who",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "carry",
+          "start": 7.78,
+          "end": 8.06,
+          "key": "carry",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 8.06,
+          "end": 8.32,
+          "key": "their",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "bullion",
+          "start": 8.32,
+          "end": 8.68,
+          "key": "bullion",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 8.68,
+          "end": 8.84,
+          "key": "to",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.84,
+          "end": 8.98,
+          "key": "the",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "mint",
+          "start": 8.98,
+          "end": 9.14,
+          "key": "mint",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 9.14,
+          "end": 9.46,
+          "key": "in",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "order",
+          "start": 9.46,
+          "end": 9.66,
+          "key": "order",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 9.66,
+          "end": 9.86,
+          "key": "to",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 9.86,
+          "end": 10.02,
+          "key": "be",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "coined,",
+          "start": 10.02,
+          "end": 10.38,
+          "key": "coined",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 10.92,
+          "end": 11.16,
+          "key": "and",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.16,
+          "end": 11.3,
+          "key": "the",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "want",
+          "start": 11.3,
+          "end": 11.48,
+          "key": "want",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 11.48,
+          "end": 11.64,
+          "key": "of",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 11.64,
+          "end": 11.78,
+          "key": "a",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "moderate",
+          "start": 11.78,
+          "end": 12.12,
+          "key": "moderate",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "seignorage",
+          "start": 12.12,
+          "end": 12.72,
+          "key": "seignorage",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 12.72,
+          "end": 13.02,
+          "key": "does",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 13.02,
+          "end": 13.28,
+          "key": "not",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 13.28,
+          "end": 13.38,
+          "key": "in",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 13.38,
+          "end": 13.66,
+          "key": "any",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "case",
+          "start": 13.66,
+          "end": 13.88,
+          "key": "case",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "diminish",
+          "start": 13.88,
+          "end": 14.24,
+          "key": "diminish",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 14.24,
+          "end": 14.76,
+          "key": "it",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "Whether",
+          "start": 15.58,
+          "end": 15.76,
+          "key": "whether",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 15.76,
+          "end": 16.04,
+          "key": "there",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 16.04,
+          "end": 16.34,
+          "key": "is",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 16.34,
+          "end": 16.56,
+          "key": "or",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 16.56,
+          "end": 16.76,
+          "key": "is",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 16.76,
+          "end": 16.96,
+          "key": "not",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 16.96,
+          "end": 17.12,
+          "key": "a",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "seignorage,",
+          "start": 17.12,
+          "end": 17.62,
+          "key": "seignorage",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 18.02,
+          "end": 18.24,
+          "key": "if",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 18.24,
+          "end": 18.38,
+          "key": "the",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "currency",
+          "start": 18.38,
+          "end": 18.76,
+          "key": "currency",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "contains",
+          "start": 18.76,
+          "end": 19.3,
+          "key": "contains",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "its",
+          "start": 19.3,
+          "end": 19.56,
+          "key": "its",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "full",
+          "start": 19.56,
+          "end": 19.86,
+          "key": "full",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "standard",
+          "start": 19.86,
+          "end": 20.34,
+          "key": "standard",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "weight,",
+          "start": 20.34,
+          "end": 20.7,
+          "key": "weight",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 21.18,
+          "end": 21.34,
+          "key": "the",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "coinage",
+          "start": 21.34,
+          "end": 21.78,
+          "key": "coinage",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "costs",
+          "start": 21.78,
+          "end": 22.1,
+          "key": "costs",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "nothing",
+          "start": 22.1,
+          "end": 22.54,
+          "key": "nothing",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 22.54,
+          "end": 22.84,
+          "key": "to",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "anybody,",
+          "start": 22.84,
+          "end": 23.28,
+          "key": "anybody",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 23.9,
+          "end": 24.12,
+          "key": "and",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 24.12,
+          "end": 24.22,
+          "key": "if",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 24.22,
+          "end": 24.32,
+          "key": "it",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 24.32,
+          "end": 24.44,
+          "key": "is",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "short",
+          "start": 24.44,
+          "end": 24.7,
+          "key": "short",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 24.7,
+          "end": 24.84,
+          "key": "of",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 24.84,
+          "end": 25.02,
+          "key": "that",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "weight,",
+          "start": 25.02,
+          "end": 25.34,
+          "key": "weight",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 25.7,
+          "end": 25.86,
+          "key": "the",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "coinage",
+          "start": 25.86,
+          "end": 26.3,
+          "key": "coinage",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 26.3,
+          "end": 26.46,
+          "key": "must",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "always",
+          "start": 26.46,
+          "end": 26.9,
+          "key": "always",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "cost",
+          "start": 26.9,
+          "end": 27.26,
+          "key": "cost",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 27.26,
+          "end": 27.54,
+          "key": "the",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "difference",
+          "start": 27.54,
+          "end": 27.9,
+          "key": "difference",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "between",
+          "start": 27.9,
+          "end": 28.28,
+          "key": "between",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 28.28,
+          "end": 28.48,
+          "key": "the",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "quantity",
+          "start": 28.48,
+          "end": 28.86,
+          "key": "quantity",
+          "pieces": [
+            86
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 28.86,
+          "end": 29.1,
+          "key": "of",
+          "pieces": [
+            87
+          ]
+        },
+        {
+          "raw": "bullion",
+          "start": 29.1,
+          "end": 29.5,
+          "key": "bullion",
+          "pieces": [
+            88
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 29.5,
+          "end": 29.72,
+          "key": "which",
+          "pieces": [
+            89
+          ]
+        },
+        {
+          "raw": "ought",
+          "start": 29.72,
+          "end": 29.9,
+          "key": "ought",
+          "pieces": [
+            90
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 29.9,
+          "end": 30.06,
+          "key": "to",
+          "pieces": [
+            91
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 30.06,
+          "end": 30.18,
+          "key": "be",
+          "pieces": [
+            92
+          ]
+        },
+        {
+          "raw": "contained",
+          "start": 30.18,
+          "end": 30.56,
+          "key": "contained",
+          "pieces": [
+            93
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 30.56,
+          "end": 30.76,
+          "key": "in",
+          "pieces": [
+            94
+          ]
+        },
+        {
+          "raw": "it,",
+          "start": 30.76,
+          "end": 30.98,
+          "key": "it",
+          "pieces": [
+            95
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 31.26,
+          "end": 31.48,
+          "key": "and",
+          "pieces": [
+            96
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 31.48,
+          "end": 31.62,
+          "key": "that",
+          "pieces": [
+            97
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 31.62,
+          "end": 31.78,
+          "key": "which",
+          "pieces": [
+            98
+          ]
+        },
+        {
+          "raw": "actually",
+          "start": 31.78,
+          "end": 32.22,
+          "key": "actually",
+          "pieces": [
+            99
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 32.22,
+          "end": 32.48,
+          "key": "is",
+          "pieces": [
+            100
+          ]
+        },
+        {
+          "raw": "contained",
+          "start": 32.48,
+          "end": 32.84,
+          "key": "contained",
+          "pieces": [
+            101
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 32.84,
+          "end": 33.14,
+          "key": "in",
+          "pieces": [
+            102
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 33.14,
+          "end": 33.38,
+          "key": "it",
+          "pieces": [
+            103
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "A",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "moderate",
+          "start": 0.5,
+          "end": 0.86
+        },
+        {
+          "text": "seignorage,",
+          "start": 0.86,
+          "end": 1.48
+        },
+        {
+          "text": "therefore,",
+          "start": 1.66,
+          "end": 1.96
+        },
+        {
+          "text": "would",
+          "start": 2.56,
+          "end": 2.64
+        },
+        {
+          "text": "not,",
+          "start": 2.64,
+          "end": 2.9
+        },
+        {
+          "text": "in",
+          "start": 3.02,
+          "end": 3.08
+        },
+        {
+          "text": "any",
+          "start": 3.08,
+          "end": 3.32
+        },
+        {
+          "text": "case,",
+          "start": 3.32,
+          "end": 3.62
+        },
+        {
+          "text": "augment",
+          "start": 3.94,
+          "end": 4.16
+        },
+        {
+          "text": "the",
+          "start": 4.16,
+          "end": 4.48
+        },
+        {
+          "text": "expense",
+          "start": 4.48,
+          "end": 4.86
+        },
+        {
+          "text": "of",
+          "start": 4.86,
+          "end": 5.08
+        },
+        {
+          "text": "the",
+          "start": 5.08,
+          "end": 5.2
+        },
+        {
+          "text": "bank,",
+          "start": 5.2,
+          "end": 5.46
+        },
+        {
+          "text": "or",
+          "start": 5.94,
+          "end": 6.06
+        },
+        {
+          "text": "of",
+          "start": 6.06,
+          "end": 6.18
+        },
+        {
+          "text": "any",
+          "start": 6.18,
+          "end": 6.34
+        },
+        {
+          "text": "other",
+          "start": 6.34,
+          "end": 6.62
+        },
+        {
+          "text": "private",
+          "start": 6.62,
+          "end": 6.96
+        },
+        {
+          "text": "persons",
+          "start": 6.96,
+          "end": 7.44
+        },
+        {
+          "text": "who",
+          "start": 7.44,
+          "end": 7.78
+        },
+        {
+          "text": "carry",
+          "start": 7.78,
+          "end": 8.06
+        },
+        {
+          "text": "their",
+          "start": 8.06,
+          "end": 8.32
+        },
+        {
+          "text": "bullion",
+          "start": 8.32,
+          "end": 8.68
+        },
+        {
+          "text": "to",
+          "start": 8.68,
+          "end": 8.84
+        },
+        {
+          "text": "the",
+          "start": 8.84,
+          "end": 8.98
+        },
+        {
+          "text": "mint",
+          "start": 8.98,
+          "end": 9.14
+        },
+        {
+          "text": "in",
+          "start": 9.14,
+          "end": 9.46
+        },
+        {
+          "text": "order",
+          "start": 9.46,
+          "end": 9.66
+        },
+        {
+          "text": "to",
+          "start": 9.66,
+          "end": 9.86
+        },
+        {
+          "text": "be",
+          "start": 9.86,
+          "end": 10.02
+        },
+        {
+          "text": "coined;",
+          "start": 10.02,
+          "end": 10.38
+        },
+        {
+          "text": "and",
+          "start": 10.92,
+          "end": 11.16
+        },
+        {
+          "text": "the",
+          "start": 11.16,
+          "end": 11.3
+        },
+        {
+          "text": "want",
+          "start": 11.3,
+          "end": 11.48
+        },
+        {
+          "text": "of",
+          "start": 11.48,
+          "end": 11.64
+        },
+        {
+          "text": "a",
+          "start": 11.64,
+          "end": 11.78
+        },
+        {
+          "text": "moderate",
+          "start": 11.78,
+          "end": 12.12
+        },
+        {
+          "text": "seignorage",
+          "start": 12.12,
+          "end": 12.72
+        },
+        {
+          "text": "does",
+          "start": 12.72,
+          "end": 13.02
+        },
+        {
+          "text": "not",
+          "start": 13.02,
+          "end": 13.28
+        },
+        {
+          "text": "in",
+          "start": 13.28,
+          "end": 13.38
+        },
+        {
+          "text": "any",
+          "start": 13.38,
+          "end": 13.66
+        },
+        {
+          "text": "case",
+          "start": 13.66,
+          "end": 13.88
+        },
+        {
+          "text": "diminish",
+          "start": 13.88,
+          "end": 14.24
+        },
+        {
+          "text": "it.",
+          "start": 14.24,
+          "end": 14.76
+        },
+        {
+          "text": "Whether",
+          "start": 15.58,
+          "end": 15.76
+        },
+        {
+          "text": "there",
+          "start": 15.76,
+          "end": 16.04
+        },
+        {
+          "text": "is",
+          "start": 16.04,
+          "end": 16.34
+        },
+        {
+          "text": "or",
+          "start": 16.34,
+          "end": 16.56
+        },
+        {
+          "text": "is",
+          "start": 16.56,
+          "end": 16.76
+        },
+        {
+          "text": "not",
+          "start": 16.76,
+          "end": 16.96
+        },
+        {
+          "text": "a",
+          "start": 16.96,
+          "end": 17.12
+        },
+        {
+          "text": "seignorage,",
+          "start": 17.12,
+          "end": 17.62
+        },
+        {
+          "text": "if",
+          "start": 18.02,
+          "end": 18.24
+        },
+        {
+          "text": "the",
+          "start": 18.24,
+          "end": 18.38
+        },
+        {
+          "text": "currency",
+          "start": 18.38,
+          "end": 18.76
+        },
+        {
+          "text": "contains",
+          "start": 18.76,
+          "end": 19.3
+        },
+        {
+          "text": "its",
+          "start": 19.3,
+          "end": 19.56
+        },
+        {
+          "text": "full",
+          "start": 19.56,
+          "end": 19.86
+        },
+        {
+          "text": "standard",
+          "start": 19.86,
+          "end": 20.34
+        },
+        {
+          "text": "weight,",
+          "start": 20.34,
+          "end": 20.7
+        },
+        {
+          "text": "the",
+          "start": 21.18,
+          "end": 21.34
+        },
+        {
+          "text": "coinage",
+          "start": 21.34,
+          "end": 21.78
+        },
+        {
+          "text": "costs",
+          "start": 21.78,
+          "end": 22.1
+        },
+        {
+          "text": "nothing",
+          "start": 22.1,
+          "end": 22.54
+        },
+        {
+          "text": "to",
+          "start": 22.54,
+          "end": 22.84
+        },
+        {
+          "text": "anybody;",
+          "start": 22.84,
+          "end": 23.28
+        },
+        {
+          "text": "and",
+          "start": 23.9,
+          "end": 24.12
+        },
+        {
+          "text": "if",
+          "start": 24.12,
+          "end": 24.22
+        },
+        {
+          "text": "it",
+          "start": 24.22,
+          "end": 24.32
+        },
+        {
+          "text": "is",
+          "start": 24.32,
+          "end": 24.44
+        },
+        {
+          "text": "short",
+          "start": 24.44,
+          "end": 24.7
+        },
+        {
+          "text": "of",
+          "start": 24.7,
+          "end": 24.84
+        },
+        {
+          "text": "that",
+          "start": 24.84,
+          "end": 25.02
+        },
+        {
+          "text": "weight,",
+          "start": 25.02,
+          "end": 25.34
+        },
+        {
+          "text": "the",
+          "start": 25.7,
+          "end": 25.86
+        },
+        {
+          "text": "coinage",
+          "start": 25.86,
+          "end": 26.3
+        },
+        {
+          "text": "must",
+          "start": 26.3,
+          "end": 26.46
+        },
+        {
+          "text": "always",
+          "start": 26.46,
+          "end": 26.9
+        },
+        {
+          "text": "cost",
+          "start": 26.9,
+          "end": 27.26
+        },
+        {
+          "text": "the",
+          "start": 27.26,
+          "end": 27.54
+        },
+        {
+          "text": "difference",
+          "start": 27.54,
+          "end": 27.9
+        },
+        {
+          "text": "between",
+          "start": 27.9,
+          "end": 28.28
+        },
+        {
+          "text": "the",
+          "start": 28.28,
+          "end": 28.48
+        },
+        {
+          "text": "quantity",
+          "start": 28.48,
+          "end": 28.86
+        },
+        {
+          "text": "of",
+          "start": 28.86,
+          "end": 29.1
+        },
+        {
+          "text": "bullion",
+          "start": 29.1,
+          "end": 29.5
+        },
+        {
+          "text": "which",
+          "start": 29.5,
+          "end": 29.72
+        },
+        {
+          "text": "ought",
+          "start": 29.72,
+          "end": 29.9
+        },
+        {
+          "text": "to",
+          "start": 29.9,
+          "end": 30.06
+        },
+        {
+          "text": "be",
+          "start": 30.06,
+          "end": 30.18
+        },
+        {
+          "text": "contained",
+          "start": 30.18,
+          "end": 30.56
+        },
+        {
+          "text": "in",
+          "start": 30.56,
+          "end": 30.76
+        },
+        {
+          "text": "it,",
+          "start": 30.76,
+          "end": 30.98
+        },
+        {
+          "text": "and",
+          "start": 31.26,
+          "end": 31.48
+        },
+        {
+          "text": "that",
+          "start": 31.48,
+          "end": 31.62
+        },
+        {
+          "text": "which",
+          "start": 31.62,
+          "end": 31.78
+        },
+        {
+          "text": "actually",
+          "start": 31.78,
+          "end": 32.22
+        },
+        {
+          "text": "is",
+          "start": 32.22,
+          "end": 32.48
+        },
+        {
+          "text": "contained",
+          "start": 32.48,
+          "end": 32.84
+        },
+        {
+          "text": "in",
+          "start": 32.84,
+          "end": 33.14
+        },
+        {
+          "text": "it.",
+          "start": 33.14,
+          "end": 33.38
+        }
+      ],
+      "stats": {
+        "expected_words": 104,
+        "heard_words": 104,
+        "matched_words": 104
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.8485609157942235
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8fa1366dc5ed8e583e90153fbc351d605e2eaa9eaf7bfb07740ee4abe495bafe",
+  "selected_reasons": []
+}
