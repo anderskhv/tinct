@@ -15,6 +15,8 @@
  "candidate_v1_json_sha256": "8316ff76cdbb5d82a572bc58b9388dc76f8ab70deddec6e0dbf75f406b510db9",
  "candidate_v2_json_sha256": "f28a13264288079781a8c8c6cf044ae41d288847dc5d7f23378851a44ba7df45",
  "candidate_v2_readable_md_sha256": "4dd69c21267bea2fe7ef7a10d099a021b56b00ea747ae535cfc76b82a8d96600",
+ "candidate_v3_json_sha256": "c97e20f5b929d0e02b4cd1a3cd0ce8dceec86f71c935371360ab3bd14807b57c",
+ "candidate_v3_readable_md_sha256": "2df6c756795c042f82aea58cb8a53de4027fb761d76d1baa1dd84618fac611d5",
  "accepted_file": "candidate-v2.json",
  "accepted_date": "2026-09-12",
  "translation_source": "Samuel Butler, 1900. Project Gutenberg #1727 (source-texts/pg1727-butler-1900.txt, sha256 ffbdb29c3dda284b65c11243db1a98167826a70c81bca2ed4b6232f86c905fb9), identified and verified directly against the served original-en (see PROVENANCE.md §1), and re-verified independently at round 1 by the reviewer's own reconstruction of PG lines 376-740 from PG's numbered footnote-entry list — 32 of 32 paragraphs byte-identical, zero diffs. The only translation used for the candidate; no other translation consulted for wording (Fagles, Lattimore, Wilson, Fitzgerald not read by drafter or reviewer).",
@@ -22,8 +24,10 @@
   "source": 4110,
   "candidate_v1": 3874,
   "candidate_v2": 3889,
+  "candidate_v3": 3890,
   "ratio_v1": 0.9425,
   "ratio_v2": 0.9462,
+  "ratio_v3": 0.9465,
   "min_paragraph_ratio": 0.8621,
   "min_paragraph_id": "B01-P017",
   "max_paragraph_ratio": 1.0337,
@@ -49,5 +53,15 @@
  },
  "frozen": "candidate-v1.json is frozen at the hash above and was not edited. candidate-v1-readable.md and review-packets/ are likewise left as the record of what round 1 reviewed, in Butler's Roman forms; they are not regenerated.",
  "review_round_1": "Complete. review/findings-v1.md, independent reviewer session spawned by the coordinator, on candidate-v1.json. Verdict: Accept after corrections — 1 standing (book-wide, coordinator decision), 3 substantive, 33 minor (29 paragraph-level + 4 records), 5 optional, 5 paragraphs with no material issue. Coverage: every ID B01-P001..B01-P032 exactly once. All 41 findings answered; all applied. No second round requested.",
- "review_round_2": "not run, and not required: every finding was applied, and no finding was declined."
+ "review_round_2": "not run, and not required: every finding was applied, and no finding was declined.",
+ "current_file": "candidate-v3.json",
+ "successor_v3": {
+  "date": "2026-09-12",
+  "finding": "11.1, book02/review/findings-v1.md (Book 2 round 1)",
+  "change": "B01-P019 only: 'all the marriage gifts a beloved daughter deserves' -> 'all the marriage gifts a beloved daughter may expect'. Butler's own verb restored. His phrase is a claim about custom ('so dear a daughter may expect'); 'deserves' is a claim about merit, and at the formula's other occurrence (B02-P011) it is spoken by Eurymachus mid-threat.",
+  "why_a_successor": "The phrase is a cross-Book formula, so it changes in both Books at once or in neither. candidate-v2.json and ACCEPTANCE.md are byte-unchanged on disk and remain the record of what was accepted on 2026-09-12; per D10's reasoning an accepted file is never edited in place. See book01/changes-v2-to-v3.md.",
+  "built_by": "scripts/build_book01_v3.py (asserts v2 at its accepted hash; re-asserts every GLOSSARY.md hazard and PUNCTUATION.md standard after the substitution)",
+  "paragraphs_differing_v2_to_v3": 1,
+  "review": "No second round requested: two of Butler’s own words for one, in a sentence the Book 2 reviewer read in both Books and whose replacement wording that reviewer wrote."
+ }
 }

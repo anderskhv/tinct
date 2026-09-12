@@ -99,6 +99,8 @@
  },
  "candidate_v1_json_sha256": "8316ff76cdbb5d82a572bc58b9388dc76f8ab70deddec6e0dbf75f406b510db9",
  "candidate_v2_json_sha256": "f28a13264288079781a8c8c6cf044ae41d288847dc5d7f23378851a44ba7df45",
- "accepted_file": "candidate-v2.json",
- "packets_note": "The packets, manifest coverage and candidate-v1-readable.md are the record of what round 1 actually reviewed and reproduce candidate-v1.json verbatim, in Butler's Roman name forms. They are deliberately NOT regenerated against candidate-v2.json: review/findings-v1.md quotes v1, and rewriting the packets would make the findings cite text that no longer exists. Coverage of B01-P001..B01-P032 is unchanged and still exact."
+ "candidate_v3_json_sha256": "c97e20f5b929d0e02b4cd1a3cd0ce8dceec86f71c935371360ab3bd14807b57c",
+ "accepted_file": "candidate-v3.json",
+ "packets_note": "The packets, manifest coverage and candidate-v1-readable.md are the record of what round 1 actually reviewed and reproduce candidate-v1.json verbatim, in Butler's Roman name forms. They are deliberately NOT regenerated against candidate-v2.json: review/findings-v1.md quotes v1, and rewriting the packets would make the findings cite text that no longer exists. Coverage of B01-P001..B01-P032 is unchanged and still exact.",
+ "successor_note": "Book 1 was accepted at candidate-v2.json (ACCEPTANCE.md, 2026-09-12). candidate-v3.json is a recorded successor carrying one substitution at B01-P019 - 'a beloved daughter deserves' to 'a beloved daughter may expect' - on Book 2's round-1 finding 11.1, which is a cross-Book formula and so changes in both Books at once. candidate-v2.json, candidate-v2-readable.md and ACCEPTANCE.md are byte-unchanged; see changes-v2-to-v3.md. The packets and coverage above are still the record of what round 1 reviewed and are unchanged."
 }

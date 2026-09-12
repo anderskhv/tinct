@@ -1,12 +1,32 @@
-# The Odyssey, Book 1 — package (**accepted at candidate v2**)
+# The Odyssey, Book 1 — package (**accepted at candidate v2, superseded by candidate v3**)
 
 All eight steps of `../WORKFLOW.md` are done for Book 1. Round 1 of
 independent review returned *Accept after corrections*; every finding was
 applied; the corrected book was read straight through; and acceptance is
 recorded in `ACCEPTANCE.md`.
 
-**Accepted file: `candidate-v2.json`**, sha256
+**Accepted at `candidate-v2.json`**, sha256
 `f28a13264288079781a8c8c6cf044ae41d288847dc5d7f23378851a44ba7df45`.
+
+## Current file: `candidate-v3.json` — a recorded successor, one word
+
+sha256 `c97e20f5b929d0e02b4cd1a3cd0ce8dceec86f71c935371360ab3bd14807b57c`.
+
+**B01-P019 only**: `all the marriage gifts a beloved daughter **deserves**` →
+`… a beloved daughter **may expect**`, restoring Butler's own verb. It answers
+**finding 11.1** of *Book 2's* round-1 review
+(`../book02/review/findings-v1.md`), because the phrase is a cross-Book
+formula and a formula changes in every Book at once or in none. The objection
+had been raised at Book 1's own round 1 as an unnumbered remark and deferred
+twice; Book 2's reviewer was asked to rule and did.
+
+**An accepted Book is not reopened informally.** `candidate-v2.json`,
+`candidate-v2-readable.md` and `ACCEPTANCE.md` are **byte-unchanged** on disk
+and remain the record of what was accepted on 2026-09-12; v3 is a successor
+with its own hash and its own change list, `changes-v2-to-v3.md`. Built by
+`../scripts/build_book01_v3.py`, which asserts v2's accepted hash before
+touching it and re-asserts every glossary hazard and punctuation standard
+afterwards. No second review round is requested for it.
 
 Step 1 confirmed the source directly against Project Gutenberg #1727
 (Samuel Butler, 1900): 32 paragraphs, byte-identical opening, no boilerplate
@@ -27,6 +47,10 @@ decision then in force. See `../GLOSSARY.md`.
    == 1`, 32 paragraphs, byte-identical to the served original.
 2. `candidate-v2.json` — **the accepted modern-English text**, 32 paragraphs
    one-to-one with the source, same schema (`number`, `title`, `paragraphs`).
+   Byte-unchanged since acceptance.
+2b. `candidate-v3.json` / `candidate-v3-readable.md` / `changes-v2-to-v3.md` —
+   **the current file**: v2 plus one substitution at B01-P019 (finding 11.1,
+   from Book 2's round 1). Everything else is byte-identical to v2.
 3. `candidate-v2-readable.md` — the same text with `B01-Pnnn` IDs outside the
    prose.
 4. `candidate-v1.json` / `candidate-v1-readable.md` — **frozen**, never
@@ -140,8 +164,30 @@ cw = sum(len(p.split()) for p in cand)
 ratio = cw / sw
 assert ratio >= 0.90, f'overall word ratio {ratio:.4f} below 0.90'
 
+# --- the v3 successor: one word, one paragraph, nothing else -----------------
+v3 = json.load(open('book01/candidate-v3.json'))
+assert hashlib.sha256(open('book01/candidate-v2.json','rb').read()).hexdigest() == \
+    'f28a13264288079781a8c8c6cf044ae41d288847dc5d7f23378851a44ba7df45', 'v2 not untouched'
+assert hashlib.sha256(open('book01/candidate-v3.json','rb').read()).hexdigest() == \
+    'c97e20f5b929d0e02b4cd1a3cd0ce8dceec86f71c935371360ab3bd14807b57c', 'v3 hash'
+v3p = v3['paragraphs']
+assert v3['number'] == v2['number'] and v3['title'] == v2['title']
+assert [i for i in range(32) if v3p[i] != cand[i]] == [18], 'v3 must differ from v2 at B01-P019 only'
+assert 'a beloved daughter may expect' in v3p[18]          # 11.1 landed in v3
+assert 'a beloved daughter deserves' in cand[18]           # …and v2 still reads as accepted
+j3 = '\n'.join(v3p)
+assert 'deserves' not in j3
+assert "'" not in j3 and '"' not in j3 and j3.count('’') == 22
+assert sum(p.count('“') for p in v3p) == 30 and sum(p.count('”') for p in v3p) == 29
+assert not v3p[17].rstrip().endswith('”') and v3p[18].lstrip().startswith('“')
+t3 = open('book01/candidate-v3-readable.md', encoding='utf-8').read()
+assert all(p in t3 for p in v3p), 'v3 readable copy does not match its JSON'
+ratio3 = sum(len(p.split()) for p in v3p) / sw
+
 print('OK — 32 paragraphs, coverage exact, packets verbatim, all hazards held, ratio', f'{ratio:.4f}')
+print('OK — v3 successor: 1 paragraph differs (B01-P019), ratio', f'{ratio3:.4f}')
 for f in ('book01/source-book1.json','book01/candidate-v1.json','book01/candidate-v2.json',
+          'book01/candidate-v3.json',
           '../../../app/public/data/editions/odyssey-original-en.json'):
     print(hashlib.sha256(open(f,'rb').read()).hexdigest(), f)
 PY
@@ -151,21 +197,25 @@ Expected:
 
 ```
 OK — 32 paragraphs, coverage exact, packets verbatim, all hazards held, ratio 0.9462
+OK — v3 successor: 1 paragraph differs (B01-P019), ratio 0.9465
 fd364c78c4e87d0c93e529aeaa42e13bc3677f21cc3b7143d1d43df76e64f1c4  book01/source-book1.json
 8316ff76cdbb5d82a572bc58b9388dc76f8ab70deddec6e0dbf75f406b510db9  book01/candidate-v1.json
 f28a13264288079781a8c8c6cf044ae41d288847dc5d7f23378851a44ba7df45  book01/candidate-v2.json
+c97e20f5b929d0e02b4cd1a3cd0ce8dceec86f71c935371360ab3bd14807b57c  book01/candidate-v3.json
 da03f6ac9dfd5a19b9912adabfb9b0b48ed66bd85d8e1507a6b323a374822f07  ../../../app/public/data/editions/odyssey-original-en.json
 ```
 
-To reproduce `candidate-v2.json` from the frozen v1:
+To reproduce `candidate-v2.json` from the frozen v1, and `candidate-v3.json`
+from the accepted v2:
 
 ```bash
 cd books/staged-replacements/odyssey
 python3 scripts/build_book01_v2.py
+python3 scripts/build_book01_v3.py
 ```
 
 ## Next action
 
-Book 1 is accepted and closed. Nothing here is merged, registered or
+Book 1 is accepted and closed; its one successor (v3) is recorded above. Nothing here is merged, registered or
 deployed. The next Book proceeds in numerical order per `../WORKFLOW.md`;
 see `../00-progress-ledger.md`.
