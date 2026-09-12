@@ -877,6 +877,105 @@ session. Kept current at every push.
   extended or reversed, and no voice rule changed — one new ledger row (D14) and
   one amended (D13).
 
+- 2026-09-12 — **Book XII step 1: source verified, NO rebuild, by a
+  reconstruction of a DIFFERENT KIND.** `scripts/verify_book12_source.py`, written
+  from scratch, **audits its own rules against the raw PG range before it reports
+  its output**, and derives the chapter by a rule of a different kind from the
+  build's, which is the standard the Book XI reviewer set: where the build keys on
+  an `[A-D]` opener and consumes every following indented *or blank* line, the
+  reconstruction splits PG 6818–7174 into blank-line-separated blocks and
+  classifies each by its **indentation profile** alone. Result: **36 paragraphs,
+  matching the staged count, and the only difference in the whole book is the one
+  documented dagger mark** at XII.16 (PG 6963) — the dagger was left in on purpose
+  so that it would surface as a diff and be counted. The rule audit: **fourteen
+  maximal indented runs enumerated with their indentation profiles** — eleven
+  footnote openers at four spaces, two unmarked continuations of a footnote body
+  (PG 6886 and PG 7092–7102) each checked *by content* to follow the run it belongs
+  to with only blank lines between, and one verse run (Long's Empedocles line at PG
+  6866) indented **three**; **eleven in-text markers reconciling exactly with the
+  eleven openers**, ten flush-left plus one at the end of the indented verse line;
+  **no flush-left footnote opener** (the VII.45 class), **no illustration caption**
+  (the Book IV class), no running head, page number or catchword (all twenty-four
+  short flush-left lines are wrapped paragraph tails), **no Greek in the body**
+  (all four `[Greek: …]` spans are inside indented footnote bodies), underscores
+  only inside footnote bodies, and **D14 checked** (the space-before-punctuation
+  rule fires nowhere in this range and is reproduced in the reconstruction
+  regardless). **One finding about method, not about the text, and it is why the
+  rule is worded as it is:** PG 6886 is the second half of footnote [A]'s body and
+  is indented **nine** spaces, so the Book XI reviewer's own alternative rule —
+  "drop the four-space runs" — **would have leaked `[Greek: Sphairos …]` into
+  XII.3**. A number taken from one book does not transfer to the next; the *shape*
+  of the rule does. sha256 still `7798607d…`, 487 paragraphs, twelve chapters, 36
+  in Book 12, `git status` clean, **no accepted book reopened**. Recorded in
+  `PROVENANCE.md` §4.
+
+- 2026-09-12 — **Book XII drafted and frozen** (steps 2–3): `book12/candidate-v1.json`
+  (sha256 `8665adc8…`), 36 paragraphs 1:1 with Long's XII.1–XII.36, word ratio
+  **0.984**, and the shortfall is apparatus — six cross-reference spans (33 words)
+  and seven D11 brackets (15). The minimum is **XII.12 at 0.81**, entirely its
+  nine-word cross-reference; of the paragraphs carrying no apparatus at all none is
+  below 0.96; maximum 1.05 at XII.20, where "inconsiderately" becomes three words.
+  **Five paragraphs byte-identical to Long** (XII.7, XII.10, XII.11, XII.13,
+  XII.34). Source verified into `book12/source-book12.json` (sha256 `1e7a003b…`);
+  staged-file hash `7798607d…`, not rebuilt (see the step-1 entry above). **Two
+  glossary rows fixed before drafting**, committed and pushed before any paragraph
+  was written: the ***daimōn* row's left column gained two of Long's own shapes it
+  did not name** ("the divinity which is planted in his breast", III.16, already
+  rendered "the god within" in the accepted Book III, and "the divinity within
+  thee", XII.1) — a correction of a row that under-described the edition — and the
+  **beneficence row gained the adverb "benevolently" → "kindly"** (XII.5, its only
+  occurrence in the whole work). No new rendering row. **Fourth book drafted under
+  the "shall" rule**: 10 in Long, **one kept** (XII.4 "what we shall think of
+  ourselves", first person) and **nine removed**, all plain futures — the hard one
+  is XII.15's "shall the truth … be extinguished?", treated as a **rhetorical**
+  future on the X.11 / X.32 / XI.13 ruling. **Second book drafted under D13, which
+  fires in neither**: Book XII contains no bracketed translator's note of the X.23
+  kind. **One dagger mark in one section** (XII.16, PG 6963) named in
+  `review-instructions.md` with its PG line number and kept as Long has it,
+  including his comma, on the X.25 ruling — fewer daggers than any other book.
+  **Twelve brackets: four folded, seven dropped under D11, one textual-doubt mark
+  whose brackets go and whose words stand — 4 + 7 + 1 = 12**, asserted by the
+  `README.md` check block from an enumerated list. The textual mark is **XII.17's
+  "[For let thy efforts be—]"**, the **first application of the XI.26 class to a
+  whole clause** rather than a word; Long brackets it because his Greek breaks off,
+  and the broken clause is reproduced on the V.29 / VII.58 / XI.18 precedent with
+  his footnote not imported. **Six cross-reference spans dropped** and **no verse or
+  source citation in the body** — the one verse quotation (Empedocles, XII.3)
+  carries its reference in a footnote. Punctuation recorded in full: two commas
+  before em dashes removed, one subject–verb comma removed (XII.16), two commas
+  removed with the two resumptive constructions they held open (XII.23), **five
+  commas added** — more than in any earlier book, each required by a fold or by a
+  real ambiguity and each argued at its paragraph — six terminal marks supplied,
+  and two capitalisations at XII.36. Base-text points recorded after a word-level
+  diff of the whole book against Standard Ebooks' Long: **two departures from PG's
+  letters**, more than any earlier book, both flagged — XII.27 "Briae" →
+  **"Baiae"** (Briae is not a place; Baiae is the Roman resort that belongs beside
+  "Tiberius at Capreae") and XII.29 "that is its material" → **"what** is its
+  matter" (PG's reading makes a thing's matter be what it "is itself", the
+  distinction the meditation exists to draw, and breaks a three-member series);
+  **three places where PG is right and SE is wrong** (XII.5 "Deity" against SE's
+  non-word "diety"; XII.14 "without **a** governor"; XII.24 "dwell **all**
+  around"); two open variants followed under D6 (XII.27 "Catellinus", XII.23 "the
+  same **thing**"); one spelling variant invisible under the thou-rule (XII.1
+  "mayst"); and **one PG typographic slip inside apparatus that is dropped**
+  (XII.12's cross-reference carries a stray "18"). **Five decisions flagged for the
+  reviewer** (the two base-text departures together; XII.3's "[to the god that is
+  within thee]" dropped under D11 where the bracket is the glossary row's own
+  wording and the row cites this very section as its authority; XII.17's clause as
+  a textual mark; XII.4's "shall" standing beside "will" in one comparison;
+  XII.27's "[or Rufus at Velia]" dropped under D11 as an alternative *construal*
+  rather than an alternative rendering) **and one offered for confirmation**
+  ("pancratiast" kept untranslated at XII.9, on the X.9 / XI.2 rulings), with **two
+  further points put to the reviewer with reasons** (XII.23's two resumptive
+  repairs; whether the five added commas are each earned). **Two cross-book
+  inconsistencies noticed and not reopened** are recorded under "Open, not
+  blocking" below. Readable copy, `continuity.md`, `provenance.json`,
+  `manifest.json`, `README.md`, `review-instructions.md` and twelve review packets
+  (12×3) pushed, built by `scripts/build_book_package.py 12` from
+  `scripts/candidates/book12.py`. Mechanical checks in `book12/README.md` pass,
+  including the bracket-arithmetic assertion. **Stopped for independent review**
+  (step 4). Findings expected under `book12/review/`.
+
 - 2026-09-11 — **Session collision, twice.** Two content sessions were spawned
   on this thread for the Book II corrections step (this one and
   `session_01UqGstUkaLuExn3RNzcxUs8`, the one whose pushes stand). Both ran
@@ -911,11 +1010,38 @@ session. Kept current at every push.
 
 ## Next
 
-**Book XII — the last book — steps 1–3 in progress.** Book XI is **accepted**
-(`book11/ACCEPTANCE.md`, `candidate-v2.json` sha256 `1016c038…`), with every
-flagged decision ruled and nothing left open. Ten of the twelve books were
-accepted before it; Book XII is the twelfth and final one, after which the whole
-package needs a cross-book pass (see "Open, not blocking").
+**Waiting on the coordinator: independent review of Book XII.**
+`book12/candidate-v1.json` (sha256 `8665adc8…`) is frozen, with twelve packets,
+`review-instructions.md` and `manifest.json` in place; findings go under
+`book12/review/`. **Five decisions are flagged there for an explicit ruling** —
+the **two** departures from PG's letters (XII.27 "Baiae" for "Briae"; XII.29
+"what" for "that"), where every earlier book had at most one; XII.3's "[to the
+god that is within thee]" dropped under D11, the one drop where the bracket is
+the glossary row's own wording and the row cites that very section as its
+authority; XII.17's "[For let thy efforts be—]" treated as a mark of textual
+doubt, the first application of the XI.26 class to a whole clause; XII.4's
+"shall" standing beside "will" in one comparison, which the rule produces; and
+XII.27's "[or Rufus at Velia]" dropped under D11 as an alternative *construal*
+rather than an alternative rendering — **and one is offered for confirmation**
+("pancratiast" kept untranslated at XII.9). Two further points are put to the
+reviewer with reasons: **XII.23's two resumptive repairs**, and whether the
+**five added commas** are each earned. The reviewer is also asked to test the
+step-1 no-rebuild finding **by the stronger method**, with rules of its own
+choosing, audited class by class — and, **because Book XII is the last book**, to
+say what a cross-book pass over all twelve would still owe. This agent does not
+review its own draft.
+
+Book XI is **accepted** (`book11/ACCEPTANCE.md`, `candidate-v2.json` sha256
+`1016c038…`). **Eleven of the twelve books are accepted.** After the Book XII
+review: Book XII steps 6–8 (candidate v2, changes log, flow read,
+`ACCEPTANCE.md`), and then **the package has no further book**. What would remain
+is the whole-work pass: the cross-book items under "Open, not blocking" below
+(three third-person "shall" futures in III.9, VII.8 and VII.24; the II.5 dangling
+relative; XI.12's "nor sinks down"; IX.1's "such like"; V.1's "several"), a
+terminology sweep across all twelve accepted candidates, a single assembled
+`modern-en` file built from the twelve accepted candidates and checked against
+the 487-paragraph alignment, and Anders's two standing decisions (A1, A2), which
+are the only things that stand between the finished text and integration.
 
 ## Needs Anders (listed, not waited on)
 
@@ -937,6 +1063,16 @@ package needs a cross-book pass (see "Open, not blocking").
   `PROVENANCE.md` §4; reviewers should weigh findings there accordingly.
 - II.14 PG reading "that which perish" vs Standard Ebooks "perishes"; kept as
   PG has it in the staged original.
+- **Two cross-book wording inconsistencies, noticed while drafting Book XII, in
+  accepted books, not reopened.** (a) **"Such like"**: the accepted Book IX keeps
+  it at IX.1 ("of such like successions"), while Book XI rendered it "things of
+  that kind" at XI.1 and Book XII follows XI at XII.2. (b) **The plural
+  distributive "several"**: the accepted Book V keeps it at V.1 ("their several
+  parts of the universe"), while Book XI rendered it "separate" at XI.2 and Book
+  XII follows XI at XII.30. Both divergences are formal, not semantic, and those
+  acceptances are closed. Candidates for a v3 at a whole-work touchpoint, on the
+  II.5 precedent; and the first two items a cross-book terminology sweep should
+  settle.
 - **Book XI v2, XI.12**: Long's series shifts from three past participles to a
   finite present verb — "when it is neither extended towards any object, nor
   contracted inwards, nor dispersed, **nor sinks down**" — which is loose in

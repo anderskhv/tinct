@@ -259,6 +259,46 @@ reproducible by running the script):
   independent reconstruction, ideally derived from a DIFFERENT rule than the
   build's, whose own rules are then audited class by class against the raw text —
   is the standard for Book XII.**
+  **Applied at Book XII step 1 (2026-09-12), the last book, and again no rebuild
+  was made — this time by a reconstruction of a DIFFERENT KIND, which is the
+  standard the Book XI reviewer set.** PG lines 6818–7174 (after the `XII.`
+  header at 6817, before `INDEXES.` at 7175) were re-extracted by
+  `scripts/verify_book12_source.py`, written from scratch, which audits its own
+  rules before it reports its output. Where the build keys on an `[A-D]` opener
+  and then consumes every following indented *or blank* line, the reconstruction
+  splits the range into blank-line-separated blocks and classifies each by its
+  **indentation profile** alone — flush-left first line = body; every line
+  indented four or more = apparatus; every line indented with a minimum below
+  four = verse, joined into the paragraph before it. It reconstructs **36
+  paragraphs**, matching the staged count, and **the only difference in the whole
+  book is the single dagger mark** at XII.16 (PG 6963) — exactly the one this
+  section documents; the dagger was left in the reconstruction on purpose so that
+  it would surface as a diff and be counted. Class by class: **eleven footnotes**,
+  openers at PG 6883, 6888, 6969, 6974, 7017, 7052, 7069, 7079, 7123, 7168 and
+  7170, **all indented four spaces**, none flush left, all stripped, with **two
+  unmarked continuations of a footnote body** (PG 6886, and PG 7092–7102, the
+  second half of the long note opened at 7079) each checked *by content* to follow
+  the run it belongs to with only blank lines between; **eleven in-text markers —
+  ten in flush-left text plus one at the end of the indented verse line 6866 —
+  reconciling exactly with the eleven openers**; **no illustration caption**; **no
+  flush-left footnote opener**; **verse present and correctly joined** — Long's
+  line of Empedocles at PG 6866, indented **three** spaces, is joined into XII.3
+  as this section's verse rule requires; **no verse citation and no source
+  citation in the body** (the Empedocles reference is itself a footnote); **no
+  Greek in the body** (all four `[Greek: …]` spans, PG 6886, 6969, 6971 and 7069,
+  are inside indented footnote bodies); and the twenty-four short standalone
+  flush-left lines are all wrapped paragraph tails ending in terminal punctuation,
+  so no running head, page number or catchword. **One finding about method, not
+  about the text:** PG 6886 is indented **nine** spaces, so the Book XI reviewer's
+  own alternative rule — "drop the four-space runs" — would have kept it and
+  leaked `[Greek: Sphairos kykloteres monie perigethei gaion.]` into XII.3. A
+  number taken from one book does not transfer to the next; the *shape* of the
+  rule does. **D14 checked**: the space-before-punctuation rule fires nowhere in
+  this range and is reproduced in the reconstruction regardless, so the two are
+  compared on the same rules. The staged file's sha256 is unchanged at
+  `7798607d…`, 487 paragraphs, twelve chapters, section profile unchanged with
+  **36** in Book 12, and `git status` is clean, so **no accepted book is
+  reopened**.
 - Long's footnotes removed. The build skipped footnotes by their indented
   `[A]` opener, but three in Book VII are printed flush left in the PG text
   ("See Aristophanes, Acharnenses, v. 661." and "From the Apologia, c. 16."
