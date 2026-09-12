@@ -86,6 +86,36 @@ Kept current at every push.
   Book** without `--force` — Book 1 predates the title mapping and would have
   changed silently if rebuilt.
 
+- 2026-09-12 — **Round 1 of independent review came back on Book 2**
+  (`book02/review/findings-v1.md`): *Accept after corrections* — **0
+  substantive**, 16 minor (14 paragraph-level + 2 records), 11 optional,
+  19 paragraphs with no material issue, coverage complete. The reviewer
+  re-verified the source by a reconstruction of a *different kind* from the
+  drafter's — it identifies nothing in advance, diffs with PG's apparatus
+  still in, and classifies every difference before removing anything:
+  35 of 35 paragraphs byte-identical, 4,184 words, zero diffs. It also
+  introduced a **retention measure** (Butler word-tokens carried over
+  unchanged and in order) that replaces the two weak counter-checks Book 2's
+  `continuity.md` offered against its near-1.0 word ratio.
+- 2026-09-12 — **Finding 11.1 applied to accepted Book 1** as
+  `book01/candidate-v3.json`, sha256
+  `c97e20f5b929d0e02b4cd1a3cd0ce8dceec86f71c935371360ab3bd14807b57c` — one
+  substitution at B01-P019, `a beloved daughter deserves` → `a beloved
+  daughter may expect`. A **recorded successor**, not an edit: `candidate-v2.json`
+  and `ACCEPTANCE.md` are byte-unchanged, and the change is documented in
+  `book01/changes-v2-to-v3.md` with pointers from Book 1's `README.md`,
+  `provenance.json` and `manifest.json`. Built by
+  `scripts/build_book01_v3.py`, which asserts v2's accepted hash first and
+  re-asserts every hazard and punctuation standard after. The objection had
+  been deferred twice; it is now settled in both Books at once.
+- 2026-09-12 — **Two package-wide rules settled before Book 3**, both from
+  Book 2's round 1: **D12**, Butler's square brackets disposed of by class
+  (A supplied-and-flagged, B unflagged explanatory, C editorial doubt —
+  the last **open** and blocking Book 4), with all fifteen brackets in the
+  poem enumerated in `GLOSSARY.md` from this package's own pass over PG
+  #1727's body; and **D13**, `Mycene` split by referent — the woman keeps
+  Butler's spelling, the city becomes `Mycenae` under D8.
+
 ## Decided, and why
 
 | # | Decision | Why |
@@ -101,6 +131,8 @@ Kept current at every push.
 | **D9** | **Typographic quotation marks and apostrophes throughout; American spelling.** | `PUNCTUATION.md` §1 and `GLOSSARY.md`. v1 mixed curly doubles with ASCII apostrophes and recorded neither; the served `original-en` beside it in split-pane is typographic throughout. American spelling matches the served editions and the rest of the product. `draughts` stays — the game's name, not a spelling variant. |
 | **D10** | **A frozen `candidate-vN.json`, its readable copy and its review packets are never regenerated after a later version supersedes them.** | They are the record of what a review round actually reviewed. Regenerating them would make the findings file quote text that no longer exists. Recorded in `book01/manifest.json` and `book01/continuity.md`; Book 1's v1 artefacts stay in Butler's Roman forms for exactly this reason. |
 | **D11** | **A finding is answered either way, and an "optional" finding whose real subject is a rule for later Books is settled at the Book that raises it, not deferred.** | Applied at Book 1 to 3.1 (hecatomb, a rule for every later hecatomb) and 26.1 (the "in her heart" formula, which recurs through the poem). The alternative — carry it forward as a preference — means the same question is rediscovered at Book 6 with a rendering already in the file. All five of Book 1's optional findings were applied on this reading. |
+| **D12** | **Butler's square brackets are disposed of BY CLASS, and the class is decided by whose voice the bracket is in and what it is about — never by its length.** **Class A**, a supplement Butler makes because the Greek lacks the words and says in a note that he *supplied* them (PG 802, `[do not]`, footnote 18 — the poem's only instance): **the mark is dropped, the words stand**, and the pointing the bracket carried is supplied in ordinary modern punctuation. **Class B**, an unflagged explanatory supplement inside the line (eight instances, of which Book 3's `[on the embers]` at PG 1129 is the first): **the same disposition, on a weaker warrant, so every instance is recorded AND flagged as class B in the Book's `continuity.md`.** **Class C**, a passage Butler brackets to mark his doubt that it belongs to the poem (six instances, the first at PG 1551 in Book 4, footnote 36: *"The lines which I have enclosed in brackets are evidently an afterthought"*): **OPEN — neither default is right, and it needs a coordinator decision before Book 4 is drafted.** Enumeration, tests and every instance are in `GLOSSARY.md`. | Ruling 1 of Book 2's round-1 review, plus records finding **R4**. The Book 2 disposition was right and its recorded *reason* was wrong: `continuity.md` classed `[do not]` as a textual mark "rather than a translator's supplement", and Butler's footnote 18 says in terms that it *is* a translator's supplement — *"without prefixing the necessary 'do not,' which I have supplied."* That makes the disposition **stronger**, since Butler himself calls the words necessary. But a one-line rule generalized from it is dangerous: for class C, "drop the mark, keep the words" **silently converts Butler's recorded editorial doubt into narration**, and the damage is invisible in the output, so a drafter cannot be expected to catch it. Written by class for the same reason the Meditations package needed **D11** and **D13**: one bracket character does at least three jobs, and the natural mistake is the damaging one. |
+| **D13** | **`Mycene` is two names in Butler and is split by referent: the WOMAN stays `Mycene`, the CITY becomes `Mycenae`.** Butler spells both `Mycene` — the woman at PG 843 (Book 2, in a list of women), the city at PG 1377 (Book 3) and PG 9326 (Book 21). The city moves under **D8**; the woman does not, because D8 is silent about her. | Records finding **R1** of Book 2's round-1 review, settled before Book 3 is drafted rather than after, per `WORKFLOW.md` step 2. The glossary row as written said "Mycene is the woman, not the city" and filed her under *names that change in no Book*; Book 3's drafter meets the **city** four hundred PG lines later holding that row. D8 applies exactly as written and only to the city: `odyssey-threads.json` gives Agamemnon the epithet **"Murdered King of Mycenae"** — its only occurrence of either spelling — so the Cast has a display name for the place and none for the woman. Confirmed independently: the served `modern-en` being replaced already draws this exact line (`Mycene` at its Book 2 ¶7, `Mycenae` at Book 3 ¶24 and Book 21 ¶6), without recording it. Deliberately narrow, and it sits beside the opposite ruling on `Ilius`, which is **not** flattened to *Troy* because the Cast has no display name for it. |
 
 ## Next
 

@@ -115,16 +115,177 @@ Zacynthus, Ithaca, Troy, Sparta, Pylos, Ogygia, Achaeans, Danaans, Argives,
 Argos, Hellas, Ethiopians, Olympus/Olympian, Hyperion, Ops.
 
 Book 2 adds: Aegyptius, Antiphus, Eurynomus, Themis, Erinyes, Halitherses,
-Mentor, Leiocritus, Evenor, Noemon, Phronius, Tyro, Alcmena, Mycene, Ilius.
+Mentor, Leiocritus, Evenor, Noemon, Phronius, Tyro, Alcmena, Ilius.
+**`Mycene` is not in this list**: Butler spells two different things with it,
+and it has its own row below.
+
+### `Mycene` — two referents, one Butler spelling (D13)
+
+**Settled 2026-09-12 at Book 2's step 6, on Book 2 records finding R1, before
+Book 3 is drafted.** The previous row listed `Mycene` under "names that change
+in no Book" with a note that she is the woman and not the city. That is right
+for Book 2 and wrong as a rule: **Butler spells the city `Mycene` too**, and
+Book 3's drafter meets the city four hundred lines after Book 2 ends.
+
+All three occurrences in Butler, verified directly in
+`source-texts/pg1727-butler-1900.txt`:
+
+| PG line | Book | Butler | Referent | Modern edition |
+|---|---|---|---|---|
+| 843 | II | "Tyro, Alcmena, **Mycene**, and the famous women of old" | the **woman** Mykene, in a list of women | **`Mycene`** — unchanged |
+| 1377 | III | "For seven years after he had killed Agamemnon he ruled in **Mycene**" | the **city** | **`Mycenae`** |
+| 9326 | XXI | "a woman whose peer is not to be found in Pylos, Argos, or **Mycene**" | the **city**, in a list of places | **`Mycenae`** |
+
+**The city takes `Mycenae`, under decision D8** (the Cast's display name wins
+where the Cast has one): `app/public/data/editions/odyssey-threads.json` gives
+Agamemnon the epithet **"Murdered King of Mycenae"** — the file's only
+occurrence of either spelling — so the reader who taps Agamemnon in the Cast
+is shown *Mycenae*, and the edition beside it must not print *Mycene* for the
+same place. The **woman** has no Cast entry at all, so D8 is silent about her
+and Butler's spelling stands; the list she stands in does the disambiguating,
+and a reader who takes her for the city is in Butler's own reader's position.
+
+Two things worth recording, because they make this D8 applied as written
+rather than the drafter's judgement of what looks Greek:
+
+- **The served `modern-en` being replaced already draws exactly this line** —
+  `Mycene` at its Book 2 ¶7 (the woman), `Mycenae` at Book 3 ¶24 and Book 21
+  ¶6 (the city). It made the choice without recording it, as it did with the
+  name forms; this package records it.
+- **This is not a licence to "correct" other Butler spellings.** D8 is narrow.
+  `Ilius` stands beside Butler's own `Troy` and is *not* flattened
+  (Book 2's reviewer ruled on it), precisely because the Cast has no display
+  name for it. The two decisions look opposite and rest on the same rule.
 
 Do not silently correct a Butler spelling that looks unusual (his own
 inconsistencies between Books, if any turn up) — flag it in the Book's
 `continuity.md` instead, per the Book 10 pilot's precedent for
 "Laestrygones" vs. "Laestrygonians." The one exception is the Cast-display-name
-rule above. **Two flagged so far, both in Book 2:** `Ilius`, Butler's form for
-Ilion/Troy at B02-P002, which stands in the same chapter as his own `Troy` at
-B02-P010; and `Mycene` at B02-P007, who is the **woman** Mykene in a list of
-famous women of old, not the city Mycenae.
+rule above. **Two flagged so far, both first met in Book 2:** `Ilius`, Butler's
+form for Ilion/Troy at B02-P002, which stands in the same chapter as his own
+`Troy` at B02-P010 — **ruled on at Book 2's round 1: both forms kept, no gloss**,
+because they answer to Homer's own two names and flattening them erases a
+distinction the Greek makes; and `Mycene` at B02-P007, who is the **woman**
+Mykene in a list of famous women of old, not the city — **settled at Book 2's
+step 6, and it is now its own row** (see "`Mycene` — two referents, one Butler
+spelling" above), because Butler spells the city `Mycene` too.
+
+## Butler's square brackets — the rule, written by class (D12)
+
+**Settled 2026-09-12 at Book 2's step 6, on Book 2's round-1 ruling 1 and
+records finding R4, before Book 3 is drafted.** Book 2 met the package's first
+bracket and disposed of it correctly on a reason that was wrong. The reason
+matters, because **Butler brackets at least three different things and one
+disposition cannot be right for all three** — Book 3 meets the second class in
+its opening pages and Book 4 the third.
+
+The enumeration is this package's own, made directly over PG #1727's
+translation body (the 24 `BOOK` headings at lines 375–10842, ending at the
+real `FOOTNOTES:` at line 10843 and not the indented one at line 75):
+**fifteen brackets, in three classes.** Butler's own footnotes 18, 36, 81, 91
+and 107 supply the classification; they are quoted, not inferred.
+
+### Class A — a supplement Butler makes because the Greek lacks the words, flagged as supplied
+
+**Disposition: the mark is dropped and the words stand**, with the pointing the
+bracket was carrying supplied in ordinary modern punctuation where it carried
+any. Recorded per instance in the Book's `continuity.md`.
+
+**Test:** Butler says, in his own note, that he *supplied* the words and that
+the sense requires them. That is a translator's supplement, defended in a note
+— so keeping the words is not our editorial judgement at all, it is his.
+
+- **PG 802, Book II** — `[do not] hold back, my friends`. Footnote 18: *"The
+  authoress has bungled by borrowing these words verbatim from the 'Iliad',
+  without prefixing the necessary 'do not,' which I have supplied."* Rendered
+  at B02-P004 as `…who is the beginning and the end of councils: do not hold
+  back, my friends…`, the colon carrying the bracket's pointing. It is the
+  only class-A bracket in the poem.
+
+### Class B — an explanatory supplement inside the line, unflagged
+
+**Disposition: the same — the mark is dropped and the words stand — but the
+warrant is different and weaker, so every instance is recorded AND flagged in
+the Book's `continuity.md`, named as class B.**
+
+**Test:** the bracket sits inside a sentence, adds no claim the sentence does
+not already make, and carries no note. It is Butler explaining rather than
+Butler translating.
+
+**Why keep it, given that the package adds nothing explanatory.** The rule
+this package is bound by is that *the drafter* adds nothing to the base text.
+Butler's supplement **is** the base text — it is printed in the served
+`original-en` and every reader of the original column sees it — so dropping
+the words would put the modern edition *behind* the original beside it, which
+is the one thing paragraph alignment makes visible. Dropping the mark asserts
+nothing Butler does not already print as part of his sentence: unlike class C,
+his bracket here records no doubt about what the poem says.
+
+Eight instances, none of them footnoted:
+
+| PG line | Book | bracket |
+|---|---|---|
+| **1129** | **III** | `burning the thigh bones [on the embers] in the name of Neptune` |
+| 4367 | X | `driving in his sheep and goats [to be milked]` |
+| 4368 | X | `driving out his flock [to feed]` |
+| 5543 | XII | `the [Wandering] rocks` |
+| 8057 | XVIII | `brought him [into the open part of the court]` |
+| 9351 | XXI | `against the door [that led into the house]` |
+| 10132 | XXIII | `at right angles [to that by which she had entered]` |
+| 5410 | XII | `[A large fig tree in full leaf grows upon it]` — **borderline**: a whole clause, and footnote 101 attaches inside it. Decide it when Book 12 is drafted, against class C as well as this class; it is not Book 3's problem. |
+
+### Class C — a passage Butler brackets to mark editorial doubt that it belongs to the poem
+
+**Disposition: OPEN. Neither default is right, and this class must not be
+drafted under the class-A/B rule. It needs a coordinator decision before
+Book 4 is drafted.**
+
+**Test:** Butler's note says the bracketed lines are an afterthought, an
+interpolation, or a later addition — a statement about the *text*, not about
+his English. Footnote 36: *"The lines which I have enclosed in brackets are
+evidently an afterthought—added probably by the writer herself."* Footnote 91:
+*"I suppose the lines I have enclosed in brackets to have been…"* Footnote
+107: *"I suppose the passage within brackets to have been an…"* (Footnote 81
+is Butler reasoning about received-text brackets generally — *"all that
+brackets mean is that the bracketed passage puzzled some early editor"* — and
+is worth reading before the decision is made.)
+
+**Why the class-A/B rule silently damages it.** Dropping the mark converts
+Butler's recorded editorial doubt into plain narration, so the reader is told
+as fact what Butler flags as probably added later — and a drafter applying
+"the bracket rule" from Book 2 will do exactly that without noticing.
+Dropping the words instead loses content. **The damage is invisible in the
+output**, which is why this is a decision and not a drafting judgement.
+
+Six instances, the first of them in Book 4:
+
+| PG line | Book | what is bracketed | Butler's note on the bracket |
+|---|---|---|---|
+| **1551–2** | **IV** | Menelaus's double wedding feast, a long passage | **fn 36** — *"The lines which I have enclosed in brackets are evidently an afterthought—added probably by the writer herself"* |
+| 4884 | XI | Teiresias's prophecy of the homecoming, `[in another man's ship, and you will find trouble in your house…]`, closing at PG 4902 | **fn 91** — *"I suppose the lines I have enclosed in brackets to have been added by the author when she enlarged her original scheme"* |
+| 5691 | XII | `[The gale from the West had now spent its force…]` | **fn 107** — *"I suppose the passage within brackets to have been an afterthought but to have been written by the same hand as the rest of the poem"* |
+| 2067 | IV | `[and guests kept coming to the king's house…]` | none about the bracket (fn 49 sits after it and is about something else) |
+| 4260 | IX | the end of Polyphemus's curse, `[let him reach his home in another man's ship…]` | none about the bracket |
+| 6016 | XIII | `[near it is the cave sacred to the Naiads…]` | none about the bracket |
+
+The last three are classed here on shape alone — a whole passage or sentence
+bracketed, of the same kind as the three Butler explains, and two of them
+(PG 4260, PG 4884) are the *same* bracketed prophecy in two places, which is
+itself Butler's point in footnote 91. **A drafter meeting one of them still
+stops**: a class-C bracket without a note is not thereby a class-B bracket.
+
+**Until that decision is made, no Book containing a class-C bracket is
+drafted.** Books 1, 2 and 3 contain none, so Book 3 is unaffected.
+
+### The one line to remember
+
+**The class is decided by whose voice the bracket is in and what it is about**
+— the same test the Meditations package's D13 settles for Long's brackets, and
+for the same reason: a bracket that speaks about *the translation* or about
+*the state of the text* is the translator addressing his reader, and folding
+it silently into the narration puts an editor's doubt into Homer's mouth. It
+is **not** decided by length: class A is two words and class B's longest is
+nine, while class C's shortest is a clause and its longest runs for pages.
 
 ## Spelling and punctuation standard
 
