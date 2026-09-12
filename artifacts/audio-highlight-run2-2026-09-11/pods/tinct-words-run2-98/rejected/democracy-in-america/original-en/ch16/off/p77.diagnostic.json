@@ -1,0 +1,226 @@
+{
+  "complete": true,
+  "signature": "9a2a254968587ca36765d622617304db2628b56afbf821466f0b1fe5ad43e5a6",
+  "attempts": [
+    {
+      "asr_seconds": 0.19121583364903927,
+      "alignment_seconds": 0.00022589415311813354,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " G. March 15, 1789.",
+          "start": 0.05,
+          "end": 2.69,
+          "words": [
+            {
+              "text": " G.",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.53564453125
+            },
+            {
+              "text": " March",
+              "start": 0.83,
+              "end": 0.91,
+              "probability": 0.861328125
+            },
+            {
+              "text": " 15,",
+              "start": 0.91,
+              "end": 1.43,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " 1789.",
+              "start": 1.85,
+              "end": 2.69,
+              "probability": 0.998779296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "G.",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "March",
+          "start": 0.83,
+          "end": 0.91
+        },
+        {
+          "raw": "15,",
+          "start": 0.91,
+          "end": 1.43
+        },
+        {
+          "raw": "1789.",
+          "start": 1.85,
+          "end": 2.69
+        }
+      ],
+      "expected_tokens": [
+        "g",
+        "[",
+        "March",
+        "15,",
+        "1789.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "delete",
+          1,
+          2,
+          1,
+          1
+        ],
+        [
+          "equal",
+          2,
+          5,
+          1,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          1,
+          2,
+          1,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "G.",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "g",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "March",
+          "start": 0.83,
+          "end": 0.91,
+          "key": "march",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "15,",
+          "start": 0.91,
+          "end": 1.43,
+          "key": "fifteen",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "1789.",
+          "start": 1.85,
+          "end": 2.69,
+          "key": "1789",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "g",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "[",
+          "start": 0.63,
+          "end": 0.73
+        },
+        {
+          "text": "March",
+          "start": 0.83,
+          "end": 0.91
+        },
+        {
+          "text": "15,",
+          "start": 0.91,
+          "end": 1.43
+        },
+        {
+          "text": "1789.]",
+          "start": 1.85,
+          "end": 2.69
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19152184389531612
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1e2dac79cd4e12c76abda9c4728160b4b7de3bd2eb5d9c740388f4b9561e658c",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}
