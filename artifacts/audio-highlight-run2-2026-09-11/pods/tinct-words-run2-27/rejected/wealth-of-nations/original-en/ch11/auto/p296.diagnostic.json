@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "a34d5004dc403a7337b0616de4877894383945057c246dec049d8a01df2c1ed2",
+  "attempts": [
+    {
+      "asr_seconds": 0.33879641629755497,
+      "alignment_seconds": 0.0006982963532209396,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Such are in general the effects of the increase of stock upon industry and its productive powers.",
+        "hotwords": "Such"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Such are in general the effects of the increase of stock upon industry and its productive powers.",
+          "start": 0.08,
+          "end": 5.72,
+          "words": [
+            {
+              "text": " Such",
+              "start": 0.08,
+              "end": 0.6,
+              "probability": 0.806640625
+            },
+            {
+              "text": " are",
+              "start": 0.6,
+              "end": 0.8,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " in",
+              "start": 0.8,
+              "end": 0.98,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " general",
+              "start": 0.98,
+              "end": 1.38,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 1.38,
+              "end": 1.68,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " effects",
+              "start": 1.68,
+              "end": 1.98,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " of",
+              "start": 1.98,
+              "end": 2.2,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 2.2,
+              "end": 2.32,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " increase",
+              "start": 2.32,
+              "end": 2.68,
+              "probability": 0.99609375
+            },
+            {
+              "text": " of",
+              "start": 2.68,
+              "end": 2.86,
+              "probability": 0.99609375
+            },
+            {
+              "text": " stock",
+              "start": 2.86,
+              "end": 3.2,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " upon",
+              "start": 3.2,
+              "end": 3.52,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " industry",
+              "start": 3.52,
+              "end": 4.08,
+              "probability": 0.966796875
+            },
+            {
+              "text": " and",
+              "start": 4.08,
+              "end": 4.68,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " its",
+              "start": 4.68,
+              "end": 4.82,
+              "probability": 0.9765625
+            },
+            {
+              "text": " productive",
+              "start": 4.82,
+              "end": 5.26,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " powers.",
+              "start": 5.26,
+              "end": 5.72,
+              "probability": 0.98583984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Such",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "raw": "are",
+          "start": 0.6,
+          "end": 0.8
+        },
+        {
+          "raw": "in",
+          "start": 0.8,
+          "end": 0.98
+        },
+        {
+          "raw": "general",
+          "start": 0.98,
+          "end": 1.38
+        },
+        {
+          "raw": "the",
+          "start": 1.38,
+          "end": 1.68
+        },
+        {
+          "raw": "effects",
+          "start": 1.68,
+          "end": 1.98
+        },
+        {
+          "raw": "of",
+          "start": 1.98,
+          "end": 2.2
+        },
+        {
+          "raw": "the",
+          "start": 2.2,
+          "end": 2.32
+        },
+        {
+          "raw": "increase",
+          "start": 2.32,
+          "end": 2.68
+        },
+        {
+          "raw": "of",
+          "start": 2.68,
+          "end": 2.86
+        },
+        {
+          "raw": "stock",
+          "start": 2.86,
+          "end": 3.2
+        },
+        {
+          "raw": "upon",
+          "start": 3.2,
+          "end": 3.52
+        },
+        {
+          "raw": "industry",
+          "start": 3.52,
+          "end": 4.08
+        },
+        {
+          "raw": "and",
+          "start": 4.08,
+          "end": 4.68
+        },
+        {
+          "raw": "its",
+          "start": 4.68,
+          "end": 4.82
+        },
+        {
+          "raw": "productive",
+          "start": 4.82,
+          "end": 5.26
+        },
+        {
+          "raw": "powers.",
+          "start": 5.26,
+          "end": 5.72
+        }
+      ],
+      "expected_tokens": [
+        "Such",
+        "are",
+        "in",
+        "general",
+        "the",
+        "effects",
+        "of",
+        "the",
+        "increase",
+        "of",
+        "stock",
+        "upon",
+        "industry",
+        "and",
+        "its",
+        "productive",
+        "powers."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Such",
+          "start": 0.08,
+          "end": 0.6,
+          "key": "such",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 0.6,
+          "end": 0.8,
+          "key": "are",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.8,
+          "end": 0.98,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "general",
+          "start": 0.98,
+          "end": 1.38,
+          "key": "general",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.38,
+          "end": 1.68,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "effects",
+          "start": 1.68,
+          "end": 1.98,
+          "key": "effects",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.98,
+          "end": 2.2,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.2,
+          "end": 2.32,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "increase",
+          "start": 2.32,
+          "end": 2.68,
+          "key": "increase",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.68,
+          "end": 2.86,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "stock",
+          "start": 2.86,
+          "end": 3.2,
+          "key": "stock",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 3.2,
+          "end": 3.52,
+          "key": "upon",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "industry",
+          "start": 3.52,
+          "end": 4.08,
+          "key": "industry",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.08,
+          "end": 4.68,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "its",
+          "start": 4.68,
+          "end": 4.82,
+          "key": "its",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "productive",
+          "start": 4.82,
+          "end": 5.26,
+          "key": "productive",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "powers.",
+          "start": 5.26,
+          "end": 5.72,
+          "key": "powers",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Such",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "text": "are",
+          "start": 0.6,
+          "end": 0.8
+        },
+        {
+          "text": "in",
+          "start": 0.8,
+          "end": 0.98
+        },
+        {
+          "text": "general",
+          "start": 0.98,
+          "end": 1.38
+        },
+        {
+          "text": "the",
+          "start": 1.38,
+          "end": 1.68
+        },
+        {
+          "text": "effects",
+          "start": 1.68,
+          "end": 1.98
+        },
+        {
+          "text": "of",
+          "start": 1.98,
+          "end": 2.2
+        },
+        {
+          "text": "the",
+          "start": 2.2,
+          "end": 2.32
+        },
+        {
+          "text": "increase",
+          "start": 2.32,
+          "end": 2.68
+        },
+        {
+          "text": "of",
+          "start": 2.68,
+          "end": 2.86
+        },
+        {
+          "text": "stock",
+          "start": 2.86,
+          "end": 3.2
+        },
+        {
+          "text": "upon",
+          "start": 3.2,
+          "end": 3.52
+        },
+        {
+          "text": "industry",
+          "start": 3.52,
+          "end": 4.08
+        },
+        {
+          "text": "and",
+          "start": 4.08,
+          "end": 4.68
+        },
+        {
+          "text": "its",
+          "start": 4.68,
+          "end": 4.82
+        },
+        {
+          "text": "productive",
+          "start": 4.82,
+          "end": 5.26
+        },
+        {
+          "text": "powers.",
+          "start": 5.26,
+          "end": 5.72
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.33968490920960903
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6e1aa4d1b882b22319d82debd5ef9e92aa208289d2da9b9e141b17197585cad4",
+  "selected_reasons": []
+}

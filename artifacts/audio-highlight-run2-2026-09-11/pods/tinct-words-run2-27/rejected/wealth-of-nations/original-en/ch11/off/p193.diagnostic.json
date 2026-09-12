@@ -1,0 +1,476 @@
+{
+  "complete": true,
+  "signature": "e957dbd85fb7529f0d77a2bfab42f788ff0ada29a2afe6a1100509807e2c932b",
+  "attempts": [
+    {
+      "asr_seconds": 0.29300944320857525,
+      "alignment_seconds": 0.0005392171442508698,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Grounds of the suspicion that the value of silver still continues to decrease.",
+          "start": 0.05,
+          "end": 4.65,
+          "words": [
+            {
+              "text": " Grounds",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.62353515625
+            },
+            {
+              "text": " of",
+              "start": 0.71,
+              "end": 0.93,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 0.93,
+              "end": 1.03,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " suspicion",
+              "start": 1.03,
+              "end": 1.49,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " that",
+              "start": 1.49,
+              "end": 2.05,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " the",
+              "start": 2.05,
+              "end": 2.19,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " value",
+              "start": 2.19,
+              "end": 2.49,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 2.49,
+              "end": 2.69,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " silver",
+              "start": 2.69,
+              "end": 3.09,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " still",
+              "start": 3.09,
+              "end": 3.59,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " continues",
+              "start": 3.59,
+              "end": 4.11,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 4.11,
+              "end": 4.33,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " decrease.",
+              "start": 4.33,
+              "end": 4.65,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Grounds",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "of",
+          "start": 0.71,
+          "end": 0.93
+        },
+        {
+          "raw": "the",
+          "start": 0.93,
+          "end": 1.03
+        },
+        {
+          "raw": "suspicion",
+          "start": 1.03,
+          "end": 1.49
+        },
+        {
+          "raw": "that",
+          "start": 1.49,
+          "end": 2.05
+        },
+        {
+          "raw": "the",
+          "start": 2.05,
+          "end": 2.19
+        },
+        {
+          "raw": "value",
+          "start": 2.19,
+          "end": 2.49
+        },
+        {
+          "raw": "of",
+          "start": 2.49,
+          "end": 2.69
+        },
+        {
+          "raw": "silver",
+          "start": 2.69,
+          "end": 3.09
+        },
+        {
+          "raw": "still",
+          "start": 3.09,
+          "end": 3.59
+        },
+        {
+          "raw": "continues",
+          "start": 3.59,
+          "end": 4.11
+        },
+        {
+          "raw": "to",
+          "start": 4.11,
+          "end": 4.33
+        },
+        {
+          "raw": "decrease.",
+          "start": 4.33,
+          "end": 4.65
+        }
+      ],
+      "expected_tokens": [
+        "_Grounds",
+        "of",
+        "the",
+        "suspicion",
+        "that",
+        "the",
+        "Value",
+        "of",
+        "Silver",
+        "still",
+        "continues",
+        "to",
+        "decrease._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Grounds",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "grounds",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.71,
+          "end": 0.93,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.93,
+          "end": 1.03,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "suspicion",
+          "start": 1.03,
+          "end": 1.49,
+          "key": "suspicion",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.49,
+          "end": 2.05,
+          "key": "that",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.05,
+          "end": 2.19,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "value",
+          "start": 2.19,
+          "end": 2.49,
+          "key": "value",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.49,
+          "end": 2.69,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "silver",
+          "start": 2.69,
+          "end": 3.09,
+          "key": "silver",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "still",
+          "start": 3.09,
+          "end": 3.59,
+          "key": "still",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "continues",
+          "start": 3.59,
+          "end": 4.11,
+          "key": "continues",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.11,
+          "end": 4.33,
+          "key": "to",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "decrease.",
+          "start": 4.33,
+          "end": 4.65,
+          "key": "decrease",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_Grounds",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "of",
+          "start": 0.71,
+          "end": 0.93
+        },
+        {
+          "text": "the",
+          "start": 0.93,
+          "end": 1.03
+        },
+        {
+          "text": "suspicion",
+          "start": 1.03,
+          "end": 1.49
+        },
+        {
+          "text": "that",
+          "start": 1.49,
+          "end": 2.05
+        },
+        {
+          "text": "the",
+          "start": 2.05,
+          "end": 2.19
+        },
+        {
+          "text": "Value",
+          "start": 2.19,
+          "end": 2.49
+        },
+        {
+          "text": "of",
+          "start": 2.49,
+          "end": 2.69
+        },
+        {
+          "text": "Silver",
+          "start": 2.69,
+          "end": 3.09
+        },
+        {
+          "text": "still",
+          "start": 3.09,
+          "end": 3.59
+        },
+        {
+          "text": "continues",
+          "start": 3.59,
+          "end": 4.11
+        },
+        {
+          "text": "to",
+          "start": 4.11,
+          "end": 4.33
+        },
+        {
+          "text": "decrease._",
+          "start": 4.33,
+          "end": 4.65
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.29374062083661556
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e42fc6dbb261fd5d9be38425b66bef0bc6538747e378674bfe6f38e56ffab90f",
+  "selected_reasons": []
+}

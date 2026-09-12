@@ -1,0 +1,1374 @@
+{
+  "complete": true,
+  "signature": "6efbbaa914f938784e04684fa569a0cd5b2985428e2e8759250d3fb567e73f11",
+  "attempts": [
+    {
+      "asr_seconds": 0.4705690536648035,
+      "alignment_seconds": 0.0007327087223529816,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "In increasing the quantity of the different minerals and metals which are drawn from the bowels of the earth, that of the more precious ones particularly, the efficacy of human industry seems not to be limited, but to be altogether uncertain.",
+        "hotwords": "In"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " In increasing the quantity of the different minerals and metals which are drawn from the bowels of the earth, that of the more precious ones particularly, the efficacy of human industry seems not to be limited, but to be altogether uncertain.",
+          "start": 0.08,
+          "end": 13.88,
+          "words": [
+            {
+              "text": " In",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.489501953125
+            },
+            {
+              "text": " increasing",
+              "start": 0.54,
+              "end": 0.96,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 0.96,
+              "end": 1.24,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " quantity",
+              "start": 1.24,
+              "end": 1.58,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 1.58,
+              "end": 1.9,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 1.9,
+              "end": 2.0,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " different",
+              "start": 2.0,
+              "end": 2.28,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " minerals",
+              "start": 2.28,
+              "end": 2.66,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 2.66,
+              "end": 2.94,
+              "probability": 0.998046875
+            },
+            {
+              "text": " metals",
+              "start": 2.94,
+              "end": 3.3,
+              "probability": 1.0
+            },
+            {
+              "text": " which",
+              "start": 3.3,
+              "end": 3.84,
+              "probability": 0.60888671875
+            },
+            {
+              "text": " are",
+              "start": 3.84,
+              "end": 4.02,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " drawn",
+              "start": 4.02,
+              "end": 4.36,
+              "probability": 0.998046875
+            },
+            {
+              "text": " from",
+              "start": 4.36,
+              "end": 4.64,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 4.64,
+              "end": 4.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " bowels",
+              "start": 4.78,
+              "end": 5.24,
+              "probability": 0.994384765625
+            },
+            {
+              "text": " of",
+              "start": 5.24,
+              "end": 5.36,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 5.36,
+              "end": 5.48,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " earth,",
+              "start": 5.48,
+              "end": 5.78,
+              "probability": 0.384765625
+            },
+            {
+              "text": " that",
+              "start": 6.24,
+              "end": 6.44,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " of",
+              "start": 6.44,
+              "end": 6.56,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 6.56,
+              "end": 6.64,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " more",
+              "start": 6.64,
+              "end": 6.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " precious",
+              "start": 6.82,
+              "end": 7.2,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " ones",
+              "start": 7.2,
+              "end": 7.54,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " particularly,",
+              "start": 7.54,
+              "end": 8.08,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " the",
+              "start": 8.72,
+              "end": 8.92,
+              "probability": 0.99609375
+            },
+            {
+              "text": " efficacy",
+              "start": 8.92,
+              "end": 9.28,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 9.28,
+              "end": 9.6,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " human",
+              "start": 9.6,
+              "end": 9.9,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " industry",
+              "start": 9.9,
+              "end": 10.44,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " seems",
+              "start": 10.44,
+              "end": 10.8,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " not",
+              "start": 10.8,
+              "end": 11.12,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 11.12,
+              "end": 11.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " be",
+              "start": 11.28,
+              "end": 11.42,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " limited,",
+              "start": 11.42,
+              "end": 11.76,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " but",
+              "start": 12.22,
+              "end": 12.44,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 12.44,
+              "end": 12.54,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " be",
+              "start": 12.54,
+              "end": 12.66,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " altogether",
+              "start": 12.66,
+              "end": 13.2,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " uncertain.",
+              "start": 13.2,
+              "end": 13.88,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "In",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "increasing",
+          "start": 0.54,
+          "end": 0.96
+        },
+        {
+          "raw": "the",
+          "start": 0.96,
+          "end": 1.24
+        },
+        {
+          "raw": "quantity",
+          "start": 1.24,
+          "end": 1.58
+        },
+        {
+          "raw": "of",
+          "start": 1.58,
+          "end": 1.9
+        },
+        {
+          "raw": "the",
+          "start": 1.9,
+          "end": 2.0
+        },
+        {
+          "raw": "different",
+          "start": 2.0,
+          "end": 2.28
+        },
+        {
+          "raw": "minerals",
+          "start": 2.28,
+          "end": 2.66
+        },
+        {
+          "raw": "and",
+          "start": 2.66,
+          "end": 2.94
+        },
+        {
+          "raw": "metals",
+          "start": 2.94,
+          "end": 3.3
+        },
+        {
+          "raw": "which",
+          "start": 3.3,
+          "end": 3.84
+        },
+        {
+          "raw": "are",
+          "start": 3.84,
+          "end": 4.02
+        },
+        {
+          "raw": "drawn",
+          "start": 4.02,
+          "end": 4.36
+        },
+        {
+          "raw": "from",
+          "start": 4.36,
+          "end": 4.64
+        },
+        {
+          "raw": "the",
+          "start": 4.64,
+          "end": 4.78
+        },
+        {
+          "raw": "bowels",
+          "start": 4.78,
+          "end": 5.24
+        },
+        {
+          "raw": "of",
+          "start": 5.24,
+          "end": 5.36
+        },
+        {
+          "raw": "the",
+          "start": 5.36,
+          "end": 5.48
+        },
+        {
+          "raw": "earth,",
+          "start": 5.48,
+          "end": 5.78
+        },
+        {
+          "raw": "that",
+          "start": 6.24,
+          "end": 6.44
+        },
+        {
+          "raw": "of",
+          "start": 6.44,
+          "end": 6.56
+        },
+        {
+          "raw": "the",
+          "start": 6.56,
+          "end": 6.64
+        },
+        {
+          "raw": "more",
+          "start": 6.64,
+          "end": 6.82
+        },
+        {
+          "raw": "precious",
+          "start": 6.82,
+          "end": 7.2
+        },
+        {
+          "raw": "ones",
+          "start": 7.2,
+          "end": 7.54
+        },
+        {
+          "raw": "particularly,",
+          "start": 7.54,
+          "end": 8.08
+        },
+        {
+          "raw": "the",
+          "start": 8.72,
+          "end": 8.92
+        },
+        {
+          "raw": "efficacy",
+          "start": 8.92,
+          "end": 9.28
+        },
+        {
+          "raw": "of",
+          "start": 9.28,
+          "end": 9.6
+        },
+        {
+          "raw": "human",
+          "start": 9.6,
+          "end": 9.9
+        },
+        {
+          "raw": "industry",
+          "start": 9.9,
+          "end": 10.44
+        },
+        {
+          "raw": "seems",
+          "start": 10.44,
+          "end": 10.8
+        },
+        {
+          "raw": "not",
+          "start": 10.8,
+          "end": 11.12
+        },
+        {
+          "raw": "to",
+          "start": 11.12,
+          "end": 11.28
+        },
+        {
+          "raw": "be",
+          "start": 11.28,
+          "end": 11.42
+        },
+        {
+          "raw": "limited,",
+          "start": 11.42,
+          "end": 11.76
+        },
+        {
+          "raw": "but",
+          "start": 12.22,
+          "end": 12.44
+        },
+        {
+          "raw": "to",
+          "start": 12.44,
+          "end": 12.54
+        },
+        {
+          "raw": "be",
+          "start": 12.54,
+          "end": 12.66
+        },
+        {
+          "raw": "altogether",
+          "start": 12.66,
+          "end": 13.2
+        },
+        {
+          "raw": "uncertain.",
+          "start": 13.2,
+          "end": 13.88
+        }
+      ],
+      "expected_tokens": [
+        "In",
+        "increasing",
+        "the",
+        "quantity",
+        "of",
+        "the",
+        "different",
+        "minerals",
+        "and",
+        "metals",
+        "which",
+        "are",
+        "drawn",
+        "from",
+        "the",
+        "bowels",
+        "of",
+        "the",
+        "earth,",
+        "that",
+        "of",
+        "the",
+        "more",
+        "precious",
+        "ones",
+        "particularly,",
+        "the",
+        "efficacy",
+        "of",
+        "human",
+        "industry",
+        "seems",
+        "not",
+        "to",
+        "be",
+        "limited,",
+        "but",
+        "to",
+        "be",
+        "altogether",
+        "uncertain."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          41,
+          0,
+          41
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "In",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "in",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "increasing",
+          "start": 0.54,
+          "end": 0.96,
+          "key": "increasing",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.96,
+          "end": 1.24,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "quantity",
+          "start": 1.24,
+          "end": 1.58,
+          "key": "quantity",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.58,
+          "end": 1.9,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.9,
+          "end": 2.0,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "different",
+          "start": 2.0,
+          "end": 2.28,
+          "key": "different",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "minerals",
+          "start": 2.28,
+          "end": 2.66,
+          "key": "minerals",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.66,
+          "end": 2.94,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "metals",
+          "start": 2.94,
+          "end": 3.3,
+          "key": "metals",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 3.3,
+          "end": 3.84,
+          "key": "which",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 3.84,
+          "end": 4.02,
+          "key": "are",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "drawn",
+          "start": 4.02,
+          "end": 4.36,
+          "key": "drawn",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 4.36,
+          "end": 4.64,
+          "key": "from",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.64,
+          "end": 4.78,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "bowels",
+          "start": 4.78,
+          "end": 5.24,
+          "key": "bowels",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.24,
+          "end": 5.36,
+          "key": "of",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.36,
+          "end": 5.48,
+          "key": "the",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "earth,",
+          "start": 5.48,
+          "end": 5.78,
+          "key": "earth",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 6.24,
+          "end": 6.44,
+          "key": "that",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.44,
+          "end": 6.56,
+          "key": "of",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.56,
+          "end": 6.64,
+          "key": "the",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 6.64,
+          "end": 6.82,
+          "key": "more",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "precious",
+          "start": 6.82,
+          "end": 7.2,
+          "key": "precious",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "ones",
+          "start": 7.2,
+          "end": 7.54,
+          "key": "ones",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "particularly,",
+          "start": 7.54,
+          "end": 8.08,
+          "key": "particularly",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.72,
+          "end": 8.92,
+          "key": "the",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "efficacy",
+          "start": 8.92,
+          "end": 9.28,
+          "key": "efficacy",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 9.28,
+          "end": 9.6,
+          "key": "of",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "human",
+          "start": 9.6,
+          "end": 9.9,
+          "key": "human",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "industry",
+          "start": 9.9,
+          "end": 10.44,
+          "key": "industry",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "seems",
+          "start": 10.44,
+          "end": 10.8,
+          "key": "seems",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 10.8,
+          "end": 11.12,
+          "key": "not",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 11.12,
+          "end": 11.28,
+          "key": "to",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 11.28,
+          "end": 11.42,
+          "key": "be",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "limited,",
+          "start": 11.42,
+          "end": 11.76,
+          "key": "limited",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 12.22,
+          "end": 12.44,
+          "key": "but",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 12.44,
+          "end": 12.54,
+          "key": "to",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 12.54,
+          "end": 12.66,
+          "key": "be",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "altogether",
+          "start": 12.66,
+          "end": 13.2,
+          "key": "altogether",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "uncertain.",
+          "start": 13.2,
+          "end": 13.88,
+          "key": "uncertain",
+          "pieces": [
+            40
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "In",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "increasing",
+          "start": 0.54,
+          "end": 0.96
+        },
+        {
+          "text": "the",
+          "start": 0.96,
+          "end": 1.24
+        },
+        {
+          "text": "quantity",
+          "start": 1.24,
+          "end": 1.58
+        },
+        {
+          "text": "of",
+          "start": 1.58,
+          "end": 1.9
+        },
+        {
+          "text": "the",
+          "start": 1.9,
+          "end": 2.0
+        },
+        {
+          "text": "different",
+          "start": 2.0,
+          "end": 2.28
+        },
+        {
+          "text": "minerals",
+          "start": 2.28,
+          "end": 2.66
+        },
+        {
+          "text": "and",
+          "start": 2.66,
+          "end": 2.94
+        },
+        {
+          "text": "metals",
+          "start": 2.94,
+          "end": 3.3
+        },
+        {
+          "text": "which",
+          "start": 3.3,
+          "end": 3.84
+        },
+        {
+          "text": "are",
+          "start": 3.84,
+          "end": 4.02
+        },
+        {
+          "text": "drawn",
+          "start": 4.02,
+          "end": 4.36
+        },
+        {
+          "text": "from",
+          "start": 4.36,
+          "end": 4.64
+        },
+        {
+          "text": "the",
+          "start": 4.64,
+          "end": 4.78
+        },
+        {
+          "text": "bowels",
+          "start": 4.78,
+          "end": 5.24
+        },
+        {
+          "text": "of",
+          "start": 5.24,
+          "end": 5.36
+        },
+        {
+          "text": "the",
+          "start": 5.36,
+          "end": 5.48
+        },
+        {
+          "text": "earth,",
+          "start": 5.48,
+          "end": 5.78
+        },
+        {
+          "text": "that",
+          "start": 6.24,
+          "end": 6.44
+        },
+        {
+          "text": "of",
+          "start": 6.44,
+          "end": 6.56
+        },
+        {
+          "text": "the",
+          "start": 6.56,
+          "end": 6.64
+        },
+        {
+          "text": "more",
+          "start": 6.64,
+          "end": 6.82
+        },
+        {
+          "text": "precious",
+          "start": 6.82,
+          "end": 7.2
+        },
+        {
+          "text": "ones",
+          "start": 7.2,
+          "end": 7.54
+        },
+        {
+          "text": "particularly,",
+          "start": 7.54,
+          "end": 8.08
+        },
+        {
+          "text": "the",
+          "start": 8.72,
+          "end": 8.92
+        },
+        {
+          "text": "efficacy",
+          "start": 8.92,
+          "end": 9.28
+        },
+        {
+          "text": "of",
+          "start": 9.28,
+          "end": 9.6
+        },
+        {
+          "text": "human",
+          "start": 9.6,
+          "end": 9.9
+        },
+        {
+          "text": "industry",
+          "start": 9.9,
+          "end": 10.44
+        },
+        {
+          "text": "seems",
+          "start": 10.44,
+          "end": 10.8
+        },
+        {
+          "text": "not",
+          "start": 10.8,
+          "end": 11.12
+        },
+        {
+          "text": "to",
+          "start": 11.12,
+          "end": 11.28
+        },
+        {
+          "text": "be",
+          "start": 11.28,
+          "end": 11.42
+        },
+        {
+          "text": "limited,",
+          "start": 11.42,
+          "end": 11.76
+        },
+        {
+          "text": "but",
+          "start": 12.22,
+          "end": 12.44
+        },
+        {
+          "text": "to",
+          "start": 12.44,
+          "end": 12.54
+        },
+        {
+          "text": "be",
+          "start": 12.54,
+          "end": 12.66
+        },
+        {
+          "text": "altogether",
+          "start": 12.66,
+          "end": 13.2
+        },
+        {
+          "text": "uncertain.",
+          "start": 13.2,
+          "end": 13.88
+        }
+      ],
+      "stats": {
+        "expected_words": 41,
+        "heard_words": 41,
+        "matched_words": 41
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4716282319277525
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "28e817f94e0494914f1f3ab8e30a358d713f13e80c86a0f2c4884b47ec77bba4",
+  "selected_reasons": []
+}

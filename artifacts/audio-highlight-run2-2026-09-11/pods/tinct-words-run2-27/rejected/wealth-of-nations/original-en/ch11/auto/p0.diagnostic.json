@@ -1,0 +1,317 @@
+{
+  "complete": true,
+  "signature": "302971f26edd12c92e178e1eb97cc81f514be5e22c1cdcd37c6756e78784443a",
+  "attempts": [
+    {
+      "asr_seconds": 0.1551015805453062,
+      "alignment_seconds": 0.00019438005983829498,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Of The Rent Of Land.",
+        "hotwords": "Of, The, Rent, Land"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Of, The, Rent, Land Of The Rent Of Land.",
+          "start": 0.02,
+          "end": 1.26,
+          "words": [
+            {
+              "text": " Of,",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.067626953125
+            },
+            {
+              "text": " The,",
+              "start": 0.5,
+              "end": 0.62,
+              "probability": 0.29296875
+            },
+            {
+              "text": " Rent,",
+              "start": 0.66,
+              "end": 0.8,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " Land",
+              "start": 0.88,
+              "end": 0.98,
+              "probability": 0.0005898475646972656
+            },
+            {
+              "text": " Of",
+              "start": 0.98,
+              "end": 0.98,
+              "probability": 0.0018491744995117188
+            },
+            {
+              "text": " The",
+              "start": 0.98,
+              "end": 0.98,
+              "probability": 0.0909423828125
+            },
+            {
+              "text": " Rent",
+              "start": 0.98,
+              "end": 0.98,
+              "probability": 0.765625
+            },
+            {
+              "text": " Of",
+              "start": 0.98,
+              "end": 0.98,
+              "probability": 0.198486328125
+            },
+            {
+              "text": " Land.",
+              "start": 0.98,
+              "end": 1.26,
+              "probability": 0.91455078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Of,",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "The,",
+          "start": 0.5,
+          "end": 0.62
+        },
+        {
+          "raw": "Rent,",
+          "start": 0.66,
+          "end": 0.8
+        },
+        {
+          "raw": "Land",
+          "start": 0.88,
+          "end": 0.98
+        },
+        {
+          "raw": "Of",
+          "start": 0.98,
+          "end": 0.98
+        },
+        {
+          "raw": "The",
+          "start": 0.98,
+          "end": 0.98
+        },
+        {
+          "raw": "Rent",
+          "start": 0.98,
+          "end": 0.98
+        },
+        {
+          "raw": "Of",
+          "start": 0.98,
+          "end": 0.98
+        },
+        {
+          "raw": "Land.",
+          "start": 0.98,
+          "end": 1.26
+        }
+      ],
+      "expected_tokens": [
+        "Of",
+        "The",
+        "Rent",
+        "Of",
+        "Land."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          4
+        ],
+        [
+          "equal",
+          0,
+          5,
+          4,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Of,",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "of",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "The,",
+          "start": 0.5,
+          "end": 0.62,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Rent,",
+          "start": 0.66,
+          "end": 0.8,
+          "key": "rent",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Land",
+          "start": 0.88,
+          "end": 0.98,
+          "key": "land",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 0.98,
+          "end": 0.98,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 0.98,
+          "end": 0.98,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Rent",
+          "start": 0.98,
+          "end": 0.98,
+          "key": "rent",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 0.98,
+          "end": 0.98,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Land.",
+          "start": 0.98,
+          "end": 1.26,
+          "key": "land",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Of",
+          "start": 0.98,
+          "end": 0.98
+        },
+        {
+          "text": "The",
+          "start": 0.98,
+          "end": 0.98
+        },
+        {
+          "text": "Rent",
+          "start": 0.98,
+          "end": 0.98
+        },
+        {
+          "text": "Of",
+          "start": 0.98,
+          "end": 0.98
+        },
+        {
+          "text": "Land.",
+          "start": 0.98,
+          "end": 1.26
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 9,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15536797605454922
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0787fe41225b2ed0e2d0c798706e88736897c1a142504f24e28a6ee86afaf65a",
+  "selected_reasons": []
+}

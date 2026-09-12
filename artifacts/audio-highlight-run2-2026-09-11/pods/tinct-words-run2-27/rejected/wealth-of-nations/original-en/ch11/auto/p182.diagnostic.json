@@ -1,0 +1,3429 @@
+{
+  "complete": true,
+  "signature": "8f7cbf15b3b12cd4041251ed115d537273e69ab03be70448129be77b9042018e",
+  "attempts": [
+    {
+      "asr_seconds": 0.8395783621817827,
+      "alignment_seconds": 0.0032706987112760544,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The great quantities of silver carried annually from Europe to India, have, in some of the English settlements, gradually reduced the value of that metal in proportion to gold. In the mint of Calcutta, an ounce of fine gold is supposed to be worth fifteen ounces of fine silver, in the same manner as in Europe. It is in the mint, perhaps, rated too high for the value which it bears in the market of Bengal. In China, the proportion of gold to silver still continues as one to ten, or one to twelve. In Japan, it is said to be as one to eight.",
+        "hotwords": "Europe, India, English, Calcutta, Bengal, China, Japan"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The great quantities of silver carried annually from Europe to India, have, in some of the English settlements, gradually reduced the value of that metal in proportion to gold",
+          "start": 0.02,
+          "end": 9.54,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.82080078125
+            },
+            {
+              "text": " great",
+              "start": 0.48,
+              "end": 0.7,
+              "probability": 0.958984375
+            },
+            {
+              "text": " quantities",
+              "start": 0.7,
+              "end": 1.04,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 1.04,
+              "end": 1.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " silver",
+              "start": 1.32,
+              "end": 1.6,
+              "probability": 0.98828125
+            },
+            {
+              "text": " carried",
+              "start": 1.6,
+              "end": 1.98,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " annually",
+              "start": 1.98,
+              "end": 2.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " from",
+              "start": 2.42,
+              "end": 2.68,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Europe",
+              "start": 2.68,
+              "end": 2.94,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 2.94,
+              "end": 3.2,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " India,",
+              "start": 3.2,
+              "end": 3.62,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " have,",
+              "start": 4.1,
+              "end": 4.36,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " in",
+              "start": 4.7,
+              "end": 4.9,
+              "probability": 0.99609375
+            },
+            {
+              "text": " some",
+              "start": 4.9,
+              "end": 5.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 5.04,
+              "end": 5.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 5.14,
+              "end": 5.24,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " English",
+              "start": 5.24,
+              "end": 5.54,
+              "probability": 0.9921875
+            },
+            {
+              "text": " settlements,",
+              "start": 5.54,
+              "end": 5.98,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " gradually",
+              "start": 6.54,
+              "end": 6.82,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " reduced",
+              "start": 6.82,
+              "end": 7.3,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " the",
+              "start": 7.3,
+              "end": 7.52,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " value",
+              "start": 7.52,
+              "end": 7.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 7.76,
+              "end": 7.96,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " that",
+              "start": 7.96,
+              "end": 8.14,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " metal",
+              "start": 8.14,
+              "end": 8.42,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " in",
+              "start": 8.42,
+              "end": 8.62,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " proportion",
+              "start": 8.62,
+              "end": 8.96,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 8.96,
+              "end": 9.26,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " gold",
+              "start": 9.26,
+              "end": 9.54,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " In the mint of Calcutta, an ounce of fine gold is supposed to be worth fifteen ounces of fine silver, in the same manner as in Europe. It is in the mint, perhaps, rated too high for the value which it bears in the market of Bengal. In China, the proportion of gold to silver still continues as one to ten, or one to twelve. In Japan, it is said to be as one to eight.",
+          "start": 9.54,
+          "end": 32.28,
+          "words": [
+            {
+              "text": " In",
+              "start": 9.54,
+              "end": 10.36,
+              "probability": 0.814453125
+            },
+            {
+              "text": " the",
+              "start": 10.36,
+              "end": 10.48,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " mint",
+              "start": 10.48,
+              "end": 10.56,
+              "probability": 0.826171875
+            },
+            {
+              "text": " of",
+              "start": 10.56,
+              "end": 10.72,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Calcutta,",
+              "start": 10.72,
+              "end": 11.2,
+              "probability": 0.9513346354166666
+            },
+            {
+              "text": " an",
+              "start": 11.64,
+              "end": 11.68,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " ounce",
+              "start": 11.68,
+              "end": 11.84,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 11.84,
+              "end": 12.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " fine",
+              "start": 12.06,
+              "end": 12.32,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " gold",
+              "start": 12.32,
+              "end": 12.6,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " is",
+              "start": 12.6,
+              "end": 12.8,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " supposed",
+              "start": 12.8,
+              "end": 13.04,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " to",
+              "start": 13.04,
+              "end": 13.24,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " be",
+              "start": 13.24,
+              "end": 13.36,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " worth",
+              "start": 13.36,
+              "end": 13.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " fifteen",
+              "start": 13.54,
+              "end": 14.0,
+              "probability": 0.0426025390625
+            },
+            {
+              "text": " ounces",
+              "start": 14.0,
+              "end": 14.36,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 14.36,
+              "end": 14.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " fine",
+              "start": 14.6,
+              "end": 14.88,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " silver,",
+              "start": 14.88,
+              "end": 15.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 15.68,
+              "end": 15.88,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 15.88,
+              "end": 16.0,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " same",
+              "start": 16.0,
+              "end": 16.24,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " manner",
+              "start": 16.24,
+              "end": 16.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " as",
+              "start": 16.6,
+              "end": 16.82,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " in",
+              "start": 16.82,
+              "end": 16.96,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Europe.",
+              "start": 16.96,
+              "end": 17.2,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " It",
+              "start": 17.86,
+              "end": 17.98,
+              "probability": 0.994140625
+            },
+            {
+              "text": " is",
+              "start": 17.98,
+              "end": 18.08,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " in",
+              "start": 18.08,
+              "end": 18.22,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " the",
+              "start": 18.22,
+              "end": 18.34,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " mint,",
+              "start": 18.34,
+              "end": 18.54,
+              "probability": 0.994140625
+            },
+            {
+              "text": " perhaps,",
+              "start": 18.76,
+              "end": 19.14,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " rated",
+              "start": 19.5,
+              "end": 19.64,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " too",
+              "start": 19.64,
+              "end": 19.94,
+              "probability": 0.98828125
+            },
+            {
+              "text": " high",
+              "start": 19.94,
+              "end": 20.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " for",
+              "start": 20.18,
+              "end": 20.34,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 20.34,
+              "end": 20.46,
+              "probability": 0.998046875
+            },
+            {
+              "text": " value",
+              "start": 20.46,
+              "end": 20.76,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " which",
+              "start": 20.76,
+              "end": 20.94,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " it",
+              "start": 20.94,
+              "end": 21.08,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " bears",
+              "start": 21.08,
+              "end": 21.28,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " in",
+              "start": 21.28,
+              "end": 21.54,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " the",
+              "start": 21.54,
+              "end": 21.62,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " market",
+              "start": 21.62,
+              "end": 21.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 21.84,
+              "end": 22.06,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Bengal.",
+              "start": 22.06,
+              "end": 22.32,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " In",
+              "start": 23.22,
+              "end": 23.4,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " China,",
+              "start": 23.4,
+              "end": 23.7,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 24.14,
+              "end": 24.28,
+              "probability": 0.998046875
+            },
+            {
+              "text": " proportion",
+              "start": 24.28,
+              "end": 24.62,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 24.62,
+              "end": 24.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " gold",
+              "start": 24.88,
+              "end": 25.08,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 25.08,
+              "end": 25.28,
+              "probability": 0.974609375
+            },
+            {
+              "text": " silver",
+              "start": 25.28,
+              "end": 25.64,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " still",
+              "start": 25.64,
+              "end": 25.96,
+              "probability": 0.9921875
+            },
+            {
+              "text": " continues",
+              "start": 25.96,
+              "end": 26.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " as",
+              "start": 26.54,
+              "end": 26.76,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " one",
+              "start": 26.76,
+              "end": 27.0,
+              "probability": 0.64111328125
+            },
+            {
+              "text": " to",
+              "start": 27.0,
+              "end": 27.16,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " ten,",
+              "start": 27.16,
+              "end": 27.46,
+              "probability": 0.87255859375
+            },
+            {
+              "text": " or",
+              "start": 27.94,
+              "end": 28.06,
+              "probability": 0.998046875
+            },
+            {
+              "text": " one",
+              "start": 28.06,
+              "end": 28.24,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " to",
+              "start": 28.24,
+              "end": 28.44,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " twelve.",
+              "start": 28.44,
+              "end": 28.74,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " In",
+              "start": 29.88,
+              "end": 30.08,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Japan,",
+              "start": 30.08,
+              "end": 30.42,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " it",
+              "start": 30.94,
+              "end": 31.06,
+              "probability": 0.99609375
+            },
+            {
+              "text": " is",
+              "start": 31.06,
+              "end": 31.16,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " said",
+              "start": 31.16,
+              "end": 31.3,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 31.3,
+              "end": 31.42,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " be",
+              "start": 31.42,
+              "end": 31.52,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " as",
+              "start": 31.52,
+              "end": 31.68,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " one",
+              "start": 31.68,
+              "end": 31.86,
+              "probability": 0.982421875
+            },
+            {
+              "text": " to",
+              "start": 31.86,
+              "end": 32.02,
+              "probability": 0.998046875
+            },
+            {
+              "text": " eight.",
+              "start": 32.02,
+              "end": 32.28,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "great",
+          "start": 0.48,
+          "end": 0.7
+        },
+        {
+          "raw": "quantities",
+          "start": 0.7,
+          "end": 1.04
+        },
+        {
+          "raw": "of",
+          "start": 1.04,
+          "end": 1.32
+        },
+        {
+          "raw": "silver",
+          "start": 1.32,
+          "end": 1.6
+        },
+        {
+          "raw": "carried",
+          "start": 1.6,
+          "end": 1.98
+        },
+        {
+          "raw": "annually",
+          "start": 1.98,
+          "end": 2.42
+        },
+        {
+          "raw": "from",
+          "start": 2.42,
+          "end": 2.68
+        },
+        {
+          "raw": "Europe",
+          "start": 2.68,
+          "end": 2.94
+        },
+        {
+          "raw": "to",
+          "start": 2.94,
+          "end": 3.2
+        },
+        {
+          "raw": "India,",
+          "start": 3.2,
+          "end": 3.62
+        },
+        {
+          "raw": "have,",
+          "start": 4.1,
+          "end": 4.36
+        },
+        {
+          "raw": "in",
+          "start": 4.7,
+          "end": 4.9
+        },
+        {
+          "raw": "some",
+          "start": 4.9,
+          "end": 5.04
+        },
+        {
+          "raw": "of",
+          "start": 5.04,
+          "end": 5.14
+        },
+        {
+          "raw": "the",
+          "start": 5.14,
+          "end": 5.24
+        },
+        {
+          "raw": "English",
+          "start": 5.24,
+          "end": 5.54
+        },
+        {
+          "raw": "settlements,",
+          "start": 5.54,
+          "end": 5.98
+        },
+        {
+          "raw": "gradually",
+          "start": 6.54,
+          "end": 6.82
+        },
+        {
+          "raw": "reduced",
+          "start": 6.82,
+          "end": 7.3
+        },
+        {
+          "raw": "the",
+          "start": 7.3,
+          "end": 7.52
+        },
+        {
+          "raw": "value",
+          "start": 7.52,
+          "end": 7.76
+        },
+        {
+          "raw": "of",
+          "start": 7.76,
+          "end": 7.96
+        },
+        {
+          "raw": "that",
+          "start": 7.96,
+          "end": 8.14
+        },
+        {
+          "raw": "metal",
+          "start": 8.14,
+          "end": 8.42
+        },
+        {
+          "raw": "in",
+          "start": 8.42,
+          "end": 8.62
+        },
+        {
+          "raw": "proportion",
+          "start": 8.62,
+          "end": 8.96
+        },
+        {
+          "raw": "to",
+          "start": 8.96,
+          "end": 9.26
+        },
+        {
+          "raw": "gold",
+          "start": 9.26,
+          "end": 9.54
+        },
+        {
+          "raw": "In",
+          "start": 9.54,
+          "end": 10.36
+        },
+        {
+          "raw": "the",
+          "start": 10.36,
+          "end": 10.48
+        },
+        {
+          "raw": "mint",
+          "start": 10.48,
+          "end": 10.56
+        },
+        {
+          "raw": "of",
+          "start": 10.56,
+          "end": 10.72
+        },
+        {
+          "raw": "Calcutta,",
+          "start": 10.72,
+          "end": 11.2
+        },
+        {
+          "raw": "an",
+          "start": 11.64,
+          "end": 11.68
+        },
+        {
+          "raw": "ounce",
+          "start": 11.68,
+          "end": 11.84
+        },
+        {
+          "raw": "of",
+          "start": 11.84,
+          "end": 12.06
+        },
+        {
+          "raw": "fine",
+          "start": 12.06,
+          "end": 12.32
+        },
+        {
+          "raw": "gold",
+          "start": 12.32,
+          "end": 12.6
+        },
+        {
+          "raw": "is",
+          "start": 12.6,
+          "end": 12.8
+        },
+        {
+          "raw": "supposed",
+          "start": 12.8,
+          "end": 13.04
+        },
+        {
+          "raw": "to",
+          "start": 13.04,
+          "end": 13.24
+        },
+        {
+          "raw": "be",
+          "start": 13.24,
+          "end": 13.36
+        },
+        {
+          "raw": "worth",
+          "start": 13.36,
+          "end": 13.54
+        },
+        {
+          "raw": "fifteen",
+          "start": 13.54,
+          "end": 14.0
+        },
+        {
+          "raw": "ounces",
+          "start": 14.0,
+          "end": 14.36
+        },
+        {
+          "raw": "of",
+          "start": 14.36,
+          "end": 14.6
+        },
+        {
+          "raw": "fine",
+          "start": 14.6,
+          "end": 14.88
+        },
+        {
+          "raw": "silver,",
+          "start": 14.88,
+          "end": 15.32
+        },
+        {
+          "raw": "in",
+          "start": 15.68,
+          "end": 15.88
+        },
+        {
+          "raw": "the",
+          "start": 15.88,
+          "end": 16.0
+        },
+        {
+          "raw": "same",
+          "start": 16.0,
+          "end": 16.24
+        },
+        {
+          "raw": "manner",
+          "start": 16.24,
+          "end": 16.6
+        },
+        {
+          "raw": "as",
+          "start": 16.6,
+          "end": 16.82
+        },
+        {
+          "raw": "in",
+          "start": 16.82,
+          "end": 16.96
+        },
+        {
+          "raw": "Europe.",
+          "start": 16.96,
+          "end": 17.2
+        },
+        {
+          "raw": "It",
+          "start": 17.86,
+          "end": 17.98
+        },
+        {
+          "raw": "is",
+          "start": 17.98,
+          "end": 18.08
+        },
+        {
+          "raw": "in",
+          "start": 18.08,
+          "end": 18.22
+        },
+        {
+          "raw": "the",
+          "start": 18.22,
+          "end": 18.34
+        },
+        {
+          "raw": "mint,",
+          "start": 18.34,
+          "end": 18.54
+        },
+        {
+          "raw": "perhaps,",
+          "start": 18.76,
+          "end": 19.14
+        },
+        {
+          "raw": "rated",
+          "start": 19.5,
+          "end": 19.64
+        },
+        {
+          "raw": "too",
+          "start": 19.64,
+          "end": 19.94
+        },
+        {
+          "raw": "high",
+          "start": 19.94,
+          "end": 20.18
+        },
+        {
+          "raw": "for",
+          "start": 20.18,
+          "end": 20.34
+        },
+        {
+          "raw": "the",
+          "start": 20.34,
+          "end": 20.46
+        },
+        {
+          "raw": "value",
+          "start": 20.46,
+          "end": 20.76
+        },
+        {
+          "raw": "which",
+          "start": 20.76,
+          "end": 20.94
+        },
+        {
+          "raw": "it",
+          "start": 20.94,
+          "end": 21.08
+        },
+        {
+          "raw": "bears",
+          "start": 21.08,
+          "end": 21.28
+        },
+        {
+          "raw": "in",
+          "start": 21.28,
+          "end": 21.54
+        },
+        {
+          "raw": "the",
+          "start": 21.54,
+          "end": 21.62
+        },
+        {
+          "raw": "market",
+          "start": 21.62,
+          "end": 21.84
+        },
+        {
+          "raw": "of",
+          "start": 21.84,
+          "end": 22.06
+        },
+        {
+          "raw": "Bengal.",
+          "start": 22.06,
+          "end": 22.32
+        },
+        {
+          "raw": "In",
+          "start": 23.22,
+          "end": 23.4
+        },
+        {
+          "raw": "China,",
+          "start": 23.4,
+          "end": 23.7
+        },
+        {
+          "raw": "the",
+          "start": 24.14,
+          "end": 24.28
+        },
+        {
+          "raw": "proportion",
+          "start": 24.28,
+          "end": 24.62
+        },
+        {
+          "raw": "of",
+          "start": 24.62,
+          "end": 24.88
+        },
+        {
+          "raw": "gold",
+          "start": 24.88,
+          "end": 25.08
+        },
+        {
+          "raw": "to",
+          "start": 25.08,
+          "end": 25.28
+        },
+        {
+          "raw": "silver",
+          "start": 25.28,
+          "end": 25.64
+        },
+        {
+          "raw": "still",
+          "start": 25.64,
+          "end": 25.96
+        },
+        {
+          "raw": "continues",
+          "start": 25.96,
+          "end": 26.54
+        },
+        {
+          "raw": "as",
+          "start": 26.54,
+          "end": 26.76
+        },
+        {
+          "raw": "one",
+          "start": 26.76,
+          "end": 27.0
+        },
+        {
+          "raw": "to",
+          "start": 27.0,
+          "end": 27.16
+        },
+        {
+          "raw": "ten,",
+          "start": 27.16,
+          "end": 27.46
+        },
+        {
+          "raw": "or",
+          "start": 27.94,
+          "end": 28.06
+        },
+        {
+          "raw": "one",
+          "start": 28.06,
+          "end": 28.24
+        },
+        {
+          "raw": "to",
+          "start": 28.24,
+          "end": 28.44
+        },
+        {
+          "raw": "twelve.",
+          "start": 28.44,
+          "end": 28.74
+        },
+        {
+          "raw": "In",
+          "start": 29.88,
+          "end": 30.08
+        },
+        {
+          "raw": "Japan,",
+          "start": 30.08,
+          "end": 30.42
+        },
+        {
+          "raw": "it",
+          "start": 30.94,
+          "end": 31.06
+        },
+        {
+          "raw": "is",
+          "start": 31.06,
+          "end": 31.16
+        },
+        {
+          "raw": "said",
+          "start": 31.16,
+          "end": 31.3
+        },
+        {
+          "raw": "to",
+          "start": 31.3,
+          "end": 31.42
+        },
+        {
+          "raw": "be",
+          "start": 31.42,
+          "end": 31.52
+        },
+        {
+          "raw": "as",
+          "start": 31.52,
+          "end": 31.68
+        },
+        {
+          "raw": "one",
+          "start": 31.68,
+          "end": 31.86
+        },
+        {
+          "raw": "to",
+          "start": 31.86,
+          "end": 32.02
+        },
+        {
+          "raw": "eight.",
+          "start": 32.02,
+          "end": 32.28
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "great",
+        "quantities",
+        "of",
+        "silver",
+        "carried",
+        "annually",
+        "from",
+        "Europe",
+        "to",
+        "India,",
+        "have,",
+        "in",
+        "some",
+        "of",
+        "the",
+        "English",
+        "settlements,",
+        "gradually",
+        "reduced",
+        "the",
+        "value",
+        "of",
+        "that",
+        "metal",
+        "in",
+        "proportion",
+        "to",
+        "gold.",
+        "In",
+        "the",
+        "mint",
+        "of",
+        "Calcutta,",
+        "an",
+        "ounce",
+        "of",
+        "fine",
+        "gold",
+        "is",
+        "supposed",
+        "to",
+        "be",
+        "worth",
+        "fifteen",
+        "ounces",
+        "of",
+        "fine",
+        "silver,",
+        "in",
+        "the",
+        "same",
+        "manner",
+        "as",
+        "in",
+        "Europe.",
+        "It",
+        "is",
+        "in",
+        "the",
+        "mint,",
+        "perhaps,",
+        "rated",
+        "too",
+        "high",
+        "for",
+        "the",
+        "value",
+        "which",
+        "it",
+        "bears",
+        "in",
+        "the",
+        "market",
+        "of",
+        "Bengal.",
+        "In",
+        "China,",
+        "the",
+        "proportion",
+        "of",
+        "gold",
+        "to",
+        "silver",
+        "still",
+        "continues",
+        "as",
+        "one",
+        "to",
+        "ten,",
+        "or",
+        "one",
+        "to",
+        "twelve.",
+        "In",
+        "Japan,",
+        "it",
+        "is",
+        "said",
+        "to",
+        "be",
+        "as",
+        "one",
+        "to",
+        "eight."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          105,
+          0,
+          105
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 93
+        },
+        {
+          "index": 94,
+          "source": "observed",
+          "heard_index": 94
+        },
+        {
+          "index": 95,
+          "source": "observed",
+          "heard_index": 95
+        },
+        {
+          "index": 96,
+          "source": "observed",
+          "heard_index": 96
+        },
+        {
+          "index": 97,
+          "source": "observed",
+          "heard_index": 97
+        },
+        {
+          "index": 98,
+          "source": "observed",
+          "heard_index": 98
+        },
+        {
+          "index": 99,
+          "source": "observed",
+          "heard_index": 99
+        },
+        {
+          "index": 100,
+          "source": "observed",
+          "heard_index": 100
+        },
+        {
+          "index": 101,
+          "source": "observed",
+          "heard_index": 101
+        },
+        {
+          "index": 102,
+          "source": "observed",
+          "heard_index": 102
+        },
+        {
+          "index": 103,
+          "source": "observed",
+          "heard_index": 103
+        },
+        {
+          "index": 104,
+          "source": "observed",
+          "heard_index": 104
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 0.48,
+          "end": 0.7,
+          "key": "great",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "quantities",
+          "start": 0.7,
+          "end": 1.04,
+          "key": "quantities",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.04,
+          "end": 1.32,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "silver",
+          "start": 1.32,
+          "end": 1.6,
+          "key": "silver",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "carried",
+          "start": 1.6,
+          "end": 1.98,
+          "key": "carried",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "annually",
+          "start": 1.98,
+          "end": 2.42,
+          "key": "annually",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 2.42,
+          "end": 2.68,
+          "key": "from",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Europe",
+          "start": 2.68,
+          "end": 2.94,
+          "key": "europe",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.94,
+          "end": 3.2,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "India,",
+          "start": 3.2,
+          "end": 3.62,
+          "key": "india",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "have,",
+          "start": 4.1,
+          "end": 4.36,
+          "key": "have",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.7,
+          "end": 4.9,
+          "key": "in",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 4.9,
+          "end": 5.04,
+          "key": "some",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.04,
+          "end": 5.14,
+          "key": "of",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.14,
+          "end": 5.24,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "English",
+          "start": 5.24,
+          "end": 5.54,
+          "key": "english",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "settlements,",
+          "start": 5.54,
+          "end": 5.98,
+          "key": "settlements",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "gradually",
+          "start": 6.54,
+          "end": 6.82,
+          "key": "gradually",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "reduced",
+          "start": 6.82,
+          "end": 7.3,
+          "key": "reduced",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.3,
+          "end": 7.52,
+          "key": "the",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "value",
+          "start": 7.52,
+          "end": 7.76,
+          "key": "value",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.76,
+          "end": 7.96,
+          "key": "of",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 7.96,
+          "end": 8.14,
+          "key": "that",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "metal",
+          "start": 8.14,
+          "end": 8.42,
+          "key": "metal",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 8.42,
+          "end": 8.62,
+          "key": "in",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "proportion",
+          "start": 8.62,
+          "end": 8.96,
+          "key": "proportion",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 8.96,
+          "end": 9.26,
+          "key": "to",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "gold",
+          "start": 9.26,
+          "end": 9.54,
+          "key": "gold",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 9.54,
+          "end": 10.36,
+          "key": "in",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.36,
+          "end": 10.48,
+          "key": "the",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "mint",
+          "start": 10.48,
+          "end": 10.56,
+          "key": "mint",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 10.56,
+          "end": 10.72,
+          "key": "of",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "Calcutta,",
+          "start": 10.72,
+          "end": 11.2,
+          "key": "calcutta",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 11.64,
+          "end": 11.68,
+          "key": "an",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "ounce",
+          "start": 11.68,
+          "end": 11.84,
+          "key": "ounce",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 11.84,
+          "end": 12.06,
+          "key": "of",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "fine",
+          "start": 12.06,
+          "end": 12.32,
+          "key": "fine",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "gold",
+          "start": 12.32,
+          "end": 12.6,
+          "key": "gold",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 12.6,
+          "end": 12.8,
+          "key": "is",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "supposed",
+          "start": 12.8,
+          "end": 13.04,
+          "key": "supposed",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 13.04,
+          "end": 13.24,
+          "key": "to",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 13.24,
+          "end": 13.36,
+          "key": "be",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "worth",
+          "start": 13.36,
+          "end": 13.54,
+          "key": "worth",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "fifteen",
+          "start": 13.54,
+          "end": 14.0,
+          "key": "fifteen",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "ounces",
+          "start": 14.0,
+          "end": 14.36,
+          "key": "ounces",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 14.36,
+          "end": 14.6,
+          "key": "of",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "fine",
+          "start": 14.6,
+          "end": 14.88,
+          "key": "fine",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "silver,",
+          "start": 14.88,
+          "end": 15.32,
+          "key": "silver",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 15.68,
+          "end": 15.88,
+          "key": "in",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 15.88,
+          "end": 16.0,
+          "key": "the",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "same",
+          "start": 16.0,
+          "end": 16.24,
+          "key": "same",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "manner",
+          "start": 16.24,
+          "end": 16.6,
+          "key": "manner",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 16.6,
+          "end": 16.82,
+          "key": "as",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 16.82,
+          "end": 16.96,
+          "key": "in",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "Europe.",
+          "start": 16.96,
+          "end": 17.2,
+          "key": "europe",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 17.86,
+          "end": 17.98,
+          "key": "it",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 17.98,
+          "end": 18.08,
+          "key": "is",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 18.08,
+          "end": 18.22,
+          "key": "in",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 18.22,
+          "end": 18.34,
+          "key": "the",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "mint,",
+          "start": 18.34,
+          "end": 18.54,
+          "key": "mint",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "perhaps,",
+          "start": 18.76,
+          "end": 19.14,
+          "key": "perhaps",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "rated",
+          "start": 19.5,
+          "end": 19.64,
+          "key": "rated",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 19.64,
+          "end": 19.94,
+          "key": "too",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "high",
+          "start": 19.94,
+          "end": 20.18,
+          "key": "high",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 20.18,
+          "end": 20.34,
+          "key": "for",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 20.34,
+          "end": 20.46,
+          "key": "the",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "value",
+          "start": 20.46,
+          "end": 20.76,
+          "key": "value",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 20.76,
+          "end": 20.94,
+          "key": "which",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 20.94,
+          "end": 21.08,
+          "key": "it",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "bears",
+          "start": 21.08,
+          "end": 21.28,
+          "key": "bears",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 21.28,
+          "end": 21.54,
+          "key": "in",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 21.54,
+          "end": 21.62,
+          "key": "the",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "market",
+          "start": 21.62,
+          "end": 21.84,
+          "key": "market",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 21.84,
+          "end": 22.06,
+          "key": "of",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "Bengal.",
+          "start": 22.06,
+          "end": 22.32,
+          "key": "bengal",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 23.22,
+          "end": 23.4,
+          "key": "in",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "China,",
+          "start": 23.4,
+          "end": 23.7,
+          "key": "china",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 24.14,
+          "end": 24.28,
+          "key": "the",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "proportion",
+          "start": 24.28,
+          "end": 24.62,
+          "key": "proportion",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 24.62,
+          "end": 24.88,
+          "key": "of",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "gold",
+          "start": 24.88,
+          "end": 25.08,
+          "key": "gold",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 25.08,
+          "end": 25.28,
+          "key": "to",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "silver",
+          "start": 25.28,
+          "end": 25.64,
+          "key": "silver",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "still",
+          "start": 25.64,
+          "end": 25.96,
+          "key": "still",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "continues",
+          "start": 25.96,
+          "end": 26.54,
+          "key": "continues",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 26.54,
+          "end": 26.76,
+          "key": "as",
+          "pieces": [
+            86
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 26.76,
+          "end": 27.0,
+          "key": "one",
+          "pieces": [
+            87
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 27.0,
+          "end": 27.16,
+          "key": "to",
+          "pieces": [
+            88
+          ]
+        },
+        {
+          "raw": "ten,",
+          "start": 27.16,
+          "end": 27.46,
+          "key": "ten",
+          "pieces": [
+            89
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 27.94,
+          "end": 28.06,
+          "key": "or",
+          "pieces": [
+            90
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 28.06,
+          "end": 28.24,
+          "key": "one",
+          "pieces": [
+            91
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 28.24,
+          "end": 28.44,
+          "key": "to",
+          "pieces": [
+            92
+          ]
+        },
+        {
+          "raw": "twelve.",
+          "start": 28.44,
+          "end": 28.74,
+          "key": "twelve",
+          "pieces": [
+            93
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 29.88,
+          "end": 30.08,
+          "key": "in",
+          "pieces": [
+            94
+          ]
+        },
+        {
+          "raw": "Japan,",
+          "start": 30.08,
+          "end": 30.42,
+          "key": "japan",
+          "pieces": [
+            95
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 30.94,
+          "end": 31.06,
+          "key": "it",
+          "pieces": [
+            96
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 31.06,
+          "end": 31.16,
+          "key": "is",
+          "pieces": [
+            97
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 31.16,
+          "end": 31.3,
+          "key": "said",
+          "pieces": [
+            98
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 31.3,
+          "end": 31.42,
+          "key": "to",
+          "pieces": [
+            99
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 31.42,
+          "end": 31.52,
+          "key": "be",
+          "pieces": [
+            100
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 31.52,
+          "end": 31.68,
+          "key": "as",
+          "pieces": [
+            101
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 31.68,
+          "end": 31.86,
+          "key": "one",
+          "pieces": [
+            102
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 31.86,
+          "end": 32.02,
+          "key": "to",
+          "pieces": [
+            103
+          ]
+        },
+        {
+          "raw": "eight.",
+          "start": 32.02,
+          "end": 32.28,
+          "key": "eight",
+          "pieces": [
+            104
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "great",
+          "start": 0.48,
+          "end": 0.7
+        },
+        {
+          "text": "quantities",
+          "start": 0.7,
+          "end": 1.04
+        },
+        {
+          "text": "of",
+          "start": 1.04,
+          "end": 1.32
+        },
+        {
+          "text": "silver",
+          "start": 1.32,
+          "end": 1.6
+        },
+        {
+          "text": "carried",
+          "start": 1.6,
+          "end": 1.98
+        },
+        {
+          "text": "annually",
+          "start": 1.98,
+          "end": 2.42
+        },
+        {
+          "text": "from",
+          "start": 2.42,
+          "end": 2.68
+        },
+        {
+          "text": "Europe",
+          "start": 2.68,
+          "end": 2.94
+        },
+        {
+          "text": "to",
+          "start": 2.94,
+          "end": 3.2
+        },
+        {
+          "text": "India,",
+          "start": 3.2,
+          "end": 3.62
+        },
+        {
+          "text": "have,",
+          "start": 4.1,
+          "end": 4.36
+        },
+        {
+          "text": "in",
+          "start": 4.7,
+          "end": 4.9
+        },
+        {
+          "text": "some",
+          "start": 4.9,
+          "end": 5.04
+        },
+        {
+          "text": "of",
+          "start": 5.04,
+          "end": 5.14
+        },
+        {
+          "text": "the",
+          "start": 5.14,
+          "end": 5.24
+        },
+        {
+          "text": "English",
+          "start": 5.24,
+          "end": 5.54
+        },
+        {
+          "text": "settlements,",
+          "start": 5.54,
+          "end": 5.98
+        },
+        {
+          "text": "gradually",
+          "start": 6.54,
+          "end": 6.82
+        },
+        {
+          "text": "reduced",
+          "start": 6.82,
+          "end": 7.3
+        },
+        {
+          "text": "the",
+          "start": 7.3,
+          "end": 7.52
+        },
+        {
+          "text": "value",
+          "start": 7.52,
+          "end": 7.76
+        },
+        {
+          "text": "of",
+          "start": 7.76,
+          "end": 7.96
+        },
+        {
+          "text": "that",
+          "start": 7.96,
+          "end": 8.14
+        },
+        {
+          "text": "metal",
+          "start": 8.14,
+          "end": 8.42
+        },
+        {
+          "text": "in",
+          "start": 8.42,
+          "end": 8.62
+        },
+        {
+          "text": "proportion",
+          "start": 8.62,
+          "end": 8.96
+        },
+        {
+          "text": "to",
+          "start": 8.96,
+          "end": 9.26
+        },
+        {
+          "text": "gold.",
+          "start": 9.26,
+          "end": 9.54
+        },
+        {
+          "text": "In",
+          "start": 9.54,
+          "end": 10.36
+        },
+        {
+          "text": "the",
+          "start": 10.36,
+          "end": 10.48
+        },
+        {
+          "text": "mint",
+          "start": 10.48,
+          "end": 10.56
+        },
+        {
+          "text": "of",
+          "start": 10.56,
+          "end": 10.72
+        },
+        {
+          "text": "Calcutta,",
+          "start": 10.72,
+          "end": 11.2
+        },
+        {
+          "text": "an",
+          "start": 11.64,
+          "end": 11.68
+        },
+        {
+          "text": "ounce",
+          "start": 11.68,
+          "end": 11.84
+        },
+        {
+          "text": "of",
+          "start": 11.84,
+          "end": 12.06
+        },
+        {
+          "text": "fine",
+          "start": 12.06,
+          "end": 12.32
+        },
+        {
+          "text": "gold",
+          "start": 12.32,
+          "end": 12.6
+        },
+        {
+          "text": "is",
+          "start": 12.6,
+          "end": 12.8
+        },
+        {
+          "text": "supposed",
+          "start": 12.8,
+          "end": 13.04
+        },
+        {
+          "text": "to",
+          "start": 13.04,
+          "end": 13.24
+        },
+        {
+          "text": "be",
+          "start": 13.24,
+          "end": 13.36
+        },
+        {
+          "text": "worth",
+          "start": 13.36,
+          "end": 13.54
+        },
+        {
+          "text": "fifteen",
+          "start": 13.54,
+          "end": 14.0
+        },
+        {
+          "text": "ounces",
+          "start": 14.0,
+          "end": 14.36
+        },
+        {
+          "text": "of",
+          "start": 14.36,
+          "end": 14.6
+        },
+        {
+          "text": "fine",
+          "start": 14.6,
+          "end": 14.88
+        },
+        {
+          "text": "silver,",
+          "start": 14.88,
+          "end": 15.32
+        },
+        {
+          "text": "in",
+          "start": 15.68,
+          "end": 15.88
+        },
+        {
+          "text": "the",
+          "start": 15.88,
+          "end": 16.0
+        },
+        {
+          "text": "same",
+          "start": 16.0,
+          "end": 16.24
+        },
+        {
+          "text": "manner",
+          "start": 16.24,
+          "end": 16.6
+        },
+        {
+          "text": "as",
+          "start": 16.6,
+          "end": 16.82
+        },
+        {
+          "text": "in",
+          "start": 16.82,
+          "end": 16.96
+        },
+        {
+          "text": "Europe.",
+          "start": 16.96,
+          "end": 17.2
+        },
+        {
+          "text": "It",
+          "start": 17.86,
+          "end": 17.98
+        },
+        {
+          "text": "is",
+          "start": 17.98,
+          "end": 18.08
+        },
+        {
+          "text": "in",
+          "start": 18.08,
+          "end": 18.22
+        },
+        {
+          "text": "the",
+          "start": 18.22,
+          "end": 18.34
+        },
+        {
+          "text": "mint,",
+          "start": 18.34,
+          "end": 18.54
+        },
+        {
+          "text": "perhaps,",
+          "start": 18.76,
+          "end": 19.14
+        },
+        {
+          "text": "rated",
+          "start": 19.5,
+          "end": 19.64
+        },
+        {
+          "text": "too",
+          "start": 19.64,
+          "end": 19.94
+        },
+        {
+          "text": "high",
+          "start": 19.94,
+          "end": 20.18
+        },
+        {
+          "text": "for",
+          "start": 20.18,
+          "end": 20.34
+        },
+        {
+          "text": "the",
+          "start": 20.34,
+          "end": 20.46
+        },
+        {
+          "text": "value",
+          "start": 20.46,
+          "end": 20.76
+        },
+        {
+          "text": "which",
+          "start": 20.76,
+          "end": 20.94
+        },
+        {
+          "text": "it",
+          "start": 20.94,
+          "end": 21.08
+        },
+        {
+          "text": "bears",
+          "start": 21.08,
+          "end": 21.28
+        },
+        {
+          "text": "in",
+          "start": 21.28,
+          "end": 21.54
+        },
+        {
+          "text": "the",
+          "start": 21.54,
+          "end": 21.62
+        },
+        {
+          "text": "market",
+          "start": 21.62,
+          "end": 21.84
+        },
+        {
+          "text": "of",
+          "start": 21.84,
+          "end": 22.06
+        },
+        {
+          "text": "Bengal.",
+          "start": 22.06,
+          "end": 22.32
+        },
+        {
+          "text": "In",
+          "start": 23.22,
+          "end": 23.4
+        },
+        {
+          "text": "China,",
+          "start": 23.4,
+          "end": 23.7
+        },
+        {
+          "text": "the",
+          "start": 24.14,
+          "end": 24.28
+        },
+        {
+          "text": "proportion",
+          "start": 24.28,
+          "end": 24.62
+        },
+        {
+          "text": "of",
+          "start": 24.62,
+          "end": 24.88
+        },
+        {
+          "text": "gold",
+          "start": 24.88,
+          "end": 25.08
+        },
+        {
+          "text": "to",
+          "start": 25.08,
+          "end": 25.28
+        },
+        {
+          "text": "silver",
+          "start": 25.28,
+          "end": 25.64
+        },
+        {
+          "text": "still",
+          "start": 25.64,
+          "end": 25.96
+        },
+        {
+          "text": "continues",
+          "start": 25.96,
+          "end": 26.54
+        },
+        {
+          "text": "as",
+          "start": 26.54,
+          "end": 26.76
+        },
+        {
+          "text": "one",
+          "start": 26.76,
+          "end": 27.0
+        },
+        {
+          "text": "to",
+          "start": 27.0,
+          "end": 27.16
+        },
+        {
+          "text": "ten,",
+          "start": 27.16,
+          "end": 27.46
+        },
+        {
+          "text": "or",
+          "start": 27.94,
+          "end": 28.06
+        },
+        {
+          "text": "one",
+          "start": 28.06,
+          "end": 28.24
+        },
+        {
+          "text": "to",
+          "start": 28.24,
+          "end": 28.44
+        },
+        {
+          "text": "twelve.",
+          "start": 28.44,
+          "end": 28.74
+        },
+        {
+          "text": "In",
+          "start": 29.88,
+          "end": 30.08
+        },
+        {
+          "text": "Japan,",
+          "start": 30.08,
+          "end": 30.42
+        },
+        {
+          "text": "it",
+          "start": 30.94,
+          "end": 31.06
+        },
+        {
+          "text": "is",
+          "start": 31.06,
+          "end": 31.16
+        },
+        {
+          "text": "said",
+          "start": 31.16,
+          "end": 31.3
+        },
+        {
+          "text": "to",
+          "start": 31.3,
+          "end": 31.42
+        },
+        {
+          "text": "be",
+          "start": 31.42,
+          "end": 31.52
+        },
+        {
+          "text": "as",
+          "start": 31.52,
+          "end": 31.68
+        },
+        {
+          "text": "one",
+          "start": 31.68,
+          "end": 31.86
+        },
+        {
+          "text": "to",
+          "start": 31.86,
+          "end": 32.02
+        },
+        {
+          "text": "eight.",
+          "start": 32.02,
+          "end": 32.28
+        }
+      ],
+      "stats": {
+        "expected_words": 105,
+        "heard_words": 105,
+        "matched_words": 105
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.8444178774952888
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6c1d435d3773bfe873aecb2a15266d9452c13e27fc2fff93b511e1a1ba919595",
+  "selected_reasons": []
+}
