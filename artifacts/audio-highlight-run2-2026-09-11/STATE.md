@@ -77,3 +77,13 @@ session restarts them and loses nothing. Check `dispatch.log`, `harvest.log`,
 
 Do not `pkill -f` these names — the pattern matches the invoking shell and
 kills the tool call instead.
+
+## 05:58Z — wave 1 complete
+All eight adopted pods finished and terminated themselves. 42 chapters
+published and verified so far (wave 1 plus the first wave-2 pods); wave 1 was
+the run-1 residue that produced nothing before helper v2, so the normalisation
+fix is doing its job.
+
+Wave 2 continues under `dispatch.py` (83 batches pending at this point). No
+manual step is needed: the dispatcher launches, orchestrate.py harvests and
+terminates, harvest_daemon.py publishes and pushes per pod.
