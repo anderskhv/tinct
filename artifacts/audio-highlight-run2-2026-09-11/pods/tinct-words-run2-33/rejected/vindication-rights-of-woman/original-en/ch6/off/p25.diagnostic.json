@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "ab626fb465dd0f2ddc1bf4e5c3106e3bda7730b9735d5b65482bafbdf6f4b1c0",
+  "attempts": [
+    {
+      "asr_seconds": 0.21147292107343674,
+      "alignment_seconds": 0.00044872332364320755,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And all this is built on her loveliness.",
+          "start": 0.08,
+          "end": 2.22,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.7705078125
+            },
+            {
+              "text": " all",
+              "start": 0.52,
+              "end": 0.7,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " this",
+              "start": 0.7,
+              "end": 0.92,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " is",
+              "start": 0.92,
+              "end": 1.2,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " built",
+              "start": 1.2,
+              "end": 1.4,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " on",
+              "start": 1.4,
+              "end": 1.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " her",
+              "start": 1.6,
+              "end": 1.72,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " loveliness.",
+              "start": 1.72,
+              "end": 2.22,
+              "probability": 0.9986979166666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "all",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "raw": "this",
+          "start": 0.7,
+          "end": 0.92
+        },
+        {
+          "raw": "is",
+          "start": 0.92,
+          "end": 1.2
+        },
+        {
+          "raw": "built",
+          "start": 1.2,
+          "end": 1.4
+        },
+        {
+          "raw": "on",
+          "start": 1.4,
+          "end": 1.6
+        },
+        {
+          "raw": "her",
+          "start": 1.6,
+          "end": 1.72
+        },
+        {
+          "raw": "loveliness.",
+          "start": 1.72,
+          "end": 2.22
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "all",
+        "this",
+        "is",
+        "built",
+        "on",
+        "her",
+        "loveliness!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 0.52,
+          "end": 0.7,
+          "key": "all",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 0.7,
+          "end": 0.92,
+          "key": "this",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.92,
+          "end": 1.2,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "built",
+          "start": 1.2,
+          "end": 1.4,
+          "key": "built",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.4,
+          "end": 1.6,
+          "key": "on",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 1.6,
+          "end": 1.72,
+          "key": "her",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "loveliness.",
+          "start": 1.72,
+          "end": 2.22,
+          "key": "loveliness",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "all",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "text": "this",
+          "start": 0.7,
+          "end": 0.92
+        },
+        {
+          "text": "is",
+          "start": 0.92,
+          "end": 1.2
+        },
+        {
+          "text": "built",
+          "start": 1.2,
+          "end": 1.4
+        },
+        {
+          "text": "on",
+          "start": 1.4,
+          "end": 1.6
+        },
+        {
+          "text": "her",
+          "start": 1.6,
+          "end": 1.72
+        },
+        {
+          "text": "loveliness!",
+          "start": 1.72,
+          "end": 2.22
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21208867989480495
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2378f37c806bc3a1ad691f6dd5ff418615bd2817b3adbd07953a56bb94fcefea",
+  "selected_reasons": []
+}
