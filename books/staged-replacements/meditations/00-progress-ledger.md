@@ -346,6 +346,81 @@ session. Kept current at every push.
   `scripts/candidates/book8.py`. **Stopped for independent review** (step 4).
   Findings expected under `book8/review/`.
 
+- 2026-09-12 — **Book VIII accepted** (steps 4–8). Round-1 independent review
+  (`book8/review/findings-v1.md`, reviewer session spawned by the coordinator,
+  which did not draft the candidate): **Accept after corrections**, **0
+  substantive**, 4 minor (1.1, 7.1, 55.1, 58.1) and 4 optional preferences
+  (1.2, 12.1, 41.1, 51.1); 54 of 61 paragraphs "No material issue found", every
+  paragraph covered once and in order. Accepted file `book8/candidate-v2.json`
+  (sha256 `dbc4598c…`), built from the frozen v1 (`9f42a271…`, never edited) by
+  `scripts/build_book8_v2.py`. **Nine substitutions in seven paragraphs**
+  (VIII.1, VIII.7, VIII.12, VIII.41, VIII.51, VIII.55, VIII.58); 54 untouched;
+  word ratio 0.9921 → 0.9914; per-paragraph word diff shows only the intended
+  tokens changed anywhere in the book. **All four minor findings applied and
+  three of the four optional ones; one declined (1.2) and recorded as
+  considered.**
+  - **7.1** VIII.7's em dash restored to **Long's comma** — the dash took
+    "worth" out of the six-item list and made the other five an appositive
+    gloss on it, which is an interpretation Long did not print and which
+    contradicted `continuity.md`'s own six-item note. Sheet and text now agree.
+  - **1.1 / 55.1 / 58.1 answered as ONE decision, applied, and promoted to a
+    general rule** in `GLOSSARY.md` (Voice and form): Long's "shall / shalt" as
+    a plain future — statement, or subordinate clause of condition or time — is
+    "will" or the plain present; "shall" is kept only where it is current
+    English in its own right (first person; emphatic/volitional; the
+    deliberative "shall" of a first- or third-person direct question; the
+    subjunctive of a negative consecutive clause), and second-person "shall" in
+    a question takes "will". **Five changes** — VIII.1, VIII.55, VIII.58 ×2 and
+    VIII.51 (the reviewer's "also noted" fourth case, taken with the rest
+    because one decision for the book means one decision). **Four "shall"
+    survive, each licensed and each asserted by the build script**: VIII.1's
+    deliberative question, VIII.14's and VIII.45's first person, and VIII.32's
+    consecutive subjunctive (not a future; no finding reaches it; recorded as
+    considered and left). **The finding's premise is corrected on the record**:
+    three third-person plain futures do stand in already-accepted books (III.9,
+    VII.8, VII.24), not zero. They are **not** reopened — see "Open, not
+    blocking".
+  - **12.1 applied** — VIII.12 "peculiarly" → "particularly". The edition keeps
+    the current collocation "peculiar to X" (III.16, VII.22, VII.55) and renders
+    Long's attributive "peculiar" outside it (V.3, VI.3); this adverb is outside
+    it and follows VI.3.
+  - **41.1 applied by a third route** — VIII.41 "absolutely" →
+    "**unconditionally**". The D11 drop of "[unconditionally, or without any
+    reservation]" **stands**; the primary word is rendered by Long's own first
+    alternative instead. Folding the bracket (the reviewer's proposal) would put
+    one of the book's ten D11 brackets back into the prose with no principle
+    separating it from the other nine; leaving "absolutely" bare leaves it
+    reading as an intensifier, which points the sentence away from the next
+    sentence's contrast. One word for one word, nothing added, D11 untouched.
+  - **51.1 applied** — VIII.51 "joined" reverted to Long's "**conjoined**". The
+    change had been made inside the dagger-marked clause (PG line 5345), where
+    the VI.50 / VII.16 practice is that Long's clause stands with only pronouns
+    and glossary renderings changed; "conjoined with" is current English anyway.
+  - **1.2 declined** — VIII.1's quoted thought stays reported. Long's quoted
+    thought is in the **second** person (Marcus addressing himself) while every
+    other quoted thought in the book is in the first, so the direct form would
+    force either a quotation that reads as someone else speaking to Marcus or a
+    change of person Long does not have.
+  **All three flagged decisions ruled the drafter's way and recorded as
+  settled**, none left open: VIII.37 "Pergamus" for PG's "Fergamus" stands;
+  "effusion" / "effused" stand at VIII.51 and VIII.57; and **VIII.57's Greek
+  stands on stronger grounds than the draft claimed** — "its rays are called
+  Extensions because they are extended" is a *tautology* in English, not an
+  etymology, since no English speaker calls rays "Extensions"; Long coined the
+  word to expose the derivation and his own footnote calls it "a piece of bad
+  etymology", so the sentence makes no claim at all without the Greek. That
+  corrected reasoning is written into `book8/continuity.md` so the question does
+  not reopen at a later book. The reviewer also tested the step-1 **no-rebuild**
+  finding three ways (byte-identical rebuild, class-by-class re-read of PG
+  4933–5418, independent bracket recount) and upheld it, including that VIII.41's
+  two flush-left bracket lines are Long's wrapped text and not footnote openers;
+  and located all four PG slips and both PG-over-Standard-Ebooks calls (VIII.2's
+  article, VIII.44's "not") at their cited PG lines and upheld every one. Flow
+  read done, no further change. Acceptance in `book8/ACCEPTANCE.md`;
+  `changes-v1-to-v2.md`, `continuity.md`, `provenance.json`, `manifest.json` and
+  `README.md` updated; mechanical checks re-run and passing. No new glossary
+  rendering row — one general voice rule.
+
 - 2026-09-11 — **Session collision, twice.** Two content sessions were spawned
   on this thread for the Book II corrections step (this one and
   `session_01UqGstUkaLuExn3RNzcxUs8`, the one whose pushes stand). Both ran
@@ -378,19 +453,8 @@ session. Kept current at every push.
 
 ## Next
 
-**Waiting on the coordinator: independent review of Book VIII.**
-`book8/candidate-v1.json` (sha256 `9f42a271…`) is frozen, with twenty-one
-packets, `review-instructions.md` and `manifest.json` in place; findings go
-under `book8/review/`. Three decisions are flagged there for an explicit ruling
-(VIII.37 "Pergamus" for PG's "Fergamus"; VIII.57's transliterated Greek kept
-under the glossary exception added at Book VII acceptance; "effusion" /
-"effused" kept at VIII.51 and VIII.57). The reviewer is also asked to test the
-step-1 finding that the staged original needed **no** rebuild for Book VIII.
-This agent does not review its own draft, and Book IX has not been started.
-
-After the review: Book VIII steps 6–8 (candidate v2, changes log, flow read,
-`ACCEPTANCE.md`), then Books IX … XII in numerical order, each with its own
-review round.
+**Book IX steps 1–3 are in progress in this session** (Book VIII is accepted).
+The ledger's "Next" is updated again the moment Book IX is frozen.
 
 ## Needs Anders (listed, not waited on)
 
@@ -419,6 +483,15 @@ review round.
   touchpoint (for example "You see how few the things are; and if a man lays
   hold of them, he can live a life…"). Noted by the second content session,
   not changed, per D9.
+- **Three third-person "shall" plain futures in already-accepted books** —
+  III.9 "whether there shall be in your ruling part any opinion", VII.8 "if it
+  shall be necessary", VII.24 "if even the perception of doing wrong shall
+  depart". They diverge from the "shall" rule fixed at Book VIII acceptance
+  (`GLOSSARY.md`, Voice and form). Not reopened: those acceptances are closed
+  and the divergence is formal, not semantic. Candidates for a v3 at a later
+  touchpoint, on the II.5 precedent. Recorded here because the Book VIII round-1
+  finding asserted there were none, and a later reader collating would find that
+  claim false; the finding's conclusion stands and was applied in full.
 - The three glossary rows formerly listed here ("in a manner → in a way",
   "dissatisfied → discontented", plural "daemons → spirits") were added to
   `GLOSSARY.md` at Book I acceptance. Done.

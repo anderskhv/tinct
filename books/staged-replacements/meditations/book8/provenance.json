@@ -23,7 +23,7 @@
  "dagger_marks": "Three in Book VIII of the PG text, in three sections: VIII.35 (line 5193), VIII.38 (line 5226), VIII.51 (line 5345). Three clauses, each named in review-instructions.md and kept as Long has them, with pronouns modernised and glossary renderings applied (the VI.50 reading, confirmed by the Book VII reviewer at VII.16). Matches PROVENANCE.md section 4. Long's own footnote at VIII.35 says the text is corrupt at the beginning of the paragraph.",
  "generation_setting": "Drafted in-conversation by the content agent (Claude Opus 5 session), whole book read before drafting, glossary (one row extended for Book VIII first, committed and pushed before any paragraph was written) and the Book II, I, III, IV, V, VI and VII acceptance records read first. Zero Anthropic API calls; no scripts calling any LLM API; generate-editions.cjs not run.",
  "build_script": "scripts/build_book_package.py 8, from scripts/candidates/book8.py (frozen candidate text)",
- "workflow_step": "Steps 1-3 of WORKFLOW.md complete. Frozen for step 4, the coordinator's independent review. Findings expected under book8/review/.",
+ "workflow_step": "All eight steps of WORKFLOW.md complete. Accepted as candidate-v2.json; see ACCEPTANCE.md. candidate-v1.json stays frozen and was never edited.",
  "apparatus": {
   "cross_references_dropped": 4,
   "d11_alternative_renderings_dropped": "9 items, 10 brackets (VIII.8's is the same bracket twice)",
@@ -40,8 +40,25 @@
   "VIII.44 PG 'do not consider'; SE omits the 'not', which reverses the meditation. PG is right and is followed."
  ],
  "flagged_for_reviewer": [
-  "VIII.37 'Pergamus' rendered for PG's 'Fergamus' - the one place in Book VIII where the candidate departs from PG's letters",
-  "VIII.57 Long's transliterated Greek kept ((aktines), (apo tou ekteinesthai)) under the GLOSSARY.md exception added at Book VII acceptance - a weaker case than VII.13, since Long's English carries the etymology without it and Standard Ebooks moves both words to an endnote",
-  "VIII.51 and VIII.57 Long's 'effusion' / 'effused' kept, rather than rendered two ways or replaced by a phrase in one place and not the other"
- ]
+  "VIII.37 'Pergamus' rendered for PG's 'Fergamus' - the one place in Book VIII where the candidate departs from PG's letters -- RULED THE DRAFTER'S WAY AT ROUND 1; SETTLED in continuity.md",
+  "VIII.57 Long's transliterated Greek kept ((aktines), (apo tou ekteinesthai)) -- RULED THE DRAFTER'S WAY AT ROUND 1 and KEPT, but the drafter's reasoning is CORRECTED as too weak: Long's English does NOT carry the etymology without the Greek. 'Its rays are called Extensions because they are extended' is a tautology in English, not an etymology; Long coined the capitalised word to expose the derivation, and his own footnote calls it 'a piece of bad etymology'. The case is as strong as VII.13's, not weaker. SETTLED in continuity.md in the corrected form.",
+  "VIII.51 and VIII.57 Long's 'effusion' / 'effused' kept, rather than rendered two ways or replaced by a phrase in one place and not the other -- RULED THE DRAFTER'S WAY AT ROUND 1; SETTLED in continuity.md"
+ ],
+ "frozen": "candidate-v1.json (sha256 9f42a271...) is frozen and was not edited; the round-1 corrections are in candidate-v2.json, built from v1 by scripts/build_book8_v2.py.",
+ "candidate_v2_json_sha256": "dbc4598cb2d34da15af5f73b597a3808e743006e0bdafe6f4bae1a441eca4960",
+ "review_round_1": "review/findings-v1.md (independent reviewer session, 2026-09-12): Accept after corrections; 0 substantive, 4 minor (1.1, 7.1, 55.1, 58.1) and 4 optional preferences (1.2, 12.1, 41.1, 51.1); 54 of the 61 paragraphs 'No material issue found'. Applied in candidate-v2.json via scripts/build_book8_v2.py: all four minor findings and three of the four optional ones -- VIII.7 em dash restored to Long's comma (7.1); the four archaic 'shall' futures answered as ONE decision and removed (1.1, 55.1, 58.1), together with the reviewer's 'also noted' fourth case at VIII.51, with the resulting rule written into ../GLOSSARY.md under Voice and form; VIII.12 'peculiarly' -> 'particularly' (12.1); VIII.41 'absolutely' -> 'unconditionally' (41.1, answered by a third route: the D11 drop stands and the primary word is rendered by Long's own first alternative, rather than folding the bracket); VIII.51 'joined' reverted to Long's 'conjoined' inside the dagger clause (51.1). Declined: 1.2 only (VIII.1's quoted thought left reported rather than direct, because Long's quoted thought is in the second person while every other quoted thought in the book is in the first), recorded as considered in continuity.md. All three decisions flagged by the drafter (VIII.37 'Pergamus', VIII.57's Greek, 'effusion'/'effused') were ruled the drafter's way and are settled in continuity.md, with VIII.57's reasoning corrected to the stronger ground. The reviewer verified the step-1 no-rebuild finding three ways (re-running the build to a byte-identical file, re-reading PG lines 4933-5418 class by class, recounting the brackets) and upheld it, including the judgement that the two flush-left bracket lines in VIII.41 (PG 5247, 5249) are Long's own wrapped text and not footnote openers. All four PG slips and both PG-over-Standard-Ebooks calls (VIII.2's article, VIII.44's 'not') were located at their cited PG lines and upheld. No second round requested: no substantive finding, and every correction is confined to the clause its finding quotes.",
+ "word_counts_v2": {
+  "source": 4543,
+  "candidate": 4504,
+  "ratio": 0.9914,
+  "min_paragraph_ratio": 0.89,
+  "note": "screening signal only. Essentially unchanged from v1 (0.9921 -> 0.9914): the nine substitutions remove four tokens ('shall' x4) and add one (VIII.7's em dash becoming a comma splits 'worth-times' into two words). The lowest paragraphs are still VIII.8 and VIII.13 at 0.89, for the reasons given above."
+ },
+ "glossary_rule_added_at_acceptance": "A general voice rule was written into ../GLOSSARY.md under Voice and form at acceptance, answering findings 1.1, 55.1 and 58.1 as one decision: Long's 'shall/shalt' as a plain future (statement, or subordinate clause of condition or time) is rendered 'will' or the plain present; 'shall' is kept only where it is current English in its own right -- first person, emphatic/volitional, the deliberative 'shall' of a first- or third-person direct question, and the subjunctive of a negative consecutive clause; second-person 'shall' in a question takes 'will'. Not a rendering row; no term rendering changed. The review's premise that Books I-VI contain no second- or third-person 'shall' future is corrected in continuity.md and the ledger: three third-person plain futures stand in accepted books (III.9, VII.8, VII.24) and are listed as open, not blocking, rather than reopened.",
+ "accepted": {
+  "file": "candidate-v2.json",
+  "sha256": "dbc4598cb2d34da15af5f73b597a3808e743006e0bdafe6f4bae1a441eca4960",
+  "date": "2026-09-12",
+  "record": "ACCEPTANCE.md"
+ }
 }

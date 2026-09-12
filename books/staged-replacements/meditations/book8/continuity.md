@@ -1,7 +1,11 @@
-# Continuity sheet — Meditations, Book VIII (candidate v1, frozen)
+# Continuity sheet — Meditations, Book VIII (accepted as candidate v2)
 
 Written alongside drafting `candidate-v1.json`, after Books II, I, III, IV, V,
-VI and VII were accepted, and describing what the frozen draft actually did.
+VI and VII were accepted, and describing what the frozen draft actually did;
+**updated at acceptance (2026-09-12)** with the round-1 corrections, which are
+marked **[v2]** where they change what a paragraph says. `candidate-v1.json`
+stays frozen; the accepted text is `candidate-v2.json` (see `ACCEPTANCE.md`
+and `changes-v1-to-v2.md`).
 Term renderings follow `../GLOSSARY.md` (one row extended for Book VIII
 **before** drafting, see below); the pattern for applying review findings
 follows the seven earlier `ACCEPTANCE.md` files (decisions D8, D10, D11 and D12
@@ -149,7 +153,23 @@ changed to "you/your", his verb forms made current ("dost" → "do", "wilt" →
   "How thou shall seem" where Standard Ebooks has "shalt"; the modernised "how
   you will seem" is unaffected either way. "Manly" is **kept**, as Book III kept
   it at III.5 (D10: one rendering per Long word across the edition, and his word
-  is not archaic, only old-fashioned).
+  is not archaic, only old-fashioned). **[v2]** "Be content if you shall live"
+  → "be content if you live", under the "shall" rule (finding 1.1; the rule is
+  in `../GLOSSARY.md` under Voice and form and is set out in full in
+  `changes-v1-to-v2.md`). The paragraph's remaining "shall", the deliberative
+  question "How then shall a man do this?", is kept and is licensed by the
+  rule. **[v2, considered and not changed]** Long punctuates the thrown-away
+  thought as a quoted one ("throw away the thought, How thou shall seem [to
+  others]") and the candidate reports it. Finding 1.2, an optional preference,
+  proposed the direct form for uniformity with VIII.2, VIII.14 and VIII.36.
+  Declined: Long's quoted thought is in the **second** person, because Marcus
+  is addressing himself, whereas every other quoted thought in this book is in
+  the first ("How is this with respect to me?", VIII.2). The direct form forces
+  a choice between keeping the second person, where the quotation then reads as
+  someone else speaking to Marcus, and switching to the first, which changes the
+  person of a sentence Long prints in another. The reported form keeps his
+  person and his object and costs nothing in sense. Recorded so it is not
+  raised again as unconsidered.
 - **VIII.2** — "On the occasion of every act ask thyself" → "When you do
   anything, ask yourself", the shape Book VII fixed at VII.1 for Long's "on the
   occasion of". Standard Ebooks lacks PG's "the" in "is the work of an
@@ -180,7 +200,11 @@ changed to "you/your", his verb forms made current ("dost" → "do", "wilt" →
   dropped under D11. Long's list "worth, times, substance, cause, activity, and
   incident" is kept entire, "incident" included: it is his word for what befalls
   a thing, it is one item in a technical list, and no current single word
-  carries it without choosing an interpretation.
+  carries it without choosing an interpretation. **[v2]** v1 had punctuated the
+  list with an em dash after "worth", which took "worth" out of the list and
+  made the other five an appositive gloss on it — five items where this note
+  says six, and an interpretation Long did not print. Long's comma is restored
+  (finding 7.1), so the text now says what this sheet says it says.
 - **VIII.8** — "[Or ability]" ×2 dropped under D11: both are alternative
   renderings of "leisure", given with Long's own "or". "Not to be vexed at
   stupid and ungrateful people" → "not to resent stupid and ungrateful people"
@@ -197,7 +221,15 @@ changed to "you/your", his verb forms made current ("dost" → "do", "wilt" →
   Long's "animal" means *living creature* and "rational animal" would otherwise
   read as a beast, but here Long does mean beasts — sleeping is what men share
   with them — and "animals" is the accurate current word for that. The same
-  reading kept "animal nature" at VIII.41.
+  reading kept "animal nature" at VIII.41. **[v2]** "More peculiarly its own" →
+  "more particularly its own" (finding 12.1). Long means *particularly, as
+  belonging distinctively to it*; the dominant modern sense of the adverb is
+  *oddly*. The edition's precedent divides on a line this case falls the far
+  side of: the fixed collocation "peculiar to X" is current and is kept (III.16,
+  VII.22, VII.55), while Long's attributive "peculiar" outside it is rendered
+  (V.3 "their peculiar leading principle" → "their own ruling part", VI.3 "the
+  peculiar quality" → "the particular quality"). VIII.12's adverb is outside
+  the collocation, so it follows VI.3 and takes its word.
 - **VIII.13** — "On the occasion of every impression on the soul" → "at every
   impression on the soul" (as VII.1 and VIII.2, and keeping "it" attached to the
   impression). "The principles of Physic, of Ethic, and of Dialectic" → "the
@@ -292,7 +324,24 @@ changed to "you/your", his verb forms made current ("dost" → "do", "wilt" →
 - **VIII.40** — Cross-reference "(vii. 16)" dropped. "Let then the reason itself
   not trouble itself" → "Let the reason itself, then, not trouble itself".
   Long's four dashes marking the internal dialogue are kept.
-- **VIII.41** — Cross-reference "(xi. 12)" dropped. "The movements [desires]" →
+- **VIII.41** — **[v2]** "Absolutely" → "unconditionally" (finding 41.1).
+  "[Unconditionally, or without any reservation]" stays dropped under D11 — it
+  is Long's own "or" joining two alternative renderings of one adverb, the
+  III.6 shape D11 was written for — but the primary word is now rendered by the
+  first of those alternatives rather than carried over unchanged. Long's
+  "absolutely" here is technical: it means *without the reserve clause*, making
+  the effort with no "if nothing prevents", and the next sentence's contrast
+  ("But if you take into consideration the usual course of things") depends on
+  the reader hearing it that way, whereas bare "absolutely" reads to a modern
+  ear as an intensifier and points the sentence the wrong way. The reviewer's
+  alternative — folding the bracket as an apposition — was declined because it
+  would put one of the book's ten D11 brackets back into the prose with no
+  principle separating it from the other nine. Rendering the primary word keeps
+  D11 exactly as it stands, adds no word, and takes the sense from Long's own
+  gloss. Same class of choice as "inexpugnable" → "impregnable" (VIII.48) and
+  "enlighten" → "light up" (VIII.57), with one cost recorded: "absolutely" is
+  not archaic, so this rendering is chosen for sense, not for register.
+  Cross-reference "(xi. 12)" dropped. "The movements [desires]" →
   "the impulses": "[desires]" is a second English word for "movements" and is
   dropped under D11, and "movements" here is *hormē* and takes the glossary's
   "impulses" (the triad is sense-perception, impulse, and the nature of plants).
@@ -335,8 +384,20 @@ changed to "you/your", his verb forms made current ("dost" → "do", "wilt" →
 - **VIII.51** — One dagger mark (see unresolved source issues). "[And not a mere
   well]" folded: "How then shall you possess a perpetual fountain and not a mere
   well?" — the bracket is Long's completion of the image, and Standard Ebooks
-  runs it as plain text. "Conjoined with" → "joined with"; "potable water" →
-  "drinkable water". "External effusion" — Long's "effusion" is **kept** here and
+  runs it as plain text. "Potable water" → "drinkable water" — outside the dagger
+  clause, which begins at "By forming". **[v2]** v1 had also changed "conjoined
+  with" → "joined with"; that is reverted to Long's word (finding 51.1).
+  "Conjoined with" is formal but current English, not in the class of
+  "affrighted" or "inexpugnable", so the change bought little, and it fell
+  **inside** the dagger-marked clause (the dagger sits at "By forming +", PG
+  line 5345), where this package's practice — VI.50, confirmed at VII.16 — is
+  that the clause stands as Long has it with pronouns modernised and glossary
+  renderings applied. "Conjoined" → "joined" is neither. If anything Long's
+  word is the stronger one for what Marcus means: freedom fused with
+  contentment, simplicity and modesty rather than merely accompanied by them.
+  **[v2]** "How then shall you possess" → "how then will you possess", under
+  the "shall" rule: second-person "shall" in a question is not current
+  English. "External effusion" — Long's "effusion" is **kept** here and
   at VIII.57 (see the note at VIII.57). The dagger clause is otherwise verbatim
   with pronouns modernised.
 - **VIII.52** — "[Avoids or] seeks the praise" — the bracket is an alternative
@@ -350,20 +411,31 @@ changed to "you/your", his verb forms made current ("dost" → "do", "wilt" →
   "respiration" → "breathing" at VI.15 and VI.16.
 - **VIII.55** — "[Of one man]" folded: "the wickedness of one man does no harm
   to another". A supplement; Long's contrast is general wickedness against one
-  man's, and without the bracket the second half loses its term.
+  man's, and without the bracket the second half loses its term. **[v2]** "As
+  soon as he shall choose" → "as soon as he chooses", under the "shall" rule
+  (finding 55.1); IV.3's "whenever thou shalt choose" is "whenever you choose"
+  in the accepted Book IV, the identical verb in the identical construction.
 - **VIII.57** — **Long's Greek is kept**, under the exception written into
   `../GLOSSARY.md` at Book VII acceptance: "its rays are called Extensions
   (aktines) because they are extended (apo tou ekteinesthai)". PG prints these
   as `[[Greek: …]]` and the staged original as `(Greek: …)`; the candidate
   carries them as `(aktines)` and `(apo tou ekteinesthai)`, the form VII.13 set.
-  **Flagged for the reviewer**, because this case is weaker than VII.13's: there
-  the pun is unintelligible without the Greek, whereas here Long's English
-  ("Extensions … extended") already carries the etymology, and Standard Ebooks
-  moves both words to an endnote rather than printing them in the line. The
-  glossary exception is written as a rule about words Long prints in his body
-  text, which these are, so they are kept; a reviewer who reads the exception
-  as licensing only load-bearing Greek would drop them, and that reading is not
-  unreasonable. "In a right line" → "in a straight line"; "enlighten that which
+  **[v2] Settled at round 1, and the draft's own reasoning corrected as too
+  weak.** v1 flagged this as a *weaker* case than VII.13's, on the ground that
+  "Long's English carries the etymology without the Greek". It does not. "Its
+  rays are called Extensions because they are extended" is a **tautology in
+  English, not an etymology**: no English speaker calls rays "Extensions", and
+  Long coined the capitalised word for this one sentence precisely in order to
+  expose the derivation of the Greek for rays from the Greek for being
+  extended. His own footnote on the passage — "A piece of bad etymology" —
+  shows that an etymological claim about two Greek words is what he took
+  himself to be printing. Without the Greek the sentence makes no claim at all,
+  so the case here is **as strong as VII.13's, not weaker**: in both places
+  Long prints Greek in his body text because his sentence is not a sentence
+  without it. Standard Ebooks' endnote is a route open to an edition that has
+  endnotes; this one has none, and an endnote is apparatus, which the package
+  drops. Recorded in this corrected form so the question does not reopen at a
+  later book on the draft's weaker ground. "In a right line" → "in a straight line"; "enlighten that which
   receives it" → "light up that which receives it" ("enlighten" now means
   *instruct*). "Effused" and "effusion" are **kept** here and at VIII.51: the
   meditation's whole argument is the contrast between effusion and extension,
@@ -371,8 +443,16 @@ changed to "you/your", his verb forms made current ("dost" → "do", "wilt" →
   one book (or replacing it with a phrase in one place and not the other) would
   cost more than the uncommon word does. It is the class of "propriety",
   "circumscribe" and "onsets" kept in Book VII.
-- **VIII.58** — "But if thou shalt have no sensation" → "But if you shall have
-  no sensation": Long's future conditionals are kept.
+- **VIII.58** — **[v2]** "But if thou shalt have no sensation … and if thou
+  shalt acquire" → "But if you have no sensation … and if you acquire"
+  (finding 58.1). v1 had kept both as "you shall have" / "you shall acquire" on
+  the ground that "Long's future conditionals are kept"; that reason is
+  withdrawn. Keeping a *conditional* does not require keeping "shall" — English
+  conditional clauses take the present for future time — and v1 set an archaic
+  "shall" against a correctly modernised "will" twice in fifty-five words, which
+  reads as inconsistency rather than as register. Both conditions stay
+  conditions and both consequences stay futures. See the "shall" rule in
+  `../GLOSSARY.md` and in `changes-v1-to-v2.md`.
 - **VIII.61** — "Every man's ruling faculty" → "every man's ruling part"
   (glossary).
 
@@ -501,18 +581,58 @@ defect and flagged.
   governs (D6); the candidate uses current forms of the same spellings
   (`tomorrow`, `today`, `fig tree`).
 
-## Decisions flagged for the reviewer
+## Decisions flagged for the reviewer — all three ruled, all three settled
 
-Three, each argued above and each open to an explicit ruling:
+Round 1 ruled on all three, every one the drafter's way. None is open.
 
-1. **VIII.37 "Pergamus" for PG's "Fergamus"** — the one place in Book VIII where
-   the candidate departs from PG's letters, on the ground that "Fergamus" is a
-   slip rather than a reading.
-2. **VIII.57's transliterated Greek kept** — the glossary exception added at
-   Book VII acceptance covers it by its wording, but this case is weaker than
-   VII.13's: Long's English carries the etymology without the Greek, and
-   Standard Ebooks prints the sentence without it.
-3. **VIII.57 and VIII.51 "effusion" / "effused" kept** — Long's word is
-   uncommon rather than archaic, and the VIII.57 argument turns on the
-   effusion/extension contrast; a plain substitute would need different words
-   in the two places and would break the pair the paragraph is built on.
+1. **VIII.37 "Pergamus" for PG's "Fergamus" — upheld and settled.** "Fergamus"
+   refers to nothing; F-for-P is the same mechanical class as the three other PG
+   slips found inside the same 486 lines; Standard Ebooks' "Pergamus" restores
+   Long rather than importing an editor; and D6 makes PG the base text for *the
+   text*, not a rule that typographic damage be reproduced — this book already
+   declines to reproduce a stray comma (VIII.6) and a misprint (VIII.45). The
+   one departure from PG's letters in Book VIII stays recorded in three places.
+2. **VIII.57's transliterated Greek — kept and settled, on stronger grounds
+   than the draft claimed.** See the corrected reasoning under unresolved source
+   issues above: Long's English is a tautology without the Greek, not an
+   etymology, so this is the VII.13 case and not a weaker one.
+3. **"Effusion" / "effused" at VIII.51 and VIII.57 — kept and settled.**
+   Uncommon rather than archaic; the VIII.57 argument is a three-times-repeated
+   antithesis with "extension" that no plain substitute holds against three
+   times, and "outpouring", the nearest, is already in use in the same sentence
+   for a different word; and rendering the same Long word two ways across the
+   two paragraphs would break D10 inside one book.
+
+## The "shall" rule (round 1, findings 1.1 / 55.1 / 58.1 as one decision)
+
+Applied in full, and promoted to a general rule in `../GLOSSARY.md` under Voice
+and form, so later books do not re-decide it. Long's "shall / shalt" as a
+**plain future** — in a statement, or in a subordinate clause of condition or
+time — is rendered "will", or the plain present where English uses the present
+for future time in such a clause. "Shall" is kept only where it is current
+English in its own right: the first person, the emphatic or volitional "shall",
+the deliberative "shall" of a direct question in the first or third person, and
+the subjunctive of a negative consecutive clause. Second-person "shall" in a
+question takes "will".
+
+Five changes in Book VIII: VIII.1, VIII.51 (the reviewer's "also noted" fourth
+case, taken with the other three because one decision for the book means one
+decision), VIII.55 and VIII.58 ×2. Four "shall" remain, each licensed and each
+asserted by `../scripts/build_book8_v2.py`: VIII.1 "How then shall a man do
+this?" (deliberative question), VIII.14 "I shall bear in mind" and VIII.45
+"there I shall keep my divine part calm" (first person), and VIII.32 "no one is
+able to hinder you so that each act shall not do its duty" — **not a future**
+but the subjunctive of a negative consecutive clause, where English still
+admits it; the reviewer recorded no material issue at VIII.32, and rewriting the
+construction would move a clause no finding reaches. Considered and left.
+
+**A correction to the finding's premise.** The review states that Books I–VI
+contain no second- or third-person "shall" future and that Book VII contains
+one. Checked paragraph by paragraph across the seven accepted candidates, three
+third-person plain futures do stand in accepted books — III.9 "whether there
+shall be in your ruling part any opinion", VII.8 "if it shall be necessary",
+VII.24 "if even the perception of doing wrong shall depart". They are **not**
+reopened; they are listed in `../00-progress-ledger.md` under "Open, not
+blocking" on the II.5 precedent. The finding's conclusion stands and is applied
+in full; only its count of the precedent was off, and the record says so rather
+than inheriting a claim a later reader would find false.

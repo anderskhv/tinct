@@ -67,6 +67,23 @@ in-text Greek" under Voice and form below.
 - **Self-address.** Long's "thou / thee / thy / thyself" becomes "you / your /
   yourself". Marcus addresses himself; nothing is turned into advice for a
   reader. No "we" is introduced where Long has "thou".
+- **Long's "shall / shalt" (added at Book VIII acceptance, 2026-09-12).** As a
+  **plain future** — in a statement, or in a subordinate clause of condition or
+  time — it is rendered "will", or the plain present where English uses the
+  present for future time in such a clause ("if thou shalt live" → "if you
+  live", "as soon as he shall choose" → "as soon as he chooses", "if thou shalt
+  have no sensation" → "if you have no sensation"). "Shall" is **kept** only
+  where it is current English in its own right: the first person ("I shall meet
+  the busybody", II.1; "there I shall keep my divine part calm", VIII.45), the
+  emphatic or volitional "shall" ("no man shall hinder me", V.29), the
+  deliberative "shall" of a direct question in the first or third person ("How
+  then shall a man do this?", VIII.1), and the subjunctive of a negative
+  consecutive clause ("so that each act shall not do its duty", VIII.32).
+  Second-person "shall" in a question ("How then shall you possess…?") is not
+  current and takes "will". Ruled at the Book VIII round-1 review (findings
+  1.1, 55.1, 58.1, answered as one decision). Three third-person plain futures
+  stand in already-accepted books (III.9, VII.8, VII.24); they are recorded in
+  `00-progress-ledger.md` under "Open, not blocking" and are not reopened.
 - **Imperatives stay imperatives.** "Remember", "Consider", "Throw away your
   books" are kept as the bare commands they are.
 - **Numbering.** Every candidate paragraph begins with the same section number
