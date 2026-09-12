@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "e1f57cad549c83d3af4dc2b42251c5b8ef4d49705a6bdc1e430fd0bee41270a4",
+  "attempts": [
+    {
+      "asr_seconds": 0.10580287408083677,
+      "alignment_seconds": 0.0002462528645992279,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Pretty sure",
+          "start": 0.05,
+          "end": 0.91,
+          "words": [
+            {
+              "text": " Pretty",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.77001953125
+            },
+            {
+              "text": " sure",
+              "start": 0.59,
+              "end": 0.91,
+              "probability": 0.9462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pretty",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "sure",
+          "start": 0.59,
+          "end": 0.91
+        }
+      ],
+      "expected_tokens": [
+        "\"Pretty",
+        "sure.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pretty",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "pretty",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sure",
+          "start": 0.59,
+          "end": 0.91,
+          "key": "sure",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Pretty",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "sure.\"",
+          "start": 0.59,
+          "end": 0.91
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1061394470743835
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "17e60c80f98898d2f8bb59ea822a3a8be18785f1779f90d6e33c372f733d88d9",
+  "selected_reasons": []
+}

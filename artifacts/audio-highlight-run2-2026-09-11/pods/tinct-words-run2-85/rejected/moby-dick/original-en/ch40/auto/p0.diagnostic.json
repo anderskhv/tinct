@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "3326a9f99dfc6a3a16c2a256cbcc6e7bfa5be137e336b1151e4c2136182b6c38",
+  "attempts": [
+    {
+      "asr_seconds": 0.14396981429308653,
+      "alignment_seconds": 0.00036341696977615356,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Harpooneers And Sailors.",
+        "hotwords": "Harpooneers, And, Sailors"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Harpooneers And Sailors.",
+          "start": 0.05,
+          "end": 1.71,
+          "words": [
+            {
+              "text": " Harpooneers",
+              "start": 0.05,
+              "end": 0.99,
+              "probability": 0.5707235336303711
+            },
+            {
+              "text": " And",
+              "start": 0.99,
+              "end": 1.17,
+              "probability": 0.0016727447509765625
+            },
+            {
+              "text": " Sailors.",
+              "start": 1.17,
+              "end": 1.71,
+              "probability": 0.968017578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Harpooneers",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "raw": "And",
+          "start": 0.99,
+          "end": 1.17
+        },
+        {
+          "raw": "Sailors.",
+          "start": 1.17,
+          "end": 1.71
+        }
+      ],
+      "expected_tokens": [
+        "Harpooneers",
+        "And",
+        "Sailors."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Harpooneers",
+          "start": 0.05,
+          "end": 0.99,
+          "key": "harpooneers",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 0.99,
+          "end": 1.17,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Sailors.",
+          "start": 1.17,
+          "end": 1.71,
+          "key": "sailors",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Harpooneers",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "text": "And",
+          "start": 0.99,
+          "end": 1.17
+        },
+        {
+          "text": "Sailors.",
+          "start": 1.17,
+          "end": 1.71
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14444392686709762
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "827f48d467f41b23c6faa246a6f4bef7d8b47ab49a0a0c75e291e05fb9bea0e1",
+  "selected_reasons": []
+}

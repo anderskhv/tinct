@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "45351432efcae95c654edd7477fa5179fad7fb5a4bc32e8afc5cd1b8ff212f7e",
+  "attempts": [
+    {
+      "asr_seconds": 0.18854236789047718,
+      "alignment_seconds": 0.0003757360391318798,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Very dim, very dim, said Elijah, morning to ye.",
+          "start": 0.05,
+          "end": 3.51,
+          "words": [
+            {
+              "text": " Very",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.267578125
+            },
+            {
+              "text": " dim,",
+              "start": 0.65,
+              "end": 0.91,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " very",
+              "start": 1.25,
+              "end": 1.25,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " dim,",
+              "start": 1.25,
+              "end": 1.63,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " said",
+              "start": 1.75,
+              "end": 1.97,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " Elijah,",
+              "start": 1.97,
+              "end": 2.31,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " morning",
+              "start": 2.79,
+              "end": 3.03,
+              "probability": 0.471923828125
+            },
+            {
+              "text": " to",
+              "start": 3.03,
+              "end": 3.31,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " ye.",
+              "start": 3.31,
+              "end": 3.51,
+              "probability": 0.8701171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Very",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "dim,",
+          "start": 0.65,
+          "end": 0.91
+        },
+        {
+          "raw": "very",
+          "start": 1.25,
+          "end": 1.25
+        },
+        {
+          "raw": "dim,",
+          "start": 1.25,
+          "end": 1.63
+        },
+        {
+          "raw": "said",
+          "start": 1.75,
+          "end": 1.97
+        },
+        {
+          "raw": "Elijah,",
+          "start": 1.97,
+          "end": 2.31
+        },
+        {
+          "raw": "morning",
+          "start": 2.79,
+          "end": 3.03
+        },
+        {
+          "raw": "to",
+          "start": 3.03,
+          "end": 3.31
+        },
+        {
+          "raw": "ye.",
+          "start": 3.31,
+          "end": 3.51
+        }
+      ],
+      "expected_tokens": [
+        "\"Very",
+        "dim,",
+        "very",
+        "dim,\"",
+        "said",
+        "Elijah.",
+        "\"Morning",
+        "to",
+        "ye.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Very",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "very",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "dim,",
+          "start": 0.65,
+          "end": 0.91,
+          "key": "dim",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 1.25,
+          "end": 1.25,
+          "key": "very",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "dim,",
+          "start": 1.25,
+          "end": 1.63,
+          "key": "dim",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.75,
+          "end": 1.97,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Elijah,",
+          "start": 1.97,
+          "end": 2.31,
+          "key": "elijah",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "morning",
+          "start": 2.79,
+          "end": 3.03,
+          "key": "morning",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.03,
+          "end": 3.31,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "ye.",
+          "start": 3.31,
+          "end": 3.51,
+          "key": "ye",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Very",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "dim,",
+          "start": 0.65,
+          "end": 0.91
+        },
+        {
+          "text": "very",
+          "start": 1.25,
+          "end": 1.25
+        },
+        {
+          "text": "dim,\"",
+          "start": 1.25,
+          "end": 1.63
+        },
+        {
+          "text": "said",
+          "start": 1.75,
+          "end": 1.97
+        },
+        {
+          "text": "Elijah.",
+          "start": 1.97,
+          "end": 2.31
+        },
+        {
+          "text": "\"Morning",
+          "start": 2.79,
+          "end": 3.03
+        },
+        {
+          "text": "to",
+          "start": 3.03,
+          "end": 3.31
+        },
+        {
+          "text": "ye.\"",
+          "start": 3.31,
+          "end": 3.51
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18905836390331388
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ef07508d50b7d2cf0e5abf0a2decf2d0ed011897f0632a8b63a106cfd3b4a6b3",
+  "selected_reasons": []
+}

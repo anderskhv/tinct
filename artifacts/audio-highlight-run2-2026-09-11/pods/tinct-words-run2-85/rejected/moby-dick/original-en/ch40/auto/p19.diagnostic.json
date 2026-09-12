@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "7c297500863a2c25297e91be28539ec9348ae8c0bfb835dcfc3a46e900011510",
+  "attempts": [
+    {
+      "asr_seconds": 0.3277779589407146,
+      "alignment_seconds": 0.00048356223851442337,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "China Sailor. Rattle thy teeth, then, and pound away; make a pagoda of thyself.",
+        "hotwords": "China, Sailor, Rattle"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " China, Sailor, Rattle thy teeth, then, and pound away. Make a pagoda of thyself.",
+          "start": 0.05,
+          "end": 5.03,
+          "words": [
+            {
+              "text": " China,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.80322265625
+            },
+            {
+              "text": " Sailor,",
+              "start": 1.07,
+              "end": 1.07,
+              "probability": 0.1473388671875
+            },
+            {
+              "text": " Rattle",
+              "start": 1.79,
+              "end": 1.89,
+              "probability": 0.523193359375
+            },
+            {
+              "text": " thy",
+              "start": 1.89,
+              "end": 2.11,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " teeth,",
+              "start": 2.11,
+              "end": 2.35,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " then,",
+              "start": 2.35,
+              "end": 2.69,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " and",
+              "start": 2.83,
+              "end": 2.93,
+              "probability": 0.861328125
+            },
+            {
+              "text": " pound",
+              "start": 2.93,
+              "end": 3.11,
+              "probability": 0.693359375
+            },
+            {
+              "text": " away.",
+              "start": 3.11,
+              "end": 3.47,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " Make",
+              "start": 3.87,
+              "end": 3.95,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " a",
+              "start": 3.95,
+              "end": 4.11,
+              "probability": 0.9921875
+            },
+            {
+              "text": " pagoda",
+              "start": 4.11,
+              "end": 4.43,
+              "probability": 0.82861328125
+            },
+            {
+              "text": " of",
+              "start": 4.43,
+              "end": 4.57,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " thyself.",
+              "start": 4.57,
+              "end": 5.03,
+              "probability": 0.994384765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "China,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Sailor,",
+          "start": 1.07,
+          "end": 1.07
+        },
+        {
+          "raw": "Rattle",
+          "start": 1.79,
+          "end": 1.89
+        },
+        {
+          "raw": "thy",
+          "start": 1.89,
+          "end": 2.11
+        },
+        {
+          "raw": "teeth,",
+          "start": 2.11,
+          "end": 2.35
+        },
+        {
+          "raw": "then,",
+          "start": 2.35,
+          "end": 2.69
+        },
+        {
+          "raw": "and",
+          "start": 2.83,
+          "end": 2.93
+        },
+        {
+          "raw": "pound",
+          "start": 2.93,
+          "end": 3.11
+        },
+        {
+          "raw": "away.",
+          "start": 3.11,
+          "end": 3.47
+        },
+        {
+          "raw": "Make",
+          "start": 3.87,
+          "end": 3.95
+        },
+        {
+          "raw": "a",
+          "start": 3.95,
+          "end": 4.11
+        },
+        {
+          "raw": "pagoda",
+          "start": 4.11,
+          "end": 4.43
+        },
+        {
+          "raw": "of",
+          "start": 4.43,
+          "end": 4.57
+        },
+        {
+          "raw": "thyself.",
+          "start": 4.57,
+          "end": 5.03
+        }
+      ],
+      "expected_tokens": [
+        "China",
+        "Sailor.",
+        "Rattle",
+        "thy",
+        "teeth,",
+        "then,",
+        "and",
+        "pound",
+        "away;",
+        "make",
+        "a",
+        "pagoda",
+        "of",
+        "thyself."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "China,",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "china",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sailor,",
+          "start": 1.07,
+          "end": 1.07,
+          "key": "sailor",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Rattle",
+          "start": 1.79,
+          "end": 1.89,
+          "key": "rattle",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 1.89,
+          "end": 2.11,
+          "key": "thy",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "teeth,",
+          "start": 2.11,
+          "end": 2.35,
+          "key": "teeth",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "then,",
+          "start": 2.35,
+          "end": 2.69,
+          "key": "then",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.83,
+          "end": 2.93,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "pound",
+          "start": 2.93,
+          "end": 3.11,
+          "key": "pound",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "away.",
+          "start": 3.11,
+          "end": 3.47,
+          "key": "away",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Make",
+          "start": 3.87,
+          "end": 3.95,
+          "key": "make",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.95,
+          "end": 4.11,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "pagoda",
+          "start": 4.11,
+          "end": 4.43,
+          "key": "pagoda",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.43,
+          "end": 4.57,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "thyself.",
+          "start": 4.57,
+          "end": 5.03,
+          "key": "thyself",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "China",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Sailor.",
+          "start": 1.07,
+          "end": 1.07
+        },
+        {
+          "text": "Rattle",
+          "start": 1.79,
+          "end": 1.89
+        },
+        {
+          "text": "thy",
+          "start": 1.89,
+          "end": 2.11
+        },
+        {
+          "text": "teeth,",
+          "start": 2.11,
+          "end": 2.35
+        },
+        {
+          "text": "then,",
+          "start": 2.35,
+          "end": 2.69
+        },
+        {
+          "text": "and",
+          "start": 2.83,
+          "end": 2.93
+        },
+        {
+          "text": "pound",
+          "start": 2.93,
+          "end": 3.11
+        },
+        {
+          "text": "away;",
+          "start": 3.11,
+          "end": 3.47
+        },
+        {
+          "text": "make",
+          "start": 3.87,
+          "end": 3.95
+        },
+        {
+          "text": "a",
+          "start": 3.95,
+          "end": 4.11
+        },
+        {
+          "text": "pagoda",
+          "start": 4.11,
+          "end": 4.43
+        },
+        {
+          "text": "of",
+          "start": 4.43,
+          "end": 4.57
+        },
+        {
+          "text": "thyself.",
+          "start": 4.57,
+          "end": 5.03
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.32845751009881496
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "097fb408db1c720ca32dcfa45e7e421e295e45d4ad5f1647c20eaf74e8d40157",
+  "selected_reasons": []
+}

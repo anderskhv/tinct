@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "7b2441dee4283bc926dc8fca8acc27965d08cb5ff5fd60aba5ca77515221771e",
+  "attempts": [
+    {
+      "asr_seconds": 0.13948399014770985,
+      "alignment_seconds": 0.00040149688720703125,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Silence. How old are you, Cook?",
+          "start": 0.45,
+          "end": 1.85,
+          "words": [
+            {
+              "text": " Silence.",
+              "start": 0.45,
+              "end": 0.77,
+              "probability": 0.943359375
+            },
+            {
+              "text": " How",
+              "start": 1.17,
+              "end": 1.25,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " old",
+              "start": 1.25,
+              "end": 1.39,
+              "probability": 0.99609375
+            },
+            {
+              "text": " are",
+              "start": 1.39,
+              "end": 1.53,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " you,",
+              "start": 1.53,
+              "end": 1.67,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Cook?",
+              "start": 1.85,
+              "end": 1.85,
+              "probability": 0.50634765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Silence.",
+          "start": 0.45,
+          "end": 0.77
+        },
+        {
+          "raw": "How",
+          "start": 1.17,
+          "end": 1.25
+        },
+        {
+          "raw": "old",
+          "start": 1.25,
+          "end": 1.39
+        },
+        {
+          "raw": "are",
+          "start": 1.39,
+          "end": 1.53
+        },
+        {
+          "raw": "you,",
+          "start": 1.53,
+          "end": 1.67
+        },
+        {
+          "raw": "Cook?",
+          "start": 1.85,
+          "end": 1.85
+        }
+      ],
+      "expected_tokens": [
+        "\"Silence!",
+        "How",
+        "old",
+        "are",
+        "you,",
+        "cook?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Silence.",
+          "start": 0.45,
+          "end": 0.77,
+          "key": "silence",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 1.17,
+          "end": 1.25,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 1.25,
+          "end": 1.39,
+          "key": "old",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.39,
+          "end": 1.53,
+          "key": "are",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 1.53,
+          "end": 1.67,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Cook?",
+          "start": 1.85,
+          "end": 1.85,
+          "key": "cook",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Silence!",
+          "start": 0.45,
+          "end": 0.77
+        },
+        {
+          "text": "How",
+          "start": 1.17,
+          "end": 1.25
+        },
+        {
+          "text": "old",
+          "start": 1.25,
+          "end": 1.39
+        },
+        {
+          "text": "are",
+          "start": 1.39,
+          "end": 1.53
+        },
+        {
+          "text": "you,",
+          "start": 1.53,
+          "end": 1.67
+        },
+        {
+          "text": "cook?\"",
+          "start": 1.85,
+          "end": 1.85
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1400205371901393
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8422deace135c75f6df6b07660f2d291e4e855745085d47cf144642127eba6cf",
+  "selected_reasons": []
+}

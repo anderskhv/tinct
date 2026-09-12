@@ -1,0 +1,734 @@
+{
+  "complete": true,
+  "signature": "5fe0c438dedab07f3727c96016259f93b70c58594bf2c46ce85a2865e146dce4",
+  "attempts": [
+    {
+      "asr_seconds": 0.3162363381125033,
+      "alignment_seconds": 0.0005748649127781391,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "As the type of the Folio I present the _Sperm Whale_; of the Octavo, the _Grampus_; of the Duodecimo, the _Porpoise_.",
+        "hotwords": "As, Folio, I, Whale_, Octavo, Duodecimo"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " As the type of the Folio I present the Sperm Whale, of the Octavo, the Grampus, of the Duodecimo, the Porpoise.",
+          "start": 0.02,
+          "end": 7.42,
+          "words": [
+            {
+              "text": " As",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.80224609375
+            },
+            {
+              "text": " the",
+              "start": 0.52,
+              "end": 0.66,
+              "probability": 0.99609375
+            },
+            {
+              "text": " type",
+              "start": 0.66,
+              "end": 0.84,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " of",
+              "start": 0.84,
+              "end": 1.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 1.0,
+              "end": 1.14,
+              "probability": 0.982421875
+            },
+            {
+              "text": " Folio",
+              "start": 1.14,
+              "end": 1.52,
+              "probability": 0.5020027160644531
+            },
+            {
+              "text": " I",
+              "start": 1.52,
+              "end": 1.76,
+              "probability": 0.75439453125
+            },
+            {
+              "text": " present",
+              "start": 1.76,
+              "end": 2.08,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 2.08,
+              "end": 2.3,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " Sperm",
+              "start": 2.3,
+              "end": 2.6,
+              "probability": 0.626220703125
+            },
+            {
+              "text": " Whale,",
+              "start": 2.6,
+              "end": 2.86,
+              "probability": 0.70166015625
+            },
+            {
+              "text": " of",
+              "start": 3.56,
+              "end": 3.6,
+              "probability": 0.91796875
+            },
+            {
+              "text": " the",
+              "start": 3.6,
+              "end": 3.76,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " Octavo,",
+              "start": 3.76,
+              "end": 4.38,
+              "probability": 0.9645182291666666
+            },
+            {
+              "text": " the",
+              "start": 4.64,
+              "end": 4.66,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " Grampus,",
+              "start": 4.66,
+              "end": 5.16,
+              "probability": 0.8223470052083334
+            },
+            {
+              "text": " of",
+              "start": 5.74,
+              "end": 5.78,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " the",
+              "start": 5.78,
+              "end": 5.92,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Duodecimo,",
+              "start": 5.92,
+              "end": 6.54,
+              "probability": 0.7923583984375
+            },
+            {
+              "text": " the",
+              "start": 6.84,
+              "end": 6.88,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Porpoise.",
+              "start": 6.88,
+              "end": 7.42,
+              "probability": 0.7236328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "As",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "the",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "raw": "type",
+          "start": 0.66,
+          "end": 0.84
+        },
+        {
+          "raw": "of",
+          "start": 0.84,
+          "end": 1.0
+        },
+        {
+          "raw": "the",
+          "start": 1.0,
+          "end": 1.14
+        },
+        {
+          "raw": "Folio",
+          "start": 1.14,
+          "end": 1.52
+        },
+        {
+          "raw": "I",
+          "start": 1.52,
+          "end": 1.76
+        },
+        {
+          "raw": "present",
+          "start": 1.76,
+          "end": 2.08
+        },
+        {
+          "raw": "the",
+          "start": 2.08,
+          "end": 2.3
+        },
+        {
+          "raw": "Sperm",
+          "start": 2.3,
+          "end": 2.6
+        },
+        {
+          "raw": "Whale,",
+          "start": 2.6,
+          "end": 2.86
+        },
+        {
+          "raw": "of",
+          "start": 3.56,
+          "end": 3.6
+        },
+        {
+          "raw": "the",
+          "start": 3.6,
+          "end": 3.76
+        },
+        {
+          "raw": "Octavo,",
+          "start": 3.76,
+          "end": 4.38
+        },
+        {
+          "raw": "the",
+          "start": 4.64,
+          "end": 4.66
+        },
+        {
+          "raw": "Grampus,",
+          "start": 4.66,
+          "end": 5.16
+        },
+        {
+          "raw": "of",
+          "start": 5.74,
+          "end": 5.78
+        },
+        {
+          "raw": "the",
+          "start": 5.78,
+          "end": 5.92
+        },
+        {
+          "raw": "Duodecimo,",
+          "start": 5.92,
+          "end": 6.54
+        },
+        {
+          "raw": "the",
+          "start": 6.84,
+          "end": 6.88
+        },
+        {
+          "raw": "Porpoise.",
+          "start": 6.88,
+          "end": 7.42
+        }
+      ],
+      "expected_tokens": [
+        "As",
+        "the",
+        "type",
+        "of",
+        "the",
+        "Folio",
+        "I",
+        "present",
+        "the",
+        "_Sperm",
+        "Whale_;",
+        "of",
+        "the",
+        "Octavo,",
+        "the",
+        "_Grampus_;",
+        "of",
+        "the",
+        "Duodecimo,",
+        "the",
+        "_Porpoise_."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "As",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "as",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.52,
+          "end": 0.66,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "type",
+          "start": 0.66,
+          "end": 0.84,
+          "key": "type",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.84,
+          "end": 1.0,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.0,
+          "end": 1.14,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Folio",
+          "start": 1.14,
+          "end": 1.52,
+          "key": "folio",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.52,
+          "end": 1.76,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "present",
+          "start": 1.76,
+          "end": 2.08,
+          "key": "present",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.08,
+          "end": 2.3,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Sperm",
+          "start": 2.3,
+          "end": 2.6,
+          "key": "sperm",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Whale,",
+          "start": 2.6,
+          "end": 2.86,
+          "key": "whale",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.56,
+          "end": 3.6,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.6,
+          "end": 3.76,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Octavo,",
+          "start": 3.76,
+          "end": 4.38,
+          "key": "octavo",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.64,
+          "end": 4.66,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Grampus,",
+          "start": 4.66,
+          "end": 5.16,
+          "key": "grampus",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.74,
+          "end": 5.78,
+          "key": "of",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.78,
+          "end": 5.92,
+          "key": "the",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Duodecimo,",
+          "start": 5.92,
+          "end": 6.54,
+          "key": "duodecimo",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.84,
+          "end": 6.88,
+          "key": "the",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Porpoise.",
+          "start": 6.88,
+          "end": 7.42,
+          "key": "porpoise",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "As",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "the",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "text": "type",
+          "start": 0.66,
+          "end": 0.84
+        },
+        {
+          "text": "of",
+          "start": 0.84,
+          "end": 1.0
+        },
+        {
+          "text": "the",
+          "start": 1.0,
+          "end": 1.14
+        },
+        {
+          "text": "Folio",
+          "start": 1.14,
+          "end": 1.52
+        },
+        {
+          "text": "I",
+          "start": 1.52,
+          "end": 1.76
+        },
+        {
+          "text": "present",
+          "start": 1.76,
+          "end": 2.08
+        },
+        {
+          "text": "the",
+          "start": 2.08,
+          "end": 2.3
+        },
+        {
+          "text": "_Sperm",
+          "start": 2.3,
+          "end": 2.6
+        },
+        {
+          "text": "Whale_;",
+          "start": 2.6,
+          "end": 2.86
+        },
+        {
+          "text": "of",
+          "start": 3.56,
+          "end": 3.6
+        },
+        {
+          "text": "the",
+          "start": 3.6,
+          "end": 3.76
+        },
+        {
+          "text": "Octavo,",
+          "start": 3.76,
+          "end": 4.38
+        },
+        {
+          "text": "the",
+          "start": 4.64,
+          "end": 4.66
+        },
+        {
+          "text": "_Grampus_;",
+          "start": 4.66,
+          "end": 5.16
+        },
+        {
+          "text": "of",
+          "start": 5.74,
+          "end": 5.78
+        },
+        {
+          "text": "the",
+          "start": 5.78,
+          "end": 5.92
+        },
+        {
+          "text": "Duodecimo,",
+          "start": 5.92,
+          "end": 6.54
+        },
+        {
+          "text": "the",
+          "start": 6.84,
+          "end": 6.88
+        },
+        {
+          "text": "_Porpoise_.",
+          "start": 6.88,
+          "end": 7.42
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3170731170102954
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d67205dcc0db4a42778b58296b09984940345d52304e6d736d3872432efb45f5",
+  "selected_reasons": []
+}

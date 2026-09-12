@@ -1,0 +1,572 @@
+{
+  "complete": true,
+  "signature": "91095cd1cf6f2cd51e1f4339c4a3c7d3b570a89fb9b51e7014c62714073e2b45",
+  "attempts": [
+    {
+      "asr_seconds": 0.31453603506088257,
+      "alignment_seconds": 0.0005812388844788074,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Upon this, Fleece, holding both hands over the fishy mob, raised his shrill voice and cried.",
+          "start": 0.14,
+          "end": 5.88,
+          "words": [
+            {
+              "text": " Upon",
+              "start": 0.14,
+              "end": 0.64,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " this,",
+              "start": 0.64,
+              "end": 1.0,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Fleece,",
+              "start": 1.52,
+              "end": 1.84,
+              "probability": 0.8733723958333334
+            },
+            {
+              "text": " holding",
+              "start": 2.12,
+              "end": 2.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " both",
+              "start": 2.32,
+              "end": 2.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " hands",
+              "start": 2.6,
+              "end": 2.92,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " over",
+              "start": 2.92,
+              "end": 3.12,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 3.12,
+              "end": 3.24,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " fishy",
+              "start": 3.24,
+              "end": 3.56,
+              "probability": 0.966064453125
+            },
+            {
+              "text": " mob,",
+              "start": 3.56,
+              "end": 3.8,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " raised",
+              "start": 4.2,
+              "end": 4.4,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " his",
+              "start": 4.4,
+              "end": 4.64,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " shrill",
+              "start": 4.64,
+              "end": 5.02,
+              "probability": 0.99609375
+            },
+            {
+              "text": " voice",
+              "start": 5.02,
+              "end": 5.3,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 5.3,
+              "end": 5.56,
+              "probability": 0.97265625
+            },
+            {
+              "text": " cried.",
+              "start": 5.56,
+              "end": 5.88,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Upon",
+          "start": 0.14,
+          "end": 0.64
+        },
+        {
+          "raw": "this,",
+          "start": 0.64,
+          "end": 1.0
+        },
+        {
+          "raw": "Fleece,",
+          "start": 1.52,
+          "end": 1.84
+        },
+        {
+          "raw": "holding",
+          "start": 2.12,
+          "end": 2.32
+        },
+        {
+          "raw": "both",
+          "start": 2.32,
+          "end": 2.6
+        },
+        {
+          "raw": "hands",
+          "start": 2.6,
+          "end": 2.92
+        },
+        {
+          "raw": "over",
+          "start": 2.92,
+          "end": 3.12
+        },
+        {
+          "raw": "the",
+          "start": 3.12,
+          "end": 3.24
+        },
+        {
+          "raw": "fishy",
+          "start": 3.24,
+          "end": 3.56
+        },
+        {
+          "raw": "mob,",
+          "start": 3.56,
+          "end": 3.8
+        },
+        {
+          "raw": "raised",
+          "start": 4.2,
+          "end": 4.4
+        },
+        {
+          "raw": "his",
+          "start": 4.4,
+          "end": 4.64
+        },
+        {
+          "raw": "shrill",
+          "start": 4.64,
+          "end": 5.02
+        },
+        {
+          "raw": "voice",
+          "start": 5.02,
+          "end": 5.3
+        },
+        {
+          "raw": "and",
+          "start": 5.3,
+          "end": 5.56
+        },
+        {
+          "raw": "cried.",
+          "start": 5.56,
+          "end": 5.88
+        }
+      ],
+      "expected_tokens": [
+        "Upon",
+        "this,",
+        "Fleece,",
+        "holding",
+        "both",
+        "hands",
+        "over",
+        "the",
+        "fishy",
+        "mob,",
+        "raised",
+        "his",
+        "shrill",
+        "voice,",
+        "and",
+        "cried—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Upon",
+          "start": 0.14,
+          "end": 0.64,
+          "key": "upon",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "this,",
+          "start": 0.64,
+          "end": 1.0,
+          "key": "this",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Fleece,",
+          "start": 1.52,
+          "end": 1.84,
+          "key": "fleece",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "holding",
+          "start": 2.12,
+          "end": 2.32,
+          "key": "holding",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "both",
+          "start": 2.32,
+          "end": 2.6,
+          "key": "both",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "hands",
+          "start": 2.6,
+          "end": 2.92,
+          "key": "hands",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 2.92,
+          "end": 3.12,
+          "key": "over",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.12,
+          "end": 3.24,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "fishy",
+          "start": 3.24,
+          "end": 3.56,
+          "key": "fishy",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "mob,",
+          "start": 3.56,
+          "end": 3.8,
+          "key": "mob",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "raised",
+          "start": 4.2,
+          "end": 4.4,
+          "key": "raised",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.4,
+          "end": 4.64,
+          "key": "his",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "shrill",
+          "start": 4.64,
+          "end": 5.02,
+          "key": "shrill",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "voice",
+          "start": 5.02,
+          "end": 5.3,
+          "key": "voice",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.3,
+          "end": 5.56,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "cried.",
+          "start": 5.56,
+          "end": 5.88,
+          "key": "cried",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Upon",
+          "start": 0.14,
+          "end": 0.64
+        },
+        {
+          "text": "this,",
+          "start": 0.64,
+          "end": 1.0
+        },
+        {
+          "text": "Fleece,",
+          "start": 1.52,
+          "end": 1.84
+        },
+        {
+          "text": "holding",
+          "start": 2.12,
+          "end": 2.32
+        },
+        {
+          "text": "both",
+          "start": 2.32,
+          "end": 2.6
+        },
+        {
+          "text": "hands",
+          "start": 2.6,
+          "end": 2.92
+        },
+        {
+          "text": "over",
+          "start": 2.92,
+          "end": 3.12
+        },
+        {
+          "text": "the",
+          "start": 3.12,
+          "end": 3.24
+        },
+        {
+          "text": "fishy",
+          "start": 3.24,
+          "end": 3.56
+        },
+        {
+          "text": "mob,",
+          "start": 3.56,
+          "end": 3.8
+        },
+        {
+          "text": "raised",
+          "start": 4.2,
+          "end": 4.4
+        },
+        {
+          "text": "his",
+          "start": 4.4,
+          "end": 4.64
+        },
+        {
+          "text": "shrill",
+          "start": 4.64,
+          "end": 5.02
+        },
+        {
+          "text": "voice,",
+          "start": 5.02,
+          "end": 5.3
+        },
+        {
+          "text": "and",
+          "start": 5.3,
+          "end": 5.56
+        },
+        {
+          "text": "cried—",
+          "start": 5.56,
+          "end": 5.88
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.31535950116813183
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a4b21d5b48155a44e3e21f2094b6914901e29925758c0bcd605364a66c0d4b41",
+  "selected_reasons": []
+}

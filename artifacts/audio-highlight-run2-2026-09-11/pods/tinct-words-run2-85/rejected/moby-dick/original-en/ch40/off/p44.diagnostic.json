@@ -1,0 +1,676 @@
+{
+  "complete": true,
+  "signature": "f6f187a60e54fbeebb76df03154eae0cc64a976432e56ed038f3378d29418ccd",
+  "attempts": [
+    {
+      "asr_seconds": 0.40775177627801895,
+      "alignment_seconds": 0.0005792849697172642,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Tashtigo with a whiff, a row alo and a row aloft, gods and men, both brawlers, humpf.",
+          "start": 0.5,
+          "end": 6.26,
+          "words": [
+            {
+              "text": " Tashtigo",
+              "start": 0.5,
+              "end": 0.94,
+              "probability": 0.638519287109375
+            },
+            {
+              "text": " with",
+              "start": 0.94,
+              "end": 1.16,
+              "probability": 0.78369140625
+            },
+            {
+              "text": " a",
+              "start": 1.16,
+              "end": 1.3,
+              "probability": 0.994140625
+            },
+            {
+              "text": " whiff,",
+              "start": 1.3,
+              "end": 1.58,
+              "probability": 0.70947265625
+            },
+            {
+              "text": " a",
+              "start": 2.18,
+              "end": 2.18,
+              "probability": 0.410888671875
+            },
+            {
+              "text": " row",
+              "start": 2.18,
+              "end": 2.36,
+              "probability": 0.61865234375
+            },
+            {
+              "text": " alo",
+              "start": 2.36,
+              "end": 2.64,
+              "probability": 0.4654541015625
+            },
+            {
+              "text": " and",
+              "start": 2.64,
+              "end": 2.86,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " a",
+              "start": 2.86,
+              "end": 2.96,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " row",
+              "start": 2.96,
+              "end": 3.14,
+              "probability": 0.986328125
+            },
+            {
+              "text": " aloft,",
+              "start": 3.14,
+              "end": 3.58,
+              "probability": 0.991943359375
+            },
+            {
+              "text": " gods",
+              "start": 3.78,
+              "end": 3.92,
+              "probability": 0.8818359375
+            },
+            {
+              "text": " and",
+              "start": 3.92,
+              "end": 4.12,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " men,",
+              "start": 4.12,
+              "end": 4.3,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " both",
+              "start": 4.48,
+              "end": 4.6,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " brawlers,",
+              "start": 4.6,
+              "end": 5.28,
+              "probability": 0.9713541666666666
+            },
+            {
+              "text": " humpf.",
+              "start": 5.76,
+              "end": 6.26,
+              "probability": 0.6171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Tashtigo",
+          "start": 0.5,
+          "end": 0.94
+        },
+        {
+          "raw": "with",
+          "start": 0.94,
+          "end": 1.16
+        },
+        {
+          "raw": "a",
+          "start": 1.16,
+          "end": 1.3
+        },
+        {
+          "raw": "whiff,",
+          "start": 1.3,
+          "end": 1.58
+        },
+        {
+          "raw": "a",
+          "start": 2.18,
+          "end": 2.18
+        },
+        {
+          "raw": "row",
+          "start": 2.18,
+          "end": 2.36
+        },
+        {
+          "raw": "alo",
+          "start": 2.36,
+          "end": 2.64
+        },
+        {
+          "raw": "and",
+          "start": 2.64,
+          "end": 2.86
+        },
+        {
+          "raw": "a",
+          "start": 2.86,
+          "end": 2.96
+        },
+        {
+          "raw": "row",
+          "start": 2.96,
+          "end": 3.14
+        },
+        {
+          "raw": "aloft,",
+          "start": 3.14,
+          "end": 3.58
+        },
+        {
+          "raw": "gods",
+          "start": 3.78,
+          "end": 3.92
+        },
+        {
+          "raw": "and",
+          "start": 3.92,
+          "end": 4.12
+        },
+        {
+          "raw": "men,",
+          "start": 4.12,
+          "end": 4.3
+        },
+        {
+          "raw": "both",
+          "start": 4.48,
+          "end": 4.6
+        },
+        {
+          "raw": "brawlers,",
+          "start": 4.6,
+          "end": 5.28
+        },
+        {
+          "raw": "humpf.",
+          "start": 5.76,
+          "end": 6.26
+        }
+      ],
+      "expected_tokens": [
+        "Tashtego",
+        "(_with",
+        "a",
+        "whiff_).",
+        "A",
+        "row",
+        "a'low,",
+        "and",
+        "a",
+        "row",
+        "aloft—Gods",
+        "and",
+        "men—both",
+        "brawlers!",
+        "Humph!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          6,
+          1,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          10,
+          7,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          12
+        ],
+        [
+          "equal",
+          11,
+          12,
+          12,
+          13
+        ],
+        [
+          "replace",
+          12,
+          13,
+          13,
+          15
+        ],
+        [
+          "equal",
+          13,
+          14,
+          15,
+          16
+        ],
+        [
+          "replace",
+          14,
+          15,
+          16,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          13,
+          15
+        ],
+        [
+          "replace",
+          14,
+          15,
+          16,
+          17
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Tashtigo",
+          "start": 0.5,
+          "end": 0.94,
+          "key": "tashtigo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 0.94,
+          "end": 1.16,
+          "key": "with",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.16,
+          "end": 1.3,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "whiff,",
+          "start": 1.3,
+          "end": 1.58,
+          "key": "whiff",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.18,
+          "end": 2.18,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "row",
+          "start": 2.18,
+          "end": 2.36,
+          "key": "row",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "alo",
+          "start": 2.36,
+          "end": 2.64,
+          "key": "alo",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.64,
+          "end": 2.86,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.86,
+          "end": 2.96,
+          "key": "a",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "row",
+          "start": 2.96,
+          "end": 3.14,
+          "key": "row",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "aloft,",
+          "start": 3.14,
+          "end": 3.58,
+          "key": "aloft",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "gods",
+          "start": 3.78,
+          "end": 3.92,
+          "key": "gods",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.92,
+          "end": 4.12,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "men,",
+          "start": 4.12,
+          "end": 4.3,
+          "key": "men",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "both",
+          "start": 4.48,
+          "end": 4.6,
+          "key": "both",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "brawlers,",
+          "start": 4.6,
+          "end": 5.28,
+          "key": "brawlers",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "humpf.",
+          "start": 5.76,
+          "end": 6.26,
+          "key": "humpf",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Tashtego",
+          "start": 0.0,
+          "end": 0.47
+        },
+        {
+          "text": "(_with",
+          "start": 0.94,
+          "end": 1.16
+        },
+        {
+          "text": "a",
+          "start": 1.16,
+          "end": 1.3
+        },
+        {
+          "text": "whiff_).",
+          "start": 1.3,
+          "end": 1.58
+        },
+        {
+          "text": "A",
+          "start": 2.18,
+          "end": 2.18
+        },
+        {
+          "text": "row",
+          "start": 2.18,
+          "end": 2.36
+        },
+        {
+          "text": "a'low,",
+          "start": 2.36,
+          "end": 2.5
+        },
+        {
+          "text": "and",
+          "start": 2.64,
+          "end": 2.86
+        },
+        {
+          "text": "a",
+          "start": 2.86,
+          "end": 2.96
+        },
+        {
+          "text": "row",
+          "start": 2.96,
+          "end": 3.14
+        },
+        {
+          "text": "aloft—Gods",
+          "start": 3.14,
+          "end": 3.53
+        },
+        {
+          "text": "and",
+          "start": 3.92,
+          "end": 4.12
+        },
+        {
+          "text": "men—both",
+          "start": 4.12,
+          "end": 4.36
+        },
+        {
+          "text": "brawlers!",
+          "start": 4.6,
+          "end": 5.28
+        },
+        {
+          "text": "Humph!",
+          "start": 5.28,
+          "end": 5.77
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 17,
+        "matched_words": 10
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.40857056714594364
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "688ca78ca07303d42728c8c13c93a71a48f49b0a35bc9bc2183179ca14b4cb07",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

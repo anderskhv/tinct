@@ -1,0 +1,278 @@
+{
+  "complete": true,
+  "signature": "21370238cd6113cd0d852555f3b77e89f2fa9e1f7931ef2e9771206366085373",
+  "attempts": [
+    {
+      "asr_seconds": 0.11399648804217577,
+      "alignment_seconds": 0.0005699289031326771,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And what do we next, men?",
+          "start": 0.02,
+          "end": 1.4,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.84033203125
+            },
+            {
+              "text": " what",
+              "start": 0.48,
+              "end": 0.58,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " do",
+              "start": 0.58,
+              "end": 0.7,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " we",
+              "start": 0.7,
+              "end": 0.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " next,",
+              "start": 0.78,
+              "end": 1.1,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " men?",
+              "start": 1.36,
+              "end": 1.4,
+              "probability": 0.87646484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "what",
+          "start": 0.48,
+          "end": 0.58
+        },
+        {
+          "raw": "do",
+          "start": 0.58,
+          "end": 0.7
+        },
+        {
+          "raw": "we",
+          "start": 0.7,
+          "end": 0.78
+        },
+        {
+          "raw": "next,",
+          "start": 0.78,
+          "end": 1.1
+        },
+        {
+          "raw": "men?",
+          "start": 1.36,
+          "end": 1.4
+        }
+      ],
+      "expected_tokens": [
+        "\"And",
+        "what",
+        "do",
+        "ye",
+        "next,",
+        "men?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          6,
+          4,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 0.48,
+          "end": 0.58,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 0.58,
+          "end": 0.7,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 0.7,
+          "end": 0.78,
+          "key": "we",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "next,",
+          "start": 0.78,
+          "end": 1.1,
+          "key": "next",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "men?",
+          "start": 1.36,
+          "end": 1.4,
+          "key": "men",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"And",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "what",
+          "start": 0.48,
+          "end": 0.58
+        },
+        {
+          "text": "do",
+          "start": 0.58,
+          "end": 0.7
+        },
+        {
+          "text": "ye",
+          "start": 0.7,
+          "end": 0.74
+        },
+        {
+          "text": "next,",
+          "start": 0.78,
+          "end": 1.1
+        },
+        {
+          "text": "men?\"",
+          "start": 1.36,
+          "end": 1.4
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11470388993620872
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "acc406fd876e52229b91329e7e4312339e0ff58bba548947921f89961c980b95",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

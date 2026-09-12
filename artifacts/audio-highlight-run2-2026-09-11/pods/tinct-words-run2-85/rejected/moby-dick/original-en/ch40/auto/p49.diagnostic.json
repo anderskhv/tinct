@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "424ef1e18c8f7c5d6648627b97df843de9cb70ff1fd0ba3d0430169dc879e688",
+  "attempts": [
+    {
+      "asr_seconds": 0.2072403347119689,
+      "alignment_seconds": 0.0005069170147180557,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "All. The squall! the squall! jump, my jollies! (_They scatter_.)",
+        "hotwords": "All"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " All the squall! the squall! jump, my jollies! They scatter.",
+          "start": 0.18,
+          "end": 3.32,
+          "words": [
+            {
+              "text": " All",
+              "start": 0.18,
+              "end": 0.6,
+              "probability": 0.76025390625
+            },
+            {
+              "text": " the",
+              "start": 0.6,
+              "end": 0.76,
+              "probability": 0.990234375
+            },
+            {
+              "text": " squall!",
+              "start": 0.76,
+              "end": 1.04,
+              "probability": 0.907958984375
+            },
+            {
+              "text": " the",
+              "start": 1.18,
+              "end": 1.18,
+              "probability": 0.25
+            },
+            {
+              "text": " squall!",
+              "start": 1.18,
+              "end": 1.58,
+              "probability": 0.986328125
+            },
+            {
+              "text": " jump,",
+              "start": 1.7,
+              "end": 1.8,
+              "probability": 0.74267578125
+            },
+            {
+              "text": " my",
+              "start": 1.94,
+              "end": 2.04,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " jollies!",
+              "start": 2.04,
+              "end": 2.48,
+              "probability": 0.9879557291666666
+            },
+            {
+              "text": " They",
+              "start": 2.88,
+              "end": 2.98,
+              "probability": 0.568359375
+            },
+            {
+              "text": " scatter.",
+              "start": 2.98,
+              "end": 3.32,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "All",
+          "start": 0.18,
+          "end": 0.6
+        },
+        {
+          "raw": "the",
+          "start": 0.6,
+          "end": 0.76
+        },
+        {
+          "raw": "squall!",
+          "start": 0.76,
+          "end": 1.04
+        },
+        {
+          "raw": "the",
+          "start": 1.18,
+          "end": 1.18
+        },
+        {
+          "raw": "squall!",
+          "start": 1.18,
+          "end": 1.58
+        },
+        {
+          "raw": "jump,",
+          "start": 1.7,
+          "end": 1.8
+        },
+        {
+          "raw": "my",
+          "start": 1.94,
+          "end": 2.04
+        },
+        {
+          "raw": "jollies!",
+          "start": 2.04,
+          "end": 2.48
+        },
+        {
+          "raw": "They",
+          "start": 2.88,
+          "end": 2.98
+        },
+        {
+          "raw": "scatter.",
+          "start": 2.98,
+          "end": 3.32
+        }
+      ],
+      "expected_tokens": [
+        "All.",
+        "The",
+        "squall!",
+        "the",
+        "squall!",
+        "jump,",
+        "my",
+        "jollies!",
+        "(_They",
+        "scatter_.)"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "All",
+          "start": 0.18,
+          "end": 0.6,
+          "key": "all",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.6,
+          "end": 0.76,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "squall!",
+          "start": 0.76,
+          "end": 1.04,
+          "key": "squall",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.18,
+          "end": 1.18,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "squall!",
+          "start": 1.18,
+          "end": 1.58,
+          "key": "squall",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "jump,",
+          "start": 1.7,
+          "end": 1.8,
+          "key": "jump",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.94,
+          "end": 2.04,
+          "key": "my",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "jollies!",
+          "start": 2.04,
+          "end": 2.48,
+          "key": "jollies",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 2.88,
+          "end": 2.98,
+          "key": "they",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "scatter.",
+          "start": 2.98,
+          "end": 3.32,
+          "key": "scatter",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "All.",
+          "start": 0.18,
+          "end": 0.6
+        },
+        {
+          "text": "The",
+          "start": 0.6,
+          "end": 0.76
+        },
+        {
+          "text": "squall!",
+          "start": 0.76,
+          "end": 1.04
+        },
+        {
+          "text": "the",
+          "start": 1.18,
+          "end": 1.18
+        },
+        {
+          "text": "squall!",
+          "start": 1.18,
+          "end": 1.58
+        },
+        {
+          "text": "jump,",
+          "start": 1.7,
+          "end": 1.8
+        },
+        {
+          "text": "my",
+          "start": 1.94,
+          "end": 2.04
+        },
+        {
+          "text": "jollies!",
+          "start": 2.04,
+          "end": 2.48
+        },
+        {
+          "text": "(_They",
+          "start": 2.88,
+          "end": 2.98
+        },
+        {
+          "text": "scatter_.)",
+          "start": 2.98,
+          "end": 3.32
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2079385076649487
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b62e4a2e9c1d91640710bf82a4be888d69ae051c51062684933afbf2423148ce",
+  "selected_reasons": []
+}

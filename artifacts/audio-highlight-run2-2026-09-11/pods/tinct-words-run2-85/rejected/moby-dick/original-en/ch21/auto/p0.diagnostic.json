@@ -1,0 +1,2006 @@
+{
+  "complete": true,
+  "signature": "cc43ee763cb47b0250c9d19cb849f7717ed600189534616dfd502a93b7fa355b",
+  "attempts": [
+    {
+      "asr_seconds": 0.33939563389867544,
+      "alignment_seconds": 0.00046699028462171555,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "It was nearly six o'clock, but only grey imperfect misty dawn, when we drew nigh the wharf.",
+        "hotwords": "It"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " It It was nearly six o'clock, but only grey imperfect misty dawn, when we drew nigh the wharf.",
+          "start": 0.05,
+          "end": 5.79,
+          "words": [
+            {
+              "text": " It",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.89697265625
+            },
+            {
+              "text": " It",
+              "start": 0.49,
+              "end": 0.53,
+              "probability": 7.033348083496094e-06
+            },
+            {
+              "text": " was",
+              "start": 0.53,
+              "end": 0.63,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " nearly",
+              "start": 0.63,
+              "end": 0.91,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " six",
+              "start": 0.91,
+              "end": 1.29,
+              "probability": 0.6767578125
+            },
+            {
+              "text": " o",
+              "start": 1.29,
+              "end": 1.45,
+              "probability": 0.98876953125
+            },
+            {
+              "text": "'clock,",
+              "start": 1.45,
+              "end": 1.83,
+              "probability": 0.983642578125
+            },
+            {
+              "text": " but",
+              "start": 2.29,
+              "end": 2.37,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " only",
+              "start": 2.37,
+              "end": 2.63,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " grey",
+              "start": 2.63,
+              "end": 2.89,
+              "probability": 0.2078857421875
+            },
+            {
+              "text": " imperfect",
+              "start": 2.89,
+              "end": 3.51,
+              "probability": 0.60888671875
+            },
+            {
+              "text": " misty",
+              "start": 3.51,
+              "end": 3.97,
+              "probability": 0.629150390625
+            },
+            {
+              "text": " dawn,",
+              "start": 3.97,
+              "end": 4.21,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " when",
+              "start": 4.65,
+              "end": 4.75,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " we",
+              "start": 4.75,
+              "end": 4.89,
+              "probability": 0.99609375
+            },
+            {
+              "text": " drew",
+              "start": 4.89,
+              "end": 5.09,
+              "probability": 0.986328125
+            },
+            {
+              "text": " nigh",
+              "start": 5.09,
+              "end": 5.29,
+              "probability": 0.57122802734375
+            },
+            {
+              "text": " the",
+              "start": 5.29,
+              "end": 5.45,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " wharf.",
+              "start": 5.45,
+              "end": 5.79,
+              "probability": 0.865478515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "It",
+          "start": 0.49,
+          "end": 0.53
+        },
+        {
+          "raw": "was",
+          "start": 0.53,
+          "end": 0.63
+        },
+        {
+          "raw": "nearly",
+          "start": 0.63,
+          "end": 0.91
+        },
+        {
+          "raw": "six",
+          "start": 0.91,
+          "end": 1.29
+        },
+        {
+          "raw": "o",
+          "start": 1.29,
+          "end": 1.45
+        },
+        {
+          "raw": "'clock,",
+          "start": 1.45,
+          "end": 1.83
+        },
+        {
+          "raw": "but",
+          "start": 2.29,
+          "end": 2.37
+        },
+        {
+          "raw": "only",
+          "start": 2.37,
+          "end": 2.63
+        },
+        {
+          "raw": "grey",
+          "start": 2.63,
+          "end": 2.89
+        },
+        {
+          "raw": "imperfect",
+          "start": 2.89,
+          "end": 3.51
+        },
+        {
+          "raw": "misty",
+          "start": 3.51,
+          "end": 3.97
+        },
+        {
+          "raw": "dawn,",
+          "start": 3.97,
+          "end": 4.21
+        },
+        {
+          "raw": "when",
+          "start": 4.65,
+          "end": 4.75
+        },
+        {
+          "raw": "we",
+          "start": 4.75,
+          "end": 4.89
+        },
+        {
+          "raw": "drew",
+          "start": 4.89,
+          "end": 5.09
+        },
+        {
+          "raw": "nigh",
+          "start": 5.09,
+          "end": 5.29
+        },
+        {
+          "raw": "the",
+          "start": 5.29,
+          "end": 5.45
+        },
+        {
+          "raw": "wharf.",
+          "start": 5.45,
+          "end": 5.79
+        }
+      ],
+      "expected_tokens": [
+        "It",
+        "was",
+        "nearly",
+        "six",
+        "o'clock,",
+        "but",
+        "only",
+        "grey",
+        "imperfect",
+        "misty",
+        "dawn,",
+        "when",
+        "we",
+        "drew",
+        "nigh",
+        "the",
+        "wharf."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          4,
+          1,
+          5
+        ],
+        [
+          "replace",
+          4,
+          5,
+          5,
+          7
+        ],
+        [
+          "equal",
+          5,
+          17,
+          7,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "replace",
+          4,
+          5,
+          5,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "it",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 0.49,
+          "end": 0.53,
+          "key": "it",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.53,
+          "end": 0.63,
+          "key": "was",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "nearly",
+          "start": 0.63,
+          "end": 0.91,
+          "key": "nearly",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "six",
+          "start": 0.91,
+          "end": 1.29,
+          "key": "six",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "o",
+          "start": 1.29,
+          "end": 1.45,
+          "key": "o",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "'clock,",
+          "start": 1.45,
+          "end": 1.83,
+          "key": "clock",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.29,
+          "end": 2.37,
+          "key": "but",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 2.37,
+          "end": 2.63,
+          "key": "only",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "grey",
+          "start": 2.63,
+          "end": 2.89,
+          "key": "grey",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "imperfect",
+          "start": 2.89,
+          "end": 3.51,
+          "key": "imperfect",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "misty",
+          "start": 3.51,
+          "end": 3.97,
+          "key": "misty",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "dawn,",
+          "start": 3.97,
+          "end": 4.21,
+          "key": "dawn",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 4.65,
+          "end": 4.75,
+          "key": "when",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 4.75,
+          "end": 4.89,
+          "key": "we",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "drew",
+          "start": 4.89,
+          "end": 5.09,
+          "key": "drew",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "nigh",
+          "start": 5.09,
+          "end": 5.29,
+          "key": "nigh",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.29,
+          "end": 5.45,
+          "key": "the",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "wharf.",
+          "start": 5.45,
+          "end": 5.79,
+          "key": "wharf",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "It",
+          "start": 0.49,
+          "end": 0.53
+        },
+        {
+          "text": "was",
+          "start": 0.53,
+          "end": 0.63
+        },
+        {
+          "text": "nearly",
+          "start": 0.63,
+          "end": 0.91
+        },
+        {
+          "text": "six",
+          "start": 0.91,
+          "end": 1.29
+        },
+        {
+          "text": "o'clock,",
+          "start": 1.29,
+          "end": 1.79
+        },
+        {
+          "text": "but",
+          "start": 2.29,
+          "end": 2.37
+        },
+        {
+          "text": "only",
+          "start": 2.37,
+          "end": 2.63
+        },
+        {
+          "text": "grey",
+          "start": 2.63,
+          "end": 2.89
+        },
+        {
+          "text": "imperfect",
+          "start": 2.89,
+          "end": 3.51
+        },
+        {
+          "text": "misty",
+          "start": 3.51,
+          "end": 3.97
+        },
+        {
+          "text": "dawn,",
+          "start": 3.97,
+          "end": 4.21
+        },
+        {
+          "text": "when",
+          "start": 4.65,
+          "end": 4.75
+        },
+        {
+          "text": "we",
+          "start": 4.75,
+          "end": 4.89
+        },
+        {
+          "text": "drew",
+          "start": 4.89,
+          "end": 5.09
+        },
+        {
+          "text": "nigh",
+          "start": 5.09,
+          "end": 5.29
+        },
+        {
+          "text": "the",
+          "start": 5.29,
+          "end": 5.45
+        },
+        {
+          "text": "wharf.",
+          "start": 5.45,
+          "end": 5.79
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 19,
+        "matched_words": 16
+      },
+      "match_ratio": 0.9411764705882353,
+      "rejection_reasons": [],
+      "seconds": 0.34005765710026026
+    },
+    {
+      "asr_seconds": 0.35160216875374317,
+      "alignment_seconds": 0.0004359693266451359,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "It"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " was nearly six o'clock, but only gray imperfect misty dawn when we drew neither",
+          "start": 0.05,
+          "end": 5.35,
+          "words": [
+            {
+              "text": " was",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.002559661865234375
+            },
+            {
+              "text": " nearly",
+              "start": 0.59,
+              "end": 0.91,
+              "probability": 0.982421875
+            },
+            {
+              "text": " six",
+              "start": 0.91,
+              "end": 1.29,
+              "probability": 0.765625
+            },
+            {
+              "text": " o",
+              "start": 1.29,
+              "end": 1.45,
+              "probability": 0.99365234375
+            },
+            {
+              "text": "'clock,",
+              "start": 1.45,
+              "end": 1.83,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " but",
+              "start": 2.27,
+              "end": 2.37,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " only",
+              "start": 2.37,
+              "end": 2.63,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " gray",
+              "start": 2.63,
+              "end": 2.91,
+              "probability": 0.69091796875
+            },
+            {
+              "text": " imperfect",
+              "start": 2.91,
+              "end": 3.51,
+              "probability": 0.68798828125
+            },
+            {
+              "text": " misty",
+              "start": 3.51,
+              "end": 3.97,
+              "probability": 0.697998046875
+            },
+            {
+              "text": " dawn",
+              "start": 3.97,
+              "end": 4.21,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " when",
+              "start": 4.21,
+              "end": 4.73,
+              "probability": 0.671875
+            },
+            {
+              "text": " we",
+              "start": 4.73,
+              "end": 4.89,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " drew",
+              "start": 4.89,
+              "end": 5.09,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " neither",
+              "start": 5.09,
+              "end": 5.35,
+              "probability": 0.83740234375
+            }
+          ]
+        },
+        {
+          "text": " wharf.",
+          "start": 5.35,
+          "end": 5.83,
+          "words": [
+            {
+              "text": " wharf.",
+              "start": 5.35,
+              "end": 5.83,
+              "probability": 0.826416015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "was",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "nearly",
+          "start": 0.59,
+          "end": 0.91
+        },
+        {
+          "raw": "six",
+          "start": 0.91,
+          "end": 1.29
+        },
+        {
+          "raw": "o",
+          "start": 1.29,
+          "end": 1.45
+        },
+        {
+          "raw": "'clock,",
+          "start": 1.45,
+          "end": 1.83
+        },
+        {
+          "raw": "but",
+          "start": 2.27,
+          "end": 2.37
+        },
+        {
+          "raw": "only",
+          "start": 2.37,
+          "end": 2.63
+        },
+        {
+          "raw": "gray",
+          "start": 2.63,
+          "end": 2.91
+        },
+        {
+          "raw": "imperfect",
+          "start": 2.91,
+          "end": 3.51
+        },
+        {
+          "raw": "misty",
+          "start": 3.51,
+          "end": 3.97
+        },
+        {
+          "raw": "dawn",
+          "start": 3.97,
+          "end": 4.21
+        },
+        {
+          "raw": "when",
+          "start": 4.21,
+          "end": 4.73
+        },
+        {
+          "raw": "we",
+          "start": 4.73,
+          "end": 4.89
+        },
+        {
+          "raw": "drew",
+          "start": 4.89,
+          "end": 5.09
+        },
+        {
+          "raw": "neither",
+          "start": 5.09,
+          "end": 5.35
+        },
+        {
+          "raw": "wharf.",
+          "start": 5.35,
+          "end": 5.83
+        }
+      ],
+      "expected_tokens": [
+        "It",
+        "was",
+        "nearly",
+        "six",
+        "o'clock,",
+        "but",
+        "only",
+        "grey",
+        "imperfect",
+        "misty",
+        "dawn,",
+        "when",
+        "we",
+        "drew",
+        "nigh",
+        "the",
+        "wharf."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "equal",
+          1,
+          4,
+          0,
+          3
+        ],
+        [
+          "replace",
+          4,
+          5,
+          3,
+          5
+        ],
+        [
+          "equal",
+          5,
+          7,
+          5,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "equal",
+          8,
+          14,
+          8,
+          14
+        ],
+        [
+          "replace",
+          14,
+          16,
+          14,
+          15
+        ],
+        [
+          "equal",
+          16,
+          17,
+          15,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "replace",
+          4,
+          5,
+          3,
+          5
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "replace",
+          14,
+          16,
+          14,
+          15
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "was",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "was",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "nearly",
+          "start": 0.59,
+          "end": 0.91,
+          "key": "nearly",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "six",
+          "start": 0.91,
+          "end": 1.29,
+          "key": "six",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "o",
+          "start": 1.29,
+          "end": 1.45,
+          "key": "o",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "'clock,",
+          "start": 1.45,
+          "end": 1.83,
+          "key": "clock",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.27,
+          "end": 2.37,
+          "key": "but",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 2.37,
+          "end": 2.63,
+          "key": "only",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "gray",
+          "start": 2.63,
+          "end": 2.91,
+          "key": "gray",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "imperfect",
+          "start": 2.91,
+          "end": 3.51,
+          "key": "imperfect",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "misty",
+          "start": 3.51,
+          "end": 3.97,
+          "key": "misty",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "dawn",
+          "start": 3.97,
+          "end": 4.21,
+          "key": "dawn",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 4.21,
+          "end": 4.73,
+          "key": "when",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 4.73,
+          "end": 4.89,
+          "key": "we",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "drew",
+          "start": 4.89,
+          "end": 5.09,
+          "key": "drew",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "neither",
+          "start": 5.09,
+          "end": 5.35,
+          "key": "neither",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "wharf.",
+          "start": 5.35,
+          "end": 5.83,
+          "key": "wharf",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "It",
+          "start": 0.0,
+          "end": 0.025
+        },
+        {
+          "text": "was",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "nearly",
+          "start": 0.59,
+          "end": 0.91
+        },
+        {
+          "text": "six",
+          "start": 0.91,
+          "end": 1.29
+        },
+        {
+          "text": "o'clock,",
+          "start": 1.29,
+          "end": 1.78
+        },
+        {
+          "text": "but",
+          "start": 2.27,
+          "end": 2.37
+        },
+        {
+          "text": "only",
+          "start": 2.37,
+          "end": 2.63
+        },
+        {
+          "text": "grey",
+          "start": 2.63,
+          "end": 2.77
+        },
+        {
+          "text": "imperfect",
+          "start": 2.91,
+          "end": 3.51
+        },
+        {
+          "text": "misty",
+          "start": 3.51,
+          "end": 3.97
+        },
+        {
+          "text": "dawn,",
+          "start": 3.97,
+          "end": 4.21
+        },
+        {
+          "text": "when",
+          "start": 4.21,
+          "end": 4.73
+        },
+        {
+          "text": "we",
+          "start": 4.73,
+          "end": 4.89
+        },
+        {
+          "text": "drew",
+          "start": 4.89,
+          "end": 5.09
+        },
+        {
+          "text": "nigh",
+          "start": 5.09,
+          "end": 5.22
+        },
+        {
+          "text": "the",
+          "start": 5.22,
+          "end": 5.285
+        },
+        {
+          "text": "wharf.",
+          "start": 5.35,
+          "end": 5.83
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 16,
+        "matched_words": 12
+      },
+      "match_ratio": 0.7058823529411765,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3521847780793905
+    },
+    {
+      "asr_seconds": 0.307045946829021,
+      "alignment_seconds": 0.0007770489901304245,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " It was nearly six o'clock, but only gray-imperfect Misty Dawn, when we drew neither Wharf.",
+          "start": 0.05,
+          "end": 5.75,
+          "words": [
+            {
+              "text": " It",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.89697265625
+            },
+            {
+              "text": " was",
+              "start": 0.49,
+              "end": 0.63,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " nearly",
+              "start": 0.63,
+              "end": 0.95,
+              "probability": 0.998046875
+            },
+            {
+              "text": " six",
+              "start": 0.95,
+              "end": 1.29,
+              "probability": 0.70703125
+            },
+            {
+              "text": " o",
+              "start": 1.29,
+              "end": 1.45,
+              "probability": 0.9912109375
+            },
+            {
+              "text": "'clock,",
+              "start": 1.45,
+              "end": 1.81,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " but",
+              "start": 2.31,
+              "end": 2.37,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " only",
+              "start": 2.37,
+              "end": 2.63,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " gray",
+              "start": 2.63,
+              "end": 2.91,
+              "probability": 0.61474609375
+            },
+            {
+              "text": "-imperfect",
+              "start": 2.91,
+              "end": 3.47,
+              "probability": 0.7323811848958334
+            },
+            {
+              "text": " Misty",
+              "start": 3.47,
+              "end": 3.89,
+              "probability": 0.701171875
+            },
+            {
+              "text": " Dawn,",
+              "start": 3.89,
+              "end": 4.21,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " when",
+              "start": 4.65,
+              "end": 4.75,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " we",
+              "start": 4.75,
+              "end": 4.89,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " drew",
+              "start": 4.89,
+              "end": 5.09,
+              "probability": 0.9921875
+            },
+            {
+              "text": " neither",
+              "start": 5.09,
+              "end": 5.35,
+              "probability": 0.83984375
+            },
+            {
+              "text": " Wharf.",
+              "start": 5.35,
+              "end": 5.75,
+              "probability": 0.6895751953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "was",
+          "start": 0.49,
+          "end": 0.63
+        },
+        {
+          "raw": "nearly",
+          "start": 0.63,
+          "end": 0.95
+        },
+        {
+          "raw": "six",
+          "start": 0.95,
+          "end": 1.29
+        },
+        {
+          "raw": "o",
+          "start": 1.29,
+          "end": 1.45
+        },
+        {
+          "raw": "'clock,",
+          "start": 1.45,
+          "end": 1.81
+        },
+        {
+          "raw": "but",
+          "start": 2.31,
+          "end": 2.37
+        },
+        {
+          "raw": "only",
+          "start": 2.37,
+          "end": 2.63
+        },
+        {
+          "raw": "gray",
+          "start": 2.63,
+          "end": 2.91
+        },
+        {
+          "raw": "-imperfect",
+          "start": 2.91,
+          "end": 3.47
+        },
+        {
+          "raw": "Misty",
+          "start": 3.47,
+          "end": 3.89
+        },
+        {
+          "raw": "Dawn,",
+          "start": 3.89,
+          "end": 4.21
+        },
+        {
+          "raw": "when",
+          "start": 4.65,
+          "end": 4.75
+        },
+        {
+          "raw": "we",
+          "start": 4.75,
+          "end": 4.89
+        },
+        {
+          "raw": "drew",
+          "start": 4.89,
+          "end": 5.09
+        },
+        {
+          "raw": "neither",
+          "start": 5.09,
+          "end": 5.35
+        },
+        {
+          "raw": "Wharf.",
+          "start": 5.35,
+          "end": 5.75
+        }
+      ],
+      "expected_tokens": [
+        "It",
+        "was",
+        "nearly",
+        "six",
+        "o'clock,",
+        "but",
+        "only",
+        "grey",
+        "imperfect",
+        "misty",
+        "dawn,",
+        "when",
+        "we",
+        "drew",
+        "nigh",
+        "the",
+        "wharf."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ],
+        [
+          "equal",
+          5,
+          7,
+          6,
+          8
+        ],
+        [
+          "replace",
+          7,
+          8,
+          8,
+          9
+        ],
+        [
+          "equal",
+          8,
+          14,
+          9,
+          15
+        ],
+        [
+          "replace",
+          14,
+          16,
+          15,
+          16
+        ],
+        [
+          "equal",
+          16,
+          17,
+          16,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ],
+        [
+          "replace",
+          7,
+          8,
+          8,
+          9
+        ],
+        [
+          "replace",
+          14,
+          16,
+          15,
+          16
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "it",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.49,
+          "end": 0.63,
+          "key": "was",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "nearly",
+          "start": 0.63,
+          "end": 0.95,
+          "key": "nearly",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "six",
+          "start": 0.95,
+          "end": 1.29,
+          "key": "six",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "o",
+          "start": 1.29,
+          "end": 1.45,
+          "key": "o",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "'clock,",
+          "start": 1.45,
+          "end": 1.81,
+          "key": "clock",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.31,
+          "end": 2.37,
+          "key": "but",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 2.37,
+          "end": 2.63,
+          "key": "only",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "gray",
+          "start": 2.63,
+          "end": 2.91,
+          "key": "gray",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "-imperfect",
+          "start": 2.91,
+          "end": 3.47,
+          "key": "imperfect",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Misty",
+          "start": 3.47,
+          "end": 3.89,
+          "key": "misty",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Dawn,",
+          "start": 3.89,
+          "end": 4.21,
+          "key": "dawn",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 4.65,
+          "end": 4.75,
+          "key": "when",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 4.75,
+          "end": 4.89,
+          "key": "we",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "drew",
+          "start": 4.89,
+          "end": 5.09,
+          "key": "drew",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "neither",
+          "start": 5.09,
+          "end": 5.35,
+          "key": "neither",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Wharf.",
+          "start": 5.35,
+          "end": 5.75,
+          "key": "wharf",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "It",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "was",
+          "start": 0.49,
+          "end": 0.63
+        },
+        {
+          "text": "nearly",
+          "start": 0.63,
+          "end": 0.95
+        },
+        {
+          "text": "six",
+          "start": 0.95,
+          "end": 1.29
+        },
+        {
+          "text": "o'clock,",
+          "start": 1.29,
+          "end": 1.8
+        },
+        {
+          "text": "but",
+          "start": 2.31,
+          "end": 2.37
+        },
+        {
+          "text": "only",
+          "start": 2.37,
+          "end": 2.63
+        },
+        {
+          "text": "grey",
+          "start": 2.63,
+          "end": 2.77
+        },
+        {
+          "text": "imperfect",
+          "start": 2.91,
+          "end": 3.47
+        },
+        {
+          "text": "misty",
+          "start": 3.47,
+          "end": 3.89
+        },
+        {
+          "text": "dawn,",
+          "start": 3.89,
+          "end": 4.21
+        },
+        {
+          "text": "when",
+          "start": 4.65,
+          "end": 4.75
+        },
+        {
+          "text": "we",
+          "start": 4.75,
+          "end": 4.89
+        },
+        {
+          "text": "drew",
+          "start": 4.89,
+          "end": 5.09
+        },
+        {
+          "text": "nigh",
+          "start": 5.09,
+          "end": 5.22
+        },
+        {
+          "text": "the",
+          "start": 5.22,
+          "end": 5.285
+        },
+        {
+          "text": "wharf.",
+          "start": 5.35,
+          "end": 5.75
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 13
+      },
+      "match_ratio": 0.7647058823529411,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.30811929563060403
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b83ebd6d560904899e501f87abb26bf45ade1e7046d6ba8e12ad2ddfdfccdb78",
+  "selected_reasons": []
+}

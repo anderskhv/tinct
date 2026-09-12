@@ -1,0 +1,594 @@
+{
+  "complete": true,
+  "signature": "cc8ad78fc8137763ba87b2d065967c317966081b4b85432b8359c7ff9e0f6a19",
+  "attempts": [
+    {
+      "asr_seconds": 0.27501467196270823,
+      "alignment_seconds": 0.0005610999651253223,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Captain Ahab said Tashtigo that white whale must be the same that some call Moby Dick",
+          "start": 0.08,
+          "end": 5.6,
+          "words": [
+            {
+              "text": " Captain",
+              "start": 0.08,
+              "end": 0.74,
+              "probability": 0.320068359375
+            },
+            {
+              "text": " Ahab",
+              "start": 0.74,
+              "end": 1.26,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " said",
+              "start": 1.26,
+              "end": 1.76,
+              "probability": 0.23779296875
+            },
+            {
+              "text": " Tashtigo",
+              "start": 1.76,
+              "end": 2.28,
+              "probability": 0.7288818359375
+            },
+            {
+              "text": " that",
+              "start": 2.28,
+              "end": 2.98,
+              "probability": 0.62939453125
+            },
+            {
+              "text": " white",
+              "start": 2.98,
+              "end": 3.26,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " whale",
+              "start": 3.26,
+              "end": 3.54,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " must",
+              "start": 3.54,
+              "end": 3.78,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " be",
+              "start": 3.78,
+              "end": 3.98,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 3.98,
+              "end": 4.12,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " same",
+              "start": 4.12,
+              "end": 4.34,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that",
+              "start": 4.34,
+              "end": 4.5,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " some",
+              "start": 4.5,
+              "end": 4.72,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " call",
+              "start": 4.72,
+              "end": 5.04,
+              "probability": 0.87255859375
+            },
+            {
+              "text": " Moby",
+              "start": 5.04,
+              "end": 5.44,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " Dick",
+              "start": 5.44,
+              "end": 5.6,
+              "probability": 0.87255859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Captain",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "raw": "Ahab",
+          "start": 0.74,
+          "end": 1.26
+        },
+        {
+          "raw": "said",
+          "start": 1.26,
+          "end": 1.76
+        },
+        {
+          "raw": "Tashtigo",
+          "start": 1.76,
+          "end": 2.28
+        },
+        {
+          "raw": "that",
+          "start": 2.28,
+          "end": 2.98
+        },
+        {
+          "raw": "white",
+          "start": 2.98,
+          "end": 3.26
+        },
+        {
+          "raw": "whale",
+          "start": 3.26,
+          "end": 3.54
+        },
+        {
+          "raw": "must",
+          "start": 3.54,
+          "end": 3.78
+        },
+        {
+          "raw": "be",
+          "start": 3.78,
+          "end": 3.98
+        },
+        {
+          "raw": "the",
+          "start": 3.98,
+          "end": 4.12
+        },
+        {
+          "raw": "same",
+          "start": 4.12,
+          "end": 4.34
+        },
+        {
+          "raw": "that",
+          "start": 4.34,
+          "end": 4.5
+        },
+        {
+          "raw": "some",
+          "start": 4.5,
+          "end": 4.72
+        },
+        {
+          "raw": "call",
+          "start": 4.72,
+          "end": 5.04
+        },
+        {
+          "raw": "Moby",
+          "start": 5.04,
+          "end": 5.44
+        },
+        {
+          "raw": "Dick",
+          "start": 5.44,
+          "end": 5.6
+        }
+      ],
+      "expected_tokens": [
+        "\"Captain",
+        "Ahab,\"",
+        "said",
+        "Tashtego,",
+        "\"that",
+        "white",
+        "whale",
+        "must",
+        "be",
+        "the",
+        "same",
+        "that",
+        "some",
+        "call",
+        "Moby",
+        "Dick.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          16,
+          4,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Captain",
+          "start": 0.08,
+          "end": 0.74,
+          "key": "captain",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ahab",
+          "start": 0.74,
+          "end": 1.26,
+          "key": "ahab",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.26,
+          "end": 1.76,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Tashtigo",
+          "start": 1.76,
+          "end": 2.28,
+          "key": "tashtigo",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.28,
+          "end": 2.98,
+          "key": "that",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "white",
+          "start": 2.98,
+          "end": 3.26,
+          "key": "white",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "whale",
+          "start": 3.26,
+          "end": 3.54,
+          "key": "whale",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 3.54,
+          "end": 3.78,
+          "key": "must",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.78,
+          "end": 3.98,
+          "key": "be",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.98,
+          "end": 4.12,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "same",
+          "start": 4.12,
+          "end": 4.34,
+          "key": "same",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.34,
+          "end": 4.5,
+          "key": "that",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 4.5,
+          "end": 4.72,
+          "key": "some",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "call",
+          "start": 4.72,
+          "end": 5.04,
+          "key": "call",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Moby",
+          "start": 5.04,
+          "end": 5.44,
+          "key": "moby",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Dick",
+          "start": 5.44,
+          "end": 5.6,
+          "key": "dick",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Captain",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "text": "Ahab,\"",
+          "start": 0.74,
+          "end": 1.26
+        },
+        {
+          "text": "said",
+          "start": 1.26,
+          "end": 1.76
+        },
+        {
+          "text": "Tashtego,",
+          "start": 1.76,
+          "end": 2.02
+        },
+        {
+          "text": "\"that",
+          "start": 2.28,
+          "end": 2.98
+        },
+        {
+          "text": "white",
+          "start": 2.98,
+          "end": 3.26
+        },
+        {
+          "text": "whale",
+          "start": 3.26,
+          "end": 3.54
+        },
+        {
+          "text": "must",
+          "start": 3.54,
+          "end": 3.78
+        },
+        {
+          "text": "be",
+          "start": 3.78,
+          "end": 3.98
+        },
+        {
+          "text": "the",
+          "start": 3.98,
+          "end": 4.12
+        },
+        {
+          "text": "same",
+          "start": 4.12,
+          "end": 4.34
+        },
+        {
+          "text": "that",
+          "start": 4.34,
+          "end": 4.5
+        },
+        {
+          "text": "some",
+          "start": 4.5,
+          "end": 4.72
+        },
+        {
+          "text": "call",
+          "start": 4.72,
+          "end": 5.04
+        },
+        {
+          "text": "Moby",
+          "start": 5.04,
+          "end": 5.44
+        },
+        {
+          "text": "Dick.\"",
+          "start": 5.44,
+          "end": 5.6
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.27579671517014503
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "51a2d104003cc4d2056f63a1ad1c03ca2e60b0f6978d7de24b3b03b104df7e1f",
+  "selected_reasons": []
+}

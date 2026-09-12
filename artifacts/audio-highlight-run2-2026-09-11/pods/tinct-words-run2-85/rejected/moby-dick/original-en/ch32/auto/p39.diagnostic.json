@@ -1,0 +1,2041 @@
+{
+  "complete": true,
+  "signature": "f75e059a859410da5c30fd0690e3c42846a9c2f6d2d6dee0a499b5a32b12b1f5",
+  "attempts": [
+    {
+      "asr_seconds": 0.36326202005147934,
+      "alignment_seconds": 0.00074752327054739,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Duodecimoes.—These include the smaller whales. I. The Huzza Porpoise. Ii. The Algerine Porpoise. Iii. The Mealy-mouthed Porpoise.",
+        "hotwords": "Duodecimoes.—These, I, Huzza, Porpoise, Ii, Algerine, Iii, Mealy-mouthed"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Duodecimoes. These include the smaller whales. I. The Huzza Porpoise. I. The Algerine Porpoise. Iii. The Mealy-mouthed Porpoise.",
+          "start": 0.05,
+          "end": 9.13,
+          "words": [
+            {
+              "text": " Duodecimoes.",
+              "start": 0.05,
+              "end": 1.19,
+              "probability": 0.21960163116455078
+            },
+            {
+              "text": " These",
+              "start": 1.87,
+              "end": 1.87,
+              "probability": 0.96875
+            },
+            {
+              "text": " include",
+              "start": 1.87,
+              "end": 2.21,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 2.21,
+              "end": 2.39,
+              "probability": 0.990234375
+            },
+            {
+              "text": " smaller",
+              "start": 2.39,
+              "end": 2.73,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " whales.",
+              "start": 2.73,
+              "end": 3.17,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " I.",
+              "start": 3.85,
+              "end": 3.85,
+              "probability": 0.389404296875
+            },
+            {
+              "text": " The",
+              "start": 3.95,
+              "end": 3.99,
+              "probability": 0.1356201171875
+            },
+            {
+              "text": " Huzza",
+              "start": 3.99,
+              "end": 4.31,
+              "probability": 0.1996332804361979
+            },
+            {
+              "text": " Porpoise.",
+              "start": 4.31,
+              "end": 4.87,
+              "probability": 0.6201070149739584
+            },
+            {
+              "text": " I.",
+              "start": 5.53,
+              "end": 5.53,
+              "probability": 0.8203125
+            },
+            {
+              "text": " The",
+              "start": 5.65,
+              "end": 5.89,
+              "probability": 0.98046875
+            },
+            {
+              "text": " Algerine",
+              "start": 5.89,
+              "end": 6.41,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " Porpoise.",
+              "start": 6.41,
+              "end": 7.01,
+              "probability": 0.9889322916666666
+            },
+            {
+              "text": " Iii.",
+              "start": 7.27,
+              "end": 7.57,
+              "probability": 0.030437469482421875
+            },
+            {
+              "text": " The",
+              "start": 7.81,
+              "end": 7.93,
+              "probability": 0.962890625
+            },
+            {
+              "text": " Mealy",
+              "start": 7.93,
+              "end": 8.25,
+              "probability": 0.691162109375
+            },
+            {
+              "text": "-mouthed",
+              "start": 8.25,
+              "end": 8.57,
+              "probability": 0.751068115234375
+            },
+            {
+              "text": " Porpoise.",
+              "start": 8.57,
+              "end": 9.13,
+              "probability": 0.990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Duodecimoes.",
+          "start": 0.05,
+          "end": 1.19
+        },
+        {
+          "raw": "These",
+          "start": 1.87,
+          "end": 1.87
+        },
+        {
+          "raw": "include",
+          "start": 1.87,
+          "end": 2.21
+        },
+        {
+          "raw": "the",
+          "start": 2.21,
+          "end": 2.39
+        },
+        {
+          "raw": "smaller",
+          "start": 2.39,
+          "end": 2.73
+        },
+        {
+          "raw": "whales.",
+          "start": 2.73,
+          "end": 3.17
+        },
+        {
+          "raw": "I.",
+          "start": 3.85,
+          "end": 3.85
+        },
+        {
+          "raw": "The",
+          "start": 3.95,
+          "end": 3.99
+        },
+        {
+          "raw": "Huzza",
+          "start": 3.99,
+          "end": 4.31
+        },
+        {
+          "raw": "Porpoise.",
+          "start": 4.31,
+          "end": 4.87
+        },
+        {
+          "raw": "I.",
+          "start": 5.53,
+          "end": 5.53
+        },
+        {
+          "raw": "The",
+          "start": 5.65,
+          "end": 5.89
+        },
+        {
+          "raw": "Algerine",
+          "start": 5.89,
+          "end": 6.41
+        },
+        {
+          "raw": "Porpoise.",
+          "start": 6.41,
+          "end": 7.01
+        },
+        {
+          "raw": "Iii.",
+          "start": 7.27,
+          "end": 7.57
+        },
+        {
+          "raw": "The",
+          "start": 7.81,
+          "end": 7.93
+        },
+        {
+          "raw": "Mealy",
+          "start": 7.93,
+          "end": 8.25
+        },
+        {
+          "raw": "-mouthed",
+          "start": 8.25,
+          "end": 8.57
+        },
+        {
+          "raw": "Porpoise.",
+          "start": 8.57,
+          "end": 9.13
+        }
+      ],
+      "expected_tokens": [
+        "Duodecimoes.—These",
+        "include",
+        "the",
+        "smaller",
+        "whales.",
+        "I.",
+        "The",
+        "Huzza",
+        "Porpoise.",
+        "Ii.",
+        "The",
+        "Algerine",
+        "Porpoise.",
+        "Iii.",
+        "The",
+        "Mealy-mouthed",
+        "Porpoise."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          9,
+          2,
+          10
+        ],
+        [
+          "replace",
+          9,
+          10,
+          10,
+          11
+        ],
+        [
+          "equal",
+          10,
+          17,
+          11,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "replace",
+          9,
+          10,
+          10,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Duodecimoes.",
+          "start": 0.05,
+          "end": 1.19,
+          "key": "duodecimoes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "These",
+          "start": 1.87,
+          "end": 1.87,
+          "key": "these",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "include",
+          "start": 1.87,
+          "end": 2.21,
+          "key": "include",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.21,
+          "end": 2.39,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "smaller",
+          "start": 2.39,
+          "end": 2.73,
+          "key": "smaller",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "whales.",
+          "start": 2.73,
+          "end": 3.17,
+          "key": "whales",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I.",
+          "start": 3.85,
+          "end": 3.85,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 3.95,
+          "end": 3.99,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Huzza",
+          "start": 3.99,
+          "end": 4.31,
+          "key": "huzza",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Porpoise.",
+          "start": 4.31,
+          "end": 4.87,
+          "key": "porpoise",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I.",
+          "start": 5.53,
+          "end": 5.53,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 5.65,
+          "end": 5.89,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Algerine",
+          "start": 5.89,
+          "end": 6.41,
+          "key": "algerine",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Porpoise.",
+          "start": 6.41,
+          "end": 7.01,
+          "key": "porpoise",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Iii.",
+          "start": 7.27,
+          "end": 7.57,
+          "key": "iii",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 7.81,
+          "end": 7.93,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Mealy -mouthed",
+          "start": 7.93,
+          "end": 8.57,
+          "key": "mealymouthed",
+          "pieces": [
+            16,
+            17
+          ]
+        },
+        {
+          "raw": "Porpoise.",
+          "start": 8.57,
+          "end": 9.13,
+          "key": "porpoise",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 15,
+          "text": "Mealy-mouthed",
+          "heard": "Mealy -mouthed",
+          "heard_indexes": [
+            16,
+            17
+          ],
+          "start": 7.93,
+          "end": 8.57
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Duodecimoes.—These",
+          "start": 0.0,
+          "end": 0.935
+        },
+        {
+          "text": "include",
+          "start": 1.87,
+          "end": 2.21
+        },
+        {
+          "text": "the",
+          "start": 2.21,
+          "end": 2.39
+        },
+        {
+          "text": "smaller",
+          "start": 2.39,
+          "end": 2.73
+        },
+        {
+          "text": "whales.",
+          "start": 2.73,
+          "end": 3.17
+        },
+        {
+          "text": "I.",
+          "start": 3.85,
+          "end": 3.85
+        },
+        {
+          "text": "The",
+          "start": 3.95,
+          "end": 3.99
+        },
+        {
+          "text": "Huzza",
+          "start": 3.99,
+          "end": 4.31
+        },
+        {
+          "text": "Porpoise.",
+          "start": 4.31,
+          "end": 4.87
+        },
+        {
+          "text": "Ii.",
+          "start": 4.87,
+          "end": 5.26
+        },
+        {
+          "text": "The",
+          "start": 5.65,
+          "end": 5.89
+        },
+        {
+          "text": "Algerine",
+          "start": 5.89,
+          "end": 6.41
+        },
+        {
+          "text": "Porpoise.",
+          "start": 6.41,
+          "end": 7.01
+        },
+        {
+          "text": "Iii.",
+          "start": 7.27,
+          "end": 7.57
+        },
+        {
+          "text": "The",
+          "start": 7.81,
+          "end": 7.93
+        },
+        {
+          "text": "Mealy-mouthed",
+          "start": 7.93,
+          "end": 8.57
+        },
+        {
+          "text": "Porpoise.",
+          "start": 8.57,
+          "end": 9.13
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 18,
+        "matched_words": 15
+      },
+      "match_ratio": 0.8823529411764706,
+      "rejection_reasons": [],
+      "seconds": 0.36426686914637685
+    },
+    {
+      "asr_seconds": 0.36638252809643745,
+      "alignment_seconds": 0.0006281486712396145,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Duodecimoes.—These, I, Huzza, Porpoise, Ii, Algerine, Iii, Mealy-mouthed"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Duodecimoes—These, include the smaller whales, I, Huzza, Porpoise, I, Algerine, Iii, Mealy-mouthed, Porpoise",
+          "start": 1.19,
+          "end": 9.15,
+          "words": [
+            {
+              "text": " Duodecimoes—These,",
+              "start": 1.19,
+              "end": 1.87,
+              "probability": 0.16072096143450057
+            },
+            {
+              "text": " include",
+              "start": 1.89,
+              "end": 2.21,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " the",
+              "start": 2.21,
+              "end": 2.39,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " smaller",
+              "start": 2.39,
+              "end": 2.73,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " whales,",
+              "start": 2.73,
+              "end": 3.15,
+              "probability": 0.8583984375
+            },
+            {
+              "text": " I,",
+              "start": 3.83,
+              "end": 3.85,
+              "probability": 0.317626953125
+            },
+            {
+              "text": " Huzza,",
+              "start": 3.95,
+              "end": 4.29,
+              "probability": 0.05890337626139323
+            },
+            {
+              "text": " Porpoise,",
+              "start": 4.47,
+              "end": 4.89,
+              "probability": 0.6780598958333334
+            },
+            {
+              "text": " I,",
+              "start": 5.53,
+              "end": 5.53,
+              "probability": 0.65283203125
+            },
+            {
+              "text": " Algerine,",
+              "start": 5.75,
+              "end": 6.41,
+              "probability": 0.516876220703125
+            },
+            {
+              "text": " Iii,",
+              "start": 6.81,
+              "end": 7.57,
+              "probability": 0.01462411880493164
+            },
+            {
+              "text": " Mealy",
+              "start": 7.85,
+              "end": 8.23,
+              "probability": 0.5523681640625
+            },
+            {
+              "text": "-mouthed,",
+              "start": 8.23,
+              "end": 8.57,
+              "probability": 0.766998291015625
+            },
+            {
+              "text": " Porpoise",
+              "start": 8.77,
+              "end": 9.15,
+              "probability": 0.9443359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Duodecimoes—These,",
+          "start": 1.19,
+          "end": 1.87
+        },
+        {
+          "raw": "include",
+          "start": 1.89,
+          "end": 2.21
+        },
+        {
+          "raw": "the",
+          "start": 2.21,
+          "end": 2.39
+        },
+        {
+          "raw": "smaller",
+          "start": 2.39,
+          "end": 2.73
+        },
+        {
+          "raw": "whales,",
+          "start": 2.73,
+          "end": 3.15
+        },
+        {
+          "raw": "I,",
+          "start": 3.83,
+          "end": 3.85
+        },
+        {
+          "raw": "Huzza,",
+          "start": 3.95,
+          "end": 4.29
+        },
+        {
+          "raw": "Porpoise,",
+          "start": 4.47,
+          "end": 4.89
+        },
+        {
+          "raw": "I,",
+          "start": 5.53,
+          "end": 5.53
+        },
+        {
+          "raw": "Algerine,",
+          "start": 5.75,
+          "end": 6.41
+        },
+        {
+          "raw": "Iii,",
+          "start": 6.81,
+          "end": 7.57
+        },
+        {
+          "raw": "Mealy",
+          "start": 7.85,
+          "end": 8.23
+        },
+        {
+          "raw": "-mouthed,",
+          "start": 8.23,
+          "end": 8.57
+        },
+        {
+          "raw": "Porpoise",
+          "start": 8.77,
+          "end": 9.15
+        }
+      ],
+      "expected_tokens": [
+        "Duodecimoes.—These",
+        "include",
+        "the",
+        "smaller",
+        "whales.",
+        "I.",
+        "The",
+        "Huzza",
+        "Porpoise.",
+        "Ii.",
+        "The",
+        "Algerine",
+        "Porpoise.",
+        "Iii.",
+        "The",
+        "Mealy-mouthed",
+        "Porpoise."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "delete",
+          6,
+          7,
+          6,
+          6
+        ],
+        [
+          "equal",
+          7,
+          9,
+          6,
+          8
+        ],
+        [
+          "replace",
+          9,
+          11,
+          8,
+          9
+        ],
+        [
+          "equal",
+          11,
+          12,
+          9,
+          10
+        ],
+        [
+          "insert",
+          12,
+          12,
+          10,
+          13
+        ],
+        [
+          "equal",
+          12,
+          13,
+          13,
+          14
+        ],
+        [
+          "delete",
+          13,
+          17,
+          14,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          6,
+          7,
+          6,
+          6
+        ],
+        [
+          "replace",
+          9,
+          11,
+          8,
+          9
+        ],
+        [
+          "insert",
+          12,
+          12,
+          10,
+          13
+        ],
+        [
+          "delete",
+          13,
+          17,
+          14,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Duodecimoes—These,",
+          "start": 1.19,
+          "end": 1.87,
+          "key": "duodecimoesthese",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "include",
+          "start": 1.89,
+          "end": 2.21,
+          "key": "include",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.21,
+          "end": 2.39,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "smaller",
+          "start": 2.39,
+          "end": 2.73,
+          "key": "smaller",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "whales,",
+          "start": 2.73,
+          "end": 3.15,
+          "key": "whales",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 3.83,
+          "end": 3.85,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Huzza,",
+          "start": 3.95,
+          "end": 4.29,
+          "key": "huzza",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Porpoise,",
+          "start": 4.47,
+          "end": 4.89,
+          "key": "porpoise",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 5.53,
+          "end": 5.53,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Algerine,",
+          "start": 5.75,
+          "end": 6.41,
+          "key": "algerine",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Iii,",
+          "start": 6.81,
+          "end": 7.57,
+          "key": "iii",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Mealy",
+          "start": 7.85,
+          "end": 8.23,
+          "key": "mealy",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "-mouthed,",
+          "start": 8.23,
+          "end": 8.57,
+          "key": "mouthed",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Porpoise",
+          "start": 8.77,
+          "end": 9.15,
+          "key": "porpoise",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Duodecimoes.—These",
+          "start": 1.19,
+          "end": 1.87
+        },
+        {
+          "text": "include",
+          "start": 1.89,
+          "end": 2.21
+        },
+        {
+          "text": "the",
+          "start": 2.21,
+          "end": 2.39
+        },
+        {
+          "text": "smaller",
+          "start": 2.39,
+          "end": 2.73
+        },
+        {
+          "text": "whales.",
+          "start": 2.73,
+          "end": 3.15
+        },
+        {
+          "text": "I.",
+          "start": 3.83,
+          "end": 3.85
+        },
+        {
+          "text": "The",
+          "start": 3.85,
+          "end": 3.9
+        },
+        {
+          "text": "Huzza",
+          "start": 3.95,
+          "end": 4.29
+        },
+        {
+          "text": "Porpoise.",
+          "start": 4.47,
+          "end": 4.89
+        },
+        {
+          "text": "Ii.",
+          "start": 4.89,
+          "end": 5.32
+        },
+        {
+          "text": "The",
+          "start": 5.32,
+          "end": 5.535
+        },
+        {
+          "text": "Algerine",
+          "start": 5.75,
+          "end": 6.41
+        },
+        {
+          "text": "Porpoise.",
+          "start": 8.77,
+          "end": 9.15
+        },
+        {
+          "text": "Iii.",
+          "start": 9.15,
+          "end": 9.15
+        },
+        {
+          "text": "The",
+          "start": 9.15,
+          "end": 9.15
+        },
+        {
+          "text": "Mealy-mouthed",
+          "start": 9.15,
+          "end": 9.15
+        },
+        {
+          "text": "Porpoise.",
+          "start": 9.15,
+          "end": 9.15
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 14,
+        "matched_words": 10
+      },
+      "match_ratio": 0.5882352941176471,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3671970618888736
+    },
+    {
+      "asr_seconds": 0.4054575301706791,
+      "alignment_seconds": 0.0007976759225130081,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Dude Simoes these include the smaller whales either has a porpoise egg the Algerine porpoise ei the mealy-mouthed porpoise",
+          "start": 0.05,
+          "end": 9.31,
+          "words": [
+            {
+              "text": " Dude",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.56103515625
+            },
+            {
+              "text": " Simoes",
+              "start": 0.63,
+              "end": 1.19,
+              "probability": 0.5775146484375
+            },
+            {
+              "text": " these",
+              "start": 1.19,
+              "end": 1.85,
+              "probability": 0.3515625
+            },
+            {
+              "text": " include",
+              "start": 1.85,
+              "end": 2.21,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 2.21,
+              "end": 2.39,
+              "probability": 0.9921875
+            },
+            {
+              "text": " smaller",
+              "start": 2.39,
+              "end": 2.73,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " whales",
+              "start": 2.73,
+              "end": 3.21,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " either",
+              "start": 3.21,
+              "end": 3.91,
+              "probability": 0.54345703125
+            },
+            {
+              "text": " has",
+              "start": 3.91,
+              "end": 4.11,
+              "probability": 0.434326171875
+            },
+            {
+              "text": " a",
+              "start": 4.11,
+              "end": 4.29,
+              "probability": 0.421630859375
+            },
+            {
+              "text": " porpoise",
+              "start": 4.29,
+              "end": 5.27,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " egg",
+              "start": 5.27,
+              "end": 5.57,
+              "probability": 0.1424560546875
+            },
+            {
+              "text": " the",
+              "start": 5.57,
+              "end": 5.89,
+              "probability": 0.8232421875
+            },
+            {
+              "text": " Algerine",
+              "start": 5.89,
+              "end": 6.43,
+              "probability": 0.773681640625
+            },
+            {
+              "text": " porpoise",
+              "start": 6.43,
+              "end": 7.13,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " ei",
+              "start": 7.13,
+              "end": 7.63,
+              "probability": 0.572265625
+            },
+            {
+              "text": " the",
+              "start": 7.63,
+              "end": 7.91,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " mealy",
+              "start": 7.91,
+              "end": 8.25,
+              "probability": 0.73291015625
+            },
+            {
+              "text": "-mouthed",
+              "start": 8.25,
+              "end": 8.59,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " porpoise",
+              "start": 8.59,
+              "end": 9.31,
+              "probability": 0.9796549479166666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dude",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "Simoes",
+          "start": 0.63,
+          "end": 1.19
+        },
+        {
+          "raw": "these",
+          "start": 1.19,
+          "end": 1.85
+        },
+        {
+          "raw": "include",
+          "start": 1.85,
+          "end": 2.21
+        },
+        {
+          "raw": "the",
+          "start": 2.21,
+          "end": 2.39
+        },
+        {
+          "raw": "smaller",
+          "start": 2.39,
+          "end": 2.73
+        },
+        {
+          "raw": "whales",
+          "start": 2.73,
+          "end": 3.21
+        },
+        {
+          "raw": "either",
+          "start": 3.21,
+          "end": 3.91
+        },
+        {
+          "raw": "has",
+          "start": 3.91,
+          "end": 4.11
+        },
+        {
+          "raw": "a",
+          "start": 4.11,
+          "end": 4.29
+        },
+        {
+          "raw": "porpoise",
+          "start": 4.29,
+          "end": 5.27
+        },
+        {
+          "raw": "egg",
+          "start": 5.27,
+          "end": 5.57
+        },
+        {
+          "raw": "the",
+          "start": 5.57,
+          "end": 5.89
+        },
+        {
+          "raw": "Algerine",
+          "start": 5.89,
+          "end": 6.43
+        },
+        {
+          "raw": "porpoise",
+          "start": 6.43,
+          "end": 7.13
+        },
+        {
+          "raw": "ei",
+          "start": 7.13,
+          "end": 7.63
+        },
+        {
+          "raw": "the",
+          "start": 7.63,
+          "end": 7.91
+        },
+        {
+          "raw": "mealy",
+          "start": 7.91,
+          "end": 8.25
+        },
+        {
+          "raw": "-mouthed",
+          "start": 8.25,
+          "end": 8.59
+        },
+        {
+          "raw": "porpoise",
+          "start": 8.59,
+          "end": 9.31
+        }
+      ],
+      "expected_tokens": [
+        "Duodecimoes.—These",
+        "include",
+        "the",
+        "smaller",
+        "whales.",
+        "I.",
+        "The",
+        "Huzza",
+        "Porpoise.",
+        "Ii.",
+        "The",
+        "Algerine",
+        "Porpoise.",
+        "Iii.",
+        "The",
+        "Mealy-mouthed",
+        "Porpoise."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          3
+        ],
+        [
+          "equal",
+          1,
+          5,
+          3,
+          7
+        ],
+        [
+          "replace",
+          5,
+          8,
+          7,
+          10
+        ],
+        [
+          "equal",
+          8,
+          9,
+          10,
+          11
+        ],
+        [
+          "replace",
+          9,
+          10,
+          11,
+          12
+        ],
+        [
+          "equal",
+          10,
+          13,
+          12,
+          15
+        ],
+        [
+          "replace",
+          13,
+          14,
+          15,
+          16
+        ],
+        [
+          "equal",
+          14,
+          17,
+          16,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          3
+        ],
+        [
+          "replace",
+          5,
+          8,
+          7,
+          10
+        ],
+        [
+          "replace",
+          9,
+          10,
+          11,
+          12
+        ],
+        [
+          "replace",
+          13,
+          14,
+          15,
+          16
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dude",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "dude",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Simoes",
+          "start": 0.63,
+          "end": 1.19,
+          "key": "simoes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 1.19,
+          "end": 1.85,
+          "key": "these",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "include",
+          "start": 1.85,
+          "end": 2.21,
+          "key": "include",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.21,
+          "end": 2.39,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "smaller",
+          "start": 2.39,
+          "end": 2.73,
+          "key": "smaller",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "whales",
+          "start": 2.73,
+          "end": 3.21,
+          "key": "whales",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "either",
+          "start": 3.21,
+          "end": 3.91,
+          "key": "either",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 3.91,
+          "end": 4.11,
+          "key": "has",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.11,
+          "end": 4.29,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "porpoise",
+          "start": 4.29,
+          "end": 5.27,
+          "key": "porpoise",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "egg",
+          "start": 5.27,
+          "end": 5.57,
+          "key": "egg",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.57,
+          "end": 5.89,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Algerine",
+          "start": 5.89,
+          "end": 6.43,
+          "key": "algerine",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "porpoise",
+          "start": 6.43,
+          "end": 7.13,
+          "key": "porpoise",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "ei",
+          "start": 7.13,
+          "end": 7.63,
+          "key": "ei",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.63,
+          "end": 7.91,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "mealy -mouthed",
+          "start": 7.91,
+          "end": 8.59,
+          "key": "mealymouthed",
+          "pieces": [
+            17,
+            18
+          ]
+        },
+        {
+          "raw": "porpoise",
+          "start": 8.59,
+          "end": 9.31,
+          "key": "porpoise",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 15,
+          "text": "Mealy-mouthed",
+          "heard": "mealy -mouthed",
+          "heard_indexes": [
+            17,
+            18
+          ],
+          "start": 7.91,
+          "end": 8.59
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Duodecimoes.—These",
+          "start": 0.0,
+          "end": 0.925
+        },
+        {
+          "text": "include",
+          "start": 1.85,
+          "end": 2.21
+        },
+        {
+          "text": "the",
+          "start": 2.21,
+          "end": 2.39
+        },
+        {
+          "text": "smaller",
+          "start": 2.39,
+          "end": 2.73
+        },
+        {
+          "text": "whales.",
+          "start": 2.73,
+          "end": 3.21
+        },
+        {
+          "text": "I.",
+          "start": 3.21,
+          "end": 3.75
+        },
+        {
+          "text": "The",
+          "start": 3.75,
+          "end": 4.02
+        },
+        {
+          "text": "Huzza",
+          "start": 4.02,
+          "end": 4.155
+        },
+        {
+          "text": "Porpoise.",
+          "start": 4.29,
+          "end": 5.27
+        },
+        {
+          "text": "Ii.",
+          "start": 5.27,
+          "end": 5.42
+        },
+        {
+          "text": "The",
+          "start": 5.57,
+          "end": 5.89
+        },
+        {
+          "text": "Algerine",
+          "start": 5.89,
+          "end": 6.43
+        },
+        {
+          "text": "Porpoise.",
+          "start": 6.43,
+          "end": 7.13
+        },
+        {
+          "text": "Iii.",
+          "start": 7.13,
+          "end": 7.38
+        },
+        {
+          "text": "The",
+          "start": 7.63,
+          "end": 7.91
+        },
+        {
+          "text": "Mealy-mouthed",
+          "start": 7.91,
+          "end": 8.59
+        },
+        {
+          "text": "Porpoise.",
+          "start": 8.59,
+          "end": 9.31
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 19,
+        "matched_words": 11
+      },
+      "match_ratio": 0.6470588235294118,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.4064973811618984
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "797016b388c9c363ea56a0ac52442728cf25ff6473fca325c82b5df37908ad8a",
+  "selected_reasons": []
+}

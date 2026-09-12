@@ -1,0 +1,338 @@
+{
+  "complete": true,
+  "signature": "4af0983cfb8d94adbb7e96820a8bbd9f5747795f42ae38da1fc539f166e22568",
+  "attempts": [
+    {
+      "asr_seconds": 0.2215512851253152,
+      "alignment_seconds": 0.00028466666117310524,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Never mind him, said I, Queekwag, come on.",
+          "start": 0.02,
+          "end": 2.8,
+          "words": [
+            {
+              "text": " Never",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.29736328125
+            },
+            {
+              "text": " mind",
+              "start": 0.64,
+              "end": 0.88,
+              "probability": 0.798828125
+            },
+            {
+              "text": " him,",
+              "start": 0.88,
+              "end": 1.2,
+              "probability": 0.990234375
+            },
+            {
+              "text": " said",
+              "start": 1.56,
+              "end": 1.58,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " I,",
+              "start": 1.58,
+              "end": 1.82,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " Queekwag,",
+              "start": 2.0,
+              "end": 2.3,
+              "probability": 0.45758056640625
+            },
+            {
+              "text": " come",
+              "start": 2.34,
+              "end": 2.48,
+              "probability": 0.94140625
+            },
+            {
+              "text": " on.",
+              "start": 2.48,
+              "end": 2.8,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Never",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "mind",
+          "start": 0.64,
+          "end": 0.88
+        },
+        {
+          "raw": "him,",
+          "start": 0.88,
+          "end": 1.2
+        },
+        {
+          "raw": "said",
+          "start": 1.56,
+          "end": 1.58
+        },
+        {
+          "raw": "I,",
+          "start": 1.58,
+          "end": 1.82
+        },
+        {
+          "raw": "Queekwag,",
+          "start": 2.0,
+          "end": 2.3
+        },
+        {
+          "raw": "come",
+          "start": 2.34,
+          "end": 2.48
+        },
+        {
+          "raw": "on.",
+          "start": 2.48,
+          "end": 2.8
+        }
+      ],
+      "expected_tokens": [
+        "\"Never",
+        "mind",
+        "him,\"",
+        "said",
+        "I,",
+        "\"Queequeg,",
+        "come",
+        "on.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          8,
+          6,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Never",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "never",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "mind",
+          "start": 0.64,
+          "end": 0.88,
+          "key": "mind",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 0.88,
+          "end": 1.2,
+          "key": "him",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.56,
+          "end": 1.58,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 1.58,
+          "end": 1.82,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Queekwag,",
+          "start": 2.0,
+          "end": 2.3,
+          "key": "queekwag",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 2.34,
+          "end": 2.48,
+          "key": "come",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "on.",
+          "start": 2.48,
+          "end": 2.8,
+          "key": "on",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Never",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "mind",
+          "start": 0.64,
+          "end": 0.88
+        },
+        {
+          "text": "him,\"",
+          "start": 0.88,
+          "end": 1.2
+        },
+        {
+          "text": "said",
+          "start": 1.56,
+          "end": 1.58
+        },
+        {
+          "text": "I,",
+          "start": 1.58,
+          "end": 1.82
+        },
+        {
+          "text": "\"Queequeg,",
+          "start": 1.82,
+          "end": 2.08
+        },
+        {
+          "text": "come",
+          "start": 2.34,
+          "end": 2.48
+        },
+        {
+          "text": "on.\"",
+          "start": 2.48,
+          "end": 2.8
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.22193690296262503
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "66966bc933b44d18148f6d3ed9d59dd6b8777aff68e0254ce5a0929dd14e6f8f",
+  "selected_reasons": []
+}

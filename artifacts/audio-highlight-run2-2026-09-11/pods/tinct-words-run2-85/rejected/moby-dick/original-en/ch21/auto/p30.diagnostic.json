@@ -1,0 +1,357 @@
+{
+  "complete": true,
+  "signature": "7d629bb49c92f8aff32dd41e87b0381c27f4bd830d447a82dd1f62fbc584781f",
+  "attempts": [
+    {
+      "asr_seconds": 0.2827082830481231,
+      "alignment_seconds": 0.00045117316767573357,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Holloa!\" he breathed at last, \"who be ye smokers?\"",
+        "hotwords": "Holloa"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Holloa,\" he breathed at last,",
+          "start": 0.05,
+          "end": 2.07,
+          "words": [
+            {
+              "text": " Holloa,\"",
+              "start": 0.05,
+              "end": 1.21,
+              "probability": 0.35206039746602374
+            },
+            {
+              "text": " he",
+              "start": 1.21,
+              "end": 1.31,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " breathed",
+              "start": 1.31,
+              "end": 1.51,
+              "probability": 0.685546875
+            },
+            {
+              "text": " at",
+              "start": 1.51,
+              "end": 1.69,
+              "probability": 0.99609375
+            },
+            {
+              "text": " last,",
+              "start": 1.69,
+              "end": 2.07,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " who be ye smokers?",
+          "start": 2.07,
+          "end": 3.01,
+          "words": [
+            {
+              "text": " who",
+              "start": 2.07,
+              "end": 2.37,
+              "probability": 0.09002685546875
+            },
+            {
+              "text": " be",
+              "start": 2.37,
+              "end": 2.55,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " ye",
+              "start": 2.55,
+              "end": 2.65,
+              "probability": 0.04339599609375
+            },
+            {
+              "text": " smokers?",
+              "start": 2.65,
+              "end": 3.01,
+              "probability": 0.982421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Holloa,\"",
+          "start": 0.05,
+          "end": 1.21
+        },
+        {
+          "raw": "he",
+          "start": 1.21,
+          "end": 1.31
+        },
+        {
+          "raw": "breathed",
+          "start": 1.31,
+          "end": 1.51
+        },
+        {
+          "raw": "at",
+          "start": 1.51,
+          "end": 1.69
+        },
+        {
+          "raw": "last,",
+          "start": 1.69,
+          "end": 2.07
+        },
+        {
+          "raw": "who",
+          "start": 2.07,
+          "end": 2.37
+        },
+        {
+          "raw": "be",
+          "start": 2.37,
+          "end": 2.55
+        },
+        {
+          "raw": "ye",
+          "start": 2.55,
+          "end": 2.65
+        },
+        {
+          "raw": "smokers?",
+          "start": 2.65,
+          "end": 3.01
+        }
+      ],
+      "expected_tokens": [
+        "\"Holloa!\"",
+        "he",
+        "breathed",
+        "at",
+        "last,",
+        "\"who",
+        "be",
+        "ye",
+        "smokers?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Holloa,\"",
+          "start": 0.05,
+          "end": 1.21,
+          "key": "holloa",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.21,
+          "end": 1.31,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "breathed",
+          "start": 1.31,
+          "end": 1.51,
+          "key": "breathed",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.51,
+          "end": 1.69,
+          "key": "at",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "last,",
+          "start": 1.69,
+          "end": 2.07,
+          "key": "last",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 2.07,
+          "end": 2.37,
+          "key": "who",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.37,
+          "end": 2.55,
+          "key": "be",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "ye",
+          "start": 2.55,
+          "end": 2.65,
+          "key": "ye",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "smokers?",
+          "start": 2.65,
+          "end": 3.01,
+          "key": "smokers",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Holloa!\"",
+          "start": 0.05,
+          "end": 1.21
+        },
+        {
+          "text": "he",
+          "start": 1.21,
+          "end": 1.31
+        },
+        {
+          "text": "breathed",
+          "start": 1.31,
+          "end": 1.51
+        },
+        {
+          "text": "at",
+          "start": 1.51,
+          "end": 1.69
+        },
+        {
+          "text": "last,",
+          "start": 1.69,
+          "end": 2.07
+        },
+        {
+          "text": "\"who",
+          "start": 2.07,
+          "end": 2.37
+        },
+        {
+          "text": "be",
+          "start": 2.37,
+          "end": 2.55
+        },
+        {
+          "text": "ye",
+          "start": 2.55,
+          "end": 2.65
+        },
+        {
+          "text": "smokers?\"",
+          "start": 2.65,
+          "end": 3.01
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.283363888040185
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1f0988a6cc68417f1ba7c56750ab3d0255ef0505fbafd9f3825cffdc3cf7f756",
+  "selected_reasons": []
+}

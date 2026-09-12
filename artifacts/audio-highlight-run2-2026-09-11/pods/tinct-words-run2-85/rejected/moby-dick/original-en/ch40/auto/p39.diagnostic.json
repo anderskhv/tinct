@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "51508aab09c7c3d7f5462b7dc43007f1b7e74a87bba72c33f4f094e47f4269e8",
+  "attempts": [
+    {
+      "asr_seconds": 0.24280176497995853,
+      "alignment_seconds": 0.00018486380577087402,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "5TH Nantucket Sailor. What's that I saw—lightning? Yes.",
+        "hotwords": "Nantucket, Sailor, What's, I, Yes"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " 5TH Nantucket Sailor. What's that I saw—lightning? Yes.",
+          "start": 0.08,
+          "end": 4.3,
+          "words": [
+            {
+              "text": " 5TH",
+              "start": 0.08,
+              "end": 1.08,
+              "probability": 0.2918701171875
+            },
+            {
+              "text": " Nantucket",
+              "start": 1.08,
+              "end": 1.66,
+              "probability": 0.9609375
+            },
+            {
+              "text": " Sailor.",
+              "start": 1.66,
+              "end": 2.02,
+              "probability": 0.63232421875
+            },
+            {
+              "text": " What's",
+              "start": 2.58,
+              "end": 2.7,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " that",
+              "start": 2.7,
+              "end": 2.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 2.78,
+              "end": 2.9,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " saw—lightning?",
+              "start": 2.9,
+              "end": 3.56,
+              "probability": 0.584506094455719
+            },
+            {
+              "text": " Yes.",
+              "start": 4.04,
+              "end": 4.3,
+              "probability": 0.87548828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "5TH",
+          "start": 0.08,
+          "end": 1.08
+        },
+        {
+          "raw": "Nantucket",
+          "start": 1.08,
+          "end": 1.66
+        },
+        {
+          "raw": "Sailor.",
+          "start": 1.66,
+          "end": 2.02
+        },
+        {
+          "raw": "What's",
+          "start": 2.58,
+          "end": 2.7
+        },
+        {
+          "raw": "that",
+          "start": 2.7,
+          "end": 2.78
+        },
+        {
+          "raw": "I",
+          "start": 2.78,
+          "end": 2.9
+        },
+        {
+          "raw": "saw—lightning?",
+          "start": 2.9,
+          "end": 3.56
+        },
+        {
+          "raw": "Yes.",
+          "start": 4.04,
+          "end": 4.3
+        }
+      ],
+      "expected_tokens": [
+        "5TH",
+        "Nantucket",
+        "Sailor.",
+        "What's",
+        "that",
+        "I",
+        "saw—lightning?",
+        "Yes."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "5TH",
+          "start": 0.08,
+          "end": 1.08,
+          "key": "5th",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Nantucket",
+          "start": 1.08,
+          "end": 1.66,
+          "key": "nantucket",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Sailor.",
+          "start": 1.66,
+          "end": 2.02,
+          "key": "sailor",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "What's",
+          "start": 2.58,
+          "end": 2.7,
+          "key": "whats",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.7,
+          "end": 2.78,
+          "key": "that",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.78,
+          "end": 2.9,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "saw—lightning?",
+          "start": 2.9,
+          "end": 3.56,
+          "key": "sawlightning",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Yes.",
+          "start": 4.04,
+          "end": 4.3,
+          "key": "yes",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "5TH",
+          "start": 0.08,
+          "end": 1.08
+        },
+        {
+          "text": "Nantucket",
+          "start": 1.08,
+          "end": 1.66
+        },
+        {
+          "text": "Sailor.",
+          "start": 1.66,
+          "end": 2.02
+        },
+        {
+          "text": "What's",
+          "start": 2.58,
+          "end": 2.7
+        },
+        {
+          "text": "that",
+          "start": 2.7,
+          "end": 2.78
+        },
+        {
+          "text": "I",
+          "start": 2.78,
+          "end": 2.9
+        },
+        {
+          "text": "saw—lightning?",
+          "start": 2.9,
+          "end": 3.56
+        },
+        {
+          "text": "Yes.",
+          "start": 4.04,
+          "end": 4.3
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2430529799312353
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "be05bda2555beb01ddeec87a78f1e8da5fc40c02e750151dfb13ecf6017164a9",
+  "selected_reasons": []
+}

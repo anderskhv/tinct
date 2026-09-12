@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "96601ef927cac563808f62124b7b4a81109ab1505fa57004cb25115de9a3bbab",
+  "attempts": [
+    {
+      "asr_seconds": 0.12265658006072044,
+      "alignment_seconds": 0.00026312004774808884,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Captain Ahab",
+          "start": 0.05,
+          "end": 1.11,
+          "words": [
+            {
+              "text": " Captain",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.841796875
+            },
+            {
+              "text": " Ahab",
+              "start": 0.71,
+              "end": 1.11,
+              "probability": 0.775634765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Captain",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "Ahab",
+          "start": 0.71,
+          "end": 1.11
+        }
+      ],
+      "expected_tokens": [
+        "\"Captain",
+        "Ahab.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Captain",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "captain",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ahab",
+          "start": 0.71,
+          "end": 1.11,
+          "key": "ahab",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Captain",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "Ahab.\"",
+          "start": 0.71,
+          "end": 1.11
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12301635509356856
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6ce04abf5642c99ec1796580cf608b61d1cdeae8f3e8fc2614f0bce7e38b72c7",
+  "selected_reasons": []
+}

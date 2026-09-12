@@ -1,0 +1,638 @@
+{
+  "complete": true,
+  "signature": "f9d4d1b8c8d7b868a2f5459e4de98d0dc19e0234001df5cff53e722f24abb454",
+  "attempts": [
+    {
+      "asr_seconds": 0.3335422510281205,
+      "alignment_seconds": 0.0005574999377131462,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "I was going to ask him some further questions concerning Ahab, when we heard a noise on deck.",
+        "hotwords": "I, Ahab"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I was going to ask him some further questions concerning Ahab, when we heard a noise on deck.",
+          "start": 0.05,
+          "end": 5.41,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.86181640625
+            },
+            {
+              "text": " was",
+              "start": 0.53,
+              "end": 0.63,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " going",
+              "start": 0.63,
+              "end": 0.79,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 0.79,
+              "end": 0.93,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " ask",
+              "start": 0.93,
+              "end": 1.21,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " him",
+              "start": 1.21,
+              "end": 1.41,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " some",
+              "start": 1.41,
+              "end": 1.57,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " further",
+              "start": 1.57,
+              "end": 1.91,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " questions",
+              "start": 1.91,
+              "end": 2.47,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " concerning",
+              "start": 2.47,
+              "end": 3.03,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Ahab,",
+              "start": 3.03,
+              "end": 3.55,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " when",
+              "start": 3.99,
+              "end": 4.19,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " we",
+              "start": 4.19,
+              "end": 4.33,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " heard",
+              "start": 4.33,
+              "end": 4.51,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 4.51,
+              "end": 4.65,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " noise",
+              "start": 4.65,
+              "end": 4.87,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " on",
+              "start": 4.87,
+              "end": 5.19,
+              "probability": 0.998046875
+            },
+            {
+              "text": " deck.",
+              "start": 5.19,
+              "end": 5.41,
+              "probability": 0.81103515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "was",
+          "start": 0.53,
+          "end": 0.63
+        },
+        {
+          "raw": "going",
+          "start": 0.63,
+          "end": 0.79
+        },
+        {
+          "raw": "to",
+          "start": 0.79,
+          "end": 0.93
+        },
+        {
+          "raw": "ask",
+          "start": 0.93,
+          "end": 1.21
+        },
+        {
+          "raw": "him",
+          "start": 1.21,
+          "end": 1.41
+        },
+        {
+          "raw": "some",
+          "start": 1.41,
+          "end": 1.57
+        },
+        {
+          "raw": "further",
+          "start": 1.57,
+          "end": 1.91
+        },
+        {
+          "raw": "questions",
+          "start": 1.91,
+          "end": 2.47
+        },
+        {
+          "raw": "concerning",
+          "start": 2.47,
+          "end": 3.03
+        },
+        {
+          "raw": "Ahab,",
+          "start": 3.03,
+          "end": 3.55
+        },
+        {
+          "raw": "when",
+          "start": 3.99,
+          "end": 4.19
+        },
+        {
+          "raw": "we",
+          "start": 4.19,
+          "end": 4.33
+        },
+        {
+          "raw": "heard",
+          "start": 4.33,
+          "end": 4.51
+        },
+        {
+          "raw": "a",
+          "start": 4.51,
+          "end": 4.65
+        },
+        {
+          "raw": "noise",
+          "start": 4.65,
+          "end": 4.87
+        },
+        {
+          "raw": "on",
+          "start": 4.87,
+          "end": 5.19
+        },
+        {
+          "raw": "deck.",
+          "start": 5.19,
+          "end": 5.41
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "was",
+        "going",
+        "to",
+        "ask",
+        "him",
+        "some",
+        "further",
+        "questions",
+        "concerning",
+        "Ahab,",
+        "when",
+        "we",
+        "heard",
+        "a",
+        "noise",
+        "on",
+        "deck."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.53,
+          "end": 0.63,
+          "key": "was",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "going",
+          "start": 0.63,
+          "end": 0.79,
+          "key": "going",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.79,
+          "end": 0.93,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "ask",
+          "start": 0.93,
+          "end": 1.21,
+          "key": "ask",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 1.21,
+          "end": 1.41,
+          "key": "him",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 1.41,
+          "end": 1.57,
+          "key": "some",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "further",
+          "start": 1.57,
+          "end": 1.91,
+          "key": "further",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "questions",
+          "start": 1.91,
+          "end": 2.47,
+          "key": "questions",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "concerning",
+          "start": 2.47,
+          "end": 3.03,
+          "key": "concerning",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Ahab,",
+          "start": 3.03,
+          "end": 3.55,
+          "key": "ahab",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 3.99,
+          "end": 4.19,
+          "key": "when",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 4.19,
+          "end": 4.33,
+          "key": "we",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 4.33,
+          "end": 4.51,
+          "key": "heard",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.51,
+          "end": 4.65,
+          "key": "a",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "noise",
+          "start": 4.65,
+          "end": 4.87,
+          "key": "noise",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 4.87,
+          "end": 5.19,
+          "key": "on",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "deck.",
+          "start": 5.19,
+          "end": 5.41,
+          "key": "deck",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "was",
+          "start": 0.53,
+          "end": 0.63
+        },
+        {
+          "text": "going",
+          "start": 0.63,
+          "end": 0.79
+        },
+        {
+          "text": "to",
+          "start": 0.79,
+          "end": 0.93
+        },
+        {
+          "text": "ask",
+          "start": 0.93,
+          "end": 1.21
+        },
+        {
+          "text": "him",
+          "start": 1.21,
+          "end": 1.41
+        },
+        {
+          "text": "some",
+          "start": 1.41,
+          "end": 1.57
+        },
+        {
+          "text": "further",
+          "start": 1.57,
+          "end": 1.91
+        },
+        {
+          "text": "questions",
+          "start": 1.91,
+          "end": 2.47
+        },
+        {
+          "text": "concerning",
+          "start": 2.47,
+          "end": 3.03
+        },
+        {
+          "text": "Ahab,",
+          "start": 3.03,
+          "end": 3.55
+        },
+        {
+          "text": "when",
+          "start": 3.99,
+          "end": 4.19
+        },
+        {
+          "text": "we",
+          "start": 4.19,
+          "end": 4.33
+        },
+        {
+          "text": "heard",
+          "start": 4.33,
+          "end": 4.51
+        },
+        {
+          "text": "a",
+          "start": 4.51,
+          "end": 4.65
+        },
+        {
+          "text": "noise",
+          "start": 4.65,
+          "end": 4.87
+        },
+        {
+          "text": "on",
+          "start": 4.87,
+          "end": 5.19
+        },
+        {
+          "text": "deck.",
+          "start": 5.19,
+          "end": 5.41
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.33433861983940005
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f82cf00607a55287971d40d190fefbc34c79f2fdcb503f2e0499424b8f5d9a4d",
+  "selected_reasons": []
+}

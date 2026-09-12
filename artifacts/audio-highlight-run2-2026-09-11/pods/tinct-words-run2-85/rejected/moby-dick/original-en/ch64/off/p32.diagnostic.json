@@ -1,0 +1,412 @@
+{
+  "complete": true,
+  "signature": "57af518c809ba9c0117b1d5f30e9b804d0cfbf3c9009ae6913d9f937b44fe929",
+  "attempts": [
+    {
+      "asr_seconds": 0.2551167751662433,
+      "alignment_seconds": 0.00042146723717451096,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " What dat do wid de teak? said the old black testily.",
+          "start": 0.02,
+          "end": 3.52,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.036712646484375
+            },
+            {
+              "text": " dat",
+              "start": 0.56,
+              "end": 0.78,
+              "probability": 0.374755859375
+            },
+            {
+              "text": " do",
+              "start": 0.78,
+              "end": 0.98,
+              "probability": 0.70263671875
+            },
+            {
+              "text": " wid",
+              "start": 0.98,
+              "end": 1.16,
+              "probability": 0.71533203125
+            },
+            {
+              "text": " de",
+              "start": 1.16,
+              "end": 1.34,
+              "probability": 0.58056640625
+            },
+            {
+              "text": " teak?",
+              "start": 1.34,
+              "end": 1.82,
+              "probability": 0.7470703125
+            },
+            {
+              "text": " said",
+              "start": 2.1,
+              "end": 2.3,
+              "probability": 0.78125
+            },
+            {
+              "text": " the",
+              "start": 2.3,
+              "end": 2.42,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " old",
+              "start": 2.42,
+              "end": 2.6,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " black",
+              "start": 2.6,
+              "end": 2.96,
+              "probability": 0.80419921875
+            },
+            {
+              "text": " testily.",
+              "start": 2.96,
+              "end": 3.52,
+              "probability": 0.3115234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "dat",
+          "start": 0.56,
+          "end": 0.78
+        },
+        {
+          "raw": "do",
+          "start": 0.78,
+          "end": 0.98
+        },
+        {
+          "raw": "wid",
+          "start": 0.98,
+          "end": 1.16
+        },
+        {
+          "raw": "de",
+          "start": 1.16,
+          "end": 1.34
+        },
+        {
+          "raw": "teak?",
+          "start": 1.34,
+          "end": 1.82
+        },
+        {
+          "raw": "said",
+          "start": 2.1,
+          "end": 2.3
+        },
+        {
+          "raw": "the",
+          "start": 2.3,
+          "end": 2.42
+        },
+        {
+          "raw": "old",
+          "start": 2.42,
+          "end": 2.6
+        },
+        {
+          "raw": "black",
+          "start": 2.6,
+          "end": 2.96
+        },
+        {
+          "raw": "testily.",
+          "start": 2.96,
+          "end": 3.52
+        }
+      ],
+      "expected_tokens": [
+        "\"What",
+        "dat",
+        "do",
+        "wid",
+        "de",
+        "'teak,\"",
+        "said",
+        "the",
+        "old",
+        "black,",
+        "testily."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "dat",
+          "start": 0.56,
+          "end": 0.78,
+          "key": "dat",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 0.78,
+          "end": 0.98,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "wid",
+          "start": 0.98,
+          "end": 1.16,
+          "key": "wid",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 1.16,
+          "end": 1.34,
+          "key": "de",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "teak?",
+          "start": 1.34,
+          "end": 1.82,
+          "key": "teak",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.1,
+          "end": 2.3,
+          "key": "said",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.3,
+          "end": 2.42,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 2.42,
+          "end": 2.6,
+          "key": "old",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "black",
+          "start": 2.6,
+          "end": 2.96,
+          "key": "black",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "testily.",
+          "start": 2.96,
+          "end": 3.52,
+          "key": "testily",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"What",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "dat",
+          "start": 0.56,
+          "end": 0.78
+        },
+        {
+          "text": "do",
+          "start": 0.78,
+          "end": 0.98
+        },
+        {
+          "text": "wid",
+          "start": 0.98,
+          "end": 1.16
+        },
+        {
+          "text": "de",
+          "start": 1.16,
+          "end": 1.34
+        },
+        {
+          "text": "'teak,\"",
+          "start": 1.34,
+          "end": 1.82
+        },
+        {
+          "text": "said",
+          "start": 2.1,
+          "end": 2.3
+        },
+        {
+          "text": "the",
+          "start": 2.3,
+          "end": 2.42
+        },
+        {
+          "text": "old",
+          "start": 2.42,
+          "end": 2.6
+        },
+        {
+          "text": "black,",
+          "start": 2.6,
+          "end": 2.96
+        },
+        {
+          "text": "testily.",
+          "start": 2.96,
+          "end": 3.52
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.25570667907595634
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7d5bfec4aea306f7dbe98776de9ae5f8f53c4b96953adcdd4d9bf455c2be1a1e",
+  "selected_reasons": []
+}
