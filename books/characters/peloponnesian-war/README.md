@@ -1,15 +1,16 @@
 # The Peloponnesian War character package — IN PROGRESS
 
-**Books 1–5 (chapters 1–17) are authored. Chapters 18–26 are not.** Status stays
+**Books 1–6 (chapters 1–20) are authored. Chapters 21–26 are not.** Status stays
 `in-progress` and the package must not be integrated until all eight of
 Thucydides's books are covered.
 
-Current state: 626 entities authored, all 626 bound in both editions, 6,518 and
-6,589 exact mentions. Of those, 947 and 976 fall inside Book 1's chapters, 736
-and 745 inside Book 2's, 827 and 832 inside Book 3's, 1,085 and 1,091 inside
-Book 4's, and 1,115 and 1,129 inside Book 5's; the rest are the nation cards,
-which are bound through all twenty-six chapters because a people is the same
-people in every book. Content revision 2026-09-12.5.
+Current state: 692 entities authored, all 692 bound in both editions, 6,793 and
+6,863 exact mentions. Of those, 946 and 975 fall inside Book 1's chapters, 735
+and 744 inside Book 2's, 831 and 835 inside Book 3's, 1,084 and 1,090 inside
+Book 4's, 1,116 and 1,130 inside Book 5's, and 750 in each inside Book 6's; the
+rest are the nation cards, which are bound through all twenty-six chapters
+because a people is the same people in every book. Content revision
+2026-09-12.6.
 
 ## What is hard about this book, and what is not
 
@@ -163,6 +164,48 @@ signatory list does not support; so there the split is made.
 **Lichas is bound by alias through the whole work**, because the history gives
 him a patronymic every time and he is plainly one man from Olympia to Miletus.
 
+## Book 6's namesakes
+
+The archaeology of Sicily at the head of Book 6 hands back four names the
+earlier books have already used, and the digression on the tyrannicides puts two
+Pisistratuses three sentences apart.
+
+| Entity | Where | Against |
+|---|---|---|
+| `thucles-founder` | 18:2 | Eurymedon's father |
+| `archias-corinth` | 18:2 | the Camarinaean who was going to betray his town |
+| `evarchus-catana` | 18:2 | the tyrant of Astacus |
+| `hippocrates-gela` | 18:4 | Ariphron's son, and the Lacedaemonian of Book 8 |
+| `pisistratus` / `pisistratus-archon` | 19:21, 19:22 ×2 / 19:22, 19:23 | the tyrant and his grandson the archon. **19:22 names both**, so that paragraph is keyed by occurrence — `[tyrant, tyrant, grandson]` — the only place in this package where a paragraph needs it |
+| `callias-father-of-myrrhine` | 19:24 | a fifth Callias: Hyperechides's son, whose daughter married Hippias |
+| `lysimachus-father-of-heraclides` | 20:11 | Aristides's father |
+| `eucles-syracuse` | 20:44 | the Athenian who lost Amphipolis |
+| `athenagoras` | 19:3, 19:9 | the Cyzicene whose son Timagoras appears in Book 8 |
+| `chalcidians-sicily` | widened | now **The Chalcidian Race**, covering Euboea and the Sicilian cities out of it, since Hermocrates argues from both ends of the same descent |
+
+**Three pieces of geography read like people.** The **river Sicanus** in Iberia
+at 18:1, against Execestes's son the Syracusan general at 20:11; the **place
+called Leon** at 20:38, half a mile from Epipolae, against the three men of that
+name; and the **Ionian and Sicilian seas**, which are the Hellenic-sea problem
+again. `Ionian` is bound to the people by default with a lookahead that excludes
+*Ionian sea* and *Ionian gulf* in either capitalisation. `Sicilian` has nothing
+to look ahead for — *the Tyrrhenian and Sicilian mains*, *the Sicilian and
+Cretan seas*, *the Sicilian across the open main* — so its three water positions
+are suppressed by name in the table, which is what the `None` entry in a
+position table is for. Both of the `Sicilian` water positions in Books 4 and 5
+had been wrongly bound to the people until this pass; the adjacency sweep had
+missed them because the neighbouring words are lowercase.
+
+**Phytodorus is not Pythodorus.** At 20:46 both editions print *Phytodorus*, with
+no patronymic. He gets his own card, and neither of the two men called
+Pythodorus is claimed.
+
+**The Hermae are the one object cast in this package.** They are not a person or
+a people, and the scope line excludes everything else that is neither; but
+Thucydides never explains what they are, never names Hermes, and the whole
+second half of Book 6 turns on the night they were defaced. The card says what
+they are and what the city did about them.
+
 ## How the unauthored books are handled
 
 The rule is this. A name that **has a namesake anywhere in the work** is bound
@@ -172,7 +215,7 @@ that is **single-referent across the whole work** — Brasidas, Archidamus,
 Perdiccas, Phormio, Pericles, Sitalces, Cleon, Demosthenes, Laches — is bound by
 alias and therefore appears in chapters that have not been authored yet, with a
 card that says only what the authored chapters support. Every table has `None`
-for its default; there are 70 of them. Where the later man has not been read at
+for its default; there are 74 of them. Where the later man has not been read at
 all, the name is table-keyed anyway, because a coverage number is not worth a
 wrong card.
 
@@ -220,19 +263,21 @@ treats him as a witness to be cross-examined.
 **goddess of the Brazen House**, whom Thucydides never names; and every name in
 chapters 6–26 belonging to a person this pass has not authored.
 
-**5. Spot-read and sweep.** A hundred and two mentions drawn at random — ten per
-edition for Book 1, nine for Book 2, eight for Book 3, twelve for Book 4 and
-twelve for Book 5 — read back against their paragraphs: all correct. The
-unbound-tabled-names audit over the whole authored range, chapters 1–17, comes
-back with three lines: the Cyrus of 7:20, who is the King's son and belongs to a
-book that has not been read; the river Eurymedon of 4:7; and the town of
-Acanthus, whose name is a person's only in the treaty lists. Run first over Book
-4 alone it came back with thirty-six, every one of them a table whose new
+**5. Spot-read and sweep.** A hundred and twenty-six mentions drawn at random —
+ten per edition for Book 1, nine for Book 2, eight for Book 3, and twelve each
+for Books 4, 5 and 6 — read back against their paragraphs: all correct. The
+unbound-tabled-names audit over the whole authored range, chapters 1–20, comes
+back with five lines, every one of them deliberate: the Cyrus of 7:20, who is
+the King's son and belongs to a book that has not been read; the river Eurymedon
+of 4:7; the river Sicanus of 18:1; the place called Leon at 20:38; and the town
+of Acanthus, whose name is a person's only in the treaty lists. Run first over
+Book 4 alone it came back with thirty-six, every one of them a table whose new
 chapters had not been keyed in yet — Thucydides himself at Amphipolis among
-them; run over Book 5 it came back with twenty tables to extend, including
-Thucydides again at the second preface. That audit is the reason these passes
-are trustworthy and the tests are not; the tests all passed while
-Thucydides was unbound in six paragraphs of his own history. The adjacency sweep over every
+them; over Book 5, twenty tables to extend, including Thucydides again at the
+second preface; over Book 6, twenty more, Thucydides again twice. That audit is
+the reason these passes are trustworthy and the tests are not; the tests all
+passed while Thucydides was unbound in six paragraphs of his own history. The
+adjacency sweep — which is what caught the Ionian Sea — over every
 Book 1 mention whose matched text abuts a capitalised word produced a hundred
 and eighty-seven hits and no mis-binding — sentence-initial *The Athenians*,
 cult titles like *the Delian Apollo* and *Zeus Meilichios*, *King Xerxes*, *the
@@ -241,7 +286,7 @@ lowercase *Hellenic sea*.
 
 **6. Both editions independently.** No entity is missing from either edition,
 which is the first package in this library where that is true of a work this
-size. The mention counts still differ (6,518 against 6,589), almost entirely
+size. The mention counts still differ (6,793 against 6,863), almost entirely
 because the modern edition resolves pronouns the older one leaves standing.
 
 ## Source defects — recorded, not repaired
@@ -259,16 +304,16 @@ No edition byte was touched.
 
 ## Remaining work
 
-- **Chapters 18–20** (Thucydides's Book 6): the mutilation of the Hermae, the
-  Sicilian expedition, the story of Harmodius and Aristogiton, and Alcibiades at
-  Sparta. Hippocrates, Eucles, Hermon, Archias, Chalcidians, Chalcidian, Leon,
-  Pisistratus, Nicias, Lamachus, Euphamidas, Alcibiades, Clinias, Hagnon,
-  Callias and the Sicilian peoples all have occurrences waiting there. **Run the
-  unbound-tabled-names audit before believing the tests** — use
-  `tabhits.py`-style enumeration of every SPLIT pattern against the new
-  chapters, not the mention list, since a table with no key produces no mention
-  to audit.
-- **Chapters 21–26** after that, one of Thucydides's books per pass.
+- **Chapters 21–23** (Thucydides's Book 7): Gylippus at Syracuse, the night
+  battle on Epipolae, the destruction of the Athenian armament, and the deaths of
+  Nicias and Demosthenes. Nicias, Demosthenes, Eurymedon, Thucles, Gylippus,
+  Sicanus, Hermocrates, Agis, Diitrephes, Hermon, Hegesander, Euthydemus,
+  Thrasycles, Aristocrates, Leon, Hippocrates, Lamachus, Ionian and Sicilian all
+  have occurrences waiting there. **Run the unbound-tabled-names audit before
+  believing the tests** — enumerate every SPLIT pattern against the new chapters
+  rather than reading the mention list, since a table with no key produces no
+  mention to audit.
+- **Chapters 24–26** after that.
 - Adjectival singulars of peoples are bound only where the plural's own book
   bound them (*Edonian*, *Thasian*, *Rhegian*, *Mendaean*, *Andrian*,
   *Thespian*, *Lyncestian* were added in Book 4; *Thracian*, *Theban*,
@@ -282,7 +327,7 @@ No edition byte was touched.
 ## Validation
 
 `python3 books/characters/build_peloponnesian_war.py --check`, then
-`python3 -m unittest discover -s books/characters -p 'test_*.py'`. Sixty-four
+`python3 -m unittest discover -s books/characters -p 'test_*.py'`. Seventy-five
 focused tests so far. No edition changes, no network generation, no API spend:
 every card here was written in the authoring conversation and committed as a
 file.

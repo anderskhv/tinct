@@ -1,6 +1,6 @@
 {
-  "contentVersion": "2026-09-12.5",
-  "coverage": "Both full English editions. BOOKS 1-5 (chapters 1-17) are authored; chapters 18-26 are in progress. Named people and named peoples. Cities, rivers, mountains, seas and countries are not cast.",
+  "contentVersion": "2026-09-12.6",
+  "coverage": "Both full English editions. BOOKS 1-6 (chapters 1-20) are authored; chapters 21-26 are in progress. Named people and named peoples. Cities, rivers, mountains, seas and countries are not cast.",
   "entities": [
     {
       "id": "thucydides",
@@ -295,7 +295,15 @@
       "category": "major",
       "kind": "person",
       "subtitle": "",
-      "snapshots": []
+      "snapshots": [
+        {
+          "after": [
+            19,
+            26
+          ],
+          "body": "In the flower of youthful beauty, and solicited twice by Hipparchus without success. Hipparchus took his revenge by inviting Harmodius’s young sister to carry a basket in a procession and then turning her away as unworthy. At the Panathenaea — the one day citizens in the procession could carry arms without suspicion — he and Aristogiton saw one of their accomplices talking easily with Hippias, took fright, and ran back inside the gates to kill the man who had wronged them rather than the tyrant. He was cut down on the spot. Thucydides tells the story at length to show that the Athenians are no more accurate than anyone else about their own history."
+        }
+      ]
     },
     {
       "id": "aristogiton",
@@ -307,7 +315,15 @@
       "category": "major",
       "kind": "person",
       "subtitle": "",
-      "snapshots": []
+      "snapshots": [
+        {
+          "after": [
+            19,
+            26
+          ],
+          "body": "A citizen of the middle rank, Harmodius’s lover, and the man whose fear that the powerful Hipparchus would simply take Harmodius by force set the whole design going. He got away through the crowd at the moment and was taken later and dispatched in no merciful way."
+        }
+      ]
     },
     {
       "id": "hippias",
@@ -317,7 +333,15 @@
       "category": "major",
       "kind": "person",
       "subtitle": "",
-      "snapshots": []
+      "snapshots": [
+        {
+          "after": [
+            19,
+            30
+          ],
+          "body": "The eldest of Pisistratus’s sons and the tyrant in fact, which Thucydides establishes against the common Athenian belief from the altar his son dedicated, from the pillar on the Acropolis that names five children of his and none of his brothers’, and from the ease with which he held power on the day Hipparchus was killed. After the murder the tyranny pressed harder: he killed many citizens and married his daughter to a Lampsacene with influence at the Persian court. Deposed in the fourth year by the Lacedaemonians and the Alcmaeonidae, he went to Sigeum, to Lampsacus, and to King Darius — and came back twenty years later, an old man, with the Medes to Marathon."
+        }
+      ]
     },
     {
       "id": "pisistratus",
@@ -1559,6 +1583,13 @@
             9
           ],
           "body": "Whose country population came into the city and camped in the temples and the towers, and among whom the plague then broke out — fever, thirst, and a despair that took away the power of resistance the moment a man felt himself sickening. The doctors died thickest, because they visited the sick most. Men who had nothing succeeded to the property of men who had everything, and spent it quickly; burial rites collapsed; and nobody expected to live to be tried for anything. An old verse said a Dorian war would come and a plague with it, and they argued about whether the word had been plague or dearth."
+        },
+        {
+          "after": [
+            19,
+            31
+          ],
+          "body": "Who fell in love with an expedition most of them could not have placed on a map. The older men thought a force that size could not come to grief, the young wanted to see foreign sights, and the crowd wanted the pay; the few who disliked it kept quiet rather than look unpatriotic. Then the Hermae were mutilated in one night, and the city that had just sent out the most splendid armament a single Hellenic state had ever launched spent the summer arresting its best citizens on the word of informers it never tested, executing some and outlawing others, and sleeping one night under arms in the temple of Theseus."
         }
       ]
     },
@@ -2019,8 +2050,7 @@
       "name": "The Ionians",
       "body": "The colonies Athens sent out when Attica grew too small, whose golden grasshoppers and linen came from Athens; they built naval strength under Cyrus, were the first to ask Athens to take the lead against Pausanias, and are the people a Dorian city is being besieged by, which the Corinthians call a complete reversal of the natural order.",
       "aliases": [
-        "Ionians",
-        "Ionian"
+        "Ionians"
       ],
       "category": "major",
       "kind": "group",
@@ -4112,8 +4142,7 @@
       "name": "The Sicilians",
       "body": "Whose tyrants had galleys before the Persian war; whose cities Lacedaemon ordered to build five hundred ships between them and to stay neutral meanwhile; and who in the end joined the enemies of Athens against her.",
       "aliases": [
-        "Sicilians",
-        "Sicilian"
+        "Sicilians"
       ],
       "category": "supporting",
       "kind": "group",
@@ -4614,6 +4643,13 @@
             22
           ],
           "body": "Niceratus’s son, the most successful general of his time and the author of the peace that carries his name. He wanted to secure his good fortune while it lasted, keep out of the way of chance, and leave behind the name of a statesman who never failed — and thought only peace made that possible. He got the treaty and then spent years watching it come apart: overlooked by Lacedaemon in favour of nobody, outmanoeuvred by Alcibiades in front of the assembly, and sent to Sparta himself to ask for Panactum standing and the Boeotian alliance given up. He came back with nothing but the oaths renewed, and was blamed for the treaty he had made."
+        },
+        {
+          "after": [
+            20,
+            44
+          ],
+          "body": "Niceratus’s son, chosen against his will to command an expedition he had argued twice against. He told the assembly they were leaving many enemies behind to go and fetch more, and that the treaty was nominal; then, hoping to frighten them off with the size of the bill, asked for a hundred galleys and five thousand heavy infantry — and was thanked for good advice and given everything. In Sicily he sailed round the island collecting thirty talents instead of the promised fortune, argued for a show of force and a voyage home, and took the army to Syracuse only after Alcibiades had been recalled. He was in the Circle, sick, when the Syracusans came for it, and saved it by burning the engines and timber in front of the wall. The death of Lamachus left him sole commander of the siege."
         }
       ]
     },
@@ -4816,14 +4852,23 @@
       "category": "major",
       "kind": "group",
       "subtitle": "",
-      "snapshots": []
+      "snapshots": [
+        {
+          "after": [
+            20,
+            44
+          ],
+          "body": "Who would not believe the expedition was coming, made fun of the men who said so, and were still arguing when the fleet reached Rhegium. Beaten in the first battle by troops they outnumbered, they were told by Hermocrates that courage was not their problem and elected three generals instead of fifteen. They built counterwork after counterwork across the Athenian lines, lost each of them, and were walled in by a double wall to the sea — at which point they began to discuss terms with Nicias, deposed their generals, and blamed them for the ill fortune."
+        }
+      ]
     },
     {
       "id": "leontines",
       "name": "The Leontines",
       "body": "Who had Camarina and the Chalcidian cities, and who appealed to Athens on their ancient alliance and their Ionian origin.",
       "aliases": [
-        "Leontines"
+        "Leontines",
+        "Leontine"
       ],
       "category": "supporting",
       "kind": "group",
@@ -4835,12 +4880,21 @@
       "name": "The Camarinaeans",
       "body": "The one Dorian city of Sicily that took the Leontine side.",
       "aliases": [
-        "Camarinaeans"
+        "Camarinaeans",
+        "Camarinaean"
       ],
       "category": "reference",
       "kind": "group",
       "subtitle": "",
-      "snapshots": []
+      "snapshots": [
+        {
+          "after": [
+            20,
+            26
+          ],
+          "body": "Who heard Hermocrates and Euphemus in the same assembly and answered both alike. They liked the Athenians and had always been at enmity with Syracuse; but Syracuse was next door and might win without them, so they had already sent a few horsemen that way and meant to go on helping as sparingly as possible — and told both embassies that their oaths made it most consistent to side with neither."
+        }
+      ]
     },
     {
       "id": "rhegians",
@@ -4853,7 +4907,15 @@
       "category": "supporting",
       "kind": "group",
       "subtitle": "",
-      "snapshots": []
+      "snapshots": [
+        {
+          "after": [
+            19,
+            12
+          ],
+          "body": "Chalcidians and kinsmen of the Leontines, and the people Athens had most reason to count on. They would not take the armament inside their walls, gave it a market outside the city in the precinct of Artemis, and said they would side with neither party but wait and do whatever the rest of the Italiots did."
+        }
+      ]
     },
     {
       "id": "locrians-italy",
@@ -5541,12 +5603,21 @@
       "name": "The Sicels",
       "body": "Some of them subjects or allies of Syracuse and some in revolt from her; they invaded Himera from the interior while the Athenians landed on the coast.",
       "aliases": [
-        "Sicels"
+        "Sicels",
+        "Sicel"
       ],
       "category": "supporting",
       "kind": "group",
       "subtitle": "",
-      "snapshots": []
+      "snapshots": [
+        {
+          "after": [
+            20,
+            44
+          ],
+          "body": "Who came over to the Athenians once there was something to come over to. Those in the lowlands and subject to Syracuse mostly held aloof; the peoples of the interior, who had never been anything but independent, joined almost at once and brought down corn and sometimes money — and more of them came when the double wall began to reach the sea."
+        }
+      ]
     },
     {
       "id": "catanians",
@@ -5803,7 +5874,15 @@
       "category": "major",
       "kind": "person",
       "subtitle": "",
-      "snapshots": []
+      "snapshots": [
+        {
+          "after": [
+            20,
+            40
+          ],
+          "body": "Hermon’s son, who told an assembly that would not believe him that the Athenians were already on the voyage, and that the way to stop them was to meet them at Tarentum before they ever reached Sicily. After the first defeat he told the Syracusans that their spirit had not been beaten, only their discipline — fifteen generals and too many orders — and had them elect three with full powers and an oath to leave them alone; he was one. It was his idea to stop fighting pitched battles and build counterworks across the line the Athenian wall had to take."
+        }
+      ]
     },
     {
       "id": "hermon",
@@ -5966,7 +6045,15 @@
       "category": "supporting",
       "kind": "person",
       "subtitle": "",
-      "snapshots": []
+      "snapshots": [
+        {
+          "after": [
+            20,
+            42
+          ],
+          "body": "Xenophanes’s son, the third general, who wanted to sail straight for Syracuse and fight under the walls while the panic was at its height, since every armament is most terrible at first. He was overruled, and supported Alcibiades. Going to the help of a broken Athenian tribe at the counterwall, he crossed a ditch with a few men, was cut off on the far side, and was killed with five or six of them; the Syracusans carried the bodies off and gave them back under truce."
+        }
+      ]
     },
     {
       "id": "ptoeodorus",
@@ -6806,8 +6893,8 @@
     },
     {
       "id": "chalcidians-sicily",
-      "name": "The Sicilian Chalcidians",
-      "body": "Naxos and the cities out of it, Ionian by blood — which Hermocrates told the congress at Gela would not save them, since the attack was not inspired by hatred of one of two nationalities but by a desire for the good things in Sicily.",
+      "name": "The Chalcidian Race",
+      "body": "Chalcidians out of Euboea and the cities they made in Sicily — Naxos first, then Leontini, Catana, Zancle and Himera — Ionian by blood, which Hermocrates told the congress at Gela would not save them, since the attack was not inspired by hatred of one of two nationalities but by a desire for the good things in Sicily. He said the same thing at Camarina from the other side: Athens cherishes the Chalcidians of Leontini and keeps the Chalcidians of Euboea in servitude. Not the Chalcidians of the Thracian seaboard.",
       "aliases": [],
       "category": "supporting",
       "kind": "group",
@@ -7321,7 +7408,15 @@
       "category": "central",
       "kind": "person",
       "subtitle": "",
-      "snapshots": []
+      "snapshots": [
+        {
+          "after": [
+            20,
+            33
+          ],
+          "body": "Clinias’s son, who talked Athens into Sicily and then talked Sparta into Decelea. He answered Nicias with his seven chariots at Olympia and the argument that a city not inactive by nature ruins itself fastest by suddenly becoming so — and that an empire cannot fix the point at which it stops. Recalled on the charge of profaning the Mysteries, he sailed as far as Thurii with the Salaminia and disappeared; sentenced to death in absence, he crossed to the Peloponnese and was invited to Lacedaemon. There he set out the whole plan of the expedition — Sicily, then Italy, then Carthage, then the Peloponnese — asked for a Spartan commander for Syracuse and a fort at Decelea, and told them that love of country is not what a man feels when he is wronged."
+        }
+      ]
     },
     {
       "id": "clinias-father-of-alcibiades",
@@ -7654,9 +7749,10 @@
     {
       "id": "orneans",
       "name": "The Orneans",
-      "body": "The other small Argive ally in that line.",
+      "body": "The other small Argive ally in that line. Lacedaemon settled the Argive exiles among them, and Argos razed the town.",
       "aliases": [
-        "Orneans"
+        "Orneans",
+        "Orneatae"
       ],
       "category": "reference",
       "kind": "group",
@@ -7764,6 +7860,780 @@
       ],
       "category": "reference",
       "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "thucles-founder",
+      "name": "Thucles",
+      "body": "Who brought the first Hellenes to Sicily — Chalcidians out of Euboea — and founded Naxos and the altar of Apollo Archegetes on which the deputies for the games still sacrifice before sailing; and who five years after Syracuse was founded drove the Sicels out and founded Leontini and Catana. Not Eurymedon’s father.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "archias-corinth",
+      "name": "Archias",
+      "body": "One of the Heraclids from Corinth, who founded Syracuse the year after Naxos by driving the Sicels off the island the inner city stands on. Not the Camarinaean who was going to betray his town.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "evarchus-catana",
+      "name": "Evarchus",
+      "body": "Whom the Catanians chose as their founder, though Thucles and the Chalcidians settled the place. Not the tyrant of Astacus.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lamis",
+      "name": "Lamis",
+      "body": "Who brought a colony from Megara, founded Trotilus and then Thapsus, and died before his companions were driven out and given Hyblaean Megara.",
+      "aliases": [
+        "Lamis"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hyblon",
+      "name": "Hyblon",
+      "body": "A Sicel king, who gave up the place and invited the Megarians there.",
+      "aliases": [
+        "Hyblon"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "gelo",
+      "name": "Gelo",
+      "body": "The Syracusan tyrant who expelled the Megarians of Sicily from their city and country after two hundred and forty-five years, and depopulated Camarina.",
+      "aliases": [
+        "Gelo"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pamillus",
+      "name": "Pamillus",
+      "body": "Who came from the mother city Megara to help found Selinus.",
+      "aliases": [
+        "Pamillus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "antiphemus",
+      "name": "Antiphemus",
+      "body": "From Rhodes, who with Entimus of Crete led the colony that founded Gela in the forty-fifth year after Syracuse.",
+      "aliases": [
+        "Antiphemus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "entimus",
+      "name": "Entimus",
+      "body": "From Crete, the other founder of Gela.",
+      "aliases": [
+        "Entimus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aristonous",
+      "name": "Aristonous",
+      "body": "One of the two founders the Geloans gave to Acragas.",
+      "aliases": [
+        "Aristonous"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pystilus",
+      "name": "Pystilus",
+      "body": "The other founder of Acragas.",
+      "aliases": [
+        "Pystilus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "perieres",
+      "name": "Perieres",
+      "body": "From Cuma, one of the two founders of Zancle — which the Sicels named for its shape, zanclon being their word for a sickle.",
+      "aliases": [
+        "Perieres"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "crataemenes",
+      "name": "Crataemenes",
+      "body": "From Chalcis, the other founder of Zancle.",
+      "aliases": [
+        "Crataemenes"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "anaxilas",
+      "name": "Anaxilas",
+      "body": "Tyrant of Rhegium, who drove out the Samians who had driven out the first settlers of Zancle, peopled the town with a mixed population, and renamed it Messina after his own old country.",
+      "aliases": [
+        "Anaxilas"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "euclides",
+      "name": "Euclides",
+      "body": "One of the three who founded Himera from Zancle, where the language came out a mixture of Chalcidian and Doric and the institutions Chalcidian.",
+      "aliases": [
+        "Euclides"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "simus",
+      "name": "Simus",
+      "body": "The second of the three founders of Himera.",
+      "aliases": [
+        "Simus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sacon",
+      "name": "Sacon",
+      "body": "The third.",
+      "aliases": [
+        "Sacon"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "daxon",
+      "name": "Daxon",
+      "body": "One of the two Syracusan founders of Camarina.",
+      "aliases": [
+        "Daxon"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "menecolus",
+      "name": "Menecolus",
+      "body": "The other.",
+      "aliases": [
+        "Menecolus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hippocrates-gela",
+      "name": "Hippocrates",
+      "body": "Tyrant of Gela, who took the land of Camarina in ransom for Syracusan prisoners and resettled the place as its founder. Not Ariphron’s son, and not the Lacedaemonian of Book 8.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "italus",
+      "name": "Italus",
+      "body": "A king of the Sicels, from whom Italy took its name.",
+      "aliases": [
+        "Italus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "xenophanes",
+      "name": "Xenophanes",
+      "body": "Lamachus’s father.",
+      "aliases": [
+        "Xenophanes"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cyclopes",
+      "name": "The Cyclopes",
+      "body": "With the Laestrygones, the earliest inhabitants spoken of in any part of Sicily. Thucydides says he cannot tell what race they were, where they came from or where they went, and leaves his readers to the poets.",
+      "aliases": [
+        "Cyclopes"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "laestrygones",
+      "name": "The Laestrygones",
+      "body": "The other people of that first account, and equally unknown.",
+      "aliases": [
+        "Laestrygones"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sicanians",
+      "name": "The Sicanians",
+      "body": "Who claim to be the first of all and aboriginal, but who the facts show were Iberians driven by the Ligurians from the river Sicanus. They gave the island the name Sicania, were beaten by the Sicels and pushed into the south and west, and hold it still.",
+      "aliases": [
+        "Sicanians",
+        "Sicanian"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ligurians",
+      "name": "The Ligurians",
+      "body": "Who drove the Sicanians out of Iberia.",
+      "aliases": [
+        "Ligurians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "iberians",
+      "name": "The Iberians",
+      "body": "What the Sicanians really were; and, Alcibiades told the Lacedaemonians, among the barbarians Athens meant to hire — confessedly the most warlike known.",
+      "aliases": [
+        "Iberians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "elymi",
+      "name": "The Elymi",
+      "body": "Trojans who escaped the Achaeans at the fall of Ilium and settled next to the Sicanians, with some Phocians storm-carried from Troy by way of Libya; their towns are Eryx and Egesta.",
+      "aliases": [
+        "Elymi"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "opicans",
+      "name": "The Opicans",
+      "body": "Whom the Sicels were fleeing when they crossed from Italy on rafts, watching for the wind down the strait.",
+      "aliases": [
+        "Opicans"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "myletidae",
+      "name": "The Myletidae",
+      "body": "Syracusan exiles beaten in a civil war, who joined the Chalcidians in settling Himera.",
+      "aliases": [
+        "Myletidae"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "egestaeans",
+      "name": "The Egestaeans",
+      "body": "At war with their Selinuntine neighbours over marriages and a border, and the people who talked Athens into Sicily — reminding her of the alliance made in Laches’s time, warning that Dorians would one day come to the help of Dorians, and promising money. They showed the first Athenian envoys the treasures at the temple of Aphrodite on Eryx, and privately lent one another the same gold and silver plate from banquet to banquet until the sailors went home talking of riches. What could actually be produced was thirty talents.",
+      "aliases": [
+        "Egestaeans",
+        "Egestaean"
+      ],
+      "category": "major",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "selinuntines",
+      "name": "The Selinuntines",
+      "body": "Who had the Syracusans for allies and were pressing Egesta hard by land and sea, and whose contingent was the strongest of the Syracusan allies in the first battle.",
+      "aliases": [
+        "Selinuntines"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "siceliots",
+      "name": "The Siceliots",
+      "body": "Thucydides’s word for the Hellenes settled in Sicily, as against the Sicels and the other barbarians of the island. Hermocrates told them their quarrel was with an appetite, not with a nationality; Alcibiades told Athens they were mixed rabbles with no feeling of patriotism, who would come over one by one as they got a fair offer.",
+      "aliases": [
+        "Siceliots"
+      ],
+      "category": "major",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "geloans",
+      "name": "The Geloans",
+      "body": "Who founded Acragas, resettled Camarina for the third time, and sent two hundred horse to the Syracusan line in the first battle.",
+      "aliases": [
+        "Geloans"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "athenagoras",
+      "name": "Athenagoras",
+      "body": "The leader of the people at Syracuse and very powerful with the masses, who answered Hermocrates by saying the reports were concocted by men who wanted the city frightened into their hands; that no shrewd people would start a second war before finishing the first; and that democracy means the whole state while oligarchy means a part. He was wrong about the expedition and, on his own account of the young men of Syracuse, not wrong about much else.",
+      "aliases": [],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "myrrhine",
+      "name": "Myrrhine",
+      "body": "Callias’s daughter, by whom Hippias had the five children named on the pillar on the Acropolis — which is part of how Thucydides knows that Hippias, not Hipparchus, was the elder and the tyrant.",
+      "aliases": [
+        "Myrrhine"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "callias-father-of-myrrhine",
+      "name": "Callias",
+      "body": "Hyperechides’s son, and Myrrhine’s father. None of the other three men of the name.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hyperechides",
+      "name": "Hyperechides",
+      "body": "Callias’s father.",
+      "aliases": [
+        "Hyperechides"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pisistratus-archon",
+      "name": "Pisistratus",
+      "body": "Hippias’s son, named for his grandfather, who held the yearly archonship and dedicated the altar of the twelve gods in the marketplace and the altar of Apollo in the Pythian precinct. The Athenians lengthened the first altar and rubbed out his inscription; the second one is still there in faded letters.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "archedice",
+      "name": "Archedice",
+      "body": "Hippias’s daughter, married off to a Lampsacene because the family had influence with Darius; her tomb at Lampsacus says that pride was never known to her, though she was daughter, wife and sister to the throne.",
+      "aliases": [
+        "Archedice"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aeantides",
+      "name": "Aeantides",
+      "body": "Son of the tyrant of Lampsacus, who married Archedice and gave the exiled Hippias his first refuge.",
+      "aliases": [
+        "Aeantides"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "artemis",
+      "name": "Artemis",
+      "body": "In whose precinct outside Rhegium the armament camped when the town would not let it inside the walls, and where a market was provided for it.",
+      "aliases": [
+        "Artemis"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aphrodite",
+      "name": "Aphrodite",
+      "body": "To whose temple on Eryx the Egestaeans took the first Athenian envoys, to show them silver plate that gave an impression of wealth quite out of proportion to its value.",
+      "aliases": [
+        "Aphrodite"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "alcmaeonidae",
+      "name": "The Alcmaeonidae",
+      "body": "The banished family who with the Lacedaemonians put the tyranny down — not, Thucydides insists, Harmodius and the Athenians themselves, which is exactly what the commons had been told.",
+      "aliases": [
+        "Alcmaeonidae"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "thetes",
+      "name": "The Thetes",
+      "body": "The lowest of the Athenian property classes; seven hundred of them were shipped as marines in the first Sicilian armament.",
+      "aliases": [
+        "Thetes"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "italiots",
+      "name": "The Italiots",
+      "body": "The Hellenes of Italy, whose decision the Rhegians said they would wait for; the Syracusan envoys tried on their way to Corinth to convince them the expedition threatened Italy as much as Sicily.",
+      "aliases": [
+        "Italiots"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cretans",
+      "name": "The Cretans",
+      "body": "Eighty of the four hundred and eighty archers with the first armament.",
+      "aliases": [
+        "Cretans"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "heraclides",
+      "name": "Heraclides",
+      "body": "Lysimachus’s son, one of the three generals with full powers elected on Hermocrates’s advice — and elected again, under the same name, when the generals of the investment were deposed and blamed.",
+      "aliases": [
+        "Heraclides"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lysimachus-father-of-heraclides",
+      "name": "Lysimachus",
+      "body": "Heraclides the Syracusan’s father. Not Aristides’s father.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sicanus",
+      "name": "Sicanus",
+      "body": "Execestes’s son, the third of the three Syracusan generals. He shares his name with the river in Iberia the Sicanians were driven from, which carries no card.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "execestes",
+      "name": "Execestes",
+      "body": "Sicanus’s father.",
+      "aliases": [
+        "Execestes"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "euphemus",
+      "name": "Euphemus",
+      "body": "The Athenian ambassador at Camarina, who answered Hermocrates by conceding everything and claiming it as a right: that fear holds the empire together, that no one can be quarrelled with for providing for his own safety, and that for an imperial city nothing is unreasonable if it is expedient and nobody is a kinsman unless he is sure.",
+      "aliases": [
+        "Euphemus"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "gylippus",
+      "name": "Gylippus",
+      "body": "Cleandridas’s son, named by Lacedaemon to command for the Syracusans on Alcibiades’s advice. Hearing on the way that Syracuse was already invested — which was false — he gave the island up for lost and crossed to Tarentum to save Italy instead, tried to claim at Thurii the citizenship his father had held, was blown out to sea off the Terinaean gulf, and put back to refit. Nicias heard he was coming, counted his four ships, and set the voyage down as piracy.",
+      "aliases": [
+        "Gylippus"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cleandridas",
+      "name": "Cleandridas",
+      "body": "Gylippus’s father, whose citizenship at Thurii his son tried to claim.",
+      "aliases": [
+        "Cleandridas"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "diomilus",
+      "name": "Diomilus",
+      "body": "An exile from Andros, given six hundred picked men to hold Epipolae. The Athenians landed at Leon and went up at a run by Euryelus while the Syracusans were still at a review three miles away; he came on in disorder and was killed with about three hundred of them.",
+      "aliases": [
+        "Diomilus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pythen",
+      "name": "Pythen",
+      "body": "The Corinthian who crossed with Gylippus to Tarentum.",
+      "aliases": [
+        "Pythen"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eucles-syracuse",
+      "name": "Eucles",
+      "body": "One of the three generals elected at Syracuse when the generals of the investment were deposed. Not the Athenian who lost Amphipolis.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tellias",
+      "name": "Tellias",
+      "body": "The third of them.",
+      "aliases": [
+        "Tellias"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "phytodorus",
+      "name": "Phytodorus",
+      "body": "One of the three commanders of the thirty ships that landed in Laconia itself and so gave Lacedaemon her open pretext. Both editions spell him so, and neither gives him a patronymic or connects him with either Pythodorus.",
+      "aliases": [
+        "Phytodorus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "laespodius",
+      "name": "Laespodius",
+      "body": "The second of the three.",
+      "aliases": [
+        "Laespodius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "demaratus",
+      "name": "Demaratus",
+      "body": "The third.",
+      "aliases": [
+        "Demaratus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hermae",
+      "name": "The Hermae",
+      "body": "The square stone figures of Hermes that stood in doorways all over Athens, and whose faces were nearly all mutilated in a single night while the expedition was fitting out. Nobody ever found out who did it. The city took it for an omen and for the beginning of a conspiracy against the democracy, offered rewards, invited informers of any status, and executed or outlawed on the word of a prisoner who bought his own impunity — after which, Thucydides says, it was still not clear whether the sufferers had been punished unjustly.",
+      "aliases": [
+        "Hermae"
+      ],
+      "category": "major",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "inessaeans",
+      "name": "The Inessaeans",
+      "body": "Whose corn the Athenians burnt on the way back to Catana.",
+      "aliases": [
+        "Inessaeans"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hybleans",
+      "name": "The Hybleans",
+      "body": "Whose corn was burnt with it; the Athenians had already failed to storm their town.",
+      "aliases": [
+        "Hybleans"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "thurians",
+      "name": "The Thurians",
+      "body": "Who would not give Gylippus back his father’s citizenship, and who like Nicias thought four ships could only mean piracy.",
+      "aliases": [
+        "Thurians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hellespontines",
+      "name": "The Hellespontines",
+      "body": "Named by Hermocrates with the Ionians and the islanders as peoples who change continually but always serve a master — against free Dorians dwelling in Sicily.",
+      "aliases": [
+        "Hellespontines"
+      ],
+      "category": "reference",
+      "kind": "group",
       "subtitle": "",
       "snapshots": []
     }

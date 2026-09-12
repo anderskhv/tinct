@@ -102,13 +102,19 @@ Hippias’s brother, killed by Harmodius and Aristogiton near the temple of the 
 
 Who with Aristogiton suspected on the day itself that they had been betrayed, concluded that Hippias had been warned, and — unwilling to be arrested and lose their lives for nothing — fell on the brother instead of the tyrant.
 
+After source chapter 19, paragraph 27: In the flower of youthful beauty, and solicited twice by Hipparchus without success. Hipparchus took his revenge by inviting Harmodius’s young sister to carry a basket in a procession and then turning her away as unworthy. At the Panathenaea — the one day citizens in the procession could carry arms without suspicion — he and Aristogiton saw one of their accomplices talking easily with Hippias, took fright, and ran back inside the gates to kill the man who had wronged them rather than the tyrant. He was cut down on the spot. Thucydides tells the story at length to show that the Athenians are no more accurate than anyone else about their own history.
+
 ## Aristogiton · major
 
 Harmodius’s fellow conspirator.
 
+After source chapter 19, paragraph 27: A citizen of the middle rank, Harmodius’s lover, and the man whose fear that the powerful Hipparchus would simply take Harmodius by force set the whole design going. He got away through the crowd at the moment and was taken later and dispatched in no merciful way.
+
 ## Hippias · major
 
 The eldest of Pisistratus’s sons and the man who actually held supreme power — the one the conspirators meant to kill, and the one their accomplices had warned.
+
+After source chapter 19, paragraph 31: The eldest of Pisistratus’s sons and the tyrant in fact, which Thucydides establishes against the common Athenian belief from the altar his son dedicated, from the pillar on the Acropolis that names five children of his and none of his brothers’, and from the ease with which he held power on the day Hipparchus was killed. After the murder the tyranny pressed harder: he killed many citizens and married his daughter to a Lampsacene with influence at the Persian court. Deposed in the fourth year by the Lacedaemonians and the Alcmaeonidae, he went to Sigeum, to Lampsacus, and to King Darius — and came back twenty years later, an old man, with the Medes to Marathon.
 
 ## Pisistratus · supporting
 
@@ -535,6 +541,8 @@ From whose temple at Taenarus the Lacedaemonians raised the Helot suppliants and
 Whose growth in power, and the alarm it inspired in Lacedaemon, Thucydides gives as the real cause of the war — the cause most kept out of sight in formal speech. Never displaced from Attica because the soil was poor, they laid aside their arms first, took to the sea after the Mede, and turned the confederacy into an empire.
 
 After source chapter 7, paragraph 10: Whose country population came into the city and camped in the temples and the towers, and among whom the plague then broke out — fever, thirst, and a despair that took away the power of resistance the moment a man felt himself sickening. The doctors died thickest, because they visited the sick most. Men who had nothing succeeded to the property of men who had everything, and spent it quickly; burial rites collapsed; and nobody expected to live to be tried for anything. An old verse said a Dorian war would come and a plague with it, and they argued about whether the word had been plague or dearth.
+
+After source chapter 19, paragraph 32: Who fell in love with an expedition most of them could not have placed on a map. The older men thought a force that size could not come to grief, the young wanted to see foreign sights, and the crowd wanted the pay; the few who disliked it kept quiet rather than look unpatriotic. Then the Hermae were mutilated in one night, and the city that had just sent out the most splendid armament a single Hellenic state had ever launched spent the summer arresting its best citizens on the word of informers it never tested, executing some and outlawing others, and sleeping one night under arms in the temple of Theseus.
 
 ## The Lacedaemonians · central
 
@@ -1536,6 +1544,8 @@ After source chapter 14, paragraph 66: Niceratus’s son, and the general Cleon 
 
 After source chapter 16, paragraph 23: Niceratus’s son, the most successful general of his time and the author of the peace that carries his name. He wanted to secure his good fortune while it lasted, keep out of the way of chance, and leave behind the name of a statesman who never failed — and thought only peace made that possible. He got the treaty and then spent years watching it come apart: overlooked by Lacedaemon in favour of nobody, outmanoeuvred by Alcibiades in front of the assembly, and sent to Sparta himself to ask for Panactum standing and the Boeotian alliance given up. He came back with nothing but the oaths renewed, and was blamed for the treaty he had made.
 
+After source chapter 20, paragraph 45: Niceratus’s son, chosen against his will to command an expedition he had argued twice against. He told the assembly they were leaving many enemies behind to go and fetch more, and that the treaty was nominal; then, hoping to frighten them off with the size of the bill, asked for a hundred galleys and five thousand heavy infantry — and was thanked for good advice and given everything. In Sicily he sailed round the island collecting thirty talents instead of the promised fortune, argued for a show of force and a voyage home, and took the army to Syracuse only after Alcibiades had been recalled. He was in the Circle, sick, when the Syracusans came for it, and saved it by burning the engines and timber in front of the wall. The death of Lamachus left him sole commander of the siege.
+
 ## Niceratus · reference
 
 Nicias’s father.
@@ -1604,6 +1614,8 @@ In whose temple at Corcyra the men enrolled for the ships sat down as suppliants
 
 At war with Leontini, with all the Dorian cities of Sicily except Camarina for allies, and blockading the Leontines by land and sea when Athens first sent ships west.
 
+After source chapter 20, paragraph 45: Who would not believe the expedition was coming, made fun of the men who said so, and were still arguing when the fleet reached Rhegium. Beaten in the first battle by troops they outnumbered, they were told by Hermocrates that courage was not their problem and elected three generals instead of fifteen. They built counterwork after counterwork across the Athenian lines, lost each of them, and were walled in by a double wall to the sea — at which point they began to discuss terms with Nicias, deposed their generals, and blamed them for the ill fortune.
+
 ## The Leontines · supporting
 
 Who had Camarina and the Chalcidian cities, and who appealed to Athens on their ancient alliance and their Ionian origin.
@@ -1612,9 +1624,13 @@ Who had Camarina and the Chalcidian cities, and who appealed to Athens on their 
 
 The one Dorian city of Sicily that took the Leontine side.
 
+After source chapter 20, paragraph 27: Who heard Hermocrates and Euphemus in the same assembly and answered both alike. They liked the Athenians and had always been at enmity with Syracuse; but Syracuse was next door and might win without them, so they had already sent a few horsemen that way and meant to go on helping as sparingly as possible — and told both embassies that their oaths made it most consistent to side with neither.
+
 ## The Rhegians · supporting
 
 Of Italy, who were for their Leontine kinsmen, and whose town the Athenians made their base.
+
+After source chapter 19, paragraph 13: Chalcidians and kinsmen of the Leontines, and the people Athens had most reason to count on. They would not take the armament inside their walls, gave it a market outside the city in the precinct of Artemis, and said they would side with neither party but wait and do whatever the rest of the Italiots did.
 
 ## The Locrians of Italy · supporting
 
@@ -1848,6 +1864,8 @@ A Cnidian colony holding the islands of Aeolus from Lipara, and allies of Syracu
 
 Some of them subjects or allies of Syracuse and some in revolt from her; they invaded Himera from the interior while the Athenians landed on the coast.
 
+After source chapter 20, paragraph 45: Who came over to the Athenians once there was something to come over to. Those in the lowlands and subject to Syracuse mostly held aloof; the peoples of the interior, who had never been anything but independent, joined almost at once and brought down corn and sometimes money — and more of them came when the double wall began to reach the sea.
+
 ## The Catanians · reference
 
 Who live on Etna, the largest mountain in Sicily, and lost some of their land to the stream of fire.
@@ -1936,6 +1954,8 @@ The Persian taken at Eion on his way from the King to Lacedaemon. His dispatches
 
 Hermon’s son, a Syracusan, and the most influential man at the congress of Gela. He told the Sicilians that the question before them was not their several grievances but whether there was still time to save the island; that no one should think the Dorians alone were the enemy while Chalcidian blood protected the rest, since the attack was aimed not at a nationality but at what was in Sicily, the common property of them all; and that the quickest way to be rid of the guests was to stop giving them a reason to stay. They took his advice and kept what they had.
 
+After source chapter 20, paragraph 41: Hermon’s son, who told an assembly that would not believe him that the Athenians were already on the voyage, and that the way to stop them was to meet them at Tarentum before they ever reached Sicily. After the first defeat he told the Syracusans that their spirit had not been beaten, only their discipline — fifteen generals and too many orders — and had them elect three with full powers and an oath to leave them alone; he was one. It was his idea to stop fighting pitched battles and build counterworks across the line the Athenian wall had to take.
+
 ## Hermon · reference
 
 Hermocrates’s father.
@@ -1991,6 +2011,8 @@ One of the two commanders of the Athenian money-collecting squadron, who heard o
 ## Lamachus · supporting
 
 Their third colleague, who took ten ships into the Pontus and lost them at anchor in the Calex when rain inland brought a flood down on them, and marched his men overland through the Bithynian Thracians to Chalcedon.
+
+After source chapter 20, paragraph 43: Xenophanes’s son, the third general, who wanted to sail straight for Syracuse and fight under the walls while the panic was at its height, since every armament is most terrible at first. He was overruled, and supported Alcibiades. Going to the help of a broken Athenian tribe at the counterwall, he crossed a ditch with a few men, was cut off on the far side, and was killed with five or six of them; the Syracusans carried the bodies off and gave them back under truce.
 
 ## Ptoeodorus · reference
 
@@ -2272,9 +2294,9 @@ At whose condition, and at most of the rest of Hellas, Pagondas told the Boeotia
 
 The Athenian tribe that held the prytany when the armistice was voted.
 
-## The Sicilian Chalcidians · supporting
+## The Chalcidian Race · supporting
 
-Naxos and the cities out of it, Ionian by blood — which Hermocrates told the congress at Gela would not save them, since the attack was not inspired by hatred of one of two nationalities but by a desire for the good things in Sicily.
+Chalcidians out of Euboea and the cities they made in Sicily — Naxos first, then Leontini, Catana, Zancle and Himera — Ionian by blood, which Hermocrates told the congress at Gela would not save them, since the attack was not inspired by hatred of one of two nationalities but by a desire for the good things in Sicily. He said the same thing at Camarina from the other side: Athens cherishes the Chalcidians of Leontini and keeps the Chalcidians of Euboea in servitude. Not the Chalcidians of the Thracian seaboard.
 
 ## Phaeax · supporting
 
@@ -2452,6 +2474,8 @@ Of the Edonian town that came over to Brasidas. One of their targeteers overtook
 
 Clinias’s son, still young for high office in any other Hellenic city but distinguished by the splendour of his ancestry — and offended that Lacedaemon had made the peace through Nicias and Laches and passed him over. He sent privately to Argos to bring the Argives, Mantineans and Eleans to Athens; trapped the Lacedaemonian envoys into denying in the assembly the full powers they had claimed in the senate, by promising privately to give Pylos back for them; and carried the hundred years’ alliance. Afterwards he marched about the Peloponnese settling the league’s affairs, had the Athenians write on the Laconian pillar that Lacedaemon had not kept her oaths, and when Argos went over at last carried off three hundred suspected men and lodged them in the islands.
 
+After source chapter 20, paragraph 34: Clinias’s son, who talked Athens into Sicily and then talked Sparta into Decelea. He answered Nicias with his seven chariots at Olympia and the argument that a city not inactive by nature ruins itself fastest by suddenly becoming so — and that an empire cannot fix the point at which it stops. Recalled on the charge of profaning the Mysteries, he sailed as far as Thurii with the Salaminia and disappeared; sentenced to death in absence, he crossed to the Peloponnese and was invited to Lacedaemon. There he set out the whole plan of the expedition — Sicily, then Italy, then Carthage, then the Peloponnese — asked for a Spartan commander for Syracuse and a fort at Decelea, and told them that love of country is not what a man feels when he is wronged.
+
 ## Clinias · reference
 
 Alcibiades’s father. Not Cleopompus’s father.
@@ -2566,7 +2590,7 @@ Argive allies, next to the Orneans in the line at Mantinea, and among the seven 
 
 ## The Orneans · reference
 
-The other small Argive ally in that line.
+The other small Argive ally in that line. Lacedaemon settled the Argive exiles among them, and Argos razed the town.
 
 ## The Dians · reference
 
@@ -2603,3 +2627,267 @@ Demeas’s son, who brought the reinforcements that pressed the siege of Melos t
 ## Demeas · reference
 
 Philocrates’s father.
+
+## Thucles · supporting
+
+Who brought the first Hellenes to Sicily — Chalcidians out of Euboea — and founded Naxos and the altar of Apollo Archegetes on which the deputies for the games still sacrifice before sailing; and who five years after Syracuse was founded drove the Sicels out and founded Leontini and Catana. Not Eurymedon’s father.
+
+## Archias · supporting
+
+One of the Heraclids from Corinth, who founded Syracuse the year after Naxos by driving the Sicels off the island the inner city stands on. Not the Camarinaean who was going to betray his town.
+
+## Evarchus · reference
+
+Whom the Catanians chose as their founder, though Thucles and the Chalcidians settled the place. Not the tyrant of Astacus.
+
+## Lamis · reference
+
+Who brought a colony from Megara, founded Trotilus and then Thapsus, and died before his companions were driven out and given Hyblaean Megara.
+
+## Hyblon · reference
+
+A Sicel king, who gave up the place and invited the Megarians there.
+
+## Gelo · supporting
+
+The Syracusan tyrant who expelled the Megarians of Sicily from their city and country after two hundred and forty-five years, and depopulated Camarina.
+
+## Pamillus · reference
+
+Who came from the mother city Megara to help found Selinus.
+
+## Antiphemus · reference
+
+From Rhodes, who with Entimus of Crete led the colony that founded Gela in the forty-fifth year after Syracuse.
+
+## Entimus · reference
+
+From Crete, the other founder of Gela.
+
+## Aristonous · reference
+
+One of the two founders the Geloans gave to Acragas.
+
+## Pystilus · reference
+
+The other founder of Acragas.
+
+## Perieres · reference
+
+From Cuma, one of the two founders of Zancle — which the Sicels named for its shape, zanclon being their word for a sickle.
+
+## Crataemenes · reference
+
+From Chalcis, the other founder of Zancle.
+
+## Anaxilas · supporting
+
+Tyrant of Rhegium, who drove out the Samians who had driven out the first settlers of Zancle, peopled the town with a mixed population, and renamed it Messina after his own old country.
+
+## Euclides · reference
+
+One of the three who founded Himera from Zancle, where the language came out a mixture of Chalcidian and Doric and the institutions Chalcidian.
+
+## Simus · reference
+
+The second of the three founders of Himera.
+
+## Sacon · reference
+
+The third.
+
+## Daxon · reference
+
+One of the two Syracusan founders of Camarina.
+
+## Menecolus · reference
+
+The other.
+
+## Hippocrates · reference
+
+Tyrant of Gela, who took the land of Camarina in ransom for Syracusan prisoners and resettled the place as its founder. Not Ariphron’s son, and not the Lacedaemonian of Book 8.
+
+## Italus · reference
+
+A king of the Sicels, from whom Italy took its name.
+
+## Xenophanes · reference
+
+Lamachus’s father.
+
+## The Cyclopes · reference
+
+With the Laestrygones, the earliest inhabitants spoken of in any part of Sicily. Thucydides says he cannot tell what race they were, where they came from or where they went, and leaves his readers to the poets.
+
+## The Laestrygones · reference
+
+The other people of that first account, and equally unknown.
+
+## The Sicanians · supporting
+
+Who claim to be the first of all and aboriginal, but who the facts show were Iberians driven by the Ligurians from the river Sicanus. They gave the island the name Sicania, were beaten by the Sicels and pushed into the south and west, and hold it still.
+
+## The Ligurians · reference
+
+Who drove the Sicanians out of Iberia.
+
+## The Iberians · reference
+
+What the Sicanians really were; and, Alcibiades told the Lacedaemonians, among the barbarians Athens meant to hire — confessedly the most warlike known.
+
+## The Elymi · supporting
+
+Trojans who escaped the Achaeans at the fall of Ilium and settled next to the Sicanians, with some Phocians storm-carried from Troy by way of Libya; their towns are Eryx and Egesta.
+
+## The Opicans · reference
+
+Whom the Sicels were fleeing when they crossed from Italy on rafts, watching for the wind down the strait.
+
+## The Myletidae · reference
+
+Syracusan exiles beaten in a civil war, who joined the Chalcidians in settling Himera.
+
+## The Egestaeans · major
+
+At war with their Selinuntine neighbours over marriages and a border, and the people who talked Athens into Sicily — reminding her of the alliance made in Laches’s time, warning that Dorians would one day come to the help of Dorians, and promising money. They showed the first Athenian envoys the treasures at the temple of Aphrodite on Eryx, and privately lent one another the same gold and silver plate from banquet to banquet until the sailors went home talking of riches. What could actually be produced was thirty talents.
+
+## The Selinuntines · supporting
+
+Who had the Syracusans for allies and were pressing Egesta hard by land and sea, and whose contingent was the strongest of the Syracusan allies in the first battle.
+
+## The Siceliots · major
+
+Thucydides’s word for the Hellenes settled in Sicily, as against the Sicels and the other barbarians of the island. Hermocrates told them their quarrel was with an appetite, not with a nationality; Alcibiades told Athens they were mixed rabbles with no feeling of patriotism, who would come over one by one as they got a fair offer.
+
+## The Geloans · supporting
+
+Who founded Acragas, resettled Camarina for the third time, and sent two hundred horse to the Syracusan line in the first battle.
+
+## Athenagoras · major
+
+The leader of the people at Syracuse and very powerful with the masses, who answered Hermocrates by saying the reports were concocted by men who wanted the city frightened into their hands; that no shrewd people would start a second war before finishing the first; and that democracy means the whole state while oligarchy means a part. He was wrong about the expedition and, on his own account of the young men of Syracuse, not wrong about much else.
+
+## Myrrhine · reference
+
+Callias’s daughter, by whom Hippias had the five children named on the pillar on the Acropolis — which is part of how Thucydides knows that Hippias, not Hipparchus, was the elder and the tyrant.
+
+## Callias · reference
+
+Hyperechides’s son, and Myrrhine’s father. None of the other three men of the name.
+
+## Hyperechides · reference
+
+Callias’s father.
+
+## Pisistratus · reference
+
+Hippias’s son, named for his grandfather, who held the yearly archonship and dedicated the altar of the twelve gods in the marketplace and the altar of Apollo in the Pythian precinct. The Athenians lengthened the first altar and rubbed out his inscription; the second one is still there in faded letters.
+
+## Archedice · reference
+
+Hippias’s daughter, married off to a Lampsacene because the family had influence with Darius; her tomb at Lampsacus says that pride was never known to her, though she was daughter, wife and sister to the throne.
+
+## Aeantides · reference
+
+Son of the tyrant of Lampsacus, who married Archedice and gave the exiled Hippias his first refuge.
+
+## Artemis · reference
+
+In whose precinct outside Rhegium the armament camped when the town would not let it inside the walls, and where a market was provided for it.
+
+## Aphrodite · reference
+
+To whose temple on Eryx the Egestaeans took the first Athenian envoys, to show them silver plate that gave an impression of wealth quite out of proportion to its value.
+
+## The Alcmaeonidae · reference
+
+The banished family who with the Lacedaemonians put the tyranny down — not, Thucydides insists, Harmodius and the Athenians themselves, which is exactly what the commons had been told.
+
+## The Thetes · reference
+
+The lowest of the Athenian property classes; seven hundred of them were shipped as marines in the first Sicilian armament.
+
+## The Italiots · supporting
+
+The Hellenes of Italy, whose decision the Rhegians said they would wait for; the Syracusan envoys tried on their way to Corinth to convince them the expedition threatened Italy as much as Sicily.
+
+## The Cretans · reference
+
+Eighty of the four hundred and eighty archers with the first armament.
+
+## Heraclides · supporting
+
+Lysimachus’s son, one of the three generals with full powers elected on Hermocrates’s advice — and elected again, under the same name, when the generals of the investment were deposed and blamed.
+
+## Lysimachus · reference
+
+Heraclides the Syracusan’s father. Not Aristides’s father.
+
+## Sicanus · supporting
+
+Execestes’s son, the third of the three Syracusan generals. He shares his name with the river in Iberia the Sicanians were driven from, which carries no card.
+
+## Execestes · reference
+
+Sicanus’s father.
+
+## Euphemus · major
+
+The Athenian ambassador at Camarina, who answered Hermocrates by conceding everything and claiming it as a right: that fear holds the empire together, that no one can be quarrelled with for providing for his own safety, and that for an imperial city nothing is unreasonable if it is expedient and nobody is a kinsman unless he is sure.
+
+## Gylippus · major
+
+Cleandridas’s son, named by Lacedaemon to command for the Syracusans on Alcibiades’s advice. Hearing on the way that Syracuse was already invested — which was false — he gave the island up for lost and crossed to Tarentum to save Italy instead, tried to claim at Thurii the citizenship his father had held, was blown out to sea off the Terinaean gulf, and put back to refit. Nicias heard he was coming, counted his four ships, and set the voyage down as piracy.
+
+## Cleandridas · reference
+
+Gylippus’s father, whose citizenship at Thurii his son tried to claim.
+
+## Diomilus · supporting
+
+An exile from Andros, given six hundred picked men to hold Epipolae. The Athenians landed at Leon and went up at a run by Euryelus while the Syracusans were still at a review three miles away; he came on in disorder and was killed with about three hundred of them.
+
+## Pythen · supporting
+
+The Corinthian who crossed with Gylippus to Tarentum.
+
+## Eucles · reference
+
+One of the three generals elected at Syracuse when the generals of the investment were deposed. Not the Athenian who lost Amphipolis.
+
+## Tellias · reference
+
+The third of them.
+
+## Phytodorus · reference
+
+One of the three commanders of the thirty ships that landed in Laconia itself and so gave Lacedaemon her open pretext. Both editions spell him so, and neither gives him a patronymic or connects him with either Pythodorus.
+
+## Laespodius · reference
+
+The second of the three.
+
+## Demaratus · reference
+
+The third.
+
+## The Hermae · major
+
+The square stone figures of Hermes that stood in doorways all over Athens, and whose faces were nearly all mutilated in a single night while the expedition was fitting out. Nobody ever found out who did it. The city took it for an omen and for the beginning of a conspiracy against the democracy, offered rewards, invited informers of any status, and executed or outlawed on the word of a prisoner who bought his own impunity — after which, Thucydides says, it was still not clear whether the sufferers had been punished unjustly.
+
+## The Inessaeans · reference
+
+Whose corn the Athenians burnt on the way back to Catana.
+
+## The Hybleans · reference
+
+Whose corn was burnt with it; the Athenians had already failed to storm their town.
+
+## The Thurians · reference
+
+Who would not give Gylippus back his father’s citizenship, and who like Nicias thought four ships could only mean piracy.
+
+## The Hellespontines · reference
+
+Named by Hermocrates with the Ionians and the islanders as peoples who change continually but always serve a master — against free Dorians dwelling in Sicily.
