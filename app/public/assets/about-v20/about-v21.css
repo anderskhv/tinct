@@ -230,3 +230,26 @@ mark.ask-mark,span.ask-mark{color:inherit;background-color:rgba(255,226,120,var(
 @media (max-width:1024px){
   .reading-journey[data-beat=language] .reading-right-leaf::after{left:75%;right:2%;top:8%;height:40%}
 }
+
+/* Three beats ran too fast (2026-09-12, Anders). Same treatment as the LinkedIn-Hamlet beat (a2ee460e,
+   61b56f41a) and the great-books questions: the beat gets more scroll distance, and whatever arrives
+   inside it is respaced so the content spreads over the longer run instead of arriving at the old
+   fraction and then idling. Nothing else on the page changes height or timing.
+
+   1. "So what could we do about it?" and 2. "I don't understand this. / Talk to the book." both live in
+   #chapter-introducing, the one chapter that carries the whole reading sequence (bridge, the reveal,
+   and the five demonstrations). The chapter runs 2460svh instead of 2100, and the beat boundaries in
+   the story chunk (the n array in the beat-order patch) are respaced so every other beat keeps the
+   scroll distance it has: bridge 105svh -> 240, brand 168, talk 294 -> 520, language 294, character
+   294, recap 336, audio 609 -> 608. Inside the talk beat the page-turn and the answer now arrive at
+   the fractions that keep their old absolute position (reveal .34-.53 -> .17-.30, answer .52-.64 ->
+   .29-.38, both scoped to that beat), so the added distance goes to the answer standing still and
+   readable rather than to a longer wait before it. */
+.story-root[data-bookshelf=true] .journey-steps #chapter-introducing{height:2460svh;min-height:2460svh}
+
+/* 3. "Is this really what we want? / …or": its own chapter, 240svh instead of 120. "…or" used to arrive
+   at 26-40% of the chapter; at the new height that fraction would land it far too late and leave it
+   idling, so it arrives at 20-27% — a little later than today in absolute scroll (the question holds
+   the screen alone for longer), and then the pair stands for the rest of the chapter. */
+.story-root[data-bookshelf=true] .journey-steps #chapter-stop{height:240svh;min-height:240svh}
+.story-root[data-bookshelf=true] .scene-frame[data-scene=stop] .question-or{opacity:clamp(0, (var(--scene-progress) - .2) / .07, 1)}
