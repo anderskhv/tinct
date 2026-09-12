@@ -151,6 +151,36 @@ reproducible by running the script):
   it — IX.21 ends "a thing to be afraid of." and IX.22 begins "22.".
   Re-running the build produced a byte-identical file, so **no rebuild was made
   for Book IX** and no accepted book is reopened.
+  **Re-verified again at Book X step 1 (2026-09-12) by the stronger method the
+  Book IX round-1 reviewer introduced**, and no rebuild was made for Book X
+  either. A re-run of the build script was *not* accepted as proof, because
+  byte-identity to a re-run shows only that the file matches the script — which
+  is how the Book IV captions and the Book VII footnotes survived the first
+  build. Instead PG lines 5866–6374 (after the `X.` header, before the `XI.`
+  header) were re-extracted by an independently written reconstruction,
+  `scripts/verify_book10_source.py`, and diffed word for word against the staged
+  Book X. It reconstructs **38 paragraphs**, matching the staged count, and
+  **the only differences in the whole book are the four dagger marks** at X.9
+  (PG 6038), X.19 (PG 6132), X.25 (PG 6183) and X.31 (PG 6229) — exactly the
+  four this section documents. Class by class: **seventeen footnotes** in eleven
+  indented runs (openers at PG 5886, 5968, 6009, 6015, 6050, 6054, 6077, 6082,
+  6158, 6172, 6188, 6257, 6264, 6268, 6319, 6353, 6370), **all indented**, none
+  flush left, all already stripped, and their seventeen in-text markers all
+  removed — sixteen from flush-left text plus one inside the indented verse at
+  PG 6306; **no illustration caption**; exactly **one** standalone flush-left
+  line in the whole book (the `X.` header); **no running head, no page number,
+  no catchword**; **verse present and correctly joined** — Long's two-line Homer
+  quotation at PG 6305–6306 is his text, indented five spaces, and is joined
+  into X.34 with spaces as this section's verse rule requires, while the
+  four-line Odyssey quotation at PG 6026–6029 is indented seven spaces *inside*
+  footnote [B] and goes with the footnote; **no verse citation in the body** —
+  the Homer citation ("Homer, II., vi. 146.") is itself footnote [A] at PG 6319;
+  and **no Greek in the body** (every `[Greek: …]` span in the range is inside a
+  footnote body). A flush-left footnote body of the VII.45 kind would have been
+  picked up by the reconstruction as ordinary text and would have shown as a
+  diff; none did. The staged file's sha256 is unchanged at `7798607d…`, 487
+  paragraphs, twelve chapters, section profile unchanged with **38** in Book 10,
+  and `git status` is clean, so no accepted book is reopened.
 - Long's footnotes removed. The build skipped footnotes by their indented
   `[A]` opener, but three in Book VII are printed flush left in the PG text
   ("See Aristophanes, Acharnenses, v. 661." and "From the Apologia, c. 16."
