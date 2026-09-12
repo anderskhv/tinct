@@ -8,6 +8,8 @@ The Athenian who wrote this. He began at the moment the war broke out, judging i
 
 After source chapter 14, paragraph 34: The Athenian who wrote this, and who appears in it once as a commander. He held the right to work the gold mines of that part of Thrace and had great influence on the mainland, and was at Thasos, half a day’s sail off, when Eucles sent for him. He sailed at once with seven ships. Brasidas, who knew exactly who was coming, offered Amphipolis terms good enough to be taken that same day; Thucydides reached Eion the same evening, within a night of losing that too, and secured it instead.
 
+After source chapter 16, paragraph 2: The Athenian who wrote this, and who says plainly here how he came to be able to. He lived through the whole twenty-seven years, of an age to understand them and giving his attention to them in order to know the exact truth; and after his command at Amphipolis he was in exile from his country for twenty years, which put him with both sides and especially with the Peloponnesians, and gave him the leisure to observe. He insists that the ten years’ peace was no peace — neither side gave back or received what was agreed — and counts the whole thing as one war, by summers and winters, because the names of magistrates cannot date anything accurately.
+
 ## Thucydides · reference
 
 One of the three commanders of the forty ships that reinforced the siege of Samos. He is named without a patronymic, and the history never says whether the author means himself.
@@ -240,6 +242,8 @@ After source chapter 8, paragraph 32: King of the Macedonians and nobody’s rel
 
 After source chapter 14, paragraph 68: King of the Macedonians, who procured a Peloponnesian army and then quarrelled with it. He had brought Brasidas out chiefly to put down Arrhabaeus, and when Brasidas parleyed with Arrhabaeus instead he cut his contribution from a half to a third. On the second expedition his Illyrian mercenaries went over to the enemy, his own troops broke in a night panic and went home, and Brasidas’s soldiers cut down the oxen they found on the road. From that moment he made peace with Athens, and set his friends in Thessaly to stop the next Lacedaemonian army before it could start.
 
+After source chapter 16, paragraph 80: King of the Macedonians, who joined the Argive and Lacedaemonian league when it was offered — Argos being the original home of his family — without at once breaking with Athens, and who then failed Athens over the expedition against the Chalcidians and Amphipolis so completely that it had to be broken up. Athens blockaded Macedonia and proclaimed him an enemy.
+
 ## Alexander · supporting
 
 Perdiccas’s father, king of the Macedonians. Pydna was in his dominions.
@@ -387,6 +391,8 @@ Cleombrotus’s son, acting for the boy king Pleistoanax, who brought fifteen hu
 Pausanias’s son, king of the Lacedaemonians: a minor when Nicomedes acted for him, and in command himself of the invasion that reached Eleusis and Thrius and went no further.
 
 After source chapter 6, paragraph 24: Pausanias’s son and king of Lacedaemon, whose invasion fourteen years earlier had turned back at Eleusis and Thria — which cost him his exile, since it was thought he had been bribed to retreat. While Archidamus’s army was on the same ground, the Athenians remembered it and still hoped he would go no further.
+
+After source chapter 15, paragraph 15: Pausanias’s son and king of Lacedaemon, who wanted peace because peace was the only thing that could stop his enemies using him. He had been nineteen years in exile at Lycaeum, with half his house built inside the sacred precinct of Zeus for fear of his countrymen, and was restored — his accusers said — because he and his brother Aristocles had bribed the prophetess at Delphi to tell every deputation to bring home the seed of the demigod son of Zeus. Every reverse after that was laid at the door of his unjust restoration.
 
 ## Tolmides · supporting
 
@@ -536,6 +542,8 @@ Slow to go to war except under necessity, with the same form of government for m
 
 After source chapter 13, paragraph 14: Who lost four hundred and twenty men on an island and were never the same in this war. Nothing in it surprised the Hellenes so much: the opinion had been that no force or famine would make them give up their arms. With Pylos and Cythera held against them and descents possible anywhere, they stood on the defensive everywhere, raised four hundred horse and a force of archers for the first time, and grew afraid to take the field at all — new to adversity, and convinced they could not stir without making a blunder.
 
+After source chapter 16, paragraph 61: Whose name had been ruined by the island and was restored by one battle. In the years of the peace they gave back nothing they had promised, made a separate alliance with the Boeotians, were excluded from Olympia for a fine they would not pay, and were thought slow and faint-hearted by all Hellas. At Mantinea they were caught wholly unprepared — a shock such as they do not remember experiencing — fell into their ranks at a word passed from king to polemarch to lochage to pentecoster to enomotarch, advanced slowly to the flutes so as not to break their order, were completely outdone in generalship and won anyway. Fortune, it was thought, might have humbled them; the men were the same as ever.
+
 ## The Peloponnesians · major
 
 Farmers without funds private or public, without experience of long wars overseas, and without the single council-chamber that prompt action needs — a diet of many peoples in which each state has an equal vote and pushes its own ends, so that nothing is done. That is Pericles’s account of them; their own is that they have numbers, experience, obedience, and the temple funds at Olympia and Delphi to hire away Athenian sailors with.
@@ -543,6 +551,8 @@ Farmers without funds private or public, without experience of long wars oversea
 ## The Corinthians · major
 
 Set on an isthmus and a commercial hub from time immemorial, the first to build galleys in Hellas and the first Hellenes to fight a sea-battle. They took over Epidamnus from a colony that despised them, lost at Leukimme, claimed the victory at Sybota, and canvassed the Peloponnese city by city for the war — speaking last at both congresses, after letting the other speakers inflame the room.
+
+After source chapter 16, paragraph 35: Who would not accept the peace, went straight from Lacedaemon to Argos to build a coalition against it, and then would not join the coalition either. She told Lacedaemon that her oaths to her Thracian friends stood in the way, and that the formula allowed for it — the gods stood in the way. She was content, she said, with the first defensive alliance, which bound her to help nobody in an attack; and having stood aloof from her own allies, turned her thoughts to Lacedaemon again.
 
 ## The Corcyraeans · major
 
@@ -613,6 +623,8 @@ Asked for money toward the convoy.
 ## The Eleans · supporting
 
 Asked for hulls as well as money; the Corcyraeans burnt Cyllene, their harbour, for it.
+
+After source chapter 16, paragraph 37: Who excluded Lacedaemon from Olympia. They had fined her two thousand minae for sending heavy infantry into Lepreum during the sacred truce, offered to forgive their own share if Lepreum were restored, then offered to settle for an oath sworn on the altar of Olympian Zeus, and were refused both times. Lacedaemon sacrificed at home; the Eleans kept watch over the festival with armed young men and a thousand Argives, and scourged a Lacedaemonian on the course for crowning his own charioteer.
 
 ## The Sicyonians · supporting
 
@@ -724,6 +736,8 @@ Most of them descendants of the old Messenians enslaved in the famous war, which
 
 After source chapter 14, paragraph 5: Whose numbers and stubbornness governed Lacedaemonian policy at all times. With Pylos held against them, the Spartans invited the Helots to pick out those who claimed to have distinguished themselves most against the enemy, in order to receive their freedom — really to find out which of them were high-spirited enough to rebel. Two thousand were chosen, crowned themselves and went round the temples; they were done away with soon afterwards, and no one ever knew how each of them perished. Seven hundred more were sent safely out of the country as heavy infantry with Brasidas.
 
+After source chapter 16, paragraph 10: Whose service in Thrace bought some of them their freedom and cost Lacedaemon nothing she valued. Those who had gone out with Brasidas were freed by decree and allowed to live where they liked, and were settled with the Neodamodes at Lepreum on the Elean border. The Spartans taken on the island were disfranchised instead — barred from office and from buying or selling — for fear that men who had surrendered their arms would start a revolution if left with their full rights; after some time the rights were given back.
+
 ## The Perioeci · reference
 
 The Thuriats and Aethaeans among them seceded to Ithome with the Helots.
@@ -735,6 +749,8 @@ The name all the Helots came to carry, because most of them descended from the M
 After source chapter 8, paragraph 20: Settled by Athens at Naupactus after Ithome, and now the garrison that marched along the shore beside Phormio’s ships — and that waded into the sea in armour to board the disabled Athenian hulls the Peloponnesians were towing away, and took them back.
 
 After source chapter 12, paragraph 50: Whose old country Pylos had once been, and who supplied the forty heavy infantry, the thirty-oared privateer and the shields that held it. Their commander found the path round the Lacedaemonian rear on Sphacteria when the struggle seemed endless. Afterwards Naupactus sent the likeliest of them back to the old country to raid Laconia, which their common dialect made all the more destructive.
+
+After source chapter 16, paragraph 11: Whose raids out of Pylos were the thing Lacedaemon most wanted stopped, and the first concession Athens made in the peace. They were withdrawn and settled at Cranii in Cephallenia — and put back into Pylos to plunder Laconia again as soon as Alcibiades wanted a grievance made visible.
 
 ## The Thuriats · reference
 
@@ -767,6 +783,8 @@ Beaten with the Phoenicians and Cyprians off Salamis in Cyprus.
 ## The Argives · supporting
 
 Sparta’s enemy, whom the Athenians allied with the moment they were sent home from Ithome, and a thousand of whom marched with them to Tanagra. Themistocles in exile lived among them and kept secret hoards there.
+
+After source chapter 16, paragraph 81: Who came out of the ten years’ war rich and neutral, meant to have the Peloponnese, and ended with a Lacedaemonian oligarchy in the city. They took Mantinea, Elis and Corinth into a league, then Athens; threw away the finest field they would ever have because two men made a truce nobody had authorised; lost seven hundred at Mantinea; and were talked by their own Lacedaemonian party into a fifty years’ alliance with the enemy. The commons came back at the Gymnopaediae, killed and banished the oligarchs, and began long walls to the sea with the whole city at the work, women and slaves included, and masons sent from Athens.
 
 ## The Achaeans · supporting
 
@@ -939,6 +957,8 @@ Tellis’s son. In command of a guard in Laconia when the Athenians assaulted Me
 After source chapter 12, paragraph 12: Tellis’s son, and captain of a galley in the assault on Pylos. Seeing the captains and steersmen hang back for fear of wrecking their ships on that coast, he shouted that they must not spare timber while an enemy fortified himself in their country, forced his own steersman to run the ship ashore, and was cut down on the gangway. His shield slipped into the sea, washed ashore, and went into the Athenian trophy.
 
 After source chapter 14, paragraph 64: Tellis’s son, and the best advertisement Lacedaemon had. He relieved Megara by standing in order of battle and not fighting; walked seventeen hundred men through hostile Thessaly by keeping just ahead of the news; and then took the Thracian towns by speech and moderation rather than by siege — Acanthus with an argument and a threat to the vintage, Amphipolis with terms so fair that the townsmen stopped listening to their own general, Torone through a postern, Scione by crossing at night in a small boat behind a galley. Scione crowned him with gold as the liberator of Hellas. Thucydides says he was the first to go out and show himself so good a man at all points that he left behind the conviction that the rest were like him, and that this was what afterwards made the allies of Athens want the Lacedaemonians. Sparta sent him no reinforcements: partly envy among the chief men, partly a fixed wish to get the prisoners back and end the war.
+
+After source chapter 15, paragraph 10: Tellis’s son, killed in the victory that made him a hero. He would not march out in order against the flower of the Athenian army, but picked a hundred and fifty men, left the rest with Clearidas at the Thracian gates, and told them that the enemy’s spears and heads were bobbing — troops that do that seldom stand a charge. He ran out at the palisade gate, broke the Athenian centre, was wounded going on to the right, and was carried into the town alive long enough to hear that he had won. The Amphipolitans buried him in front of what is now their marketplace, fenced his tomb, sacrifice to him as a hero with games and yearly offerings, made him their founder, and pulled down everything that recorded Hagnon.
 
 ## Tellis · reference
 
@@ -1466,6 +1486,8 @@ Cleaenetus’s son, the most violent man at Athens and at that time by far the m
 
 After source chapter 12, paragraph 48: Cleaenetus’s son, who talked Athens out of the peace the Lacedaemonians offered for the men on the island, and then had to live with it. Accused of blocking the treaty, he called the reports from Pylos lies; offered the command of an expedition as a taunt to Nicias; found the offer taken seriously; and could not get out of his own words. He asked for no Athenian troops, promised to bring the Lacedaemonians back alive or kill them there within twenty days, and — crazy as the promise was — kept it, having chosen Demosthenes, who had already planned the landing, as his colleague.
 
+After source chapter 15, paragraph 9: Cleaenetus’s son, whose luck at Pylos killed him at Amphipolis. He took Torone before Brasidas could relieve it, then sat at Eion waiting for Perdiccas and for Thracian mercenaries until his own soldiers’ contempt forced him up the road. He posted the army on a hill to look at the place, thought nobody would come out, and was sounding the retreat — wheeling his right and exposing its unarmed side — when Brasidas came out of two gates at once. He had never had any thought of fighting, fled first, and was overtaken and killed by a Myrcinian targeteer. About six hundred Athenians fell, and seven of the enemy.
+
 ## Cleaenetus · reference
 
 Cleon’s father.
@@ -1511,6 +1533,8 @@ Whose upper town was taken by Itamenes and the barbarians in a party quarrel, an
 Niceratus’s son, who took Minoa off Megara so that the blockade could be kept from a nearer station, and led sixty ships against Melos and the Locrian seaboard.
 
 After source chapter 14, paragraph 66: Niceratus’s son, and the general Cleon taunted into losing his command at Pylos — he resigned it in the assembly and called the Athenians to witness that he had. He beat the Corinthians at Solygia, took Cythera by a mixture of battle and private correspondence, burnt Thyrea, and was wounded on the hill outside Mende; and it was to him that Perdiccas had to prove his change of side.
+
+After source chapter 16, paragraph 23: Niceratus’s son, the most successful general of his time and the author of the peace that carries his name. He wanted to secure his good fortune while it lasted, keep out of the way of chance, and leave behind the name of a statesman who never failed — and thought only peace made that possible. He got the treaty and then spent years watching it come apart: overlooked by Lacedaemon in favour of nobody, outmanoeuvred by Alcibiades in front of the assembly, and sent to Sparta himself to ask for Panactum standing and the Boeotian alliance given up. He came back with nothing but the oaths renewed, and was blamed for the treaty he had made.
 
 ## Niceratus · reference
 
@@ -1599,6 +1623,8 @@ Who were for the Syracusans, beat the Athenians at their fort on the Halex and a
 ## Agis · major
 
 Archidamus’s son, who brought the army as far as the Isthmus and turned back without invading because of the earthquakes.
+
+After source chapter 16, paragraph 61: Archidamus’s son, king of Lacedaemon, who nearly lost the Peloponnese and then saved it in an afternoon. He had the Argives surrounded before their own walls and granted them a four-month truce instead, on the word of two men who had no authority to give it — for which Sparta came within a vote of razing his house and fining him ten thousand drachmae, and did pass a law attaching ten counsellors to him without whose consent he could not lead an army out. At Mantinea he ordered his left extended in the moment of the onset, two polemarchs refused to fill the gap, and the Mantineans poured through it; he turned the whole army on the broken wing and won the greatest Hellenic battle for a very long time.
 
 ## Demosthenes · central
 
@@ -1722,6 +1748,8 @@ Whose forge the people of those parts believe to be on Hiera, from the flame the
 
 Islanders who refused to be subjects of Athens or even to join her confederacy, and whose land was devastated without bringing them to terms.
 
+After source chapter 17, paragraph 34: A colony of Lacedaemon that would not be subjects like the other islanders. Told by the Athenian envoys that right is only in question between equals in power, while the strong do what they can and the weak suffer what they must, they answered that they would not in a moment give up the freedom of a city seven hundred years old, and trusted to fortune, to the gods, and to the Lacedaemonians. They broke the lines twice by night. Then treachery inside ended it: the Athenians killed all the grown men they took, sold the women and children, and sent out five hundred colonists of their own.
+
 ## The Malians · reference
 
 Three tribes in all — the Paralians, the Hiereans and the Trachinians.
@@ -1809,6 +1837,8 @@ Who would do neither, until Eurylochus took one of their villages.
 ## The Mantineans · supporting
 
 Massed on the left at Olpae, and the only unit that kept its ranks in the retreat — which is why Demosthenes and the Acarnanians quietly let them go, to discredit the Lacedaemonians with the Hellenes of those parts as traitors and self-seekers.
+
+After source chapter 16, paragraph 81: Who had used the Attic war to bring much of Arcadia under them and went over to Argos for fear Lacedaemon would take it back. They held the right at the battle fought in their own country, broke the Sciritae and Brasideans and poured into the gap Agis had opened, and then had to run when the rest of the line collapsed behind them. When Argos changed sides they found they could do nothing alone, came to terms, and gave up their sovereignty over the towns.
 
 ## The Liparaeans · reference
 
@@ -2150,6 +2180,8 @@ The third of the Lacedaemonians who reached Brasidas to inspect the state of aff
 
 Cleonymus’s son, one of the young Spartans brought out against precedent to command the towns, and placed by Brasidas in Amphipolis.
 
+After source chapter 15, paragraph 29: Cleonymus’s son, left in command at Amphipolis with the bulk of the force, who came out of the Thracian gates on Brasidas’s signal and finished the battle after Brasidas fell. Ordered by the peace to hand the town over to Athens, he would not — obliging the Chalcidians, and pleading that he could not do it against their will — and went to Lacedaemon in person to see whether the agreement could still be changed. It could not, and he was sent back to hand it over if he could and in any case to bring the Peloponnesians out.
+
 ## Cleonymus · reference
 
 Clearidas’s father.
@@ -2181,6 +2213,8 @@ Whose few partisans broke down the postern from within, cut through the bar of t
 ## The Scionaeans · major
 
 Who say they are Pallenians from the Peloponnese, carried in to the spot by the storm that caught the Achaeans on the voyage from Troy. They revolted while the armistice was being carried round, crowned Brasidas with a crown of gold as the liberator of Hellas and garlanded him privately like an athlete — and had a decree passed at Athens, on Cleon’s motion, to reduce them and put them to death.
+
+After source chapter 16, paragraph 8: Who had crowned Brasidas as the liberator of Hellas. Athens reduced the town, put the adult males to death, made slaves of the women and children, and gave the land to the Plataeans to live in.
 
 ## The Mendaeans · supporting
 
@@ -2241,3 +2275,331 @@ The Athenian tribe that held the prytany when the armistice was voted.
 ## The Sicilian Chalcidians · supporting
 
 Naxos and the cities out of it, Ionian by blood — which Hermocrates told the congress at Gela would not save them, since the attack was not inspired by hatred of one of two nationalities but by a desire for the good things in Sicily.
+
+## Phaeax · supporting
+
+Erasistratus’s son, sent with two colleagues to Italy and Sicily to talk the Sicilians into a general coalition against Syracuse and so save the commons of Leontini. He succeeded at Camarina and Agrigentum, was rebuffed at Gela, and gave the rest up rather than be refused again; on the way home he made terms with the Locrian settlers he met, who were the only allies that had not come into the Sicilian peace.
+
+## Erasistratus · reference
+
+Phaeax’s father.
+
+## Polles · reference
+
+King of the Odomantians, whom Cleon asked for as many Thracian mercenaries as he could bring. Cleon was still waiting for them at Eion when his own soldiers’ grumbling forced him up to Amphipolis.
+
+## Autocharidas · reference
+
+One of the three Lacedaemonians who took nine hundred heavy infantry toward Thrace, got as far as Pierium in Thessaly, and turned back when they heard Brasidas was dead.
+
+## Epicydidas · reference
+
+The third of them.
+
+## Aristocles · reference
+
+Pleistoanax’s brother, accused with him of bribing the prophetess at Delphi to tell every Lacedaemonian deputation that arrived to bring home the seed of the demigod son of Zeus, or else plough with a silver ploughshare. Not the polemarch who would not move his company at Mantinea.
+
+## Pleistolas · supporting
+
+The ephor at Lacedaemon by whose year the Peace of Nicias is dated, and one of the seventeen who swore to it.
+
+## Alcaeus · reference
+
+The archon at Athens by whose year the peace is dated.
+
+## Damagetus · reference
+
+One of the seventeen Lacedaemonians who swore to the peace and to the alliance. The two lists spell him Damagetis and Damagetus.
+
+## Chionis · reference
+
+One of the seventeen Lacedaemonian signatories.
+
+## Metagenes · reference
+
+One of the seventeen Lacedaemonian signatories.
+
+## Acanthus · reference
+
+One of the seventeen Lacedaemonian signatories, who shares his name with the Andrian colony Brasidas talked into revolt.
+
+## Daithus · reference
+
+One of the seventeen Lacedaemonian signatories.
+
+## Zeuxidas · reference
+
+One of the seventeen Lacedaemonian signatories.
+
+## Antippus · reference
+
+One of the seventeen Lacedaemonian signatories.
+
+## Alcinadas · reference
+
+One of the seventeen Lacedaemonian signatories.
+
+## Empedias · reference
+
+One of the seventeen Lacedaemonian signatories.
+
+## Menas · reference
+
+A Lacedaemonian signatory, and one of the three envoys sent to Thrace with orders to Clearidas to hand Amphipolis over — which he did not.
+
+## Laphilus · reference
+
+One of the seventeen Lacedaemonian signatories.
+
+## Tellis · reference
+
+One of the seventeen Lacedaemonian signatories. He is given no patronymic and the history does not say whether he is Brasidas’s father.
+
+## Lampon · reference
+
+One of the seventeen Athenians who swore to the peace and to the alliance, and first on both lists.
+
+## Isthmonicus · reference
+
+One of the seventeen Athenian signatories. The two lists spell him Isthmonicus and Isthmionicus.
+
+## Euthydemus · reference
+
+One of the seventeen Athenian signatories. He is given no patronymic and the history does not say whether he is the Euthydemus who commanded in Sicily.
+
+## Procles · reference
+
+One of the seventeen Athenian signatories. Not Theodorus’s son, who was killed in Aetolia.
+
+## Pythodorus · reference
+
+One of the seventeen Athenian signatories. He is given no patronymic, and the history does not say which of the two Pythodoruses it is.
+
+## Myrtilus · reference
+
+One of the seventeen Athenian signatories.
+
+## Thrasycles · reference
+
+One of the seventeen Athenian signatories. He is given no patronymic and the history does not say whether he is the commander of Book 8.
+
+## Aristocrates · reference
+
+One of the seventeen Athenian signatories. He is given no patronymic and the history does not say whether he is either of the later Aristocrateses.
+
+## Iolcius · reference
+
+One of the seventeen Athenian signatories.
+
+## Timocrates · reference
+
+One of the seventeen Athenian signatories. Neither the Corinthian, the Lacedaemonian who killed himself off Naupactus, nor Aristotle’s father.
+
+## Leon · reference
+
+One of the seventeen Athenian signatories.
+
+## Ampelidas · reference
+
+One of the two Lacedaemonians whose application to renew the thirty years’ truce Argos refused, which is what made Lacedaemon turn to the Athenian alliance instead.
+
+## Lichas · major
+
+Arcesilaus’s son, a Lacedaemonian, and Argos’s proxenus at Sparta. He was scourged on the course at Olympia by the umpires for coming forward and crowning his own charioteer after his horses had been proclaimed a Boeotian victory — Lacedaemon being excluded from the games that year — and afterwards carried to Argos the two proposals, war or peace, that broke the Argive league.
+
+## Arcesilaus · reference
+
+Lichas’s father.
+
+## Pharnaces · reference
+
+Who gave the Delians Atramyttium in Asia to live in when Athens expelled them from their island. The history does not say whether he is the Pharnaces whose son Artabazus carried Pausanias’s letters.
+
+## The Delians · supporting
+
+Expelled from their own island by Athens, which had concluded that some old offence at the time of their consecration was the flaw in the purification; they were given Atramyttium in Asia by Pharnaces, and brought back two years later on the command of the god at Delphi.
+
+## The Olynthians · supporting
+
+With whom the Athenians exchanged the prisoners from Torone, and who took Mecyberna and its Athenian garrison during the peace.
+
+## The Hipponians · reference
+
+Colonists of the Locrians of Italy, and at war with them on their border — which is why the Locrians came into the treaty with Athens at last.
+
+## The Medmaeans · reference
+
+The other Locrian colony at war with its mother city.
+
+## The Mecybernaeans · reference
+
+One of the three Chalcidian peoples the peace left in their own cities.
+
+## The Sanaeans · reference
+
+One of the three.
+
+## The Singaeans · reference
+
+The third.
+
+## The Myrcinians · supporting
+
+Of the Edonian town that came over to Brasidas. One of their targeteers overtook and killed Cleon; their horse and the Chalcidians’ finished the Athenian right.
+
+## Alcibiades · central
+
+Clinias’s son, still young for high office in any other Hellenic city but distinguished by the splendour of his ancestry — and offended that Lacedaemon had made the peace through Nicias and Laches and passed him over. He sent privately to Argos to bring the Argives, Mantineans and Eleans to Athens; trapped the Lacedaemonian envoys into denying in the assembly the full powers they had claimed in the senate, by promising privately to give Pylos back for them; and carried the hundred years’ alliance. Afterwards he marched about the Peloponnese settling the league’s affairs, had the Athenians write on the Laconian pillar that Lacedaemon had not kept her oaths, and when Argos went over at last carried off three hundred suspected men and lodged them in the islands.
+
+## Clinias · reference
+
+Alcibiades’s father. Not Cleopompus’s father.
+
+## Cleobulus · supporting
+
+One of the two ephors most anxious to break the treaty off, who took the Boeotians and Corinthians aside and told them to get themselves into alliance with Argos first and with Lacedaemon afterwards.
+
+## Xenares · supporting
+
+The other, and the one whose party carried the vote that kept the Boeotian alliance when Nicias came to ask for it to be given up.
+
+## Xenares · reference
+
+Cnidis’s son, the Lacedaemonian commanding at Heraclea in Trachis, and among the slain when the neighbouring tribes beat the Heracleots. The history does not say whether he is the ephor.
+
+## Cnidis · reference
+
+Xenares the commander’s father.
+
+## Eustrophus · reference
+
+One of the two Argives sent to Lacedaemon as the men most likely to be acceptable, to get the best treaty they could and be left in peace. They came back with a fifty years’ truce that left the Cynurian land to be settled, if either side chose, by a formal challenge and a battle.
+
+## Aeson · reference
+
+The other of the two.
+
+## Andromedes · reference
+
+One of the three Lacedaemonians sent to take Panactum and the Athenian prisoners from the Boeotians and hand them back. They found Panactum razed, brought the prisoners to Athens, and announced the demolition as though it were as good as restitution.
+
+## Phaedimus · reference
+
+The second of the three.
+
+## Antimenidas · reference
+
+The third.
+
+## Androsthenes · reference
+
+An Arcadian, victor for the first time in the wrestling and boxing at the Olympic games from which Lacedaemon was excluded.
+
+## Agesippidas · reference
+
+The Lacedaemonian whom the Boeotians sent away from Heraclea for misgovernment, having occupied the place themselves; and the commander of the three hundred men slipped into Epidaurus by sea under the Athenians’ noses.
+
+## Thrasylus · supporting
+
+One of the five Argive generals, who with Alciphron and on nobody’s authority but their own went out between the armies and got Agis to grant a four-month truce — throwing away the best field Argos would ever have. The Argives began to stone him in the bed of the Charadrus; he reached the altar and saved his life, and lost his property.
+
+## Alciphron · reference
+
+The Lacedaemonian proxenus at Argos, and the other man who went out to parley with Agis.
+
+## Hipponoidas · supporting
+
+One of the two polemarchs ordered, in the moment of the onset at Mantinea, to fill the gap Agis had just opened on his own left. He would not move over, and was banished from Sparta afterwards on the charge of cowardice.
+
+## Aristocles · supporting
+
+The other polemarch who would not move over, and was banished with him. Not Pleistoanax’s brother.
+
+## Endius · supporting
+
+One of the three Lacedaemonians reputed well disposed toward Athens, sent in haste to keep the Argive alliance from being made — and made to look insincere in the assembly by Alcibiades.
+
+## Leon · reference
+
+Another of the three.
+
+## Heracles · reference
+
+By whose temple outside Mantinea the Lacedaemonians camped, and to whose temple they came back from diverting the water on the morning the Argives appeared in front of them in order of battle.
+
+## The Lepreans · supporting
+
+Who gave the Eleans half their land for ending a war with the Arcadians, paid the talent to Olympian Zeus until the Attic war gave them an excuse to stop, and appealed to Lacedaemon when Elis used force. Lacedaemon declared them independent and put a garrison in, and Elis went over to Argos.
+
+## The Parrhasians · reference
+
+Subjects of Mantinea, a faction among whom asked Lacedaemon in. Their country was laid waste, the Mantinean fort at Cypsela razed, and they themselves declared independent.
+
+## The Maenalians · reference
+
+Arcadians in the Lacedaemonian line at Mantinea, and whose men the Argives were to give back under the terms Lichas brought.
+
+## The Sciritae · supporting
+
+Who in a Lacedaemonian army always hold the left wing to themselves alone; six hundred of them at Mantinea, ordered out of the line to stretch it and broken in the gap that order made.
+
+## The Neodamodes · supporting
+
+Enfranchised Helots, settled with Brasidas’s men at Lepreum on the Elean border and drawn up beside them at Mantinea.
+
+## The Brasideans · supporting
+
+The Helots who had gone to Thrace with Brasidas, freed by decree and allowed to live where they liked; at Mantinea they stood next to the Sciritae and were broken with them.
+
+## The Heracleots · supporting
+
+Of Heraclea in Trachis, harassed from its foundation by every neighbour it threatened, and beaten at last by the Aenianians, Dolopians, Malians and some of the Thessalians.
+
+## The Aenianians · reference
+
+One of the tribes bordering Heraclea that combined to defeat it.
+
+## The Cleonaeans · reference
+
+Argive allies, next to the Orneans in the line at Mantinea, and among the seven hundred dead counted with the Argives.
+
+## The Orneans · reference
+
+The other small Argive ally in that line.
+
+## The Dians · reference
+
+Of Dium on Athos, who took Thyssus from the Athenian alliance, and who revolted to the Chalcidians themselves two years later.
+
+## The Patrians · reference
+
+Whom Alcibiades induced to carry their walls down to the sea.
+
+## The Orchomenians · reference
+
+Of Orchomenos in Arcadia, where Lacedaemon had lodged her Arcadian hostages. Alarmed by a weak wall and a large army, they joined the league, gave hostages of their own to Mantinea, and gave up the ones they were holding. Not the Boeotians of the same name.
+
+## Cleomedes · supporting
+
+Lycomedes’s son, one of the two Athenian generals who camped on Melos and sent envoys in before doing any damage to the land. The Melians would not let them speak before the people.
+
+## Lycomedes · reference
+
+Cleomedes’s father. The history does not say whether he is the Lycomedes whose son Archestratus went to Potidaea.
+
+## Tisias · supporting
+
+Tisimachus’s son, the other general at Melos.
+
+## Tisimachus · reference
+
+Tisias’s father.
+
+## Philocrates · reference
+
+Demeas’s son, who brought the reinforcements that pressed the siege of Melos to its end.
+
+## Demeas · reference
+
+Philocrates’s father.
