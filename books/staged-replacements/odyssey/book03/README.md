@@ -11,7 +11,7 @@ through (`flow-read.md`, no further change); and acceptance is recorded in
 | | |
 |---|---|
 | Accepted file | `candidate-v2.json`, sha256 `7095ef4f9925f284d3a31937d298b39766d619d8d5f2a01b61508c434989b905` |
-| Butler token retention | **0.897** (v1 0.895) |
+| Butler token retention | **0.897** (v1 0.895) — **on 37 of the 38 paragraphs**: B03-P038, the D14 splice, is excluded, because the served source paragraph is not this candidate's source. On all 38 the figure is **0.86053**. Records finding **R-1** of Book 6's round 1; the exclusion is right and was never stated. |
 | Review rounds | 1 |
 
 The sections below are the **v1 record**, unchanged, because that is what the

@@ -11,7 +11,7 @@ decision rows D1–D14).
 | Candidate | `candidate-v1.json`, sha256 `9c7d54af4bc6e32fefe5d3946a08565820b76d3d3c58a9fc45ec138b912e6553` — **frozen** |
 | Paragraphs | 81, one-to-one with the source, in order |
 | Words | 8,041 against the source's 8,042 — **ratio 0.9999** |
-| Butler token retention | **0.960** (Book 1 v3 0.728, Book 2 v2 0.902, Book 3 v2 0.897) — read in §6, and put to the reviewer as a question |
+| Butler token retention | **0.960** (Book 1 v3 0.728, Book 2 v2 0.902, Book 3 v2 0.897 **on 37 of 38 — R-1**) — read in §6, and put to the reviewer as a question |
 | Packets | 27 (26×3 + 1×3), coverage `B04-P001`…`B04-P081` |
 
 Book 4 is the longest Book the package has drafted — 8,042 source words, more

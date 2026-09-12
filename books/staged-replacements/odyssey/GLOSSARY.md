@@ -699,7 +699,7 @@ differs by about 0.006 on Book 1, and dropping the name map moves it by about
   `RESUME.md`, three `provenance.json` files, two `continuity.md` files, two
   `ACCEPTANCE.md` files and two `review-instructions.md`. Corrected everywhere
   on 2026-09-12. **No ranking changes**: Book 1 is still by far the lowest
-  (0.727/0.728 against 0.902, 0.897 and 0.959), and every argument the package
+  (0.727/0.728 against 0.902, 0.897 **on Book 3's 37-of-38 basis** and 0.959), and every argument the package
   has built on the ordering survives unchanged. The two round-1 findings sheets
   that carry 0.721 (`book02/review/`) are **not** rewritten — they are dated
   records of another session, and this row supersedes them.
@@ -714,7 +714,7 @@ while breaking one of its source's seventeen sixty-word sentences and adding
 Every Book from Book 4 onward reports, beside its retention:
 
 - **sentences, source → candidate, as a percentage added** (the accepted
-  Books: **+20.5%**, **+16.1%**, **+5.5%**);
+  Books: **+20.5%** on 32 paragraphs, **+16.1%** on 35, **+5.5%** on **37 of Book 3's 38**, the D14 splice excluded — R-1);
 - **sentences of sixty words or more, source → candidate, and the percentage
   broken** (the accepted Books: **100%**, **43%**, **33%**).
 

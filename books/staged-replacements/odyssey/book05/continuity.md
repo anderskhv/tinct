@@ -13,7 +13,7 @@ mechanically by the check block in `README.md` or by
 | Source | `source-book5.json`, sha256 `c84e4bb2924d89250e4a943721703213bba0530c09641b662c93c4a8de02cd57` |
 | Paragraphs | 37, one-to-one with the source |
 | Words | v2 **4,652** against 4,666 — ratio **0.99700**; lowest paragraph ratio **0.963** at B05-P036 (v1: 4,660, 0.99871, 0.968 at B05-P028) |
-| Butler token retention | v2 **0.93808** (v1 **0.94211**; Books 1–4: 0.727, 0.902, 0.897, 0.95872) |
+| Butler token retention | v2 **0.93808** (v1 **0.94211**; Books 1–4: 0.727, 0.902, 0.897 **on 37 of Book 3's 38 — R-1**, 0.95872) |
 | **Splitting rate (D17)** | **sentences 153 → 189, +23.5%**; **sixty-word sentences 9 → 1, 89% broken** (v1: 9 → 3) |
 | **Semicolons against Butler's (D19)** | **34 → 13** (v1 **34 → 12**) |
 | Packets | 13, coverage `B05-P001`…`B05-P037` |

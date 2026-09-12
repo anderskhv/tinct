@@ -15,7 +15,7 @@
 | Second round | **Not run, and not required**: round 1 returned zero substantive findings, every paragraph-level finding it raised was applied, and none was declined. |
 | Paragraphs | 38, one-to-one with the source, in order |
 | Word ratio | **0.9559** (4,682 / 4,898); **0.9957 excluding B03-P038**; v1 was 0.9561 / 0.9959 |
-| Butler token retention | **0.897**; v1 was 0.895. Accepted Book 1 is 0.727 (corrected at R2, Book 4 round 1), accepted Book 2 is 0.902 |
+| Butler token retention | **0.897** **on 37 of the 38 paragraphs** — B03-P038, the **D14** splice, excluded, because 196 of its 208 served source words are the replaced `modern-en`'s own ¶38 and this candidate renders Butler's 12; scoring against a source that is not the source measures the defect in the other file. On all 38: **0.86053**, sentences 176 → 174 (−1.1%), semicolons 41 → 32. The exclusion is correct; its silence was records finding **R-1** of Book 6's round 1. v1 was 0.895. Accepted Book 1 is 0.727 (corrected at R2, Book 4 round 1), accepted Book 2 is 0.902 |
 | Built by | `../scripts/build_book3_v2.py` |
 
 All hashes, ratios and the retention figure above were **recomputed
@@ -135,7 +135,7 @@ is a typographic normalization and not a substitution; and `companies`
 (Butler's *guilds*) beside `companions` (his *company*) was read for confusion
 and holds.
 
-## The retention figure, 0.897 — what it reflects
+## The retention figure, 0.897 (on 37 of 38 — R-1) — what it reflects
 
 **The source's own plainness, not a light touch.** Round 1 treated 0.895 as a
 question rather than a pass and read the five least-changed paragraphs against

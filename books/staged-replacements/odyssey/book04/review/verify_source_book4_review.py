@@ -273,6 +273,15 @@ from controls import (control as two_clause, declare_blind,   # noqa: E402
 
 
 def consecutive(ps):
+    # NOT DEAD. Records finding R-3 of Book 6's round 1 reports this function
+    # as "defined and never called, in any file in the package". It is called,
+    # eleven lines below, as the VERDICT function of control A — the D18
+    # control that asserts a two-paragraph swap breaks consecutiveness — and
+    # the control fires when this script is run ("ok control A: two paragraphs
+    # swapped breaks consecutiveness"). It is passed by name rather than
+    # applied at a call site, which is presumably what the grep missed.
+    # Deleting it would delete a live control. R-3 is REFUSED, with evidence,
+    # under D11; the ledger records the refusal rather than the removal.
     h = locate(ps)
     return all(h[i + 1] == h[i] + 1 for i in range(len(ps) - 1)
                if h[i] is not None and h[i + 1] is not None)

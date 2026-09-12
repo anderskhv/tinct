@@ -10,7 +10,7 @@ Round 1's substantive finding was that Book 5 v1's splitting rate was bought wit
 |---|---|---|---|---|
 | accepted Book 1 | 132 → 159 | +20.5% | 10 → 0 | 47 → 13 |
 | accepted Book 2 | 137 → 159 | +16.1% | 7 → 4 | 36 → 21 |
-| accepted Book 3 | 164 → 173 | +5.5% | 9 → 6 | 39 → 32 |
+| accepted Book 3 *(37 of 38, D14 — R-1)* | 164 → 173 | +5.5% | 9 → 6 | 39 → 32 |
 | accepted Book 4 | 281 → 306 | +8.9% | 17 → 3 | 68 → 50 |
 | Book 5 **v1** | 153 → 189 | +23.5% | 9 → 3 | 34 → 12 |
 | **Book 5 v2** | **153 → 189** | **+23.5%** | **9 → 1** | **34 → 13** |
@@ -132,3 +132,5 @@ Round 1's R-7: this report was computed and then not published, and `review-inst
 ## 5. Per-paragraph word counts
 
 `book05/word-counts-v2.json` stores the 37 source and 37 candidate word counts.
+
+**Basis — records finding R-1 of Book 6's round 1.** Book 3's figures in this table are computed on **37 of its 38 paragraphs**: B03-P038, the **D14** splice, is excluded, because 196 of its 208 served source words are the replaced `modern-en`'s own ¶38 and the candidate renders Butler's 12. On all 38 the same measures give 0.86053, 176 → 174 (−1.1%) and semicolons 41 → 32. Every other Book is on all its paragraphs. The one table with every basis stated is `00-progress-ledger.md`, *The comparability table*, produced by `python3 scripts/checks.py --all`.

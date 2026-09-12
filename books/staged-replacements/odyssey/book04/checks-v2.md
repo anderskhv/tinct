@@ -8,7 +8,7 @@ Written by `scripts/build_book04_v2.py`. Round 1's section M listed six classes 
 |---|---|---|---|---|
 | accepted Book 1 | 132 → 159 | +20.5% | 10 → 0 | 100% |
 | accepted Book 2 | 137 → 159 | +16.1% | 7 → 4 | 43% |
-| accepted Book 3 | 164 → 173 | +5.5% | 9 → 6 | 33% |
+| accepted Book 3 *(37 of 38, D14 — R-1)* | 164 → 173 | +5.5% | 9 → 6 | 33% |
 | **Book 4 v2** | **281 → 306** | **+8.9%** | **17 → 3** | **82%** |
 
 The build FAILS if the rate falls below half the accepted floor, or if more than three quarters of the source's sixty-word sentences survive. Book 4 v1 would have failed both.
@@ -164,3 +164,5 @@ The asserted list of identical paragraphs stops at Hamming distance zero. B04-P0
 ## 4. Per-paragraph word counts (R5)
 
 `book04/word-counts-v2.json` stores the 81 source and 81 candidate word counts. A rewrap that breaks on a hyphen, an em-dash, a dropped line or a duplicated line is then one failing assertion instead of a formula check that happened to cover the damage.
+
+**Basis — records finding R-1 of Book 6's round 1.** Book 3's figures in this table are computed on **37 of its 38 paragraphs**: B03-P038, the **D14** splice, is excluded, because 196 of its 208 served source words are the replaced `modern-en`'s own ¶38 and the candidate renders Butler's 12. On all 38 the same measures give 0.86053, 176 → 174 (−1.1%) and semicolons 41 → 32. Every other Book is on all its paragraphs. The one table with every basis stated is `00-progress-ledger.md`, *The comparability table*, produced by `python3 scripts/checks.py --all`.

@@ -10,7 +10,7 @@ says otherwise.
 | Source | `source-book6.json`, sha256 `351c2f4647245348450458e2309214b96cf6f6af5e670e9efbc6ddbcdaec5668` |
 | Paragraphs | 26, one-to-one with the source |
 | Words | 3,432 against 3,435 — ratio **0.99913**; lowest paragraph ratio **0.946** at B06-P002 |
-| Butler token retention | **0.93669** (Books 1–5: 0.727, 0.902, 0.897, 0.95872, 0.93808) |
+| Butler token retention | **0.93669** (Books 1–5: 0.727, 0.902, 0.897 **on 37 of Book 3's 38 — R-1**, 0.95872, 0.93808) |
 | **Splitting rate (D17)** | **sentences 116 → 148, +27.6%**; **sixty-word sentences 7 → 1, 86% broken** |
 | **Semicolons against Butler's (D19)** | **27 → 4** |
 | Packets | 9, coverage `B06-P001`…`B06-P026` |
@@ -157,6 +157,18 @@ and `dwell` is current literary English, not an archaism.
   are apostrophes.
 - **D12 (Butler's square brackets).** Does not fire. No bracket occurs in the
   source or the candidate.
+- **D16 (a Victorian punctuation slip).** **FIRES ONCE, at B06-P020**, and v1
+  made the repair without recording it — records finding **R-2** of round 1.
+  Butler writes *“She got the linen folded and placed in the waggon, **she**
+  then yoked the mules”*: a comma splice, which a modern reader reads as an
+  error and not as an old-fashioned but correct pointing, so **D16** says
+  repair. The candidate repairs it in the direction of the defect and by the
+  smallest edit — the second subject is dropped and the two clauses become one
+  compound predicate, *“She got the linen folded and placed in the wagon, then
+  yoked the mules”*. The disposition was right; the record was missing. Book 4
+  named its three D16 instances in its own `continuity.md` and this Book named
+  none, which is one class with two dispositions — the shape D16 exists to
+  forbid. Asserted by name in `scripts/build_book06_v2.py`.
 - **D14 (the served original is not the base text).** Does not fire; Book 6 is
   byte-clean against PG apart from the two classified markers.
 

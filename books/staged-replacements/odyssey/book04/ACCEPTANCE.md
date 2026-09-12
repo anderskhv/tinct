@@ -86,7 +86,7 @@ On the surviving channel it is decisive:
 |---|---|---|
 | accepted Book 1 v3 | 132 → 159 (**+20.5%**) | 10 → 0 (**100% broken**) |
 | accepted Book 2 v3 | 137 → 159 (**+16.1%**) | 7 → 4 (**43%**) |
-| accepted Book 3 v2 | 164 → 173 (**+5.5%**) | 9 → 6 (**33%**) |
+| accepted Book 3 v2 *(37 of 38 — the D14 splice excluded; R-1)* | 164 → 173 (**+5.5%**) | 9 → 6 (**33%**) |
 | Book 4 **v1** | 281 → 282 (**+0.4%**) | 17 → 16 (**6%**) |
 | Book 4 **v2, accepted** | **281 → 306 (+8.9%)** | **17 → 3 (82%)** |
 
