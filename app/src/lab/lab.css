@@ -572,7 +572,8 @@
 .lab-passage.is-reading .lab-hearing-word.is-hl-rose,
 .lab-passage.is-reading .lab-hearing-word.is-hl-sage,
 .lab-passage.is-reading .lab-hearing-word.is-hl-sky,
-.lab-passage.is-reading .lab-hearing-word.is-hl-lavender {
+.lab-passage.is-reading .lab-hearing-word.is-hl-lavender,
+.lab-passage.is-reading .lab-hearing-word.is-selecting {
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }
@@ -582,7 +583,20 @@
 .lab-passage.is-reading .lab-hearing-word.is-hl-sage { background: #d0e8d0; }
 .lab-passage.is-reading .lab-hearing-word.is-hl-sky { background: #d0e0f5; }
 .lab-passage.is-reading .lab-hearing-word.is-hl-lavender { background: #e0d0f5; }
-.lab-passage.is-reading .lab-hearing-word.is-selecting { background: #e8dcc4; }
+/* A provisional highlight, not a selection colour: the action previews
+   itself. It is exactly `is-hl-warm`, the default colour the Highlight
+   action applies, so the preview cannot lie about the result. Nothing is
+   written until the reader picks Highlight — choosing another action, or
+   dismissing, leaves no trace. */
+.lab-passage.is-reading .lab-hearing-word.is-selecting { background: #f5e6c8; }
+
+/* Where a native selection is still possible inside the passage, it takes the
+   same mark rather than the browser's blue. Scoped to the passage so it never
+   reaches the conversation panel. */
+.lab-passage ::selection {
+  background: #f5e6c8;
+  color: var(--lab-ink);
+}
 
 .lab .selection-popup,
 .lab .selection-popup.is-lab {
@@ -752,7 +766,8 @@
 .lab.is-night .lab-passage.is-reading .lab-hearing-word.is-hl-sage { background: #2e5c2e; }
 .lab.is-night .lab-passage.is-reading .lab-hearing-word.is-hl-sky { background: #2e3e5c; }
 .lab.is-night .lab-passage.is-reading .lab-hearing-word.is-hl-lavender { background: #3e2e5c; }
-.lab.is-night .lab-passage.is-reading .lab-hearing-word.is-selecting { background: #4f4638; }
+.lab.is-night .lab-passage.is-reading .lab-hearing-word.is-selecting { background: #5c4a2e; }
+.lab.is-night .lab-passage ::selection { background: #5c4a2e; color: var(--lab-ink); }
 
 .lab-p.is-focus {
   outline: 1px solid #c8c0ae;

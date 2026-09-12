@@ -1334,7 +1334,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const primaryCharacters = useCharacterCards(book.bookId, prefs.primaryEdition)
   const compareCharacters = useCharacterCards(book.bookId, prefs.compareEdition)
   const define = useDefine()
-  const [selectionPopup, setSelectionPopup] = useState<(SelectionInfo & { range?: LabHighlightRange; editionKey?: string }) | null>(null)
+  const [selectionPopup, setSelectionPopup] = useState<(SelectionInfo & { range?: LabHighlightRange; editionKey?: string; defineText?: string }) | null>(null)
   const [popupMode, setPopupMode] = useState<PopupMode>('colors')
   const [noteInput, setNoteInput] = useState('')
   const popupRef = useRef<HTMLDivElement | null>(null)
@@ -2461,7 +2461,26 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     const existing = highlightsApi.findRange(range, editionKey) ?? highlightsApi.findContainingRange(range, editionKey)
     const character = offsets ? resolveCharacter(comparison ? compareCharacters : primaryCharacters, book.chapterNumber, range.paragraphIndex, ...offsets, paragraph, !!existing || highlightsApi.allHighlights.some(h => h.bookId === book.bookId && h.editionKey === editionKey && h.chapterNumber === book.chapterNumber && (h.paragraphIndex < range.paragraphIndex || h.paragraphIndex === range.paragraphIndex && h.fromWord < range.toWord) && (h.endParagraphIndex > range.paragraphIndex || h.endParagraphIndex === range.paragraphIndex && h.toWord > range.fromWord))) : null
     const highlight = existing
-    const mode = character ? 'character' as const : defaultPopupMode(range.text, existing?.id)
+    // A click inside an existing highlight is about the thing the reader
+    // marked, not the word under the cursor: Copy, Ask, Note and the note
+    // editor all take the whole highlight, across paragraph boundaries.
+    // Define stays word-scoped — a dictionary lookup of a whole sentence is
+    // meaningless. A fresh drag has just expressed a different intent, so it
+    // always keeps what was dragged even where it overlaps a highlight.
+    const clickedWordText = range.text
+    const pickedOneWord = range.paragraphIndex === range.endParagraphIndex && range.toWord - range.fromWord <= 1
+    const widerHighlight = highlight && (highlight.paragraphIndex !== range.paragraphIndex
+      || highlight.endParagraphIndex !== range.endParagraphIndex
+      || highlight.fromWord !== range.fromWord
+      || highlight.toWord !== range.toWord)
+    const subject = ((intent === 'lookup' || pickedOneWord) && highlight && widerHighlight
+      ? buildHighlightRange(
+          paragraphs,
+          { paragraphIndex: highlight.paragraphIndex, wordIndex: highlight.fromWord },
+          { paragraphIndex: highlight.endParagraphIndex, wordIndex: Math.max(highlight.fromWord, highlight.toWord - 1) },
+        )
+      : null) ?? range
+    const mode = character ? 'character' as const : defaultPopupMode(subject.text, existing?.id)
     setPopupMode(mode)
     setNoteInput(highlight?.note || '')
     if (mode === 'define') define.begin(range.text)
@@ -2482,18 +2501,19 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     setSelectionPopup({
       x: Math.max(24, Math.min(window.innerWidth - 24, clientX)),
       y: shouldFloatAbove ? floatingY : showBelow ? anchorY + 12 : anchorY - 12,
-      text: range.text,
-      paragraphIndex: range.paragraphIndex,
-      startOffset: range.fromWord,
-      endOffset: range.toWord,
+      text: subject.text,
+      paragraphIndex: subject.paragraphIndex,
+      startOffset: subject.fromWord,
+      endOffset: subject.toWord,
+      defineText: clickedWordText,
       showBelow,
       mobilePlacement: shouldFloatAbove ? 'above-selection' : 'bottom',
       existingHighlightId: highlight?.id,
       existingNote: highlight?.note,
-      homeMode: character ? 'main' : defaultPopupMode(range.text, existing?.id),
+      homeMode: character ? 'main' : defaultPopupMode(subject.text, existing?.id),
       character: character ?? undefined,
       editionKey,
-      range,
+      range: subject,
     })
   }, [define, highlightsApi, primaryCharacters, compareCharacters, book, prefs.primaryEdition, prefs.compareEdition, mobileCompareActive, initialResolving, frontispieceVisible, phoneAskOpen])
 
@@ -4428,7 +4448,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           defineNotFound={define.notFound}
           runDefine={define.run}
           onDefine={() => {
-            if (selectionPopup.text) define.begin(selectionPopup.text)
+            // Define stays on the clicked word even when every other action
+            // has been widened to the highlight around it.
+            const lookup = selectionPopup.defineText || selectionPopup.text
+            if (lookup) define.begin(lookup)
             setPopupMode('define')
           }}
           issueTag=""
