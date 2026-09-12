@@ -58,7 +58,8 @@ it('rejects a response after switching books and never writes it under the new b
   expect(readLabBookChat('odyssey')).toEqual([])
 })
 it('replays an account-gated action against its captured chapter after signing in', async () => {
-  localStorage.setItem('tinct:lab-ai-actions', '1')
+  // The anonymous allowance (three actions) is already spent on this device.
+  localStorage.setItem('tinct:lab-ai-actions', '3')
   const onAccountPrompt=vi.fn(),fetcher=vi.fn().mockResolvedValue(reply())
   vi.stubGlobal('fetch',fetcher)
   load.mockResolvedValue({chapters:[{number:780,paragraphs:['Captured successor source.']}]})
