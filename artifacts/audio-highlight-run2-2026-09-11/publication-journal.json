@@ -10274,5 +10274,57 @@
   "servedSha256": "261cc5480cfabecd0b855437086f7f063b2ee0d36a3b42eee1c17592cb541b17",
   "outcome": "published",
   "reason": "served bytes match"
+ },
+ {
+  "key": "democracy-in-america/original-en/ch21/words.json",
+  "source": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-99/out/democracy-in-america/original-en/ch21/off/words.candidate.json",
+  "at": "2026-09-12T09:11:45Z",
+  "sha256": "8975b988b997b9b4b9c9d216d5cec6246fd718ddcae9b7ef889c596e682e3d69",
+  "bytes": 76001,
+  "validationFailures": [],
+  "outcome": "skipped",
+  "reason": "object already exists; this uploader never overwrites"
+ },
+ {
+  "key": "democracy-in-america/original-en/ch22/words.json",
+  "source": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-99/out/democracy-in-america/original-en/ch22/auto/words.candidate.json",
+  "at": "2026-09-12T09:11:47Z",
+  "sha256": "c8930971b8769b194557ee521b6ccb6adbe6359aa5e601e78c5a106908179ccb",
+  "bytes": 193567,
+  "validationFailures": [],
+  "outcome": "skipped",
+  "reason": "upload refused: ClientError"
+ },
+ {
+  "key": "democracy-in-america/original-en/ch23/words.json",
+  "source": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-99/out/democracy-in-america/original-en/ch23/auto/words.candidate.json",
+  "at": "2026-09-12T09:11:49Z",
+  "sha256": "80c28ffb9ce3227231a8475d6492b2bf49525a192f41b75f6a42591a611ba2cf",
+  "bytes": 169101,
+  "validationFailures": [],
+  "servedSha256": "80c28ffb9ce3227231a8475d6492b2bf49525a192f41b75f6a42591a611ba2cf",
+  "outcome": "published",
+  "reason": "served bytes match"
+ },
+ {
+  "key": "democracy-in-america/original-en/ch24/words.json",
+  "source": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-99/out/democracy-in-america/original-en/ch24/auto/words.candidate.json",
+  "at": "2026-09-12T09:11:51Z",
+  "sha256": "36e1498e1381417794f0397be7c83f4bb356bd3defe84da1af616fc8973f0d2c",
+  "bytes": 185717,
+  "validationFailures": [],
+  "outcome": "skipped",
+  "reason": "upload refused: ClientError"
+ },
+ {
+  "key": "democracy-in-america/original-en/ch25/words.json",
+  "source": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-99/out/democracy-in-america/original-en/ch25/off/words.candidate.json",
+  "at": "2026-09-12T09:11:53Z",
+  "sha256": "dc394b5e9421b3035040fe53a30ef4fa90dbf8b1b9b3853ad5c086480ec4e21d",
+  "bytes": 51095,
+  "validationFailures": [],
+  "servedSha256": "dc394b5e9421b3035040fe53a30ef4fa90dbf8b1b9b3853ad5c086480ec4e21d",
+  "outcome": "published",
+  "reason": "served bytes match"
  }
 ]

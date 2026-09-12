@@ -1,0 +1,4561 @@
+{
+  "complete": true,
+  "signature": "15d7b94c923f88447735b5ceabd39a45ec778bf9d4d9818354861dc7a6ef69d0",
+  "attempts": [
+    {
+      "asr_seconds": 0.43208131194114685,
+      "alignment_seconds": 0.0007951408624649048,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "d [ It is well known that several of the most distinguished authors of antiquity, and amongst them Aesop and Terence, were, or had been slaves. Slaves were not always taken from barbarous nations, and the chances of war reduced highly civilized men to servitude.]",
+        "hotwords": "It, Aesop, Terence"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " D. It is well known that several of the most distinguished authors of antiquity, and amongst them Aesop and Terence, were, or had been slaves. Slaves were not always taken from barbarous nations, and the chances of war reduced highly civilized men to servitude.",
+          "start": 0.05,
+          "end": 16.81,
+          "words": [
+            {
+              "text": " D.",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.607421875
+            },
+            {
+              "text": " It",
+              "start": 0.75,
+              "end": 0.95,
+              "probability": 0.6494140625
+            },
+            {
+              "text": " is",
+              "start": 0.95,
+              "end": 1.11,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " well",
+              "start": 1.11,
+              "end": 1.33,
+              "probability": 0.998046875
+            },
+            {
+              "text": " known",
+              "start": 1.33,
+              "end": 1.59,
+              "probability": 0.8994140625
+            },
+            {
+              "text": " that",
+              "start": 1.59,
+              "end": 1.87,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " several",
+              "start": 1.87,
+              "end": 2.21,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " of",
+              "start": 2.21,
+              "end": 2.43,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 2.43,
+              "end": 2.51,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " most",
+              "start": 2.51,
+              "end": 2.73,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " distinguished",
+              "start": 2.73,
+              "end": 3.23,
+              "probability": 0.99609375
+            },
+            {
+              "text": " authors",
+              "start": 3.23,
+              "end": 3.71,
+              "probability": 0.9921875
+            },
+            {
+              "text": " of",
+              "start": 3.71,
+              "end": 3.95,
+              "probability": 0.998046875
+            },
+            {
+              "text": " antiquity,",
+              "start": 3.95,
+              "end": 4.39,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " and",
+              "start": 4.97,
+              "end": 5.09,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " amongst",
+              "start": 5.09,
+              "end": 5.33,
+              "probability": 0.984375
+            },
+            {
+              "text": " them",
+              "start": 5.33,
+              "end": 5.63,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Aesop",
+              "start": 5.63,
+              "end": 6.15,
+              "probability": 0.713623046875
+            },
+            {
+              "text": " and",
+              "start": 6.15,
+              "end": 6.37,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Terence,",
+              "start": 6.37,
+              "end": 6.73,
+              "probability": 0.6070556640625
+            },
+            {
+              "text": " were,",
+              "start": 7.09,
+              "end": 7.53,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " or",
+              "start": 7.67,
+              "end": 8.11,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " had",
+              "start": 8.11,
+              "end": 8.31,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " been",
+              "start": 8.31,
+              "end": 8.53,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " slaves.",
+              "start": 8.53,
+              "end": 8.91,
+              "probability": 0.44384765625
+            },
+            {
+              "text": " Slaves",
+              "start": 9.97,
+              "end": 10.25,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " were",
+              "start": 10.25,
+              "end": 10.41,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " not",
+              "start": 10.41,
+              "end": 10.59,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " always",
+              "start": 10.59,
+              "end": 10.93,
+              "probability": 0.998046875
+            },
+            {
+              "text": " taken",
+              "start": 10.93,
+              "end": 11.23,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " from",
+              "start": 11.23,
+              "end": 11.55,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " barbarous",
+              "start": 11.55,
+              "end": 12.05,
+              "probability": 0.989013671875
+            },
+            {
+              "text": " nations,",
+              "start": 12.05,
+              "end": 12.45,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 12.93,
+              "end": 13.11,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 13.11,
+              "end": 13.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " chances",
+              "start": 13.23,
+              "end": 13.53,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 13.53,
+              "end": 13.83,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " war",
+              "start": 13.83,
+              "end": 14.11,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " reduced",
+              "start": 14.11,
+              "end": 14.61,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " highly",
+              "start": 14.61,
+              "end": 15.11,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " civilized",
+              "start": 15.11,
+              "end": 15.71,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " men",
+              "start": 15.71,
+              "end": 16.07,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 16.07,
+              "end": 16.33,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " servitude.",
+              "start": 16.33,
+              "end": 16.81,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "D.",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "It",
+          "start": 0.75,
+          "end": 0.95
+        },
+        {
+          "raw": "is",
+          "start": 0.95,
+          "end": 1.11
+        },
+        {
+          "raw": "well",
+          "start": 1.11,
+          "end": 1.33
+        },
+        {
+          "raw": "known",
+          "start": 1.33,
+          "end": 1.59
+        },
+        {
+          "raw": "that",
+          "start": 1.59,
+          "end": 1.87
+        },
+        {
+          "raw": "several",
+          "start": 1.87,
+          "end": 2.21
+        },
+        {
+          "raw": "of",
+          "start": 2.21,
+          "end": 2.43
+        },
+        {
+          "raw": "the",
+          "start": 2.43,
+          "end": 2.51
+        },
+        {
+          "raw": "most",
+          "start": 2.51,
+          "end": 2.73
+        },
+        {
+          "raw": "distinguished",
+          "start": 2.73,
+          "end": 3.23
+        },
+        {
+          "raw": "authors",
+          "start": 3.23,
+          "end": 3.71
+        },
+        {
+          "raw": "of",
+          "start": 3.71,
+          "end": 3.95
+        },
+        {
+          "raw": "antiquity,",
+          "start": 3.95,
+          "end": 4.39
+        },
+        {
+          "raw": "and",
+          "start": 4.97,
+          "end": 5.09
+        },
+        {
+          "raw": "amongst",
+          "start": 5.09,
+          "end": 5.33
+        },
+        {
+          "raw": "them",
+          "start": 5.33,
+          "end": 5.63
+        },
+        {
+          "raw": "Aesop",
+          "start": 5.63,
+          "end": 6.15
+        },
+        {
+          "raw": "and",
+          "start": 6.15,
+          "end": 6.37
+        },
+        {
+          "raw": "Terence,",
+          "start": 6.37,
+          "end": 6.73
+        },
+        {
+          "raw": "were,",
+          "start": 7.09,
+          "end": 7.53
+        },
+        {
+          "raw": "or",
+          "start": 7.67,
+          "end": 8.11
+        },
+        {
+          "raw": "had",
+          "start": 8.11,
+          "end": 8.31
+        },
+        {
+          "raw": "been",
+          "start": 8.31,
+          "end": 8.53
+        },
+        {
+          "raw": "slaves.",
+          "start": 8.53,
+          "end": 8.91
+        },
+        {
+          "raw": "Slaves",
+          "start": 9.97,
+          "end": 10.25
+        },
+        {
+          "raw": "were",
+          "start": 10.25,
+          "end": 10.41
+        },
+        {
+          "raw": "not",
+          "start": 10.41,
+          "end": 10.59
+        },
+        {
+          "raw": "always",
+          "start": 10.59,
+          "end": 10.93
+        },
+        {
+          "raw": "taken",
+          "start": 10.93,
+          "end": 11.23
+        },
+        {
+          "raw": "from",
+          "start": 11.23,
+          "end": 11.55
+        },
+        {
+          "raw": "barbarous",
+          "start": 11.55,
+          "end": 12.05
+        },
+        {
+          "raw": "nations,",
+          "start": 12.05,
+          "end": 12.45
+        },
+        {
+          "raw": "and",
+          "start": 12.93,
+          "end": 13.11
+        },
+        {
+          "raw": "the",
+          "start": 13.11,
+          "end": 13.23
+        },
+        {
+          "raw": "chances",
+          "start": 13.23,
+          "end": 13.53
+        },
+        {
+          "raw": "of",
+          "start": 13.53,
+          "end": 13.83
+        },
+        {
+          "raw": "war",
+          "start": 13.83,
+          "end": 14.11
+        },
+        {
+          "raw": "reduced",
+          "start": 14.11,
+          "end": 14.61
+        },
+        {
+          "raw": "highly",
+          "start": 14.61,
+          "end": 15.11
+        },
+        {
+          "raw": "civilized",
+          "start": 15.11,
+          "end": 15.71
+        },
+        {
+          "raw": "men",
+          "start": 15.71,
+          "end": 16.07
+        },
+        {
+          "raw": "to",
+          "start": 16.07,
+          "end": 16.33
+        },
+        {
+          "raw": "servitude.",
+          "start": 16.33,
+          "end": 16.81
+        }
+      ],
+      "expected_tokens": [
+        "d",
+        "[",
+        "It",
+        "is",
+        "well",
+        "known",
+        "that",
+        "several",
+        "of",
+        "the",
+        "most",
+        "distinguished",
+        "authors",
+        "of",
+        "antiquity,",
+        "and",
+        "amongst",
+        "them",
+        "Aesop",
+        "and",
+        "Terence,",
+        "were,",
+        "or",
+        "had",
+        "been",
+        "slaves.",
+        "Slaves",
+        "were",
+        "not",
+        "always",
+        "taken",
+        "from",
+        "barbarous",
+        "nations,",
+        "and",
+        "the",
+        "chances",
+        "of",
+        "war",
+        "reduced",
+        "highly",
+        "civilized",
+        "men",
+        "to",
+        "servitude.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "delete",
+          1,
+          2,
+          1,
+          1
+        ],
+        [
+          "equal",
+          2,
+          45,
+          1,
+          44
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 43
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          1,
+          2,
+          1,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "D.",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "d",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 0.75,
+          "end": 0.95,
+          "key": "it",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.95,
+          "end": 1.11,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 1.11,
+          "end": 1.33,
+          "key": "well",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "known",
+          "start": 1.33,
+          "end": 1.59,
+          "key": "known",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.59,
+          "end": 1.87,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "several",
+          "start": 1.87,
+          "end": 2.21,
+          "key": "several",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.21,
+          "end": 2.43,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.43,
+          "end": 2.51,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 2.51,
+          "end": 2.73,
+          "key": "most",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "distinguished",
+          "start": 2.73,
+          "end": 3.23,
+          "key": "distinguished",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "authors",
+          "start": 3.23,
+          "end": 3.71,
+          "key": "authors",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.71,
+          "end": 3.95,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "antiquity,",
+          "start": 3.95,
+          "end": 4.39,
+          "key": "antiquity",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.97,
+          "end": 5.09,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "amongst",
+          "start": 5.09,
+          "end": 5.33,
+          "key": "amongst",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 5.33,
+          "end": 5.63,
+          "key": "them",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Aesop",
+          "start": 5.63,
+          "end": 6.15,
+          "key": "aesop",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.15,
+          "end": 6.37,
+          "key": "and",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Terence,",
+          "start": 6.37,
+          "end": 6.73,
+          "key": "terence",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "were,",
+          "start": 7.09,
+          "end": 7.53,
+          "key": "were",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 7.67,
+          "end": 8.11,
+          "key": "or",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 8.11,
+          "end": 8.31,
+          "key": "had",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 8.31,
+          "end": 8.53,
+          "key": "been",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "slaves.",
+          "start": 8.53,
+          "end": 8.91,
+          "key": "slaves",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Slaves",
+          "start": 9.97,
+          "end": 10.25,
+          "key": "slaves",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 10.25,
+          "end": 10.41,
+          "key": "were",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 10.41,
+          "end": 10.59,
+          "key": "not",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "always",
+          "start": 10.59,
+          "end": 10.93,
+          "key": "always",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "taken",
+          "start": 10.93,
+          "end": 11.23,
+          "key": "taken",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 11.23,
+          "end": 11.55,
+          "key": "from",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "barbarous",
+          "start": 11.55,
+          "end": 12.05,
+          "key": "barbarous",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "nations,",
+          "start": 12.05,
+          "end": 12.45,
+          "key": "nations",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 12.93,
+          "end": 13.11,
+          "key": "and",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.11,
+          "end": 13.23,
+          "key": "the",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "chances",
+          "start": 13.23,
+          "end": 13.53,
+          "key": "chances",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 13.53,
+          "end": 13.83,
+          "key": "of",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "war",
+          "start": 13.83,
+          "end": 14.11,
+          "key": "war",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "reduced",
+          "start": 14.11,
+          "end": 14.61,
+          "key": "reduced",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "highly",
+          "start": 14.61,
+          "end": 15.11,
+          "key": "highly",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "civilized",
+          "start": 15.11,
+          "end": 15.71,
+          "key": "civilized",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "men",
+          "start": 15.71,
+          "end": 16.07,
+          "key": "men",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 16.07,
+          "end": 16.33,
+          "key": "to",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "servitude.",
+          "start": 16.33,
+          "end": 16.81,
+          "key": "servitude",
+          "pieces": [
+            43
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "d",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "[",
+          "start": 0.63,
+          "end": 0.69
+        },
+        {
+          "text": "It",
+          "start": 0.75,
+          "end": 0.95
+        },
+        {
+          "text": "is",
+          "start": 0.95,
+          "end": 1.11
+        },
+        {
+          "text": "well",
+          "start": 1.11,
+          "end": 1.33
+        },
+        {
+          "text": "known",
+          "start": 1.33,
+          "end": 1.59
+        },
+        {
+          "text": "that",
+          "start": 1.59,
+          "end": 1.87
+        },
+        {
+          "text": "several",
+          "start": 1.87,
+          "end": 2.21
+        },
+        {
+          "text": "of",
+          "start": 2.21,
+          "end": 2.43
+        },
+        {
+          "text": "the",
+          "start": 2.43,
+          "end": 2.51
+        },
+        {
+          "text": "most",
+          "start": 2.51,
+          "end": 2.73
+        },
+        {
+          "text": "distinguished",
+          "start": 2.73,
+          "end": 3.23
+        },
+        {
+          "text": "authors",
+          "start": 3.23,
+          "end": 3.71
+        },
+        {
+          "text": "of",
+          "start": 3.71,
+          "end": 3.95
+        },
+        {
+          "text": "antiquity,",
+          "start": 3.95,
+          "end": 4.39
+        },
+        {
+          "text": "and",
+          "start": 4.97,
+          "end": 5.09
+        },
+        {
+          "text": "amongst",
+          "start": 5.09,
+          "end": 5.33
+        },
+        {
+          "text": "them",
+          "start": 5.33,
+          "end": 5.63
+        },
+        {
+          "text": "Aesop",
+          "start": 5.63,
+          "end": 6.15
+        },
+        {
+          "text": "and",
+          "start": 6.15,
+          "end": 6.37
+        },
+        {
+          "text": "Terence,",
+          "start": 6.37,
+          "end": 6.73
+        },
+        {
+          "text": "were,",
+          "start": 7.09,
+          "end": 7.53
+        },
+        {
+          "text": "or",
+          "start": 7.67,
+          "end": 8.11
+        },
+        {
+          "text": "had",
+          "start": 8.11,
+          "end": 8.31
+        },
+        {
+          "text": "been",
+          "start": 8.31,
+          "end": 8.53
+        },
+        {
+          "text": "slaves.",
+          "start": 8.53,
+          "end": 8.91
+        },
+        {
+          "text": "Slaves",
+          "start": 9.97,
+          "end": 10.25
+        },
+        {
+          "text": "were",
+          "start": 10.25,
+          "end": 10.41
+        },
+        {
+          "text": "not",
+          "start": 10.41,
+          "end": 10.59
+        },
+        {
+          "text": "always",
+          "start": 10.59,
+          "end": 10.93
+        },
+        {
+          "text": "taken",
+          "start": 10.93,
+          "end": 11.23
+        },
+        {
+          "text": "from",
+          "start": 11.23,
+          "end": 11.55
+        },
+        {
+          "text": "barbarous",
+          "start": 11.55,
+          "end": 12.05
+        },
+        {
+          "text": "nations,",
+          "start": 12.05,
+          "end": 12.45
+        },
+        {
+          "text": "and",
+          "start": 12.93,
+          "end": 13.11
+        },
+        {
+          "text": "the",
+          "start": 13.11,
+          "end": 13.23
+        },
+        {
+          "text": "chances",
+          "start": 13.23,
+          "end": 13.53
+        },
+        {
+          "text": "of",
+          "start": 13.53,
+          "end": 13.83
+        },
+        {
+          "text": "war",
+          "start": 13.83,
+          "end": 14.11
+        },
+        {
+          "text": "reduced",
+          "start": 14.11,
+          "end": 14.61
+        },
+        {
+          "text": "highly",
+          "start": 14.61,
+          "end": 15.11
+        },
+        {
+          "text": "civilized",
+          "start": 15.11,
+          "end": 15.71
+        },
+        {
+          "text": "men",
+          "start": 15.71,
+          "end": 16.07
+        },
+        {
+          "text": "to",
+          "start": 16.07,
+          "end": 16.33
+        },
+        {
+          "text": "servitude.]",
+          "start": 16.33,
+          "end": 16.81
+        }
+      ],
+      "stats": {
+        "expected_words": 45,
+        "heard_words": 44,
+        "matched_words": 44
+      },
+      "match_ratio": 0.9777777777777777,
+      "rejection_reasons": [],
+      "seconds": 0.4332115165889263
+    },
+    {
+      "asr_seconds": 0.5047983229160309,
+      "alignment_seconds": 0.0009558312594890594,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "It, Aesop, Terence"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " D. It is well known that several of the most distinguished authors of antiquity, and amongst them Aesop and Terence, were or had been slaves.",
+          "start": 0.05,
+          "end": 8.91,
+          "words": [
+            {
+              "text": " D.",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.607421875
+            },
+            {
+              "text": " It",
+              "start": 0.75,
+              "end": 0.95,
+              "probability": 0.6494140625
+            },
+            {
+              "text": " is",
+              "start": 0.95,
+              "end": 1.11,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " well",
+              "start": 1.11,
+              "end": 1.33,
+              "probability": 0.998046875
+            },
+            {
+              "text": " known",
+              "start": 1.33,
+              "end": 1.59,
+              "probability": 0.8994140625
+            },
+            {
+              "text": " that",
+              "start": 1.59,
+              "end": 1.87,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " several",
+              "start": 1.87,
+              "end": 2.21,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " of",
+              "start": 2.21,
+              "end": 2.43,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 2.43,
+              "end": 2.51,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " most",
+              "start": 2.51,
+              "end": 2.73,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " distinguished",
+              "start": 2.73,
+              "end": 3.23,
+              "probability": 0.99609375
+            },
+            {
+              "text": " authors",
+              "start": 3.23,
+              "end": 3.71,
+              "probability": 0.9921875
+            },
+            {
+              "text": " of",
+              "start": 3.71,
+              "end": 3.95,
+              "probability": 0.998046875
+            },
+            {
+              "text": " antiquity,",
+              "start": 3.95,
+              "end": 4.39,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " and",
+              "start": 4.97,
+              "end": 5.09,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " amongst",
+              "start": 5.09,
+              "end": 5.33,
+              "probability": 0.984375
+            },
+            {
+              "text": " them",
+              "start": 5.33,
+              "end": 5.63,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Aesop",
+              "start": 5.63,
+              "end": 6.15,
+              "probability": 0.713623046875
+            },
+            {
+              "text": " and",
+              "start": 6.15,
+              "end": 6.37,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Terence,",
+              "start": 6.37,
+              "end": 6.73,
+              "probability": 0.6070556640625
+            },
+            {
+              "text": " were",
+              "start": 7.09,
+              "end": 7.53,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " or",
+              "start": 7.53,
+              "end": 8.09,
+              "probability": 0.5576171875
+            },
+            {
+              "text": " had",
+              "start": 8.09,
+              "end": 8.31,
+              "probability": 0.99609375
+            },
+            {
+              "text": " been",
+              "start": 8.31,
+              "end": 8.53,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " slaves.",
+              "start": 8.53,
+              "end": 8.91,
+              "probability": 0.9951171875
+            }
+          ]
+        },
+        {
+          "text": " Slaves were not always taken from barbarous nations, and the chances of war reduced highly civilized men to servitude.",
+          "start": 9.99,
+          "end": 16.81,
+          "words": [
+            {
+              "text": " Slaves",
+              "start": 9.99,
+              "end": 10.23,
+              "probability": 0.992919921875
+            },
+            {
+              "text": " were",
+              "start": 10.23,
+              "end": 10.39,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " not",
+              "start": 10.39,
+              "end": 10.59,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " always",
+              "start": 10.59,
+              "end": 10.93,
+              "probability": 0.998046875
+            },
+            {
+              "text": " taken",
+              "start": 10.93,
+              "end": 11.23,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " from",
+              "start": 11.23,
+              "end": 11.55,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " barbarous",
+              "start": 11.55,
+              "end": 12.05,
+              "probability": 0.989013671875
+            },
+            {
+              "text": " nations,",
+              "start": 12.05,
+              "end": 12.45,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 12.91,
+              "end": 13.11,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 13.11,
+              "end": 13.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " chances",
+              "start": 13.23,
+              "end": 13.53,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 13.53,
+              "end": 13.81,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " war",
+              "start": 13.81,
+              "end": 14.11,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " reduced",
+              "start": 14.11,
+              "end": 14.61,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " highly",
+              "start": 14.61,
+              "end": 15.11,
+              "probability": 0.998046875
+            },
+            {
+              "text": " civilized",
+              "start": 15.11,
+              "end": 15.69,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " men",
+              "start": 15.69,
+              "end": 16.07,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 16.07,
+              "end": 16.33,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " servitude.",
+              "start": 16.33,
+              "end": 16.81,
+              "probability": 0.998779296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "D.",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "It",
+          "start": 0.75,
+          "end": 0.95
+        },
+        {
+          "raw": "is",
+          "start": 0.95,
+          "end": 1.11
+        },
+        {
+          "raw": "well",
+          "start": 1.11,
+          "end": 1.33
+        },
+        {
+          "raw": "known",
+          "start": 1.33,
+          "end": 1.59
+        },
+        {
+          "raw": "that",
+          "start": 1.59,
+          "end": 1.87
+        },
+        {
+          "raw": "several",
+          "start": 1.87,
+          "end": 2.21
+        },
+        {
+          "raw": "of",
+          "start": 2.21,
+          "end": 2.43
+        },
+        {
+          "raw": "the",
+          "start": 2.43,
+          "end": 2.51
+        },
+        {
+          "raw": "most",
+          "start": 2.51,
+          "end": 2.73
+        },
+        {
+          "raw": "distinguished",
+          "start": 2.73,
+          "end": 3.23
+        },
+        {
+          "raw": "authors",
+          "start": 3.23,
+          "end": 3.71
+        },
+        {
+          "raw": "of",
+          "start": 3.71,
+          "end": 3.95
+        },
+        {
+          "raw": "antiquity,",
+          "start": 3.95,
+          "end": 4.39
+        },
+        {
+          "raw": "and",
+          "start": 4.97,
+          "end": 5.09
+        },
+        {
+          "raw": "amongst",
+          "start": 5.09,
+          "end": 5.33
+        },
+        {
+          "raw": "them",
+          "start": 5.33,
+          "end": 5.63
+        },
+        {
+          "raw": "Aesop",
+          "start": 5.63,
+          "end": 6.15
+        },
+        {
+          "raw": "and",
+          "start": 6.15,
+          "end": 6.37
+        },
+        {
+          "raw": "Terence,",
+          "start": 6.37,
+          "end": 6.73
+        },
+        {
+          "raw": "were",
+          "start": 7.09,
+          "end": 7.53
+        },
+        {
+          "raw": "or",
+          "start": 7.53,
+          "end": 8.09
+        },
+        {
+          "raw": "had",
+          "start": 8.09,
+          "end": 8.31
+        },
+        {
+          "raw": "been",
+          "start": 8.31,
+          "end": 8.53
+        },
+        {
+          "raw": "slaves.",
+          "start": 8.53,
+          "end": 8.91
+        },
+        {
+          "raw": "Slaves",
+          "start": 9.99,
+          "end": 10.23
+        },
+        {
+          "raw": "were",
+          "start": 10.23,
+          "end": 10.39
+        },
+        {
+          "raw": "not",
+          "start": 10.39,
+          "end": 10.59
+        },
+        {
+          "raw": "always",
+          "start": 10.59,
+          "end": 10.93
+        },
+        {
+          "raw": "taken",
+          "start": 10.93,
+          "end": 11.23
+        },
+        {
+          "raw": "from",
+          "start": 11.23,
+          "end": 11.55
+        },
+        {
+          "raw": "barbarous",
+          "start": 11.55,
+          "end": 12.05
+        },
+        {
+          "raw": "nations,",
+          "start": 12.05,
+          "end": 12.45
+        },
+        {
+          "raw": "and",
+          "start": 12.91,
+          "end": 13.11
+        },
+        {
+          "raw": "the",
+          "start": 13.11,
+          "end": 13.23
+        },
+        {
+          "raw": "chances",
+          "start": 13.23,
+          "end": 13.53
+        },
+        {
+          "raw": "of",
+          "start": 13.53,
+          "end": 13.81
+        },
+        {
+          "raw": "war",
+          "start": 13.81,
+          "end": 14.11
+        },
+        {
+          "raw": "reduced",
+          "start": 14.11,
+          "end": 14.61
+        },
+        {
+          "raw": "highly",
+          "start": 14.61,
+          "end": 15.11
+        },
+        {
+          "raw": "civilized",
+          "start": 15.11,
+          "end": 15.69
+        },
+        {
+          "raw": "men",
+          "start": 15.69,
+          "end": 16.07
+        },
+        {
+          "raw": "to",
+          "start": 16.07,
+          "end": 16.33
+        },
+        {
+          "raw": "servitude.",
+          "start": 16.33,
+          "end": 16.81
+        }
+      ],
+      "expected_tokens": [
+        "d",
+        "[",
+        "It",
+        "is",
+        "well",
+        "known",
+        "that",
+        "several",
+        "of",
+        "the",
+        "most",
+        "distinguished",
+        "authors",
+        "of",
+        "antiquity,",
+        "and",
+        "amongst",
+        "them",
+        "Aesop",
+        "and",
+        "Terence,",
+        "were,",
+        "or",
+        "had",
+        "been",
+        "slaves.",
+        "Slaves",
+        "were",
+        "not",
+        "always",
+        "taken",
+        "from",
+        "barbarous",
+        "nations,",
+        "and",
+        "the",
+        "chances",
+        "of",
+        "war",
+        "reduced",
+        "highly",
+        "civilized",
+        "men",
+        "to",
+        "servitude.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "delete",
+          1,
+          2,
+          1,
+          1
+        ],
+        [
+          "equal",
+          2,
+          45,
+          1,
+          44
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 43
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          1,
+          2,
+          1,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "D.",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "d",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 0.75,
+          "end": 0.95,
+          "key": "it",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.95,
+          "end": 1.11,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 1.11,
+          "end": 1.33,
+          "key": "well",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "known",
+          "start": 1.33,
+          "end": 1.59,
+          "key": "known",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.59,
+          "end": 1.87,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "several",
+          "start": 1.87,
+          "end": 2.21,
+          "key": "several",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.21,
+          "end": 2.43,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.43,
+          "end": 2.51,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 2.51,
+          "end": 2.73,
+          "key": "most",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "distinguished",
+          "start": 2.73,
+          "end": 3.23,
+          "key": "distinguished",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "authors",
+          "start": 3.23,
+          "end": 3.71,
+          "key": "authors",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.71,
+          "end": 3.95,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "antiquity,",
+          "start": 3.95,
+          "end": 4.39,
+          "key": "antiquity",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.97,
+          "end": 5.09,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "amongst",
+          "start": 5.09,
+          "end": 5.33,
+          "key": "amongst",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 5.33,
+          "end": 5.63,
+          "key": "them",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Aesop",
+          "start": 5.63,
+          "end": 6.15,
+          "key": "aesop",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.15,
+          "end": 6.37,
+          "key": "and",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Terence,",
+          "start": 6.37,
+          "end": 6.73,
+          "key": "terence",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 7.09,
+          "end": 7.53,
+          "key": "were",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 7.53,
+          "end": 8.09,
+          "key": "or",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 8.09,
+          "end": 8.31,
+          "key": "had",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 8.31,
+          "end": 8.53,
+          "key": "been",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "slaves.",
+          "start": 8.53,
+          "end": 8.91,
+          "key": "slaves",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Slaves",
+          "start": 9.99,
+          "end": 10.23,
+          "key": "slaves",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 10.23,
+          "end": 10.39,
+          "key": "were",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 10.39,
+          "end": 10.59,
+          "key": "not",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "always",
+          "start": 10.59,
+          "end": 10.93,
+          "key": "always",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "taken",
+          "start": 10.93,
+          "end": 11.23,
+          "key": "taken",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 11.23,
+          "end": 11.55,
+          "key": "from",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "barbarous",
+          "start": 11.55,
+          "end": 12.05,
+          "key": "barbarous",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "nations,",
+          "start": 12.05,
+          "end": 12.45,
+          "key": "nations",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 12.91,
+          "end": 13.11,
+          "key": "and",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.11,
+          "end": 13.23,
+          "key": "the",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "chances",
+          "start": 13.23,
+          "end": 13.53,
+          "key": "chances",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 13.53,
+          "end": 13.81,
+          "key": "of",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "war",
+          "start": 13.81,
+          "end": 14.11,
+          "key": "war",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "reduced",
+          "start": 14.11,
+          "end": 14.61,
+          "key": "reduced",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "highly",
+          "start": 14.61,
+          "end": 15.11,
+          "key": "highly",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "civilized",
+          "start": 15.11,
+          "end": 15.69,
+          "key": "civilized",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "men",
+          "start": 15.69,
+          "end": 16.07,
+          "key": "men",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 16.07,
+          "end": 16.33,
+          "key": "to",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "servitude.",
+          "start": 16.33,
+          "end": 16.81,
+          "key": "servitude",
+          "pieces": [
+            43
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "d",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "[",
+          "start": 0.63,
+          "end": 0.69
+        },
+        {
+          "text": "It",
+          "start": 0.75,
+          "end": 0.95
+        },
+        {
+          "text": "is",
+          "start": 0.95,
+          "end": 1.11
+        },
+        {
+          "text": "well",
+          "start": 1.11,
+          "end": 1.33
+        },
+        {
+          "text": "known",
+          "start": 1.33,
+          "end": 1.59
+        },
+        {
+          "text": "that",
+          "start": 1.59,
+          "end": 1.87
+        },
+        {
+          "text": "several",
+          "start": 1.87,
+          "end": 2.21
+        },
+        {
+          "text": "of",
+          "start": 2.21,
+          "end": 2.43
+        },
+        {
+          "text": "the",
+          "start": 2.43,
+          "end": 2.51
+        },
+        {
+          "text": "most",
+          "start": 2.51,
+          "end": 2.73
+        },
+        {
+          "text": "distinguished",
+          "start": 2.73,
+          "end": 3.23
+        },
+        {
+          "text": "authors",
+          "start": 3.23,
+          "end": 3.71
+        },
+        {
+          "text": "of",
+          "start": 3.71,
+          "end": 3.95
+        },
+        {
+          "text": "antiquity,",
+          "start": 3.95,
+          "end": 4.39
+        },
+        {
+          "text": "and",
+          "start": 4.97,
+          "end": 5.09
+        },
+        {
+          "text": "amongst",
+          "start": 5.09,
+          "end": 5.33
+        },
+        {
+          "text": "them",
+          "start": 5.33,
+          "end": 5.63
+        },
+        {
+          "text": "Aesop",
+          "start": 5.63,
+          "end": 6.15
+        },
+        {
+          "text": "and",
+          "start": 6.15,
+          "end": 6.37
+        },
+        {
+          "text": "Terence,",
+          "start": 6.37,
+          "end": 6.73
+        },
+        {
+          "text": "were,",
+          "start": 7.09,
+          "end": 7.53
+        },
+        {
+          "text": "or",
+          "start": 7.53,
+          "end": 8.09
+        },
+        {
+          "text": "had",
+          "start": 8.09,
+          "end": 8.31
+        },
+        {
+          "text": "been",
+          "start": 8.31,
+          "end": 8.53
+        },
+        {
+          "text": "slaves.",
+          "start": 8.53,
+          "end": 8.91
+        },
+        {
+          "text": "Slaves",
+          "start": 9.99,
+          "end": 10.23
+        },
+        {
+          "text": "were",
+          "start": 10.23,
+          "end": 10.39
+        },
+        {
+          "text": "not",
+          "start": 10.39,
+          "end": 10.59
+        },
+        {
+          "text": "always",
+          "start": 10.59,
+          "end": 10.93
+        },
+        {
+          "text": "taken",
+          "start": 10.93,
+          "end": 11.23
+        },
+        {
+          "text": "from",
+          "start": 11.23,
+          "end": 11.55
+        },
+        {
+          "text": "barbarous",
+          "start": 11.55,
+          "end": 12.05
+        },
+        {
+          "text": "nations,",
+          "start": 12.05,
+          "end": 12.45
+        },
+        {
+          "text": "and",
+          "start": 12.91,
+          "end": 13.11
+        },
+        {
+          "text": "the",
+          "start": 13.11,
+          "end": 13.23
+        },
+        {
+          "text": "chances",
+          "start": 13.23,
+          "end": 13.53
+        },
+        {
+          "text": "of",
+          "start": 13.53,
+          "end": 13.81
+        },
+        {
+          "text": "war",
+          "start": 13.81,
+          "end": 14.11
+        },
+        {
+          "text": "reduced",
+          "start": 14.11,
+          "end": 14.61
+        },
+        {
+          "text": "highly",
+          "start": 14.61,
+          "end": 15.11
+        },
+        {
+          "text": "civilized",
+          "start": 15.11,
+          "end": 15.69
+        },
+        {
+          "text": "men",
+          "start": 15.69,
+          "end": 16.07
+        },
+        {
+          "text": "to",
+          "start": 16.07,
+          "end": 16.33
+        },
+        {
+          "text": "servitude.]",
+          "start": 16.33,
+          "end": 16.81
+        }
+      ],
+      "stats": {
+        "expected_words": 45,
+        "heard_words": 44,
+        "matched_words": 44
+      },
+      "match_ratio": 0.9777777777777777,
+      "rejection_reasons": [],
+      "seconds": 0.5061389170587063
+    },
+    {
+      "asr_seconds": 0.5333906896412373,
+      "alignment_seconds": 0.0007139556109905243,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " D. It is well known that several of the most distinguished authors of antiquity, and amongst",
+          "start": 0.05,
+          "end": 5.31,
+          "words": [
+            {
+              "text": " D.",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.607421875
+            },
+            {
+              "text": " It",
+              "start": 0.75,
+              "end": 0.95,
+              "probability": 0.6494140625
+            },
+            {
+              "text": " is",
+              "start": 0.95,
+              "end": 1.11,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " well",
+              "start": 1.11,
+              "end": 1.33,
+              "probability": 0.998046875
+            },
+            {
+              "text": " known",
+              "start": 1.33,
+              "end": 1.59,
+              "probability": 0.8994140625
+            },
+            {
+              "text": " that",
+              "start": 1.59,
+              "end": 1.87,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " several",
+              "start": 1.87,
+              "end": 2.21,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " of",
+              "start": 2.21,
+              "end": 2.43,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 2.43,
+              "end": 2.51,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " most",
+              "start": 2.51,
+              "end": 2.73,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " distinguished",
+              "start": 2.73,
+              "end": 3.23,
+              "probability": 0.99609375
+            },
+            {
+              "text": " authors",
+              "start": 3.23,
+              "end": 3.71,
+              "probability": 0.9921875
+            },
+            {
+              "text": " of",
+              "start": 3.71,
+              "end": 3.95,
+              "probability": 0.998046875
+            },
+            {
+              "text": " antiquity,",
+              "start": 3.95,
+              "end": 4.39,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " and",
+              "start": 4.97,
+              "end": 5.09,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " amongst",
+              "start": 5.09,
+              "end": 5.31,
+              "probability": 0.984375
+            }
+          ]
+        },
+        {
+          "text": " them Esop and Terrence, were or had been slaves.",
+          "start": 5.31,
+          "end": 8.91,
+          "words": [
+            {
+              "text": " them",
+              "start": 5.31,
+              "end": 5.63,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Esop",
+              "start": 5.63,
+              "end": 6.15,
+              "probability": 0.6766357421875
+            },
+            {
+              "text": " and",
+              "start": 6.15,
+              "end": 6.37,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Terrence,",
+              "start": 6.37,
+              "end": 6.83,
+              "probability": 0.706298828125
+            },
+            {
+              "text": " were",
+              "start": 7.13,
+              "end": 7.53,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " or",
+              "start": 7.53,
+              "end": 8.09,
+              "probability": 0.54296875
+            },
+            {
+              "text": " had",
+              "start": 8.09,
+              "end": 8.31,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " been",
+              "start": 8.31,
+              "end": 8.53,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " slaves.",
+              "start": 8.53,
+              "end": 8.91,
+              "probability": 0.994140625
+            }
+          ]
+        },
+        {
+          "text": " Slaves were not always taken from barbarous nations, and the chances of war reduced highly",
+          "start": 9.99,
+          "end": 15.11,
+          "words": [
+            {
+              "text": " Slaves",
+              "start": 9.99,
+              "end": 10.25,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " were",
+              "start": 10.25,
+              "end": 10.39,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " not",
+              "start": 10.39,
+              "end": 10.59,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " always",
+              "start": 10.59,
+              "end": 10.93,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " taken",
+              "start": 10.93,
+              "end": 11.23,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " from",
+              "start": 11.23,
+              "end": 11.55,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " barbarous",
+              "start": 11.55,
+              "end": 12.05,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " nations,",
+              "start": 12.05,
+              "end": 12.45,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 12.91,
+              "end": 13.11,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 13.11,
+              "end": 13.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " chances",
+              "start": 13.23,
+              "end": 13.53,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 13.53,
+              "end": 13.81,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " war",
+              "start": 13.81,
+              "end": 14.11,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " reduced",
+              "start": 14.11,
+              "end": 14.61,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " highly",
+              "start": 14.61,
+              "end": 15.11,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " civilized men to servitude.",
+          "start": 15.11,
+          "end": 16.81,
+          "words": [
+            {
+              "text": " civilized",
+              "start": 15.11,
+              "end": 15.69,
+              "probability": 0.92578125
+            },
+            {
+              "text": " men",
+              "start": 15.69,
+              "end": 16.07,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 16.07,
+              "end": 16.33,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " servitude.",
+              "start": 16.33,
+              "end": 16.81,
+              "probability": 0.998291015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "D.",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "It",
+          "start": 0.75,
+          "end": 0.95
+        },
+        {
+          "raw": "is",
+          "start": 0.95,
+          "end": 1.11
+        },
+        {
+          "raw": "well",
+          "start": 1.11,
+          "end": 1.33
+        },
+        {
+          "raw": "known",
+          "start": 1.33,
+          "end": 1.59
+        },
+        {
+          "raw": "that",
+          "start": 1.59,
+          "end": 1.87
+        },
+        {
+          "raw": "several",
+          "start": 1.87,
+          "end": 2.21
+        },
+        {
+          "raw": "of",
+          "start": 2.21,
+          "end": 2.43
+        },
+        {
+          "raw": "the",
+          "start": 2.43,
+          "end": 2.51
+        },
+        {
+          "raw": "most",
+          "start": 2.51,
+          "end": 2.73
+        },
+        {
+          "raw": "distinguished",
+          "start": 2.73,
+          "end": 3.23
+        },
+        {
+          "raw": "authors",
+          "start": 3.23,
+          "end": 3.71
+        },
+        {
+          "raw": "of",
+          "start": 3.71,
+          "end": 3.95
+        },
+        {
+          "raw": "antiquity,",
+          "start": 3.95,
+          "end": 4.39
+        },
+        {
+          "raw": "and",
+          "start": 4.97,
+          "end": 5.09
+        },
+        {
+          "raw": "amongst",
+          "start": 5.09,
+          "end": 5.31
+        },
+        {
+          "raw": "them",
+          "start": 5.31,
+          "end": 5.63
+        },
+        {
+          "raw": "Esop",
+          "start": 5.63,
+          "end": 6.15
+        },
+        {
+          "raw": "and",
+          "start": 6.15,
+          "end": 6.37
+        },
+        {
+          "raw": "Terrence,",
+          "start": 6.37,
+          "end": 6.83
+        },
+        {
+          "raw": "were",
+          "start": 7.13,
+          "end": 7.53
+        },
+        {
+          "raw": "or",
+          "start": 7.53,
+          "end": 8.09
+        },
+        {
+          "raw": "had",
+          "start": 8.09,
+          "end": 8.31
+        },
+        {
+          "raw": "been",
+          "start": 8.31,
+          "end": 8.53
+        },
+        {
+          "raw": "slaves.",
+          "start": 8.53,
+          "end": 8.91
+        },
+        {
+          "raw": "Slaves",
+          "start": 9.99,
+          "end": 10.25
+        },
+        {
+          "raw": "were",
+          "start": 10.25,
+          "end": 10.39
+        },
+        {
+          "raw": "not",
+          "start": 10.39,
+          "end": 10.59
+        },
+        {
+          "raw": "always",
+          "start": 10.59,
+          "end": 10.93
+        },
+        {
+          "raw": "taken",
+          "start": 10.93,
+          "end": 11.23
+        },
+        {
+          "raw": "from",
+          "start": 11.23,
+          "end": 11.55
+        },
+        {
+          "raw": "barbarous",
+          "start": 11.55,
+          "end": 12.05
+        },
+        {
+          "raw": "nations,",
+          "start": 12.05,
+          "end": 12.45
+        },
+        {
+          "raw": "and",
+          "start": 12.91,
+          "end": 13.11
+        },
+        {
+          "raw": "the",
+          "start": 13.11,
+          "end": 13.23
+        },
+        {
+          "raw": "chances",
+          "start": 13.23,
+          "end": 13.53
+        },
+        {
+          "raw": "of",
+          "start": 13.53,
+          "end": 13.81
+        },
+        {
+          "raw": "war",
+          "start": 13.81,
+          "end": 14.11
+        },
+        {
+          "raw": "reduced",
+          "start": 14.11,
+          "end": 14.61
+        },
+        {
+          "raw": "highly",
+          "start": 14.61,
+          "end": 15.11
+        },
+        {
+          "raw": "civilized",
+          "start": 15.11,
+          "end": 15.69
+        },
+        {
+          "raw": "men",
+          "start": 15.69,
+          "end": 16.07
+        },
+        {
+          "raw": "to",
+          "start": 16.07,
+          "end": 16.33
+        },
+        {
+          "raw": "servitude.",
+          "start": 16.33,
+          "end": 16.81
+        }
+      ],
+      "expected_tokens": [
+        "d",
+        "[",
+        "It",
+        "is",
+        "well",
+        "known",
+        "that",
+        "several",
+        "of",
+        "the",
+        "most",
+        "distinguished",
+        "authors",
+        "of",
+        "antiquity,",
+        "and",
+        "amongst",
+        "them",
+        "Aesop",
+        "and",
+        "Terence,",
+        "were,",
+        "or",
+        "had",
+        "been",
+        "slaves.",
+        "Slaves",
+        "were",
+        "not",
+        "always",
+        "taken",
+        "from",
+        "barbarous",
+        "nations,",
+        "and",
+        "the",
+        "chances",
+        "of",
+        "war",
+        "reduced",
+        "highly",
+        "civilized",
+        "men",
+        "to",
+        "servitude.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "delete",
+          1,
+          2,
+          1,
+          1
+        ],
+        [
+          "equal",
+          2,
+          18,
+          1,
+          17
+        ],
+        [
+          "replace",
+          18,
+          19,
+          17,
+          18
+        ],
+        [
+          "equal",
+          19,
+          20,
+          18,
+          19
+        ],
+        [
+          "replace",
+          20,
+          21,
+          19,
+          20
+        ],
+        [
+          "equal",
+          21,
+          45,
+          20,
+          44
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 43
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          1,
+          2,
+          1,
+          1
+        ],
+        [
+          "replace",
+          18,
+          19,
+          17,
+          18
+        ],
+        [
+          "replace",
+          20,
+          21,
+          19,
+          20
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "D.",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "d",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 0.75,
+          "end": 0.95,
+          "key": "it",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.95,
+          "end": 1.11,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 1.11,
+          "end": 1.33,
+          "key": "well",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "known",
+          "start": 1.33,
+          "end": 1.59,
+          "key": "known",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.59,
+          "end": 1.87,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "several",
+          "start": 1.87,
+          "end": 2.21,
+          "key": "several",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.21,
+          "end": 2.43,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.43,
+          "end": 2.51,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 2.51,
+          "end": 2.73,
+          "key": "most",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "distinguished",
+          "start": 2.73,
+          "end": 3.23,
+          "key": "distinguished",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "authors",
+          "start": 3.23,
+          "end": 3.71,
+          "key": "authors",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.71,
+          "end": 3.95,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "antiquity,",
+          "start": 3.95,
+          "end": 4.39,
+          "key": "antiquity",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.97,
+          "end": 5.09,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "amongst",
+          "start": 5.09,
+          "end": 5.31,
+          "key": "amongst",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 5.31,
+          "end": 5.63,
+          "key": "them",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Esop",
+          "start": 5.63,
+          "end": 6.15,
+          "key": "esop",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.15,
+          "end": 6.37,
+          "key": "and",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Terrence,",
+          "start": 6.37,
+          "end": 6.83,
+          "key": "terrence",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 7.13,
+          "end": 7.53,
+          "key": "were",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 7.53,
+          "end": 8.09,
+          "key": "or",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 8.09,
+          "end": 8.31,
+          "key": "had",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 8.31,
+          "end": 8.53,
+          "key": "been",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "slaves.",
+          "start": 8.53,
+          "end": 8.91,
+          "key": "slaves",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Slaves",
+          "start": 9.99,
+          "end": 10.25,
+          "key": "slaves",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 10.25,
+          "end": 10.39,
+          "key": "were",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 10.39,
+          "end": 10.59,
+          "key": "not",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "always",
+          "start": 10.59,
+          "end": 10.93,
+          "key": "always",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "taken",
+          "start": 10.93,
+          "end": 11.23,
+          "key": "taken",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 11.23,
+          "end": 11.55,
+          "key": "from",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "barbarous",
+          "start": 11.55,
+          "end": 12.05,
+          "key": "barbarous",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "nations,",
+          "start": 12.05,
+          "end": 12.45,
+          "key": "nations",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 12.91,
+          "end": 13.11,
+          "key": "and",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.11,
+          "end": 13.23,
+          "key": "the",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "chances",
+          "start": 13.23,
+          "end": 13.53,
+          "key": "chances",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 13.53,
+          "end": 13.81,
+          "key": "of",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "war",
+          "start": 13.81,
+          "end": 14.11,
+          "key": "war",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "reduced",
+          "start": 14.11,
+          "end": 14.61,
+          "key": "reduced",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "highly",
+          "start": 14.61,
+          "end": 15.11,
+          "key": "highly",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "civilized",
+          "start": 15.11,
+          "end": 15.69,
+          "key": "civilized",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "men",
+          "start": 15.69,
+          "end": 16.07,
+          "key": "men",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 16.07,
+          "end": 16.33,
+          "key": "to",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "servitude.",
+          "start": 16.33,
+          "end": 16.81,
+          "key": "servitude",
+          "pieces": [
+            43
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "d",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "[",
+          "start": 0.63,
+          "end": 0.69
+        },
+        {
+          "text": "It",
+          "start": 0.75,
+          "end": 0.95
+        },
+        {
+          "text": "is",
+          "start": 0.95,
+          "end": 1.11
+        },
+        {
+          "text": "well",
+          "start": 1.11,
+          "end": 1.33
+        },
+        {
+          "text": "known",
+          "start": 1.33,
+          "end": 1.59
+        },
+        {
+          "text": "that",
+          "start": 1.59,
+          "end": 1.87
+        },
+        {
+          "text": "several",
+          "start": 1.87,
+          "end": 2.21
+        },
+        {
+          "text": "of",
+          "start": 2.21,
+          "end": 2.43
+        },
+        {
+          "text": "the",
+          "start": 2.43,
+          "end": 2.51
+        },
+        {
+          "text": "most",
+          "start": 2.51,
+          "end": 2.73
+        },
+        {
+          "text": "distinguished",
+          "start": 2.73,
+          "end": 3.23
+        },
+        {
+          "text": "authors",
+          "start": 3.23,
+          "end": 3.71
+        },
+        {
+          "text": "of",
+          "start": 3.71,
+          "end": 3.95
+        },
+        {
+          "text": "antiquity,",
+          "start": 3.95,
+          "end": 4.39
+        },
+        {
+          "text": "and",
+          "start": 4.97,
+          "end": 5.09
+        },
+        {
+          "text": "amongst",
+          "start": 5.09,
+          "end": 5.31
+        },
+        {
+          "text": "them",
+          "start": 5.31,
+          "end": 5.63
+        },
+        {
+          "text": "Aesop",
+          "start": 5.63,
+          "end": 5.89
+        },
+        {
+          "text": "and",
+          "start": 6.15,
+          "end": 6.37
+        },
+        {
+          "text": "Terence,",
+          "start": 6.37,
+          "end": 6.75
+        },
+        {
+          "text": "were,",
+          "start": 7.13,
+          "end": 7.53
+        },
+        {
+          "text": "or",
+          "start": 7.53,
+          "end": 8.09
+        },
+        {
+          "text": "had",
+          "start": 8.09,
+          "end": 8.31
+        },
+        {
+          "text": "been",
+          "start": 8.31,
+          "end": 8.53
+        },
+        {
+          "text": "slaves.",
+          "start": 8.53,
+          "end": 8.91
+        },
+        {
+          "text": "Slaves",
+          "start": 9.99,
+          "end": 10.25
+        },
+        {
+          "text": "were",
+          "start": 10.25,
+          "end": 10.39
+        },
+        {
+          "text": "not",
+          "start": 10.39,
+          "end": 10.59
+        },
+        {
+          "text": "always",
+          "start": 10.59,
+          "end": 10.93
+        },
+        {
+          "text": "taken",
+          "start": 10.93,
+          "end": 11.23
+        },
+        {
+          "text": "from",
+          "start": 11.23,
+          "end": 11.55
+        },
+        {
+          "text": "barbarous",
+          "start": 11.55,
+          "end": 12.05
+        },
+        {
+          "text": "nations,",
+          "start": 12.05,
+          "end": 12.45
+        },
+        {
+          "text": "and",
+          "start": 12.91,
+          "end": 13.11
+        },
+        {
+          "text": "the",
+          "start": 13.11,
+          "end": 13.23
+        },
+        {
+          "text": "chances",
+          "start": 13.23,
+          "end": 13.53
+        },
+        {
+          "text": "of",
+          "start": 13.53,
+          "end": 13.81
+        },
+        {
+          "text": "war",
+          "start": 13.81,
+          "end": 14.11
+        },
+        {
+          "text": "reduced",
+          "start": 14.11,
+          "end": 14.61
+        },
+        {
+          "text": "highly",
+          "start": 14.61,
+          "end": 15.11
+        },
+        {
+          "text": "civilized",
+          "start": 15.11,
+          "end": 15.69
+        },
+        {
+          "text": "men",
+          "start": 15.69,
+          "end": 16.07
+        },
+        {
+          "text": "to",
+          "start": 16.07,
+          "end": 16.33
+        },
+        {
+          "text": "servitude.]",
+          "start": 16.33,
+          "end": 16.81
+        }
+      ],
+      "stats": {
+        "expected_words": 45,
+        "heard_words": 44,
+        "matched_words": 42
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.5343933366239071
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ecedb9dd05ee209a1812c8021890bf042c7563a662236af4a0a7e0673146eb33",
+  "selected_reasons": []
+}

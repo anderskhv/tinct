@@ -1,0 +1,1398 @@
+{
+  "complete": true,
+  "signature": "58483a691e74f19343ba63b02f39e1ca438514f39eaee96eb886b87c6d8fa958",
+  "attempts": [
+    {
+      "asr_seconds": 0.46643513441085815,
+      "alignment_seconds": 0.0009478218853473663,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[The actual result has fallen somewhat short of these calculations, in spite of the vast territorial acquisitions of the United States: but in 1899 the population is probably about eighty-seven millions, including the population of the Philippines, Hawaii, and Porto Rico.]]",
+        "hotwords": "United, States, Philippines, Hawaii, Porto, Rico"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The actual result has fallen somewhat short of these calculations, in spite of the vast territorial acquisitions of the United States, but in 1899 the population is probably about eighty-seven millions, including the population of the Philippines, Hawaii, and Porto Rico.]",
+          "start": 0.02,
+          "end": 18.42,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.955078125
+            },
+            {
+              "text": " actual",
+              "start": 0.5,
+              "end": 0.86,
+              "probability": 0.998046875
+            },
+            {
+              "text": " result",
+              "start": 0.86,
+              "end": 1.28,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " has",
+              "start": 1.28,
+              "end": 1.54,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " fallen",
+              "start": 1.54,
+              "end": 1.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " somewhat",
+              "start": 1.86,
+              "end": 2.4,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " short",
+              "start": 2.4,
+              "end": 2.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 2.76,
+              "end": 2.94,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " these",
+              "start": 2.94,
+              "end": 3.12,
+              "probability": 0.998046875
+            },
+            {
+              "text": " calculations,",
+              "start": 3.12,
+              "end": 3.84,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " in",
+              "start": 4.36,
+              "end": 4.62,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " spite",
+              "start": 4.62,
+              "end": 4.88,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 4.88,
+              "end": 5.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 5.04,
+              "end": 5.14,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " vast",
+              "start": 5.14,
+              "end": 5.52,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " territorial",
+              "start": 5.52,
+              "end": 6.14,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " acquisitions",
+              "start": 6.14,
+              "end": 6.88,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " of",
+              "start": 6.88,
+              "end": 7.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 7.22,
+              "end": 7.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " United",
+              "start": 7.32,
+              "end": 7.56,
+              "probability": 0.9921875
+            },
+            {
+              "text": " States,",
+              "start": 7.56,
+              "end": 8.14,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " but",
+              "start": 8.6,
+              "end": 8.9,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " in",
+              "start": 8.9,
+              "end": 9.0,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " 1899",
+              "start": 9.0,
+              "end": 9.6,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 9.6,
+              "end": 10.24,
+              "probability": 0.6904296875
+            },
+            {
+              "text": " population",
+              "start": 10.24,
+              "end": 10.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " is",
+              "start": 10.7,
+              "end": 11.12,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " probably",
+              "start": 11.12,
+              "end": 11.46,
+              "probability": 0.998046875
+            },
+            {
+              "text": " about",
+              "start": 11.46,
+              "end": 11.9,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " eighty",
+              "start": 11.9,
+              "end": 12.18,
+              "probability": 0.07275390625
+            },
+            {
+              "text": "-seven",
+              "start": 12.18,
+              "end": 12.58,
+              "probability": 0.8232421875
+            },
+            {
+              "text": " millions,",
+              "start": 12.58,
+              "end": 13.02,
+              "probability": 0.8642578125
+            },
+            {
+              "text": " including",
+              "start": 13.64,
+              "end": 13.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 13.92,
+              "end": 14.18,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " population",
+              "start": 14.18,
+              "end": 14.66,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of",
+              "start": 14.66,
+              "end": 15.0,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 15.0,
+              "end": 15.12,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Philippines,",
+              "start": 15.12,
+              "end": 15.58,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Hawaii,",
+              "start": 16.08,
+              "end": 16.38,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " and",
+              "start": 16.9,
+              "end": 16.96,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Porto",
+              "start": 16.96,
+              "end": 17.36,
+              "probability": 0.51214599609375
+            },
+            {
+              "text": " Rico.]",
+              "start": 17.36,
+              "end": 18.42,
+              "probability": 0.4941445291042328
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "actual",
+          "start": 0.5,
+          "end": 0.86
+        },
+        {
+          "raw": "result",
+          "start": 0.86,
+          "end": 1.28
+        },
+        {
+          "raw": "has",
+          "start": 1.28,
+          "end": 1.54
+        },
+        {
+          "raw": "fallen",
+          "start": 1.54,
+          "end": 1.86
+        },
+        {
+          "raw": "somewhat",
+          "start": 1.86,
+          "end": 2.4
+        },
+        {
+          "raw": "short",
+          "start": 2.4,
+          "end": 2.76
+        },
+        {
+          "raw": "of",
+          "start": 2.76,
+          "end": 2.94
+        },
+        {
+          "raw": "these",
+          "start": 2.94,
+          "end": 3.12
+        },
+        {
+          "raw": "calculations,",
+          "start": 3.12,
+          "end": 3.84
+        },
+        {
+          "raw": "in",
+          "start": 4.36,
+          "end": 4.62
+        },
+        {
+          "raw": "spite",
+          "start": 4.62,
+          "end": 4.88
+        },
+        {
+          "raw": "of",
+          "start": 4.88,
+          "end": 5.04
+        },
+        {
+          "raw": "the",
+          "start": 5.04,
+          "end": 5.14
+        },
+        {
+          "raw": "vast",
+          "start": 5.14,
+          "end": 5.52
+        },
+        {
+          "raw": "territorial",
+          "start": 5.52,
+          "end": 6.14
+        },
+        {
+          "raw": "acquisitions",
+          "start": 6.14,
+          "end": 6.88
+        },
+        {
+          "raw": "of",
+          "start": 6.88,
+          "end": 7.22
+        },
+        {
+          "raw": "the",
+          "start": 7.22,
+          "end": 7.32
+        },
+        {
+          "raw": "United",
+          "start": 7.32,
+          "end": 7.56
+        },
+        {
+          "raw": "States,",
+          "start": 7.56,
+          "end": 8.14
+        },
+        {
+          "raw": "but",
+          "start": 8.6,
+          "end": 8.9
+        },
+        {
+          "raw": "in",
+          "start": 8.9,
+          "end": 9.0
+        },
+        {
+          "raw": "1899",
+          "start": 9.0,
+          "end": 9.6
+        },
+        {
+          "raw": "the",
+          "start": 9.6,
+          "end": 10.24
+        },
+        {
+          "raw": "population",
+          "start": 10.24,
+          "end": 10.7
+        },
+        {
+          "raw": "is",
+          "start": 10.7,
+          "end": 11.12
+        },
+        {
+          "raw": "probably",
+          "start": 11.12,
+          "end": 11.46
+        },
+        {
+          "raw": "about",
+          "start": 11.46,
+          "end": 11.9
+        },
+        {
+          "raw": "eighty",
+          "start": 11.9,
+          "end": 12.18
+        },
+        {
+          "raw": "-seven",
+          "start": 12.18,
+          "end": 12.58
+        },
+        {
+          "raw": "millions,",
+          "start": 12.58,
+          "end": 13.02
+        },
+        {
+          "raw": "including",
+          "start": 13.64,
+          "end": 13.92
+        },
+        {
+          "raw": "the",
+          "start": 13.92,
+          "end": 14.18
+        },
+        {
+          "raw": "population",
+          "start": 14.18,
+          "end": 14.66
+        },
+        {
+          "raw": "of",
+          "start": 14.66,
+          "end": 15.0
+        },
+        {
+          "raw": "the",
+          "start": 15.0,
+          "end": 15.12
+        },
+        {
+          "raw": "Philippines,",
+          "start": 15.12,
+          "end": 15.58
+        },
+        {
+          "raw": "Hawaii,",
+          "start": 16.08,
+          "end": 16.38
+        },
+        {
+          "raw": "and",
+          "start": 16.9,
+          "end": 16.96
+        },
+        {
+          "raw": "Porto",
+          "start": 16.96,
+          "end": 17.36
+        },
+        {
+          "raw": "Rico.]",
+          "start": 17.36,
+          "end": 18.42
+        }
+      ],
+      "expected_tokens": [
+        "[The",
+        "actual",
+        "result",
+        "has",
+        "fallen",
+        "somewhat",
+        "short",
+        "of",
+        "these",
+        "calculations,",
+        "in",
+        "spite",
+        "of",
+        "the",
+        "vast",
+        "territorial",
+        "acquisitions",
+        "of",
+        "the",
+        "United",
+        "States:",
+        "but",
+        "in",
+        "1899",
+        "the",
+        "population",
+        "is",
+        "probably",
+        "about",
+        "eighty-seven",
+        "millions,",
+        "including",
+        "the",
+        "population",
+        "of",
+        "the",
+        "Philippines,",
+        "Hawaii,",
+        "and",
+        "Porto",
+        "Rico.]]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          41,
+          0,
+          41
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "actual",
+          "start": 0.5,
+          "end": 0.86,
+          "key": "actual",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "result",
+          "start": 0.86,
+          "end": 1.28,
+          "key": "result",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 1.28,
+          "end": 1.54,
+          "key": "has",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "fallen",
+          "start": 1.54,
+          "end": 1.86,
+          "key": "fallen",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "somewhat",
+          "start": 1.86,
+          "end": 2.4,
+          "key": "somewhat",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "short",
+          "start": 2.4,
+          "end": 2.76,
+          "key": "short",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.76,
+          "end": 2.94,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 2.94,
+          "end": 3.12,
+          "key": "these",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "calculations,",
+          "start": 3.12,
+          "end": 3.84,
+          "key": "calculations",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.36,
+          "end": 4.62,
+          "key": "in",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "spite",
+          "start": 4.62,
+          "end": 4.88,
+          "key": "spite",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.88,
+          "end": 5.04,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.04,
+          "end": 5.14,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "vast",
+          "start": 5.14,
+          "end": 5.52,
+          "key": "vast",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "territorial",
+          "start": 5.52,
+          "end": 6.14,
+          "key": "territorial",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "acquisitions",
+          "start": 6.14,
+          "end": 6.88,
+          "key": "acquisitions",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.88,
+          "end": 7.22,
+          "key": "of",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.22,
+          "end": 7.32,
+          "key": "the",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "United",
+          "start": 7.32,
+          "end": 7.56,
+          "key": "united",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "States,",
+          "start": 7.56,
+          "end": 8.14,
+          "key": "states",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 8.6,
+          "end": 8.9,
+          "key": "but",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 8.9,
+          "end": 9.0,
+          "key": "in",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "1899",
+          "start": 9.0,
+          "end": 9.6,
+          "key": "1899",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.6,
+          "end": 10.24,
+          "key": "the",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "population",
+          "start": 10.24,
+          "end": 10.7,
+          "key": "population",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 10.7,
+          "end": 11.12,
+          "key": "is",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "probably",
+          "start": 11.12,
+          "end": 11.46,
+          "key": "probably",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 11.46,
+          "end": 11.9,
+          "key": "about",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "eighty -seven",
+          "start": 11.9,
+          "end": 12.58,
+          "key": "eightyseven",
+          "pieces": [
+            29,
+            30
+          ]
+        },
+        {
+          "raw": "millions,",
+          "start": 12.58,
+          "end": 13.02,
+          "key": "millions",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "including",
+          "start": 13.64,
+          "end": 13.92,
+          "key": "including",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.92,
+          "end": 14.18,
+          "key": "the",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "population",
+          "start": 14.18,
+          "end": 14.66,
+          "key": "population",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 14.66,
+          "end": 15.0,
+          "key": "of",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 15.0,
+          "end": 15.12,
+          "key": "the",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "Philippines,",
+          "start": 15.12,
+          "end": 15.58,
+          "key": "philippines",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "Hawaii,",
+          "start": 16.08,
+          "end": 16.38,
+          "key": "hawaii",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 16.9,
+          "end": 16.96,
+          "key": "and",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "Porto",
+          "start": 16.96,
+          "end": 17.36,
+          "key": "porto",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "Rico.]",
+          "start": 17.36,
+          "end": 18.42,
+          "key": "rico",
+          "pieces": [
+            41
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 29,
+          "text": "eighty-seven",
+          "heard": "eighty -seven",
+          "heard_indexes": [
+            29,
+            30
+          ],
+          "start": 11.9,
+          "end": 12.58
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "[The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "actual",
+          "start": 0.5,
+          "end": 0.86
+        },
+        {
+          "text": "result",
+          "start": 0.86,
+          "end": 1.28
+        },
+        {
+          "text": "has",
+          "start": 1.28,
+          "end": 1.54
+        },
+        {
+          "text": "fallen",
+          "start": 1.54,
+          "end": 1.86
+        },
+        {
+          "text": "somewhat",
+          "start": 1.86,
+          "end": 2.4
+        },
+        {
+          "text": "short",
+          "start": 2.4,
+          "end": 2.76
+        },
+        {
+          "text": "of",
+          "start": 2.76,
+          "end": 2.94
+        },
+        {
+          "text": "these",
+          "start": 2.94,
+          "end": 3.12
+        },
+        {
+          "text": "calculations,",
+          "start": 3.12,
+          "end": 3.84
+        },
+        {
+          "text": "in",
+          "start": 4.36,
+          "end": 4.62
+        },
+        {
+          "text": "spite",
+          "start": 4.62,
+          "end": 4.88
+        },
+        {
+          "text": "of",
+          "start": 4.88,
+          "end": 5.04
+        },
+        {
+          "text": "the",
+          "start": 5.04,
+          "end": 5.14
+        },
+        {
+          "text": "vast",
+          "start": 5.14,
+          "end": 5.52
+        },
+        {
+          "text": "territorial",
+          "start": 5.52,
+          "end": 6.14
+        },
+        {
+          "text": "acquisitions",
+          "start": 6.14,
+          "end": 6.88
+        },
+        {
+          "text": "of",
+          "start": 6.88,
+          "end": 7.22
+        },
+        {
+          "text": "the",
+          "start": 7.22,
+          "end": 7.32
+        },
+        {
+          "text": "United",
+          "start": 7.32,
+          "end": 7.56
+        },
+        {
+          "text": "States:",
+          "start": 7.56,
+          "end": 8.14
+        },
+        {
+          "text": "but",
+          "start": 8.6,
+          "end": 8.9
+        },
+        {
+          "text": "in",
+          "start": 8.9,
+          "end": 9.0
+        },
+        {
+          "text": "1899",
+          "start": 9.0,
+          "end": 9.6
+        },
+        {
+          "text": "the",
+          "start": 9.6,
+          "end": 10.24
+        },
+        {
+          "text": "population",
+          "start": 10.24,
+          "end": 10.7
+        },
+        {
+          "text": "is",
+          "start": 10.7,
+          "end": 11.12
+        },
+        {
+          "text": "probably",
+          "start": 11.12,
+          "end": 11.46
+        },
+        {
+          "text": "about",
+          "start": 11.46,
+          "end": 11.9
+        },
+        {
+          "text": "eighty-seven",
+          "start": 11.9,
+          "end": 12.58
+        },
+        {
+          "text": "millions,",
+          "start": 12.58,
+          "end": 13.02
+        },
+        {
+          "text": "including",
+          "start": 13.64,
+          "end": 13.92
+        },
+        {
+          "text": "the",
+          "start": 13.92,
+          "end": 14.18
+        },
+        {
+          "text": "population",
+          "start": 14.18,
+          "end": 14.66
+        },
+        {
+          "text": "of",
+          "start": 14.66,
+          "end": 15.0
+        },
+        {
+          "text": "the",
+          "start": 15.0,
+          "end": 15.12
+        },
+        {
+          "text": "Philippines,",
+          "start": 15.12,
+          "end": 15.58
+        },
+        {
+          "text": "Hawaii,",
+          "start": 16.08,
+          "end": 16.38
+        },
+        {
+          "text": "and",
+          "start": 16.9,
+          "end": 16.96
+        },
+        {
+          "text": "Porto",
+          "start": 16.96,
+          "end": 17.36
+        },
+        {
+          "text": "Rico.]]",
+          "start": 17.36,
+          "end": 18.42
+        }
+      ],
+      "stats": {
+        "expected_words": 41,
+        "heard_words": 41,
+        "matched_words": 41
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4677261784672737
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e31108ea43976e6986e95377a19e5bd87887df5f859bece21a4dc7333c754d13",
+  "selected_reasons": []
+}

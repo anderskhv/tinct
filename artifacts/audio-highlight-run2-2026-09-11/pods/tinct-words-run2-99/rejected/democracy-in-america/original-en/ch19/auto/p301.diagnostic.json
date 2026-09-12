@@ -1,0 +1,2174 @@
+{
+  "complete": true,
+  "signature": "ddf991e0164322e377550a5f9e9e99d19b461ea023bbca2965a7ed23b9ca4a55",
+  "attempts": [
+    {
+      "asr_seconds": 1.0294214189052582,
+      "alignment_seconds": 0.0009399987757205963,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "a [ See principally for the details of this affair, the Legislative Documents, 22d Congress, 2d Session, No. 30.]",
+        "hotwords": "See, Legislative, Documents, Congress, Session, No"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " A See Principally for the Details of this Affair, the Legislative Documents, 22d Congress, 2d Session, No. 30.",
+          "start": 0.24,
+          "end": 8.36,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.24,
+              "end": 0.52,
+              "probability": 0.56005859375
+            },
+            {
+              "text": " See",
+              "start": 0.52,
+              "end": 0.8,
+              "probability": 0.013214111328125
+            },
+            {
+              "text": " Principally",
+              "start": 0.8,
+              "end": 1.32,
+              "probability": 0.8146158854166666
+            },
+            {
+              "text": " for",
+              "start": 1.32,
+              "end": 1.54,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " the",
+              "start": 1.54,
+              "end": 1.66,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Details",
+              "start": 1.66,
+              "end": 2.02,
+              "probability": 0.3359375
+            },
+            {
+              "text": " of",
+              "start": 2.02,
+              "end": 2.3,
+              "probability": 0.99609375
+            },
+            {
+              "text": " this",
+              "start": 2.3,
+              "end": 2.44,
+              "probability": 0.78466796875
+            },
+            {
+              "text": " Affair,",
+              "start": 2.44,
+              "end": 2.9,
+              "probability": 0.8291015625
+            },
+            {
+              "text": " the",
+              "start": 3.42,
+              "end": 3.42,
+              "probability": 0.67578125
+            },
+            {
+              "text": " Legislative",
+              "start": 3.42,
+              "end": 3.86,
+              "probability": 0.66748046875
+            },
+            {
+              "text": " Documents,",
+              "start": 3.86,
+              "end": 4.54,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " 22d",
+              "start": 5.16,
+              "end": 5.74,
+              "probability": 0.618896484375
+            },
+            {
+              "text": " Congress,",
+              "start": 5.74,
+              "end": 6.16,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " 2d",
+              "start": 6.68,
+              "end": 6.98,
+              "probability": 0.921142578125
+            },
+            {
+              "text": " Session,",
+              "start": 6.98,
+              "end": 7.32,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " No.",
+              "start": 7.74,
+              "end": 7.88,
+              "probability": 0.359619140625
+            },
+            {
+              "text": " 30.",
+              "start": 8.36,
+              "end": 8.36,
+              "probability": 0.8994140625
+            }
+          ]
+        },
+        {
+          "text": " A See Principally for the Details of this Affair, the Legislative Documents, 22d Congress, No. 30.",
+          "start": 8.36,
+          "end": 8.48,
+          "words": [
+            {
+              "text": " A",
+              "start": 8.36,
+              "end": 8.36,
+              "probability": 0.00241851806640625
+            },
+            {
+              "text": " See",
+              "start": 8.36,
+              "end": 8.36,
+              "probability": 0.0003085136413574219
+            },
+            {
+              "text": " Principally",
+              "start": 8.36,
+              "end": 8.36,
+              "probability": 0.4363609552383423
+            },
+            {
+              "text": " for",
+              "start": 8.36,
+              "end": 8.36,
+              "probability": 0.005199432373046875
+            },
+            {
+              "text": " the",
+              "start": 8.36,
+              "end": 8.36,
+              "probability": 0.142578125
+            },
+            {
+              "text": " Details",
+              "start": 8.36,
+              "end": 8.36,
+              "probability": 7.331371307373047e-06
+            },
+            {
+              "text": " of",
+              "start": 8.36,
+              "end": 8.36,
+              "probability": 0.54736328125
+            },
+            {
+              "text": " this",
+              "start": 8.36,
+              "end": 8.36,
+              "probability": 0.006389617919921875
+            },
+            {
+              "text": " Affair,",
+              "start": 8.36,
+              "end": 8.36,
+              "probability": 0.004903733730316162
+            },
+            {
+              "text": " the",
+              "start": 8.42,
+              "end": 8.48,
+              "probability": 0.0423583984375
+            },
+            {
+              "text": " Legislative",
+              "start": 8.48,
+              "end": 8.48,
+              "probability": 0.00012183189392089844
+            },
+            {
+              "text": " Documents,",
+              "start": 8.48,
+              "end": 8.48,
+              "probability": 1.9788742065429688e-05
+            },
+            {
+              "text": " 22d",
+              "start": 8.48,
+              "end": 8.48,
+              "probability": 0.0001875460147857666
+            },
+            {
+              "text": " Congress,",
+              "start": 8.48,
+              "end": 8.48,
+              "probability": 8.255243301391602e-05
+            },
+            {
+              "text": " No.",
+              "start": 8.48,
+              "end": 8.48,
+              "probability": 0.0012378692626953125
+            },
+            {
+              "text": " 30.",
+              "start": 8.48,
+              "end": 8.48,
+              "probability": 0.008331298828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.24,
+          "end": 0.52
+        },
+        {
+          "raw": "See",
+          "start": 0.52,
+          "end": 0.8
+        },
+        {
+          "raw": "Principally",
+          "start": 0.8,
+          "end": 1.32
+        },
+        {
+          "raw": "for",
+          "start": 1.32,
+          "end": 1.54
+        },
+        {
+          "raw": "the",
+          "start": 1.54,
+          "end": 1.66
+        },
+        {
+          "raw": "Details",
+          "start": 1.66,
+          "end": 2.02
+        },
+        {
+          "raw": "of",
+          "start": 2.02,
+          "end": 2.3
+        },
+        {
+          "raw": "this",
+          "start": 2.3,
+          "end": 2.44
+        },
+        {
+          "raw": "Affair,",
+          "start": 2.44,
+          "end": 2.9
+        },
+        {
+          "raw": "the",
+          "start": 3.42,
+          "end": 3.42
+        },
+        {
+          "raw": "Legislative",
+          "start": 3.42,
+          "end": 3.86
+        },
+        {
+          "raw": "Documents,",
+          "start": 3.86,
+          "end": 4.54
+        },
+        {
+          "raw": "22d",
+          "start": 5.16,
+          "end": 5.74
+        },
+        {
+          "raw": "Congress,",
+          "start": 5.74,
+          "end": 6.16
+        },
+        {
+          "raw": "2d",
+          "start": 6.68,
+          "end": 6.98
+        },
+        {
+          "raw": "Session,",
+          "start": 6.98,
+          "end": 7.32
+        },
+        {
+          "raw": "No.",
+          "start": 7.74,
+          "end": 7.88
+        },
+        {
+          "raw": "30.",
+          "start": 8.36,
+          "end": 8.36
+        },
+        {
+          "raw": "A",
+          "start": 8.36,
+          "end": 8.36
+        },
+        {
+          "raw": "See",
+          "start": 8.36,
+          "end": 8.36
+        },
+        {
+          "raw": "Principally",
+          "start": 8.36,
+          "end": 8.36
+        },
+        {
+          "raw": "for",
+          "start": 8.36,
+          "end": 8.36
+        },
+        {
+          "raw": "the",
+          "start": 8.36,
+          "end": 8.36
+        },
+        {
+          "raw": "Details",
+          "start": 8.36,
+          "end": 8.36
+        },
+        {
+          "raw": "of",
+          "start": 8.36,
+          "end": 8.36
+        },
+        {
+          "raw": "this",
+          "start": 8.36,
+          "end": 8.36
+        },
+        {
+          "raw": "Affair,",
+          "start": 8.36,
+          "end": 8.36
+        },
+        {
+          "raw": "the",
+          "start": 8.42,
+          "end": 8.48
+        },
+        {
+          "raw": "Legislative",
+          "start": 8.48,
+          "end": 8.48
+        },
+        {
+          "raw": "Documents,",
+          "start": 8.48,
+          "end": 8.48
+        },
+        {
+          "raw": "22d",
+          "start": 8.48,
+          "end": 8.48
+        },
+        {
+          "raw": "Congress,",
+          "start": 8.48,
+          "end": 8.48
+        },
+        {
+          "raw": "No.",
+          "start": 8.48,
+          "end": 8.48
+        },
+        {
+          "raw": "30.",
+          "start": 8.48,
+          "end": 8.48
+        }
+      ],
+      "expected_tokens": [
+        "a",
+        "[",
+        "See",
+        "principally",
+        "for",
+        "the",
+        "details",
+        "of",
+        "this",
+        "affair,",
+        "the",
+        "Legislative",
+        "Documents,",
+        "22d",
+        "Congress,",
+        "2d",
+        "Session,",
+        "No.",
+        "30.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "delete",
+          1,
+          2,
+          1,
+          1
+        ],
+        [
+          "equal",
+          2,
+          19,
+          1,
+          18
+        ],
+        [
+          "insert",
+          19,
+          19,
+          18,
+          34
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          1,
+          2,
+          1,
+          1
+        ],
+        [
+          "insert",
+          19,
+          19,
+          18,
+          34
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.24,
+          "end": 0.52,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "See",
+          "start": 0.52,
+          "end": 0.8,
+          "key": "see",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Principally",
+          "start": 0.8,
+          "end": 1.32,
+          "key": "principally",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.32,
+          "end": 1.54,
+          "key": "for",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.54,
+          "end": 1.66,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Details",
+          "start": 1.66,
+          "end": 2.02,
+          "key": "details",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.02,
+          "end": 2.3,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 2.3,
+          "end": 2.44,
+          "key": "this",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Affair,",
+          "start": 2.44,
+          "end": 2.9,
+          "key": "affair",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.42,
+          "end": 3.42,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Legislative",
+          "start": 3.42,
+          "end": 3.86,
+          "key": "legislative",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Documents,",
+          "start": 3.86,
+          "end": 4.54,
+          "key": "documents",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "22d",
+          "start": 5.16,
+          "end": 5.74,
+          "key": "22d",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Congress,",
+          "start": 5.74,
+          "end": 6.16,
+          "key": "congress",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "2d",
+          "start": 6.68,
+          "end": 6.98,
+          "key": "2d",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Session,",
+          "start": 6.98,
+          "end": 7.32,
+          "key": "session",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "No.",
+          "start": 7.74,
+          "end": 7.88,
+          "key": "no",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "30.",
+          "start": 8.36,
+          "end": 8.36,
+          "key": "thirty",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 8.36,
+          "end": 8.36,
+          "key": "a",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "See",
+          "start": 8.36,
+          "end": 8.36,
+          "key": "see",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Principally",
+          "start": 8.36,
+          "end": 8.36,
+          "key": "principally",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 8.36,
+          "end": 8.36,
+          "key": "for",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.36,
+          "end": 8.36,
+          "key": "the",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Details",
+          "start": 8.36,
+          "end": 8.36,
+          "key": "details",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 8.36,
+          "end": 8.36,
+          "key": "of",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 8.36,
+          "end": 8.36,
+          "key": "this",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Affair,",
+          "start": 8.36,
+          "end": 8.36,
+          "key": "affair",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.42,
+          "end": 8.48,
+          "key": "the",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "Legislative",
+          "start": 8.48,
+          "end": 8.48,
+          "key": "legislative",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "Documents,",
+          "start": 8.48,
+          "end": 8.48,
+          "key": "documents",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "22d",
+          "start": 8.48,
+          "end": 8.48,
+          "key": "22d",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "Congress,",
+          "start": 8.48,
+          "end": 8.48,
+          "key": "congress",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "No.",
+          "start": 8.48,
+          "end": 8.48,
+          "key": "no",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "30.",
+          "start": 8.48,
+          "end": 8.48,
+          "key": "thirty",
+          "pieces": [
+            33
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "a",
+          "start": 0.24,
+          "end": 0.52
+        },
+        {
+          "text": "[",
+          "start": 0.52,
+          "end": 0.52
+        },
+        {
+          "text": "See",
+          "start": 0.52,
+          "end": 0.8
+        },
+        {
+          "text": "principally",
+          "start": 0.8,
+          "end": 1.32
+        },
+        {
+          "text": "for",
+          "start": 1.32,
+          "end": 1.54
+        },
+        {
+          "text": "the",
+          "start": 1.54,
+          "end": 1.66
+        },
+        {
+          "text": "details",
+          "start": 1.66,
+          "end": 2.02
+        },
+        {
+          "text": "of",
+          "start": 2.02,
+          "end": 2.3
+        },
+        {
+          "text": "this",
+          "start": 2.3,
+          "end": 2.44
+        },
+        {
+          "text": "affair,",
+          "start": 2.44,
+          "end": 2.9
+        },
+        {
+          "text": "the",
+          "start": 3.42,
+          "end": 3.42
+        },
+        {
+          "text": "Legislative",
+          "start": 3.42,
+          "end": 3.86
+        },
+        {
+          "text": "Documents,",
+          "start": 3.86,
+          "end": 4.54
+        },
+        {
+          "text": "22d",
+          "start": 5.16,
+          "end": 5.74
+        },
+        {
+          "text": "Congress,",
+          "start": 5.74,
+          "end": 6.16
+        },
+        {
+          "text": "2d",
+          "start": 6.68,
+          "end": 6.98
+        },
+        {
+          "text": "Session,",
+          "start": 6.98,
+          "end": 7.32
+        },
+        {
+          "text": "No.",
+          "start": 7.74,
+          "end": 7.88
+        },
+        {
+          "text": "30.]",
+          "start": 8.36,
+          "end": 8.36
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 34,
+        "matched_words": 18
+      },
+      "match_ratio": 0.9473684210526315,
+      "rejection_reasons": [],
+      "seconds": 1.0309046693146229
+    },
+    {
+      "asr_seconds": 0.4301178678870201,
+      "alignment_seconds": 0.0007806532084941864,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "See, Legislative, Documents, Congress, Session, No"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " 30",
+          "start": 0.24,
+          "end": 1.7,
+          "words": [
+            {
+              "text": " 30",
+              "start": 0.24,
+              "end": 1.7,
+              "probability": 1.8537044525146484e-05
+            }
+          ]
+        },
+        {
+          "text": " The Legislative Documents, 22D Congress, 2D Session, No. 30",
+          "start": 1.7,
+          "end": 8.36,
+          "words": [
+            {
+              "text": " The",
+              "start": 1.7,
+              "end": 2.62,
+              "probability": 0.01517486572265625
+            },
+            {
+              "text": " Legislative",
+              "start": 2.62,
+              "end": 3.84,
+              "probability": 0.09722900390625
+            },
+            {
+              "text": " Documents,",
+              "start": 3.84,
+              "end": 4.6,
+              "probability": 0.828125
+            },
+            {
+              "text": " 22D",
+              "start": 4.94,
+              "end": 5.74,
+              "probability": 0.6976318359375
+            },
+            {
+              "text": " Congress,",
+              "start": 5.74,
+              "end": 6.16,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " 2D",
+              "start": 6.6,
+              "end": 7.0,
+              "probability": 0.971435546875
+            },
+            {
+              "text": " Session,",
+              "start": 7.0,
+              "end": 7.32,
+              "probability": 0.9052734375
+            },
+            {
+              "text": " No.",
+              "start": 7.7,
+              "end": 7.88,
+              "probability": 0.445556640625
+            },
+            {
+              "text": " 30",
+              "start": 8.36,
+              "end": 8.36,
+              "probability": 0.96435546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "30",
+          "start": 0.24,
+          "end": 1.7
+        },
+        {
+          "raw": "The",
+          "start": 1.7,
+          "end": 2.62
+        },
+        {
+          "raw": "Legislative",
+          "start": 2.62,
+          "end": 3.84
+        },
+        {
+          "raw": "Documents,",
+          "start": 3.84,
+          "end": 4.6
+        },
+        {
+          "raw": "22D",
+          "start": 4.94,
+          "end": 5.74
+        },
+        {
+          "raw": "Congress,",
+          "start": 5.74,
+          "end": 6.16
+        },
+        {
+          "raw": "2D",
+          "start": 6.6,
+          "end": 7.0
+        },
+        {
+          "raw": "Session,",
+          "start": 7.0,
+          "end": 7.32
+        },
+        {
+          "raw": "No.",
+          "start": 7.7,
+          "end": 7.88
+        },
+        {
+          "raw": "30",
+          "start": 8.36,
+          "end": 8.36
+        }
+      ],
+      "expected_tokens": [
+        "a",
+        "[",
+        "See",
+        "principally",
+        "for",
+        "the",
+        "details",
+        "of",
+        "this",
+        "affair,",
+        "the",
+        "Legislative",
+        "Documents,",
+        "22d",
+        "Congress,",
+        "2d",
+        "Session,",
+        "No.",
+        "30.]"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          10,
+          0,
+          1
+        ],
+        [
+          "equal",
+          10,
+          19,
+          1,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          10,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "30",
+          "start": 0.24,
+          "end": 1.7,
+          "key": "thirty",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.7,
+          "end": 2.62,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Legislative",
+          "start": 2.62,
+          "end": 3.84,
+          "key": "legislative",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Documents,",
+          "start": 3.84,
+          "end": 4.6,
+          "key": "documents",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "22D",
+          "start": 4.94,
+          "end": 5.74,
+          "key": "22d",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Congress,",
+          "start": 5.74,
+          "end": 6.16,
+          "key": "congress",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "2D",
+          "start": 6.6,
+          "end": 7.0,
+          "key": "2d",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Session,",
+          "start": 7.0,
+          "end": 7.32,
+          "key": "session",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "No.",
+          "start": 7.7,
+          "end": 7.88,
+          "key": "no",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "30",
+          "start": 8.36,
+          "end": 8.36,
+          "key": "thirty",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "a",
+          "start": 0.0,
+          "end": 0.85
+        },
+        {
+          "text": "[",
+          "start": 0.85,
+          "end": 1.275
+        },
+        {
+          "text": "See",
+          "start": 1.275,
+          "end": 1.487
+        },
+        {
+          "text": "principally",
+          "start": 1.487,
+          "end": 1.594
+        },
+        {
+          "text": "for",
+          "start": 1.594,
+          "end": 1.647
+        },
+        {
+          "text": "the",
+          "start": 1.647,
+          "end": 1.673
+        },
+        {
+          "text": "details",
+          "start": 1.673,
+          "end": 1.687
+        },
+        {
+          "text": "of",
+          "start": 1.687,
+          "end": 1.694
+        },
+        {
+          "text": "this",
+          "start": 1.694,
+          "end": 1.697
+        },
+        {
+          "text": "affair,",
+          "start": 1.697,
+          "end": 1.699
+        },
+        {
+          "text": "the",
+          "start": 1.7,
+          "end": 2.62
+        },
+        {
+          "text": "Legislative",
+          "start": 2.62,
+          "end": 3.84
+        },
+        {
+          "text": "Documents,",
+          "start": 3.84,
+          "end": 4.6
+        },
+        {
+          "text": "22d",
+          "start": 4.94,
+          "end": 5.74
+        },
+        {
+          "text": "Congress,",
+          "start": 5.74,
+          "end": 6.16
+        },
+        {
+          "text": "2d",
+          "start": 6.6,
+          "end": 7.0
+        },
+        {
+          "text": "Session,",
+          "start": 7.0,
+          "end": 7.32
+        },
+        {
+          "text": "No.",
+          "start": 7.7,
+          "end": 7.88
+        },
+        {
+          "text": "30.]",
+          "start": 8.36,
+          "end": 8.36
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 0.47368421052631576,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.4311162643134594
+    },
+    {
+      "asr_seconds": 0.3977111950516701,
+      "alignment_seconds": 0.0005181171000003815,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " See principally for the details of this affair the legislative documents 22d Congress 2d session number 30",
+          "start": 0.24,
+          "end": 8.4,
+          "words": [
+            {
+              "text": " See",
+              "start": 0.24,
+              "end": 0.74,
+              "probability": 0.0638427734375
+            },
+            {
+              "text": " principally",
+              "start": 0.74,
+              "end": 1.26,
+              "probability": 0.822265625
+            },
+            {
+              "text": " for",
+              "start": 1.26,
+              "end": 1.54,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 1.54,
+              "end": 1.66,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " details",
+              "start": 1.66,
+              "end": 2.1,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 2.1,
+              "end": 2.3,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " this",
+              "start": 2.3,
+              "end": 2.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " affair",
+              "start": 2.44,
+              "end": 2.82,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 2.82,
+              "end": 3.38,
+              "probability": 0.93359375
+            },
+            {
+              "text": " legislative",
+              "start": 3.38,
+              "end": 3.86,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " documents",
+              "start": 3.86,
+              "end": 4.58,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " 22d",
+              "start": 4.58,
+              "end": 5.74,
+              "probability": 0.874267578125
+            },
+            {
+              "text": " Congress",
+              "start": 5.74,
+              "end": 6.18,
+              "probability": 0.8876953125
+            },
+            {
+              "text": " 2d",
+              "start": 6.18,
+              "end": 6.98,
+              "probability": 0.869384765625
+            },
+            {
+              "text": " session",
+              "start": 6.98,
+              "end": 7.36,
+              "probability": 0.9130859375
+            },
+            {
+              "text": " number",
+              "start": 7.36,
+              "end": 7.9,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " 30",
+              "start": 7.9,
+              "end": 8.4,
+              "probability": 0.96630859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "See",
+          "start": 0.24,
+          "end": 0.74
+        },
+        {
+          "raw": "principally",
+          "start": 0.74,
+          "end": 1.26
+        },
+        {
+          "raw": "for",
+          "start": 1.26,
+          "end": 1.54
+        },
+        {
+          "raw": "the",
+          "start": 1.54,
+          "end": 1.66
+        },
+        {
+          "raw": "details",
+          "start": 1.66,
+          "end": 2.1
+        },
+        {
+          "raw": "of",
+          "start": 2.1,
+          "end": 2.3
+        },
+        {
+          "raw": "this",
+          "start": 2.3,
+          "end": 2.44
+        },
+        {
+          "raw": "affair",
+          "start": 2.44,
+          "end": 2.82
+        },
+        {
+          "raw": "the",
+          "start": 2.82,
+          "end": 3.38
+        },
+        {
+          "raw": "legislative",
+          "start": 3.38,
+          "end": 3.86
+        },
+        {
+          "raw": "documents",
+          "start": 3.86,
+          "end": 4.58
+        },
+        {
+          "raw": "22d",
+          "start": 4.58,
+          "end": 5.74
+        },
+        {
+          "raw": "Congress",
+          "start": 5.74,
+          "end": 6.18
+        },
+        {
+          "raw": "2d",
+          "start": 6.18,
+          "end": 6.98
+        },
+        {
+          "raw": "session",
+          "start": 6.98,
+          "end": 7.36
+        },
+        {
+          "raw": "number",
+          "start": 7.36,
+          "end": 7.9
+        },
+        {
+          "raw": "30",
+          "start": 7.9,
+          "end": 8.4
+        }
+      ],
+      "expected_tokens": [
+        "a",
+        "[",
+        "See",
+        "principally",
+        "for",
+        "the",
+        "details",
+        "of",
+        "this",
+        "affair,",
+        "the",
+        "Legislative",
+        "Documents,",
+        "22d",
+        "Congress,",
+        "2d",
+        "Session,",
+        "No.",
+        "30.]"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          "equal",
+          2,
+          17,
+          0,
+          15
+        ],
+        [
+          "replace",
+          17,
+          18,
+          15,
+          16
+        ],
+        [
+          "equal",
+          18,
+          19,
+          16,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          "replace",
+          17,
+          18,
+          15,
+          16
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "See",
+          "start": 0.24,
+          "end": 0.74,
+          "key": "see",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "principally",
+          "start": 0.74,
+          "end": 1.26,
+          "key": "principally",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.26,
+          "end": 1.54,
+          "key": "for",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.54,
+          "end": 1.66,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "details",
+          "start": 1.66,
+          "end": 2.1,
+          "key": "details",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.1,
+          "end": 2.3,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 2.3,
+          "end": 2.44,
+          "key": "this",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "affair",
+          "start": 2.44,
+          "end": 2.82,
+          "key": "affair",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.82,
+          "end": 3.38,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "legislative",
+          "start": 3.38,
+          "end": 3.86,
+          "key": "legislative",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "documents",
+          "start": 3.86,
+          "end": 4.58,
+          "key": "documents",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "22d",
+          "start": 4.58,
+          "end": 5.74,
+          "key": "22d",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Congress",
+          "start": 5.74,
+          "end": 6.18,
+          "key": "congress",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "2d",
+          "start": 6.18,
+          "end": 6.98,
+          "key": "2d",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "session",
+          "start": 6.98,
+          "end": 7.36,
+          "key": "session",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "number",
+          "start": 7.36,
+          "end": 7.9,
+          "key": "number",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "30",
+          "start": 7.9,
+          "end": 8.4,
+          "key": "thirty",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "a",
+          "start": 0.0,
+          "end": 0.12
+        },
+        {
+          "text": "[",
+          "start": 0.12,
+          "end": 0.18
+        },
+        {
+          "text": "See",
+          "start": 0.24,
+          "end": 0.74
+        },
+        {
+          "text": "principally",
+          "start": 0.74,
+          "end": 1.26
+        },
+        {
+          "text": "for",
+          "start": 1.26,
+          "end": 1.54
+        },
+        {
+          "text": "the",
+          "start": 1.54,
+          "end": 1.66
+        },
+        {
+          "text": "details",
+          "start": 1.66,
+          "end": 2.1
+        },
+        {
+          "text": "of",
+          "start": 2.1,
+          "end": 2.3
+        },
+        {
+          "text": "this",
+          "start": 2.3,
+          "end": 2.44
+        },
+        {
+          "text": "affair,",
+          "start": 2.44,
+          "end": 2.82
+        },
+        {
+          "text": "the",
+          "start": 2.82,
+          "end": 3.38
+        },
+        {
+          "text": "Legislative",
+          "start": 3.38,
+          "end": 3.86
+        },
+        {
+          "text": "Documents,",
+          "start": 3.86,
+          "end": 4.58
+        },
+        {
+          "text": "22d",
+          "start": 4.58,
+          "end": 5.74
+        },
+        {
+          "text": "Congress,",
+          "start": 5.74,
+          "end": 6.18
+        },
+        {
+          "text": "2d",
+          "start": 6.18,
+          "end": 6.98
+        },
+        {
+          "text": "Session,",
+          "start": 6.98,
+          "end": 7.36
+        },
+        {
+          "text": "No.",
+          "start": 7.36,
+          "end": 7.63
+        },
+        {
+          "text": "30.]",
+          "start": 7.9,
+          "end": 8.4
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 17,
+        "matched_words": 16
+      },
+      "match_ratio": 0.8421052631578947,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3984678089618683
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1f9f8c327d6a459744d3bdf1e80b00ff74ddba367c2cf0c4728b47d8ee6f8817",
+  "selected_reasons": []
+}

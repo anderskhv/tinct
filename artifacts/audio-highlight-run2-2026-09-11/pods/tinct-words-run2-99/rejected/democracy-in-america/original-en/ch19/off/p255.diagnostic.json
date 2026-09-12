@@ -1,0 +1,439 @@
+{
+  "complete": true,
+  "signature": "14d963b9b3ef064d65afd83f2abf54f5be43222b67345cbadd632b9361cbf7bd",
+  "attempts": [
+    {
+      "asr_seconds": 0.30899159237742424,
+      "alignment_seconds": 0.0004070959985256195,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " J.C. legislative documents, 20th Congress, number 117, P-105.",
+          "start": 0.05,
+          "end": 6.37,
+          "words": [
+            {
+              "text": " J",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.389404296875
+            },
+            {
+              "text": ".C.",
+              "start": 0.65,
+              "end": 1.05,
+              "probability": 0.7275390625
+            },
+            {
+              "text": " legislative",
+              "start": 1.39,
+              "end": 1.53,
+              "probability": 0.334716796875
+            },
+            {
+              "text": " documents,",
+              "start": 1.53,
+              "end": 2.33,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " 20th",
+              "start": 2.79,
+              "end": 3.65,
+              "probability": 0.951171875
+            },
+            {
+              "text": " Congress,",
+              "start": 3.65,
+              "end": 3.65,
+              "probability": 0.78271484375
+            },
+            {
+              "text": " number",
+              "start": 4.09,
+              "end": 4.21,
+              "probability": 0.376220703125
+            },
+            {
+              "text": " 117,",
+              "start": 4.21,
+              "end": 4.87,
+              "probability": 0.994140625
+            },
+            {
+              "text": " P",
+              "start": 5.71,
+              "end": 5.79,
+              "probability": 0.86376953125
+            },
+            {
+              "text": "-105.",
+              "start": 5.79,
+              "end": 6.37,
+              "probability": 0.8662109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "J",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": ".C.",
+          "start": 0.65,
+          "end": 1.05
+        },
+        {
+          "raw": "legislative",
+          "start": 1.39,
+          "end": 1.53
+        },
+        {
+          "raw": "documents,",
+          "start": 1.53,
+          "end": 2.33
+        },
+        {
+          "raw": "20th",
+          "start": 2.79,
+          "end": 3.65
+        },
+        {
+          "raw": "Congress,",
+          "start": 3.65,
+          "end": 3.65
+        },
+        {
+          "raw": "number",
+          "start": 4.09,
+          "end": 4.21
+        },
+        {
+          "raw": "117,",
+          "start": 4.21,
+          "end": 4.87
+        },
+        {
+          "raw": "P",
+          "start": 5.71,
+          "end": 5.79
+        },
+        {
+          "raw": "-105.",
+          "start": 5.79,
+          "end": 6.37
+        }
+      ],
+      "expected_tokens": [
+        "j",
+        "[",
+        "See",
+        "Legislative",
+        "Documents,",
+        "20th",
+        "Congress,",
+        "No.",
+        "117,",
+        "p.",
+        "105.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          3,
+          1,
+          2
+        ],
+        [
+          "equal",
+          3,
+          7,
+          2,
+          6
+        ],
+        [
+          "replace",
+          7,
+          8,
+          6,
+          7
+        ],
+        [
+          "equal",
+          8,
+          11,
+          7,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          3,
+          1,
+          2
+        ],
+        [
+          "replace",
+          7,
+          8,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "J",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "j",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": ".C.",
+          "start": 0.65,
+          "end": 1.05,
+          "key": "c",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "legislative",
+          "start": 1.39,
+          "end": 1.53,
+          "key": "legislative",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "documents,",
+          "start": 1.53,
+          "end": 2.33,
+          "key": "documents",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "20th",
+          "start": 2.79,
+          "end": 3.65,
+          "key": "20th",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Congress,",
+          "start": 3.65,
+          "end": 3.65,
+          "key": "congress",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "number",
+          "start": 4.09,
+          "end": 4.21,
+          "key": "number",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "117,",
+          "start": 4.21,
+          "end": 4.87,
+          "key": "117",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "P",
+          "start": 5.71,
+          "end": 5.79,
+          "key": "p",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "-105.",
+          "start": 5.79,
+          "end": 6.37,
+          "key": "105",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "j",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "[",
+          "start": 0.65,
+          "end": 1.02
+        },
+        {
+          "text": "See",
+          "start": 1.02,
+          "end": 1.205
+        },
+        {
+          "text": "Legislative",
+          "start": 1.39,
+          "end": 1.53
+        },
+        {
+          "text": "Documents,",
+          "start": 1.53,
+          "end": 2.33
+        },
+        {
+          "text": "20th",
+          "start": 2.79,
+          "end": 3.65
+        },
+        {
+          "text": "Congress,",
+          "start": 3.65,
+          "end": 3.65
+        },
+        {
+          "text": "No.",
+          "start": 3.65,
+          "end": 3.93
+        },
+        {
+          "text": "117,",
+          "start": 4.21,
+          "end": 4.87
+        },
+        {
+          "text": "p.",
+          "start": 5.71,
+          "end": 5.79
+        },
+        {
+          "text": "105.]",
+          "start": 5.79,
+          "end": 6.37
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 10,
+        "matched_words": 8
+      },
+      "match_ratio": 0.7272727272727273,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3095238693058491
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "02354e16dc602928925b1eec3c2a26c0d9517311acc37e0e2d7fcb0284196375",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

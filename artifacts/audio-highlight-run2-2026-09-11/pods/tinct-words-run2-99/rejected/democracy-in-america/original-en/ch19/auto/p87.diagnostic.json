@@ -1,0 +1,2483 @@
+{
+  "complete": true,
+  "signature": "6de4558a820155617e5b4f051a22dc8861e5d8a6d07598b17c0b9c117b0e5758",
+  "attempts": [
+    {
+      "asr_seconds": 0.6477891616523266,
+      "alignment_seconds": 0.0012301690876483917,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The Secretary of War, in a letter written to the Cherokees, April 18, 1829, (see the same work, p. 6), declares to them that they cannot expect to retain possession of the lands at that time occupied by them, but gives them the most positive assurance of uninterrupted peace if they would remove beyond the Mississippi: as if the power which could not grant them protection then, would be able to afford it them hereafter!]",
+        "hotwords": "Secretary, War, Cherokees, April, Mississippi"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The Secretary of War, in a letter written to the Cherokees, April 18, 1829,",
+          "start": 0.05,
+          "end": 6.09,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.4248046875
+            },
+            {
+              "text": " Secretary",
+              "start": 0.51,
+              "end": 0.81,
+              "probability": 0.65869140625
+            },
+            {
+              "text": " of",
+              "start": 0.81,
+              "end": 1.19,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " War,",
+              "start": 1.19,
+              "end": 1.51,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " in",
+              "start": 1.93,
+              "end": 1.97,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " a",
+              "start": 1.97,
+              "end": 2.09,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " letter",
+              "start": 2.09,
+              "end": 2.27,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " written",
+              "start": 2.27,
+              "end": 2.57,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " to",
+              "start": 2.57,
+              "end": 2.81,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 2.81,
+              "end": 2.93,
+              "probability": 0.986328125
+            },
+            {
+              "text": " Cherokees,",
+              "start": 2.93,
+              "end": 3.43,
+              "probability": 0.973388671875
+            },
+            {
+              "text": " April",
+              "start": 3.91,
+              "end": 4.13,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " 18,",
+              "start": 4.13,
+              "end": 4.61,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " 1829,",
+              "start": 5.17,
+              "end": 6.09,
+              "probability": 0.997802734375
+            }
+          ]
+        },
+        {
+          "text": " see the same work, p. 6, declares to them that they cannot expect to retain possession of the lands at that time occupied by them,",
+          "start": 6.85,
+          "end": 14.07,
+          "words": [
+            {
+              "text": " see",
+              "start": 6.85,
+              "end": 7.05,
+              "probability": 0.7392578125
+            },
+            {
+              "text": " the",
+              "start": 7.05,
+              "end": 7.23,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " same",
+              "start": 7.23,
+              "end": 7.47,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " work,",
+              "start": 7.47,
+              "end": 7.75,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " p.",
+              "start": 8.05,
+              "end": 8.13,
+              "probability": 0.08502197265625
+            },
+            {
+              "text": " 6,",
+              "start": 8.13,
+              "end": 8.53,
+              "probability": 0.7958984375
+            },
+            {
+              "text": " declares",
+              "start": 8.99,
+              "end": 9.33,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " to",
+              "start": 9.33,
+              "end": 9.63,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " them",
+              "start": 9.63,
+              "end": 9.81,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " that",
+              "start": 9.81,
+              "end": 9.97,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " they",
+              "start": 9.97,
+              "end": 10.13,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " cannot",
+              "start": 10.13,
+              "end": 10.41,
+              "probability": 0.931640625
+            },
+            {
+              "text": " expect",
+              "start": 10.41,
+              "end": 10.83,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 10.83,
+              "end": 11.05,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " retain",
+              "start": 11.05,
+              "end": 11.39,
+              "probability": 0.998046875
+            },
+            {
+              "text": " possession",
+              "start": 11.39,
+              "end": 11.77,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " of",
+              "start": 11.77,
+              "end": 12.03,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 12.03,
+              "end": 12.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " lands",
+              "start": 12.15,
+              "end": 12.39,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " at",
+              "start": 12.39,
+              "end": 12.55,
+              "probability": 0.990234375
+            },
+            {
+              "text": " that",
+              "start": 12.55,
+              "end": 12.75,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " time",
+              "start": 12.75,
+              "end": 13.07,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " occupied",
+              "start": 13.07,
+              "end": 13.49,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " by",
+              "start": 13.49,
+              "end": 13.83,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " them,",
+              "start": 13.83,
+              "end": 14.07,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " but gives them the most positive assurance of uninterrupted peace if they would remove beyond the Mississippi,",
+          "start": 14.43,
+          "end": 19.91,
+          "words": [
+            {
+              "text": " but",
+              "start": 14.43,
+              "end": 14.69,
+              "probability": 0.998046875
+            },
+            {
+              "text": " gives",
+              "start": 14.69,
+              "end": 14.87,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " them",
+              "start": 14.87,
+              "end": 15.09,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 15.09,
+              "end": 15.21,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " most",
+              "start": 15.21,
+              "end": 15.39,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " positive",
+              "start": 15.39,
+              "end": 15.87,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " assurance",
+              "start": 15.87,
+              "end": 16.39,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 16.39,
+              "end": 16.61,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " uninterrupted",
+              "start": 16.61,
+              "end": 17.27,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " peace",
+              "start": 17.27,
+              "end": 17.73,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " if",
+              "start": 17.73,
+              "end": 18.09,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " they",
+              "start": 18.09,
+              "end": 18.23,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " would",
+              "start": 18.23,
+              "end": 18.37,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " remove",
+              "start": 18.37,
+              "end": 18.77,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " beyond",
+              "start": 18.77,
+              "end": 19.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 19.25,
+              "end": 19.43,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Mississippi,",
+              "start": 19.43,
+              "end": 19.91,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " as if the power which could not grant them protection then, would be able to afford it them hereafter.",
+          "start": 20.79,
+          "end": 25.41,
+          "words": [
+            {
+              "text": " as",
+              "start": 20.79,
+              "end": 20.91,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " if",
+              "start": 20.91,
+              "end": 21.03,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 21.03,
+              "end": 21.19,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " power",
+              "start": 21.19,
+              "end": 21.49,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " which",
+              "start": 21.49,
+              "end": 21.71,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " could",
+              "start": 21.71,
+              "end": 21.89,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " not",
+              "start": 21.89,
+              "end": 22.11,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " grant",
+              "start": 22.11,
+              "end": 22.35,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " them",
+              "start": 22.35,
+              "end": 22.53,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " protection",
+              "start": 22.53,
+              "end": 22.87,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " then,",
+              "start": 22.87,
+              "end": 23.31,
+              "probability": 0.84521484375
+            },
+            {
+              "text": " would",
+              "start": 23.69,
+              "end": 23.85,
+              "probability": 0.998046875
+            },
+            {
+              "text": " be",
+              "start": 23.85,
+              "end": 23.97,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " able",
+              "start": 23.97,
+              "end": 24.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 24.17,
+              "end": 24.37,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " afford",
+              "start": 24.37,
+              "end": 24.73,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " it",
+              "start": 24.73,
+              "end": 24.89,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " them",
+              "start": 24.89,
+              "end": 25.07,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " hereafter.",
+              "start": 25.07,
+              "end": 25.41,
+              "probability": 0.83349609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "Secretary",
+          "start": 0.51,
+          "end": 0.81
+        },
+        {
+          "raw": "of",
+          "start": 0.81,
+          "end": 1.19
+        },
+        {
+          "raw": "War,",
+          "start": 1.19,
+          "end": 1.51
+        },
+        {
+          "raw": "in",
+          "start": 1.93,
+          "end": 1.97
+        },
+        {
+          "raw": "a",
+          "start": 1.97,
+          "end": 2.09
+        },
+        {
+          "raw": "letter",
+          "start": 2.09,
+          "end": 2.27
+        },
+        {
+          "raw": "written",
+          "start": 2.27,
+          "end": 2.57
+        },
+        {
+          "raw": "to",
+          "start": 2.57,
+          "end": 2.81
+        },
+        {
+          "raw": "the",
+          "start": 2.81,
+          "end": 2.93
+        },
+        {
+          "raw": "Cherokees,",
+          "start": 2.93,
+          "end": 3.43
+        },
+        {
+          "raw": "April",
+          "start": 3.91,
+          "end": 4.13
+        },
+        {
+          "raw": "18,",
+          "start": 4.13,
+          "end": 4.61
+        },
+        {
+          "raw": "1829,",
+          "start": 5.17,
+          "end": 6.09
+        },
+        {
+          "raw": "see",
+          "start": 6.85,
+          "end": 7.05
+        },
+        {
+          "raw": "the",
+          "start": 7.05,
+          "end": 7.23
+        },
+        {
+          "raw": "same",
+          "start": 7.23,
+          "end": 7.47
+        },
+        {
+          "raw": "work,",
+          "start": 7.47,
+          "end": 7.75
+        },
+        {
+          "raw": "p.",
+          "start": 8.05,
+          "end": 8.13
+        },
+        {
+          "raw": "6,",
+          "start": 8.13,
+          "end": 8.53
+        },
+        {
+          "raw": "declares",
+          "start": 8.99,
+          "end": 9.33
+        },
+        {
+          "raw": "to",
+          "start": 9.33,
+          "end": 9.63
+        },
+        {
+          "raw": "them",
+          "start": 9.63,
+          "end": 9.81
+        },
+        {
+          "raw": "that",
+          "start": 9.81,
+          "end": 9.97
+        },
+        {
+          "raw": "they",
+          "start": 9.97,
+          "end": 10.13
+        },
+        {
+          "raw": "cannot",
+          "start": 10.13,
+          "end": 10.41
+        },
+        {
+          "raw": "expect",
+          "start": 10.41,
+          "end": 10.83
+        },
+        {
+          "raw": "to",
+          "start": 10.83,
+          "end": 11.05
+        },
+        {
+          "raw": "retain",
+          "start": 11.05,
+          "end": 11.39
+        },
+        {
+          "raw": "possession",
+          "start": 11.39,
+          "end": 11.77
+        },
+        {
+          "raw": "of",
+          "start": 11.77,
+          "end": 12.03
+        },
+        {
+          "raw": "the",
+          "start": 12.03,
+          "end": 12.15
+        },
+        {
+          "raw": "lands",
+          "start": 12.15,
+          "end": 12.39
+        },
+        {
+          "raw": "at",
+          "start": 12.39,
+          "end": 12.55
+        },
+        {
+          "raw": "that",
+          "start": 12.55,
+          "end": 12.75
+        },
+        {
+          "raw": "time",
+          "start": 12.75,
+          "end": 13.07
+        },
+        {
+          "raw": "occupied",
+          "start": 13.07,
+          "end": 13.49
+        },
+        {
+          "raw": "by",
+          "start": 13.49,
+          "end": 13.83
+        },
+        {
+          "raw": "them,",
+          "start": 13.83,
+          "end": 14.07
+        },
+        {
+          "raw": "but",
+          "start": 14.43,
+          "end": 14.69
+        },
+        {
+          "raw": "gives",
+          "start": 14.69,
+          "end": 14.87
+        },
+        {
+          "raw": "them",
+          "start": 14.87,
+          "end": 15.09
+        },
+        {
+          "raw": "the",
+          "start": 15.09,
+          "end": 15.21
+        },
+        {
+          "raw": "most",
+          "start": 15.21,
+          "end": 15.39
+        },
+        {
+          "raw": "positive",
+          "start": 15.39,
+          "end": 15.87
+        },
+        {
+          "raw": "assurance",
+          "start": 15.87,
+          "end": 16.39
+        },
+        {
+          "raw": "of",
+          "start": 16.39,
+          "end": 16.61
+        },
+        {
+          "raw": "uninterrupted",
+          "start": 16.61,
+          "end": 17.27
+        },
+        {
+          "raw": "peace",
+          "start": 17.27,
+          "end": 17.73
+        },
+        {
+          "raw": "if",
+          "start": 17.73,
+          "end": 18.09
+        },
+        {
+          "raw": "they",
+          "start": 18.09,
+          "end": 18.23
+        },
+        {
+          "raw": "would",
+          "start": 18.23,
+          "end": 18.37
+        },
+        {
+          "raw": "remove",
+          "start": 18.37,
+          "end": 18.77
+        },
+        {
+          "raw": "beyond",
+          "start": 18.77,
+          "end": 19.25
+        },
+        {
+          "raw": "the",
+          "start": 19.25,
+          "end": 19.43
+        },
+        {
+          "raw": "Mississippi,",
+          "start": 19.43,
+          "end": 19.91
+        },
+        {
+          "raw": "as",
+          "start": 20.79,
+          "end": 20.91
+        },
+        {
+          "raw": "if",
+          "start": 20.91,
+          "end": 21.03
+        },
+        {
+          "raw": "the",
+          "start": 21.03,
+          "end": 21.19
+        },
+        {
+          "raw": "power",
+          "start": 21.19,
+          "end": 21.49
+        },
+        {
+          "raw": "which",
+          "start": 21.49,
+          "end": 21.71
+        },
+        {
+          "raw": "could",
+          "start": 21.71,
+          "end": 21.89
+        },
+        {
+          "raw": "not",
+          "start": 21.89,
+          "end": 22.11
+        },
+        {
+          "raw": "grant",
+          "start": 22.11,
+          "end": 22.35
+        },
+        {
+          "raw": "them",
+          "start": 22.35,
+          "end": 22.53
+        },
+        {
+          "raw": "protection",
+          "start": 22.53,
+          "end": 22.87
+        },
+        {
+          "raw": "then,",
+          "start": 22.87,
+          "end": 23.31
+        },
+        {
+          "raw": "would",
+          "start": 23.69,
+          "end": 23.85
+        },
+        {
+          "raw": "be",
+          "start": 23.85,
+          "end": 23.97
+        },
+        {
+          "raw": "able",
+          "start": 23.97,
+          "end": 24.17
+        },
+        {
+          "raw": "to",
+          "start": 24.17,
+          "end": 24.37
+        },
+        {
+          "raw": "afford",
+          "start": 24.37,
+          "end": 24.73
+        },
+        {
+          "raw": "it",
+          "start": 24.73,
+          "end": 24.89
+        },
+        {
+          "raw": "them",
+          "start": 24.89,
+          "end": 25.07
+        },
+        {
+          "raw": "hereafter.",
+          "start": 25.07,
+          "end": 25.41
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "Secretary",
+        "of",
+        "War,",
+        "in",
+        "a",
+        "letter",
+        "written",
+        "to",
+        "the",
+        "Cherokees,",
+        "April",
+        "18,",
+        "1829,",
+        "(see",
+        "the",
+        "same",
+        "work,",
+        "p.",
+        "6),",
+        "declares",
+        "to",
+        "them",
+        "that",
+        "they",
+        "cannot",
+        "expect",
+        "to",
+        "retain",
+        "possession",
+        "of",
+        "the",
+        "lands",
+        "at",
+        "that",
+        "time",
+        "occupied",
+        "by",
+        "them,",
+        "but",
+        "gives",
+        "them",
+        "the",
+        "most",
+        "positive",
+        "assurance",
+        "of",
+        "uninterrupted",
+        "peace",
+        "if",
+        "they",
+        "would",
+        "remove",
+        "beyond",
+        "the",
+        "Mississippi:",
+        "as",
+        "if",
+        "the",
+        "power",
+        "which",
+        "could",
+        "not",
+        "grant",
+        "them",
+        "protection",
+        "then,",
+        "would",
+        "be",
+        "able",
+        "to",
+        "afford",
+        "it",
+        "them",
+        "hereafter!]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          75,
+          0,
+          75
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Secretary",
+          "start": 0.51,
+          "end": 0.81,
+          "key": "secretary",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.81,
+          "end": 1.19,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "War,",
+          "start": 1.19,
+          "end": 1.51,
+          "key": "war",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.93,
+          "end": 1.97,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.97,
+          "end": 2.09,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "letter",
+          "start": 2.09,
+          "end": 2.27,
+          "key": "letter",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "written",
+          "start": 2.27,
+          "end": 2.57,
+          "key": "written",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.57,
+          "end": 2.81,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.81,
+          "end": 2.93,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Cherokees,",
+          "start": 2.93,
+          "end": 3.43,
+          "key": "cherokees",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "April",
+          "start": 3.91,
+          "end": 4.13,
+          "key": "april",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "18,",
+          "start": 4.13,
+          "end": 4.61,
+          "key": "eighteen",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "1829,",
+          "start": 5.17,
+          "end": 6.09,
+          "key": "1829",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 6.85,
+          "end": 7.05,
+          "key": "see",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.05,
+          "end": 7.23,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "same",
+          "start": 7.23,
+          "end": 7.47,
+          "key": "same",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "work,",
+          "start": 7.47,
+          "end": 7.75,
+          "key": "work",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "p.",
+          "start": 8.05,
+          "end": 8.13,
+          "key": "p",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "6,",
+          "start": 8.13,
+          "end": 8.53,
+          "key": "six",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "declares",
+          "start": 8.99,
+          "end": 9.33,
+          "key": "declares",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 9.33,
+          "end": 9.63,
+          "key": "to",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 9.63,
+          "end": 9.81,
+          "key": "them",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 9.81,
+          "end": 9.97,
+          "key": "that",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 9.97,
+          "end": 10.13,
+          "key": "they",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 10.13,
+          "end": 10.41,
+          "key": "cannot",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "expect",
+          "start": 10.41,
+          "end": 10.83,
+          "key": "expect",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 10.83,
+          "end": 11.05,
+          "key": "to",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "retain",
+          "start": 11.05,
+          "end": 11.39,
+          "key": "retain",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "possession",
+          "start": 11.39,
+          "end": 11.77,
+          "key": "possession",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 11.77,
+          "end": 12.03,
+          "key": "of",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 12.03,
+          "end": 12.15,
+          "key": "the",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "lands",
+          "start": 12.15,
+          "end": 12.39,
+          "key": "lands",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 12.39,
+          "end": 12.55,
+          "key": "at",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 12.55,
+          "end": 12.75,
+          "key": "that",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 12.75,
+          "end": 13.07,
+          "key": "time",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "occupied",
+          "start": 13.07,
+          "end": 13.49,
+          "key": "occupied",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 13.49,
+          "end": 13.83,
+          "key": "by",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "them,",
+          "start": 13.83,
+          "end": 14.07,
+          "key": "them",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 14.43,
+          "end": 14.69,
+          "key": "but",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "gives",
+          "start": 14.69,
+          "end": 14.87,
+          "key": "gives",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 14.87,
+          "end": 15.09,
+          "key": "them",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 15.09,
+          "end": 15.21,
+          "key": "the",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 15.21,
+          "end": 15.39,
+          "key": "most",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "positive",
+          "start": 15.39,
+          "end": 15.87,
+          "key": "positive",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "assurance",
+          "start": 15.87,
+          "end": 16.39,
+          "key": "assurance",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 16.39,
+          "end": 16.61,
+          "key": "of",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "uninterrupted",
+          "start": 16.61,
+          "end": 17.27,
+          "key": "uninterrupted",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "peace",
+          "start": 17.27,
+          "end": 17.73,
+          "key": "peace",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 17.73,
+          "end": 18.09,
+          "key": "if",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 18.09,
+          "end": 18.23,
+          "key": "they",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 18.23,
+          "end": 18.37,
+          "key": "would",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "remove",
+          "start": 18.37,
+          "end": 18.77,
+          "key": "remove",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "beyond",
+          "start": 18.77,
+          "end": 19.25,
+          "key": "beyond",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 19.25,
+          "end": 19.43,
+          "key": "the",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "Mississippi,",
+          "start": 19.43,
+          "end": 19.91,
+          "key": "mississippi",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 20.79,
+          "end": 20.91,
+          "key": "as",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 20.91,
+          "end": 21.03,
+          "key": "if",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 21.03,
+          "end": 21.19,
+          "key": "the",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "power",
+          "start": 21.19,
+          "end": 21.49,
+          "key": "power",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 21.49,
+          "end": 21.71,
+          "key": "which",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 21.71,
+          "end": 21.89,
+          "key": "could",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 21.89,
+          "end": 22.11,
+          "key": "not",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "grant",
+          "start": 22.11,
+          "end": 22.35,
+          "key": "grant",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 22.35,
+          "end": 22.53,
+          "key": "them",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "protection",
+          "start": 22.53,
+          "end": 22.87,
+          "key": "protection",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "then,",
+          "start": 22.87,
+          "end": 23.31,
+          "key": "then",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 23.69,
+          "end": 23.85,
+          "key": "would",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 23.85,
+          "end": 23.97,
+          "key": "be",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "able",
+          "start": 23.97,
+          "end": 24.17,
+          "key": "able",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 24.17,
+          "end": 24.37,
+          "key": "to",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "afford",
+          "start": 24.37,
+          "end": 24.73,
+          "key": "afford",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 24.73,
+          "end": 24.89,
+          "key": "it",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 24.89,
+          "end": 25.07,
+          "key": "them",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "hereafter.",
+          "start": 25.07,
+          "end": 25.41,
+          "key": "hereafter",
+          "pieces": [
+            74
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "Secretary",
+          "start": 0.51,
+          "end": 0.81
+        },
+        {
+          "text": "of",
+          "start": 0.81,
+          "end": 1.19
+        },
+        {
+          "text": "War,",
+          "start": 1.19,
+          "end": 1.51
+        },
+        {
+          "text": "in",
+          "start": 1.93,
+          "end": 1.97
+        },
+        {
+          "text": "a",
+          "start": 1.97,
+          "end": 2.09
+        },
+        {
+          "text": "letter",
+          "start": 2.09,
+          "end": 2.27
+        },
+        {
+          "text": "written",
+          "start": 2.27,
+          "end": 2.57
+        },
+        {
+          "text": "to",
+          "start": 2.57,
+          "end": 2.81
+        },
+        {
+          "text": "the",
+          "start": 2.81,
+          "end": 2.93
+        },
+        {
+          "text": "Cherokees,",
+          "start": 2.93,
+          "end": 3.43
+        },
+        {
+          "text": "April",
+          "start": 3.91,
+          "end": 4.13
+        },
+        {
+          "text": "18,",
+          "start": 4.13,
+          "end": 4.61
+        },
+        {
+          "text": "1829,",
+          "start": 5.17,
+          "end": 6.09
+        },
+        {
+          "text": "(see",
+          "start": 6.85,
+          "end": 7.05
+        },
+        {
+          "text": "the",
+          "start": 7.05,
+          "end": 7.23
+        },
+        {
+          "text": "same",
+          "start": 7.23,
+          "end": 7.47
+        },
+        {
+          "text": "work,",
+          "start": 7.47,
+          "end": 7.75
+        },
+        {
+          "text": "p.",
+          "start": 8.05,
+          "end": 8.13
+        },
+        {
+          "text": "6),",
+          "start": 8.13,
+          "end": 8.53
+        },
+        {
+          "text": "declares",
+          "start": 8.99,
+          "end": 9.33
+        },
+        {
+          "text": "to",
+          "start": 9.33,
+          "end": 9.63
+        },
+        {
+          "text": "them",
+          "start": 9.63,
+          "end": 9.81
+        },
+        {
+          "text": "that",
+          "start": 9.81,
+          "end": 9.97
+        },
+        {
+          "text": "they",
+          "start": 9.97,
+          "end": 10.13
+        },
+        {
+          "text": "cannot",
+          "start": 10.13,
+          "end": 10.41
+        },
+        {
+          "text": "expect",
+          "start": 10.41,
+          "end": 10.83
+        },
+        {
+          "text": "to",
+          "start": 10.83,
+          "end": 11.05
+        },
+        {
+          "text": "retain",
+          "start": 11.05,
+          "end": 11.39
+        },
+        {
+          "text": "possession",
+          "start": 11.39,
+          "end": 11.77
+        },
+        {
+          "text": "of",
+          "start": 11.77,
+          "end": 12.03
+        },
+        {
+          "text": "the",
+          "start": 12.03,
+          "end": 12.15
+        },
+        {
+          "text": "lands",
+          "start": 12.15,
+          "end": 12.39
+        },
+        {
+          "text": "at",
+          "start": 12.39,
+          "end": 12.55
+        },
+        {
+          "text": "that",
+          "start": 12.55,
+          "end": 12.75
+        },
+        {
+          "text": "time",
+          "start": 12.75,
+          "end": 13.07
+        },
+        {
+          "text": "occupied",
+          "start": 13.07,
+          "end": 13.49
+        },
+        {
+          "text": "by",
+          "start": 13.49,
+          "end": 13.83
+        },
+        {
+          "text": "them,",
+          "start": 13.83,
+          "end": 14.07
+        },
+        {
+          "text": "but",
+          "start": 14.43,
+          "end": 14.69
+        },
+        {
+          "text": "gives",
+          "start": 14.69,
+          "end": 14.87
+        },
+        {
+          "text": "them",
+          "start": 14.87,
+          "end": 15.09
+        },
+        {
+          "text": "the",
+          "start": 15.09,
+          "end": 15.21
+        },
+        {
+          "text": "most",
+          "start": 15.21,
+          "end": 15.39
+        },
+        {
+          "text": "positive",
+          "start": 15.39,
+          "end": 15.87
+        },
+        {
+          "text": "assurance",
+          "start": 15.87,
+          "end": 16.39
+        },
+        {
+          "text": "of",
+          "start": 16.39,
+          "end": 16.61
+        },
+        {
+          "text": "uninterrupted",
+          "start": 16.61,
+          "end": 17.27
+        },
+        {
+          "text": "peace",
+          "start": 17.27,
+          "end": 17.73
+        },
+        {
+          "text": "if",
+          "start": 17.73,
+          "end": 18.09
+        },
+        {
+          "text": "they",
+          "start": 18.09,
+          "end": 18.23
+        },
+        {
+          "text": "would",
+          "start": 18.23,
+          "end": 18.37
+        },
+        {
+          "text": "remove",
+          "start": 18.37,
+          "end": 18.77
+        },
+        {
+          "text": "beyond",
+          "start": 18.77,
+          "end": 19.25
+        },
+        {
+          "text": "the",
+          "start": 19.25,
+          "end": 19.43
+        },
+        {
+          "text": "Mississippi:",
+          "start": 19.43,
+          "end": 19.91
+        },
+        {
+          "text": "as",
+          "start": 20.79,
+          "end": 20.91
+        },
+        {
+          "text": "if",
+          "start": 20.91,
+          "end": 21.03
+        },
+        {
+          "text": "the",
+          "start": 21.03,
+          "end": 21.19
+        },
+        {
+          "text": "power",
+          "start": 21.19,
+          "end": 21.49
+        },
+        {
+          "text": "which",
+          "start": 21.49,
+          "end": 21.71
+        },
+        {
+          "text": "could",
+          "start": 21.71,
+          "end": 21.89
+        },
+        {
+          "text": "not",
+          "start": 21.89,
+          "end": 22.11
+        },
+        {
+          "text": "grant",
+          "start": 22.11,
+          "end": 22.35
+        },
+        {
+          "text": "them",
+          "start": 22.35,
+          "end": 22.53
+        },
+        {
+          "text": "protection",
+          "start": 22.53,
+          "end": 22.87
+        },
+        {
+          "text": "then,",
+          "start": 22.87,
+          "end": 23.31
+        },
+        {
+          "text": "would",
+          "start": 23.69,
+          "end": 23.85
+        },
+        {
+          "text": "be",
+          "start": 23.85,
+          "end": 23.97
+        },
+        {
+          "text": "able",
+          "start": 23.97,
+          "end": 24.17
+        },
+        {
+          "text": "to",
+          "start": 24.17,
+          "end": 24.37
+        },
+        {
+          "text": "afford",
+          "start": 24.37,
+          "end": 24.73
+        },
+        {
+          "text": "it",
+          "start": 24.73,
+          "end": 24.89
+        },
+        {
+          "text": "them",
+          "start": 24.89,
+          "end": 25.07
+        },
+        {
+          "text": "hereafter!]",
+          "start": 25.07,
+          "end": 25.41
+        }
+      ],
+      "stats": {
+        "expected_words": 75,
+        "heard_words": 75,
+        "matched_words": 75
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.6495716534554958
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e3987d031a63b5201529db5c11632d83a24f220e0db9ad7336861ce89e280c3b",
+  "selected_reasons": []
+}
