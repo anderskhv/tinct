@@ -1,0 +1,509 @@
+{
+  "complete": true,
+  "signature": "a6458dc0f482d4abfe407c42d87892733cb68a1602cf00ffe83ac617234b4637",
+  "attempts": [
+    {
+      "asr_seconds": 0.27024831902235746,
+      "alignment_seconds": 0.0009219357743859291,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Oedipus. It needs no god to tell what's plain to sense.",
+        "hotwords": "Oedipus, It"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Oedipus, It Oedipus. It Oedipus. It needs no god to tell what's plain to sense.",
+          "start": 0.08,
+          "end": 3.36,
+          "words": [
+            {
+              "text": " Oedipus,",
+              "start": 0.08,
+              "end": 0.86,
+              "probability": 0.956298828125
+            },
+            {
+              "text": " It",
+              "start": 1.28,
+              "end": 1.38,
+              "probability": 0.053070068359375
+            },
+            {
+              "text": " Oedipus.",
+              "start": 1.38,
+              "end": 1.58,
+              "probability": 0.4990008622407913
+            },
+            {
+              "text": " It",
+              "start": 1.58,
+              "end": 1.58,
+              "probability": 0.85791015625
+            },
+            {
+              "text": " Oedipus.",
+              "start": 1.58,
+              "end": 1.58,
+              "probability": 0.787750244140625
+            },
+            {
+              "text": " It",
+              "start": 1.58,
+              "end": 1.58,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " needs",
+              "start": 1.58,
+              "end": 1.58,
+              "probability": 0.76220703125
+            },
+            {
+              "text": " no",
+              "start": 1.58,
+              "end": 1.78,
+              "probability": 0.90234375
+            },
+            {
+              "text": " god",
+              "start": 1.78,
+              "end": 2.02,
+              "probability": 0.486083984375
+            },
+            {
+              "text": " to",
+              "start": 2.02,
+              "end": 2.16,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " tell",
+              "start": 2.16,
+              "end": 2.34,
+              "probability": 0.904296875
+            },
+            {
+              "text": " what's",
+              "start": 2.34,
+              "end": 2.6,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " plain",
+              "start": 2.6,
+              "end": 2.82,
+              "probability": 0.8837890625
+            },
+            {
+              "text": " to",
+              "start": 2.82,
+              "end": 3.0,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " sense.",
+              "start": 3.0,
+              "end": 3.36,
+              "probability": 0.98779296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oedipus,",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "raw": "It",
+          "start": 1.28,
+          "end": 1.38
+        },
+        {
+          "raw": "Oedipus.",
+          "start": 1.38,
+          "end": 1.58
+        },
+        {
+          "raw": "It",
+          "start": 1.58,
+          "end": 1.58
+        },
+        {
+          "raw": "Oedipus.",
+          "start": 1.58,
+          "end": 1.58
+        },
+        {
+          "raw": "It",
+          "start": 1.58,
+          "end": 1.58
+        },
+        {
+          "raw": "needs",
+          "start": 1.58,
+          "end": 1.58
+        },
+        {
+          "raw": "no",
+          "start": 1.58,
+          "end": 1.78
+        },
+        {
+          "raw": "god",
+          "start": 1.78,
+          "end": 2.02
+        },
+        {
+          "raw": "to",
+          "start": 2.02,
+          "end": 2.16
+        },
+        {
+          "raw": "tell",
+          "start": 2.16,
+          "end": 2.34
+        },
+        {
+          "raw": "what's",
+          "start": 2.34,
+          "end": 2.6
+        },
+        {
+          "raw": "plain",
+          "start": 2.6,
+          "end": 2.82
+        },
+        {
+          "raw": "to",
+          "start": 2.82,
+          "end": 3.0
+        },
+        {
+          "raw": "sense.",
+          "start": 3.0,
+          "end": 3.36
+        }
+      ],
+      "expected_tokens": [
+        "Oedipus.",
+        "It",
+        "needs",
+        "no",
+        "god",
+        "to",
+        "tell",
+        "what's",
+        "plain",
+        "to",
+        "sense."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          4
+        ],
+        [
+          "equal",
+          0,
+          11,
+          4,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oedipus,",
+          "start": 0.08,
+          "end": 0.86,
+          "key": "oedipus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 1.28,
+          "end": 1.38,
+          "key": "it",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Oedipus.",
+          "start": 1.38,
+          "end": 1.58,
+          "key": "oedipus",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 1.58,
+          "end": 1.58,
+          "key": "it",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Oedipus.",
+          "start": 1.58,
+          "end": 1.58,
+          "key": "oedipus",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 1.58,
+          "end": 1.58,
+          "key": "it",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "needs",
+          "start": 1.58,
+          "end": 1.58,
+          "key": "needs",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 1.58,
+          "end": 1.78,
+          "key": "no",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "god",
+          "start": 1.78,
+          "end": 2.02,
+          "key": "god",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.02,
+          "end": 2.16,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 2.16,
+          "end": 2.34,
+          "key": "tell",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "what's",
+          "start": 2.34,
+          "end": 2.6,
+          "key": "whats",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "plain",
+          "start": 2.6,
+          "end": 2.82,
+          "key": "plain",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.82,
+          "end": 3.0,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "sense.",
+          "start": 3.0,
+          "end": 3.36,
+          "key": "sense",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Oedipus.",
+          "start": 1.58,
+          "end": 1.58
+        },
+        {
+          "text": "It",
+          "start": 1.58,
+          "end": 1.58
+        },
+        {
+          "text": "needs",
+          "start": 1.58,
+          "end": 1.58
+        },
+        {
+          "text": "no",
+          "start": 1.58,
+          "end": 1.78
+        },
+        {
+          "text": "god",
+          "start": 1.78,
+          "end": 2.02
+        },
+        {
+          "text": "to",
+          "start": 2.02,
+          "end": 2.16
+        },
+        {
+          "text": "tell",
+          "start": 2.16,
+          "end": 2.34
+        },
+        {
+          "text": "what's",
+          "start": 2.34,
+          "end": 2.6
+        },
+        {
+          "text": "plain",
+          "start": 2.6,
+          "end": 2.82
+        },
+        {
+          "text": "to",
+          "start": 2.82,
+          "end": 3.0
+        },
+        {
+          "text": "sense.",
+          "start": 3.0,
+          "end": 3.36
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 15,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2716528372839093
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f7d5463b2f0214063580f1eacfccc9c00e2c381278511035a8e2f20d55f79ff3",
+  "selected_reasons": []
+}

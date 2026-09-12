@@ -1,0 +1,797 @@
+{
+  "complete": true,
+  "signature": "cda4a41c4d29ee5d0918e729d597b6a072ec685634eb66c2e9b8c0c376479d71",
+  "attempts": [
+    {
+      "asr_seconds": 0.44092907756567,
+      "alignment_seconds": 0.0005940692499279976,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "90. Heavy, melancholy men turn lighter, and come temporarily to their surface, precisely by that which makes others heavy--by hatred and love.",
+        "hotwords": "Heavy"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " 90. Heavy, melancholy men turn lighter, and come temporarily to their surface, precisely",
+          "start": 0.05,
+          "end": 6.53,
+          "words": [
+            {
+              "text": " 90.",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.59423828125
+            },
+            {
+              "text": " Heavy,",
+              "start": 1.69,
+              "end": 1.69,
+              "probability": 0.9765625
+            },
+            {
+              "text": " melancholy",
+              "start": 2.21,
+              "end": 2.33,
+              "probability": 0.994140625
+            },
+            {
+              "text": " men",
+              "start": 2.33,
+              "end": 2.77,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " turn",
+              "start": 2.77,
+              "end": 3.03,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " lighter,",
+              "start": 3.03,
+              "end": 3.39,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 3.89,
+              "end": 3.97,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " come",
+              "start": 3.97,
+              "end": 4.15,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " temporarily",
+              "start": 4.15,
+              "end": 4.69,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " to",
+              "start": 4.69,
+              "end": 5.03,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " their",
+              "start": 5.03,
+              "end": 5.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " surface,",
+              "start": 5.17,
+              "end": 5.63,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " precisely",
+              "start": 6.27,
+              "end": 6.53,
+              "probability": 0.99169921875
+            }
+          ]
+        },
+        {
+          "text": " by that which makes others heavy by hatred and love.",
+          "start": 6.53,
+          "end": 9.47,
+          "words": [
+            {
+              "text": " by",
+              "start": 6.53,
+              "end": 6.91,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that",
+              "start": 6.91,
+              "end": 7.13,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " which",
+              "start": 7.13,
+              "end": 7.29,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " makes",
+              "start": 7.29,
+              "end": 7.55,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " others",
+              "start": 7.55,
+              "end": 7.89,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " heavy",
+              "start": 7.89,
+              "end": 8.19,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " by",
+              "start": 8.19,
+              "end": 8.47,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " hatred",
+              "start": 8.47,
+              "end": 8.81,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 8.81,
+              "end": 9.19,
+              "probability": 0.99609375
+            },
+            {
+              "text": " love.",
+              "start": 9.19,
+              "end": 9.47,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "90.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "Heavy,",
+          "start": 1.69,
+          "end": 1.69
+        },
+        {
+          "raw": "melancholy",
+          "start": 2.21,
+          "end": 2.33
+        },
+        {
+          "raw": "men",
+          "start": 2.33,
+          "end": 2.77
+        },
+        {
+          "raw": "turn",
+          "start": 2.77,
+          "end": 3.03
+        },
+        {
+          "raw": "lighter,",
+          "start": 3.03,
+          "end": 3.39
+        },
+        {
+          "raw": "and",
+          "start": 3.89,
+          "end": 3.97
+        },
+        {
+          "raw": "come",
+          "start": 3.97,
+          "end": 4.15
+        },
+        {
+          "raw": "temporarily",
+          "start": 4.15,
+          "end": 4.69
+        },
+        {
+          "raw": "to",
+          "start": 4.69,
+          "end": 5.03
+        },
+        {
+          "raw": "their",
+          "start": 5.03,
+          "end": 5.17
+        },
+        {
+          "raw": "surface,",
+          "start": 5.17,
+          "end": 5.63
+        },
+        {
+          "raw": "precisely",
+          "start": 6.27,
+          "end": 6.53
+        },
+        {
+          "raw": "by",
+          "start": 6.53,
+          "end": 6.91
+        },
+        {
+          "raw": "that",
+          "start": 6.91,
+          "end": 7.13
+        },
+        {
+          "raw": "which",
+          "start": 7.13,
+          "end": 7.29
+        },
+        {
+          "raw": "makes",
+          "start": 7.29,
+          "end": 7.55
+        },
+        {
+          "raw": "others",
+          "start": 7.55,
+          "end": 7.89
+        },
+        {
+          "raw": "heavy",
+          "start": 7.89,
+          "end": 8.19
+        },
+        {
+          "raw": "by",
+          "start": 8.19,
+          "end": 8.47
+        },
+        {
+          "raw": "hatred",
+          "start": 8.47,
+          "end": 8.81
+        },
+        {
+          "raw": "and",
+          "start": 8.81,
+          "end": 9.19
+        },
+        {
+          "raw": "love.",
+          "start": 9.19,
+          "end": 9.47
+        }
+      ],
+      "expected_tokens": [
+        "90.",
+        "Heavy,",
+        "melancholy",
+        "men",
+        "turn",
+        "lighter,",
+        "and",
+        "come",
+        "temporarily",
+        "to",
+        "their",
+        "surface,",
+        "precisely",
+        "by",
+        "that",
+        "which",
+        "makes",
+        "others",
+        "heavy--by",
+        "hatred",
+        "and",
+        "love."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "90.",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "ninety",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Heavy,",
+          "start": 1.69,
+          "end": 1.69,
+          "key": "heavy",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "melancholy",
+          "start": 2.21,
+          "end": 2.33,
+          "key": "melancholy",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "men",
+          "start": 2.33,
+          "end": 2.77,
+          "key": "men",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "turn",
+          "start": 2.77,
+          "end": 3.03,
+          "key": "turn",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "lighter,",
+          "start": 3.03,
+          "end": 3.39,
+          "key": "lighter",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.89,
+          "end": 3.97,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 3.97,
+          "end": 4.15,
+          "key": "come",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "temporarily",
+          "start": 4.15,
+          "end": 4.69,
+          "key": "temporarily",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.69,
+          "end": 5.03,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 5.03,
+          "end": 5.17,
+          "key": "their",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "surface,",
+          "start": 5.17,
+          "end": 5.63,
+          "key": "surface",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "precisely",
+          "start": 6.27,
+          "end": 6.53,
+          "key": "precisely",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 6.53,
+          "end": 6.91,
+          "key": "by",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 6.91,
+          "end": 7.13,
+          "key": "that",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 7.13,
+          "end": 7.29,
+          "key": "which",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "makes",
+          "start": 7.29,
+          "end": 7.55,
+          "key": "makes",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "others",
+          "start": 7.55,
+          "end": 7.89,
+          "key": "others",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "heavy by",
+          "start": 7.89,
+          "end": 8.47,
+          "key": "heavyby",
+          "pieces": [
+            18,
+            19
+          ]
+        },
+        {
+          "raw": "hatred",
+          "start": 8.47,
+          "end": 8.81,
+          "key": "hatred",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 8.81,
+          "end": 9.19,
+          "key": "and",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "love.",
+          "start": 9.19,
+          "end": 9.47,
+          "key": "love",
+          "pieces": [
+            22
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 18,
+          "text": "heavy--by",
+          "heard": "heavy by",
+          "heard_indexes": [
+            18,
+            19
+          ],
+          "start": 7.89,
+          "end": 8.47
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "90.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Heavy,",
+          "start": 1.69,
+          "end": 1.69
+        },
+        {
+          "text": "melancholy",
+          "start": 2.21,
+          "end": 2.33
+        },
+        {
+          "text": "men",
+          "start": 2.33,
+          "end": 2.77
+        },
+        {
+          "text": "turn",
+          "start": 2.77,
+          "end": 3.03
+        },
+        {
+          "text": "lighter,",
+          "start": 3.03,
+          "end": 3.39
+        },
+        {
+          "text": "and",
+          "start": 3.89,
+          "end": 3.97
+        },
+        {
+          "text": "come",
+          "start": 3.97,
+          "end": 4.15
+        },
+        {
+          "text": "temporarily",
+          "start": 4.15,
+          "end": 4.69
+        },
+        {
+          "text": "to",
+          "start": 4.69,
+          "end": 5.03
+        },
+        {
+          "text": "their",
+          "start": 5.03,
+          "end": 5.17
+        },
+        {
+          "text": "surface,",
+          "start": 5.17,
+          "end": 5.63
+        },
+        {
+          "text": "precisely",
+          "start": 6.27,
+          "end": 6.53
+        },
+        {
+          "text": "by",
+          "start": 6.53,
+          "end": 6.91
+        },
+        {
+          "text": "that",
+          "start": 6.91,
+          "end": 7.13
+        },
+        {
+          "text": "which",
+          "start": 7.13,
+          "end": 7.29
+        },
+        {
+          "text": "makes",
+          "start": 7.29,
+          "end": 7.55
+        },
+        {
+          "text": "others",
+          "start": 7.55,
+          "end": 7.89
+        },
+        {
+          "text": "heavy--by",
+          "start": 7.89,
+          "end": 8.47
+        },
+        {
+          "text": "hatred",
+          "start": 8.47,
+          "end": 8.81
+        },
+        {
+          "text": "and",
+          "start": 8.81,
+          "end": 9.19
+        },
+        {
+          "text": "love.",
+          "start": 9.19,
+          "end": 9.47
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.44173858407884836
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "201e3154e7af81ffb616c549c459969734838fbf632ce8e4e3a1f1b7ec05881d",
+  "selected_reasons": []
+}

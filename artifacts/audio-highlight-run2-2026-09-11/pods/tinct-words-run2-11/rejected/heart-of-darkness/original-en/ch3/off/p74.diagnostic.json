@@ -1,0 +1,604 @@
+{
+  "complete": true,
+  "signature": "7dad9ed86b2a906c5b641f3f10965b1d20b94f3129d94806895d017a0aa00dd4",
+  "attempts": [
+    {
+      "asr_seconds": 0.2747988626360893,
+      "alignment_seconds": 0.0005584675818681717,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And I was not with him, she murmured. My anger subsided before a feeling of infinite pity.",
+          "start": 0.08,
+          "end": 5.78,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.244384765625
+            },
+            {
+              "text": " I",
+              "start": 0.54,
+              "end": 0.66,
+              "probability": 0.98828125
+            },
+            {
+              "text": " was",
+              "start": 0.66,
+              "end": 0.8,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " not",
+              "start": 0.8,
+              "end": 1.04,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " with",
+              "start": 1.04,
+              "end": 1.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him,",
+              "start": 1.18,
+              "end": 1.52,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " she",
+              "start": 1.76,
+              "end": 1.94,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " murmured.",
+              "start": 1.94,
+              "end": 2.44,
+              "probability": 0.998291015625
+            },
+            {
+              "text": " My",
+              "start": 3.0,
+              "end": 3.1,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " anger",
+              "start": 3.1,
+              "end": 3.42,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " subsided",
+              "start": 3.42,
+              "end": 4.02,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " before",
+              "start": 4.02,
+              "end": 4.38,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " a",
+              "start": 4.38,
+              "end": 4.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " feeling",
+              "start": 4.54,
+              "end": 4.86,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 4.86,
+              "end": 5.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " infinite",
+              "start": 5.08,
+              "end": 5.46,
+              "probability": 0.998046875
+            },
+            {
+              "text": " pity.",
+              "start": 5.46,
+              "end": 5.78,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "I",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "raw": "was",
+          "start": 0.66,
+          "end": 0.8
+        },
+        {
+          "raw": "not",
+          "start": 0.8,
+          "end": 1.04
+        },
+        {
+          "raw": "with",
+          "start": 1.04,
+          "end": 1.18
+        },
+        {
+          "raw": "him,",
+          "start": 1.18,
+          "end": 1.52
+        },
+        {
+          "raw": "she",
+          "start": 1.76,
+          "end": 1.94
+        },
+        {
+          "raw": "murmured.",
+          "start": 1.94,
+          "end": 2.44
+        },
+        {
+          "raw": "My",
+          "start": 3.0,
+          "end": 3.1
+        },
+        {
+          "raw": "anger",
+          "start": 3.1,
+          "end": 3.42
+        },
+        {
+          "raw": "subsided",
+          "start": 3.42,
+          "end": 4.02
+        },
+        {
+          "raw": "before",
+          "start": 4.02,
+          "end": 4.38
+        },
+        {
+          "raw": "a",
+          "start": 4.38,
+          "end": 4.54
+        },
+        {
+          "raw": "feeling",
+          "start": 4.54,
+          "end": 4.86
+        },
+        {
+          "raw": "of",
+          "start": 4.86,
+          "end": 5.08
+        },
+        {
+          "raw": "infinite",
+          "start": 5.08,
+          "end": 5.46
+        },
+        {
+          "raw": "pity.",
+          "start": 5.46,
+          "end": 5.78
+        }
+      ],
+      "expected_tokens": [
+        "\"'And",
+        "I",
+        "was",
+        "not",
+        "with",
+        "him,'",
+        "she",
+        "murmured.",
+        "My",
+        "anger",
+        "subsided",
+        "before",
+        "a",
+        "feeling",
+        "of",
+        "infinite",
+        "pity."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.54,
+          "end": 0.66,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.66,
+          "end": 0.8,
+          "key": "was",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.8,
+          "end": 1.04,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.04,
+          "end": 1.18,
+          "key": "with",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 1.18,
+          "end": 1.52,
+          "key": "him",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.76,
+          "end": 1.94,
+          "key": "she",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "murmured.",
+          "start": 1.94,
+          "end": 2.44,
+          "key": "murmured",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 3.0,
+          "end": 3.1,
+          "key": "my",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "anger",
+          "start": 3.1,
+          "end": 3.42,
+          "key": "anger",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "subsided",
+          "start": 3.42,
+          "end": 4.02,
+          "key": "subsided",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 4.02,
+          "end": 4.38,
+          "key": "before",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.38,
+          "end": 4.54,
+          "key": "a",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "feeling",
+          "start": 4.54,
+          "end": 4.86,
+          "key": "feeling",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.86,
+          "end": 5.08,
+          "key": "of",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "infinite",
+          "start": 5.08,
+          "end": 5.46,
+          "key": "infinite",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "pity.",
+          "start": 5.46,
+          "end": 5.78,
+          "key": "pity",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"'And",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "I",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "text": "was",
+          "start": 0.66,
+          "end": 0.8
+        },
+        {
+          "text": "not",
+          "start": 0.8,
+          "end": 1.04
+        },
+        {
+          "text": "with",
+          "start": 1.04,
+          "end": 1.18
+        },
+        {
+          "text": "him,'",
+          "start": 1.18,
+          "end": 1.52
+        },
+        {
+          "text": "she",
+          "start": 1.76,
+          "end": 1.94
+        },
+        {
+          "text": "murmured.",
+          "start": 1.94,
+          "end": 2.44
+        },
+        {
+          "text": "My",
+          "start": 3.0,
+          "end": 3.1
+        },
+        {
+          "text": "anger",
+          "start": 3.1,
+          "end": 3.42
+        },
+        {
+          "text": "subsided",
+          "start": 3.42,
+          "end": 4.02
+        },
+        {
+          "text": "before",
+          "start": 4.02,
+          "end": 4.38
+        },
+        {
+          "text": "a",
+          "start": 4.38,
+          "end": 4.54
+        },
+        {
+          "text": "feeling",
+          "start": 4.54,
+          "end": 4.86
+        },
+        {
+          "text": "of",
+          "start": 4.86,
+          "end": 5.08
+        },
+        {
+          "text": "infinite",
+          "start": 5.08,
+          "end": 5.46
+        },
+        {
+          "text": "pity.",
+          "start": 5.46,
+          "end": 5.78
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.27558857575058937
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "208ab16305ce4d1ef7b990a2c7aa497cdc55f0ee847c0c38b54190cfa21765d3",
+  "selected_reasons": []
+}

@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "108dc726ee42b669b0e45c6676c43edabea3bad2dda24458156fd62e27333f27",
+  "attempts": [
+    {
+      "asr_seconds": 0.21958795562386513,
+      "alignment_seconds": 0.0003043711185455322,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The grounds for this supposition do not appertain to this work.",
+        "hotwords": "The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The grounds for this supposition do not appertain to this work.",
+          "start": 0.02,
+          "end": 3.58,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " grounds",
+              "start": 0.5,
+              "end": 0.82,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " for",
+              "start": 0.82,
+              "end": 1.06,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " this",
+              "start": 1.06,
+              "end": 1.2,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " supposition",
+              "start": 1.2,
+              "end": 1.7,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " do",
+              "start": 1.7,
+              "end": 2.3,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " not",
+              "start": 2.3,
+              "end": 2.5,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " appertain",
+              "start": 2.5,
+              "end": 2.9,
+              "probability": 0.4304962158203125
+            },
+            {
+              "text": " to",
+              "start": 2.9,
+              "end": 3.18,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " this",
+              "start": 3.18,
+              "end": 3.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " work.",
+              "start": 3.32,
+              "end": 3.58,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "grounds",
+          "start": 0.5,
+          "end": 0.82
+        },
+        {
+          "raw": "for",
+          "start": 0.82,
+          "end": 1.06
+        },
+        {
+          "raw": "this",
+          "start": 1.06,
+          "end": 1.2
+        },
+        {
+          "raw": "supposition",
+          "start": 1.2,
+          "end": 1.7
+        },
+        {
+          "raw": "do",
+          "start": 1.7,
+          "end": 2.3
+        },
+        {
+          "raw": "not",
+          "start": 2.3,
+          "end": 2.5
+        },
+        {
+          "raw": "appertain",
+          "start": 2.5,
+          "end": 2.9
+        },
+        {
+          "raw": "to",
+          "start": 2.9,
+          "end": 3.18
+        },
+        {
+          "raw": "this",
+          "start": 3.18,
+          "end": 3.32
+        },
+        {
+          "raw": "work.",
+          "start": 3.32,
+          "end": 3.58
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "grounds",
+        "for",
+        "this",
+        "supposition",
+        "do",
+        "not",
+        "appertain",
+        "to",
+        "this",
+        "work."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "grounds",
+          "start": 0.5,
+          "end": 0.82,
+          "key": "grounds",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 0.82,
+          "end": 1.06,
+          "key": "for",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.06,
+          "end": 1.2,
+          "key": "this",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "supposition",
+          "start": 1.2,
+          "end": 1.7,
+          "key": "supposition",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.7,
+          "end": 2.3,
+          "key": "do",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.3,
+          "end": 2.5,
+          "key": "not",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "appertain",
+          "start": 2.5,
+          "end": 2.9,
+          "key": "appertain",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.9,
+          "end": 3.18,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 3.18,
+          "end": 3.32,
+          "key": "this",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "work.",
+          "start": 3.32,
+          "end": 3.58,
+          "key": "work",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "grounds",
+          "start": 0.5,
+          "end": 0.82
+        },
+        {
+          "text": "for",
+          "start": 0.82,
+          "end": 1.06
+        },
+        {
+          "text": "this",
+          "start": 1.06,
+          "end": 1.2
+        },
+        {
+          "text": "supposition",
+          "start": 1.2,
+          "end": 1.7
+        },
+        {
+          "text": "do",
+          "start": 1.7,
+          "end": 2.3
+        },
+        {
+          "text": "not",
+          "start": 2.3,
+          "end": 2.5
+        },
+        {
+          "text": "appertain",
+          "start": 2.5,
+          "end": 2.9
+        },
+        {
+          "text": "to",
+          "start": 2.9,
+          "end": 3.18
+        },
+        {
+          "text": "this",
+          "start": 3.18,
+          "end": 3.32
+        },
+        {
+          "text": "work.",
+          "start": 3.32,
+          "end": 3.58
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2200069110840559
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9fcf23799438fcba0a8067528d4f4602d4f32d433736becd02637dff06faed56",
+  "selected_reasons": []
+}

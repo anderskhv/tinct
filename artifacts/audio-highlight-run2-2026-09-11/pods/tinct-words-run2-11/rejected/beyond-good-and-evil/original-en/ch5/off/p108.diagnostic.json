@@ -1,0 +1,636 @@
+{
+  "complete": true,
+  "signature": "e1a9dc6a5fb7b532c9b76ecc52c99e6eae6e437b7a38fafe4114a226103ca6c6",
+  "attempts": [
+    {
+      "asr_seconds": 0.33721280470490456,
+      "alignment_seconds": 0.0005821650847792625,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " 171. Pity has an almost ludicrous effect on a man of knowledge, like tender hands on a cyclops.",
+          "start": 0.05,
+          "end": 7.37,
+          "words": [
+            {
+              "text": " 171.",
+              "start": 0.05,
+              "end": 1.15,
+              "probability": 0.796875
+            },
+            {
+              "text": " Pity",
+              "start": 2.29,
+              "end": 2.43,
+              "probability": 0.86083984375
+            },
+            {
+              "text": " has",
+              "start": 2.43,
+              "end": 2.67,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " an",
+              "start": 2.67,
+              "end": 2.79,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " almost",
+              "start": 2.79,
+              "end": 3.15,
+              "probability": 0.998046875
+            },
+            {
+              "text": " ludicrous",
+              "start": 3.15,
+              "end": 3.65,
+              "probability": 0.994140625
+            },
+            {
+              "text": " effect",
+              "start": 3.65,
+              "end": 4.05,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " on",
+              "start": 4.05,
+              "end": 4.29,
+              "probability": 0.99609375
+            },
+            {
+              "text": " a",
+              "start": 4.29,
+              "end": 4.39,
+              "probability": 0.99609375
+            },
+            {
+              "text": " man",
+              "start": 4.39,
+              "end": 4.55,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " of",
+              "start": 4.55,
+              "end": 4.71,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " knowledge,",
+              "start": 4.71,
+              "end": 5.07,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " like",
+              "start": 5.49,
+              "end": 5.69,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " tender",
+              "start": 5.69,
+              "end": 6.07,
+              "probability": 0.966796875
+            },
+            {
+              "text": " hands",
+              "start": 6.07,
+              "end": 6.47,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " on",
+              "start": 6.47,
+              "end": 6.69,
+              "probability": 0.99609375
+            },
+            {
+              "text": " a",
+              "start": 6.69,
+              "end": 6.83,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " cyclops.",
+              "start": 6.83,
+              "end": 7.37,
+              "probability": 0.97412109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "171.",
+          "start": 0.05,
+          "end": 1.15
+        },
+        {
+          "raw": "Pity",
+          "start": 2.29,
+          "end": 2.43
+        },
+        {
+          "raw": "has",
+          "start": 2.43,
+          "end": 2.67
+        },
+        {
+          "raw": "an",
+          "start": 2.67,
+          "end": 2.79
+        },
+        {
+          "raw": "almost",
+          "start": 2.79,
+          "end": 3.15
+        },
+        {
+          "raw": "ludicrous",
+          "start": 3.15,
+          "end": 3.65
+        },
+        {
+          "raw": "effect",
+          "start": 3.65,
+          "end": 4.05
+        },
+        {
+          "raw": "on",
+          "start": 4.05,
+          "end": 4.29
+        },
+        {
+          "raw": "a",
+          "start": 4.29,
+          "end": 4.39
+        },
+        {
+          "raw": "man",
+          "start": 4.39,
+          "end": 4.55
+        },
+        {
+          "raw": "of",
+          "start": 4.55,
+          "end": 4.71
+        },
+        {
+          "raw": "knowledge,",
+          "start": 4.71,
+          "end": 5.07
+        },
+        {
+          "raw": "like",
+          "start": 5.49,
+          "end": 5.69
+        },
+        {
+          "raw": "tender",
+          "start": 5.69,
+          "end": 6.07
+        },
+        {
+          "raw": "hands",
+          "start": 6.07,
+          "end": 6.47
+        },
+        {
+          "raw": "on",
+          "start": 6.47,
+          "end": 6.69
+        },
+        {
+          "raw": "a",
+          "start": 6.69,
+          "end": 6.83
+        },
+        {
+          "raw": "cyclops.",
+          "start": 6.83,
+          "end": 7.37
+        }
+      ],
+      "expected_tokens": [
+        "171.",
+        "Pity",
+        "has",
+        "an",
+        "almost",
+        "ludicrous",
+        "effect",
+        "on",
+        "a",
+        "man",
+        "of",
+        "knowledge,",
+        "like",
+        "tender",
+        "hands",
+        "on",
+        "a",
+        "Cyclops."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "171.",
+          "start": 0.05,
+          "end": 1.15,
+          "key": "171",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pity",
+          "start": 2.29,
+          "end": 2.43,
+          "key": "pity",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 2.43,
+          "end": 2.67,
+          "key": "has",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 2.67,
+          "end": 2.79,
+          "key": "an",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "almost",
+          "start": 2.79,
+          "end": 3.15,
+          "key": "almost",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "ludicrous",
+          "start": 3.15,
+          "end": 3.65,
+          "key": "ludicrous",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "effect",
+          "start": 3.65,
+          "end": 4.05,
+          "key": "effect",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 4.05,
+          "end": 4.29,
+          "key": "on",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.29,
+          "end": 4.39,
+          "key": "a",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 4.39,
+          "end": 4.55,
+          "key": "man",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.55,
+          "end": 4.71,
+          "key": "of",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "knowledge,",
+          "start": 4.71,
+          "end": 5.07,
+          "key": "knowledge",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 5.49,
+          "end": 5.69,
+          "key": "like",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "tender",
+          "start": 5.69,
+          "end": 6.07,
+          "key": "tender",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "hands",
+          "start": 6.07,
+          "end": 6.47,
+          "key": "hands",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 6.47,
+          "end": 6.69,
+          "key": "on",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 6.69,
+          "end": 6.83,
+          "key": "a",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "cyclops.",
+          "start": 6.83,
+          "end": 7.37,
+          "key": "cyclops",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "171.",
+          "start": 0.05,
+          "end": 1.15
+        },
+        {
+          "text": "Pity",
+          "start": 2.29,
+          "end": 2.43
+        },
+        {
+          "text": "has",
+          "start": 2.43,
+          "end": 2.67
+        },
+        {
+          "text": "an",
+          "start": 2.67,
+          "end": 2.79
+        },
+        {
+          "text": "almost",
+          "start": 2.79,
+          "end": 3.15
+        },
+        {
+          "text": "ludicrous",
+          "start": 3.15,
+          "end": 3.65
+        },
+        {
+          "text": "effect",
+          "start": 3.65,
+          "end": 4.05
+        },
+        {
+          "text": "on",
+          "start": 4.05,
+          "end": 4.29
+        },
+        {
+          "text": "a",
+          "start": 4.29,
+          "end": 4.39
+        },
+        {
+          "text": "man",
+          "start": 4.39,
+          "end": 4.55
+        },
+        {
+          "text": "of",
+          "start": 4.55,
+          "end": 4.71
+        },
+        {
+          "text": "knowledge,",
+          "start": 4.71,
+          "end": 5.07
+        },
+        {
+          "text": "like",
+          "start": 5.49,
+          "end": 5.69
+        },
+        {
+          "text": "tender",
+          "start": 5.69,
+          "end": 6.07
+        },
+        {
+          "text": "hands",
+          "start": 6.07,
+          "end": 6.47
+        },
+        {
+          "text": "on",
+          "start": 6.47,
+          "end": 6.69
+        },
+        {
+          "text": "a",
+          "start": 6.69,
+          "end": 6.83
+        },
+        {
+          "text": "Cyclops.",
+          "start": 6.83,
+          "end": 7.37
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.33807765040546656
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "311770609701de71947cda1ccacc6b19dbb56578b2f7218f470bbec8615826f3",
+  "selected_reasons": []
+}

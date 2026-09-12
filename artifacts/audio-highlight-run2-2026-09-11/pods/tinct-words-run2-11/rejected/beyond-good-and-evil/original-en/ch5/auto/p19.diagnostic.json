@@ -1,0 +1,502 @@
+{
+  "complete": true,
+  "signature": "8ea70552a5259cf9849414e112f63848d8711c153aae0fd6a719ea761d25439e",
+  "attempts": [
+    {
+      "asr_seconds": 0.302737595513463,
+      "alignment_seconds": 0.0006875758990645409,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "82. \"Sympathy for all\"--would be harshness and tyranny for Thee, my good neighbour.",
+        "hotwords": "Sympathy, Thee"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " 82. Sympathy for all would be harshness and tyranny for Thee, my good neighbour.",
+          "start": 0.02,
+          "end": 5.1,
+          "words": [
+            {
+              "text": " 82.",
+              "start": 0.02,
+              "end": 0.88,
+              "probability": 0.73583984375
+            },
+            {
+              "text": " Sympathy",
+              "start": 1.7,
+              "end": 2.0,
+              "probability": 0.9064127604166666
+            },
+            {
+              "text": " for",
+              "start": 2.0,
+              "end": 2.16,
+              "probability": 0.97265625
+            },
+            {
+              "text": " all",
+              "start": 2.16,
+              "end": 2.38,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " would",
+              "start": 2.38,
+              "end": 2.58,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " be",
+              "start": 2.58,
+              "end": 2.74,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " harshness",
+              "start": 2.74,
+              "end": 3.2,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " and",
+              "start": 3.2,
+              "end": 3.44,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " tyranny",
+              "start": 3.44,
+              "end": 3.66,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " for",
+              "start": 3.66,
+              "end": 3.94,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Thee,",
+              "start": 3.94,
+              "end": 4.32,
+              "probability": 0.5053176879882812
+            },
+            {
+              "text": " my",
+              "start": 4.5,
+              "end": 4.62,
+              "probability": 0.91455078125
+            },
+            {
+              "text": " good",
+              "start": 4.62,
+              "end": 4.78,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " neighbour.",
+              "start": 4.78,
+              "end": 5.1,
+              "probability": 0.19384765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "82.",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "raw": "Sympathy",
+          "start": 1.7,
+          "end": 2.0
+        },
+        {
+          "raw": "for",
+          "start": 2.0,
+          "end": 2.16
+        },
+        {
+          "raw": "all",
+          "start": 2.16,
+          "end": 2.38
+        },
+        {
+          "raw": "would",
+          "start": 2.38,
+          "end": 2.58
+        },
+        {
+          "raw": "be",
+          "start": 2.58,
+          "end": 2.74
+        },
+        {
+          "raw": "harshness",
+          "start": 2.74,
+          "end": 3.2
+        },
+        {
+          "raw": "and",
+          "start": 3.2,
+          "end": 3.44
+        },
+        {
+          "raw": "tyranny",
+          "start": 3.44,
+          "end": 3.66
+        },
+        {
+          "raw": "for",
+          "start": 3.66,
+          "end": 3.94
+        },
+        {
+          "raw": "Thee,",
+          "start": 3.94,
+          "end": 4.32
+        },
+        {
+          "raw": "my",
+          "start": 4.5,
+          "end": 4.62
+        },
+        {
+          "raw": "good",
+          "start": 4.62,
+          "end": 4.78
+        },
+        {
+          "raw": "neighbour.",
+          "start": 4.78,
+          "end": 5.1
+        }
+      ],
+      "expected_tokens": [
+        "82.",
+        "\"Sympathy",
+        "for",
+        "all\"--would",
+        "be",
+        "harshness",
+        "and",
+        "tyranny",
+        "for",
+        "Thee,",
+        "my",
+        "good",
+        "neighbour."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "82.",
+          "start": 0.02,
+          "end": 0.88,
+          "key": "eightytwo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sympathy",
+          "start": 1.7,
+          "end": 2.0,
+          "key": "sympathy",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.0,
+          "end": 2.16,
+          "key": "for",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "all would",
+          "start": 2.16,
+          "end": 2.58,
+          "key": "allwould",
+          "pieces": [
+            3,
+            4
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.58,
+          "end": 2.74,
+          "key": "be",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "harshness",
+          "start": 2.74,
+          "end": 3.2,
+          "key": "harshness",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.2,
+          "end": 3.44,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "tyranny",
+          "start": 3.44,
+          "end": 3.66,
+          "key": "tyranny",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.66,
+          "end": 3.94,
+          "key": "for",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Thee,",
+          "start": 3.94,
+          "end": 4.32,
+          "key": "thee",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 4.5,
+          "end": 4.62,
+          "key": "my",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 4.62,
+          "end": 4.78,
+          "key": "good",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "neighbour.",
+          "start": 4.78,
+          "end": 5.1,
+          "key": "neighbour",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 3,
+          "text": "all\"--would",
+          "heard": "all would",
+          "heard_indexes": [
+            3,
+            4
+          ],
+          "start": 2.16,
+          "end": 2.58
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "82.",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "text": "\"Sympathy",
+          "start": 1.7,
+          "end": 2.0
+        },
+        {
+          "text": "for",
+          "start": 2.0,
+          "end": 2.16
+        },
+        {
+          "text": "all\"--would",
+          "start": 2.16,
+          "end": 2.58
+        },
+        {
+          "text": "be",
+          "start": 2.58,
+          "end": 2.74
+        },
+        {
+          "text": "harshness",
+          "start": 2.74,
+          "end": 3.2
+        },
+        {
+          "text": "and",
+          "start": 3.2,
+          "end": 3.44
+        },
+        {
+          "text": "tyranny",
+          "start": 3.44,
+          "end": 3.66
+        },
+        {
+          "text": "for",
+          "start": 3.66,
+          "end": 3.94
+        },
+        {
+          "text": "Thee,",
+          "start": 3.94,
+          "end": 4.32
+        },
+        {
+          "text": "my",
+          "start": 4.5,
+          "end": 4.62
+        },
+        {
+          "text": "good",
+          "start": 4.62,
+          "end": 4.78
+        },
+        {
+          "text": "neighbour.",
+          "start": 4.78,
+          "end": 5.1
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3036444569006562
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "aed50998066a2b81a860616a8abfa3bc5eb4cb0ffbe0e535119d7d10b379159e",
+  "selected_reasons": []
+}

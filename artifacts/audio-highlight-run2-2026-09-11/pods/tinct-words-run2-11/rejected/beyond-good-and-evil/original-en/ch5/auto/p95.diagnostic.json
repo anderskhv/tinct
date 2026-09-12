@@ -1,0 +1,637 @@
+{
+  "complete": true,
+  "signature": "0c6fd7821847c331e2bf64e8a1a67d72a7111e052455db91dbf295b777e40056",
+  "attempts": [
+    {
+      "asr_seconds": 0.3445138670504093,
+      "alignment_seconds": 0.0006079049780964851,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "158. Not only our reason, but also our conscience, truckles to our strongest impulse--the tyrant in us.",
+        "hotwords": "Not"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " 158. Not only our reason, but also our conscience, truckles to our strongest impulse-the tyrant",
+          "start": 0.02,
+          "end": 7.18,
+          "words": [
+            {
+              "text": " 158.",
+              "start": 0.02,
+              "end": 1.08,
+              "probability": 0.87548828125
+            },
+            {
+              "text": " Not",
+              "start": 2.06,
+              "end": 2.18,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " only",
+              "start": 2.18,
+              "end": 2.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " our",
+              "start": 2.42,
+              "end": 2.6,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " reason,",
+              "start": 2.6,
+              "end": 2.92,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " but",
+              "start": 3.36,
+              "end": 3.44,
+              "probability": 0.998046875
+            },
+            {
+              "text": " also",
+              "start": 3.44,
+              "end": 3.72,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " our",
+              "start": 3.72,
+              "end": 3.94,
+              "probability": 0.998046875
+            },
+            {
+              "text": " conscience,",
+              "start": 3.94,
+              "end": 4.38,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " truckles",
+              "start": 4.98,
+              "end": 5.24,
+              "probability": 0.791259765625
+            },
+            {
+              "text": " to",
+              "start": 5.24,
+              "end": 5.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " our",
+              "start": 5.4,
+              "end": 5.54,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " strongest",
+              "start": 5.54,
+              "end": 5.98,
+              "probability": 0.99609375
+            },
+            {
+              "text": " impulse",
+              "start": 5.98,
+              "end": 6.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": "-the",
+              "start": 6.6,
+              "end": 6.88,
+              "probability": 0.32127952575683594
+            },
+            {
+              "text": " tyrant",
+              "start": 6.88,
+              "end": 7.18,
+              "probability": 0.76708984375
+            }
+          ]
+        },
+        {
+          "text": " in us.",
+          "start": 7.18,
+          "end": 7.58,
+          "words": [
+            {
+              "text": " in",
+              "start": 7.18,
+              "end": 7.36,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " us.",
+              "start": 7.36,
+              "end": 7.58,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "158.",
+          "start": 0.02,
+          "end": 1.08
+        },
+        {
+          "raw": "Not",
+          "start": 2.06,
+          "end": 2.18
+        },
+        {
+          "raw": "only",
+          "start": 2.18,
+          "end": 2.42
+        },
+        {
+          "raw": "our",
+          "start": 2.42,
+          "end": 2.6
+        },
+        {
+          "raw": "reason,",
+          "start": 2.6,
+          "end": 2.92
+        },
+        {
+          "raw": "but",
+          "start": 3.36,
+          "end": 3.44
+        },
+        {
+          "raw": "also",
+          "start": 3.44,
+          "end": 3.72
+        },
+        {
+          "raw": "our",
+          "start": 3.72,
+          "end": 3.94
+        },
+        {
+          "raw": "conscience,",
+          "start": 3.94,
+          "end": 4.38
+        },
+        {
+          "raw": "truckles",
+          "start": 4.98,
+          "end": 5.24
+        },
+        {
+          "raw": "to",
+          "start": 5.24,
+          "end": 5.4
+        },
+        {
+          "raw": "our",
+          "start": 5.4,
+          "end": 5.54
+        },
+        {
+          "raw": "strongest",
+          "start": 5.54,
+          "end": 5.98
+        },
+        {
+          "raw": "impulse",
+          "start": 5.98,
+          "end": 6.6
+        },
+        {
+          "raw": "-the",
+          "start": 6.6,
+          "end": 6.88
+        },
+        {
+          "raw": "tyrant",
+          "start": 6.88,
+          "end": 7.18
+        },
+        {
+          "raw": "in",
+          "start": 7.18,
+          "end": 7.36
+        },
+        {
+          "raw": "us.",
+          "start": 7.36,
+          "end": 7.58
+        }
+      ],
+      "expected_tokens": [
+        "158.",
+        "Not",
+        "only",
+        "our",
+        "reason,",
+        "but",
+        "also",
+        "our",
+        "conscience,",
+        "truckles",
+        "to",
+        "our",
+        "strongest",
+        "impulse--the",
+        "tyrant",
+        "in",
+        "us."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "158.",
+          "start": 0.02,
+          "end": 1.08,
+          "key": "158",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Not",
+          "start": 2.06,
+          "end": 2.18,
+          "key": "not",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 2.18,
+          "end": 2.42,
+          "key": "only",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 2.42,
+          "end": 2.6,
+          "key": "our",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "reason,",
+          "start": 2.6,
+          "end": 2.92,
+          "key": "reason",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 3.36,
+          "end": 3.44,
+          "key": "but",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "also",
+          "start": 3.44,
+          "end": 3.72,
+          "key": "also",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 3.72,
+          "end": 3.94,
+          "key": "our",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "conscience,",
+          "start": 3.94,
+          "end": 4.38,
+          "key": "conscience",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "truckles",
+          "start": 4.98,
+          "end": 5.24,
+          "key": "truckles",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.24,
+          "end": 5.4,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 5.4,
+          "end": 5.54,
+          "key": "our",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "strongest",
+          "start": 5.54,
+          "end": 5.98,
+          "key": "strongest",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "impulse -the",
+          "start": 5.98,
+          "end": 6.88,
+          "key": "impulsethe",
+          "pieces": [
+            13,
+            14
+          ]
+        },
+        {
+          "raw": "tyrant",
+          "start": 6.88,
+          "end": 7.18,
+          "key": "tyrant",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 7.18,
+          "end": 7.36,
+          "key": "in",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "us.",
+          "start": 7.36,
+          "end": 7.58,
+          "key": "us",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 13,
+          "text": "impulse--the",
+          "heard": "impulse -the",
+          "heard_indexes": [
+            13,
+            14
+          ],
+          "start": 5.98,
+          "end": 6.88
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "158.",
+          "start": 0.02,
+          "end": 1.08
+        },
+        {
+          "text": "Not",
+          "start": 2.06,
+          "end": 2.18
+        },
+        {
+          "text": "only",
+          "start": 2.18,
+          "end": 2.42
+        },
+        {
+          "text": "our",
+          "start": 2.42,
+          "end": 2.6
+        },
+        {
+          "text": "reason,",
+          "start": 2.6,
+          "end": 2.92
+        },
+        {
+          "text": "but",
+          "start": 3.36,
+          "end": 3.44
+        },
+        {
+          "text": "also",
+          "start": 3.44,
+          "end": 3.72
+        },
+        {
+          "text": "our",
+          "start": 3.72,
+          "end": 3.94
+        },
+        {
+          "text": "conscience,",
+          "start": 3.94,
+          "end": 4.38
+        },
+        {
+          "text": "truckles",
+          "start": 4.98,
+          "end": 5.24
+        },
+        {
+          "text": "to",
+          "start": 5.24,
+          "end": 5.4
+        },
+        {
+          "text": "our",
+          "start": 5.4,
+          "end": 5.54
+        },
+        {
+          "text": "strongest",
+          "start": 5.54,
+          "end": 5.98
+        },
+        {
+          "text": "impulse--the",
+          "start": 5.98,
+          "end": 6.88
+        },
+        {
+          "text": "tyrant",
+          "start": 6.88,
+          "end": 7.18
+        },
+        {
+          "text": "in",
+          "start": 7.18,
+          "end": 7.36
+        },
+        {
+          "text": "us.",
+          "start": 7.36,
+          "end": 7.58
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.34534888435155153
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2e728443b91ca58831acdb2198cd7fb05657a5d99a7fbfc54b8e09da8e9587e9",
+  "selected_reasons": []
+}

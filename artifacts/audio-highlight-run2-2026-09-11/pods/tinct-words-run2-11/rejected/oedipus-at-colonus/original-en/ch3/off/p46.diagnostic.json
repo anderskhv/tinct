@@ -1,0 +1,412 @@
+{
+  "complete": true,
+  "signature": "c285b4b5de5eeb9dbf21a38896093ab45d32d34402752849833cabb178fb06d5",
+  "attempts": [
+    {
+      "asr_seconds": 0.19566018879413605,
+      "alignment_seconds": 0.0004773614928126335,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Oedipus, and can a son of mine have heard of this?",
+          "start": 0.62,
+          "end": 2.86,
+          "words": [
+            {
+              "text": " Oedipus,",
+              "start": 0.62,
+              "end": 0.94,
+              "probability": 0.953369140625
+            },
+            {
+              "text": " and",
+              "start": 1.34,
+              "end": 1.38,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " can",
+              "start": 1.38,
+              "end": 1.48,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " a",
+              "start": 1.48,
+              "end": 1.62,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " son",
+              "start": 1.62,
+              "end": 1.78,
+              "probability": 0.95703125
+            },
+            {
+              "text": " of",
+              "start": 1.78,
+              "end": 1.94,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " mine",
+              "start": 1.94,
+              "end": 2.16,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " have",
+              "start": 2.16,
+              "end": 2.32,
+              "probability": 0.98828125
+            },
+            {
+              "text": " heard",
+              "start": 2.32,
+              "end": 2.52,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " of",
+              "start": 2.52,
+              "end": 2.64,
+              "probability": 0.99609375
+            },
+            {
+              "text": " this?",
+              "start": 2.64,
+              "end": 2.86,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oedipus,",
+          "start": 0.62,
+          "end": 0.94
+        },
+        {
+          "raw": "and",
+          "start": 1.34,
+          "end": 1.38
+        },
+        {
+          "raw": "can",
+          "start": 1.38,
+          "end": 1.48
+        },
+        {
+          "raw": "a",
+          "start": 1.48,
+          "end": 1.62
+        },
+        {
+          "raw": "son",
+          "start": 1.62,
+          "end": 1.78
+        },
+        {
+          "raw": "of",
+          "start": 1.78,
+          "end": 1.94
+        },
+        {
+          "raw": "mine",
+          "start": 1.94,
+          "end": 2.16
+        },
+        {
+          "raw": "have",
+          "start": 2.16,
+          "end": 2.32
+        },
+        {
+          "raw": "heard",
+          "start": 2.32,
+          "end": 2.52
+        },
+        {
+          "raw": "of",
+          "start": 2.52,
+          "end": 2.64
+        },
+        {
+          "raw": "this?",
+          "start": 2.64,
+          "end": 2.86
+        }
+      ],
+      "expected_tokens": [
+        "Oedipus.",
+        "And",
+        "can",
+        "a",
+        "son",
+        "of",
+        "mine",
+        "have",
+        "heard",
+        "of",
+        "this?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oedipus,",
+          "start": 0.62,
+          "end": 0.94,
+          "key": "oedipus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.34,
+          "end": 1.38,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 1.38,
+          "end": 1.48,
+          "key": "can",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.48,
+          "end": 1.62,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "son",
+          "start": 1.62,
+          "end": 1.78,
+          "key": "son",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.78,
+          "end": 1.94,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "mine",
+          "start": 1.94,
+          "end": 2.16,
+          "key": "mine",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.16,
+          "end": 2.32,
+          "key": "have",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 2.32,
+          "end": 2.52,
+          "key": "heard",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.52,
+          "end": 2.64,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "this?",
+          "start": 2.64,
+          "end": 2.86,
+          "key": "this",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Oedipus.",
+          "start": 0.62,
+          "end": 0.94
+        },
+        {
+          "text": "And",
+          "start": 1.34,
+          "end": 1.38
+        },
+        {
+          "text": "can",
+          "start": 1.38,
+          "end": 1.48
+        },
+        {
+          "text": "a",
+          "start": 1.48,
+          "end": 1.62
+        },
+        {
+          "text": "son",
+          "start": 1.62,
+          "end": 1.78
+        },
+        {
+          "text": "of",
+          "start": 1.78,
+          "end": 1.94
+        },
+        {
+          "text": "mine",
+          "start": 1.94,
+          "end": 2.16
+        },
+        {
+          "text": "have",
+          "start": 2.16,
+          "end": 2.32
+        },
+        {
+          "text": "heard",
+          "start": 2.32,
+          "end": 2.52
+        },
+        {
+          "text": "of",
+          "start": 2.52,
+          "end": 2.64
+        },
+        {
+          "text": "this?",
+          "start": 2.64,
+          "end": 2.86
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19632487650960684
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4a13c6ace2d18af9c92e0d2814f08cec128345730e0fdb16d7794943920108f5",
+  "selected_reasons": []
+}

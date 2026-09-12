@@ -1,0 +1,454 @@
+{
+  "complete": true,
+  "signature": "124aa2780ef95ebc528aeac8ee5159156abb57ee8b33b0289df4e50046628a48",
+  "attempts": [
+    {
+      "asr_seconds": 0.2854554317891598,
+      "alignment_seconds": 0.0005405331030488014,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Oedipus, and who hath told thee what thou tell'st thee, me child?",
+          "start": 0.54,
+          "end": 3.44,
+          "words": [
+            {
+              "text": " Oedipus,",
+              "start": 0.54,
+              "end": 0.94,
+              "probability": 0.7904052734375
+            },
+            {
+              "text": " and",
+              "start": 1.36,
+              "end": 1.42,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " who",
+              "start": 1.42,
+              "end": 1.54,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " hath",
+              "start": 1.54,
+              "end": 1.7,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " told",
+              "start": 1.7,
+              "end": 1.94,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " thee",
+              "start": 1.94,
+              "end": 2.08,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " what",
+              "start": 2.08,
+              "end": 2.22,
+              "probability": 0.939453125
+            },
+            {
+              "text": " thou",
+              "start": 2.22,
+              "end": 2.44,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " tell'st",
+              "start": 2.44,
+              "end": 2.88,
+              "probability": 0.7699381510416666
+            },
+            {
+              "text": " thee,",
+              "start": 2.88,
+              "end": 2.98,
+              "probability": 0.281494140625
+            },
+            {
+              "text": " me",
+              "start": 3.16,
+              "end": 3.16,
+              "probability": 0.77490234375
+            },
+            {
+              "text": " child?",
+              "start": 3.16,
+              "end": 3.44,
+              "probability": 0.953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oedipus,",
+          "start": 0.54,
+          "end": 0.94
+        },
+        {
+          "raw": "and",
+          "start": 1.36,
+          "end": 1.42
+        },
+        {
+          "raw": "who",
+          "start": 1.42,
+          "end": 1.54
+        },
+        {
+          "raw": "hath",
+          "start": 1.54,
+          "end": 1.7
+        },
+        {
+          "raw": "told",
+          "start": 1.7,
+          "end": 1.94
+        },
+        {
+          "raw": "thee",
+          "start": 1.94,
+          "end": 2.08
+        },
+        {
+          "raw": "what",
+          "start": 2.08,
+          "end": 2.22
+        },
+        {
+          "raw": "thou",
+          "start": 2.22,
+          "end": 2.44
+        },
+        {
+          "raw": "tell'st",
+          "start": 2.44,
+          "end": 2.88
+        },
+        {
+          "raw": "thee,",
+          "start": 2.88,
+          "end": 2.98
+        },
+        {
+          "raw": "me",
+          "start": 3.16,
+          "end": 3.16
+        },
+        {
+          "raw": "child?",
+          "start": 3.16,
+          "end": 3.44
+        }
+      ],
+      "expected_tokens": [
+        "Oedipus.",
+        "And",
+        "who",
+        "hath",
+        "told",
+        "thee",
+        "what",
+        "thou",
+        "tell'st",
+        "me,",
+        "child?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "insert",
+          9,
+          9,
+          9,
+          10
+        ],
+        [
+          "equal",
+          9,
+          11,
+          10,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          9,
+          9,
+          9,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oedipus,",
+          "start": 0.54,
+          "end": 0.94,
+          "key": "oedipus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.36,
+          "end": 1.42,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 1.42,
+          "end": 1.54,
+          "key": "who",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 1.54,
+          "end": 1.7,
+          "key": "hath",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "told",
+          "start": 1.7,
+          "end": 1.94,
+          "key": "told",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 1.94,
+          "end": 2.08,
+          "key": "thee",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 2.08,
+          "end": 2.22,
+          "key": "what",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.22,
+          "end": 2.44,
+          "key": "thou",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "tell'st",
+          "start": 2.44,
+          "end": 2.88,
+          "key": "tellst",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "thee,",
+          "start": 2.88,
+          "end": 2.98,
+          "key": "thee",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 3.16,
+          "end": 3.16,
+          "key": "me",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "child?",
+          "start": 3.16,
+          "end": 3.44,
+          "key": "child",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Oedipus.",
+          "start": 0.54,
+          "end": 0.94
+        },
+        {
+          "text": "And",
+          "start": 1.36,
+          "end": 1.42
+        },
+        {
+          "text": "who",
+          "start": 1.42,
+          "end": 1.54
+        },
+        {
+          "text": "hath",
+          "start": 1.54,
+          "end": 1.7
+        },
+        {
+          "text": "told",
+          "start": 1.7,
+          "end": 1.94
+        },
+        {
+          "text": "thee",
+          "start": 1.94,
+          "end": 2.08
+        },
+        {
+          "text": "what",
+          "start": 2.08,
+          "end": 2.22
+        },
+        {
+          "text": "thou",
+          "start": 2.22,
+          "end": 2.44
+        },
+        {
+          "text": "tell'st",
+          "start": 2.44,
+          "end": 2.88
+        },
+        {
+          "text": "me,",
+          "start": 3.16,
+          "end": 3.16
+        },
+        {
+          "text": "child?",
+          "start": 3.16,
+          "end": 3.44
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 12,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2862178133800626
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "98b7857ecd511e2fb94cc9258c4bb71af69f6fa1c437f739c989295e71032aac",
+  "selected_reasons": []
+}

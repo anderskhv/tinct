@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "cb92432bf978e581e64c724ec56b52a34f1968a61faec58b03ac2282bc699d19",
+  "attempts": [
+    {
+      "asr_seconds": 0.09902778174728155,
+      "alignment_seconds": 0.00013815797865390778,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " in English thus.",
+          "start": 0.05,
+          "end": 1.07,
+          "words": [
+            {
+              "text": " in",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.46728515625
+            },
+            {
+              "text": " English",
+              "start": 0.53,
+              "end": 0.79,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " thus.",
+              "start": 0.79,
+              "end": 1.07,
+              "probability": 0.66064453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "in",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "English",
+          "start": 0.53,
+          "end": 0.79
+        },
+        {
+          "raw": "thus.",
+          "start": 0.79,
+          "end": 1.07
+        }
+      ],
+      "expected_tokens": [
+        "In",
+        "English",
+        "thus:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "in",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "in",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "English",
+          "start": 0.53,
+          "end": 0.79,
+          "key": "english",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thus.",
+          "start": 0.79,
+          "end": 1.07,
+          "key": "thus",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "In",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "English",
+          "start": 0.53,
+          "end": 0.79
+        },
+        {
+          "text": "thus:",
+          "start": 0.79,
+          "end": 1.07
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09921385534107685
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4561b9baf4c0f41d5f8c94285fae758fe52582d85eac0a4934e0f71a0389ce5f",
+  "selected_reasons": []
+}
