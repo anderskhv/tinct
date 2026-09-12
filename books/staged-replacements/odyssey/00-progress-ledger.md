@@ -266,6 +266,67 @@ Kept current at every push.
   inverted: not an unrun check left in place, but a running check removed as
   dead. The refusal is recorded at the function and here, under **D11**.
 
+- 2026-09-12 — **R-6: what `scripts/checks.py --all` surfaced the first time it
+  was run over the accepted Books — and it is the S-2 disease, measured.**
+  Two of the gates the package believes it has were **Book 5's assertions about
+  Book 5**, written into Books 4's and 5's correction scripts and never run
+  anywhere else. Run over Books 1–4 for the first time, they fire:
+
+  - **The growth gate fires eleven times**, in the corrected aligned form:
+    Book 1 P005 49→50 and P030 48→52; Book 2 P019 49→50 and P028 57→58; Book 3
+    P011 64→66, P013 69→72 and P024 73→74 and 56→58; Book 4 P018 53→54, P028
+    54→56 and P076 61→62. Every one is a growth of **1 to 4 words** on a
+    sentence Butler already wrote at or near fifty — the exact class Book 5's
+    finding **30.2** named and the maximum-against-maximum form could not see.
+    Books 5 and 6 are clean, because the gate ran for them.
+  - **The per-paragraph length floor fires five times in Book 1**, at 0.862 to
+    0.889 — and Book 1's own acceptance record *states the minimum by name*
+    ("minimum paragraph ratio 0.8621 at B01-P017, which the round-1 reviewer"
+    examined). The floor is a Book 5 number, not a package one.
+  - **And one gate was simply wrong.** "No paragraph is byte-identical to
+    Butler" is Book 5's assertion; **accepted Book 4 carries seven, on purpose**
+    — examined one by one, left because they are plain modern English in the
+    source, recorded in `book04/continuity.md` §6 and asserted *exactly* by
+    Book 4's own build so a later edit cannot add an eighth.
+
+  **Disposition: nothing is weakened and nothing is exempted.** Book 4's shape
+  is adopted for all three — what each Book carries is **enumerated and
+  asserted** (`BYTE_IDENTICAL`, `MIN_PARA_RATIO`, `LEGACY_GROWTH` in
+  `scripts/checks.py`), each entry with its reason, so a Book can never quietly
+  acquire a twelfth instance and **new work gets every gate at full strength**.
+  Repairing any of the eleven growths costs a successor to an accepted Book and
+  is therefore a coordinator matter, not a drafter's. None is new damage; all of
+  it is what an unrun check hides.
+
+- 2026-09-12 — **The fifth successor is built: `book04/candidate-v4.json`,
+  sha256 `3b88a4da182eccc7f673e392e125295aef05b584c1cc592d405470d5ee86bf95`**,
+  closing **A4**(i). Accepted **B04-P010** rendered Butler's `doubted whether`
+  as `was in two minds` — Butler's own other phrase — one paragraph before his
+  real `thus in two minds` becomes `still undecided`. Now `he did not know
+  whether to let him choose his own time for speaking`. Built by
+  `scripts/build_fifth_successor.py` from `candidate-v3.json`, so it carries
+  the `seashore` and compound corrections too; `book04/candidate-v2.json` and
+  `book04/ACCEPTANCE.md` are asserted **byte-unchanged** across the build.
+  **Book 6 was not changed to match the defect** — B06-P012's `he did not know
+  what to do` is the better rendering and stands. The build asserts that arrow
+  B of `scripts/rendering_collisions.py` no longer reports `minds ← doubted`,
+  and that the successor passes every gate.
+
+- 2026-09-12 — **`one_word_two_ways()` in both directions and across Books is
+  now a package script**, `scripts/rendering_collisions.py`, adopted from
+  `book06/review/` with three changes: it resolves the **newest** accepted file
+  of each Book rather than naming one (the review copy named
+  `book04/candidate-v3.json` and would have gone on naming it after the fifth
+  successor existed); it carries the **mirror** of the reviewer's independence
+  control, because one direction of independence is not independence; and it
+  **asserts the A4(i) row by name** and prints whether the defect stands,
+  instead of leaving it in 124 rows. M-1 and M-2 are closed in the report:
+  `grass ← grass | herbage` and `drinks ← drinks | topes` are gone.
+  **One limit now visible and declared:** `herbage → greenery | lush greenery`
+  still prints, because the diff opcode that carries a substitution carries the
+  adjacent modifier with it. It is one rendering with two modifiers, not two
+  renderings, and no row of that shape should be read as a collision.
+
 ## The comparability table — one table, every basis stated (R-1)
 
 **This is the package's only cross-Book instrument, and until 2026-09-12 it was

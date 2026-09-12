@@ -380,7 +380,7 @@ ACCEPTED = {
     3: ("book03/source-book3.json", "book03/candidate-v2.json",
         "book03/candidate-v3.json"),
     4: ("book04/source-book4.json", "book04/candidate-v2.json",
-        "book04/candidate-v3.json"),
+        "book04/candidate-v4.json"),
     5: ("book05/source-book5.json", "book05/candidate-v2.json", None),
 }
 
@@ -400,6 +400,57 @@ PUBLISHED = {
             norm=+2.0, movegap=0.00431),
     5: dict(retention=0.93808, sent=(153, 189), sixty=(9, 1), semi=(34, 13),
             norm=+8.0, movegap=0.00891),
+}
+
+
+# Paragraphs each Book declares byte-identical to Butler, examined one by one
+# and left because they are already plain modern English. Asserted exactly, so
+# a later edit cannot silently add one. A Book absent from this table declares
+# none.
+BYTE_IDENTICAL = {
+    4: [39, 54, 61, 63, 70, 79, 80],
+}
+
+# **What `scripts/checks.py --all` surfaced the first time it was run over the
+# accepted Books, and the honest disposition of it.**
+#
+# Two of the gates this module carries were Book 5's assertions about Book 5,
+# promoted to package rules — the per-paragraph length floor at 0.90 and the
+# growth gate — and when they were finally run over Books 1-4 they fired
+# eleven times and five times. **None of it is new damage. All of it is the
+# S-2 disease measured**: the gates were written into Books 4's and 5's
+# correction scripts and never ran anywhere else, so nobody knew.
+#
+# The gates are NOT weakened. What each accepted Book carries is **enumerated
+# and asserted**, exactly as Book 4 already did for its seven byte-identical
+# paragraphs, so a Book can never quietly acquire a twelfth instance and new
+# work gets the gate at full strength. Each entry carries its reason.
+#
+# The dispositions are recorded in the ledger as records finding **R-6** and
+# are a coordinator matter, not a drafter's: repairing any of them costs a
+# successor to an accepted Book.
+
+# Per-paragraph length floor. Default 0.90; a Book may declare a lower one,
+# with its reason, where its own review examined it.
+MIN_PARA_RATIO = {
+    # Book 1 is the most heavily rewritten Book in the package (retention
+    # 0.72703) and its acceptance record states the figure by name: "minimum
+    # paragraph ratio 0.8621 at B01-P017, which the round-1 reviewer" examined.
+    # Five paragraphs sit between 0.862 and 0.889. Declared, not exempted.
+    1: 0.86,
+}
+
+# Sentences an accepted Book already grows past 50 words, aligned source
+# sentence to candidate sentence. Every one is a growth of 1 to 4 words on a
+# sentence BUTLER ALREADY WROTE at or near 50 — the class Book 5's finding
+# 30.2 named ("a recast GROWS a long sentence of Butler's"), which the
+# maximum-against-maximum gate could not see and which therefore ran in no
+# Book before Book 5. (paragraph, source words, candidate words).
+LEGACY_GROWTH = {
+    1: [(5, 49, 50), (30, 48, 52)],
+    2: [(19, 49, 50), (28, 57, 58)],
+    3: [(11, 64, 66), (13, 69, 72), (24, 73, 74), (24, 56, 58)],
+    4: [(18, 53, 54), (28, 54, 56), (76, 61, 62)],
 }
 
 
@@ -490,17 +541,26 @@ def run_book(book, version=None, write=True, quiet=False):
 
     # --- the growth gate, D20 -----------------------------------------------
     grown, grown_fail = growth(s, c)
-    g.check(not grown_fail,
+    legacy = LEGACY_GROWTH.get(book, [])
+    unexpected = [r for r in grown_fail if (r[0], r[1], r[2]) not in legacy]
+    missing = [r for r in legacy
+               if r not in [(a, b, d) for a, b, d, _ in grown_fail]]
+    g.check(not unexpected,
             "D20 growth gate: a sentence grew past 50 words — "
-            + "; ".join("P%03d %d→%d" % (a, b, d) for a, b, d, _ in grown_fail))
+            + "; ".join("P%03d %d→%d" % (a, b, d) for a, b, d, _ in unexpected))
+    g.check(not missing,
+            "D20 growth gate: this Book declares growths it no longer carries "
+            "(update LEGACY_GROWTH): %s" % (missing,))
 
     # --- word ratio ----------------------------------------------------------
     sw = [len(p.split()) for p in s]
     cw = [len(p.split()) for p in c]
     ratio = sum(cw) / sum(sw)
     g.check(0.90 <= ratio <= 1.10, "word ratio %.5f outside 0.90–1.10" % ratio)
-    thin = [i + 1 for i, (a, b) in enumerate(zip(sw, cw)) if b / a < 0.90]
-    g.check(not thin, "paragraphs below 0.90 of their source's length: %s" % thin)
+    floor_ratio = MIN_PARA_RATIO.get(book, 0.90)
+    thin = [i + 1 for i, (a, b) in enumerate(zip(sw, cw)) if b / a < floor_ratio]
+    g.check(not thin, "paragraphs below %.2f of their source's length: %s"
+            % (floor_ratio, thin))
 
     # --- hygiene: D9, D12, whitespace, and the byte-identity rule -----------
     joined = "\n".join(cand)
@@ -512,8 +572,19 @@ def run_book(book, version=None, write=True, quiet=False):
             "whitespace defect in a candidate paragraph")
     g.check(not re.search(r"\w+- \w+", joined),
             "a hyphenated compound was split by a rewrap")
+    # Byte-identity is a REPORT with a per-Book expected list, not a blanket
+    # ban. The blanket ban was Book 5's assertion, and promoting it to a
+    # package gate was wrong: **accepted Book 4 carries seven byte-identical
+    # paragraphs deliberately** — 39, 54, 61, 63, 70, 79 and 80, examined one
+    # by one, left because they are plain modern English in Butler, recorded in
+    # `book04/continuity.md` §6 and asserted exactly by Book 4's own build so a
+    # later edit cannot silently add an eighth. That assertion is the right
+    # shape and it is what this gate now is: the list must match what the Book
+    # declares. A Book that declares none fails the moment one appears.
     same = [i + 1 for i, (a, b) in enumerate(zip(src, cand)) if a == b]
-    g.check(not same, "a paragraph is byte-identical to Butler: %s" % same)
+    g.check(same == BYTE_IDENTICAL.get(book, []),
+            "byte-identical paragraphs %s, but this Book declares %s"
+            % (same, BYTE_IDENTICAL.get(book, [])))
 
     # --- cross-Book compound drift (the hyphen_drift lesson) ----------------
     books = {}

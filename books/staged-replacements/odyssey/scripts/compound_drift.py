@@ -40,9 +40,9 @@ ROOT = Path(__file__).resolve().parent.parent
 ACCEPTED = [("book01", "book01/candidate-v3.json"),
             ("book02", "book02/candidate-v5.json"),
             ("book03", "book03/candidate-v3.json"),
-            ("book04", "book04/candidate-v3.json"),
+            ("book04", "book04/candidate-v4.json"),
             ("book05", "book05/candidate-v2.json"),
-            ("book06", "book06/candidate-v1.json")]
+            ("book06", "book06/candidate-v2.json")]
 
 # Keys that are two different words, not two settings of one compound. Each is
 # named with its reason; the list is closed and short on purpose, because a
