@@ -145,6 +145,12 @@ reproducible by running the script):
   IX.21; found at Book IV step 1 (2026-09-11) and fixed in the script, which
   changed the staged file's sha256 from `7bf2d1b1…` to `b0ecf3da…`. Only those
   three paragraphs changed; the count is still 487; chapters 1–3 byte-identical.
+  **Re-verified at Book IX step 1 (2026-09-12), where it mattered most:** the
+  third of those captions, `[Illustration: THE FORUM]` at PG line 5628, stands
+  alone between the end of IX.21 and the start of IX.22, and the filter removes
+  it — IX.21 ends "a thing to be afraid of." and IX.22 begins "22.".
+  Re-running the build produced a byte-identical file, so **no rebuild was made
+  for Book IX** and no accepted book is reopened.
 - Long's footnotes removed. The build skipped footnotes by their indented
   `[A]` opener, but three in Book VII are printed flush left in the PG text
   ("See Aristophanes, Acharnenses, v. 661." and "From the Apologia, c. 16."

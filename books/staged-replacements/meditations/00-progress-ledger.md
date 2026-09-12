@@ -421,6 +421,69 @@ session. Kept current at every push.
   `README.md` updated; mechanical checks re-run and passing. No new glossary
   rendering row — one general voice rule.
 
+- 2026-09-12 — **Book IX drafted and frozen** (steps 1–3): `book9/candidate-v1.json`
+  (sha256 `b02cf135…`), 42 paragraphs 1:1 with Long's IX.1–IX.42, word ratio
+  0.9965 (min paragraph 0.79 — IX.20, a nineteen-word meditation whose whole
+  difference is the dropped cross-reference; next lowest IX.17 at 0.93 and
+  IX.28 at 0.96, both dropped cross-references; 33 of 42 sit between 0.99 and
+  1.02). **Step 1: the staged original was NOT rebuilt, and this was the book
+  where it might have had to be.** The Book VIII reviewer warned that PG #15877
+  line 5628 carries an illustration caption inside Book IX — the same class of
+  apparatus that forced the Book IV rebuild, and in fact the third of the three
+  captions that rebuild removed. It is **already stripped**: the caption stands
+  alone between the end of IX.21 and the start of IX.22, the filter added at
+  Book IV removes it, IX.21 ends "a thing to be afraid of." and IX.22 begins
+  "22.", and no `[Illustration` survives anywhere in the staged file. PG lines
+  5419–5864 were then re-read line by line for every other class: **eight
+  footnotes** (PG 5462, 5515, 5601, 5649, 5680, 5707, 5778, 5858), all indented
+  and all already stripped; **no flush-left footnote opener**; exactly **three**
+  standalone flush-left lines in the whole book (the `IX.` header, the `X.`
+  header and the caption); no running head, no page number, no catchword; **no
+  verse and no verse citation at all**; and no Greek in the body (every
+  `[Greek: …]` span in the range is inside a footnote body). Proof rather than
+  assertion: `scripts/build_original_en_from_pg15877.py` was re-run and its
+  output is **byte-identical** to the file on the branch — `cmp` clean, `git
+  status` clean, sha256 still `7798607d…`, 487 paragraphs, 12 chapters, section
+  profile unchanged with 42 in Book 9 — so no paragraph anywhere changed and
+  **no accepted book is reopened**. Confirmation added to `PROVENANCE.md` §4.
+  Source verified into `book9/source-book9.json` (sha256 `aca874d0…`). One
+  glossary row **extended before drafting** (Long's "divinity" as a modified
+  count noun — "the highest divinity", "the same divinity", IX.1 — keeps
+  "divinity", while the row's "the divine" governs his bare abstract uses;
+  committed and pushed before any paragraph was written); no new rendering row
+  needed. **First book drafted under the "shall" rule** fixed at Book VIII
+  acceptance: three plain futures rendered without "shall" (all in IX.3) and
+  eight kept, all licensed — six first-person deliberative questions at IX.40,
+  one indirect deliberative question inside Epicurus's reported speech at IX.41,
+  and IX.29's emphatic "They themselves shall judge", which is offered to the
+  reviewer for confirmation. Three dagger marks in three sections (IX.6 line
+  5525, IX.26 line 5661, IX.27 line 5669) named in `review-instructions.md` with
+  their PG line numbers and kept as Long has them. Six cross-reference spans
+  dropped in five paragraphs (IX.1, IX.17, IX.20, IX.28 ×2, IX.35). **No D11
+  drops at all** — Book IX contains four brackets and not one is an alternative
+  rendering of the III.6 "[or, practically]" kind, so **all four are folded**
+  (IX.9 "[this union]" and IX.22 "[to examine]" as referent supplements under
+  the VI.50 / VII.2 / VIII rulings, IX.24 "[such is everything]" and IX.26 "[of
+  this]" as completions), and Standard Ebooks runs all four as plain text. No
+  expansion: the twelve short meditations stay at Long's length. Base-text
+  points recorded after a word-level diff of the whole book against Standard
+  Ebooks' Long: one PG slip (IX.34 **"pool souls"**, rendered **"poor souls"**,
+  with Long's own "their poor souls" at IX.27 as the internal witness), **three
+  places where PG is right and SE is wrong or adds a word** (IX.35 "bound" for
+  SE's "found", IX.35 SE's added "done", IX.40 "Pray thou:" for SE's "Another
+  prays:", which breaks the alternation the passage is built on), one genuinely
+  **open variant** (IX.29 PG "insolence" against SE "indolence" — both English
+  words, both making sense; PG followed under D6), and one SE typographic
+  paragraph break inside IX.28 which is not a section break (PG's 42 sections
+  match the standard count). **Two decisions flagged for the reviewer** (IX.34's
+  correction, the one departure from PG's letters in the book; IX.29's
+  "insolence") **and one offered for confirmation** (IX.29's emphatic "shall").
+  Readable copy, `continuity.md`, `provenance.json`, `manifest.json`,
+  `README.md`, `review-instructions.md` and fourteen review packets (14×3) pushed,
+  built by `scripts/build_book_package.py 9` from `scripts/candidates/book9.py`.
+  Mechanical checks in `book9/README.md` pass. **Stopped for independent review**
+  (step 4). Findings expected under `book9/review/`.
+
 - 2026-09-11 — **Session collision, twice.** Two content sessions were spawned
   on this thread for the Book II corrections step (this one and
   `session_01UqGstUkaLuExn3RNzcxUs8`, the one whose pushes stand). Both ran
@@ -453,8 +516,22 @@ session. Kept current at every push.
 
 ## Next
 
-**Book IX steps 1–3 are in progress in this session** (Book VIII is accepted).
-The ledger's "Next" is updated again the moment Book IX is frozen.
+**Waiting on the coordinator: independent review of Book IX.**
+`book9/candidate-v1.json` (sha256 `b02cf135…`) is frozen, with fourteen packets,
+`review-instructions.md` and `manifest.json` in place; findings go under
+`book9/review/`. Two decisions are flagged there for an explicit ruling (IX.34
+"poor souls" for PG's "pool souls", the one departure from PG's letters in the
+book; IX.29 "insolence" followed from PG against Standard Ebooks' "indolence", a
+genuine variant rather than a slip) and one is offered for confirmation (IX.29
+"They themselves shall judge" kept as the emphatic "shall" licensed by the Book
+VIII rule). The reviewer is also asked to test the step-1 finding that the staged
+original needed **no** rebuild for Book IX, which is the sharpest form that test
+has taken: the illustration caption at PG line 5628 is inside this book. This
+agent does not review its own draft, and Book X has not been started.
+
+After the review: Book IX steps 6–8 (candidate v2, changes log, flow read,
+`ACCEPTANCE.md`), then Books X … XII in numerical order, each with its own
+review round.
 
 ## Needs Anders (listed, not waited on)
 

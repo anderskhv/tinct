@@ -1,0 +1,48 @@
+{
+ "repository": "anderskhv/tinct",
+ "branch": "claude/meditations-modern-en-20260911-v2",
+ "staged_original_path": "books/staged-replacements/meditations/meditations-original-en.staged.json",
+ "staged_original_sha256": "7798607dc6d8af0a25845b025405873c8a2597d44ed1f61eb5d803ba585e2830",
+ "staged_original_note": "The twice-rebuilt file, UNCHANGED at Book IX step 1. It was rebuilt at Book IV step 1 (three PG illustration captions, one of them in Book IX; 7bf2d1b1... -> b0ecf3da...) and at Book VII step 1 (three of Long's footnotes printed flush left; b0ecf3da... -> 7798607d...). Book IX is the book the Book VIII reviewer warned about, because PG line 5628 carries an illustration caption inside it ([Illustration: THE FORUM], standing alone between IX.21 and IX.22). That caption is ALREADY STRIPPED by the filter added at Book IV step 1: IX.21 ends at 'a thing to be afraid of.' and IX.22 begins at '22.'. PG lines 5419-5864 were re-read line by line for every class the earlier rebuilds missed - footnote openers and bodies whether indented or flush left, illustration captions, running heads, page numbers, catchwords, verse and verse citations, in-text Greek - and the result is: eight footnotes (PG 5462, 5515, 5601, 5649, 5680, 5707, 5778, 5858), all indented and all already stripped; no flush-left footnote opener; exactly three standalone flush-left lines in the whole book (the IX. header, the X. header, and the caption at 5628); no running head, no page number; no verse and no verse citation at all; no Greek in the body (every [Greek: ...] span in the range is inside a footnote body). Proof: scripts/build_original_en_from_pg15877.py was re-run from source/pg15877-long-1862.txt and its output is BYTE-IDENTICAL to the file on the branch (cmp clean, git status reports no modification), sha256 still 7798607d..., 487 paragraphs, 12 chapters, section profile 17,17,16,51,36,59,75,61,42,38,39,36. NO REBUILD was made, so no paragraph anywhere in the file changed and no accepted book is reopened.",
+ "chapter_extracted": {
+  "number": 9,
+  "title": "Book 9",
+  "paragraphs": 42,
+  "extraction": "found by chapter.number == 9 in the staged original-en; paragraphs byte-identical"
+ },
+ "source_book9_json_sha256": "aca874d060abe2d7fb6b9d16bd1a4a5f5027780a4314accf6791344fcaa00bbe",
+ "candidate_v1_json_sha256": "b02cf1353bc209d905bb58d0183e79e9fe69b135c6daba22e257c79d33b23d89",
+ "translation_source": "George Long, 1862. Project Gutenberg #15877 (source/pg15877-long-1862.txt, sha256 6584df7e90d6035eece30d8028527290bf2508076963ee0376cb41db9cf88d5b), with the mechanical normalisations listed in PROVENANCE.md section 4. The only source used for the candidate. Standard Ebooks' Long (the edition PROVENANCE.md section 3 names) was consulted for the state of the base text only, by a word-level diff of the whole of Book IX fetched 2026-09-12, after the draft was written; no wording was taken from it. Results in continuity.md under unresolved source issues.",
+ "word_counts": {
+  "source": 4252,
+  "candidate": 4237,
+  "ratio": 0.9965,
+  "min_paragraph_ratio": 0.79,
+  "note": "screening signal only; not evidence of semantic completeness. The single outlier is IX.20 (0.79), a nineteen-word meditation whose whole difference is the dropped cross-reference '(vii. 29; ix. 38)'. Next lowest are IX.17 (0.93, a dropped cross-reference) and IX.28 (0.96, two dropped cross-references). No paragraph was shortened by omitting content, and nothing was expanded: 33 of the 42 paragraphs sit at ratio 0.99-1.02, and the twelve short meditations stay at Long's length."
+ },
+ "dagger_marks": "Three in Book IX of the PG text, in three sections: IX.6 (line 5525), IX.26 (line 5661), IX.27 (line 5669). Three clauses, each named in review-instructions.md with its PG line number and kept as Long has them, with pronouns modernised and glossary renderings applied (the VI.50 reading, confirmed at VII.16 and enforced at VIII.51). Matches PROVENANCE.md section 4. Long's footnote at IX.27 says the words after kat' epakolouthesin are corrupt but the meaning is hardly doubtful.",
+ "generation_setting": "Drafted in-conversation by the content agent (Claude Opus 5 session), whole book read before drafting, glossary (one row extended for Book IX first, committed and pushed before any paragraph was written) and the Book II, I, III, IV, V, VI, VII and VIII acceptance records read first. Zero Anthropic API calls; no scripts calling any LLM API; generate-editions.cjs not run.",
+ "build_script": "scripts/build_book_package.py 9, from scripts/candidates/book9.py (frozen candidate text)",
+ "workflow_step": "Steps 1-3 of WORKFLOW.md complete. Frozen for step 4, the coordinator's independent review. Findings expected under book9/review/.",
+ "apparatus": {
+  "cross_references_dropped": "6 spans in 5 paragraphs (IX.1, IX.17, IX.20, IX.28 x2, IX.35)",
+  "d11_alternative_renderings_dropped": "none - Book IX contains no bracketed alternative rendering; not one of its four brackets carries Long's 'or' joining two English words for one Greek word",
+  "supplements_folded": 4,
+  "verse_citations": "none; Book IX contains no verse",
+  "brackets_total": 4
+ },
+ "shall_rule": "First book drafted under the rule fixed at Book VIII acceptance (GLOSSARY.md, Voice and form). Three plain futures were rendered without 'shall' (IX.3: 'which shall reach thy heart' -> 'which will reach your heart'; 'when the child shall come out' -> 'when the child comes out'; 'when thy soul shall fall out' -> 'when your soul falls out'). Eight 'shall' are kept, all licensed: six first-person deliberative questions at IX.40, one indirect deliberative question inside Epicurus's reported speech at IX.41, and the emphatic/volitional 'They themselves shall judge' at IX.29, which is offered to the reviewer for confirmation. No second-person 'shall' and no plain-future 'shall' survives.",
+ "base_text_defects": [
+  "IX.34 PG 'their pool souls' (line 5741); Standard Ebooks reads 'poor souls', and Long has 'their poor souls' himself at IX.27 (line 5664). Rendered 'poor souls'. FLAGGED - the one departure from PG's letters in Book IX.",
+  "IX.35 PG 'condemned to be bound in never ceasing evil'; SE 'condemned to be found', which says nothing and looks like an eye-skip from 'no power has ever been found'. PG is right and is followed.",
+  "IX.35 SE adds a word PG does not have: 'have been done in like form' against PG's 'have been in like form'. PG is followed under D6.",
+  "IX.40 PG 'Pray thou: How shall I not desire to be released?'; SE reads 'Another prays:', which breaks the alternation of the man's prayer and Marcus's through all three turns. PG is right and is followed.",
+  "IX.29 PG 'insolence and pride' (line 5705); SE 'indolence and pride'. A genuine variant, not a slip - both are English words and both make sense. PG is followed under D6 and the variant is recorded. FLAGGED for a ruling by anyone who can weigh the Greek.",
+  "IX.28 SE prints the section as two typographic paragraphs (breaking before 'Soon will the earth cover us all'), so an automatic count of SE's Book IX paragraphs returns 43. PG prints it whole and 42 is the standard section count. No text differs; the candidate keeps Long's section whole."
+ ],
+ "flagged_for_reviewer": [
+  "IX.34 'poor souls' rendered for PG's 'pool souls' - the one place in Book IX where the candidate departs from PG's letters",
+  "IX.29 'insolence' followed from PG against Standard Ebooks' 'indolence' - a genuine variant settled by D6 rather than by a judgement about which word Long wrote",
+  "IX.29 'They themselves shall judge' kept as the emphatic/volitional 'shall' licensed by the Book VIII rule - offered for confirmation rather than as a contested decision"
+ ]
+}
