@@ -1,0 +1,680 @@
+{
+  "complete": true,
+  "signature": "8707c548a9765be168957053953054a74aa284ab684e314d8aad783563b23ee2",
+  "attempts": [
+    {
+      "asr_seconds": 0.26915318612009287,
+      "alignment_seconds": 0.0003869989886879921,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Exeunt Pistol and French Soldier._]",
+        "hotwords": "Pistol, French, Soldier._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exeunt Pistol and French Soldier._",
+          "start": 0.05,
+          "end": 2.77,
+          "words": [
+            {
+              "text": " Exeunt",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.5445353190104166
+            },
+            {
+              "text": " Pistol",
+              "start": 0.79,
+              "end": 1.15,
+              "probability": 0.0716552734375
+            },
+            {
+              "text": " and",
+              "start": 1.15,
+              "end": 1.41,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " French",
+              "start": 1.41,
+              "end": 1.63,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Soldier._",
+              "start": 1.63,
+              "end": 2.77,
+              "probability": 0.4614258110523224
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "Pistol",
+          "start": 0.79,
+          "end": 1.15
+        },
+        {
+          "raw": "and",
+          "start": 1.15,
+          "end": 1.41
+        },
+        {
+          "raw": "French",
+          "start": 1.41,
+          "end": 1.63
+        },
+        {
+          "raw": "Soldier._",
+          "start": 1.63,
+          "end": 2.77
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Pistol",
+        "and",
+        "French",
+        "Soldier._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pistol",
+          "start": 0.79,
+          "end": 1.15,
+          "key": "pistol",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.15,
+          "end": 1.41,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "French",
+          "start": 1.41,
+          "end": 1.63,
+          "key": "french",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Soldier._",
+          "start": 1.63,
+          "end": 2.77,
+          "key": "soldier_",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Pistol",
+          "start": 0.79,
+          "end": 1.15
+        },
+        {
+          "text": "and",
+          "start": 1.15,
+          "end": 1.41
+        },
+        {
+          "text": "French",
+          "start": 1.41,
+          "end": 1.63
+        },
+        {
+          "text": "Soldier._]",
+          "start": 1.63,
+          "end": 2.2
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2696660701185465
+    },
+    {
+      "asr_seconds": 0.19922099635004997,
+      "alignment_seconds": 0.000420544296503067,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Pistol, French, Soldier._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Exeunt Pistol, French, Soldier._",
+          "start": 0.05,
+          "end": 2.77,
+          "words": [
+            {
+              "text": " Exeunt",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.5445353190104166
+            },
+            {
+              "text": " Pistol,",
+              "start": 0.79,
+              "end": 1.15,
+              "probability": 0.0716552734375
+            },
+            {
+              "text": " French,",
+              "start": 1.35,
+              "end": 1.57,
+              "probability": 0.14013671875
+            },
+            {
+              "text": " Soldier._",
+              "start": 1.85,
+              "end": 2.77,
+              "probability": 0.08258062601089478
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "Pistol,",
+          "start": 0.79,
+          "end": 1.15
+        },
+        {
+          "raw": "French,",
+          "start": 1.35,
+          "end": 1.57
+        },
+        {
+          "raw": "Soldier._",
+          "start": 1.85,
+          "end": 2.77
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Pistol",
+        "and",
+        "French",
+        "Soldier._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "delete",
+          2,
+          3,
+          2,
+          2
+        ],
+        [
+          "equal",
+          3,
+          4,
+          2,
+          3
+        ],
+        [
+          "replace",
+          4,
+          5,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          2,
+          3,
+          2,
+          2
+        ],
+        [
+          "replace",
+          4,
+          5,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pistol,",
+          "start": 0.79,
+          "end": 1.15,
+          "key": "pistol",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "French,",
+          "start": 1.35,
+          "end": 1.57,
+          "key": "french",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Soldier._",
+          "start": 1.85,
+          "end": 2.77,
+          "key": "soldier_",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Pistol",
+          "start": 0.79,
+          "end": 1.15
+        },
+        {
+          "text": "and",
+          "start": 1.15,
+          "end": 1.25
+        },
+        {
+          "text": "French",
+          "start": 1.35,
+          "end": 1.57
+        },
+        {
+          "text": "Soldier._]",
+          "start": 1.57,
+          "end": 2.17
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1997569678351283
+    },
+    {
+      "asr_seconds": 0.21460242569446564,
+      "alignment_seconds": 0.00017553754150867462,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exeunt pistol and French soldier.",
+          "start": 0.05,
+          "end": 2.03,
+          "words": [
+            {
+              "text": " Exeunt",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.5445353190104166
+            },
+            {
+              "text": " pistol",
+              "start": 0.79,
+              "end": 1.15,
+              "probability": 0.84619140625
+            },
+            {
+              "text": " and",
+              "start": 1.15,
+              "end": 1.41,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " French",
+              "start": 1.41,
+              "end": 1.63,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " soldier.",
+              "start": 1.63,
+              "end": 2.03,
+              "probability": 0.98046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "pistol",
+          "start": 0.79,
+          "end": 1.15
+        },
+        {
+          "raw": "and",
+          "start": 1.15,
+          "end": 1.41
+        },
+        {
+          "raw": "French",
+          "start": 1.41,
+          "end": 1.63
+        },
+        {
+          "raw": "soldier.",
+          "start": 1.63,
+          "end": 2.03
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Pistol",
+        "and",
+        "French",
+        "Soldier._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "pistol",
+          "start": 0.79,
+          "end": 1.15,
+          "key": "pistol",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.15,
+          "end": 1.41,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "French",
+          "start": 1.41,
+          "end": 1.63,
+          "key": "french",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "soldier.",
+          "start": 1.63,
+          "end": 2.03,
+          "key": "soldier",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Pistol",
+          "start": 0.79,
+          "end": 1.15
+        },
+        {
+          "text": "and",
+          "start": 1.15,
+          "end": 1.41
+        },
+        {
+          "text": "French",
+          "start": 1.41,
+          "end": 1.63
+        },
+        {
+          "text": "Soldier._]",
+          "start": 1.63,
+          "end": 2.03
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21483638603240252
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d8052a191d5467a92e6329866edfedfe2774d912963b8769a68590b9f09a1b04",
+  "selected_reasons": []
+}

@@ -1,0 +1,290 @@
+{
+  "complete": true,
+  "signature": "3560d0fffce0917ae2c90ee9f5b9531647987293c6324ec8239beb489516f474",
+  "attempts": [
+    {
+      "asr_seconds": 0.20440014824271202,
+      "alignment_seconds": 0.000464465469121933,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " King Henry. No, I'm a Welshman.",
+          "start": 0.05,
+          "end": 2.35,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.87255859375
+            },
+            {
+              "text": " Henry.",
+              "start": 0.55,
+              "end": 0.93,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " No,",
+              "start": 1.39,
+              "end": 1.55,
+              "probability": 0.9375
+            },
+            {
+              "text": " I'm",
+              "start": 1.69,
+              "end": 1.81,
+              "probability": 0.910400390625
+            },
+            {
+              "text": " a",
+              "start": 1.81,
+              "end": 1.89,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Welshman.",
+              "start": 1.89,
+              "end": 2.35,
+              "probability": 0.991455078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "Henry.",
+          "start": 0.55,
+          "end": 0.93
+        },
+        {
+          "raw": "No,",
+          "start": 1.39,
+          "end": 1.55
+        },
+        {
+          "raw": "I'm",
+          "start": 1.69,
+          "end": 1.81
+        },
+        {
+          "raw": "a",
+          "start": 1.81,
+          "end": 1.89
+        },
+        {
+          "raw": "Welshman.",
+          "start": 1.89,
+          "end": 2.35
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Henry.",
+        "No,",
+        "I",
+        "am",
+        "a",
+        "Welshman."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          4
+        ],
+        [
+          "equal",
+          5,
+          7,
+          4,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          5,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Henry.",
+          "start": 0.55,
+          "end": 0.93,
+          "key": "henry",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "No,",
+          "start": 1.39,
+          "end": 1.55,
+          "key": "no",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I'm",
+          "start": 1.69,
+          "end": 1.81,
+          "key": "im",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.81,
+          "end": 1.89,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Welshman.",
+          "start": 1.89,
+          "end": 2.35,
+          "key": "welshman",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "Henry.",
+          "start": 0.55,
+          "end": 0.93
+        },
+        {
+          "text": "No,",
+          "start": 1.39,
+          "end": 1.55
+        },
+        {
+          "text": "I",
+          "start": 1.55,
+          "end": 1.68
+        },
+        {
+          "text": "am",
+          "start": 1.68,
+          "end": 1.745
+        },
+        {
+          "text": "a",
+          "start": 1.81,
+          "end": 1.89
+        },
+        {
+          "text": "Welshman.",
+          "start": 1.89,
+          "end": 2.35
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.7142857142857143,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20500498730689287
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "76ab5c7f2397681d6f7c4e1030767d3d79507ccc010b67133ac1f52d6769a2d3",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

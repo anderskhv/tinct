@@ -1,0 +1,246 @@
+{
+  "complete": true,
+  "signature": "fdd2401d41dbedce59f36ac72ed65fd84e00bca4f89c742e6bbef8cb9ce82923",
+  "attempts": [
+    {
+      "asr_seconds": 0.20189401041716337,
+      "alignment_seconds": 0.0002314997836947441,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " First musician, my heart's ease.",
+          "start": 0.08,
+          "end": 2.3,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.6865234375
+            },
+            {
+              "text": " musician,",
+              "start": 0.66,
+              "end": 1.14,
+              "probability": 0.75341796875
+            },
+            {
+              "text": " my",
+              "start": 1.66,
+              "end": 1.68,
+              "probability": 0.39208984375
+            },
+            {
+              "text": " heart's",
+              "start": 1.68,
+              "end": 2.04,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " ease.",
+              "start": 2.04,
+              "end": 2.3,
+              "probability": 0.97705078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "musician,",
+          "start": 0.66,
+          "end": 1.14
+        },
+        {
+          "raw": "my",
+          "start": 1.66,
+          "end": 1.68
+        },
+        {
+          "raw": "heart's",
+          "start": 1.68,
+          "end": 2.04
+        },
+        {
+          "raw": "ease.",
+          "start": 2.04,
+          "end": 2.3
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Musician.",
+        "Why",
+        "'Heart's",
+        "ease'?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          5,
+          3,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "musician,",
+          "start": 0.66,
+          "end": 1.14,
+          "key": "musician",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.66,
+          "end": 1.68,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "heart's",
+          "start": 1.68,
+          "end": 2.04,
+          "key": "hearts",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "ease.",
+          "start": 2.04,
+          "end": 2.3,
+          "key": "ease",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "Musician.",
+          "start": 0.66,
+          "end": 1.14
+        },
+        {
+          "text": "Why",
+          "start": 1.14,
+          "end": 1.41
+        },
+        {
+          "text": "'Heart's",
+          "start": 1.68,
+          "end": 2.04
+        },
+        {
+          "text": "ease'?",
+          "start": 2.04,
+          "end": 2.3
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2021940378472209
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a57cd22c4b8665beb48dbdaab0fdf784ec643e20b986f6c51d2ede32cb73dfb4",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

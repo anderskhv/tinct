@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "d6e0d28a6bd929430f714d8ae78ce2e4901af662d817a08d89f86d25eaeeea39",
+  "attempts": [
+    {
+      "asr_seconds": 0.16240453347563744,
+      "alignment_seconds": 0.0003290502354502678,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Juliet, what must be shall be.",
+          "start": 0.05,
+          "end": 2.11,
+          "words": [
+            {
+              "text": " Juliet,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " what",
+              "start": 1.21,
+              "end": 1.29,
+              "probability": 0.85302734375
+            },
+            {
+              "text": " must",
+              "start": 1.29,
+              "end": 1.43,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " be",
+              "start": 1.43,
+              "end": 1.63,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " shall",
+              "start": 1.63,
+              "end": 1.83,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " be.",
+              "start": 1.83,
+              "end": 2.11,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Juliet,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "what",
+          "start": 1.21,
+          "end": 1.29
+        },
+        {
+          "raw": "must",
+          "start": 1.29,
+          "end": 1.43
+        },
+        {
+          "raw": "be",
+          "start": 1.43,
+          "end": 1.63
+        },
+        {
+          "raw": "shall",
+          "start": 1.63,
+          "end": 1.83
+        },
+        {
+          "raw": "be.",
+          "start": 1.83,
+          "end": 2.11
+        }
+      ],
+      "expected_tokens": [
+        "Juliet.",
+        "What",
+        "must",
+        "be",
+        "shall",
+        "be."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Juliet,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "juliet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.21,
+          "end": 1.29,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 1.29,
+          "end": 1.43,
+          "key": "must",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.43,
+          "end": 1.63,
+          "key": "be",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 1.63,
+          "end": 1.83,
+          "key": "shall",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "be.",
+          "start": 1.83,
+          "end": 2.11,
+          "key": "be",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Juliet.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "What",
+          "start": 1.21,
+          "end": 1.29
+        },
+        {
+          "text": "must",
+          "start": 1.29,
+          "end": 1.43
+        },
+        {
+          "text": "be",
+          "start": 1.43,
+          "end": 1.63
+        },
+        {
+          "text": "shall",
+          "start": 1.63,
+          "end": 1.83
+        },
+        {
+          "text": "be.",
+          "start": 1.83,
+          "end": 2.11
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16283887345343828
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fdcd8c3848ea14207493fc56acce59ba461c7fbbd499f107d858487532f5172b",
+  "selected_reasons": []
+}

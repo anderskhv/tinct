@@ -1,0 +1,7835 @@
+{
+  "complete": true,
+  "signature": "bd6ecb787b2996c27685c08266853f43b53b1e517b39e753159b96e17491321b",
+  "attempts": [
+    {
+      "asr_seconds": 0.7369513949379325,
+      "alignment_seconds": 0.0013236012309789658,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "King Henry. 'Tis good for men to love their present pains Upon example; so the spirit is eased; And when the mind is quick'ned, out of doubt, The organs, though defunct and dead before, Break up their drowsy grave and newly move, With casted slough and fresh legerity. Lend me thy cloak, Sir Thomas. Brothers both, Commend me to the princes in our camp; Do my good morrow to them, and anon Desire them all to my pavilion.",
+        "hotwords": "King, Henry, Tis, Upon, Break, With, Lend, Sir, Thomas, Brothers, Commend, Do, Desire"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " King, Henry, Tis good for men to love their present pains Upon example, so the spirit is eased,",
+          "start": 0.05,
+          "end": 5.79,
+          "words": [
+            {
+              "text": " King,",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.5673828125
+            },
+            {
+              "text": " Henry,",
+              "start": 0.73,
+              "end": 0.97,
+              "probability": 0.974609375
+            },
+            {
+              "text": " Tis",
+              "start": 1.63,
+              "end": 1.83,
+              "probability": 0.1224212646484375
+            },
+            {
+              "text": " good",
+              "start": 1.83,
+              "end": 1.99,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " for",
+              "start": 1.99,
+              "end": 2.17,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " men",
+              "start": 2.17,
+              "end": 2.35,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " to",
+              "start": 2.35,
+              "end": 2.53,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " love",
+              "start": 2.53,
+              "end": 2.71,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " their",
+              "start": 2.71,
+              "end": 2.91,
+              "probability": 0.91455078125
+            },
+            {
+              "text": " present",
+              "start": 2.91,
+              "end": 3.25,
+              "probability": 0.984375
+            },
+            {
+              "text": " pains",
+              "start": 3.25,
+              "end": 3.53,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " Upon",
+              "start": 3.53,
+              "end": 3.81,
+              "probability": 0.006221771240234375
+            },
+            {
+              "text": " example,",
+              "start": 3.81,
+              "end": 4.29,
+              "probability": 0.990234375
+            },
+            {
+              "text": " so",
+              "start": 4.57,
+              "end": 4.79,
+              "probability": 0.89599609375
+            },
+            {
+              "text": " the",
+              "start": 4.79,
+              "end": 4.93,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " spirit",
+              "start": 4.93,
+              "end": 5.19,
+              "probability": 0.91015625
+            },
+            {
+              "text": " is",
+              "start": 5.19,
+              "end": 5.41,
+              "probability": 0.9013671875
+            },
+            {
+              "text": " eased,",
+              "start": 5.41,
+              "end": 5.79,
+              "probability": 0.95166015625
+            }
+          ]
+        },
+        {
+          "text": " And when the mind is quick'ned, out of doubt, The organs, though defunct and dead before,",
+          "start": 6.27,
+          "end": 10.35,
+          "words": [
+            {
+              "text": " And",
+              "start": 6.27,
+              "end": 6.35,
+              "probability": 0.72607421875
+            },
+            {
+              "text": " when",
+              "start": 6.35,
+              "end": 6.45,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " the",
+              "start": 6.45,
+              "end": 6.57,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " mind",
+              "start": 6.57,
+              "end": 6.81,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " is",
+              "start": 6.81,
+              "end": 6.99,
+              "probability": 0.98046875
+            },
+            {
+              "text": " quick",
+              "start": 6.99,
+              "end": 7.21,
+              "probability": 0.990234375
+            },
+            {
+              "text": "'ned,",
+              "start": 7.21,
+              "end": 7.37,
+              "probability": 0.02633380889892578
+            },
+            {
+              "text": " out",
+              "start": 7.49,
+              "end": 7.59,
+              "probability": 0.78759765625
+            },
+            {
+              "text": " of",
+              "start": 7.59,
+              "end": 7.71,
+              "probability": 0.97265625
+            },
+            {
+              "text": " doubt,",
+              "start": 7.71,
+              "end": 7.93,
+              "probability": 0.8369140625
+            },
+            {
+              "text": " The",
+              "start": 8.25,
+              "end": 8.41,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " organs,",
+              "start": 8.41,
+              "end": 8.83,
+              "probability": 0.953125
+            },
+            {
+              "text": " though",
+              "start": 9.01,
+              "end": 9.15,
+              "probability": 0.990234375
+            },
+            {
+              "text": " defunct",
+              "start": 9.15,
+              "end": 9.49,
+              "probability": 0.986328125
+            },
+            {
+              "text": " and",
+              "start": 9.49,
+              "end": 9.73,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " dead",
+              "start": 9.73,
+              "end": 9.93,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " before,",
+              "start": 9.93,
+              "end": 10.35,
+              "probability": 0.9345703125
+            }
+          ]
+        },
+        {
+          "text": " Break up their drowsy grave and newly move, With casted slough and fresh legerity.",
+          "start": 10.57,
+          "end": 15.09,
+          "words": [
+            {
+              "text": " Break",
+              "start": 10.57,
+              "end": 10.67,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " up",
+              "start": 10.67,
+              "end": 10.83,
+              "probability": 0.99609375
+            },
+            {
+              "text": " their",
+              "start": 10.83,
+              "end": 10.99,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " drowsy",
+              "start": 10.99,
+              "end": 11.41,
+              "probability": 0.9796549479166666
+            },
+            {
+              "text": " grave",
+              "start": 11.41,
+              "end": 11.71,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " and",
+              "start": 11.71,
+              "end": 12.01,
+              "probability": 0.67529296875
+            },
+            {
+              "text": " newly",
+              "start": 12.01,
+              "end": 12.25,
+              "probability": 0.958984375
+            },
+            {
+              "text": " move,",
+              "start": 12.25,
+              "end": 12.73,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " With",
+              "start": 13.15,
+              "end": 13.29,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " casted",
+              "start": 13.29,
+              "end": 13.79,
+              "probability": 0.942626953125
+            },
+            {
+              "text": " slough",
+              "start": 13.79,
+              "end": 14.13,
+              "probability": 0.484619140625
+            },
+            {
+              "text": " and",
+              "start": 14.13,
+              "end": 14.35,
+              "probability": 0.982421875
+            },
+            {
+              "text": " fresh",
+              "start": 14.35,
+              "end": 14.57,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " legerity.",
+              "start": 14.57,
+              "end": 15.09,
+              "probability": 0.2139892578125
+            }
+          ]
+        },
+        {
+          "text": " Lend me thy cloak, Sir Thomas. Brothers both, Commend me to the princes in our camp,",
+          "start": 15.95,
+          "end": 20.33,
+          "words": [
+            {
+              "text": " Lend",
+              "start": 15.95,
+              "end": 16.03,
+              "probability": 0.6229248046875
+            },
+            {
+              "text": " me",
+              "start": 16.03,
+              "end": 16.17,
+              "probability": 0.978515625
+            },
+            {
+              "text": " thy",
+              "start": 16.17,
+              "end": 16.33,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " cloak,",
+              "start": 16.33,
+              "end": 16.61,
+              "probability": 0.97265625
+            },
+            {
+              "text": " Sir",
+              "start": 16.83,
+              "end": 16.87,
+              "probability": 0.78125
+            },
+            {
+              "text": " Thomas.",
+              "start": 16.87,
+              "end": 17.21,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " Brothers",
+              "start": 18.15,
+              "end": 18.15,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " both,",
+              "start": 18.15,
+              "end": 18.47,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " Commend",
+              "start": 18.77,
+              "end": 18.99,
+              "probability": 0.556304931640625
+            },
+            {
+              "text": " me",
+              "start": 18.99,
+              "end": 19.15,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 19.15,
+              "end": 19.29,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 19.29,
+              "end": 19.43,
+              "probability": 0.99609375
+            },
+            {
+              "text": " princes",
+              "start": 19.43,
+              "end": 19.61,
+              "probability": 0.8935546875
+            },
+            {
+              "text": " in",
+              "start": 19.61,
+              "end": 19.87,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " our",
+              "start": 19.87,
+              "end": 19.99,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " camp,",
+              "start": 19.99,
+              "end": 20.33,
+              "probability": 0.99560546875
+            }
+          ]
+        },
+        {
+          "text": " Do my good morrow to them, and anon Desire them all to my pavilion.",
+          "start": 20.75,
+          "end": 24.29,
+          "words": [
+            {
+              "text": " Do",
+              "start": 20.75,
+              "end": 20.89,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " my",
+              "start": 20.89,
+              "end": 21.07,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " good",
+              "start": 21.07,
+              "end": 21.33,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " morrow",
+              "start": 21.33,
+              "end": 21.69,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " to",
+              "start": 21.69,
+              "end": 21.85,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " them,",
+              "start": 21.85,
+              "end": 22.07,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 22.25,
+              "end": 22.45,
+              "probability": 0.411865234375
+            },
+            {
+              "text": " anon",
+              "start": 22.45,
+              "end": 22.77,
+              "probability": 0.68994140625
+            },
+            {
+              "text": " Desire",
+              "start": 22.77,
+              "end": 23.11,
+              "probability": 0.56884765625
+            },
+            {
+              "text": " them",
+              "start": 23.11,
+              "end": 23.37,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " all",
+              "start": 23.37,
+              "end": 23.55,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 23.55,
+              "end": 23.69,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " my",
+              "start": 23.69,
+              "end": 23.87,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " pavilion.",
+              "start": 23.87,
+              "end": 24.29,
+              "probability": 0.97265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King,",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "Henry,",
+          "start": 0.73,
+          "end": 0.97
+        },
+        {
+          "raw": "Tis",
+          "start": 1.63,
+          "end": 1.83
+        },
+        {
+          "raw": "good",
+          "start": 1.83,
+          "end": 1.99
+        },
+        {
+          "raw": "for",
+          "start": 1.99,
+          "end": 2.17
+        },
+        {
+          "raw": "men",
+          "start": 2.17,
+          "end": 2.35
+        },
+        {
+          "raw": "to",
+          "start": 2.35,
+          "end": 2.53
+        },
+        {
+          "raw": "love",
+          "start": 2.53,
+          "end": 2.71
+        },
+        {
+          "raw": "their",
+          "start": 2.71,
+          "end": 2.91
+        },
+        {
+          "raw": "present",
+          "start": 2.91,
+          "end": 3.25
+        },
+        {
+          "raw": "pains",
+          "start": 3.25,
+          "end": 3.53
+        },
+        {
+          "raw": "Upon",
+          "start": 3.53,
+          "end": 3.81
+        },
+        {
+          "raw": "example,",
+          "start": 3.81,
+          "end": 4.29
+        },
+        {
+          "raw": "so",
+          "start": 4.57,
+          "end": 4.79
+        },
+        {
+          "raw": "the",
+          "start": 4.79,
+          "end": 4.93
+        },
+        {
+          "raw": "spirit",
+          "start": 4.93,
+          "end": 5.19
+        },
+        {
+          "raw": "is",
+          "start": 5.19,
+          "end": 5.41
+        },
+        {
+          "raw": "eased,",
+          "start": 5.41,
+          "end": 5.79
+        },
+        {
+          "raw": "And",
+          "start": 6.27,
+          "end": 6.35
+        },
+        {
+          "raw": "when",
+          "start": 6.35,
+          "end": 6.45
+        },
+        {
+          "raw": "the",
+          "start": 6.45,
+          "end": 6.57
+        },
+        {
+          "raw": "mind",
+          "start": 6.57,
+          "end": 6.81
+        },
+        {
+          "raw": "is",
+          "start": 6.81,
+          "end": 6.99
+        },
+        {
+          "raw": "quick",
+          "start": 6.99,
+          "end": 7.21
+        },
+        {
+          "raw": "'ned,",
+          "start": 7.21,
+          "end": 7.37
+        },
+        {
+          "raw": "out",
+          "start": 7.49,
+          "end": 7.59
+        },
+        {
+          "raw": "of",
+          "start": 7.59,
+          "end": 7.71
+        },
+        {
+          "raw": "doubt,",
+          "start": 7.71,
+          "end": 7.93
+        },
+        {
+          "raw": "The",
+          "start": 8.25,
+          "end": 8.41
+        },
+        {
+          "raw": "organs,",
+          "start": 8.41,
+          "end": 8.83
+        },
+        {
+          "raw": "though",
+          "start": 9.01,
+          "end": 9.15
+        },
+        {
+          "raw": "defunct",
+          "start": 9.15,
+          "end": 9.49
+        },
+        {
+          "raw": "and",
+          "start": 9.49,
+          "end": 9.73
+        },
+        {
+          "raw": "dead",
+          "start": 9.73,
+          "end": 9.93
+        },
+        {
+          "raw": "before,",
+          "start": 9.93,
+          "end": 10.35
+        },
+        {
+          "raw": "Break",
+          "start": 10.57,
+          "end": 10.67
+        },
+        {
+          "raw": "up",
+          "start": 10.67,
+          "end": 10.83
+        },
+        {
+          "raw": "their",
+          "start": 10.83,
+          "end": 10.99
+        },
+        {
+          "raw": "drowsy",
+          "start": 10.99,
+          "end": 11.41
+        },
+        {
+          "raw": "grave",
+          "start": 11.41,
+          "end": 11.71
+        },
+        {
+          "raw": "and",
+          "start": 11.71,
+          "end": 12.01
+        },
+        {
+          "raw": "newly",
+          "start": 12.01,
+          "end": 12.25
+        },
+        {
+          "raw": "move,",
+          "start": 12.25,
+          "end": 12.73
+        },
+        {
+          "raw": "With",
+          "start": 13.15,
+          "end": 13.29
+        },
+        {
+          "raw": "casted",
+          "start": 13.29,
+          "end": 13.79
+        },
+        {
+          "raw": "slough",
+          "start": 13.79,
+          "end": 14.13
+        },
+        {
+          "raw": "and",
+          "start": 14.13,
+          "end": 14.35
+        },
+        {
+          "raw": "fresh",
+          "start": 14.35,
+          "end": 14.57
+        },
+        {
+          "raw": "legerity.",
+          "start": 14.57,
+          "end": 15.09
+        },
+        {
+          "raw": "Lend",
+          "start": 15.95,
+          "end": 16.03
+        },
+        {
+          "raw": "me",
+          "start": 16.03,
+          "end": 16.17
+        },
+        {
+          "raw": "thy",
+          "start": 16.17,
+          "end": 16.33
+        },
+        {
+          "raw": "cloak,",
+          "start": 16.33,
+          "end": 16.61
+        },
+        {
+          "raw": "Sir",
+          "start": 16.83,
+          "end": 16.87
+        },
+        {
+          "raw": "Thomas.",
+          "start": 16.87,
+          "end": 17.21
+        },
+        {
+          "raw": "Brothers",
+          "start": 18.15,
+          "end": 18.15
+        },
+        {
+          "raw": "both,",
+          "start": 18.15,
+          "end": 18.47
+        },
+        {
+          "raw": "Commend",
+          "start": 18.77,
+          "end": 18.99
+        },
+        {
+          "raw": "me",
+          "start": 18.99,
+          "end": 19.15
+        },
+        {
+          "raw": "to",
+          "start": 19.15,
+          "end": 19.29
+        },
+        {
+          "raw": "the",
+          "start": 19.29,
+          "end": 19.43
+        },
+        {
+          "raw": "princes",
+          "start": 19.43,
+          "end": 19.61
+        },
+        {
+          "raw": "in",
+          "start": 19.61,
+          "end": 19.87
+        },
+        {
+          "raw": "our",
+          "start": 19.87,
+          "end": 19.99
+        },
+        {
+          "raw": "camp,",
+          "start": 19.99,
+          "end": 20.33
+        },
+        {
+          "raw": "Do",
+          "start": 20.75,
+          "end": 20.89
+        },
+        {
+          "raw": "my",
+          "start": 20.89,
+          "end": 21.07
+        },
+        {
+          "raw": "good",
+          "start": 21.07,
+          "end": 21.33
+        },
+        {
+          "raw": "morrow",
+          "start": 21.33,
+          "end": 21.69
+        },
+        {
+          "raw": "to",
+          "start": 21.69,
+          "end": 21.85
+        },
+        {
+          "raw": "them,",
+          "start": 21.85,
+          "end": 22.07
+        },
+        {
+          "raw": "and",
+          "start": 22.25,
+          "end": 22.45
+        },
+        {
+          "raw": "anon",
+          "start": 22.45,
+          "end": 22.77
+        },
+        {
+          "raw": "Desire",
+          "start": 22.77,
+          "end": 23.11
+        },
+        {
+          "raw": "them",
+          "start": 23.11,
+          "end": 23.37
+        },
+        {
+          "raw": "all",
+          "start": 23.37,
+          "end": 23.55
+        },
+        {
+          "raw": "to",
+          "start": 23.55,
+          "end": 23.69
+        },
+        {
+          "raw": "my",
+          "start": 23.69,
+          "end": 23.87
+        },
+        {
+          "raw": "pavilion.",
+          "start": 23.87,
+          "end": 24.29
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Henry.",
+        "'Tis",
+        "good",
+        "for",
+        "men",
+        "to",
+        "love",
+        "their",
+        "present",
+        "pains",
+        "Upon",
+        "example;",
+        "so",
+        "the",
+        "spirit",
+        "is",
+        "eased;",
+        "And",
+        "when",
+        "the",
+        "mind",
+        "is",
+        "quick'ned,",
+        "out",
+        "of",
+        "doubt,",
+        "The",
+        "organs,",
+        "though",
+        "defunct",
+        "and",
+        "dead",
+        "before,",
+        "Break",
+        "up",
+        "their",
+        "drowsy",
+        "grave",
+        "and",
+        "newly",
+        "move,",
+        "With",
+        "casted",
+        "slough",
+        "and",
+        "fresh",
+        "legerity.",
+        "Lend",
+        "me",
+        "thy",
+        "cloak,",
+        "Sir",
+        "Thomas.",
+        "Brothers",
+        "both,",
+        "Commend",
+        "me",
+        "to",
+        "the",
+        "princes",
+        "in",
+        "our",
+        "camp;",
+        "Do",
+        "my",
+        "good",
+        "morrow",
+        "to",
+        "them,",
+        "and",
+        "anon",
+        "Desire",
+        "them",
+        "all",
+        "to",
+        "my",
+        "pavilion."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          23,
+          0,
+          23
+        ],
+        [
+          "replace",
+          23,
+          24,
+          23,
+          25
+        ],
+        [
+          "equal",
+          24,
+          78,
+          25,
+          79
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 78
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          23,
+          24,
+          23,
+          25
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King,",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Henry,",
+          "start": 0.73,
+          "end": 0.97,
+          "key": "henry",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Tis",
+          "start": 1.63,
+          "end": 1.83,
+          "key": "tis",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.83,
+          "end": 1.99,
+          "key": "good",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.99,
+          "end": 2.17,
+          "key": "for",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "men",
+          "start": 2.17,
+          "end": 2.35,
+          "key": "men",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.35,
+          "end": 2.53,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 2.53,
+          "end": 2.71,
+          "key": "love",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 2.71,
+          "end": 2.91,
+          "key": "their",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "present",
+          "start": 2.91,
+          "end": 3.25,
+          "key": "present",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "pains",
+          "start": 3.25,
+          "end": 3.53,
+          "key": "pains",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Upon",
+          "start": 3.53,
+          "end": 3.81,
+          "key": "upon",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "example,",
+          "start": 3.81,
+          "end": 4.29,
+          "key": "example",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 4.57,
+          "end": 4.79,
+          "key": "so",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.79,
+          "end": 4.93,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "spirit",
+          "start": 4.93,
+          "end": 5.19,
+          "key": "spirit",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 5.19,
+          "end": 5.41,
+          "key": "is",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "eased,",
+          "start": 5.41,
+          "end": 5.79,
+          "key": "eased",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 6.27,
+          "end": 6.35,
+          "key": "and",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 6.35,
+          "end": 6.45,
+          "key": "when",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.45,
+          "end": 6.57,
+          "key": "the",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "mind",
+          "start": 6.57,
+          "end": 6.81,
+          "key": "mind",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 6.81,
+          "end": 6.99,
+          "key": "is",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "quick",
+          "start": 6.99,
+          "end": 7.21,
+          "key": "quick",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "'ned,",
+          "start": 7.21,
+          "end": 7.37,
+          "key": "ned",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 7.49,
+          "end": 7.59,
+          "key": "out",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.59,
+          "end": 7.71,
+          "key": "of",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "doubt,",
+          "start": 7.71,
+          "end": 7.93,
+          "key": "doubt",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 8.25,
+          "end": 8.41,
+          "key": "the",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "organs,",
+          "start": 8.41,
+          "end": 8.83,
+          "key": "organs",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "though",
+          "start": 9.01,
+          "end": 9.15,
+          "key": "though",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "defunct",
+          "start": 9.15,
+          "end": 9.49,
+          "key": "defunct",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 9.49,
+          "end": 9.73,
+          "key": "and",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "dead",
+          "start": 9.73,
+          "end": 9.93,
+          "key": "dead",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "before,",
+          "start": 9.93,
+          "end": 10.35,
+          "key": "before",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "Break",
+          "start": 10.57,
+          "end": 10.67,
+          "key": "break",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 10.67,
+          "end": 10.83,
+          "key": "up",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 10.83,
+          "end": 10.99,
+          "key": "their",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "drowsy",
+          "start": 10.99,
+          "end": 11.41,
+          "key": "drowsy",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "grave",
+          "start": 11.41,
+          "end": 11.71,
+          "key": "grave",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 11.71,
+          "end": 12.01,
+          "key": "and",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "newly",
+          "start": 12.01,
+          "end": 12.25,
+          "key": "newly",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "move,",
+          "start": 12.25,
+          "end": 12.73,
+          "key": "move",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "With",
+          "start": 13.15,
+          "end": 13.29,
+          "key": "with",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "casted",
+          "start": 13.29,
+          "end": 13.79,
+          "key": "casted",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "slough",
+          "start": 13.79,
+          "end": 14.13,
+          "key": "slough",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 14.13,
+          "end": 14.35,
+          "key": "and",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "fresh",
+          "start": 14.35,
+          "end": 14.57,
+          "key": "fresh",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "legerity.",
+          "start": 14.57,
+          "end": 15.09,
+          "key": "legerity",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "Lend",
+          "start": 15.95,
+          "end": 16.03,
+          "key": "lend",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 16.03,
+          "end": 16.17,
+          "key": "me",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 16.17,
+          "end": 16.33,
+          "key": "thy",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "cloak,",
+          "start": 16.33,
+          "end": 16.61,
+          "key": "cloak",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "Sir",
+          "start": 16.83,
+          "end": 16.87,
+          "key": "sir",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "Thomas.",
+          "start": 16.87,
+          "end": 17.21,
+          "key": "thomas",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "Brothers",
+          "start": 18.15,
+          "end": 18.15,
+          "key": "brothers",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "both,",
+          "start": 18.15,
+          "end": 18.47,
+          "key": "both",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "Commend",
+          "start": 18.77,
+          "end": 18.99,
+          "key": "commend",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 18.99,
+          "end": 19.15,
+          "key": "me",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 19.15,
+          "end": 19.29,
+          "key": "to",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 19.29,
+          "end": 19.43,
+          "key": "the",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "princes",
+          "start": 19.43,
+          "end": 19.61,
+          "key": "princes",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 19.61,
+          "end": 19.87,
+          "key": "in",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 19.87,
+          "end": 19.99,
+          "key": "our",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "camp,",
+          "start": 19.99,
+          "end": 20.33,
+          "key": "camp",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 20.75,
+          "end": 20.89,
+          "key": "do",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 20.89,
+          "end": 21.07,
+          "key": "my",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 21.07,
+          "end": 21.33,
+          "key": "good",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "morrow",
+          "start": 21.33,
+          "end": 21.69,
+          "key": "morrow",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 21.69,
+          "end": 21.85,
+          "key": "to",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "them,",
+          "start": 21.85,
+          "end": 22.07,
+          "key": "them",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 22.25,
+          "end": 22.45,
+          "key": "and",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "anon",
+          "start": 22.45,
+          "end": 22.77,
+          "key": "anon",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "Desire",
+          "start": 22.77,
+          "end": 23.11,
+          "key": "desire",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 23.11,
+          "end": 23.37,
+          "key": "them",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 23.37,
+          "end": 23.55,
+          "key": "all",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 23.55,
+          "end": 23.69,
+          "key": "to",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 23.69,
+          "end": 23.87,
+          "key": "my",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "pavilion.",
+          "start": 23.87,
+          "end": 24.29,
+          "key": "pavilion",
+          "pieces": [
+            78
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "Henry.",
+          "start": 0.73,
+          "end": 0.97
+        },
+        {
+          "text": "'Tis",
+          "start": 1.63,
+          "end": 1.83
+        },
+        {
+          "text": "good",
+          "start": 1.83,
+          "end": 1.99
+        },
+        {
+          "text": "for",
+          "start": 1.99,
+          "end": 2.17
+        },
+        {
+          "text": "men",
+          "start": 2.17,
+          "end": 2.35
+        },
+        {
+          "text": "to",
+          "start": 2.35,
+          "end": 2.53
+        },
+        {
+          "text": "love",
+          "start": 2.53,
+          "end": 2.71
+        },
+        {
+          "text": "their",
+          "start": 2.71,
+          "end": 2.91
+        },
+        {
+          "text": "present",
+          "start": 2.91,
+          "end": 3.25
+        },
+        {
+          "text": "pains",
+          "start": 3.25,
+          "end": 3.53
+        },
+        {
+          "text": "Upon",
+          "start": 3.53,
+          "end": 3.81
+        },
+        {
+          "text": "example;",
+          "start": 3.81,
+          "end": 4.29
+        },
+        {
+          "text": "so",
+          "start": 4.57,
+          "end": 4.79
+        },
+        {
+          "text": "the",
+          "start": 4.79,
+          "end": 4.93
+        },
+        {
+          "text": "spirit",
+          "start": 4.93,
+          "end": 5.19
+        },
+        {
+          "text": "is",
+          "start": 5.19,
+          "end": 5.41
+        },
+        {
+          "text": "eased;",
+          "start": 5.41,
+          "end": 5.79
+        },
+        {
+          "text": "And",
+          "start": 6.27,
+          "end": 6.35
+        },
+        {
+          "text": "when",
+          "start": 6.35,
+          "end": 6.45
+        },
+        {
+          "text": "the",
+          "start": 6.45,
+          "end": 6.57
+        },
+        {
+          "text": "mind",
+          "start": 6.57,
+          "end": 6.81
+        },
+        {
+          "text": "is",
+          "start": 6.81,
+          "end": 6.99
+        },
+        {
+          "text": "quick'ned,",
+          "start": 6.99,
+          "end": 7.24
+        },
+        {
+          "text": "out",
+          "start": 7.49,
+          "end": 7.59
+        },
+        {
+          "text": "of",
+          "start": 7.59,
+          "end": 7.71
+        },
+        {
+          "text": "doubt,",
+          "start": 7.71,
+          "end": 7.93
+        },
+        {
+          "text": "The",
+          "start": 8.25,
+          "end": 8.41
+        },
+        {
+          "text": "organs,",
+          "start": 8.41,
+          "end": 8.83
+        },
+        {
+          "text": "though",
+          "start": 9.01,
+          "end": 9.15
+        },
+        {
+          "text": "defunct",
+          "start": 9.15,
+          "end": 9.49
+        },
+        {
+          "text": "and",
+          "start": 9.49,
+          "end": 9.73
+        },
+        {
+          "text": "dead",
+          "start": 9.73,
+          "end": 9.93
+        },
+        {
+          "text": "before,",
+          "start": 9.93,
+          "end": 10.35
+        },
+        {
+          "text": "Break",
+          "start": 10.57,
+          "end": 10.67
+        },
+        {
+          "text": "up",
+          "start": 10.67,
+          "end": 10.83
+        },
+        {
+          "text": "their",
+          "start": 10.83,
+          "end": 10.99
+        },
+        {
+          "text": "drowsy",
+          "start": 10.99,
+          "end": 11.41
+        },
+        {
+          "text": "grave",
+          "start": 11.41,
+          "end": 11.71
+        },
+        {
+          "text": "and",
+          "start": 11.71,
+          "end": 12.01
+        },
+        {
+          "text": "newly",
+          "start": 12.01,
+          "end": 12.25
+        },
+        {
+          "text": "move,",
+          "start": 12.25,
+          "end": 12.73
+        },
+        {
+          "text": "With",
+          "start": 13.15,
+          "end": 13.29
+        },
+        {
+          "text": "casted",
+          "start": 13.29,
+          "end": 13.79
+        },
+        {
+          "text": "slough",
+          "start": 13.79,
+          "end": 14.13
+        },
+        {
+          "text": "and",
+          "start": 14.13,
+          "end": 14.35
+        },
+        {
+          "text": "fresh",
+          "start": 14.35,
+          "end": 14.57
+        },
+        {
+          "text": "legerity.",
+          "start": 14.57,
+          "end": 15.09
+        },
+        {
+          "text": "Lend",
+          "start": 15.95,
+          "end": 16.03
+        },
+        {
+          "text": "me",
+          "start": 16.03,
+          "end": 16.17
+        },
+        {
+          "text": "thy",
+          "start": 16.17,
+          "end": 16.33
+        },
+        {
+          "text": "cloak,",
+          "start": 16.33,
+          "end": 16.61
+        },
+        {
+          "text": "Sir",
+          "start": 16.83,
+          "end": 16.87
+        },
+        {
+          "text": "Thomas.",
+          "start": 16.87,
+          "end": 17.21
+        },
+        {
+          "text": "Brothers",
+          "start": 18.15,
+          "end": 18.15
+        },
+        {
+          "text": "both,",
+          "start": 18.15,
+          "end": 18.47
+        },
+        {
+          "text": "Commend",
+          "start": 18.77,
+          "end": 18.99
+        },
+        {
+          "text": "me",
+          "start": 18.99,
+          "end": 19.15
+        },
+        {
+          "text": "to",
+          "start": 19.15,
+          "end": 19.29
+        },
+        {
+          "text": "the",
+          "start": 19.29,
+          "end": 19.43
+        },
+        {
+          "text": "princes",
+          "start": 19.43,
+          "end": 19.61
+        },
+        {
+          "text": "in",
+          "start": 19.61,
+          "end": 19.87
+        },
+        {
+          "text": "our",
+          "start": 19.87,
+          "end": 19.99
+        },
+        {
+          "text": "camp;",
+          "start": 19.99,
+          "end": 20.33
+        },
+        {
+          "text": "Do",
+          "start": 20.75,
+          "end": 20.89
+        },
+        {
+          "text": "my",
+          "start": 20.89,
+          "end": 21.07
+        },
+        {
+          "text": "good",
+          "start": 21.07,
+          "end": 21.33
+        },
+        {
+          "text": "morrow",
+          "start": 21.33,
+          "end": 21.69
+        },
+        {
+          "text": "to",
+          "start": 21.69,
+          "end": 21.85
+        },
+        {
+          "text": "them,",
+          "start": 21.85,
+          "end": 22.07
+        },
+        {
+          "text": "and",
+          "start": 22.25,
+          "end": 22.45
+        },
+        {
+          "text": "anon",
+          "start": 22.45,
+          "end": 22.77
+        },
+        {
+          "text": "Desire",
+          "start": 22.77,
+          "end": 23.11
+        },
+        {
+          "text": "them",
+          "start": 23.11,
+          "end": 23.37
+        },
+        {
+          "text": "all",
+          "start": 23.37,
+          "end": 23.55
+        },
+        {
+          "text": "to",
+          "start": 23.55,
+          "end": 23.69
+        },
+        {
+          "text": "my",
+          "start": 23.69,
+          "end": 23.87
+        },
+        {
+          "text": "pavilion.",
+          "start": 23.87,
+          "end": 24.29
+        }
+      ],
+      "stats": {
+        "expected_words": 78,
+        "heard_words": 79,
+        "matched_words": 77
+      },
+      "match_ratio": 0.9871794871794872,
+      "rejection_reasons": [],
+      "seconds": 0.7389487521722913
+    },
+    {
+      "asr_seconds": 0.855745586566627,
+      "alignment_seconds": 0.0026297206059098244,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "King, Henry, Tis, Upon, Break, With, Lend, Sir, Thomas, Brothers, Commend, Do, Desire"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " King Henry, Tis good for men to love their present pains upon example, so the spirit",
+          "start": 0.05,
+          "end": 5.19,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.56689453125
+            },
+            {
+              "text": " Henry,",
+              "start": 0.55,
+              "end": 0.95,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " Tis",
+              "start": 1.65,
+              "end": 1.83,
+              "probability": 0.1432647705078125
+            },
+            {
+              "text": " good",
+              "start": 1.83,
+              "end": 1.97,
+              "probability": 0.974609375
+            },
+            {
+              "text": " for",
+              "start": 1.97,
+              "end": 2.17,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " men",
+              "start": 2.17,
+              "end": 2.35,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " to",
+              "start": 2.35,
+              "end": 2.53,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " love",
+              "start": 2.53,
+              "end": 2.69,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " their",
+              "start": 2.69,
+              "end": 2.91,
+              "probability": 0.91796875
+            },
+            {
+              "text": " present",
+              "start": 2.91,
+              "end": 3.25,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " pains",
+              "start": 3.25,
+              "end": 3.53,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " upon",
+              "start": 3.53,
+              "end": 3.81,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " example,",
+              "start": 3.81,
+              "end": 4.27,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " so",
+              "start": 4.55,
+              "end": 4.79,
+              "probability": 0.66064453125
+            },
+            {
+              "text": " the",
+              "start": 4.79,
+              "end": 4.93,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " spirit",
+              "start": 4.93,
+              "end": 5.19,
+              "probability": 0.94873046875
+            }
+          ]
+        },
+        {
+          "text": " is eased, and when the mind is quickened, out of doubt, the organs, though defunct",
+          "start": 5.19,
+          "end": 9.49,
+          "words": [
+            {
+              "text": " is",
+              "start": 5.19,
+              "end": 5.41,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " eased,",
+              "start": 5.41,
+              "end": 5.79,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " and",
+              "start": 6.21,
+              "end": 6.33,
+              "probability": 0.7392578125
+            },
+            {
+              "text": " when",
+              "start": 6.33,
+              "end": 6.45,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " the",
+              "start": 6.45,
+              "end": 6.57,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " mind",
+              "start": 6.57,
+              "end": 6.81,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " is",
+              "start": 6.81,
+              "end": 6.99,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " quickened,",
+              "start": 6.99,
+              "end": 7.41,
+              "probability": 0.993896484375
+            },
+            {
+              "text": " out",
+              "start": 7.51,
+              "end": 7.59,
+              "probability": 0.98046875
+            },
+            {
+              "text": " of",
+              "start": 7.59,
+              "end": 7.71,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " doubt,",
+              "start": 7.71,
+              "end": 7.95,
+              "probability": 0.98046875
+            },
+            {
+              "text": " the",
+              "start": 8.27,
+              "end": 8.39,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " organs,",
+              "start": 8.39,
+              "end": 8.81,
+              "probability": 0.916015625
+            },
+            {
+              "text": " though",
+              "start": 9.05,
+              "end": 9.15,
+              "probability": 0.990234375
+            },
+            {
+              "text": " defunct",
+              "start": 9.15,
+              "end": 9.49,
+              "probability": 0.9921875
+            }
+          ]
+        },
+        {
+          "text": " and dead before, break up their drowsy grave and newly move, with casted slew and fresh",
+          "start": 9.49,
+          "end": 14.59,
+          "words": [
+            {
+              "text": " and",
+              "start": 9.49,
+              "end": 9.73,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " dead",
+              "start": 9.73,
+              "end": 9.93,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " before,",
+              "start": 9.93,
+              "end": 10.37,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " break",
+              "start": 10.55,
+              "end": 10.67,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " up",
+              "start": 10.67,
+              "end": 10.83,
+              "probability": 0.998046875
+            },
+            {
+              "text": " their",
+              "start": 10.83,
+              "end": 10.99,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " drowsy",
+              "start": 10.99,
+              "end": 11.41,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " grave",
+              "start": 11.41,
+              "end": 11.69,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " and",
+              "start": 11.69,
+              "end": 12.01,
+              "probability": 0.80859375
+            },
+            {
+              "text": " newly",
+              "start": 12.01,
+              "end": 12.27,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " move,",
+              "start": 12.27,
+              "end": 12.77,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " with",
+              "start": 13.15,
+              "end": 13.29,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " casted",
+              "start": 13.29,
+              "end": 13.79,
+              "probability": 0.972412109375
+            },
+            {
+              "text": " slew",
+              "start": 13.79,
+              "end": 14.09,
+              "probability": 0.57763671875
+            },
+            {
+              "text": " and",
+              "start": 14.09,
+              "end": 14.33,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " fresh",
+              "start": 14.33,
+              "end": 14.59,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " legerity.",
+          "start": 14.59,
+          "end": 15.15,
+          "words": [
+            {
+              "text": " legerity.",
+              "start": 14.59,
+              "end": 15.15,
+              "probability": 0.4435221354166667
+            }
+          ]
+        },
+        {
+          "text": " Lend me thy cloak, Sir Thomas, Brothers both, Commend me to the princes in our camp, Do",
+          "start": 15.95,
+          "end": 20.89,
+          "words": [
+            {
+              "text": " Lend",
+              "start": 15.95,
+              "end": 16.03,
+              "probability": 0.59100341796875
+            },
+            {
+              "text": " me",
+              "start": 16.03,
+              "end": 16.17,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " thy",
+              "start": 16.17,
+              "end": 16.33,
+              "probability": 0.982421875
+            },
+            {
+              "text": " cloak,",
+              "start": 16.33,
+              "end": 16.63,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " Sir",
+              "start": 16.83,
+              "end": 16.87,
+              "probability": 0.86376953125
+            },
+            {
+              "text": " Thomas,",
+              "start": 16.87,
+              "end": 17.21,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " Brothers",
+              "start": 18.15,
+              "end": 18.15,
+              "probability": 0.2183837890625
+            },
+            {
+              "text": " both,",
+              "start": 18.15,
+              "end": 18.47,
+              "probability": 0.951171875
+            },
+            {
+              "text": " Commend",
+              "start": 18.73,
+              "end": 18.99,
+              "probability": 0.5027656555175781
+            },
+            {
+              "text": " me",
+              "start": 18.99,
+              "end": 19.15,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 19.15,
+              "end": 19.29,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 19.29,
+              "end": 19.43,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " princes",
+              "start": 19.43,
+              "end": 19.59,
+              "probability": 0.74853515625
+            },
+            {
+              "text": " in",
+              "start": 19.59,
+              "end": 19.87,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " our",
+              "start": 19.87,
+              "end": 19.99,
+              "probability": 0.99609375
+            },
+            {
+              "text": " camp,",
+              "start": 19.99,
+              "end": 20.33,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Do",
+              "start": 20.79,
+              "end": 20.89,
+              "probability": 0.5234375
+            }
+          ]
+        },
+        {
+          "text": " my good morrow to them, and a non-desire them all to my pavilion.",
+          "start": 20.89,
+          "end": 24.31,
+          "words": [
+            {
+              "text": " my",
+              "start": 20.89,
+              "end": 21.07,
+              "probability": 0.763671875
+            },
+            {
+              "text": " good",
+              "start": 21.07,
+              "end": 21.31,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " morrow",
+              "start": 21.31,
+              "end": 21.71,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " to",
+              "start": 21.71,
+              "end": 21.83,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " them,",
+              "start": 21.83,
+              "end": 22.05,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " and",
+              "start": 22.33,
+              "end": 22.45,
+              "probability": 0.970703125
+            },
+            {
+              "text": " a",
+              "start": 22.45,
+              "end": 22.55,
+              "probability": 0.72216796875
+            },
+            {
+              "text": " non",
+              "start": 22.55,
+              "end": 22.77,
+              "probability": 0.9208984375
+            },
+            {
+              "text": "-desire",
+              "start": 22.77,
+              "end": 23.21,
+              "probability": 0.9724934895833334
+            },
+            {
+              "text": " them",
+              "start": 23.21,
+              "end": 23.39,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " all",
+              "start": 23.39,
+              "end": 23.57,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 23.57,
+              "end": 23.71,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " my",
+              "start": 23.71,
+              "end": 23.87,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " pavilion.",
+              "start": 23.87,
+              "end": 24.31,
+              "probability": 0.9775390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "Henry,",
+          "start": 0.55,
+          "end": 0.95
+        },
+        {
+          "raw": "Tis",
+          "start": 1.65,
+          "end": 1.83
+        },
+        {
+          "raw": "good",
+          "start": 1.83,
+          "end": 1.97
+        },
+        {
+          "raw": "for",
+          "start": 1.97,
+          "end": 2.17
+        },
+        {
+          "raw": "men",
+          "start": 2.17,
+          "end": 2.35
+        },
+        {
+          "raw": "to",
+          "start": 2.35,
+          "end": 2.53
+        },
+        {
+          "raw": "love",
+          "start": 2.53,
+          "end": 2.69
+        },
+        {
+          "raw": "their",
+          "start": 2.69,
+          "end": 2.91
+        },
+        {
+          "raw": "present",
+          "start": 2.91,
+          "end": 3.25
+        },
+        {
+          "raw": "pains",
+          "start": 3.25,
+          "end": 3.53
+        },
+        {
+          "raw": "upon",
+          "start": 3.53,
+          "end": 3.81
+        },
+        {
+          "raw": "example,",
+          "start": 3.81,
+          "end": 4.27
+        },
+        {
+          "raw": "so",
+          "start": 4.55,
+          "end": 4.79
+        },
+        {
+          "raw": "the",
+          "start": 4.79,
+          "end": 4.93
+        },
+        {
+          "raw": "spirit",
+          "start": 4.93,
+          "end": 5.19
+        },
+        {
+          "raw": "is",
+          "start": 5.19,
+          "end": 5.41
+        },
+        {
+          "raw": "eased,",
+          "start": 5.41,
+          "end": 5.79
+        },
+        {
+          "raw": "and",
+          "start": 6.21,
+          "end": 6.33
+        },
+        {
+          "raw": "when",
+          "start": 6.33,
+          "end": 6.45
+        },
+        {
+          "raw": "the",
+          "start": 6.45,
+          "end": 6.57
+        },
+        {
+          "raw": "mind",
+          "start": 6.57,
+          "end": 6.81
+        },
+        {
+          "raw": "is",
+          "start": 6.81,
+          "end": 6.99
+        },
+        {
+          "raw": "quickened,",
+          "start": 6.99,
+          "end": 7.41
+        },
+        {
+          "raw": "out",
+          "start": 7.51,
+          "end": 7.59
+        },
+        {
+          "raw": "of",
+          "start": 7.59,
+          "end": 7.71
+        },
+        {
+          "raw": "doubt,",
+          "start": 7.71,
+          "end": 7.95
+        },
+        {
+          "raw": "the",
+          "start": 8.27,
+          "end": 8.39
+        },
+        {
+          "raw": "organs,",
+          "start": 8.39,
+          "end": 8.81
+        },
+        {
+          "raw": "though",
+          "start": 9.05,
+          "end": 9.15
+        },
+        {
+          "raw": "defunct",
+          "start": 9.15,
+          "end": 9.49
+        },
+        {
+          "raw": "and",
+          "start": 9.49,
+          "end": 9.73
+        },
+        {
+          "raw": "dead",
+          "start": 9.73,
+          "end": 9.93
+        },
+        {
+          "raw": "before,",
+          "start": 9.93,
+          "end": 10.37
+        },
+        {
+          "raw": "break",
+          "start": 10.55,
+          "end": 10.67
+        },
+        {
+          "raw": "up",
+          "start": 10.67,
+          "end": 10.83
+        },
+        {
+          "raw": "their",
+          "start": 10.83,
+          "end": 10.99
+        },
+        {
+          "raw": "drowsy",
+          "start": 10.99,
+          "end": 11.41
+        },
+        {
+          "raw": "grave",
+          "start": 11.41,
+          "end": 11.69
+        },
+        {
+          "raw": "and",
+          "start": 11.69,
+          "end": 12.01
+        },
+        {
+          "raw": "newly",
+          "start": 12.01,
+          "end": 12.27
+        },
+        {
+          "raw": "move,",
+          "start": 12.27,
+          "end": 12.77
+        },
+        {
+          "raw": "with",
+          "start": 13.15,
+          "end": 13.29
+        },
+        {
+          "raw": "casted",
+          "start": 13.29,
+          "end": 13.79
+        },
+        {
+          "raw": "slew",
+          "start": 13.79,
+          "end": 14.09
+        },
+        {
+          "raw": "and",
+          "start": 14.09,
+          "end": 14.33
+        },
+        {
+          "raw": "fresh",
+          "start": 14.33,
+          "end": 14.59
+        },
+        {
+          "raw": "legerity.",
+          "start": 14.59,
+          "end": 15.15
+        },
+        {
+          "raw": "Lend",
+          "start": 15.95,
+          "end": 16.03
+        },
+        {
+          "raw": "me",
+          "start": 16.03,
+          "end": 16.17
+        },
+        {
+          "raw": "thy",
+          "start": 16.17,
+          "end": 16.33
+        },
+        {
+          "raw": "cloak,",
+          "start": 16.33,
+          "end": 16.63
+        },
+        {
+          "raw": "Sir",
+          "start": 16.83,
+          "end": 16.87
+        },
+        {
+          "raw": "Thomas,",
+          "start": 16.87,
+          "end": 17.21
+        },
+        {
+          "raw": "Brothers",
+          "start": 18.15,
+          "end": 18.15
+        },
+        {
+          "raw": "both,",
+          "start": 18.15,
+          "end": 18.47
+        },
+        {
+          "raw": "Commend",
+          "start": 18.73,
+          "end": 18.99
+        },
+        {
+          "raw": "me",
+          "start": 18.99,
+          "end": 19.15
+        },
+        {
+          "raw": "to",
+          "start": 19.15,
+          "end": 19.29
+        },
+        {
+          "raw": "the",
+          "start": 19.29,
+          "end": 19.43
+        },
+        {
+          "raw": "princes",
+          "start": 19.43,
+          "end": 19.59
+        },
+        {
+          "raw": "in",
+          "start": 19.59,
+          "end": 19.87
+        },
+        {
+          "raw": "our",
+          "start": 19.87,
+          "end": 19.99
+        },
+        {
+          "raw": "camp,",
+          "start": 19.99,
+          "end": 20.33
+        },
+        {
+          "raw": "Do",
+          "start": 20.79,
+          "end": 20.89
+        },
+        {
+          "raw": "my",
+          "start": 20.89,
+          "end": 21.07
+        },
+        {
+          "raw": "good",
+          "start": 21.07,
+          "end": 21.31
+        },
+        {
+          "raw": "morrow",
+          "start": 21.31,
+          "end": 21.71
+        },
+        {
+          "raw": "to",
+          "start": 21.71,
+          "end": 21.83
+        },
+        {
+          "raw": "them,",
+          "start": 21.83,
+          "end": 22.05
+        },
+        {
+          "raw": "and",
+          "start": 22.33,
+          "end": 22.45
+        },
+        {
+          "raw": "a",
+          "start": 22.45,
+          "end": 22.55
+        },
+        {
+          "raw": "non",
+          "start": 22.55,
+          "end": 22.77
+        },
+        {
+          "raw": "-desire",
+          "start": 22.77,
+          "end": 23.21
+        },
+        {
+          "raw": "them",
+          "start": 23.21,
+          "end": 23.39
+        },
+        {
+          "raw": "all",
+          "start": 23.39,
+          "end": 23.57
+        },
+        {
+          "raw": "to",
+          "start": 23.57,
+          "end": 23.71
+        },
+        {
+          "raw": "my",
+          "start": 23.71,
+          "end": 23.87
+        },
+        {
+          "raw": "pavilion.",
+          "start": 23.87,
+          "end": 24.31
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Henry.",
+        "'Tis",
+        "good",
+        "for",
+        "men",
+        "to",
+        "love",
+        "their",
+        "present",
+        "pains",
+        "Upon",
+        "example;",
+        "so",
+        "the",
+        "spirit",
+        "is",
+        "eased;",
+        "And",
+        "when",
+        "the",
+        "mind",
+        "is",
+        "quick'ned,",
+        "out",
+        "of",
+        "doubt,",
+        "The",
+        "organs,",
+        "though",
+        "defunct",
+        "and",
+        "dead",
+        "before,",
+        "Break",
+        "up",
+        "their",
+        "drowsy",
+        "grave",
+        "and",
+        "newly",
+        "move,",
+        "With",
+        "casted",
+        "slough",
+        "and",
+        "fresh",
+        "legerity.",
+        "Lend",
+        "me",
+        "thy",
+        "cloak,",
+        "Sir",
+        "Thomas.",
+        "Brothers",
+        "both,",
+        "Commend",
+        "me",
+        "to",
+        "the",
+        "princes",
+        "in",
+        "our",
+        "camp;",
+        "Do",
+        "my",
+        "good",
+        "morrow",
+        "to",
+        "them,",
+        "and",
+        "anon",
+        "Desire",
+        "them",
+        "all",
+        "to",
+        "my",
+        "pavilion."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          23,
+          0,
+          23
+        ],
+        [
+          "replace",
+          23,
+          24,
+          23,
+          24
+        ],
+        [
+          "equal",
+          24,
+          44,
+          24,
+          44
+        ],
+        [
+          "replace",
+          44,
+          45,
+          44,
+          45
+        ],
+        [
+          "equal",
+          45,
+          71,
+          45,
+          71
+        ],
+        [
+          "replace",
+          71,
+          72,
+          71,
+          73
+        ],
+        [
+          "equal",
+          72,
+          78,
+          73,
+          79
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 78
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          23,
+          24,
+          23,
+          24
+        ],
+        [
+          "replace",
+          44,
+          45,
+          44,
+          45
+        ],
+        [
+          "replace",
+          71,
+          72,
+          71,
+          73
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Henry,",
+          "start": 0.55,
+          "end": 0.95,
+          "key": "henry",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Tis",
+          "start": 1.65,
+          "end": 1.83,
+          "key": "tis",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.83,
+          "end": 1.97,
+          "key": "good",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.97,
+          "end": 2.17,
+          "key": "for",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "men",
+          "start": 2.17,
+          "end": 2.35,
+          "key": "men",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.35,
+          "end": 2.53,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 2.53,
+          "end": 2.69,
+          "key": "love",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 2.69,
+          "end": 2.91,
+          "key": "their",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "present",
+          "start": 2.91,
+          "end": 3.25,
+          "key": "present",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "pains",
+          "start": 3.25,
+          "end": 3.53,
+          "key": "pains",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 3.53,
+          "end": 3.81,
+          "key": "upon",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "example,",
+          "start": 3.81,
+          "end": 4.27,
+          "key": "example",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 4.55,
+          "end": 4.79,
+          "key": "so",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.79,
+          "end": 4.93,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "spirit",
+          "start": 4.93,
+          "end": 5.19,
+          "key": "spirit",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 5.19,
+          "end": 5.41,
+          "key": "is",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "eased,",
+          "start": 5.41,
+          "end": 5.79,
+          "key": "eased",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.21,
+          "end": 6.33,
+          "key": "and",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 6.33,
+          "end": 6.45,
+          "key": "when",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.45,
+          "end": 6.57,
+          "key": "the",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "mind",
+          "start": 6.57,
+          "end": 6.81,
+          "key": "mind",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 6.81,
+          "end": 6.99,
+          "key": "is",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "quickened,",
+          "start": 6.99,
+          "end": 7.41,
+          "key": "quickened",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 7.51,
+          "end": 7.59,
+          "key": "out",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.59,
+          "end": 7.71,
+          "key": "of",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "doubt,",
+          "start": 7.71,
+          "end": 7.95,
+          "key": "doubt",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.27,
+          "end": 8.39,
+          "key": "the",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "organs,",
+          "start": 8.39,
+          "end": 8.81,
+          "key": "organs",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "though",
+          "start": 9.05,
+          "end": 9.15,
+          "key": "though",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "defunct",
+          "start": 9.15,
+          "end": 9.49,
+          "key": "defunct",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 9.49,
+          "end": 9.73,
+          "key": "and",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "dead",
+          "start": 9.73,
+          "end": 9.93,
+          "key": "dead",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "before,",
+          "start": 9.93,
+          "end": 10.37,
+          "key": "before",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "break",
+          "start": 10.55,
+          "end": 10.67,
+          "key": "break",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 10.67,
+          "end": 10.83,
+          "key": "up",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 10.83,
+          "end": 10.99,
+          "key": "their",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "drowsy",
+          "start": 10.99,
+          "end": 11.41,
+          "key": "drowsy",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "grave",
+          "start": 11.41,
+          "end": 11.69,
+          "key": "grave",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 11.69,
+          "end": 12.01,
+          "key": "and",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "newly",
+          "start": 12.01,
+          "end": 12.27,
+          "key": "newly",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "move,",
+          "start": 12.27,
+          "end": 12.77,
+          "key": "move",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 13.15,
+          "end": 13.29,
+          "key": "with",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "casted",
+          "start": 13.29,
+          "end": 13.79,
+          "key": "casted",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "slew",
+          "start": 13.79,
+          "end": 14.09,
+          "key": "slew",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 14.09,
+          "end": 14.33,
+          "key": "and",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "fresh",
+          "start": 14.33,
+          "end": 14.59,
+          "key": "fresh",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "legerity.",
+          "start": 14.59,
+          "end": 15.15,
+          "key": "legerity",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "Lend",
+          "start": 15.95,
+          "end": 16.03,
+          "key": "lend",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 16.03,
+          "end": 16.17,
+          "key": "me",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 16.17,
+          "end": 16.33,
+          "key": "thy",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "cloak,",
+          "start": 16.33,
+          "end": 16.63,
+          "key": "cloak",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "Sir",
+          "start": 16.83,
+          "end": 16.87,
+          "key": "sir",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "Thomas,",
+          "start": 16.87,
+          "end": 17.21,
+          "key": "thomas",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "Brothers",
+          "start": 18.15,
+          "end": 18.15,
+          "key": "brothers",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "both,",
+          "start": 18.15,
+          "end": 18.47,
+          "key": "both",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "Commend",
+          "start": 18.73,
+          "end": 18.99,
+          "key": "commend",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 18.99,
+          "end": 19.15,
+          "key": "me",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 19.15,
+          "end": 19.29,
+          "key": "to",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 19.29,
+          "end": 19.43,
+          "key": "the",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "princes",
+          "start": 19.43,
+          "end": 19.59,
+          "key": "princes",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 19.59,
+          "end": 19.87,
+          "key": "in",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 19.87,
+          "end": 19.99,
+          "key": "our",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "camp,",
+          "start": 19.99,
+          "end": 20.33,
+          "key": "camp",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 20.79,
+          "end": 20.89,
+          "key": "do",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 20.89,
+          "end": 21.07,
+          "key": "my",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 21.07,
+          "end": 21.31,
+          "key": "good",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "morrow",
+          "start": 21.31,
+          "end": 21.71,
+          "key": "morrow",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 21.71,
+          "end": 21.83,
+          "key": "to",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "them,",
+          "start": 21.83,
+          "end": 22.05,
+          "key": "them",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 22.33,
+          "end": 22.45,
+          "key": "and",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 22.45,
+          "end": 22.55,
+          "key": "a",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "non",
+          "start": 22.55,
+          "end": 22.77,
+          "key": "non",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "-desire",
+          "start": 22.77,
+          "end": 23.21,
+          "key": "desire",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 23.21,
+          "end": 23.39,
+          "key": "them",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 23.39,
+          "end": 23.57,
+          "key": "all",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 23.57,
+          "end": 23.71,
+          "key": "to",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 23.71,
+          "end": 23.87,
+          "key": "my",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "pavilion.",
+          "start": 23.87,
+          "end": 24.31,
+          "key": "pavilion",
+          "pieces": [
+            78
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "Henry.",
+          "start": 0.55,
+          "end": 0.95
+        },
+        {
+          "text": "'Tis",
+          "start": 1.65,
+          "end": 1.83
+        },
+        {
+          "text": "good",
+          "start": 1.83,
+          "end": 1.97
+        },
+        {
+          "text": "for",
+          "start": 1.97,
+          "end": 2.17
+        },
+        {
+          "text": "men",
+          "start": 2.17,
+          "end": 2.35
+        },
+        {
+          "text": "to",
+          "start": 2.35,
+          "end": 2.53
+        },
+        {
+          "text": "love",
+          "start": 2.53,
+          "end": 2.69
+        },
+        {
+          "text": "their",
+          "start": 2.69,
+          "end": 2.91
+        },
+        {
+          "text": "present",
+          "start": 2.91,
+          "end": 3.25
+        },
+        {
+          "text": "pains",
+          "start": 3.25,
+          "end": 3.53
+        },
+        {
+          "text": "Upon",
+          "start": 3.53,
+          "end": 3.81
+        },
+        {
+          "text": "example;",
+          "start": 3.81,
+          "end": 4.27
+        },
+        {
+          "text": "so",
+          "start": 4.55,
+          "end": 4.79
+        },
+        {
+          "text": "the",
+          "start": 4.79,
+          "end": 4.93
+        },
+        {
+          "text": "spirit",
+          "start": 4.93,
+          "end": 5.19
+        },
+        {
+          "text": "is",
+          "start": 5.19,
+          "end": 5.41
+        },
+        {
+          "text": "eased;",
+          "start": 5.41,
+          "end": 5.79
+        },
+        {
+          "text": "And",
+          "start": 6.21,
+          "end": 6.33
+        },
+        {
+          "text": "when",
+          "start": 6.33,
+          "end": 6.45
+        },
+        {
+          "text": "the",
+          "start": 6.45,
+          "end": 6.57
+        },
+        {
+          "text": "mind",
+          "start": 6.57,
+          "end": 6.81
+        },
+        {
+          "text": "is",
+          "start": 6.81,
+          "end": 6.99
+        },
+        {
+          "text": "quick'ned,",
+          "start": 6.99,
+          "end": 7.25
+        },
+        {
+          "text": "out",
+          "start": 7.51,
+          "end": 7.59
+        },
+        {
+          "text": "of",
+          "start": 7.59,
+          "end": 7.71
+        },
+        {
+          "text": "doubt,",
+          "start": 7.71,
+          "end": 7.95
+        },
+        {
+          "text": "The",
+          "start": 8.27,
+          "end": 8.39
+        },
+        {
+          "text": "organs,",
+          "start": 8.39,
+          "end": 8.81
+        },
+        {
+          "text": "though",
+          "start": 9.05,
+          "end": 9.15
+        },
+        {
+          "text": "defunct",
+          "start": 9.15,
+          "end": 9.49
+        },
+        {
+          "text": "and",
+          "start": 9.49,
+          "end": 9.73
+        },
+        {
+          "text": "dead",
+          "start": 9.73,
+          "end": 9.93
+        },
+        {
+          "text": "before,",
+          "start": 9.93,
+          "end": 10.37
+        },
+        {
+          "text": "Break",
+          "start": 10.55,
+          "end": 10.67
+        },
+        {
+          "text": "up",
+          "start": 10.67,
+          "end": 10.83
+        },
+        {
+          "text": "their",
+          "start": 10.83,
+          "end": 10.99
+        },
+        {
+          "text": "drowsy",
+          "start": 10.99,
+          "end": 11.41
+        },
+        {
+          "text": "grave",
+          "start": 11.41,
+          "end": 11.69
+        },
+        {
+          "text": "and",
+          "start": 11.69,
+          "end": 12.01
+        },
+        {
+          "text": "newly",
+          "start": 12.01,
+          "end": 12.27
+        },
+        {
+          "text": "move,",
+          "start": 12.27,
+          "end": 12.77
+        },
+        {
+          "text": "With",
+          "start": 13.15,
+          "end": 13.29
+        },
+        {
+          "text": "casted",
+          "start": 13.29,
+          "end": 13.79
+        },
+        {
+          "text": "slough",
+          "start": 13.79,
+          "end": 13.94
+        },
+        {
+          "text": "and",
+          "start": 14.09,
+          "end": 14.33
+        },
+        {
+          "text": "fresh",
+          "start": 14.33,
+          "end": 14.59
+        },
+        {
+          "text": "legerity.",
+          "start": 14.59,
+          "end": 15.15
+        },
+        {
+          "text": "Lend",
+          "start": 15.95,
+          "end": 16.03
+        },
+        {
+          "text": "me",
+          "start": 16.03,
+          "end": 16.17
+        },
+        {
+          "text": "thy",
+          "start": 16.17,
+          "end": 16.33
+        },
+        {
+          "text": "cloak,",
+          "start": 16.33,
+          "end": 16.63
+        },
+        {
+          "text": "Sir",
+          "start": 16.83,
+          "end": 16.87
+        },
+        {
+          "text": "Thomas.",
+          "start": 16.87,
+          "end": 17.21
+        },
+        {
+          "text": "Brothers",
+          "start": 18.15,
+          "end": 18.15
+        },
+        {
+          "text": "both,",
+          "start": 18.15,
+          "end": 18.47
+        },
+        {
+          "text": "Commend",
+          "start": 18.73,
+          "end": 18.99
+        },
+        {
+          "text": "me",
+          "start": 18.99,
+          "end": 19.15
+        },
+        {
+          "text": "to",
+          "start": 19.15,
+          "end": 19.29
+        },
+        {
+          "text": "the",
+          "start": 19.29,
+          "end": 19.43
+        },
+        {
+          "text": "princes",
+          "start": 19.43,
+          "end": 19.59
+        },
+        {
+          "text": "in",
+          "start": 19.59,
+          "end": 19.87
+        },
+        {
+          "text": "our",
+          "start": 19.87,
+          "end": 19.99
+        },
+        {
+          "text": "camp;",
+          "start": 19.99,
+          "end": 20.33
+        },
+        {
+          "text": "Do",
+          "start": 20.79,
+          "end": 20.89
+        },
+        {
+          "text": "my",
+          "start": 20.89,
+          "end": 21.07
+        },
+        {
+          "text": "good",
+          "start": 21.07,
+          "end": 21.31
+        },
+        {
+          "text": "morrow",
+          "start": 21.31,
+          "end": 21.71
+        },
+        {
+          "text": "to",
+          "start": 21.71,
+          "end": 21.83
+        },
+        {
+          "text": "them,",
+          "start": 21.83,
+          "end": 22.05
+        },
+        {
+          "text": "and",
+          "start": 22.33,
+          "end": 22.45
+        },
+        {
+          "text": "anon",
+          "start": 22.45,
+          "end": 22.61
+        },
+        {
+          "text": "Desire",
+          "start": 22.77,
+          "end": 23.21
+        },
+        {
+          "text": "them",
+          "start": 23.21,
+          "end": 23.39
+        },
+        {
+          "text": "all",
+          "start": 23.39,
+          "end": 23.57
+        },
+        {
+          "text": "to",
+          "start": 23.57,
+          "end": 23.71
+        },
+        {
+          "text": "my",
+          "start": 23.71,
+          "end": 23.87
+        },
+        {
+          "text": "pavilion.",
+          "start": 23.87,
+          "end": 24.31
+        }
+      ],
+      "stats": {
+        "expected_words": 78,
+        "heard_words": 79,
+        "matched_words": 75
+      },
+      "match_ratio": 0.9615384615384616,
+      "rejection_reasons": [],
+      "seconds": 0.8595327539369464
+    },
+    {
+      "asr_seconds": 1.5105425044894218,
+      "alignment_seconds": 0.0025035934522747993,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " King Henry, tease good for men to love their present pains upon example, so the spirit",
+          "start": 0.05,
+          "end": 5.19,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.5673828125
+            },
+            {
+              "text": " Henry,",
+              "start": 0.55,
+              "end": 0.95,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " tease",
+              "start": 1.65,
+              "end": 1.75,
+              "probability": 0.388916015625
+            },
+            {
+              "text": " good",
+              "start": 1.75,
+              "end": 1.99,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " for",
+              "start": 1.99,
+              "end": 2.17,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " men",
+              "start": 2.17,
+              "end": 2.35,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 2.35,
+              "end": 2.51,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " love",
+              "start": 2.51,
+              "end": 2.69,
+              "probability": 0.9921875
+            },
+            {
+              "text": " their",
+              "start": 2.69,
+              "end": 2.91,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " present",
+              "start": 2.91,
+              "end": 3.25,
+              "probability": 0.99609375
+            },
+            {
+              "text": " pains",
+              "start": 3.25,
+              "end": 3.53,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " upon",
+              "start": 3.53,
+              "end": 3.81,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " example,",
+              "start": 3.81,
+              "end": 4.27,
+              "probability": 0.998046875
+            },
+            {
+              "text": " so",
+              "start": 4.51,
+              "end": 4.79,
+              "probability": 0.89697265625
+            },
+            {
+              "text": " the",
+              "start": 4.79,
+              "end": 4.93,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " spirit",
+              "start": 4.93,
+              "end": 5.19,
+              "probability": 0.9619140625
+            }
+          ]
+        },
+        {
+          "text": " is eased, and when the mind is quickened, out of doubt, the organs, though defunct",
+          "start": 5.19,
+          "end": 9.49,
+          "words": [
+            {
+              "text": " is",
+              "start": 5.19,
+              "end": 5.41,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " eased,",
+              "start": 5.41,
+              "end": 5.77,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " and",
+              "start": 6.19,
+              "end": 6.33,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " when",
+              "start": 6.33,
+              "end": 6.45,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " the",
+              "start": 6.45,
+              "end": 6.57,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " mind",
+              "start": 6.57,
+              "end": 6.81,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " is",
+              "start": 6.81,
+              "end": 6.99,
+              "probability": 0.998046875
+            },
+            {
+              "text": " quickened,",
+              "start": 6.99,
+              "end": 7.39,
+              "probability": 0.994140625
+            },
+            {
+              "text": " out",
+              "start": 7.49,
+              "end": 7.59,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " of",
+              "start": 7.59,
+              "end": 7.71,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " doubt,",
+              "start": 7.71,
+              "end": 7.95,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " the",
+              "start": 8.27,
+              "end": 8.39,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " organs,",
+              "start": 8.39,
+              "end": 8.79,
+              "probability": 0.93359375
+            },
+            {
+              "text": " though",
+              "start": 9.03,
+              "end": 9.15,
+              "probability": 0.99609375
+            },
+            {
+              "text": " defunct",
+              "start": 9.15,
+              "end": 9.49,
+              "probability": 0.9931640625
+            }
+          ]
+        },
+        {
+          "text": " and dead before, break up their drowsy grave and newly move, with casted slew and fresh",
+          "start": 9.49,
+          "end": 14.59,
+          "words": [
+            {
+              "text": " and",
+              "start": 9.49,
+              "end": 9.73,
+              "probability": 0.98828125
+            },
+            {
+              "text": " dead",
+              "start": 9.73,
+              "end": 9.93,
+              "probability": 0.998046875
+            },
+            {
+              "text": " before,",
+              "start": 9.93,
+              "end": 10.35,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " break",
+              "start": 10.55,
+              "end": 10.67,
+              "probability": 0.990234375
+            },
+            {
+              "text": " up",
+              "start": 10.67,
+              "end": 10.83,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " their",
+              "start": 10.83,
+              "end": 10.99,
+              "probability": 0.998046875
+            },
+            {
+              "text": " drowsy",
+              "start": 10.99,
+              "end": 11.41,
+              "probability": 0.986328125
+            },
+            {
+              "text": " grave",
+              "start": 11.41,
+              "end": 11.69,
+              "probability": 0.994140625
+            },
+            {
+              "text": " and",
+              "start": 11.69,
+              "end": 12.01,
+              "probability": 0.8818359375
+            },
+            {
+              "text": " newly",
+              "start": 12.01,
+              "end": 12.27,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " move,",
+              "start": 12.27,
+              "end": 12.77,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " with",
+              "start": 13.13,
+              "end": 13.29,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " casted",
+              "start": 13.29,
+              "end": 13.79,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " slew",
+              "start": 13.79,
+              "end": 14.07,
+              "probability": 0.56640625
+            },
+            {
+              "text": " and",
+              "start": 14.07,
+              "end": 14.33,
+              "probability": 0.9921875
+            },
+            {
+              "text": " fresh",
+              "start": 14.33,
+              "end": 14.59,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " legerity.",
+          "start": 14.59,
+          "end": 15.15,
+          "words": [
+            {
+              "text": " legerity.",
+              "start": 14.59,
+              "end": 15.15,
+              "probability": 0.435546875
+            }
+          ]
+        },
+        {
+          "text": " Lend me thy cloak, Sir Thomas.",
+          "start": 15.95,
+          "end": 17.21,
+          "words": [
+            {
+              "text": " Lend",
+              "start": 15.95,
+              "end": 16.03,
+              "probability": 0.56427001953125
+            },
+            {
+              "text": " me",
+              "start": 16.03,
+              "end": 16.17,
+              "probability": 0.994140625
+            },
+            {
+              "text": " thy",
+              "start": 16.17,
+              "end": 16.33,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " cloak,",
+              "start": 16.33,
+              "end": 16.63,
+              "probability": 0.9765625
+            },
+            {
+              "text": " Sir",
+              "start": 16.79,
+              "end": 16.87,
+              "probability": 0.8994140625
+            },
+            {
+              "text": " Thomas.",
+              "start": 16.87,
+              "end": 17.21,
+              "probability": 0.99169921875
+            }
+          ]
+        },
+        {
+          "text": " Brothers both, commend me to the princes in our camp, do my good morrow to them, and anon",
+          "start": 18.15,
+          "end": 25.03,
+          "words": [
+            {
+              "text": " Brothers",
+              "start": 18.15,
+              "end": 18.15,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " both,",
+              "start": 18.15,
+              "end": 18.47,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " commend",
+              "start": 18.73,
+              "end": 18.89,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " me",
+              "start": 18.89,
+              "end": 19.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 19.15,
+              "end": 19.29,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 19.29,
+              "end": 19.41,
+              "probability": 0.998046875
+            },
+            {
+              "text": " princes",
+              "start": 19.41,
+              "end": 19.61,
+              "probability": 0.89501953125
+            },
+            {
+              "text": " in",
+              "start": 19.61,
+              "end": 19.87,
+              "probability": 0.98828125
+            },
+            {
+              "text": " our",
+              "start": 19.87,
+              "end": 19.99,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " camp,",
+              "start": 19.99,
+              "end": 20.33,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " do",
+              "start": 20.73,
+              "end": 20.89,
+              "probability": 0.984375
+            },
+            {
+              "text": " my",
+              "start": 20.89,
+              "end": 21.09,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " good",
+              "start": 21.09,
+              "end": 21.33,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " morrow",
+              "start": 21.33,
+              "end": 21.69,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " to",
+              "start": 21.69,
+              "end": 21.85,
+              "probability": 0.998046875
+            },
+            {
+              "text": " them,",
+              "start": 21.85,
+              "end": 22.05,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 25.03,
+              "end": 25.03,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " anon",
+              "start": 25.03,
+              "end": 25.03,
+              "probability": 0.798095703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "Henry,",
+          "start": 0.55,
+          "end": 0.95
+        },
+        {
+          "raw": "tease",
+          "start": 1.65,
+          "end": 1.75
+        },
+        {
+          "raw": "good",
+          "start": 1.75,
+          "end": 1.99
+        },
+        {
+          "raw": "for",
+          "start": 1.99,
+          "end": 2.17
+        },
+        {
+          "raw": "men",
+          "start": 2.17,
+          "end": 2.35
+        },
+        {
+          "raw": "to",
+          "start": 2.35,
+          "end": 2.51
+        },
+        {
+          "raw": "love",
+          "start": 2.51,
+          "end": 2.69
+        },
+        {
+          "raw": "their",
+          "start": 2.69,
+          "end": 2.91
+        },
+        {
+          "raw": "present",
+          "start": 2.91,
+          "end": 3.25
+        },
+        {
+          "raw": "pains",
+          "start": 3.25,
+          "end": 3.53
+        },
+        {
+          "raw": "upon",
+          "start": 3.53,
+          "end": 3.81
+        },
+        {
+          "raw": "example,",
+          "start": 3.81,
+          "end": 4.27
+        },
+        {
+          "raw": "so",
+          "start": 4.51,
+          "end": 4.79
+        },
+        {
+          "raw": "the",
+          "start": 4.79,
+          "end": 4.93
+        },
+        {
+          "raw": "spirit",
+          "start": 4.93,
+          "end": 5.19
+        },
+        {
+          "raw": "is",
+          "start": 5.19,
+          "end": 5.41
+        },
+        {
+          "raw": "eased,",
+          "start": 5.41,
+          "end": 5.77
+        },
+        {
+          "raw": "and",
+          "start": 6.19,
+          "end": 6.33
+        },
+        {
+          "raw": "when",
+          "start": 6.33,
+          "end": 6.45
+        },
+        {
+          "raw": "the",
+          "start": 6.45,
+          "end": 6.57
+        },
+        {
+          "raw": "mind",
+          "start": 6.57,
+          "end": 6.81
+        },
+        {
+          "raw": "is",
+          "start": 6.81,
+          "end": 6.99
+        },
+        {
+          "raw": "quickened,",
+          "start": 6.99,
+          "end": 7.39
+        },
+        {
+          "raw": "out",
+          "start": 7.49,
+          "end": 7.59
+        },
+        {
+          "raw": "of",
+          "start": 7.59,
+          "end": 7.71
+        },
+        {
+          "raw": "doubt,",
+          "start": 7.71,
+          "end": 7.95
+        },
+        {
+          "raw": "the",
+          "start": 8.27,
+          "end": 8.39
+        },
+        {
+          "raw": "organs,",
+          "start": 8.39,
+          "end": 8.79
+        },
+        {
+          "raw": "though",
+          "start": 9.03,
+          "end": 9.15
+        },
+        {
+          "raw": "defunct",
+          "start": 9.15,
+          "end": 9.49
+        },
+        {
+          "raw": "and",
+          "start": 9.49,
+          "end": 9.73
+        },
+        {
+          "raw": "dead",
+          "start": 9.73,
+          "end": 9.93
+        },
+        {
+          "raw": "before,",
+          "start": 9.93,
+          "end": 10.35
+        },
+        {
+          "raw": "break",
+          "start": 10.55,
+          "end": 10.67
+        },
+        {
+          "raw": "up",
+          "start": 10.67,
+          "end": 10.83
+        },
+        {
+          "raw": "their",
+          "start": 10.83,
+          "end": 10.99
+        },
+        {
+          "raw": "drowsy",
+          "start": 10.99,
+          "end": 11.41
+        },
+        {
+          "raw": "grave",
+          "start": 11.41,
+          "end": 11.69
+        },
+        {
+          "raw": "and",
+          "start": 11.69,
+          "end": 12.01
+        },
+        {
+          "raw": "newly",
+          "start": 12.01,
+          "end": 12.27
+        },
+        {
+          "raw": "move,",
+          "start": 12.27,
+          "end": 12.77
+        },
+        {
+          "raw": "with",
+          "start": 13.13,
+          "end": 13.29
+        },
+        {
+          "raw": "casted",
+          "start": 13.29,
+          "end": 13.79
+        },
+        {
+          "raw": "slew",
+          "start": 13.79,
+          "end": 14.07
+        },
+        {
+          "raw": "and",
+          "start": 14.07,
+          "end": 14.33
+        },
+        {
+          "raw": "fresh",
+          "start": 14.33,
+          "end": 14.59
+        },
+        {
+          "raw": "legerity.",
+          "start": 14.59,
+          "end": 15.15
+        },
+        {
+          "raw": "Lend",
+          "start": 15.95,
+          "end": 16.03
+        },
+        {
+          "raw": "me",
+          "start": 16.03,
+          "end": 16.17
+        },
+        {
+          "raw": "thy",
+          "start": 16.17,
+          "end": 16.33
+        },
+        {
+          "raw": "cloak,",
+          "start": 16.33,
+          "end": 16.63
+        },
+        {
+          "raw": "Sir",
+          "start": 16.79,
+          "end": 16.87
+        },
+        {
+          "raw": "Thomas.",
+          "start": 16.87,
+          "end": 17.21
+        },
+        {
+          "raw": "Brothers",
+          "start": 18.15,
+          "end": 18.15
+        },
+        {
+          "raw": "both,",
+          "start": 18.15,
+          "end": 18.47
+        },
+        {
+          "raw": "commend",
+          "start": 18.73,
+          "end": 18.89
+        },
+        {
+          "raw": "me",
+          "start": 18.89,
+          "end": 19.15
+        },
+        {
+          "raw": "to",
+          "start": 19.15,
+          "end": 19.29
+        },
+        {
+          "raw": "the",
+          "start": 19.29,
+          "end": 19.41
+        },
+        {
+          "raw": "princes",
+          "start": 19.41,
+          "end": 19.61
+        },
+        {
+          "raw": "in",
+          "start": 19.61,
+          "end": 19.87
+        },
+        {
+          "raw": "our",
+          "start": 19.87,
+          "end": 19.99
+        },
+        {
+          "raw": "camp,",
+          "start": 19.99,
+          "end": 20.33
+        },
+        {
+          "raw": "do",
+          "start": 20.73,
+          "end": 20.89
+        },
+        {
+          "raw": "my",
+          "start": 20.89,
+          "end": 21.09
+        },
+        {
+          "raw": "good",
+          "start": 21.09,
+          "end": 21.33
+        },
+        {
+          "raw": "morrow",
+          "start": 21.33,
+          "end": 21.69
+        },
+        {
+          "raw": "to",
+          "start": 21.69,
+          "end": 21.85
+        },
+        {
+          "raw": "them,",
+          "start": 21.85,
+          "end": 22.05
+        },
+        {
+          "raw": "and",
+          "start": 25.03,
+          "end": 25.03
+        },
+        {
+          "raw": "anon",
+          "start": 25.03,
+          "end": 25.03
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Henry.",
+        "'Tis",
+        "good",
+        "for",
+        "men",
+        "to",
+        "love",
+        "their",
+        "present",
+        "pains",
+        "Upon",
+        "example;",
+        "so",
+        "the",
+        "spirit",
+        "is",
+        "eased;",
+        "And",
+        "when",
+        "the",
+        "mind",
+        "is",
+        "quick'ned,",
+        "out",
+        "of",
+        "doubt,",
+        "The",
+        "organs,",
+        "though",
+        "defunct",
+        "and",
+        "dead",
+        "before,",
+        "Break",
+        "up",
+        "their",
+        "drowsy",
+        "grave",
+        "and",
+        "newly",
+        "move,",
+        "With",
+        "casted",
+        "slough",
+        "and",
+        "fresh",
+        "legerity.",
+        "Lend",
+        "me",
+        "thy",
+        "cloak,",
+        "Sir",
+        "Thomas.",
+        "Brothers",
+        "both,",
+        "Commend",
+        "me",
+        "to",
+        "the",
+        "princes",
+        "in",
+        "our",
+        "camp;",
+        "Do",
+        "my",
+        "good",
+        "morrow",
+        "to",
+        "them,",
+        "and",
+        "anon",
+        "Desire",
+        "them",
+        "all",
+        "to",
+        "my",
+        "pavilion."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          23,
+          3,
+          23
+        ],
+        [
+          "replace",
+          23,
+          24,
+          23,
+          24
+        ],
+        [
+          "equal",
+          24,
+          44,
+          24,
+          44
+        ],
+        [
+          "replace",
+          44,
+          45,
+          44,
+          45
+        ],
+        [
+          "equal",
+          45,
+          72,
+          45,
+          72
+        ],
+        [
+          "delete",
+          72,
+          78,
+          72,
+          72
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 73,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 74,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 75,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 76,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 77,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          23,
+          24,
+          23,
+          24
+        ],
+        [
+          "replace",
+          44,
+          45,
+          44,
+          45
+        ],
+        [
+          "delete",
+          72,
+          78,
+          72,
+          72
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Henry,",
+          "start": 0.55,
+          "end": 0.95,
+          "key": "henry",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "tease",
+          "start": 1.65,
+          "end": 1.75,
+          "key": "tease",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.75,
+          "end": 1.99,
+          "key": "good",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.99,
+          "end": 2.17,
+          "key": "for",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "men",
+          "start": 2.17,
+          "end": 2.35,
+          "key": "men",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.35,
+          "end": 2.51,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 2.51,
+          "end": 2.69,
+          "key": "love",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 2.69,
+          "end": 2.91,
+          "key": "their",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "present",
+          "start": 2.91,
+          "end": 3.25,
+          "key": "present",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "pains",
+          "start": 3.25,
+          "end": 3.53,
+          "key": "pains",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 3.53,
+          "end": 3.81,
+          "key": "upon",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "example,",
+          "start": 3.81,
+          "end": 4.27,
+          "key": "example",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 4.51,
+          "end": 4.79,
+          "key": "so",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.79,
+          "end": 4.93,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "spirit",
+          "start": 4.93,
+          "end": 5.19,
+          "key": "spirit",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 5.19,
+          "end": 5.41,
+          "key": "is",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "eased,",
+          "start": 5.41,
+          "end": 5.77,
+          "key": "eased",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.19,
+          "end": 6.33,
+          "key": "and",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 6.33,
+          "end": 6.45,
+          "key": "when",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.45,
+          "end": 6.57,
+          "key": "the",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "mind",
+          "start": 6.57,
+          "end": 6.81,
+          "key": "mind",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 6.81,
+          "end": 6.99,
+          "key": "is",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "quickened,",
+          "start": 6.99,
+          "end": 7.39,
+          "key": "quickened",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 7.49,
+          "end": 7.59,
+          "key": "out",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.59,
+          "end": 7.71,
+          "key": "of",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "doubt,",
+          "start": 7.71,
+          "end": 7.95,
+          "key": "doubt",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.27,
+          "end": 8.39,
+          "key": "the",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "organs,",
+          "start": 8.39,
+          "end": 8.79,
+          "key": "organs",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "though",
+          "start": 9.03,
+          "end": 9.15,
+          "key": "though",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "defunct",
+          "start": 9.15,
+          "end": 9.49,
+          "key": "defunct",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 9.49,
+          "end": 9.73,
+          "key": "and",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "dead",
+          "start": 9.73,
+          "end": 9.93,
+          "key": "dead",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "before,",
+          "start": 9.93,
+          "end": 10.35,
+          "key": "before",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "break",
+          "start": 10.55,
+          "end": 10.67,
+          "key": "break",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 10.67,
+          "end": 10.83,
+          "key": "up",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 10.83,
+          "end": 10.99,
+          "key": "their",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "drowsy",
+          "start": 10.99,
+          "end": 11.41,
+          "key": "drowsy",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "grave",
+          "start": 11.41,
+          "end": 11.69,
+          "key": "grave",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 11.69,
+          "end": 12.01,
+          "key": "and",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "newly",
+          "start": 12.01,
+          "end": 12.27,
+          "key": "newly",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "move,",
+          "start": 12.27,
+          "end": 12.77,
+          "key": "move",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 13.13,
+          "end": 13.29,
+          "key": "with",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "casted",
+          "start": 13.29,
+          "end": 13.79,
+          "key": "casted",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "slew",
+          "start": 13.79,
+          "end": 14.07,
+          "key": "slew",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 14.07,
+          "end": 14.33,
+          "key": "and",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "fresh",
+          "start": 14.33,
+          "end": 14.59,
+          "key": "fresh",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "legerity.",
+          "start": 14.59,
+          "end": 15.15,
+          "key": "legerity",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "Lend",
+          "start": 15.95,
+          "end": 16.03,
+          "key": "lend",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 16.03,
+          "end": 16.17,
+          "key": "me",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 16.17,
+          "end": 16.33,
+          "key": "thy",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "cloak,",
+          "start": 16.33,
+          "end": 16.63,
+          "key": "cloak",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "Sir",
+          "start": 16.79,
+          "end": 16.87,
+          "key": "sir",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "Thomas.",
+          "start": 16.87,
+          "end": 17.21,
+          "key": "thomas",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "Brothers",
+          "start": 18.15,
+          "end": 18.15,
+          "key": "brothers",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "both,",
+          "start": 18.15,
+          "end": 18.47,
+          "key": "both",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "commend",
+          "start": 18.73,
+          "end": 18.89,
+          "key": "commend",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 18.89,
+          "end": 19.15,
+          "key": "me",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 19.15,
+          "end": 19.29,
+          "key": "to",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 19.29,
+          "end": 19.41,
+          "key": "the",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "princes",
+          "start": 19.41,
+          "end": 19.61,
+          "key": "princes",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 19.61,
+          "end": 19.87,
+          "key": "in",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 19.87,
+          "end": 19.99,
+          "key": "our",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "camp,",
+          "start": 19.99,
+          "end": 20.33,
+          "key": "camp",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 20.73,
+          "end": 20.89,
+          "key": "do",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 20.89,
+          "end": 21.09,
+          "key": "my",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 21.09,
+          "end": 21.33,
+          "key": "good",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "morrow",
+          "start": 21.33,
+          "end": 21.69,
+          "key": "morrow",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 21.69,
+          "end": 21.85,
+          "key": "to",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "them,",
+          "start": 21.85,
+          "end": 22.05,
+          "key": "them",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 25.03,
+          "end": 25.03,
+          "key": "and",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "anon",
+          "start": 25.03,
+          "end": 25.03,
+          "key": "anon",
+          "pieces": [
+            71
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "Henry.",
+          "start": 0.55,
+          "end": 0.95
+        },
+        {
+          "text": "'Tis",
+          "start": 0.95,
+          "end": 1.35
+        },
+        {
+          "text": "good",
+          "start": 1.75,
+          "end": 1.99
+        },
+        {
+          "text": "for",
+          "start": 1.99,
+          "end": 2.17
+        },
+        {
+          "text": "men",
+          "start": 2.17,
+          "end": 2.35
+        },
+        {
+          "text": "to",
+          "start": 2.35,
+          "end": 2.51
+        },
+        {
+          "text": "love",
+          "start": 2.51,
+          "end": 2.69
+        },
+        {
+          "text": "their",
+          "start": 2.69,
+          "end": 2.91
+        },
+        {
+          "text": "present",
+          "start": 2.91,
+          "end": 3.25
+        },
+        {
+          "text": "pains",
+          "start": 3.25,
+          "end": 3.53
+        },
+        {
+          "text": "Upon",
+          "start": 3.53,
+          "end": 3.81
+        },
+        {
+          "text": "example;",
+          "start": 3.81,
+          "end": 4.27
+        },
+        {
+          "text": "so",
+          "start": 4.51,
+          "end": 4.79
+        },
+        {
+          "text": "the",
+          "start": 4.79,
+          "end": 4.93
+        },
+        {
+          "text": "spirit",
+          "start": 4.93,
+          "end": 5.19
+        },
+        {
+          "text": "is",
+          "start": 5.19,
+          "end": 5.41
+        },
+        {
+          "text": "eased;",
+          "start": 5.41,
+          "end": 5.77
+        },
+        {
+          "text": "And",
+          "start": 6.19,
+          "end": 6.33
+        },
+        {
+          "text": "when",
+          "start": 6.33,
+          "end": 6.45
+        },
+        {
+          "text": "the",
+          "start": 6.45,
+          "end": 6.57
+        },
+        {
+          "text": "mind",
+          "start": 6.57,
+          "end": 6.81
+        },
+        {
+          "text": "is",
+          "start": 6.81,
+          "end": 6.99
+        },
+        {
+          "text": "quick'ned,",
+          "start": 6.99,
+          "end": 7.24
+        },
+        {
+          "text": "out",
+          "start": 7.49,
+          "end": 7.59
+        },
+        {
+          "text": "of",
+          "start": 7.59,
+          "end": 7.71
+        },
+        {
+          "text": "doubt,",
+          "start": 7.71,
+          "end": 7.95
+        },
+        {
+          "text": "The",
+          "start": 8.27,
+          "end": 8.39
+        },
+        {
+          "text": "organs,",
+          "start": 8.39,
+          "end": 8.79
+        },
+        {
+          "text": "though",
+          "start": 9.03,
+          "end": 9.15
+        },
+        {
+          "text": "defunct",
+          "start": 9.15,
+          "end": 9.49
+        },
+        {
+          "text": "and",
+          "start": 9.49,
+          "end": 9.73
+        },
+        {
+          "text": "dead",
+          "start": 9.73,
+          "end": 9.93
+        },
+        {
+          "text": "before,",
+          "start": 9.93,
+          "end": 10.35
+        },
+        {
+          "text": "Break",
+          "start": 10.55,
+          "end": 10.67
+        },
+        {
+          "text": "up",
+          "start": 10.67,
+          "end": 10.83
+        },
+        {
+          "text": "their",
+          "start": 10.83,
+          "end": 10.99
+        },
+        {
+          "text": "drowsy",
+          "start": 10.99,
+          "end": 11.41
+        },
+        {
+          "text": "grave",
+          "start": 11.41,
+          "end": 11.69
+        },
+        {
+          "text": "and",
+          "start": 11.69,
+          "end": 12.01
+        },
+        {
+          "text": "newly",
+          "start": 12.01,
+          "end": 12.27
+        },
+        {
+          "text": "move,",
+          "start": 12.27,
+          "end": 12.77
+        },
+        {
+          "text": "With",
+          "start": 13.13,
+          "end": 13.29
+        },
+        {
+          "text": "casted",
+          "start": 13.29,
+          "end": 13.79
+        },
+        {
+          "text": "slough",
+          "start": 13.79,
+          "end": 13.93
+        },
+        {
+          "text": "and",
+          "start": 14.07,
+          "end": 14.33
+        },
+        {
+          "text": "fresh",
+          "start": 14.33,
+          "end": 14.59
+        },
+        {
+          "text": "legerity.",
+          "start": 14.59,
+          "end": 15.15
+        },
+        {
+          "text": "Lend",
+          "start": 15.95,
+          "end": 16.03
+        },
+        {
+          "text": "me",
+          "start": 16.03,
+          "end": 16.17
+        },
+        {
+          "text": "thy",
+          "start": 16.17,
+          "end": 16.33
+        },
+        {
+          "text": "cloak,",
+          "start": 16.33,
+          "end": 16.63
+        },
+        {
+          "text": "Sir",
+          "start": 16.79,
+          "end": 16.87
+        },
+        {
+          "text": "Thomas.",
+          "start": 16.87,
+          "end": 17.21
+        },
+        {
+          "text": "Brothers",
+          "start": 18.15,
+          "end": 18.15
+        },
+        {
+          "text": "both,",
+          "start": 18.15,
+          "end": 18.47
+        },
+        {
+          "text": "Commend",
+          "start": 18.73,
+          "end": 18.89
+        },
+        {
+          "text": "me",
+          "start": 18.89,
+          "end": 19.15
+        },
+        {
+          "text": "to",
+          "start": 19.15,
+          "end": 19.29
+        },
+        {
+          "text": "the",
+          "start": 19.29,
+          "end": 19.41
+        },
+        {
+          "text": "princes",
+          "start": 19.41,
+          "end": 19.61
+        },
+        {
+          "text": "in",
+          "start": 19.61,
+          "end": 19.87
+        },
+        {
+          "text": "our",
+          "start": 19.87,
+          "end": 19.99
+        },
+        {
+          "text": "camp;",
+          "start": 19.99,
+          "end": 20.33
+        },
+        {
+          "text": "Do",
+          "start": 20.73,
+          "end": 20.89
+        },
+        {
+          "text": "my",
+          "start": 20.89,
+          "end": 21.09
+        },
+        {
+          "text": "good",
+          "start": 21.09,
+          "end": 21.33
+        },
+        {
+          "text": "morrow",
+          "start": 21.33,
+          "end": 21.69
+        },
+        {
+          "text": "to",
+          "start": 21.69,
+          "end": 21.85
+        },
+        {
+          "text": "them,",
+          "start": 21.85,
+          "end": 22.05
+        },
+        {
+          "text": "and",
+          "start": 25.03,
+          "end": 25.03
+        },
+        {
+          "text": "anon",
+          "start": 25.03,
+          "end": 25.03
+        },
+        {
+          "text": "Desire",
+          "start": 25.03,
+          "end": 25.03
+        },
+        {
+          "text": "them",
+          "start": 25.03,
+          "end": 25.03
+        },
+        {
+          "text": "all",
+          "start": 25.03,
+          "end": 25.03
+        },
+        {
+          "text": "to",
+          "start": 25.03,
+          "end": 25.03
+        },
+        {
+          "text": "my",
+          "start": 25.03,
+          "end": 25.03
+        },
+        {
+          "text": "pavilion.",
+          "start": 25.03,
+          "end": 25.03
+        }
+      ],
+      "stats": {
+        "expected_words": 78,
+        "heard_words": 72,
+        "matched_words": 69
+      },
+      "match_ratio": 0.8846153846153846,
+      "rejection_reasons": [],
+      "seconds": 1.5141663504764438
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "dd32e04ed824ae1efbfc8d6de52753bf9f6a9f4865d81e0edd5f3b8628431a2f",
+  "selected_reasons": []
+}

@@ -1,0 +1,343 @@
+{
+  "complete": true,
+  "signature": "77a9c00862438706001c2805f552d714da56adfb6cedca46b71784f1caac08a3",
+  "attempts": [
+    {
+      "asr_seconds": 0.24982991348952055,
+      "alignment_seconds": 0.00044114328920841217,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Erpingham. Shall I attend your Grace?",
+        "hotwords": "Erpingham, Shall, I, Grace"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Erpingham, Shall, I, Grace",
+          "start": 0.18,
+          "end": 1.86,
+          "words": [
+            {
+              "text": " Erpingham,",
+              "start": 0.18,
+              "end": 0.96,
+              "probability": 0.4237874348958333
+            },
+            {
+              "text": " Shall,",
+              "start": 1.24,
+              "end": 1.44,
+              "probability": 0.0272674560546875
+            },
+            {
+              "text": " I,",
+              "start": 1.52,
+              "end": 1.56,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " Grace",
+              "start": 1.6,
+              "end": 1.86,
+              "probability": 2.1457672119140625e-06
+            }
+          ]
+        },
+        {
+          "text": " shall I attend your Grace?",
+          "start": 1.86,
+          "end": 2.12,
+          "words": [
+            {
+              "text": " shall",
+              "start": 1.86,
+              "end": 1.86,
+              "probability": 1.8477439880371094e-06
+            },
+            {
+              "text": " I",
+              "start": 1.86,
+              "end": 1.86,
+              "probability": 0.004299163818359375
+            },
+            {
+              "text": " attend",
+              "start": 1.86,
+              "end": 1.86,
+              "probability": 0.00026988983154296875
+            },
+            {
+              "text": " your",
+              "start": 1.86,
+              "end": 1.86,
+              "probability": 0.020294189453125
+            },
+            {
+              "text": " Grace?",
+              "start": 1.86,
+              "end": 2.12,
+              "probability": 0.11065673828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Erpingham,",
+          "start": 0.18,
+          "end": 0.96
+        },
+        {
+          "raw": "Shall,",
+          "start": 1.24,
+          "end": 1.44
+        },
+        {
+          "raw": "I,",
+          "start": 1.52,
+          "end": 1.56
+        },
+        {
+          "raw": "Grace",
+          "start": 1.6,
+          "end": 1.86
+        },
+        {
+          "raw": "shall",
+          "start": 1.86,
+          "end": 1.86
+        },
+        {
+          "raw": "I",
+          "start": 1.86,
+          "end": 1.86
+        },
+        {
+          "raw": "attend",
+          "start": 1.86,
+          "end": 1.86
+        },
+        {
+          "raw": "your",
+          "start": 1.86,
+          "end": 1.86
+        },
+        {
+          "raw": "Grace?",
+          "start": 1.86,
+          "end": 2.12
+        }
+      ],
+      "expected_tokens": [
+        "Erpingham.",
+        "Shall",
+        "I",
+        "attend",
+        "your",
+        "Grace?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "insert",
+          1,
+          1,
+          1,
+          4
+        ],
+        [
+          "equal",
+          1,
+          6,
+          4,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          1,
+          1,
+          1,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Erpingham,",
+          "start": 0.18,
+          "end": 0.96,
+          "key": "erpingham",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Shall,",
+          "start": 1.24,
+          "end": 1.44,
+          "key": "shall",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 1.52,
+          "end": 1.56,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Grace",
+          "start": 1.6,
+          "end": 1.86,
+          "key": "grace",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 1.86,
+          "end": 1.86,
+          "key": "shall",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.86,
+          "end": 1.86,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "attend",
+          "start": 1.86,
+          "end": 1.86,
+          "key": "attend",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.86,
+          "end": 1.86,
+          "key": "your",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Grace?",
+          "start": 1.86,
+          "end": 2.12,
+          "key": "grace",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Erpingham.",
+          "start": 0.18,
+          "end": 0.96
+        },
+        {
+          "text": "Shall",
+          "start": 1.86,
+          "end": 1.86
+        },
+        {
+          "text": "I",
+          "start": 1.86,
+          "end": 1.86
+        },
+        {
+          "text": "attend",
+          "start": 1.86,
+          "end": 1.86
+        },
+        {
+          "text": "your",
+          "start": 1.86,
+          "end": 1.86
+        },
+        {
+          "text": "Grace?",
+          "start": 1.86,
+          "end": 2.12
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 9,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.25045632757246494
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8e63d29920c16200d5f2f1d8bc38788e2a0c621b0e4553becdd65d62f27d0eba",
+  "selected_reasons": []
+}

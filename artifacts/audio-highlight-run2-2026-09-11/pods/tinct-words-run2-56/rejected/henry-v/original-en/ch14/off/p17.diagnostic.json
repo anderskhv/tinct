@@ -1,0 +1,299 @@
+{
+  "complete": true,
+  "signature": "e041b41043756b82ef06822aacaf658d38134693cb1cca98d6ffd1f5c25b3d81",
+  "attempts": [
+    {
+      "asr_seconds": 0.22125135827809572,
+      "alignment_seconds": 0.00048371125012636185,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Pistol, trails dethough the Poissant Pike.",
+          "start": 0.05,
+          "end": 2.43,
+          "words": [
+            {
+              "text": " Pistol,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.564453125
+            },
+            {
+              "text": " trails",
+              "start": 1.15,
+              "end": 1.37,
+              "probability": 0.560546875
+            },
+            {
+              "text": " dethough",
+              "start": 1.37,
+              "end": 1.75,
+              "probability": 0.58441162109375
+            },
+            {
+              "text": " the",
+              "start": 1.75,
+              "end": 1.89,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " Poissant",
+              "start": 1.89,
+              "end": 2.21,
+              "probability": 0.4678548177083333
+            },
+            {
+              "text": " Pike.",
+              "start": 2.21,
+              "end": 2.43,
+              "probability": 0.89306640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pistol,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "trails",
+          "start": 1.15,
+          "end": 1.37
+        },
+        {
+          "raw": "dethough",
+          "start": 1.37,
+          "end": 1.75
+        },
+        {
+          "raw": "the",
+          "start": 1.75,
+          "end": 1.89
+        },
+        {
+          "raw": "Poissant",
+          "start": 1.89,
+          "end": 2.21
+        },
+        {
+          "raw": "Pike.",
+          "start": 2.21,
+          "end": 2.43
+        }
+      ],
+      "expected_tokens": [
+        "Pistol.",
+        "Trail'st",
+        "thou",
+        "the",
+        "puissant",
+        "pike?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "equal",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pistol,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "pistol",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "trails",
+          "start": 1.15,
+          "end": 1.37,
+          "key": "trails",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "dethough",
+          "start": 1.37,
+          "end": 1.75,
+          "key": "dethough",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.75,
+          "end": 1.89,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Poissant",
+          "start": 1.89,
+          "end": 2.21,
+          "key": "poissant",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Pike.",
+          "start": 2.21,
+          "end": 2.43,
+          "key": "pike",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Pistol.",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "Trail'st",
+          "start": 0.71,
+          "end": 1.23
+        },
+        {
+          "text": "thou",
+          "start": 1.23,
+          "end": 1.49
+        },
+        {
+          "text": "the",
+          "start": 1.75,
+          "end": 1.89
+        },
+        {
+          "text": "puissant",
+          "start": 1.89,
+          "end": 2.05
+        },
+        {
+          "text": "pike?",
+          "start": 2.21,
+          "end": 2.43
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 3
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.22187595441937447
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9e4d0a1a11d44dcf2946784307ebf4141984ece8d5525dbaac9025387bac7e98",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

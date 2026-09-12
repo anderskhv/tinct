@@ -1,0 +1,214 @@
+{
+  "complete": true,
+  "signature": "eccd7824ce7c2e257569434fef3be730ce3076df95a9f5deec5550f18dc2a18c",
+  "attempts": [
+    {
+      "asr_seconds": 0.13770918548107147,
+      "alignment_seconds": 0.0003706514835357666,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Flulan and Gower.",
+          "start": 0.11,
+          "end": 1.55,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.11,
+              "end": 0.65,
+              "probability": 0.923828125
+            },
+            {
+              "text": " Flulan",
+              "start": 0.65,
+              "end": 1.09,
+              "probability": 0.5594075520833334
+            },
+            {
+              "text": " and",
+              "start": 1.09,
+              "end": 1.25,
+              "probability": 0.92578125
+            },
+            {
+              "text": " Gower.",
+              "start": 1.25,
+              "end": 1.55,
+              "probability": 0.91455078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "raw": "Flulan",
+          "start": 0.65,
+          "end": 1.09
+        },
+        {
+          "raw": "and",
+          "start": 1.09,
+          "end": 1.25
+        },
+        {
+          "raw": "Gower.",
+          "start": 1.25,
+          "end": 1.55
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Fluellen",
+        "and",
+        "Gower."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          4,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.65,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Flulan",
+          "start": 0.65,
+          "end": 1.09,
+          "key": "flulan",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.09,
+          "end": 1.25,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Gower.",
+          "start": 1.25,
+          "end": 1.55,
+          "key": "gower",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "text": "Fluellen",
+          "start": 0.65,
+          "end": 0.87
+        },
+        {
+          "text": "and",
+          "start": 1.09,
+          "end": 1.25
+        },
+        {
+          "text": "Gower.",
+          "start": 1.25,
+          "end": 1.55
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13819880783557892
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "75f8cc73d4727d36adf7cdfd1bb5d05728765995d30d1c9f70f0a0169c006945",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

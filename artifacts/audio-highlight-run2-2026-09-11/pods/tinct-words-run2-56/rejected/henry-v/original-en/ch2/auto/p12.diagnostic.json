@@ -1,0 +1,4834 @@
+{
+  "complete": true,
+  "signature": "5acddb53a0ef7df343e2c047596eba96f46d68e83168a47c0f7c787234b57cb8",
+  "attempts": [
+    {
+      "asr_seconds": 0.36340478248894215,
+      "alignment_seconds": 0.0011165449395775795,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Ely. Awake remembrance of these valiant dead, And with your puissant arm renew their feats. You are their heir; you sit upon their throne; The blood and courage that renowned them Runs in your veins; and my thrice-puissant liege Is in the very May-morn of his youth, Ripe for exploits and mighty enterprises.",
+        "hotwords": "Ely, Awake, Runs, Is, May-morn, Ripe"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And my thrice-puissant liege Is in the very May-morn of his youth, Ripe for exploits and mighty enterprises.",
+          "start": 11.59,
+          "end": 18.45,
+          "words": [
+            {
+              "text": " And",
+              "start": 11.59,
+              "end": 12.21,
+              "probability": 0.0008912086486816406
+            },
+            {
+              "text": " my",
+              "start": 12.21,
+              "end": 12.83,
+              "probability": 0.0985107421875
+            },
+            {
+              "text": " thrice",
+              "start": 12.83,
+              "end": 13.27,
+              "probability": 0.832763671875
+            },
+            {
+              "text": "-puissant",
+              "start": 13.27,
+              "end": 13.67,
+              "probability": 0.4931070804595947
+            },
+            {
+              "text": " liege",
+              "start": 13.67,
+              "end": 14.07,
+              "probability": 0.83642578125
+            },
+            {
+              "text": " Is",
+              "start": 14.07,
+              "end": 14.25,
+              "probability": 0.0186309814453125
+            },
+            {
+              "text": " in",
+              "start": 14.25,
+              "end": 14.39,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 14.39,
+              "end": 14.51,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " very",
+              "start": 14.51,
+              "end": 14.77,
+              "probability": 0.998046875
+            },
+            {
+              "text": " May",
+              "start": 14.77,
+              "end": 15.05,
+              "probability": 0.2205810546875
+            },
+            {
+              "text": "-morn",
+              "start": 15.05,
+              "end": 15.29,
+              "probability": 0.4513448079427083
+            },
+            {
+              "text": " of",
+              "start": 15.29,
+              "end": 15.43,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " his",
+              "start": 15.43,
+              "end": 15.57,
+              "probability": 0.94921875
+            },
+            {
+              "text": " youth,",
+              "start": 15.57,
+              "end": 15.95,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " Ripe",
+              "start": 16.47,
+              "end": 16.57,
+              "probability": 0.4959716796875
+            },
+            {
+              "text": " for",
+              "start": 16.57,
+              "end": 16.79,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " exploits",
+              "start": 16.79,
+              "end": 17.23,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " and",
+              "start": 17.23,
+              "end": 17.57,
+              "probability": 0.935546875
+            },
+            {
+              "text": " mighty",
+              "start": 17.57,
+              "end": 17.83,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " enterprises.",
+              "start": 17.83,
+              "end": 18.45,
+              "probability": 0.953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 11.59,
+          "end": 12.21
+        },
+        {
+          "raw": "my",
+          "start": 12.21,
+          "end": 12.83
+        },
+        {
+          "raw": "thrice",
+          "start": 12.83,
+          "end": 13.27
+        },
+        {
+          "raw": "-puissant",
+          "start": 13.27,
+          "end": 13.67
+        },
+        {
+          "raw": "liege",
+          "start": 13.67,
+          "end": 14.07
+        },
+        {
+          "raw": "Is",
+          "start": 14.07,
+          "end": 14.25
+        },
+        {
+          "raw": "in",
+          "start": 14.25,
+          "end": 14.39
+        },
+        {
+          "raw": "the",
+          "start": 14.39,
+          "end": 14.51
+        },
+        {
+          "raw": "very",
+          "start": 14.51,
+          "end": 14.77
+        },
+        {
+          "raw": "May",
+          "start": 14.77,
+          "end": 15.05
+        },
+        {
+          "raw": "-morn",
+          "start": 15.05,
+          "end": 15.29
+        },
+        {
+          "raw": "of",
+          "start": 15.29,
+          "end": 15.43
+        },
+        {
+          "raw": "his",
+          "start": 15.43,
+          "end": 15.57
+        },
+        {
+          "raw": "youth,",
+          "start": 15.57,
+          "end": 15.95
+        },
+        {
+          "raw": "Ripe",
+          "start": 16.47,
+          "end": 16.57
+        },
+        {
+          "raw": "for",
+          "start": 16.57,
+          "end": 16.79
+        },
+        {
+          "raw": "exploits",
+          "start": 16.79,
+          "end": 17.23
+        },
+        {
+          "raw": "and",
+          "start": 17.23,
+          "end": 17.57
+        },
+        {
+          "raw": "mighty",
+          "start": 17.57,
+          "end": 17.83
+        },
+        {
+          "raw": "enterprises.",
+          "start": 17.83,
+          "end": 18.45
+        }
+      ],
+      "expected_tokens": [
+        "Ely.",
+        "Awake",
+        "remembrance",
+        "of",
+        "these",
+        "valiant",
+        "dead,",
+        "And",
+        "with",
+        "your",
+        "puissant",
+        "arm",
+        "renew",
+        "their",
+        "feats.",
+        "You",
+        "are",
+        "their",
+        "heir;",
+        "you",
+        "sit",
+        "upon",
+        "their",
+        "throne;",
+        "The",
+        "blood",
+        "and",
+        "courage",
+        "that",
+        "renowned",
+        "them",
+        "Runs",
+        "in",
+        "your",
+        "veins;",
+        "and",
+        "my",
+        "thrice-puissant",
+        "liege",
+        "Is",
+        "in",
+        "the",
+        "very",
+        "May-morn",
+        "of",
+        "his",
+        "youth,",
+        "Ripe",
+        "for",
+        "exploits",
+        "and",
+        "mighty",
+        "enterprises."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          35,
+          0,
+          0
+        ],
+        [
+          "equal",
+          35,
+          53,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 34,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          35,
+          0,
+          0
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 11.59,
+          "end": 12.21,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 12.21,
+          "end": 12.83,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thrice -puissant",
+          "start": 12.83,
+          "end": 13.67,
+          "key": "thricepuissant",
+          "pieces": [
+            2,
+            3
+          ]
+        },
+        {
+          "raw": "liege",
+          "start": 13.67,
+          "end": 14.07,
+          "key": "liege",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 14.07,
+          "end": 14.25,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 14.25,
+          "end": 14.39,
+          "key": "in",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 14.39,
+          "end": 14.51,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 14.51,
+          "end": 14.77,
+          "key": "very",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "May -morn",
+          "start": 14.77,
+          "end": 15.29,
+          "key": "maymorn",
+          "pieces": [
+            9,
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 15.29,
+          "end": 15.43,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 15.43,
+          "end": 15.57,
+          "key": "his",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "youth,",
+          "start": 15.57,
+          "end": 15.95,
+          "key": "youth",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Ripe",
+          "start": 16.47,
+          "end": 16.57,
+          "key": "ripe",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 16.57,
+          "end": 16.79,
+          "key": "for",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "exploits",
+          "start": 16.79,
+          "end": 17.23,
+          "key": "exploits",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 17.23,
+          "end": 17.57,
+          "key": "and",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "mighty",
+          "start": 17.57,
+          "end": 17.83,
+          "key": "mighty",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "enterprises.",
+          "start": 17.83,
+          "end": 18.45,
+          "key": "enterprises",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 37,
+          "text": "thrice-puissant",
+          "heard": "thrice -puissant",
+          "heard_indexes": [
+            2,
+            3
+          ],
+          "start": 12.83,
+          "end": 13.67
+        },
+        {
+          "expected_index": 43,
+          "text": "May-morn",
+          "heard": "May -morn",
+          "heard_indexes": [
+            9,
+            10
+          ],
+          "start": 14.77,
+          "end": 15.29
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Ely.",
+          "start": 0.0,
+          "end": 5.795
+        },
+        {
+          "text": "Awake",
+          "start": 5.795,
+          "end": 8.692
+        },
+        {
+          "text": "remembrance",
+          "start": 8.692,
+          "end": 10.141
+        },
+        {
+          "text": "of",
+          "start": 10.141,
+          "end": 10.866
+        },
+        {
+          "text": "these",
+          "start": 10.866,
+          "end": 11.228
+        },
+        {
+          "text": "valiant",
+          "start": 11.228,
+          "end": 11.409
+        },
+        {
+          "text": "dead,",
+          "start": 11.409,
+          "end": 11.5
+        },
+        {
+          "text": "And",
+          "start": 11.5,
+          "end": 11.545
+        },
+        {
+          "text": "with",
+          "start": 11.545,
+          "end": 11.567
+        },
+        {
+          "text": "your",
+          "start": 11.567,
+          "end": 11.579
+        },
+        {
+          "text": "puissant",
+          "start": 11.579,
+          "end": 11.585
+        },
+        {
+          "text": "arm",
+          "start": 11.585,
+          "end": 11.588
+        },
+        {
+          "text": "renew",
+          "start": 11.588,
+          "end": 11.589
+        },
+        {
+          "text": "their",
+          "start": 11.589,
+          "end": 11.59
+        },
+        {
+          "text": "feats.",
+          "start": 11.59,
+          "end": 11.59
+        },
+        {
+          "text": "You",
+          "start": 11.59,
+          "end": 11.59
+        },
+        {
+          "text": "are",
+          "start": 11.59,
+          "end": 11.59
+        },
+        {
+          "text": "their",
+          "start": 11.59,
+          "end": 11.59
+        },
+        {
+          "text": "heir;",
+          "start": 11.59,
+          "end": 11.59
+        },
+        {
+          "text": "you",
+          "start": 11.59,
+          "end": 11.59
+        },
+        {
+          "text": "sit",
+          "start": 11.59,
+          "end": 11.59
+        },
+        {
+          "text": "upon",
+          "start": 11.59,
+          "end": 11.59
+        },
+        {
+          "text": "their",
+          "start": 11.59,
+          "end": 11.59
+        },
+        {
+          "text": "throne;",
+          "start": 11.59,
+          "end": 11.59
+        },
+        {
+          "text": "The",
+          "start": 11.59,
+          "end": 11.59
+        },
+        {
+          "text": "blood",
+          "start": 11.59,
+          "end": 11.59
+        },
+        {
+          "text": "and",
+          "start": 11.59,
+          "end": 11.59
+        },
+        {
+          "text": "courage",
+          "start": 11.59,
+          "end": 11.59
+        },
+        {
+          "text": "that",
+          "start": 11.59,
+          "end": 11.59
+        },
+        {
+          "text": "renowned",
+          "start": 11.59,
+          "end": 11.59
+        },
+        {
+          "text": "them",
+          "start": 11.59,
+          "end": 11.59
+        },
+        {
+          "text": "Runs",
+          "start": 11.59,
+          "end": 11.59
+        },
+        {
+          "text": "in",
+          "start": 11.59,
+          "end": 11.59
+        },
+        {
+          "text": "your",
+          "start": 11.59,
+          "end": 11.59
+        },
+        {
+          "text": "veins;",
+          "start": 11.59,
+          "end": 11.59
+        },
+        {
+          "text": "and",
+          "start": 11.59,
+          "end": 12.21
+        },
+        {
+          "text": "my",
+          "start": 12.21,
+          "end": 12.83
+        },
+        {
+          "text": "thrice-puissant",
+          "start": 12.83,
+          "end": 13.67
+        },
+        {
+          "text": "liege",
+          "start": 13.67,
+          "end": 14.07
+        },
+        {
+          "text": "Is",
+          "start": 14.07,
+          "end": 14.25
+        },
+        {
+          "text": "in",
+          "start": 14.25,
+          "end": 14.39
+        },
+        {
+          "text": "the",
+          "start": 14.39,
+          "end": 14.51
+        },
+        {
+          "text": "very",
+          "start": 14.51,
+          "end": 14.77
+        },
+        {
+          "text": "May-morn",
+          "start": 14.77,
+          "end": 15.29
+        },
+        {
+          "text": "of",
+          "start": 15.29,
+          "end": 15.43
+        },
+        {
+          "text": "his",
+          "start": 15.43,
+          "end": 15.57
+        },
+        {
+          "text": "youth,",
+          "start": 15.57,
+          "end": 15.95
+        },
+        {
+          "text": "Ripe",
+          "start": 16.47,
+          "end": 16.57
+        },
+        {
+          "text": "for",
+          "start": 16.57,
+          "end": 16.79
+        },
+        {
+          "text": "exploits",
+          "start": 16.79,
+          "end": 17.23
+        },
+        {
+          "text": "and",
+          "start": 17.23,
+          "end": 17.57
+        },
+        {
+          "text": "mighty",
+          "start": 17.57,
+          "end": 17.83
+        },
+        {
+          "text": "enterprises.",
+          "start": 17.83,
+          "end": 18.45
+        }
+      ],
+      "stats": {
+        "expected_words": 53,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 0.33962264150943394,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.36473455745726824
+    },
+    {
+      "asr_seconds": 0.6334218494594097,
+      "alignment_seconds": 0.0008323220536112785,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Ely, Awake, Runs, Is, May-morn, Ripe"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Ely, Awake Remembrance Of These Valiant Dead, And With Your Pwissant Arm Renew Their",
+          "start": 0.05,
+          "end": 5.13,
+          "words": [
+            {
+              "text": " Ely,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.076416015625
+            },
+            {
+              "text": " Awake",
+              "start": 0.97,
+              "end": 1.29,
+              "probability": 0.5792236328125
+            },
+            {
+              "text": " Remembrance",
+              "start": 1.29,
+              "end": 1.87,
+              "probability": 0.5147247314453125
+            },
+            {
+              "text": " Of",
+              "start": 1.87,
+              "end": 2.03,
+              "probability": 0.0859375
+            },
+            {
+              "text": " These",
+              "start": 2.03,
+              "end": 2.23,
+              "probability": 0.919921875
+            },
+            {
+              "text": " Valiant",
+              "start": 2.23,
+              "end": 2.65,
+              "probability": 0.7734375
+            },
+            {
+              "text": " Dead,",
+              "start": 2.65,
+              "end": 3.01,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " And",
+              "start": 3.53,
+              "end": 3.61,
+              "probability": 0.80615234375
+            },
+            {
+              "text": " With",
+              "start": 3.61,
+              "end": 3.73,
+              "probability": 0.833984375
+            },
+            {
+              "text": " Your",
+              "start": 3.73,
+              "end": 3.89,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " Pwissant",
+              "start": 3.89,
+              "end": 4.29,
+              "probability": 0.509796142578125
+            },
+            {
+              "text": " Arm",
+              "start": 4.29,
+              "end": 4.59,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " Renew",
+              "start": 4.59,
+              "end": 4.85,
+              "probability": 0.857421875
+            },
+            {
+              "text": " Their",
+              "start": 4.85,
+              "end": 5.13,
+              "probability": 0.98681640625
+            }
+          ]
+        },
+        {
+          "text": " Feats You Are Their Air, You Sit Upon Their Throne,",
+          "start": 5.13,
+          "end": 8.55,
+          "words": [
+            {
+              "text": " Feats",
+              "start": 5.13,
+              "end": 5.57,
+              "probability": 0.76416015625
+            },
+            {
+              "text": " You",
+              "start": 5.57,
+              "end": 6.35,
+              "probability": 0.06964111328125
+            },
+            {
+              "text": " Are",
+              "start": 6.35,
+              "end": 6.49,
+              "probability": 0.82568359375
+            },
+            {
+              "text": " Their",
+              "start": 6.49,
+              "end": 6.69,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " Air,",
+              "start": 6.69,
+              "end": 7.01,
+              "probability": 0.57080078125
+            },
+            {
+              "text": " You",
+              "start": 7.51,
+              "end": 7.65,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " Sit",
+              "start": 7.65,
+              "end": 7.81,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Upon",
+              "start": 7.81,
+              "end": 8.01,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Their",
+              "start": 8.01,
+              "end": 8.23,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Throne,",
+              "start": 8.23,
+              "end": 8.55,
+              "probability": 0.90185546875
+            }
+          ]
+        },
+        {
+          "text": " The Blood And Courage That Renowned Them Runs In Your Veins,",
+          "start": 9.11,
+          "end": 12.17,
+          "words": [
+            {
+              "text": " The",
+              "start": 9.11,
+              "end": 9.23,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Blood",
+              "start": 9.23,
+              "end": 9.55,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " And",
+              "start": 9.55,
+              "end": 9.75,
+              "probability": 0.82421875
+            },
+            {
+              "text": " Courage",
+              "start": 9.75,
+              "end": 10.03,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " That",
+              "start": 10.03,
+              "end": 10.37,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " Renowned",
+              "start": 10.37,
+              "end": 10.75,
+              "probability": 0.888671875
+            },
+            {
+              "text": " Them",
+              "start": 10.75,
+              "end": 10.99,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Runs",
+              "start": 10.99,
+              "end": 11.27,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " In",
+              "start": 11.27,
+              "end": 11.55,
+              "probability": 0.98046875
+            },
+            {
+              "text": " Your",
+              "start": 11.55,
+              "end": 11.69,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Veins,",
+              "start": 11.69,
+              "end": 12.17,
+              "probability": 0.90380859375
+            }
+          ]
+        },
+        {
+          "text": " And My Thrice Pwissant Leech Is In The Very Maymorn Of His Youth,",
+          "start": 12.65,
+          "end": 15.93,
+          "words": [
+            {
+              "text": " And",
+              "start": 12.65,
+              "end": 12.73,
+              "probability": 0.97265625
+            },
+            {
+              "text": " My",
+              "start": 12.73,
+              "end": 12.89,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Thrice",
+              "start": 12.89,
+              "end": 13.23,
+              "probability": 0.927978515625
+            },
+            {
+              "text": " Pwissant",
+              "start": 13.23,
+              "end": 13.69,
+              "probability": 0.84246826171875
+            },
+            {
+              "text": " Leech",
+              "start": 13.69,
+              "end": 14.05,
+              "probability": 0.3809814453125
+            },
+            {
+              "text": " Is",
+              "start": 14.05,
+              "end": 14.25,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " In",
+              "start": 14.25,
+              "end": 14.41,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " The",
+              "start": 14.41,
+              "end": 14.51,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Very",
+              "start": 14.51,
+              "end": 14.79,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " Maymorn",
+              "start": 14.79,
+              "end": 15.29,
+              "probability": 0.634521484375
+            },
+            {
+              "text": " Of",
+              "start": 15.29,
+              "end": 15.43,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " His",
+              "start": 15.43,
+              "end": 15.57,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Youth,",
+              "start": 15.57,
+              "end": 15.93,
+              "probability": 0.98681640625
+            }
+          ]
+        },
+        {
+          "text": " Ripe For Exploits And Mighty Enterprises",
+          "start": 16.51,
+          "end": 18.39,
+          "words": [
+            {
+              "text": " Ripe",
+              "start": 16.51,
+              "end": 16.57,
+              "probability": 0.4973602294921875
+            },
+            {
+              "text": " For",
+              "start": 16.57,
+              "end": 16.81,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " Exploits",
+              "start": 16.81,
+              "end": 17.37,
+              "probability": 0.9733072916666666
+            },
+            {
+              "text": " And",
+              "start": 17.37,
+              "end": 17.57,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " Mighty",
+              "start": 17.57,
+              "end": 17.85,
+              "probability": 0.982421875
+            },
+            {
+              "text": " Enterprises",
+              "start": 17.85,
+              "end": 18.39,
+              "probability": 0.9697265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ely,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Awake",
+          "start": 0.97,
+          "end": 1.29
+        },
+        {
+          "raw": "Remembrance",
+          "start": 1.29,
+          "end": 1.87
+        },
+        {
+          "raw": "Of",
+          "start": 1.87,
+          "end": 2.03
+        },
+        {
+          "raw": "These",
+          "start": 2.03,
+          "end": 2.23
+        },
+        {
+          "raw": "Valiant",
+          "start": 2.23,
+          "end": 2.65
+        },
+        {
+          "raw": "Dead,",
+          "start": 2.65,
+          "end": 3.01
+        },
+        {
+          "raw": "And",
+          "start": 3.53,
+          "end": 3.61
+        },
+        {
+          "raw": "With",
+          "start": 3.61,
+          "end": 3.73
+        },
+        {
+          "raw": "Your",
+          "start": 3.73,
+          "end": 3.89
+        },
+        {
+          "raw": "Pwissant",
+          "start": 3.89,
+          "end": 4.29
+        },
+        {
+          "raw": "Arm",
+          "start": 4.29,
+          "end": 4.59
+        },
+        {
+          "raw": "Renew",
+          "start": 4.59,
+          "end": 4.85
+        },
+        {
+          "raw": "Their",
+          "start": 4.85,
+          "end": 5.13
+        },
+        {
+          "raw": "Feats",
+          "start": 5.13,
+          "end": 5.57
+        },
+        {
+          "raw": "You",
+          "start": 5.57,
+          "end": 6.35
+        },
+        {
+          "raw": "Are",
+          "start": 6.35,
+          "end": 6.49
+        },
+        {
+          "raw": "Their",
+          "start": 6.49,
+          "end": 6.69
+        },
+        {
+          "raw": "Air,",
+          "start": 6.69,
+          "end": 7.01
+        },
+        {
+          "raw": "You",
+          "start": 7.51,
+          "end": 7.65
+        },
+        {
+          "raw": "Sit",
+          "start": 7.65,
+          "end": 7.81
+        },
+        {
+          "raw": "Upon",
+          "start": 7.81,
+          "end": 8.01
+        },
+        {
+          "raw": "Their",
+          "start": 8.01,
+          "end": 8.23
+        },
+        {
+          "raw": "Throne,",
+          "start": 8.23,
+          "end": 8.55
+        },
+        {
+          "raw": "The",
+          "start": 9.11,
+          "end": 9.23
+        },
+        {
+          "raw": "Blood",
+          "start": 9.23,
+          "end": 9.55
+        },
+        {
+          "raw": "And",
+          "start": 9.55,
+          "end": 9.75
+        },
+        {
+          "raw": "Courage",
+          "start": 9.75,
+          "end": 10.03
+        },
+        {
+          "raw": "That",
+          "start": 10.03,
+          "end": 10.37
+        },
+        {
+          "raw": "Renowned",
+          "start": 10.37,
+          "end": 10.75
+        },
+        {
+          "raw": "Them",
+          "start": 10.75,
+          "end": 10.99
+        },
+        {
+          "raw": "Runs",
+          "start": 10.99,
+          "end": 11.27
+        },
+        {
+          "raw": "In",
+          "start": 11.27,
+          "end": 11.55
+        },
+        {
+          "raw": "Your",
+          "start": 11.55,
+          "end": 11.69
+        },
+        {
+          "raw": "Veins,",
+          "start": 11.69,
+          "end": 12.17
+        },
+        {
+          "raw": "And",
+          "start": 12.65,
+          "end": 12.73
+        },
+        {
+          "raw": "My",
+          "start": 12.73,
+          "end": 12.89
+        },
+        {
+          "raw": "Thrice",
+          "start": 12.89,
+          "end": 13.23
+        },
+        {
+          "raw": "Pwissant",
+          "start": 13.23,
+          "end": 13.69
+        },
+        {
+          "raw": "Leech",
+          "start": 13.69,
+          "end": 14.05
+        },
+        {
+          "raw": "Is",
+          "start": 14.05,
+          "end": 14.25
+        },
+        {
+          "raw": "In",
+          "start": 14.25,
+          "end": 14.41
+        },
+        {
+          "raw": "The",
+          "start": 14.41,
+          "end": 14.51
+        },
+        {
+          "raw": "Very",
+          "start": 14.51,
+          "end": 14.79
+        },
+        {
+          "raw": "Maymorn",
+          "start": 14.79,
+          "end": 15.29
+        },
+        {
+          "raw": "Of",
+          "start": 15.29,
+          "end": 15.43
+        },
+        {
+          "raw": "His",
+          "start": 15.43,
+          "end": 15.57
+        },
+        {
+          "raw": "Youth,",
+          "start": 15.57,
+          "end": 15.93
+        },
+        {
+          "raw": "Ripe",
+          "start": 16.51,
+          "end": 16.57
+        },
+        {
+          "raw": "For",
+          "start": 16.57,
+          "end": 16.81
+        },
+        {
+          "raw": "Exploits",
+          "start": 16.81,
+          "end": 17.37
+        },
+        {
+          "raw": "And",
+          "start": 17.37,
+          "end": 17.57
+        },
+        {
+          "raw": "Mighty",
+          "start": 17.57,
+          "end": 17.85
+        },
+        {
+          "raw": "Enterprises",
+          "start": 17.85,
+          "end": 18.39
+        }
+      ],
+      "expected_tokens": [
+        "Ely.",
+        "Awake",
+        "remembrance",
+        "of",
+        "these",
+        "valiant",
+        "dead,",
+        "And",
+        "with",
+        "your",
+        "puissant",
+        "arm",
+        "renew",
+        "their",
+        "feats.",
+        "You",
+        "are",
+        "their",
+        "heir;",
+        "you",
+        "sit",
+        "upon",
+        "their",
+        "throne;",
+        "The",
+        "blood",
+        "and",
+        "courage",
+        "that",
+        "renowned",
+        "them",
+        "Runs",
+        "in",
+        "your",
+        "veins;",
+        "and",
+        "my",
+        "thrice-puissant",
+        "liege",
+        "Is",
+        "in",
+        "the",
+        "very",
+        "May-morn",
+        "of",
+        "his",
+        "youth,",
+        "Ripe",
+        "for",
+        "exploits",
+        "and",
+        "mighty",
+        "enterprises."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "equal",
+          11,
+          18,
+          11,
+          18
+        ],
+        [
+          "replace",
+          18,
+          19,
+          18,
+          19
+        ],
+        [
+          "equal",
+          19,
+          37,
+          19,
+          37
+        ],
+        [
+          "replace",
+          37,
+          39,
+          37,
+          40
+        ],
+        [
+          "equal",
+          39,
+          53,
+          40,
+          54
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 38,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "replace",
+          18,
+          19,
+          18,
+          19
+        ],
+        [
+          "replace",
+          37,
+          39,
+          37,
+          40
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ely,",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "ely",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Awake",
+          "start": 0.97,
+          "end": 1.29,
+          "key": "awake",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Remembrance",
+          "start": 1.29,
+          "end": 1.87,
+          "key": "remembrance",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 1.87,
+          "end": 2.03,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "These",
+          "start": 2.03,
+          "end": 2.23,
+          "key": "these",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Valiant",
+          "start": 2.23,
+          "end": 2.65,
+          "key": "valiant",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Dead,",
+          "start": 2.65,
+          "end": 3.01,
+          "key": "dead",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 3.53,
+          "end": 3.61,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "With",
+          "start": 3.61,
+          "end": 3.73,
+          "key": "with",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Your",
+          "start": 3.73,
+          "end": 3.89,
+          "key": "your",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Pwissant",
+          "start": 3.89,
+          "end": 4.29,
+          "key": "pwissant",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Arm",
+          "start": 4.29,
+          "end": 4.59,
+          "key": "arm",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Renew",
+          "start": 4.59,
+          "end": 4.85,
+          "key": "renew",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Their",
+          "start": 4.85,
+          "end": 5.13,
+          "key": "their",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Feats",
+          "start": 5.13,
+          "end": 5.57,
+          "key": "feats",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 5.57,
+          "end": 6.35,
+          "key": "you",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Are",
+          "start": 6.35,
+          "end": 6.49,
+          "key": "are",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Their",
+          "start": 6.49,
+          "end": 6.69,
+          "key": "their",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Air,",
+          "start": 6.69,
+          "end": 7.01,
+          "key": "air",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 7.51,
+          "end": 7.65,
+          "key": "you",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Sit",
+          "start": 7.65,
+          "end": 7.81,
+          "key": "sit",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Upon",
+          "start": 7.81,
+          "end": 8.01,
+          "key": "upon",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Their",
+          "start": 8.01,
+          "end": 8.23,
+          "key": "their",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Throne,",
+          "start": 8.23,
+          "end": 8.55,
+          "key": "throne",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 9.11,
+          "end": 9.23,
+          "key": "the",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Blood",
+          "start": 9.23,
+          "end": 9.55,
+          "key": "blood",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 9.55,
+          "end": 9.75,
+          "key": "and",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "Courage",
+          "start": 9.75,
+          "end": 10.03,
+          "key": "courage",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 10.03,
+          "end": 10.37,
+          "key": "that",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "Renowned",
+          "start": 10.37,
+          "end": 10.75,
+          "key": "renowned",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "Them",
+          "start": 10.75,
+          "end": 10.99,
+          "key": "them",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "Runs",
+          "start": 10.99,
+          "end": 11.27,
+          "key": "runs",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 11.27,
+          "end": 11.55,
+          "key": "in",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "Your",
+          "start": 11.55,
+          "end": 11.69,
+          "key": "your",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "Veins,",
+          "start": 11.69,
+          "end": 12.17,
+          "key": "veins",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 12.65,
+          "end": 12.73,
+          "key": "and",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 12.73,
+          "end": 12.89,
+          "key": "my",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "Thrice",
+          "start": 12.89,
+          "end": 13.23,
+          "key": "thrice",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "Pwissant",
+          "start": 13.23,
+          "end": 13.69,
+          "key": "pwissant",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "Leech",
+          "start": 13.69,
+          "end": 14.05,
+          "key": "leech",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 14.05,
+          "end": 14.25,
+          "key": "is",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 14.25,
+          "end": 14.41,
+          "key": "in",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 14.41,
+          "end": 14.51,
+          "key": "the",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "Very",
+          "start": 14.51,
+          "end": 14.79,
+          "key": "very",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "Maymorn",
+          "start": 14.79,
+          "end": 15.29,
+          "key": "maymorn",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 15.29,
+          "end": 15.43,
+          "key": "of",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "His",
+          "start": 15.43,
+          "end": 15.57,
+          "key": "his",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "Youth,",
+          "start": 15.57,
+          "end": 15.93,
+          "key": "youth",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "Ripe",
+          "start": 16.51,
+          "end": 16.57,
+          "key": "ripe",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 16.57,
+          "end": 16.81,
+          "key": "for",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "Exploits",
+          "start": 16.81,
+          "end": 17.37,
+          "key": "exploits",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 17.37,
+          "end": 17.57,
+          "key": "and",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "Mighty",
+          "start": 17.57,
+          "end": 17.85,
+          "key": "mighty",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "Enterprises",
+          "start": 17.85,
+          "end": 18.39,
+          "key": "enterprises",
+          "pieces": [
+            53
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Ely.",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Awake",
+          "start": 0.97,
+          "end": 1.29
+        },
+        {
+          "text": "remembrance",
+          "start": 1.29,
+          "end": 1.87
+        },
+        {
+          "text": "of",
+          "start": 1.87,
+          "end": 2.03
+        },
+        {
+          "text": "these",
+          "start": 2.03,
+          "end": 2.23
+        },
+        {
+          "text": "valiant",
+          "start": 2.23,
+          "end": 2.65
+        },
+        {
+          "text": "dead,",
+          "start": 2.65,
+          "end": 3.01
+        },
+        {
+          "text": "And",
+          "start": 3.53,
+          "end": 3.61
+        },
+        {
+          "text": "with",
+          "start": 3.61,
+          "end": 3.73
+        },
+        {
+          "text": "your",
+          "start": 3.73,
+          "end": 3.89
+        },
+        {
+          "text": "puissant",
+          "start": 3.89,
+          "end": 4.09
+        },
+        {
+          "text": "arm",
+          "start": 4.29,
+          "end": 4.59
+        },
+        {
+          "text": "renew",
+          "start": 4.59,
+          "end": 4.85
+        },
+        {
+          "text": "their",
+          "start": 4.85,
+          "end": 5.13
+        },
+        {
+          "text": "feats.",
+          "start": 5.13,
+          "end": 5.57
+        },
+        {
+          "text": "You",
+          "start": 5.57,
+          "end": 6.35
+        },
+        {
+          "text": "are",
+          "start": 6.35,
+          "end": 6.49
+        },
+        {
+          "text": "their",
+          "start": 6.49,
+          "end": 6.69
+        },
+        {
+          "text": "heir;",
+          "start": 6.69,
+          "end": 7.1
+        },
+        {
+          "text": "you",
+          "start": 7.51,
+          "end": 7.65
+        },
+        {
+          "text": "sit",
+          "start": 7.65,
+          "end": 7.81
+        },
+        {
+          "text": "upon",
+          "start": 7.81,
+          "end": 8.01
+        },
+        {
+          "text": "their",
+          "start": 8.01,
+          "end": 8.23
+        },
+        {
+          "text": "throne;",
+          "start": 8.23,
+          "end": 8.55
+        },
+        {
+          "text": "The",
+          "start": 9.11,
+          "end": 9.23
+        },
+        {
+          "text": "blood",
+          "start": 9.23,
+          "end": 9.55
+        },
+        {
+          "text": "and",
+          "start": 9.55,
+          "end": 9.75
+        },
+        {
+          "text": "courage",
+          "start": 9.75,
+          "end": 10.03
+        },
+        {
+          "text": "that",
+          "start": 10.03,
+          "end": 10.37
+        },
+        {
+          "text": "renowned",
+          "start": 10.37,
+          "end": 10.75
+        },
+        {
+          "text": "them",
+          "start": 10.75,
+          "end": 10.99
+        },
+        {
+          "text": "Runs",
+          "start": 10.99,
+          "end": 11.27
+        },
+        {
+          "text": "in",
+          "start": 11.27,
+          "end": 11.55
+        },
+        {
+          "text": "your",
+          "start": 11.55,
+          "end": 11.69
+        },
+        {
+          "text": "veins;",
+          "start": 11.69,
+          "end": 12.17
+        },
+        {
+          "text": "and",
+          "start": 12.65,
+          "end": 12.73
+        },
+        {
+          "text": "my",
+          "start": 12.73,
+          "end": 12.89
+        },
+        {
+          "text": "thrice-puissant",
+          "start": 12.89,
+          "end": 13.47
+        },
+        {
+          "text": "liege",
+          "start": 13.47,
+          "end": 13.76
+        },
+        {
+          "text": "Is",
+          "start": 14.05,
+          "end": 14.25
+        },
+        {
+          "text": "in",
+          "start": 14.25,
+          "end": 14.41
+        },
+        {
+          "text": "the",
+          "start": 14.41,
+          "end": 14.51
+        },
+        {
+          "text": "very",
+          "start": 14.51,
+          "end": 14.79
+        },
+        {
+          "text": "May-morn",
+          "start": 14.79,
+          "end": 15.29
+        },
+        {
+          "text": "of",
+          "start": 15.29,
+          "end": 15.43
+        },
+        {
+          "text": "his",
+          "start": 15.43,
+          "end": 15.57
+        },
+        {
+          "text": "youth,",
+          "start": 15.57,
+          "end": 15.93
+        },
+        {
+          "text": "Ripe",
+          "start": 16.51,
+          "end": 16.57
+        },
+        {
+          "text": "for",
+          "start": 16.57,
+          "end": 16.81
+        },
+        {
+          "text": "exploits",
+          "start": 16.81,
+          "end": 17.37
+        },
+        {
+          "text": "and",
+          "start": 17.37,
+          "end": 17.57
+        },
+        {
+          "text": "mighty",
+          "start": 17.57,
+          "end": 17.85
+        },
+        {
+          "text": "enterprises.",
+          "start": 17.85,
+          "end": 18.39
+        }
+      ],
+      "stats": {
+        "expected_words": 53,
+        "heard_words": 54,
+        "matched_words": 49
+      },
+      "match_ratio": 0.9245283018867925,
+      "rejection_reasons": [],
+      "seconds": 0.6346097989007831
+    },
+    {
+      "asr_seconds": 0.6311672711744905,
+      "alignment_seconds": 0.0007960069924592972,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ely, awake remembrance of these valiant dead, and with your",
+          "start": 0.05,
+          "end": 3.89,
+          "words": [
+            {
+              "text": " Ely,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.076416015625
+            },
+            {
+              "text": " awake",
+              "start": 0.99,
+              "end": 1.25,
+              "probability": 0.7587890625
+            },
+            {
+              "text": " remembrance",
+              "start": 1.25,
+              "end": 1.71,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " of",
+              "start": 1.71,
+              "end": 2.03,
+              "probability": 0.99609375
+            },
+            {
+              "text": " these",
+              "start": 2.03,
+              "end": 2.23,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " valiant",
+              "start": 2.23,
+              "end": 2.65,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " dead,",
+              "start": 2.65,
+              "end": 3.01,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " and",
+              "start": 3.53,
+              "end": 3.61,
+              "probability": 0.86328125
+            },
+            {
+              "text": " with",
+              "start": 3.61,
+              "end": 3.73,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " your",
+              "start": 3.73,
+              "end": 3.89,
+              "probability": 0.98828125
+            }
+          ]
+        },
+        {
+          "text": " Pwissant arm renew their feats.",
+          "start": 3.89,
+          "end": 5.43,
+          "words": [
+            {
+              "text": " Pwissant",
+              "start": 3.89,
+              "end": 4.27,
+              "probability": 0.4069976806640625
+            },
+            {
+              "text": " arm",
+              "start": 4.27,
+              "end": 4.59,
+              "probability": 0.935546875
+            },
+            {
+              "text": " renew",
+              "start": 4.59,
+              "end": 4.85,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " their",
+              "start": 4.85,
+              "end": 5.11,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " feats.",
+              "start": 5.11,
+              "end": 5.43,
+              "probability": 0.9853515625
+            }
+          ]
+        },
+        {
+          "text": " You are their heir.",
+          "start": 6.15,
+          "end": 7.01,
+          "words": [
+            {
+              "text": " You",
+              "start": 6.15,
+              "end": 6.35,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " are",
+              "start": 6.35,
+              "end": 6.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " their",
+              "start": 6.49,
+              "end": 6.69,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " heir.",
+              "start": 6.69,
+              "end": 7.01,
+              "probability": 0.890625
+            }
+          ]
+        },
+        {
+          "text": " You sit upon their throne, the blood and courage that",
+          "start": 7.51,
+          "end": 10.37,
+          "words": [
+            {
+              "text": " You",
+              "start": 7.51,
+              "end": 7.65,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " sit",
+              "start": 7.65,
+              "end": 7.81,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " upon",
+              "start": 7.81,
+              "end": 8.03,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " their",
+              "start": 8.03,
+              "end": 8.23,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " throne,",
+              "start": 8.23,
+              "end": 8.55,
+              "probability": 0.982421875
+            },
+            {
+              "text": " the",
+              "start": 9.09,
+              "end": 9.21,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " blood",
+              "start": 9.21,
+              "end": 9.55,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " and",
+              "start": 9.55,
+              "end": 9.75,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " courage",
+              "start": 9.75,
+              "end": 10.09,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that",
+              "start": 10.09,
+              "end": 10.37,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " renowned them runs in your veins, and my thrice Pwissant",
+          "start": 10.37,
+          "end": 13.69,
+          "words": [
+            {
+              "text": " renowned",
+              "start": 10.37,
+              "end": 10.71,
+              "probability": 0.712890625
+            },
+            {
+              "text": " them",
+              "start": 10.71,
+              "end": 10.99,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " runs",
+              "start": 10.99,
+              "end": 11.27,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " in",
+              "start": 11.27,
+              "end": 11.55,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " your",
+              "start": 11.55,
+              "end": 11.67,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " veins,",
+              "start": 11.67,
+              "end": 12.01,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 12.61,
+              "end": 12.73,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " my",
+              "start": 12.73,
+              "end": 12.89,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " thrice",
+              "start": 12.89,
+              "end": 13.25,
+              "probability": 0.909912109375
+            },
+            {
+              "text": " Pwissant",
+              "start": 13.25,
+              "end": 13.69,
+              "probability": 0.82861328125
+            }
+          ]
+        },
+        {
+          "text": " liege is in the very Maymorn of his youth, ripe for exploits",
+          "start": 13.69,
+          "end": 17.25,
+          "words": [
+            {
+              "text": " liege",
+              "start": 13.69,
+              "end": 14.07,
+              "probability": 0.80517578125
+            },
+            {
+              "text": " is",
+              "start": 14.07,
+              "end": 14.25,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " in",
+              "start": 14.25,
+              "end": 14.41,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 14.41,
+              "end": 14.51,
+              "probability": 0.998046875
+            },
+            {
+              "text": " very",
+              "start": 14.51,
+              "end": 14.77,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Maymorn",
+              "start": 14.77,
+              "end": 15.29,
+              "probability": 0.6577962239583334
+            },
+            {
+              "text": " of",
+              "start": 15.29,
+              "end": 15.43,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 15.43,
+              "end": 15.57,
+              "probability": 0.98828125
+            },
+            {
+              "text": " youth,",
+              "start": 15.57,
+              "end": 15.95,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " ripe",
+              "start": 16.51,
+              "end": 16.55,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " for",
+              "start": 16.55,
+              "end": 16.83,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " exploits",
+              "start": 16.83,
+              "end": 17.25,
+              "probability": 0.9921875
+            }
+          ]
+        },
+        {
+          "text": " and mighty enterprises.",
+          "start": 17.25,
+          "end": 18.39,
+          "words": [
+            {
+              "text": " and",
+              "start": 17.25,
+              "end": 17.57,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " mighty",
+              "start": 17.57,
+              "end": 17.85,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " enterprises.",
+              "start": 17.85,
+              "end": 18.39,
+              "probability": 0.98046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ely,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "awake",
+          "start": 0.99,
+          "end": 1.25
+        },
+        {
+          "raw": "remembrance",
+          "start": 1.25,
+          "end": 1.71
+        },
+        {
+          "raw": "of",
+          "start": 1.71,
+          "end": 2.03
+        },
+        {
+          "raw": "these",
+          "start": 2.03,
+          "end": 2.23
+        },
+        {
+          "raw": "valiant",
+          "start": 2.23,
+          "end": 2.65
+        },
+        {
+          "raw": "dead,",
+          "start": 2.65,
+          "end": 3.01
+        },
+        {
+          "raw": "and",
+          "start": 3.53,
+          "end": 3.61
+        },
+        {
+          "raw": "with",
+          "start": 3.61,
+          "end": 3.73
+        },
+        {
+          "raw": "your",
+          "start": 3.73,
+          "end": 3.89
+        },
+        {
+          "raw": "Pwissant",
+          "start": 3.89,
+          "end": 4.27
+        },
+        {
+          "raw": "arm",
+          "start": 4.27,
+          "end": 4.59
+        },
+        {
+          "raw": "renew",
+          "start": 4.59,
+          "end": 4.85
+        },
+        {
+          "raw": "their",
+          "start": 4.85,
+          "end": 5.11
+        },
+        {
+          "raw": "feats.",
+          "start": 5.11,
+          "end": 5.43
+        },
+        {
+          "raw": "You",
+          "start": 6.15,
+          "end": 6.35
+        },
+        {
+          "raw": "are",
+          "start": 6.35,
+          "end": 6.49
+        },
+        {
+          "raw": "their",
+          "start": 6.49,
+          "end": 6.69
+        },
+        {
+          "raw": "heir.",
+          "start": 6.69,
+          "end": 7.01
+        },
+        {
+          "raw": "You",
+          "start": 7.51,
+          "end": 7.65
+        },
+        {
+          "raw": "sit",
+          "start": 7.65,
+          "end": 7.81
+        },
+        {
+          "raw": "upon",
+          "start": 7.81,
+          "end": 8.03
+        },
+        {
+          "raw": "their",
+          "start": 8.03,
+          "end": 8.23
+        },
+        {
+          "raw": "throne,",
+          "start": 8.23,
+          "end": 8.55
+        },
+        {
+          "raw": "the",
+          "start": 9.09,
+          "end": 9.21
+        },
+        {
+          "raw": "blood",
+          "start": 9.21,
+          "end": 9.55
+        },
+        {
+          "raw": "and",
+          "start": 9.55,
+          "end": 9.75
+        },
+        {
+          "raw": "courage",
+          "start": 9.75,
+          "end": 10.09
+        },
+        {
+          "raw": "that",
+          "start": 10.09,
+          "end": 10.37
+        },
+        {
+          "raw": "renowned",
+          "start": 10.37,
+          "end": 10.71
+        },
+        {
+          "raw": "them",
+          "start": 10.71,
+          "end": 10.99
+        },
+        {
+          "raw": "runs",
+          "start": 10.99,
+          "end": 11.27
+        },
+        {
+          "raw": "in",
+          "start": 11.27,
+          "end": 11.55
+        },
+        {
+          "raw": "your",
+          "start": 11.55,
+          "end": 11.67
+        },
+        {
+          "raw": "veins,",
+          "start": 11.67,
+          "end": 12.01
+        },
+        {
+          "raw": "and",
+          "start": 12.61,
+          "end": 12.73
+        },
+        {
+          "raw": "my",
+          "start": 12.73,
+          "end": 12.89
+        },
+        {
+          "raw": "thrice",
+          "start": 12.89,
+          "end": 13.25
+        },
+        {
+          "raw": "Pwissant",
+          "start": 13.25,
+          "end": 13.69
+        },
+        {
+          "raw": "liege",
+          "start": 13.69,
+          "end": 14.07
+        },
+        {
+          "raw": "is",
+          "start": 14.07,
+          "end": 14.25
+        },
+        {
+          "raw": "in",
+          "start": 14.25,
+          "end": 14.41
+        },
+        {
+          "raw": "the",
+          "start": 14.41,
+          "end": 14.51
+        },
+        {
+          "raw": "very",
+          "start": 14.51,
+          "end": 14.77
+        },
+        {
+          "raw": "Maymorn",
+          "start": 14.77,
+          "end": 15.29
+        },
+        {
+          "raw": "of",
+          "start": 15.29,
+          "end": 15.43
+        },
+        {
+          "raw": "his",
+          "start": 15.43,
+          "end": 15.57
+        },
+        {
+          "raw": "youth,",
+          "start": 15.57,
+          "end": 15.95
+        },
+        {
+          "raw": "ripe",
+          "start": 16.51,
+          "end": 16.55
+        },
+        {
+          "raw": "for",
+          "start": 16.55,
+          "end": 16.83
+        },
+        {
+          "raw": "exploits",
+          "start": 16.83,
+          "end": 17.25
+        },
+        {
+          "raw": "and",
+          "start": 17.25,
+          "end": 17.57
+        },
+        {
+          "raw": "mighty",
+          "start": 17.57,
+          "end": 17.85
+        },
+        {
+          "raw": "enterprises.",
+          "start": 17.85,
+          "end": 18.39
+        }
+      ],
+      "expected_tokens": [
+        "Ely.",
+        "Awake",
+        "remembrance",
+        "of",
+        "these",
+        "valiant",
+        "dead,",
+        "And",
+        "with",
+        "your",
+        "puissant",
+        "arm",
+        "renew",
+        "their",
+        "feats.",
+        "You",
+        "are",
+        "their",
+        "heir;",
+        "you",
+        "sit",
+        "upon",
+        "their",
+        "throne;",
+        "The",
+        "blood",
+        "and",
+        "courage",
+        "that",
+        "renowned",
+        "them",
+        "Runs",
+        "in",
+        "your",
+        "veins;",
+        "and",
+        "my",
+        "thrice-puissant",
+        "liege",
+        "Is",
+        "in",
+        "the",
+        "very",
+        "May-morn",
+        "of",
+        "his",
+        "youth,",
+        "Ripe",
+        "for",
+        "exploits",
+        "and",
+        "mighty",
+        "enterprises."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "equal",
+          11,
+          37,
+          11,
+          37
+        ],
+        [
+          "replace",
+          37,
+          38,
+          37,
+          39
+        ],
+        [
+          "equal",
+          38,
+          53,
+          39,
+          54
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "replace",
+          37,
+          38,
+          37,
+          39
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ely,",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "ely",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "awake",
+          "start": 0.99,
+          "end": 1.25,
+          "key": "awake",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "remembrance",
+          "start": 1.25,
+          "end": 1.71,
+          "key": "remembrance",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.71,
+          "end": 2.03,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 2.03,
+          "end": 2.23,
+          "key": "these",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "valiant",
+          "start": 2.23,
+          "end": 2.65,
+          "key": "valiant",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "dead,",
+          "start": 2.65,
+          "end": 3.01,
+          "key": "dead",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.53,
+          "end": 3.61,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.61,
+          "end": 3.73,
+          "key": "with",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.73,
+          "end": 3.89,
+          "key": "your",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Pwissant",
+          "start": 3.89,
+          "end": 4.27,
+          "key": "pwissant",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "arm",
+          "start": 4.27,
+          "end": 4.59,
+          "key": "arm",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "renew",
+          "start": 4.59,
+          "end": 4.85,
+          "key": "renew",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 4.85,
+          "end": 5.11,
+          "key": "their",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "feats.",
+          "start": 5.11,
+          "end": 5.43,
+          "key": "feats",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 6.15,
+          "end": 6.35,
+          "key": "you",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 6.35,
+          "end": 6.49,
+          "key": "are",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 6.49,
+          "end": 6.69,
+          "key": "their",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "heir.",
+          "start": 6.69,
+          "end": 7.01,
+          "key": "heir",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 7.51,
+          "end": 7.65,
+          "key": "you",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "sit",
+          "start": 7.65,
+          "end": 7.81,
+          "key": "sit",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 7.81,
+          "end": 8.03,
+          "key": "upon",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 8.03,
+          "end": 8.23,
+          "key": "their",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "throne,",
+          "start": 8.23,
+          "end": 8.55,
+          "key": "throne",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.09,
+          "end": 9.21,
+          "key": "the",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "blood",
+          "start": 9.21,
+          "end": 9.55,
+          "key": "blood",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 9.55,
+          "end": 9.75,
+          "key": "and",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "courage",
+          "start": 9.75,
+          "end": 10.09,
+          "key": "courage",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 10.09,
+          "end": 10.37,
+          "key": "that",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "renowned",
+          "start": 10.37,
+          "end": 10.71,
+          "key": "renowned",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 10.71,
+          "end": 10.99,
+          "key": "them",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "runs",
+          "start": 10.99,
+          "end": 11.27,
+          "key": "runs",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 11.27,
+          "end": 11.55,
+          "key": "in",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 11.55,
+          "end": 11.67,
+          "key": "your",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "veins,",
+          "start": 11.67,
+          "end": 12.01,
+          "key": "veins",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 12.61,
+          "end": 12.73,
+          "key": "and",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 12.73,
+          "end": 12.89,
+          "key": "my",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "thrice",
+          "start": 12.89,
+          "end": 13.25,
+          "key": "thrice",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "Pwissant",
+          "start": 13.25,
+          "end": 13.69,
+          "key": "pwissant",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "liege",
+          "start": 13.69,
+          "end": 14.07,
+          "key": "liege",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 14.07,
+          "end": 14.25,
+          "key": "is",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 14.25,
+          "end": 14.41,
+          "key": "in",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 14.41,
+          "end": 14.51,
+          "key": "the",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 14.51,
+          "end": 14.77,
+          "key": "very",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "Maymorn",
+          "start": 14.77,
+          "end": 15.29,
+          "key": "maymorn",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 15.29,
+          "end": 15.43,
+          "key": "of",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 15.43,
+          "end": 15.57,
+          "key": "his",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "youth,",
+          "start": 15.57,
+          "end": 15.95,
+          "key": "youth",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "ripe",
+          "start": 16.51,
+          "end": 16.55,
+          "key": "ripe",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 16.55,
+          "end": 16.83,
+          "key": "for",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "exploits",
+          "start": 16.83,
+          "end": 17.25,
+          "key": "exploits",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 17.25,
+          "end": 17.57,
+          "key": "and",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "mighty",
+          "start": 17.57,
+          "end": 17.85,
+          "key": "mighty",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "enterprises.",
+          "start": 17.85,
+          "end": 18.39,
+          "key": "enterprises",
+          "pieces": [
+            53
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Ely.",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Awake",
+          "start": 0.99,
+          "end": 1.25
+        },
+        {
+          "text": "remembrance",
+          "start": 1.25,
+          "end": 1.71
+        },
+        {
+          "text": "of",
+          "start": 1.71,
+          "end": 2.03
+        },
+        {
+          "text": "these",
+          "start": 2.03,
+          "end": 2.23
+        },
+        {
+          "text": "valiant",
+          "start": 2.23,
+          "end": 2.65
+        },
+        {
+          "text": "dead,",
+          "start": 2.65,
+          "end": 3.01
+        },
+        {
+          "text": "And",
+          "start": 3.53,
+          "end": 3.61
+        },
+        {
+          "text": "with",
+          "start": 3.61,
+          "end": 3.73
+        },
+        {
+          "text": "your",
+          "start": 3.73,
+          "end": 3.89
+        },
+        {
+          "text": "puissant",
+          "start": 3.89,
+          "end": 4.08
+        },
+        {
+          "text": "arm",
+          "start": 4.27,
+          "end": 4.59
+        },
+        {
+          "text": "renew",
+          "start": 4.59,
+          "end": 4.85
+        },
+        {
+          "text": "their",
+          "start": 4.85,
+          "end": 5.11
+        },
+        {
+          "text": "feats.",
+          "start": 5.11,
+          "end": 5.43
+        },
+        {
+          "text": "You",
+          "start": 6.15,
+          "end": 6.35
+        },
+        {
+          "text": "are",
+          "start": 6.35,
+          "end": 6.49
+        },
+        {
+          "text": "their",
+          "start": 6.49,
+          "end": 6.69
+        },
+        {
+          "text": "heir;",
+          "start": 6.69,
+          "end": 7.01
+        },
+        {
+          "text": "you",
+          "start": 7.51,
+          "end": 7.65
+        },
+        {
+          "text": "sit",
+          "start": 7.65,
+          "end": 7.81
+        },
+        {
+          "text": "upon",
+          "start": 7.81,
+          "end": 8.03
+        },
+        {
+          "text": "their",
+          "start": 8.03,
+          "end": 8.23
+        },
+        {
+          "text": "throne;",
+          "start": 8.23,
+          "end": 8.55
+        },
+        {
+          "text": "The",
+          "start": 9.09,
+          "end": 9.21
+        },
+        {
+          "text": "blood",
+          "start": 9.21,
+          "end": 9.55
+        },
+        {
+          "text": "and",
+          "start": 9.55,
+          "end": 9.75
+        },
+        {
+          "text": "courage",
+          "start": 9.75,
+          "end": 10.09
+        },
+        {
+          "text": "that",
+          "start": 10.09,
+          "end": 10.37
+        },
+        {
+          "text": "renowned",
+          "start": 10.37,
+          "end": 10.71
+        },
+        {
+          "text": "them",
+          "start": 10.71,
+          "end": 10.99
+        },
+        {
+          "text": "Runs",
+          "start": 10.99,
+          "end": 11.27
+        },
+        {
+          "text": "in",
+          "start": 11.27,
+          "end": 11.55
+        },
+        {
+          "text": "your",
+          "start": 11.55,
+          "end": 11.67
+        },
+        {
+          "text": "veins;",
+          "start": 11.67,
+          "end": 12.01
+        },
+        {
+          "text": "and",
+          "start": 12.61,
+          "end": 12.73
+        },
+        {
+          "text": "my",
+          "start": 12.73,
+          "end": 12.89
+        },
+        {
+          "text": "thrice-puissant",
+          "start": 12.89,
+          "end": 13.29
+        },
+        {
+          "text": "liege",
+          "start": 13.69,
+          "end": 14.07
+        },
+        {
+          "text": "Is",
+          "start": 14.07,
+          "end": 14.25
+        },
+        {
+          "text": "in",
+          "start": 14.25,
+          "end": 14.41
+        },
+        {
+          "text": "the",
+          "start": 14.41,
+          "end": 14.51
+        },
+        {
+          "text": "very",
+          "start": 14.51,
+          "end": 14.77
+        },
+        {
+          "text": "May-morn",
+          "start": 14.77,
+          "end": 15.29
+        },
+        {
+          "text": "of",
+          "start": 15.29,
+          "end": 15.43
+        },
+        {
+          "text": "his",
+          "start": 15.43,
+          "end": 15.57
+        },
+        {
+          "text": "youth,",
+          "start": 15.57,
+          "end": 15.95
+        },
+        {
+          "text": "Ripe",
+          "start": 16.51,
+          "end": 16.55
+        },
+        {
+          "text": "for",
+          "start": 16.55,
+          "end": 16.83
+        },
+        {
+          "text": "exploits",
+          "start": 16.83,
+          "end": 17.25
+        },
+        {
+          "text": "and",
+          "start": 17.25,
+          "end": 17.57
+        },
+        {
+          "text": "mighty",
+          "start": 17.57,
+          "end": 17.85
+        },
+        {
+          "text": "enterprises.",
+          "start": 17.85,
+          "end": 18.39
+        }
+      ],
+      "stats": {
+        "expected_words": 53,
+        "heard_words": 54,
+        "matched_words": 51
+      },
+      "match_ratio": 0.9622641509433962,
+      "rejection_reasons": [],
+      "seconds": 0.6322984313592315
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "355414767a03205533ef4b79c2ecaae773b295d227d28fc250ba41414ecaddd3",
+  "selected_reasons": []
+}

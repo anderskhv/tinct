@@ -1,0 +1,707 @@
+{
+  "complete": true,
+  "signature": "d4f2015fae154a455bec59dc60e5d4cf94b7b62922c29f1d3ec82b6f22cac86d",
+  "attempts": [
+    {
+      "asr_seconds": 0.36073934007436037,
+      "alignment_seconds": 0.000395994633436203,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Bates, be friends, you English fools, be friends.",
+          "start": 0.05,
+          "end": 3.61,
+          "words": [
+            {
+              "text": " Bates,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.8623046875
+            },
+            {
+              "text": " be",
+              "start": 1.19,
+              "end": 1.39,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " friends,",
+              "start": 1.39,
+              "end": 1.75,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " you",
+              "start": 2.01,
+              "end": 2.11,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " English",
+              "start": 2.11,
+              "end": 2.41,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " fools,",
+              "start": 2.41,
+              "end": 2.79,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " be",
+              "start": 3.11,
+              "end": 3.19,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " friends.",
+              "start": 3.19,
+              "end": 3.61,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " We have French quarrels enough if you could tell how to reckon.",
+          "start": 4.23,
+          "end": 6.65,
+          "words": [
+            {
+              "text": " We",
+              "start": 4.23,
+              "end": 4.31,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " have",
+              "start": 4.31,
+              "end": 4.49,
+              "probability": 0.998046875
+            },
+            {
+              "text": " French",
+              "start": 4.49,
+              "end": 4.83,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " quarrels",
+              "start": 4.83,
+              "end": 5.33,
+              "probability": 0.972412109375
+            },
+            {
+              "text": " enough",
+              "start": 5.33,
+              "end": 5.47,
+              "probability": 0.99609375
+            },
+            {
+              "text": " if",
+              "start": 5.47,
+              "end": 5.71,
+              "probability": 0.740234375
+            },
+            {
+              "text": " you",
+              "start": 5.71,
+              "end": 5.83,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " could",
+              "start": 5.83,
+              "end": 5.95,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " tell",
+              "start": 5.95,
+              "end": 6.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " how",
+              "start": 6.15,
+              "end": 6.33,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 6.33,
+              "end": 6.45,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " reckon.",
+              "start": 6.45,
+              "end": 6.65,
+              "probability": 0.97412109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bates,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "be",
+          "start": 1.19,
+          "end": 1.39
+        },
+        {
+          "raw": "friends,",
+          "start": 1.39,
+          "end": 1.75
+        },
+        {
+          "raw": "you",
+          "start": 2.01,
+          "end": 2.11
+        },
+        {
+          "raw": "English",
+          "start": 2.11,
+          "end": 2.41
+        },
+        {
+          "raw": "fools,",
+          "start": 2.41,
+          "end": 2.79
+        },
+        {
+          "raw": "be",
+          "start": 3.11,
+          "end": 3.19
+        },
+        {
+          "raw": "friends.",
+          "start": 3.19,
+          "end": 3.61
+        },
+        {
+          "raw": "We",
+          "start": 4.23,
+          "end": 4.31
+        },
+        {
+          "raw": "have",
+          "start": 4.31,
+          "end": 4.49
+        },
+        {
+          "raw": "French",
+          "start": 4.49,
+          "end": 4.83
+        },
+        {
+          "raw": "quarrels",
+          "start": 4.83,
+          "end": 5.33
+        },
+        {
+          "raw": "enough",
+          "start": 5.33,
+          "end": 5.47
+        },
+        {
+          "raw": "if",
+          "start": 5.47,
+          "end": 5.71
+        },
+        {
+          "raw": "you",
+          "start": 5.71,
+          "end": 5.83
+        },
+        {
+          "raw": "could",
+          "start": 5.83,
+          "end": 5.95
+        },
+        {
+          "raw": "tell",
+          "start": 5.95,
+          "end": 6.15
+        },
+        {
+          "raw": "how",
+          "start": 6.15,
+          "end": 6.33
+        },
+        {
+          "raw": "to",
+          "start": 6.33,
+          "end": 6.45
+        },
+        {
+          "raw": "reckon.",
+          "start": 6.45,
+          "end": 6.65
+        }
+      ],
+      "expected_tokens": [
+        "Bates.",
+        "Be",
+        "friends,",
+        "you",
+        "English",
+        "fools,",
+        "be",
+        "friends.",
+        "We",
+        "have",
+        "French",
+        "quarrels",
+        "enough,",
+        "if",
+        "you",
+        "could",
+        "tell",
+        "how",
+        "to",
+        "reckon."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bates,",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "bates",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.19,
+          "end": 1.39,
+          "key": "be",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "friends,",
+          "start": 1.39,
+          "end": 1.75,
+          "key": "friends",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.01,
+          "end": 2.11,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "English",
+          "start": 2.11,
+          "end": 2.41,
+          "key": "english",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "fools,",
+          "start": 2.41,
+          "end": 2.79,
+          "key": "fools",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.11,
+          "end": 3.19,
+          "key": "be",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "friends.",
+          "start": 3.19,
+          "end": 3.61,
+          "key": "friends",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 4.23,
+          "end": 4.31,
+          "key": "we",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 4.31,
+          "end": 4.49,
+          "key": "have",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "French",
+          "start": 4.49,
+          "end": 4.83,
+          "key": "french",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "quarrels",
+          "start": 4.83,
+          "end": 5.33,
+          "key": "quarrels",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "enough",
+          "start": 5.33,
+          "end": 5.47,
+          "key": "enough",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 5.47,
+          "end": 5.71,
+          "key": "if",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.71,
+          "end": 5.83,
+          "key": "you",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 5.83,
+          "end": 5.95,
+          "key": "could",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 5.95,
+          "end": 6.15,
+          "key": "tell",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 6.15,
+          "end": 6.33,
+          "key": "how",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 6.33,
+          "end": 6.45,
+          "key": "to",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "reckon.",
+          "start": 6.45,
+          "end": 6.65,
+          "key": "reckon",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Bates.",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "Be",
+          "start": 1.19,
+          "end": 1.39
+        },
+        {
+          "text": "friends,",
+          "start": 1.39,
+          "end": 1.75
+        },
+        {
+          "text": "you",
+          "start": 2.01,
+          "end": 2.11
+        },
+        {
+          "text": "English",
+          "start": 2.11,
+          "end": 2.41
+        },
+        {
+          "text": "fools,",
+          "start": 2.41,
+          "end": 2.79
+        },
+        {
+          "text": "be",
+          "start": 3.11,
+          "end": 3.19
+        },
+        {
+          "text": "friends.",
+          "start": 3.19,
+          "end": 3.61
+        },
+        {
+          "text": "We",
+          "start": 4.23,
+          "end": 4.31
+        },
+        {
+          "text": "have",
+          "start": 4.31,
+          "end": 4.49
+        },
+        {
+          "text": "French",
+          "start": 4.49,
+          "end": 4.83
+        },
+        {
+          "text": "quarrels",
+          "start": 4.83,
+          "end": 5.33
+        },
+        {
+          "text": "enough,",
+          "start": 5.33,
+          "end": 5.47
+        },
+        {
+          "text": "if",
+          "start": 5.47,
+          "end": 5.71
+        },
+        {
+          "text": "you",
+          "start": 5.71,
+          "end": 5.83
+        },
+        {
+          "text": "could",
+          "start": 5.83,
+          "end": 5.95
+        },
+        {
+          "text": "tell",
+          "start": 5.95,
+          "end": 6.15
+        },
+        {
+          "text": "how",
+          "start": 6.15,
+          "end": 6.33
+        },
+        {
+          "text": "to",
+          "start": 6.33,
+          "end": 6.45
+        },
+        {
+          "text": "reckon.",
+          "start": 6.45,
+          "end": 6.65
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.36130637861788273
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3227b715a6405519cc89946b90b5b00430296524d4dffc5ff0f9db1237488c26",
+  "selected_reasons": []
+}

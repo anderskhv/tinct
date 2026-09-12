@@ -1,0 +1,620 @@
+{
+  "complete": true,
+  "signature": "41528db64fd5d0081e74001805aadf063da083acfa54298fed31e26edf82bc88",
+  "attempts": [
+    {
+      "asr_seconds": 3.448991975747049,
+      "alignment_seconds": 0.00046716444194316864,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "First Musician. No.",
+        "hotwords": "First, Musician, No"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " First Musician, No",
+          "start": 0.08,
+          "end": 1.84,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.70947265625
+            },
+            {
+              "text": " Musician,",
+              "start": 0.66,
+              "end": 1.2,
+              "probability": 0.54937744140625
+            },
+            {
+              "text": " No",
+              "start": 1.76,
+              "end": 1.84,
+              "probability": 0.330078125
+            }
+          ]
+        },
+        {
+          "text": " First Musician, No First Musician, No Third Musician, No First Musician, No Next Musician, No Most Musician, No Last ridings with a",
+          "start": 1.84,
+          "end": 2.44,
+          "words": [
+            {
+              "text": " First",
+              "start": 1.84,
+              "end": 2.4,
+              "probability": 0.00012874603271484375
+            },
+            {
+              "text": " Musician,",
+              "start": 2.4,
+              "end": 2.44,
+              "probability": 0.01454499363899231
+            },
+            {
+              "text": " No",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.0008044242858886719
+            },
+            {
+              "text": " First",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.0003390312194824219
+            },
+            {
+              "text": " Musician,",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.6298828125
+            },
+            {
+              "text": " No",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.7236328125
+            },
+            {
+              "text": " Third",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.00885009765625
+            },
+            {
+              "text": " Musician,",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.7744140625
+            },
+            {
+              "text": " No",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.87890625
+            },
+            {
+              "text": " First",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.2225341796875
+            },
+            {
+              "text": " Musician,",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.821044921875
+            },
+            {
+              "text": " No",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.916015625
+            },
+            {
+              "text": " Next",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.06396484375
+            },
+            {
+              "text": " Musician,",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.861083984375
+            },
+            {
+              "text": " No",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " Most",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.00267791748046875
+            },
+            {
+              "text": " Musician,",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.887939453125
+            },
+            {
+              "text": " No",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " Last",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.07037353515625
+            },
+            {
+              "text": " ridings",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.11292430758476257
+            },
+            {
+              "text": " with",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.003833770751953125
+            },
+            {
+              "text": " a",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.09136962890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "Musician,",
+          "start": 0.66,
+          "end": 1.2
+        },
+        {
+          "raw": "No",
+          "start": 1.76,
+          "end": 1.84
+        },
+        {
+          "raw": "First",
+          "start": 1.84,
+          "end": 2.4
+        },
+        {
+          "raw": "Musician,",
+          "start": 2.4,
+          "end": 2.44
+        },
+        {
+          "raw": "No",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "First",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "Musician,",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "No",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "Third",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "Musician,",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "No",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "First",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "Musician,",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "No",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "Next",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "Musician,",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "No",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "Most",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "Musician,",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "No",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "Last",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "ridings",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "with",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "a",
+          "start": 2.44,
+          "end": 2.44
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Musician.",
+        "No."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "insert",
+          3,
+          3,
+          3,
+          25
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          3,
+          3,
+          3,
+          25
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Musician,",
+          "start": 0.66,
+          "end": 1.2,
+          "key": "musician",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "No",
+          "start": 1.76,
+          "end": 1.84,
+          "key": "no",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "First",
+          "start": 1.84,
+          "end": 2.4,
+          "key": "first",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Musician,",
+          "start": 2.4,
+          "end": 2.44,
+          "key": "musician",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "No",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "no",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "First",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "first",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Musician,",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "musician",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "No",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "no",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Third",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "third",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Musician,",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "musician",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "No",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "no",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "First",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "first",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Musician,",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "musician",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "No",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "no",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Next",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "next",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Musician,",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "musician",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "No",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "no",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Most",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "most",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Musician,",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "musician",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "No",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "no",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Last",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "last",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "ridings",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "ridings",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "with",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "a",
+          "pieces": [
+            24
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "Musician.",
+          "start": 0.66,
+          "end": 1.2
+        },
+        {
+          "text": "No.",
+          "start": 1.76,
+          "end": 1.84
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 25,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 3.4498650077730417
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cd3378641fac7f5d4f2443ebb6411bc1d9126b267f011b7ba4b4bad7471b1cde",
+  "selected_reasons": []
+}

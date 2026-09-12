@@ -1,0 +1,338 @@
+{
+  "complete": true,
+  "signature": "25905c6f33cdaa08c68f22f4717852ac6cdcf3ae0fedfde3ce14d07a2792b32c",
+  "attempts": [
+    {
+      "asr_seconds": 0.1679053558036685,
+      "alignment_seconds": 0.0004935320466756821,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Katherine, to nails to arm to elbow.",
+          "start": 0.05,
+          "end": 2.75,
+          "words": [
+            {
+              "text": " Katherine,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.2607421875
+            },
+            {
+              "text": " to",
+              "start": 1.43,
+              "end": 1.53,
+              "probability": 0.21044921875
+            },
+            {
+              "text": " nails",
+              "start": 1.53,
+              "end": 1.81,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " to",
+              "start": 1.81,
+              "end": 2.05,
+              "probability": 0.701171875
+            },
+            {
+              "text": " arm",
+              "start": 2.05,
+              "end": 2.29,
+              "probability": 0.966796875
+            },
+            {
+              "text": " to",
+              "start": 2.29,
+              "end": 2.53,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " elbow.",
+              "start": 2.53,
+              "end": 2.75,
+              "probability": 0.4853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Katherine,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "to",
+          "start": 1.43,
+          "end": 1.53
+        },
+        {
+          "raw": "nails",
+          "start": 1.53,
+          "end": 1.81
+        },
+        {
+          "raw": "to",
+          "start": 1.81,
+          "end": 2.05
+        },
+        {
+          "raw": "arm",
+          "start": 2.05,
+          "end": 2.29
+        },
+        {
+          "raw": "to",
+          "start": 2.29,
+          "end": 2.53
+        },
+        {
+          "raw": "elbow.",
+          "start": 2.53,
+          "end": 2.75
+        }
+      ],
+      "expected_tokens": [
+        "Katharine.",
+        "De",
+        "nails,",
+        "de",
+        "arm,",
+        "de",
+        "ilbow."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "replace",
+          5,
+          7,
+          5,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          5,
+          7,
+          5,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Katherine,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "katherine",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.43,
+          "end": 1.53,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "nails",
+          "start": 1.53,
+          "end": 1.81,
+          "key": "nails",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.81,
+          "end": 2.05,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "arm",
+          "start": 2.05,
+          "end": 2.29,
+          "key": "arm",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.29,
+          "end": 2.53,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "elbow.",
+          "start": 2.53,
+          "end": 2.75,
+          "key": "elbow",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Katharine.",
+          "start": 0.0,
+          "end": 0.765
+        },
+        {
+          "text": "De",
+          "start": 0.765,
+          "end": 1.147
+        },
+        {
+          "text": "nails,",
+          "start": 1.53,
+          "end": 1.81
+        },
+        {
+          "text": "de",
+          "start": 1.81,
+          "end": 1.93
+        },
+        {
+          "text": "arm,",
+          "start": 2.05,
+          "end": 2.29
+        },
+        {
+          "text": "de",
+          "start": 2.29,
+          "end": 2.52
+        },
+        {
+          "text": "ilbow.",
+          "start": 2.52,
+          "end": 2.635
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 2
+      },
+      "match_ratio": 0.2857142857142857,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.16855344083160162
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fa2f792e47879a531864b3fb4ddbc80e48d5cdffa7f4f8e851bfc6df08941384",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

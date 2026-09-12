@@ -1,0 +1,505 @@
+{
+  "complete": true,
+  "signature": "fbd59c3e4130a69af66d5a6d645d8e24a038428862103da1a4b356f422b4ceb5",
+  "attempts": [
+    {
+      "asr_seconds": 0.3832179522141814,
+      "alignment_seconds": 0.00062611885368824,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Katharine, au seigneur du GMN-Aubly, Delbo, comment appellez-vous-la-call.",
+          "start": 0.05,
+          "end": 5.61,
+          "words": [
+            {
+              "text": " Katharine,",
+              "start": 0.05,
+              "end": 1.05,
+              "probability": 0.3621826171875
+            },
+            {
+              "text": " au",
+              "start": 1.47,
+              "end": 1.51,
+              "probability": 0.108154296875
+            },
+            {
+              "text": " seigneur",
+              "start": 1.51,
+              "end": 1.93,
+              "probability": 0.8014322916666666
+            },
+            {
+              "text": " du",
+              "start": 1.93,
+              "end": 2.09,
+              "probability": 0.270263671875
+            },
+            {
+              "text": " GMN",
+              "start": 2.09,
+              "end": 2.57,
+              "probability": 0.931884765625
+            },
+            {
+              "text": "-Aubly,",
+              "start": 2.57,
+              "end": 2.99,
+              "probability": 0.502838134765625
+            },
+            {
+              "text": " Delbo,",
+              "start": 3.39,
+              "end": 3.75,
+              "probability": 0.7373046875
+            },
+            {
+              "text": " comment",
+              "start": 4.35,
+              "end": 4.45,
+              "probability": 0.8740234375
+            },
+            {
+              "text": " appellez",
+              "start": 4.45,
+              "end": 4.99,
+              "probability": 0.5196940104166666
+            },
+            {
+              "text": "-vous",
+              "start": 4.99,
+              "end": 5.17,
+              "probability": 0.6239013671875
+            },
+            {
+              "text": "-la",
+              "start": 5.17,
+              "end": 5.39,
+              "probability": 0.619384765625
+            },
+            {
+              "text": "-call.",
+              "start": 5.39,
+              "end": 5.61,
+              "probability": 0.683837890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Katharine,",
+          "start": 0.05,
+          "end": 1.05
+        },
+        {
+          "raw": "au",
+          "start": 1.47,
+          "end": 1.51
+        },
+        {
+          "raw": "seigneur",
+          "start": 1.51,
+          "end": 1.93
+        },
+        {
+          "raw": "du",
+          "start": 1.93,
+          "end": 2.09
+        },
+        {
+          "raw": "GMN",
+          "start": 2.09,
+          "end": 2.57
+        },
+        {
+          "raw": "-Aubly,",
+          "start": 2.57,
+          "end": 2.99
+        },
+        {
+          "raw": "Delbo,",
+          "start": 3.39,
+          "end": 3.75
+        },
+        {
+          "raw": "comment",
+          "start": 4.35,
+          "end": 4.45
+        },
+        {
+          "raw": "appellez",
+          "start": 4.45,
+          "end": 4.99
+        },
+        {
+          "raw": "-vous",
+          "start": 4.99,
+          "end": 5.17
+        },
+        {
+          "raw": "-la",
+          "start": 5.17,
+          "end": 5.39
+        },
+        {
+          "raw": "-call.",
+          "start": 5.39,
+          "end": 5.61
+        }
+      ],
+      "expected_tokens": [
+        "Katharine.",
+        "_O",
+        "Seigneur",
+        "Dieu,",
+        "je",
+        "m'en",
+        "oublie!_",
+        "D'elbow.",
+        "_Comment",
+        "appelez-vous",
+        "le",
+        "col?_"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          3,
+          8,
+          3,
+          7
+        ],
+        [
+          "equal",
+          8,
+          9,
+          7,
+          8
+        ],
+        [
+          "replace",
+          9,
+          12,
+          8,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          3,
+          8,
+          3,
+          7
+        ],
+        [
+          "replace",
+          9,
+          12,
+          8,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Katharine,",
+          "start": 0.05,
+          "end": 1.05,
+          "key": "katharine",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "au",
+          "start": 1.47,
+          "end": 1.51,
+          "key": "au",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "seigneur",
+          "start": 1.51,
+          "end": 1.93,
+          "key": "seigneur",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "du",
+          "start": 1.93,
+          "end": 2.09,
+          "key": "du",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "GMN",
+          "start": 2.09,
+          "end": 2.57,
+          "key": "gmn",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "-Aubly,",
+          "start": 2.57,
+          "end": 2.99,
+          "key": "aubly",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Delbo,",
+          "start": 3.39,
+          "end": 3.75,
+          "key": "delbo",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "comment",
+          "start": 4.35,
+          "end": 4.45,
+          "key": "comment",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "appellez",
+          "start": 4.45,
+          "end": 4.99,
+          "key": "appellez",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "-vous",
+          "start": 4.99,
+          "end": 5.17,
+          "key": "vous",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "-la",
+          "start": 5.17,
+          "end": 5.39,
+          "key": "la",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "-call.",
+          "start": 5.39,
+          "end": 5.61,
+          "key": "call",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Katharine.",
+          "start": 0.05,
+          "end": 1.05
+        },
+        {
+          "text": "_O",
+          "start": 1.05,
+          "end": 1.28
+        },
+        {
+          "text": "Seigneur",
+          "start": 1.51,
+          "end": 1.93
+        },
+        {
+          "text": "Dieu,",
+          "start": 1.93,
+          "end": 3.14
+        },
+        {
+          "text": "je",
+          "start": 3.14,
+          "end": 3.745
+        },
+        {
+          "text": "m'en",
+          "start": 3.745,
+          "end": 4.047
+        },
+        {
+          "text": "oublie!_",
+          "start": 4.047,
+          "end": 4.198
+        },
+        {
+          "text": "D'elbow.",
+          "start": 4.198,
+          "end": 4.274
+        },
+        {
+          "text": "_Comment",
+          "start": 4.35,
+          "end": 4.45
+        },
+        {
+          "text": "appelez-vous",
+          "start": 4.45,
+          "end": 5.03
+        },
+        {
+          "text": "le",
+          "start": 5.03,
+          "end": 5.32
+        },
+        {
+          "text": "col?_",
+          "start": 5.32,
+          "end": 5.465
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 3
+      },
+      "match_ratio": 0.25,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3840426364913583
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b8b3792f29c3d9fca94f28c5a50bff791c88a09d11ad96c856682eca00674a26",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

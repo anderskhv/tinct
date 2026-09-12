@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "fcbc251f88eca74024f17d90899123a1b2bc9f493b3470a35e3f3d9bb12ecc05",
+  "attempts": [
+    {
+      "asr_seconds": 0.2723826142027974,
+      "alignment_seconds": 0.000466235913336277,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Westmorland. Shall we call in th' ambassador, my liege?",
+        "hotwords": "Westmorland, Shall"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Westmorland, Shall we call in th' ambassador, my liege?",
+          "start": 0.05,
+          "end": 4.01,
+          "words": [
+            {
+              "text": " Westmorland,",
+              "start": 0.05,
+              "end": 1.09,
+              "probability": 0.4235827128092448
+            },
+            {
+              "text": " Shall",
+              "start": 1.61,
+              "end": 1.69,
+              "probability": 0.039459228515625
+            },
+            {
+              "text": " we",
+              "start": 1.69,
+              "end": 1.79,
+              "probability": 0.81884765625
+            },
+            {
+              "text": " call",
+              "start": 1.79,
+              "end": 2.01,
+              "probability": 0.970703125
+            },
+            {
+              "text": " in",
+              "start": 2.01,
+              "end": 2.21,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " th'",
+              "start": 2.21,
+              "end": 2.57,
+              "probability": 0.052947998046875
+            },
+            {
+              "text": " ambassador,",
+              "start": 2.85,
+              "end": 3.29,
+              "probability": 0.3291015625
+            },
+            {
+              "text": " my",
+              "start": 3.57,
+              "end": 3.59,
+              "probability": 0.90234375
+            },
+            {
+              "text": " liege?",
+              "start": 3.59,
+              "end": 4.01,
+              "probability": 0.95068359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Westmorland,",
+          "start": 0.05,
+          "end": 1.09
+        },
+        {
+          "raw": "Shall",
+          "start": 1.61,
+          "end": 1.69
+        },
+        {
+          "raw": "we",
+          "start": 1.69,
+          "end": 1.79
+        },
+        {
+          "raw": "call",
+          "start": 1.79,
+          "end": 2.01
+        },
+        {
+          "raw": "in",
+          "start": 2.01,
+          "end": 2.21
+        },
+        {
+          "raw": "th'",
+          "start": 2.21,
+          "end": 2.57
+        },
+        {
+          "raw": "ambassador,",
+          "start": 2.85,
+          "end": 3.29
+        },
+        {
+          "raw": "my",
+          "start": 3.57,
+          "end": 3.59
+        },
+        {
+          "raw": "liege?",
+          "start": 3.59,
+          "end": 4.01
+        }
+      ],
+      "expected_tokens": [
+        "Westmorland.",
+        "Shall",
+        "we",
+        "call",
+        "in",
+        "th'",
+        "ambassador,",
+        "my",
+        "liege?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Westmorland,",
+          "start": 0.05,
+          "end": 1.09,
+          "key": "westmorland",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Shall",
+          "start": 1.61,
+          "end": 1.69,
+          "key": "shall",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 1.69,
+          "end": 1.79,
+          "key": "we",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "call",
+          "start": 1.79,
+          "end": 2.01,
+          "key": "call",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.01,
+          "end": 2.21,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "th'",
+          "start": 2.21,
+          "end": 2.57,
+          "key": "th",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "ambassador,",
+          "start": 2.85,
+          "end": 3.29,
+          "key": "ambassador",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.57,
+          "end": 3.59,
+          "key": "my",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "liege?",
+          "start": 3.59,
+          "end": 4.01,
+          "key": "liege",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Westmorland.",
+          "start": 0.05,
+          "end": 1.09
+        },
+        {
+          "text": "Shall",
+          "start": 1.61,
+          "end": 1.69
+        },
+        {
+          "text": "we",
+          "start": 1.69,
+          "end": 1.79
+        },
+        {
+          "text": "call",
+          "start": 1.79,
+          "end": 2.01
+        },
+        {
+          "text": "in",
+          "start": 2.01,
+          "end": 2.21
+        },
+        {
+          "text": "th'",
+          "start": 2.21,
+          "end": 2.57
+        },
+        {
+          "text": "ambassador,",
+          "start": 2.85,
+          "end": 3.29
+        },
+        {
+          "text": "my",
+          "start": 3.57,
+          "end": 3.59
+        },
+        {
+          "text": "liege?",
+          "start": 3.59,
+          "end": 4.01
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2730255266651511
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "140b68e5c195fe9009fba5b195b8739c33458c9f950ab9bc3e01b78f2d11f892",
+  "selected_reasons": []
+}

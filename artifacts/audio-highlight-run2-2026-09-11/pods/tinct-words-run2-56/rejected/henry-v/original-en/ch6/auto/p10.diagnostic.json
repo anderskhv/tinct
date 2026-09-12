@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "057334892ace7b546028e00b248bed9f57107f22ec170b61d87e4f337de00fef",
+  "attempts": [
+    {
+      "asr_seconds": 0.17888689786195755,
+      "alignment_seconds": 0.0004657404497265816,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "You see this chase is hotly follow'd, friends.",
+        "hotwords": "You"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " You see this chase is hotly follow'd, friends.",
+          "start": 0.05,
+          "end": 2.45,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " see",
+              "start": 0.51,
+              "end": 0.63,
+              "probability": 0.99609375
+            },
+            {
+              "text": " this",
+              "start": 0.63,
+              "end": 0.79,
+              "probability": 0.84375
+            },
+            {
+              "text": " chase",
+              "start": 0.79,
+              "end": 1.03,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " is",
+              "start": 1.03,
+              "end": 1.19,
+              "probability": 0.81103515625
+            },
+            {
+              "text": " hotly",
+              "start": 1.19,
+              "end": 1.43,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " follow'd,",
+              "start": 1.43,
+              "end": 2.01,
+              "probability": 0.011008381843566895
+            },
+            {
+              "text": " friends.",
+              "start": 2.23,
+              "end": 2.45,
+              "probability": 0.88427734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "see",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "raw": "this",
+          "start": 0.63,
+          "end": 0.79
+        },
+        {
+          "raw": "chase",
+          "start": 0.79,
+          "end": 1.03
+        },
+        {
+          "raw": "is",
+          "start": 1.03,
+          "end": 1.19
+        },
+        {
+          "raw": "hotly",
+          "start": 1.19,
+          "end": 1.43
+        },
+        {
+          "raw": "follow'd,",
+          "start": 1.43,
+          "end": 2.01
+        },
+        {
+          "raw": "friends.",
+          "start": 2.23,
+          "end": 2.45
+        }
+      ],
+      "expected_tokens": [
+        "You",
+        "see",
+        "this",
+        "chase",
+        "is",
+        "hotly",
+        "follow'd,",
+        "friends."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 0.51,
+          "end": 0.63,
+          "key": "see",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 0.63,
+          "end": 0.79,
+          "key": "this",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "chase",
+          "start": 0.79,
+          "end": 1.03,
+          "key": "chase",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.03,
+          "end": 1.19,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "hotly",
+          "start": 1.19,
+          "end": 1.43,
+          "key": "hotly",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "follow'd,",
+          "start": 1.43,
+          "end": 2.01,
+          "key": "followd",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "friends.",
+          "start": 2.23,
+          "end": 2.45,
+          "key": "friends",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "You",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "see",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "text": "this",
+          "start": 0.63,
+          "end": 0.79
+        },
+        {
+          "text": "chase",
+          "start": 0.79,
+          "end": 1.03
+        },
+        {
+          "text": "is",
+          "start": 1.03,
+          "end": 1.19
+        },
+        {
+          "text": "hotly",
+          "start": 1.19,
+          "end": 1.43
+        },
+        {
+          "text": "follow'd,",
+          "start": 1.43,
+          "end": 2.01
+        },
+        {
+          "text": "friends.",
+          "start": 2.23,
+          "end": 2.45
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17951872013509274
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "13f59c4c13b9d56c363c7609c1b70ef6cf257dc06cea7765aa1a347ba3faaab4",
+  "selected_reasons": []
+}

@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "90855a1fcd1a4f29d4860f133534c47516d0b5f024684542a04f051756555b1a",
+  "attempts": [
+    {
+      "asr_seconds": 0.197622480802238,
+      "alignment_seconds": 0.00040871184319257736,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Jamy. Ah! that's a foul fault.",
+        "hotwords": "Jamy, Ah"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Jamy, Ah! that's a foul fault.",
+          "start": 0.62,
+          "end": 2.12,
+          "words": [
+            {
+              "text": " Jamy,",
+              "start": 0.62,
+              "end": 0.98,
+              "probability": 0.04681050777435303
+            },
+            {
+              "text": " Ah!",
+              "start": 1.1,
+              "end": 1.32,
+              "probability": 0.034912109375
+            },
+            {
+              "text": " that's",
+              "start": 1.4,
+              "end": 1.58,
+              "probability": 0.5838623046875
+            },
+            {
+              "text": " a",
+              "start": 1.58,
+              "end": 1.62,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " foul",
+              "start": 1.62,
+              "end": 1.8,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " fault.",
+              "start": 1.8,
+              "end": 2.12,
+              "probability": 0.97119140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Jamy,",
+          "start": 0.62,
+          "end": 0.98
+        },
+        {
+          "raw": "Ah!",
+          "start": 1.1,
+          "end": 1.32
+        },
+        {
+          "raw": "that's",
+          "start": 1.4,
+          "end": 1.58
+        },
+        {
+          "raw": "a",
+          "start": 1.58,
+          "end": 1.62
+        },
+        {
+          "raw": "foul",
+          "start": 1.62,
+          "end": 1.8
+        },
+        {
+          "raw": "fault.",
+          "start": 1.8,
+          "end": 2.12
+        }
+      ],
+      "expected_tokens": [
+        "Jamy.",
+        "Ah!",
+        "that's",
+        "a",
+        "foul",
+        "fault."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Jamy,",
+          "start": 0.62,
+          "end": 0.98,
+          "key": "jamy",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ah!",
+          "start": 1.1,
+          "end": 1.32,
+          "key": "ah",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "that's",
+          "start": 1.4,
+          "end": 1.58,
+          "key": "thats",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.58,
+          "end": 1.62,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "foul",
+          "start": 1.62,
+          "end": 1.8,
+          "key": "foul",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "fault.",
+          "start": 1.8,
+          "end": 2.12,
+          "key": "fault",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Jamy.",
+          "start": 0.62,
+          "end": 0.98
+        },
+        {
+          "text": "Ah!",
+          "start": 1.1,
+          "end": 1.32
+        },
+        {
+          "text": "that's",
+          "start": 1.4,
+          "end": 1.58
+        },
+        {
+          "text": "a",
+          "start": 1.58,
+          "end": 1.62
+        },
+        {
+          "text": "foul",
+          "start": 1.62,
+          "end": 1.8
+        },
+        {
+          "text": "fault.",
+          "start": 1.8,
+          "end": 2.12
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19817128125578165
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5179b49f166dcc50782e410d1a194f33e186153f5e0121fd98ccb96d5e7a4cd2",
+  "selected_reasons": []
+}

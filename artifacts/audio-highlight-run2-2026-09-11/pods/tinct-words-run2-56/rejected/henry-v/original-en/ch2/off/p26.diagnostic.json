@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "d0af0fb92463df4fd328d27dd98f6261e8eaeeef8b37cc832da09e2dceca380b",
+  "attempts": [
+    {
+      "asr_seconds": 0.12480206042528152,
+      "alignment_seconds": 0.0003374321386218071,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Ambassadors of France.",
+          "start": 0.14,
+          "end": 1.76,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.14,
+              "end": 0.66,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " Ambassadors",
+              "start": 0.66,
+              "end": 1.3,
+              "probability": 0.7301025390625
+            },
+            {
+              "text": " of",
+              "start": 1.3,
+              "end": 1.5,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " France.",
+              "start": 1.5,
+              "end": 1.76,
+              "probability": 1.0
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.14,
+          "end": 0.66
+        },
+        {
+          "raw": "Ambassadors",
+          "start": 0.66,
+          "end": 1.3
+        },
+        {
+          "raw": "of",
+          "start": 1.3,
+          "end": 1.5
+        },
+        {
+          "raw": "France.",
+          "start": 1.5,
+          "end": 1.76
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Ambassadors",
+        "of",
+        "France."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.14,
+          "end": 0.66,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ambassadors",
+          "start": 0.66,
+          "end": 1.3,
+          "key": "ambassadors",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.3,
+          "end": 1.5,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "France.",
+          "start": 1.5,
+          "end": 1.76,
+          "key": "france",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.14,
+          "end": 0.66
+        },
+        {
+          "text": "Ambassadors",
+          "start": 0.66,
+          "end": 1.3
+        },
+        {
+          "text": "of",
+          "start": 1.3,
+          "end": 1.5
+        },
+        {
+          "text": "France.",
+          "start": 1.5,
+          "end": 1.76
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12526167556643486
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3121d8060e9b9416cd3c246c06316f7a0c661e1b297a257757766ab297763aba",
+  "selected_reasons": []
+}

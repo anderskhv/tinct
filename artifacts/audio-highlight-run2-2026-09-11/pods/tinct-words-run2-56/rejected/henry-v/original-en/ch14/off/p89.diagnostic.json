@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "fbae32cb4ce4eaca24b59cd5803970b6c92fa3d11a52fda0b6d2691bbd585a4b",
+  "attempts": [
+    {
+      "asr_seconds": 0.20354820415377617,
+      "alignment_seconds": 0.00039423443377017975,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Erpingham, I shall dot my lord.",
+          "start": 0.11,
+          "end": 2.15,
+          "words": [
+            {
+              "text": " Erpingham,",
+              "start": 0.11,
+              "end": 0.89,
+              "probability": 0.5330810546875
+            },
+            {
+              "text": " I",
+              "start": 1.21,
+              "end": 1.35,
+              "probability": 0.9921875
+            },
+            {
+              "text": " shall",
+              "start": 1.35,
+              "end": 1.49,
+              "probability": 0.99609375
+            },
+            {
+              "text": " dot",
+              "start": 1.49,
+              "end": 1.73,
+              "probability": 0.83837890625
+            },
+            {
+              "text": " my",
+              "start": 1.73,
+              "end": 1.95,
+              "probability": 0.83837890625
+            },
+            {
+              "text": " lord.",
+              "start": 1.95,
+              "end": 2.15,
+              "probability": 0.79931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Erpingham,",
+          "start": 0.11,
+          "end": 0.89
+        },
+        {
+          "raw": "I",
+          "start": 1.21,
+          "end": 1.35
+        },
+        {
+          "raw": "shall",
+          "start": 1.35,
+          "end": 1.49
+        },
+        {
+          "raw": "dot",
+          "start": 1.49,
+          "end": 1.73
+        },
+        {
+          "raw": "my",
+          "start": 1.73,
+          "end": 1.95
+        },
+        {
+          "raw": "lord.",
+          "start": 1.95,
+          "end": 2.15
+        }
+      ],
+      "expected_tokens": [
+        "Erpingham.",
+        "I",
+        "shall",
+        "do't,",
+        "my",
+        "lord."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Erpingham,",
+          "start": 0.11,
+          "end": 0.89,
+          "key": "erpingham",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.21,
+          "end": 1.35,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 1.35,
+          "end": 1.49,
+          "key": "shall",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "dot",
+          "start": 1.49,
+          "end": 1.73,
+          "key": "dot",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.73,
+          "end": 1.95,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 1.95,
+          "end": 2.15,
+          "key": "lord",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Erpingham.",
+          "start": 0.11,
+          "end": 0.89
+        },
+        {
+          "text": "I",
+          "start": 1.21,
+          "end": 1.35
+        },
+        {
+          "text": "shall",
+          "start": 1.35,
+          "end": 1.49
+        },
+        {
+          "text": "do't,",
+          "start": 1.49,
+          "end": 1.73
+        },
+        {
+          "text": "my",
+          "start": 1.73,
+          "end": 1.95
+        },
+        {
+          "text": "lord.",
+          "start": 1.95,
+          "end": 2.15
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20408118050545454
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "aca031f751262e24d74d7e3827cd1f82e6fbbb95c4b941321de1c46725f95c9d",
+  "selected_reasons": []
+}

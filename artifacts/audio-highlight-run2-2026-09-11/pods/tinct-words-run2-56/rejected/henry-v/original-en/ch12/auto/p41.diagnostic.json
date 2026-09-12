@@ -1,0 +1,403 @@
+{
+  "complete": true,
+  "signature": "65bae018e6605f2ec39b59e63604c5beba5b183425b717bbd42cf948010c1d70",
+  "attempts": [
+    {
+      "asr_seconds": 0.12503922544419765,
+      "alignment_seconds": 0.00027428194880485535,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Montjoy. Montjoy.",
+        "hotwords": "Montjoy"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Montjoy. Mont.",
+          "start": 0.05,
+          "end": 1.47,
+          "words": [
+            {
+              "text": " Montjoy.",
+              "start": 0.05,
+              "end": 1.01,
+              "probability": 0.31890976428985596
+            },
+            {
+              "text": " Mont.",
+              "start": 1.41,
+              "end": 1.47,
+              "probability": 0.9150390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Montjoy.",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "raw": "Mont.",
+          "start": 1.41,
+          "end": 1.47
+        }
+      ],
+      "expected_tokens": [
+        "Montjoy.",
+        "Montjoy."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Montjoy.",
+          "start": 0.05,
+          "end": 1.01,
+          "key": "montjoy",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mont.",
+          "start": 1.41,
+          "end": 1.47,
+          "key": "mont",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Montjoy.",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "text": "Montjoy.",
+          "start": 1.01,
+          "end": 1.24
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12539315316826105
+    },
+    {
+      "asr_seconds": 0.13204420171678066,
+      "alignment_seconds": 0.0002913959324359894,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Montjoy"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Montjoy, Mont.",
+          "start": 0.05,
+          "end": 1.49,
+          "words": [
+            {
+              "text": " Montjoy,",
+              "start": 0.05,
+              "end": 1.01,
+              "probability": 0.31890976428985596
+            },
+            {
+              "text": " Mont.",
+              "start": 1.43,
+              "end": 1.49,
+              "probability": 0.62353515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Montjoy,",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "raw": "Mont.",
+          "start": 1.43,
+          "end": 1.49
+        }
+      ],
+      "expected_tokens": [
+        "Montjoy.",
+        "Montjoy."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Montjoy,",
+          "start": 0.05,
+          "end": 1.01,
+          "key": "montjoy",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mont.",
+          "start": 1.43,
+          "end": 1.49,
+          "key": "mont",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Montjoy.",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "text": "Montjoy.",
+          "start": 1.01,
+          "end": 1.25
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13242085743695498
+    },
+    {
+      "asr_seconds": 0.12795083690434694,
+      "alignment_seconds": 0.00018889643251895905,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Monty, Mont.",
+          "start": 0.05,
+          "end": 1.47,
+          "words": [
+            {
+              "text": " Monty,",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.41973876953125
+            },
+            {
+              "text": " Mont.",
+              "start": 1.41,
+              "end": 1.47,
+              "probability": 0.6484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Monty,",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "Mont.",
+          "start": 1.41,
+          "end": 1.47
+        }
+      ],
+      "expected_tokens": [
+        "Montjoy.",
+        "Montjoy."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Monty,",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "monty",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mont.",
+          "start": 1.41,
+          "end": 1.47,
+          "key": "mont",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Montjoy.",
+          "start": 0.0,
+          "end": 0.735
+        },
+        {
+          "text": "Montjoy.",
+          "start": 0.735,
+          "end": 1.103
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12820177618414164
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "90ce3958297b6545fb3e28335f5c66f902081a038e372454e05405274bc89ed2",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

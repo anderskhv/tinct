@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "e2643a074241869ba5dd2c247cae8572a6d2d5d03038389d48f0b2805a728d70",
+  "attempts": [
+    {
+      "asr_seconds": 0.2294249441474676,
+      "alignment_seconds": 0.0005553653463721275,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Fluellen. I pray you and beseech you that you will.",
+        "hotwords": "Fluellen, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Fluellen, I pray you and beseech you that you will.",
+          "start": 0.48,
+          "end": 2.86,
+          "words": [
+            {
+              "text": " Fluellen,",
+              "start": 0.48,
+              "end": 0.84,
+              "probability": 0.5493724346160889
+            },
+            {
+              "text": " I",
+              "start": 1.16,
+              "end": 1.34,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " pray",
+              "start": 1.34,
+              "end": 1.52,
+              "probability": 0.994140625
+            },
+            {
+              "text": " you",
+              "start": 1.52,
+              "end": 1.7,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " and",
+              "start": 1.7,
+              "end": 1.82,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " beseech",
+              "start": 1.82,
+              "end": 2.22,
+              "probability": 0.9879557291666666
+            },
+            {
+              "text": " you",
+              "start": 2.22,
+              "end": 2.32,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " that",
+              "start": 2.32,
+              "end": 2.44,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " you",
+              "start": 2.44,
+              "end": 2.62,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " will.",
+              "start": 2.62,
+              "end": 2.86,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fluellen,",
+          "start": 0.48,
+          "end": 0.84
+        },
+        {
+          "raw": "I",
+          "start": 1.16,
+          "end": 1.34
+        },
+        {
+          "raw": "pray",
+          "start": 1.34,
+          "end": 1.52
+        },
+        {
+          "raw": "you",
+          "start": 1.52,
+          "end": 1.7
+        },
+        {
+          "raw": "and",
+          "start": 1.7,
+          "end": 1.82
+        },
+        {
+          "raw": "beseech",
+          "start": 1.82,
+          "end": 2.22
+        },
+        {
+          "raw": "you",
+          "start": 2.22,
+          "end": 2.32
+        },
+        {
+          "raw": "that",
+          "start": 2.32,
+          "end": 2.44
+        },
+        {
+          "raw": "you",
+          "start": 2.44,
+          "end": 2.62
+        },
+        {
+          "raw": "will.",
+          "start": 2.62,
+          "end": 2.86
+        }
+      ],
+      "expected_tokens": [
+        "Fluellen.",
+        "I",
+        "pray",
+        "you",
+        "and",
+        "beseech",
+        "you",
+        "that",
+        "you",
+        "will."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fluellen,",
+          "start": 0.48,
+          "end": 0.84,
+          "key": "fluellen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.16,
+          "end": 1.34,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "pray",
+          "start": 1.34,
+          "end": 1.52,
+          "key": "pray",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.52,
+          "end": 1.7,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.7,
+          "end": 1.82,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "beseech",
+          "start": 1.82,
+          "end": 2.22,
+          "key": "beseech",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.22,
+          "end": 2.32,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.32,
+          "end": 2.44,
+          "key": "that",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.44,
+          "end": 2.62,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "will.",
+          "start": 2.62,
+          "end": 2.86,
+          "key": "will",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Fluellen.",
+          "start": 0.48,
+          "end": 0.84
+        },
+        {
+          "text": "I",
+          "start": 1.16,
+          "end": 1.34
+        },
+        {
+          "text": "pray",
+          "start": 1.34,
+          "end": 1.52
+        },
+        {
+          "text": "you",
+          "start": 1.52,
+          "end": 1.7
+        },
+        {
+          "text": "and",
+          "start": 1.7,
+          "end": 1.82
+        },
+        {
+          "text": "beseech",
+          "start": 1.82,
+          "end": 2.22
+        },
+        {
+          "text": "you",
+          "start": 2.22,
+          "end": 2.32
+        },
+        {
+          "text": "that",
+          "start": 2.32,
+          "end": 2.44
+        },
+        {
+          "text": "you",
+          "start": 2.44,
+          "end": 2.62
+        },
+        {
+          "text": "will.",
+          "start": 2.62,
+          "end": 2.86
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2301785545423627
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8b311ea796da1542d705dc73f10f13f4626d15d357396b036adbea032f50c3e0",
+  "selected_reasons": []
+}

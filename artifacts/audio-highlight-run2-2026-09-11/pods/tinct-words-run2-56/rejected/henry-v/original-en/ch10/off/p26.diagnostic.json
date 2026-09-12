@@ -1,0 +1,520 @@
+{
+  "complete": true,
+  "signature": "21f81717cd69f42d09870bee6d94eb0806151e236293d61dfaf637896591d4ce",
+  "attempts": [
+    {
+      "asr_seconds": 0.27172729186713696,
+      "alignment_seconds": 0.0005116388201713562,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Alice.",
+          "start": 0.18,
+          "end": 0.78,
+          "words": [
+            {
+              "text": " Alice.",
+              "start": 0.18,
+              "end": 0.78,
+              "probability": 0.599609375
+            }
+          ]
+        },
+        {
+          "text": " En evas vous pas déjà blié s'équé givous, ai-en seine.",
+          "start": 1.3,
+          "end": 4.04,
+          "words": [
+            {
+              "text": " En",
+              "start": 1.3,
+              "end": 1.38,
+              "probability": 0.1705322265625
+            },
+            {
+              "text": " evas",
+              "start": 1.38,
+              "end": 1.66,
+              "probability": 0.269287109375
+            },
+            {
+              "text": " vous",
+              "start": 1.66,
+              "end": 1.92,
+              "probability": 0.537353515625
+            },
+            {
+              "text": " pas",
+              "start": 1.92,
+              "end": 2.08,
+              "probability": 0.86181640625
+            },
+            {
+              "text": " déjà",
+              "start": 2.08,
+              "end": 2.32,
+              "probability": 0.6997884114583334
+            },
+            {
+              "text": " blié",
+              "start": 2.32,
+              "end": 2.6,
+              "probability": 0.4883626302083333
+            },
+            {
+              "text": " s",
+              "start": 2.6,
+              "end": 2.74,
+              "probability": 0.33447265625
+            },
+            {
+              "text": "'équé",
+              "start": 2.74,
+              "end": 2.88,
+              "probability": 0.34747314453125
+            },
+            {
+              "text": " givous,",
+              "start": 2.88,
+              "end": 3.28,
+              "probability": 0.5709635416666666
+            },
+            {
+              "text": " ai",
+              "start": 3.4,
+              "end": 3.64,
+              "probability": 0.4769287109375
+            },
+            {
+              "text": "-en",
+              "start": 3.64,
+              "end": 3.8,
+              "probability": 0.414794921875
+            },
+            {
+              "text": " seine.",
+              "start": 3.8,
+              "end": 4.04,
+              "probability": 0.619873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Alice.",
+          "start": 0.18,
+          "end": 0.78
+        },
+        {
+          "raw": "En",
+          "start": 1.3,
+          "end": 1.38
+        },
+        {
+          "raw": "evas",
+          "start": 1.38,
+          "end": 1.66
+        },
+        {
+          "raw": "vous",
+          "start": 1.66,
+          "end": 1.92
+        },
+        {
+          "raw": "pas",
+          "start": 1.92,
+          "end": 2.08
+        },
+        {
+          "raw": "déjà",
+          "start": 2.08,
+          "end": 2.32
+        },
+        {
+          "raw": "blié",
+          "start": 2.32,
+          "end": 2.6
+        },
+        {
+          "raw": "s",
+          "start": 2.6,
+          "end": 2.74
+        },
+        {
+          "raw": "'équé",
+          "start": 2.74,
+          "end": 2.88
+        },
+        {
+          "raw": "givous,",
+          "start": 2.88,
+          "end": 3.28
+        },
+        {
+          "raw": "ai",
+          "start": 3.4,
+          "end": 3.64
+        },
+        {
+          "raw": "-en",
+          "start": 3.64,
+          "end": 3.8
+        },
+        {
+          "raw": "seine.",
+          "start": 3.8,
+          "end": 4.04
+        }
+      ],
+      "expected_tokens": [
+        "Alice.",
+        "_N'avez-vous",
+        "pas",
+        "déjà",
+        "oublié",
+        "ce",
+        "que",
+        "je",
+        "vous",
+        "ai",
+        "enseigné?_"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          4
+        ],
+        [
+          "equal",
+          2,
+          4,
+          4,
+          6
+        ],
+        [
+          "replace",
+          4,
+          9,
+          6,
+          10
+        ],
+        [
+          "equal",
+          9,
+          10,
+          10,
+          11
+        ],
+        [
+          "replace",
+          10,
+          11,
+          11,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          4
+        ],
+        [
+          "replace",
+          4,
+          9,
+          6,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          11,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Alice.",
+          "start": 0.18,
+          "end": 0.78,
+          "key": "alice",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "En",
+          "start": 1.3,
+          "end": 1.38,
+          "key": "en",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "evas",
+          "start": 1.38,
+          "end": 1.66,
+          "key": "evas",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "vous",
+          "start": 1.66,
+          "end": 1.92,
+          "key": "vous",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "pas",
+          "start": 1.92,
+          "end": 2.08,
+          "key": "pas",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "déjà",
+          "start": 2.08,
+          "end": 2.32,
+          "key": "déjà",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "blié",
+          "start": 2.32,
+          "end": 2.6,
+          "key": "blié",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "s",
+          "start": 2.6,
+          "end": 2.74,
+          "key": "s",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "'équé",
+          "start": 2.74,
+          "end": 2.88,
+          "key": "équé",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "givous,",
+          "start": 2.88,
+          "end": 3.28,
+          "key": "givous",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "ai",
+          "start": 3.4,
+          "end": 3.64,
+          "key": "ai",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "-en",
+          "start": 3.64,
+          "end": 3.8,
+          "key": "en",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "seine.",
+          "start": 3.8,
+          "end": 4.04,
+          "key": "seine",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Alice.",
+          "start": 0.18,
+          "end": 0.78
+        },
+        {
+          "text": "_N'avez-vous",
+          "start": 0.78,
+          "end": 1.35
+        },
+        {
+          "text": "pas",
+          "start": 1.92,
+          "end": 2.08
+        },
+        {
+          "text": "déjà",
+          "start": 2.08,
+          "end": 2.32
+        },
+        {
+          "text": "oublié",
+          "start": 2.32,
+          "end": 2.86
+        },
+        {
+          "text": "ce",
+          "start": 2.86,
+          "end": 3.13
+        },
+        {
+          "text": "que",
+          "start": 3.13,
+          "end": 3.265
+        },
+        {
+          "text": "je",
+          "start": 3.265,
+          "end": 3.333
+        },
+        {
+          "text": "vous",
+          "start": 3.333,
+          "end": 3.367
+        },
+        {
+          "text": "ai",
+          "start": 3.4,
+          "end": 3.64
+        },
+        {
+          "text": "enseigné?_",
+          "start": 3.64,
+          "end": 3.84
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 13,
+        "matched_words": 4
+      },
+      "match_ratio": 0.36363636363636365,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.27241211757063866
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2d826b53075999db6e239c5a99023c8ed7b47c744698e50e6f56220bfa3d85b3",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "4a94dba3b44dd30900f8154b2189d25dab36e27eccac494106c0c7888cdbc232",
+  "attempts": [
+    {
+      "asr_seconds": 0.11335997469723225,
+      "alignment_seconds": 0.00022674258798360825,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Aside.]",
+        "hotwords": "Aside"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Aside.",
+          "start": 0.05,
+          "end": 0.79,
+          "words": [
+            {
+              "text": " Aside.",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.343994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aside.",
+          "start": 0.05,
+          "end": 0.79
+        }
+      ],
+      "expected_tokens": [
+        "[Aside.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Aside.",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "aside",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Aside.]",
+          "start": 0.05,
+          "end": 0.79
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11368100252002478
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "da7f08deddd191e34713c6cb6f81707196857312641c200043ca58c8d4494d17",
+  "selected_reasons": []
+}

@@ -1,0 +1,3485 @@
+{
+  "complete": true,
+  "signature": "f9c5f6a905760802d3b9d3f58667f6efc1b0910d4a1470111dfb5fb22399465c",
+  "attempts": [
+    {
+      "asr_seconds": 0.46351268235594034,
+      "alignment_seconds": 0.0004785684868693352,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Boy. _Encore qu'il est contre son jurement de pardonner aucun prisonnier; néanmoins, pour les écus que vous lui avez promis, il est content à vous donner la liberté, le franchisement._",
+        "hotwords": "Boy"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Boy, encore qu'il est contre son jurement de pardonner aucun prisonnier, néanmoins, pour",
+          "start": 0.05,
+          "end": 6.59,
+          "words": [
+            {
+              "text": " Boy,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.37451171875
+            },
+            {
+              "text": " encore",
+              "start": 0.99,
+              "end": 1.39,
+              "probability": 0.57757568359375
+            },
+            {
+              "text": " qu",
+              "start": 1.39,
+              "end": 1.57,
+              "probability": 0.91162109375
+            },
+            {
+              "text": "'il",
+              "start": 1.57,
+              "end": 1.65,
+              "probability": 0.35953521728515625
+            },
+            {
+              "text": " est",
+              "start": 1.65,
+              "end": 1.89,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " contre",
+              "start": 1.89,
+              "end": 2.39,
+              "probability": 0.1803741455078125
+            },
+            {
+              "text": " son",
+              "start": 2.39,
+              "end": 2.63,
+              "probability": 0.48095703125
+            },
+            {
+              "text": " jurement",
+              "start": 2.63,
+              "end": 3.11,
+              "probability": 0.4151713053385417
+            },
+            {
+              "text": " de",
+              "start": 3.11,
+              "end": 3.25,
+              "probability": 0.70947265625
+            },
+            {
+              "text": " pardonner",
+              "start": 3.25,
+              "end": 3.75,
+              "probability": 0.194610595703125
+            },
+            {
+              "text": " aucun",
+              "start": 3.75,
+              "end": 4.11,
+              "probability": 0.23120574156443277
+            },
+            {
+              "text": " prisonnier,",
+              "start": 4.11,
+              "end": 4.71,
+              "probability": 0.5172526041666666
+            },
+            {
+              "text": " néanmoins,",
+              "start": 5.41,
+              "end": 6.03,
+              "probability": 0.34508209228515624
+            },
+            {
+              "text": " pour",
+              "start": 6.51,
+              "end": 6.59,
+              "probability": 0.8310546875
+            }
+          ]
+        },
+        {
+          "text": " les écus que vous lui avez promis, il est content à vous donner la liberté, le franchisement._",
+          "start": 6.59,
+          "end": 13.47,
+          "words": [
+            {
+              "text": " les",
+              "start": 6.59,
+              "end": 6.79,
+              "probability": 0.45068359375
+            },
+            {
+              "text": " écus",
+              "start": 6.79,
+              "end": 7.21,
+              "probability": 0.20141029357910156
+            },
+            {
+              "text": " que",
+              "start": 7.21,
+              "end": 7.43,
+              "probability": 0.4130859375
+            },
+            {
+              "text": " vous",
+              "start": 7.43,
+              "end": 7.63,
+              "probability": 0.738525390625
+            },
+            {
+              "text": " lui",
+              "start": 7.63,
+              "end": 7.91,
+              "probability": 0.43701171875
+            },
+            {
+              "text": " avez",
+              "start": 7.91,
+              "end": 8.19,
+              "probability": 0.2208251953125
+            },
+            {
+              "text": " promis,",
+              "start": 8.19,
+              "end": 8.83,
+              "probability": 0.6038818359375
+            },
+            {
+              "text": " il",
+              "start": 9.23,
+              "end": 9.37,
+              "probability": 0.5009765625
+            },
+            {
+              "text": " est",
+              "start": 9.37,
+              "end": 9.63,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " content",
+              "start": 9.63,
+              "end": 10.09,
+              "probability": 0.8818359375
+            },
+            {
+              "text": " à",
+              "start": 10.09,
+              "end": 10.33,
+              "probability": 0.06304931640625
+            },
+            {
+              "text": " vous",
+              "start": 10.33,
+              "end": 10.55,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " donner",
+              "start": 10.55,
+              "end": 10.89,
+              "probability": 0.5302734375
+            },
+            {
+              "text": " la",
+              "start": 10.89,
+              "end": 10.99,
+              "probability": 0.5771484375
+            },
+            {
+              "text": " liberté,",
+              "start": 10.99,
+              "end": 11.57,
+              "probability": 0.9329427083333334
+            },
+            {
+              "text": " le",
+              "start": 11.99,
+              "end": 12.09,
+              "probability": 0.1424560546875
+            },
+            {
+              "text": " franchisement._",
+              "start": 12.09,
+              "end": 13.47,
+              "probability": 0.6855469197034836
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Boy,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "encore",
+          "start": 0.99,
+          "end": 1.39
+        },
+        {
+          "raw": "qu",
+          "start": 1.39,
+          "end": 1.57
+        },
+        {
+          "raw": "'il",
+          "start": 1.57,
+          "end": 1.65
+        },
+        {
+          "raw": "est",
+          "start": 1.65,
+          "end": 1.89
+        },
+        {
+          "raw": "contre",
+          "start": 1.89,
+          "end": 2.39
+        },
+        {
+          "raw": "son",
+          "start": 2.39,
+          "end": 2.63
+        },
+        {
+          "raw": "jurement",
+          "start": 2.63,
+          "end": 3.11
+        },
+        {
+          "raw": "de",
+          "start": 3.11,
+          "end": 3.25
+        },
+        {
+          "raw": "pardonner",
+          "start": 3.25,
+          "end": 3.75
+        },
+        {
+          "raw": "aucun",
+          "start": 3.75,
+          "end": 4.11
+        },
+        {
+          "raw": "prisonnier,",
+          "start": 4.11,
+          "end": 4.71
+        },
+        {
+          "raw": "néanmoins,",
+          "start": 5.41,
+          "end": 6.03
+        },
+        {
+          "raw": "pour",
+          "start": 6.51,
+          "end": 6.59
+        },
+        {
+          "raw": "les",
+          "start": 6.59,
+          "end": 6.79
+        },
+        {
+          "raw": "écus",
+          "start": 6.79,
+          "end": 7.21
+        },
+        {
+          "raw": "que",
+          "start": 7.21,
+          "end": 7.43
+        },
+        {
+          "raw": "vous",
+          "start": 7.43,
+          "end": 7.63
+        },
+        {
+          "raw": "lui",
+          "start": 7.63,
+          "end": 7.91
+        },
+        {
+          "raw": "avez",
+          "start": 7.91,
+          "end": 8.19
+        },
+        {
+          "raw": "promis,",
+          "start": 8.19,
+          "end": 8.83
+        },
+        {
+          "raw": "il",
+          "start": 9.23,
+          "end": 9.37
+        },
+        {
+          "raw": "est",
+          "start": 9.37,
+          "end": 9.63
+        },
+        {
+          "raw": "content",
+          "start": 9.63,
+          "end": 10.09
+        },
+        {
+          "raw": "à",
+          "start": 10.09,
+          "end": 10.33
+        },
+        {
+          "raw": "vous",
+          "start": 10.33,
+          "end": 10.55
+        },
+        {
+          "raw": "donner",
+          "start": 10.55,
+          "end": 10.89
+        },
+        {
+          "raw": "la",
+          "start": 10.89,
+          "end": 10.99
+        },
+        {
+          "raw": "liberté,",
+          "start": 10.99,
+          "end": 11.57
+        },
+        {
+          "raw": "le",
+          "start": 11.99,
+          "end": 12.09
+        },
+        {
+          "raw": "franchisement._",
+          "start": 12.09,
+          "end": 13.47
+        }
+      ],
+      "expected_tokens": [
+        "Boy.",
+        "_Encore",
+        "qu'il",
+        "est",
+        "contre",
+        "son",
+        "jurement",
+        "de",
+        "pardonner",
+        "aucun",
+        "prisonnier;",
+        "néanmoins,",
+        "pour",
+        "les",
+        "écus",
+        "que",
+        "vous",
+        "lui",
+        "avez",
+        "promis,",
+        "il",
+        "est",
+        "content",
+        "à",
+        "vous",
+        "donner",
+        "la",
+        "liberté,",
+        "le",
+        "franchisement._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          29,
+          4,
+          30
+        ],
+        [
+          "replace",
+          29,
+          30,
+          30,
+          31
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "replace",
+          29,
+          30,
+          30,
+          31
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Boy,",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "boy",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "encore",
+          "start": 0.99,
+          "end": 1.39,
+          "key": "encore",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "qu",
+          "start": 1.39,
+          "end": 1.57,
+          "key": "qu",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "'il",
+          "start": 1.57,
+          "end": 1.65,
+          "key": "il",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "est",
+          "start": 1.65,
+          "end": 1.89,
+          "key": "est",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "contre",
+          "start": 1.89,
+          "end": 2.39,
+          "key": "contre",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "son",
+          "start": 2.39,
+          "end": 2.63,
+          "key": "son",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "jurement",
+          "start": 2.63,
+          "end": 3.11,
+          "key": "jurement",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 3.11,
+          "end": 3.25,
+          "key": "de",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "pardonner",
+          "start": 3.25,
+          "end": 3.75,
+          "key": "pardonner",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "aucun",
+          "start": 3.75,
+          "end": 4.11,
+          "key": "aucun",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "prisonnier,",
+          "start": 4.11,
+          "end": 4.71,
+          "key": "prisonnier",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "néanmoins,",
+          "start": 5.41,
+          "end": 6.03,
+          "key": "néanmoins",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "pour",
+          "start": 6.51,
+          "end": 6.59,
+          "key": "pour",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "les",
+          "start": 6.59,
+          "end": 6.79,
+          "key": "les",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "écus",
+          "start": 6.79,
+          "end": 7.21,
+          "key": "écus",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "que",
+          "start": 7.21,
+          "end": 7.43,
+          "key": "que",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "vous",
+          "start": 7.43,
+          "end": 7.63,
+          "key": "vous",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "lui",
+          "start": 7.63,
+          "end": 7.91,
+          "key": "lui",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "avez",
+          "start": 7.91,
+          "end": 8.19,
+          "key": "avez",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "promis,",
+          "start": 8.19,
+          "end": 8.83,
+          "key": "promis",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "il",
+          "start": 9.23,
+          "end": 9.37,
+          "key": "il",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "est",
+          "start": 9.37,
+          "end": 9.63,
+          "key": "est",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "content",
+          "start": 9.63,
+          "end": 10.09,
+          "key": "content",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "à",
+          "start": 10.09,
+          "end": 10.33,
+          "key": "à",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "vous",
+          "start": 10.33,
+          "end": 10.55,
+          "key": "vous",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "donner",
+          "start": 10.55,
+          "end": 10.89,
+          "key": "donner",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "la",
+          "start": 10.89,
+          "end": 10.99,
+          "key": "la",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "liberté,",
+          "start": 10.99,
+          "end": 11.57,
+          "key": "liberté",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "le",
+          "start": 11.99,
+          "end": 12.09,
+          "key": "le",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "franchisement._",
+          "start": 12.09,
+          "end": 13.47,
+          "key": "franchisement_",
+          "pieces": [
+            30
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Boy.",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "_Encore",
+          "start": 0.99,
+          "end": 1.39
+        },
+        {
+          "text": "qu'il",
+          "start": 1.39,
+          "end": 1.52
+        },
+        {
+          "text": "est",
+          "start": 1.65,
+          "end": 1.89
+        },
+        {
+          "text": "contre",
+          "start": 1.89,
+          "end": 2.39
+        },
+        {
+          "text": "son",
+          "start": 2.39,
+          "end": 2.63
+        },
+        {
+          "text": "jurement",
+          "start": 2.63,
+          "end": 3.11
+        },
+        {
+          "text": "de",
+          "start": 3.11,
+          "end": 3.25
+        },
+        {
+          "text": "pardonner",
+          "start": 3.25,
+          "end": 3.75
+        },
+        {
+          "text": "aucun",
+          "start": 3.75,
+          "end": 4.11
+        },
+        {
+          "text": "prisonnier;",
+          "start": 4.11,
+          "end": 4.71
+        },
+        {
+          "text": "néanmoins,",
+          "start": 5.41,
+          "end": 6.03
+        },
+        {
+          "text": "pour",
+          "start": 6.51,
+          "end": 6.59
+        },
+        {
+          "text": "les",
+          "start": 6.59,
+          "end": 6.79
+        },
+        {
+          "text": "écus",
+          "start": 6.79,
+          "end": 7.21
+        },
+        {
+          "text": "que",
+          "start": 7.21,
+          "end": 7.43
+        },
+        {
+          "text": "vous",
+          "start": 7.43,
+          "end": 7.63
+        },
+        {
+          "text": "lui",
+          "start": 7.63,
+          "end": 7.91
+        },
+        {
+          "text": "avez",
+          "start": 7.91,
+          "end": 8.19
+        },
+        {
+          "text": "promis,",
+          "start": 8.19,
+          "end": 8.83
+        },
+        {
+          "text": "il",
+          "start": 9.23,
+          "end": 9.37
+        },
+        {
+          "text": "est",
+          "start": 9.37,
+          "end": 9.63
+        },
+        {
+          "text": "content",
+          "start": 9.63,
+          "end": 10.09
+        },
+        {
+          "text": "à",
+          "start": 10.09,
+          "end": 10.33
+        },
+        {
+          "text": "vous",
+          "start": 10.33,
+          "end": 10.55
+        },
+        {
+          "text": "donner",
+          "start": 10.55,
+          "end": 10.89
+        },
+        {
+          "text": "la",
+          "start": 10.89,
+          "end": 10.99
+        },
+        {
+          "text": "liberté,",
+          "start": 10.99,
+          "end": 11.57
+        },
+        {
+          "text": "le",
+          "start": 11.99,
+          "end": 12.09
+        },
+        {
+          "text": "franchisement._",
+          "start": 12.09,
+          "end": 12.78
+        }
+      ],
+      "stats": {
+        "expected_words": 30,
+        "heard_words": 31,
+        "matched_words": 28
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.46419103164225817
+    },
+    {
+      "asr_seconds": 0.47601907700300217,
+      "alignment_seconds": 0.000561409629881382,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Boy"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Encore quill est contour son german depardner aachen prisonier",
+          "start": 0.89,
+          "end": 4.75,
+          "words": [
+            {
+              "text": " Encore",
+              "start": 0.89,
+              "end": 1.35,
+              "probability": 0.33720579743385315
+            },
+            {
+              "text": " quill",
+              "start": 1.35,
+              "end": 1.67,
+              "probability": 0.60986328125
+            },
+            {
+              "text": " est",
+              "start": 1.67,
+              "end": 1.91,
+              "probability": 0.77490234375
+            },
+            {
+              "text": " contour",
+              "start": 1.91,
+              "end": 2.41,
+              "probability": 0.4276123046875
+            },
+            {
+              "text": " son",
+              "start": 2.41,
+              "end": 2.61,
+              "probability": 0.54638671875
+            },
+            {
+              "text": " german",
+              "start": 2.61,
+              "end": 2.97,
+              "probability": 0.6475830078125
+            },
+            {
+              "text": " depardner",
+              "start": 2.97,
+              "end": 3.71,
+              "probability": 0.5113118489583334
+            },
+            {
+              "text": " aachen",
+              "start": 3.71,
+              "end": 4.11,
+              "probability": 0.5666097005208334
+            },
+            {
+              "text": " prisonier",
+              "start": 4.11,
+              "end": 4.75,
+              "probability": 0.5255126953125
+            }
+          ]
+        },
+        {
+          "text": " Nae in moins pour les aqueuse que vous Louis avas promise ill est content avous donner le liberté",
+          "start": 4.75,
+          "end": 11.69,
+          "words": [
+            {
+              "text": " Nae",
+              "start": 4.75,
+              "end": 5.51,
+              "probability": 0.24493408203125
+            },
+            {
+              "text": " in",
+              "start": 5.51,
+              "end": 5.65,
+              "probability": 0.109619140625
+            },
+            {
+              "text": " moins",
+              "start": 5.65,
+              "end": 6.05,
+              "probability": 0.5538330078125
+            },
+            {
+              "text": " pour",
+              "start": 6.05,
+              "end": 6.59,
+              "probability": 0.642578125
+            },
+            {
+              "text": " les",
+              "start": 6.59,
+              "end": 6.79,
+              "probability": 0.529296875
+            },
+            {
+              "text": " aqueuse",
+              "start": 6.79,
+              "end": 7.29,
+              "probability": 0.4930013020833333
+            },
+            {
+              "text": " que",
+              "start": 7.29,
+              "end": 7.45,
+              "probability": 0.56103515625
+            },
+            {
+              "text": " vous",
+              "start": 7.45,
+              "end": 7.65,
+              "probability": 0.650390625
+            },
+            {
+              "text": " Louis",
+              "start": 7.65,
+              "end": 7.91,
+              "probability": 0.390380859375
+            },
+            {
+              "text": " avas",
+              "start": 7.91,
+              "end": 8.31,
+              "probability": 0.462646484375
+            },
+            {
+              "text": " promise",
+              "start": 8.31,
+              "end": 8.69,
+              "probability": 0.720703125
+            },
+            {
+              "text": " ill",
+              "start": 8.69,
+              "end": 9.37,
+              "probability": 0.156982421875
+            },
+            {
+              "text": " est",
+              "start": 9.37,
+              "end": 9.63,
+              "probability": 0.74951171875
+            },
+            {
+              "text": " content",
+              "start": 9.63,
+              "end": 10.11,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " avous",
+              "start": 10.11,
+              "end": 10.53,
+              "probability": 0.7470703125
+            },
+            {
+              "text": " donner",
+              "start": 10.53,
+              "end": 10.89,
+              "probability": 0.572021484375
+            },
+            {
+              "text": " le",
+              "start": 10.89,
+              "end": 10.99,
+              "probability": 0.36865234375
+            },
+            {
+              "text": " liberté",
+              "start": 10.99,
+              "end": 11.69,
+              "probability": 0.90625
+            }
+          ]
+        },
+        {
+          "text": " Lefranchisement",
+          "start": 12.37,
+          "end": 12.95,
+          "words": [
+            {
+              "text": " Lefranchisement",
+              "start": 12.37,
+              "end": 12.95,
+              "probability": 0.6334136962890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Encore",
+          "start": 0.89,
+          "end": 1.35
+        },
+        {
+          "raw": "quill",
+          "start": 1.35,
+          "end": 1.67
+        },
+        {
+          "raw": "est",
+          "start": 1.67,
+          "end": 1.91
+        },
+        {
+          "raw": "contour",
+          "start": 1.91,
+          "end": 2.41
+        },
+        {
+          "raw": "son",
+          "start": 2.41,
+          "end": 2.61
+        },
+        {
+          "raw": "german",
+          "start": 2.61,
+          "end": 2.97
+        },
+        {
+          "raw": "depardner",
+          "start": 2.97,
+          "end": 3.71
+        },
+        {
+          "raw": "aachen",
+          "start": 3.71,
+          "end": 4.11
+        },
+        {
+          "raw": "prisonier",
+          "start": 4.11,
+          "end": 4.75
+        },
+        {
+          "raw": "Nae",
+          "start": 4.75,
+          "end": 5.51
+        },
+        {
+          "raw": "in",
+          "start": 5.51,
+          "end": 5.65
+        },
+        {
+          "raw": "moins",
+          "start": 5.65,
+          "end": 6.05
+        },
+        {
+          "raw": "pour",
+          "start": 6.05,
+          "end": 6.59
+        },
+        {
+          "raw": "les",
+          "start": 6.59,
+          "end": 6.79
+        },
+        {
+          "raw": "aqueuse",
+          "start": 6.79,
+          "end": 7.29
+        },
+        {
+          "raw": "que",
+          "start": 7.29,
+          "end": 7.45
+        },
+        {
+          "raw": "vous",
+          "start": 7.45,
+          "end": 7.65
+        },
+        {
+          "raw": "Louis",
+          "start": 7.65,
+          "end": 7.91
+        },
+        {
+          "raw": "avas",
+          "start": 7.91,
+          "end": 8.31
+        },
+        {
+          "raw": "promise",
+          "start": 8.31,
+          "end": 8.69
+        },
+        {
+          "raw": "ill",
+          "start": 8.69,
+          "end": 9.37
+        },
+        {
+          "raw": "est",
+          "start": 9.37,
+          "end": 9.63
+        },
+        {
+          "raw": "content",
+          "start": 9.63,
+          "end": 10.11
+        },
+        {
+          "raw": "avous",
+          "start": 10.11,
+          "end": 10.53
+        },
+        {
+          "raw": "donner",
+          "start": 10.53,
+          "end": 10.89
+        },
+        {
+          "raw": "le",
+          "start": 10.89,
+          "end": 10.99
+        },
+        {
+          "raw": "liberté",
+          "start": 10.99,
+          "end": 11.69
+        },
+        {
+          "raw": "Lefranchisement",
+          "start": 12.37,
+          "end": 12.95
+        }
+      ],
+      "expected_tokens": [
+        "Boy.",
+        "_Encore",
+        "qu'il",
+        "est",
+        "contre",
+        "son",
+        "jurement",
+        "de",
+        "pardonner",
+        "aucun",
+        "prisonnier;",
+        "néanmoins,",
+        "pour",
+        "les",
+        "écus",
+        "que",
+        "vous",
+        "lui",
+        "avez",
+        "promis,",
+        "il",
+        "est",
+        "content",
+        "à",
+        "vous",
+        "donner",
+        "la",
+        "liberté,",
+        "le",
+        "franchisement._"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "equal",
+          1,
+          2,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          3,
+          1,
+          2
+        ],
+        [
+          "equal",
+          3,
+          4,
+          2,
+          3
+        ],
+        [
+          "replace",
+          4,
+          5,
+          3,
+          4
+        ],
+        [
+          "equal",
+          5,
+          6,
+          4,
+          5
+        ],
+        [
+          "replace",
+          6,
+          12,
+          5,
+          12
+        ],
+        [
+          "equal",
+          12,
+          14,
+          12,
+          14
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          15
+        ],
+        [
+          "equal",
+          15,
+          17,
+          15,
+          17
+        ],
+        [
+          "replace",
+          17,
+          21,
+          17,
+          21
+        ],
+        [
+          "equal",
+          21,
+          23,
+          21,
+          23
+        ],
+        [
+          "replace",
+          23,
+          25,
+          23,
+          24
+        ],
+        [
+          "equal",
+          25,
+          26,
+          24,
+          25
+        ],
+        [
+          "replace",
+          26,
+          27,
+          25,
+          26
+        ],
+        [
+          "equal",
+          27,
+          28,
+          26,
+          27
+        ],
+        [
+          "replace",
+          28,
+          30,
+          27,
+          28
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "replace",
+          2,
+          3,
+          1,
+          2
+        ],
+        [
+          "replace",
+          4,
+          5,
+          3,
+          4
+        ],
+        [
+          "replace",
+          6,
+          12,
+          5,
+          12
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          15
+        ],
+        [
+          "replace",
+          17,
+          21,
+          17,
+          21
+        ],
+        [
+          "replace",
+          23,
+          25,
+          23,
+          24
+        ],
+        [
+          "replace",
+          26,
+          27,
+          25,
+          26
+        ],
+        [
+          "replace",
+          28,
+          30,
+          27,
+          28
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Encore",
+          "start": 0.89,
+          "end": 1.35,
+          "key": "encore",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "quill",
+          "start": 1.35,
+          "end": 1.67,
+          "key": "quill",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "est",
+          "start": 1.67,
+          "end": 1.91,
+          "key": "est",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "contour",
+          "start": 1.91,
+          "end": 2.41,
+          "key": "contour",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "son",
+          "start": 2.41,
+          "end": 2.61,
+          "key": "son",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "german",
+          "start": 2.61,
+          "end": 2.97,
+          "key": "german",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "depardner",
+          "start": 2.97,
+          "end": 3.71,
+          "key": "depardner",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "aachen",
+          "start": 3.71,
+          "end": 4.11,
+          "key": "aachen",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "prisonier",
+          "start": 4.11,
+          "end": 4.75,
+          "key": "prisonier",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Nae",
+          "start": 4.75,
+          "end": 5.51,
+          "key": "nae",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.51,
+          "end": 5.65,
+          "key": "in",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "moins",
+          "start": 5.65,
+          "end": 6.05,
+          "key": "moins",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "pour",
+          "start": 6.05,
+          "end": 6.59,
+          "key": "pour",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "les",
+          "start": 6.59,
+          "end": 6.79,
+          "key": "les",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "aqueuse",
+          "start": 6.79,
+          "end": 7.29,
+          "key": "aqueuse",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "que",
+          "start": 7.29,
+          "end": 7.45,
+          "key": "que",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "vous",
+          "start": 7.45,
+          "end": 7.65,
+          "key": "vous",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Louis",
+          "start": 7.65,
+          "end": 7.91,
+          "key": "louis",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "avas",
+          "start": 7.91,
+          "end": 8.31,
+          "key": "avas",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "promise",
+          "start": 8.31,
+          "end": 8.69,
+          "key": "promise",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "ill",
+          "start": 8.69,
+          "end": 9.37,
+          "key": "ill",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "est",
+          "start": 9.37,
+          "end": 9.63,
+          "key": "est",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "content",
+          "start": 9.63,
+          "end": 10.11,
+          "key": "content",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "avous",
+          "start": 10.11,
+          "end": 10.53,
+          "key": "avous",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "donner",
+          "start": 10.53,
+          "end": 10.89,
+          "key": "donner",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "le",
+          "start": 10.89,
+          "end": 10.99,
+          "key": "le",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "liberté",
+          "start": 10.99,
+          "end": 11.69,
+          "key": "liberté",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "Lefranchisement",
+          "start": 12.37,
+          "end": 12.95,
+          "key": "lefranchisement",
+          "pieces": [
+            27
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Boy.",
+          "start": 0.0,
+          "end": 0.445
+        },
+        {
+          "text": "_Encore",
+          "start": 0.89,
+          "end": 1.35
+        },
+        {
+          "text": "qu'il",
+          "start": 1.35,
+          "end": 1.51
+        },
+        {
+          "text": "est",
+          "start": 1.67,
+          "end": 1.91
+        },
+        {
+          "text": "contre",
+          "start": 1.91,
+          "end": 2.16
+        },
+        {
+          "text": "son",
+          "start": 2.41,
+          "end": 2.61
+        },
+        {
+          "text": "jurement",
+          "start": 2.61,
+          "end": 4.33
+        },
+        {
+          "text": "de",
+          "start": 4.33,
+          "end": 5.19
+        },
+        {
+          "text": "pardonner",
+          "start": 5.19,
+          "end": 5.62
+        },
+        {
+          "text": "aucun",
+          "start": 5.62,
+          "end": 5.835
+        },
+        {
+          "text": "prisonnier;",
+          "start": 5.835,
+          "end": 5.942
+        },
+        {
+          "text": "néanmoins,",
+          "start": 5.942,
+          "end": 5.996
+        },
+        {
+          "text": "pour",
+          "start": 6.05,
+          "end": 6.59
+        },
+        {
+          "text": "les",
+          "start": 6.59,
+          "end": 6.79
+        },
+        {
+          "text": "écus",
+          "start": 6.79,
+          "end": 7.04
+        },
+        {
+          "text": "que",
+          "start": 7.29,
+          "end": 7.45
+        },
+        {
+          "text": "vous",
+          "start": 7.45,
+          "end": 7.65
+        },
+        {
+          "text": "lui",
+          "start": 7.65,
+          "end": 8.51
+        },
+        {
+          "text": "avez",
+          "start": 8.51,
+          "end": 8.94
+        },
+        {
+          "text": "promis,",
+          "start": 8.94,
+          "end": 9.155
+        },
+        {
+          "text": "il",
+          "start": 9.155,
+          "end": 9.262
+        },
+        {
+          "text": "est",
+          "start": 9.37,
+          "end": 9.63
+        },
+        {
+          "text": "content",
+          "start": 9.63,
+          "end": 10.11
+        },
+        {
+          "text": "à",
+          "start": 10.11,
+          "end": 10.32
+        },
+        {
+          "text": "vous",
+          "start": 10.32,
+          "end": 10.425
+        },
+        {
+          "text": "donner",
+          "start": 10.53,
+          "end": 10.89
+        },
+        {
+          "text": "la",
+          "start": 10.89,
+          "end": 10.94
+        },
+        {
+          "text": "liberté,",
+          "start": 10.99,
+          "end": 11.69
+        },
+        {
+          "text": "le",
+          "start": 11.69,
+          "end": 12.32
+        },
+        {
+          "text": "franchisement._",
+          "start": 12.32,
+          "end": 12.635
+        }
+      ],
+      "stats": {
+        "expected_words": 30,
+        "heard_words": 28,
+        "matched_words": 11
+      },
+      "match_ratio": 0.36666666666666664,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.4767669839784503
+    },
+    {
+      "asr_seconds": 0.46466789674013853,
+      "alignment_seconds": 0.0005485936999320984,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Boy, encore quill est contur son german de pardner auken prisonier, nae en moins, pour",
+          "start": 0.05,
+          "end": 6.59,
+          "words": [
+            {
+              "text": " Boy,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.375244140625
+            },
+            {
+              "text": " encore",
+              "start": 0.99,
+              "end": 1.39,
+              "probability": 0.5782470703125
+            },
+            {
+              "text": " quill",
+              "start": 1.39,
+              "end": 1.69,
+              "probability": 0.740966796875
+            },
+            {
+              "text": " est",
+              "start": 1.69,
+              "end": 1.91,
+              "probability": 0.79541015625
+            },
+            {
+              "text": " contur",
+              "start": 1.91,
+              "end": 2.41,
+              "probability": 0.3609619140625
+            },
+            {
+              "text": " son",
+              "start": 2.41,
+              "end": 2.63,
+              "probability": 0.499267578125
+            },
+            {
+              "text": " german",
+              "start": 2.63,
+              "end": 2.97,
+              "probability": 0.650390625
+            },
+            {
+              "text": " de",
+              "start": 2.97,
+              "end": 3.25,
+              "probability": 0.192138671875
+            },
+            {
+              "text": " pardner",
+              "start": 3.25,
+              "end": 3.69,
+              "probability": 0.6292724609375
+            },
+            {
+              "text": " auken",
+              "start": 3.69,
+              "end": 4.15,
+              "probability": 0.4820149739583333
+            },
+            {
+              "text": " prisonier,",
+              "start": 4.15,
+              "end": 4.73,
+              "probability": 0.606689453125
+            },
+            {
+              "text": " nae",
+              "start": 5.41,
+              "end": 5.51,
+              "probability": 0.52197265625
+            },
+            {
+              "text": " en",
+              "start": 5.51,
+              "end": 5.65,
+              "probability": 0.480712890625
+            },
+            {
+              "text": " moins,",
+              "start": 5.65,
+              "end": 6.03,
+              "probability": 0.54931640625
+            },
+            {
+              "text": " pour",
+              "start": 6.51,
+              "end": 6.59,
+              "probability": 0.65087890625
+            }
+          ]
+        },
+        {
+          "text": " less aqueuse que vous Louis avas promise, il est content avous d'honneur la liberté,",
+          "start": 6.59,
+          "end": 11.57,
+          "words": [
+            {
+              "text": " less",
+              "start": 6.59,
+              "end": 6.81,
+              "probability": 0.387451171875
+            },
+            {
+              "text": " aqueuse",
+              "start": 6.81,
+              "end": 7.31,
+              "probability": 0.471923828125
+            },
+            {
+              "text": " que",
+              "start": 7.31,
+              "end": 7.45,
+              "probability": 0.435302734375
+            },
+            {
+              "text": " vous",
+              "start": 7.45,
+              "end": 7.65,
+              "probability": 0.634765625
+            },
+            {
+              "text": " Louis",
+              "start": 7.65,
+              "end": 7.91,
+              "probability": 0.445068359375
+            },
+            {
+              "text": " avas",
+              "start": 7.91,
+              "end": 8.31,
+              "probability": 0.4677734375
+            },
+            {
+              "text": " promise,",
+              "start": 8.31,
+              "end": 8.65,
+              "probability": 0.6357421875
+            },
+            {
+              "text": " il",
+              "start": 9.29,
+              "end": 9.37,
+              "probability": 0.28173828125
+            },
+            {
+              "text": " est",
+              "start": 9.37,
+              "end": 9.63,
+              "probability": 0.966796875
+            },
+            {
+              "text": " content",
+              "start": 9.63,
+              "end": 10.09,
+              "probability": 0.89306640625
+            },
+            {
+              "text": " avous",
+              "start": 10.09,
+              "end": 10.51,
+              "probability": 0.702880859375
+            },
+            {
+              "text": " d",
+              "start": 10.51,
+              "end": 10.75,
+              "probability": 0.362060546875
+            },
+            {
+              "text": "'honneur",
+              "start": 10.75,
+              "end": 10.89,
+              "probability": 0.7838134765625
+            },
+            {
+              "text": " la",
+              "start": 10.89,
+              "end": 11.01,
+              "probability": 0.5390625
+            },
+            {
+              "text": " liberté,",
+              "start": 11.01,
+              "end": 11.57,
+              "probability": 0.92724609375
+            }
+          ]
+        },
+        {
+          "text": " la franchisement.",
+          "start": 11.99,
+          "end": 12.91,
+          "words": [
+            {
+              "text": " la",
+              "start": 11.99,
+              "end": 12.09,
+              "probability": 0.70703125
+            },
+            {
+              "text": " franchisement.",
+              "start": 12.09,
+              "end": 12.91,
+              "probability": 0.9391276041666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Boy,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "encore",
+          "start": 0.99,
+          "end": 1.39
+        },
+        {
+          "raw": "quill",
+          "start": 1.39,
+          "end": 1.69
+        },
+        {
+          "raw": "est",
+          "start": 1.69,
+          "end": 1.91
+        },
+        {
+          "raw": "contur",
+          "start": 1.91,
+          "end": 2.41
+        },
+        {
+          "raw": "son",
+          "start": 2.41,
+          "end": 2.63
+        },
+        {
+          "raw": "german",
+          "start": 2.63,
+          "end": 2.97
+        },
+        {
+          "raw": "de",
+          "start": 2.97,
+          "end": 3.25
+        },
+        {
+          "raw": "pardner",
+          "start": 3.25,
+          "end": 3.69
+        },
+        {
+          "raw": "auken",
+          "start": 3.69,
+          "end": 4.15
+        },
+        {
+          "raw": "prisonier,",
+          "start": 4.15,
+          "end": 4.73
+        },
+        {
+          "raw": "nae",
+          "start": 5.41,
+          "end": 5.51
+        },
+        {
+          "raw": "en",
+          "start": 5.51,
+          "end": 5.65
+        },
+        {
+          "raw": "moins,",
+          "start": 5.65,
+          "end": 6.03
+        },
+        {
+          "raw": "pour",
+          "start": 6.51,
+          "end": 6.59
+        },
+        {
+          "raw": "less",
+          "start": 6.59,
+          "end": 6.81
+        },
+        {
+          "raw": "aqueuse",
+          "start": 6.81,
+          "end": 7.31
+        },
+        {
+          "raw": "que",
+          "start": 7.31,
+          "end": 7.45
+        },
+        {
+          "raw": "vous",
+          "start": 7.45,
+          "end": 7.65
+        },
+        {
+          "raw": "Louis",
+          "start": 7.65,
+          "end": 7.91
+        },
+        {
+          "raw": "avas",
+          "start": 7.91,
+          "end": 8.31
+        },
+        {
+          "raw": "promise,",
+          "start": 8.31,
+          "end": 8.65
+        },
+        {
+          "raw": "il",
+          "start": 9.29,
+          "end": 9.37
+        },
+        {
+          "raw": "est",
+          "start": 9.37,
+          "end": 9.63
+        },
+        {
+          "raw": "content",
+          "start": 9.63,
+          "end": 10.09
+        },
+        {
+          "raw": "avous",
+          "start": 10.09,
+          "end": 10.51
+        },
+        {
+          "raw": "d",
+          "start": 10.51,
+          "end": 10.75
+        },
+        {
+          "raw": "'honneur",
+          "start": 10.75,
+          "end": 10.89
+        },
+        {
+          "raw": "la",
+          "start": 10.89,
+          "end": 11.01
+        },
+        {
+          "raw": "liberté,",
+          "start": 11.01,
+          "end": 11.57
+        },
+        {
+          "raw": "la",
+          "start": 11.99,
+          "end": 12.09
+        },
+        {
+          "raw": "franchisement.",
+          "start": 12.09,
+          "end": 12.91
+        }
+      ],
+      "expected_tokens": [
+        "Boy.",
+        "_Encore",
+        "qu'il",
+        "est",
+        "contre",
+        "son",
+        "jurement",
+        "de",
+        "pardonner",
+        "aucun",
+        "prisonnier;",
+        "néanmoins,",
+        "pour",
+        "les",
+        "écus",
+        "que",
+        "vous",
+        "lui",
+        "avez",
+        "promis,",
+        "il",
+        "est",
+        "content",
+        "à",
+        "vous",
+        "donner",
+        "la",
+        "liberté,",
+        "le",
+        "franchisement._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "replace",
+          8,
+          12,
+          8,
+          14
+        ],
+        [
+          "equal",
+          12,
+          13,
+          14,
+          15
+        ],
+        [
+          "replace",
+          13,
+          15,
+          15,
+          17
+        ],
+        [
+          "equal",
+          15,
+          17,
+          17,
+          19
+        ],
+        [
+          "replace",
+          17,
+          20,
+          19,
+          22
+        ],
+        [
+          "equal",
+          20,
+          23,
+          22,
+          25
+        ],
+        [
+          "replace",
+          23,
+          26,
+          25,
+          28
+        ],
+        [
+          "equal",
+          26,
+          28,
+          28,
+          30
+        ],
+        [
+          "replace",
+          28,
+          29,
+          30,
+          31
+        ],
+        [
+          "equal",
+          29,
+          30,
+          31,
+          32
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 31
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "replace",
+          8,
+          12,
+          8,
+          14
+        ],
+        [
+          "replace",
+          13,
+          15,
+          15,
+          17
+        ],
+        [
+          "replace",
+          17,
+          20,
+          19,
+          22
+        ],
+        [
+          "replace",
+          23,
+          26,
+          25,
+          28
+        ],
+        [
+          "replace",
+          28,
+          29,
+          30,
+          31
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Boy,",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "boy",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "encore",
+          "start": 0.99,
+          "end": 1.39,
+          "key": "encore",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "quill",
+          "start": 1.39,
+          "end": 1.69,
+          "key": "quill",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "est",
+          "start": 1.69,
+          "end": 1.91,
+          "key": "est",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "contur",
+          "start": 1.91,
+          "end": 2.41,
+          "key": "contur",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "son",
+          "start": 2.41,
+          "end": 2.63,
+          "key": "son",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "german",
+          "start": 2.63,
+          "end": 2.97,
+          "key": "german",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 2.97,
+          "end": 3.25,
+          "key": "de",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "pardner",
+          "start": 3.25,
+          "end": 3.69,
+          "key": "pardner",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "auken",
+          "start": 3.69,
+          "end": 4.15,
+          "key": "auken",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "prisonier,",
+          "start": 4.15,
+          "end": 4.73,
+          "key": "prisonier",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "nae",
+          "start": 5.41,
+          "end": 5.51,
+          "key": "nae",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "en",
+          "start": 5.51,
+          "end": 5.65,
+          "key": "en",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "moins,",
+          "start": 5.65,
+          "end": 6.03,
+          "key": "moins",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "pour",
+          "start": 6.51,
+          "end": 6.59,
+          "key": "pour",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "less",
+          "start": 6.59,
+          "end": 6.81,
+          "key": "less",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "aqueuse",
+          "start": 6.81,
+          "end": 7.31,
+          "key": "aqueuse",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "que",
+          "start": 7.31,
+          "end": 7.45,
+          "key": "que",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "vous",
+          "start": 7.45,
+          "end": 7.65,
+          "key": "vous",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Louis",
+          "start": 7.65,
+          "end": 7.91,
+          "key": "louis",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "avas",
+          "start": 7.91,
+          "end": 8.31,
+          "key": "avas",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "promise,",
+          "start": 8.31,
+          "end": 8.65,
+          "key": "promise",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "il",
+          "start": 9.29,
+          "end": 9.37,
+          "key": "il",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "est",
+          "start": 9.37,
+          "end": 9.63,
+          "key": "est",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "content",
+          "start": 9.63,
+          "end": 10.09,
+          "key": "content",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "avous",
+          "start": 10.09,
+          "end": 10.51,
+          "key": "avous",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "d",
+          "start": 10.51,
+          "end": 10.75,
+          "key": "d",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "'honneur",
+          "start": 10.75,
+          "end": 10.89,
+          "key": "honneur",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "la",
+          "start": 10.89,
+          "end": 11.01,
+          "key": "la",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "liberté,",
+          "start": 11.01,
+          "end": 11.57,
+          "key": "liberté",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "la",
+          "start": 11.99,
+          "end": 12.09,
+          "key": "la",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "franchisement.",
+          "start": 12.09,
+          "end": 12.91,
+          "key": "franchisement",
+          "pieces": [
+            31
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Boy.",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "_Encore",
+          "start": 0.99,
+          "end": 1.39
+        },
+        {
+          "text": "qu'il",
+          "start": 1.39,
+          "end": 1.54
+        },
+        {
+          "text": "est",
+          "start": 1.69,
+          "end": 1.91
+        },
+        {
+          "text": "contre",
+          "start": 1.91,
+          "end": 2.16
+        },
+        {
+          "text": "son",
+          "start": 2.41,
+          "end": 2.63
+        },
+        {
+          "text": "jurement",
+          "start": 2.63,
+          "end": 2.8
+        },
+        {
+          "text": "de",
+          "start": 2.97,
+          "end": 3.25
+        },
+        {
+          "text": "pardonner",
+          "start": 3.25,
+          "end": 4.88
+        },
+        {
+          "text": "aucun",
+          "start": 4.88,
+          "end": 5.695
+        },
+        {
+          "text": "prisonnier;",
+          "start": 5.695,
+          "end": 6.103
+        },
+        {
+          "text": "néanmoins,",
+          "start": 6.103,
+          "end": 6.306
+        },
+        {
+          "text": "pour",
+          "start": 6.51,
+          "end": 6.59
+        },
+        {
+          "text": "les",
+          "start": 6.59,
+          "end": 6.95
+        },
+        {
+          "text": "écus",
+          "start": 6.95,
+          "end": 7.13
+        },
+        {
+          "text": "que",
+          "start": 7.31,
+          "end": 7.45
+        },
+        {
+          "text": "vous",
+          "start": 7.45,
+          "end": 7.65
+        },
+        {
+          "text": "lui",
+          "start": 7.65,
+          "end": 8.47
+        },
+        {
+          "text": "avez",
+          "start": 8.47,
+          "end": 8.88
+        },
+        {
+          "text": "promis,",
+          "start": 8.88,
+          "end": 9.085
+        },
+        {
+          "text": "il",
+          "start": 9.29,
+          "end": 9.37
+        },
+        {
+          "text": "est",
+          "start": 9.37,
+          "end": 9.63
+        },
+        {
+          "text": "content",
+          "start": 9.63,
+          "end": 10.09
+        },
+        {
+          "text": "à",
+          "start": 10.09,
+          "end": 10.49
+        },
+        {
+          "text": "vous",
+          "start": 10.49,
+          "end": 10.69
+        },
+        {
+          "text": "donner",
+          "start": 10.69,
+          "end": 10.79
+        },
+        {
+          "text": "la",
+          "start": 10.89,
+          "end": 11.01
+        },
+        {
+          "text": "liberté,",
+          "start": 11.01,
+          "end": 11.57
+        },
+        {
+          "text": "le",
+          "start": 11.57,
+          "end": 11.83
+        },
+        {
+          "text": "franchisement._",
+          "start": 12.09,
+          "end": 12.91
+        }
+      ],
+      "stats": {
+        "expected_words": 30,
+        "heard_words": 32,
+        "matched_words": 14
+      },
+      "match_ratio": 0.4666666666666667,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.4654239658266306
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2fc94cb5960058dede736abd3824b76f8f2e0331e59f5c96af550b1e25d1cac8",
+  "selected_reasons": []
+}

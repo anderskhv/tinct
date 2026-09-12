@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "6f288ce75c806ee0d229e35c71106acea77f189ec269dfd53dea05c8d76cb4a2",
+  "attempts": [
+    {
+      "asr_seconds": 0.212750437669456,
+      "alignment_seconds": 0.00035903044044971466,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "French Soldier. _O Seigneur Dieu!_",
+        "hotwords": "French, Soldier, Seigneur, Dieu!_"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " French Soldier. O Seigneur Dieu!",
+          "start": 0.05,
+          "end": 2.75,
+          "words": [
+            {
+              "text": " French",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.89013671875
+            },
+            {
+              "text": " Soldier.",
+              "start": 0.63,
+              "end": 1.07,
+              "probability": 0.0965576171875
+            },
+            {
+              "text": " O",
+              "start": 1.53,
+              "end": 1.57,
+              "probability": 0.1900634765625
+            },
+            {
+              "text": " Seigneur",
+              "start": 1.57,
+              "end": 2.03,
+              "probability": 0.523681640625
+            },
+            {
+              "text": " Dieu!",
+              "start": 2.03,
+              "end": 2.75,
+              "probability": 0.21115875244140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "French",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "Soldier.",
+          "start": 0.63,
+          "end": 1.07
+        },
+        {
+          "raw": "O",
+          "start": 1.53,
+          "end": 1.57
+        },
+        {
+          "raw": "Seigneur",
+          "start": 1.57,
+          "end": 2.03
+        },
+        {
+          "raw": "Dieu!",
+          "start": 2.03,
+          "end": 2.75
+        }
+      ],
+      "expected_tokens": [
+        "French",
+        "Soldier.",
+        "_O",
+        "Seigneur",
+        "Dieu!_"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "French",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "french",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Soldier.",
+          "start": 0.63,
+          "end": 1.07,
+          "key": "soldier",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 1.53,
+          "end": 1.57,
+          "key": "o",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Seigneur",
+          "start": 1.57,
+          "end": 2.03,
+          "key": "seigneur",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Dieu!",
+          "start": 2.03,
+          "end": 2.75,
+          "key": "dieu",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "French",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Soldier.",
+          "start": 0.63,
+          "end": 1.07
+        },
+        {
+          "text": "_O",
+          "start": 1.53,
+          "end": 1.57
+        },
+        {
+          "text": "Seigneur",
+          "start": 1.57,
+          "end": 2.03
+        },
+        {
+          "text": "Dieu!_",
+          "start": 2.03,
+          "end": 2.75
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21324643213301897
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7a2e8e169b168ce9837356fa6dc9476c1073c9457d5ce51e6c5e696a185dade9",
+  "selected_reasons": []
+}

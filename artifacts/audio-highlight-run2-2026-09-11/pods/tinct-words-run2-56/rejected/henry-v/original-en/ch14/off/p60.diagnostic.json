@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "08c01b07ceeeb3d037cd60a1b3c67c67eae10d842321b2b373764fc66183ccb3",
+  "attempts": [
+    {
+      "asr_seconds": 0.1295165680348873,
+      "alignment_seconds": 0.00040405895560979843,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Williams, that's more than we know.",
+          "start": 0.02,
+          "end": 2.08,
+          "words": [
+            {
+              "text": " Williams,",
+              "start": 0.02,
+              "end": 0.82,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " that's",
+              "start": 1.24,
+              "end": 1.46,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " more",
+              "start": 1.46,
+              "end": 1.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " than",
+              "start": 1.58,
+              "end": 1.72,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " we",
+              "start": 1.72,
+              "end": 1.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " know.",
+              "start": 1.84,
+              "end": 2.08,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Williams,",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "raw": "that's",
+          "start": 1.24,
+          "end": 1.46
+        },
+        {
+          "raw": "more",
+          "start": 1.46,
+          "end": 1.58
+        },
+        {
+          "raw": "than",
+          "start": 1.58,
+          "end": 1.72
+        },
+        {
+          "raw": "we",
+          "start": 1.72,
+          "end": 1.84
+        },
+        {
+          "raw": "know.",
+          "start": 1.84,
+          "end": 2.08
+        }
+      ],
+      "expected_tokens": [
+        "Williams.",
+        "That's",
+        "more",
+        "than",
+        "we",
+        "know."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Williams,",
+          "start": 0.02,
+          "end": 0.82,
+          "key": "williams",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "that's",
+          "start": 1.24,
+          "end": 1.46,
+          "key": "thats",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 1.46,
+          "end": 1.58,
+          "key": "more",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 1.58,
+          "end": 1.72,
+          "key": "than",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 1.72,
+          "end": 1.84,
+          "key": "we",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "know.",
+          "start": 1.84,
+          "end": 2.08,
+          "key": "know",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Williams.",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "text": "That's",
+          "start": 1.24,
+          "end": 1.46
+        },
+        {
+          "text": "more",
+          "start": 1.46,
+          "end": 1.58
+        },
+        {
+          "text": "than",
+          "start": 1.58,
+          "end": 1.72
+        },
+        {
+          "text": "we",
+          "start": 1.72,
+          "end": 1.84
+        },
+        {
+          "text": "know.",
+          "start": 1.84,
+          "end": 2.08
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13005972933024168
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d365e1d3878df3a11c2c92ef803643aa23754f88f7f5eae19dd8902c9a17dc2a",
+  "selected_reasons": []
+}

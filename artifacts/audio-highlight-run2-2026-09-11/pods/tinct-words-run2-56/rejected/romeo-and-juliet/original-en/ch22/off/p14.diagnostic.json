@@ -1,0 +1,246 @@
+{
+  "complete": true,
+  "signature": "a74bda31616e245a64df6ad17a2e4fec71ec5b19faf63102288504ff72a3bd6f",
+  "attempts": [
+    {
+      "asr_seconds": 0.13030678778886795,
+      "alignment_seconds": 0.00015811901539564133,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lady Capulet, a woeful time.",
+          "start": 0.05,
+          "end": 2.29,
+          "words": [
+            {
+              "text": " Lady",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.76904296875
+            },
+            {
+              "text": " Capulet,",
+              "start": 0.63,
+              "end": 1.17,
+              "probability": 0.989501953125
+            },
+            {
+              "text": " a",
+              "start": 1.49,
+              "end": 1.61,
+              "probability": 0.55224609375
+            },
+            {
+              "text": " woeful",
+              "start": 1.61,
+              "end": 1.93,
+              "probability": 0.919921875
+            },
+            {
+              "text": " time.",
+              "start": 1.93,
+              "end": 2.29,
+              "probability": 0.97998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lady",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "Capulet,",
+          "start": 0.63,
+          "end": 1.17
+        },
+        {
+          "raw": "a",
+          "start": 1.49,
+          "end": 1.61
+        },
+        {
+          "raw": "woeful",
+          "start": 1.61,
+          "end": 1.93
+        },
+        {
+          "raw": "time.",
+          "start": 1.93,
+          "end": 2.29
+        }
+      ],
+      "expected_tokens": [
+        "Lady",
+        "Capulet.",
+        "O",
+        "woful",
+        "time!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          4
+        ],
+        [
+          "equal",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          4,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lady",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "lady",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Capulet,",
+          "start": 0.63,
+          "end": 1.17,
+          "key": "capulet",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.49,
+          "end": 1.61,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "woeful",
+          "start": 1.61,
+          "end": 1.93,
+          "key": "woeful",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "time.",
+          "start": 1.93,
+          "end": 2.29,
+          "key": "time",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lady",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Capulet.",
+          "start": 0.63,
+          "end": 1.17
+        },
+        {
+          "text": "O",
+          "start": 1.17,
+          "end": 1.55
+        },
+        {
+          "text": "woful",
+          "start": 1.55,
+          "end": 1.74
+        },
+        {
+          "text": "time!",
+          "start": 1.93,
+          "end": 2.29
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 3
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1305114235728979
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "49684c2b648d758bc30739a562c2477fc8b405269d7ce6b54a18409616aa8b80",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,157 @@
+{
+  "complete": true,
+  "signature": "1608c4a9a627dd5f5ae679f9581613aa28ffd87298ba5b209bf04ebf02809cf5",
+  "attempts": [
+    {
+      "asr_seconds": 0.1405565459281206,
+      "alignment_seconds": 0.00031313207000494003,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Driving them forward._]"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Driving them forward.",
+          "start": 0.05,
+          "end": 1.25,
+          "words": [
+            {
+              "text": " Driving",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.476806640625
+            },
+            {
+              "text": " them",
+              "start": 0.67,
+              "end": 0.89,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " forward.",
+              "start": 0.89,
+              "end": 1.25,
+              "probability": 0.9697265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Driving",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "them",
+          "start": 0.67,
+          "end": 0.89
+        },
+        {
+          "raw": "forward.",
+          "start": 0.89,
+          "end": 1.25
+        }
+      ],
+      "expected_tokens": [
+        "[_Driving",
+        "them",
+        "forward._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Driving",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "driving",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 0.67,
+          "end": 0.89,
+          "key": "them",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "forward.",
+          "start": 0.89,
+          "end": 1.25,
+          "key": "forward",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Driving",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "them",
+          "start": 0.67,
+          "end": 0.89
+        },
+        {
+          "text": "forward._]",
+          "start": 0.89,
+          "end": 1.25
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14096724614501
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fd0cebab461fe0f4e1657b11163a1259c7e9915aa2aedb3ce5bdaeafe4d165fa",
+  "selected_reasons": []
+}

@@ -1,0 +1,219 @@
+{
+  "complete": true,
+  "signature": "81928c457dc04993340f85625cffd6224c12ff5af0848a1a78be80f6de607bc7",
+  "attempts": [
+    {
+      "asr_seconds": 0.11629141494631767,
+      "alignment_seconds": 0.000328846275806427,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " King Henry, Harry LaRoe",
+          "start": 0.05,
+          "end": 1.87,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.87255859375
+            },
+            {
+              "text": " Henry,",
+              "start": 0.53,
+              "end": 0.91,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Harry",
+              "start": 1.41,
+              "end": 1.51,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " LaRoe",
+              "start": 1.51,
+              "end": 1.87,
+              "probability": 0.4403483072916667
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "Henry,",
+          "start": 0.53,
+          "end": 0.91
+        },
+        {
+          "raw": "Harry",
+          "start": 1.41,
+          "end": 1.51
+        },
+        {
+          "raw": "LaRoe",
+          "start": 1.51,
+          "end": 1.87
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Henry.",
+        "Harry",
+        "le",
+        "Roy."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          5,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Henry,",
+          "start": 0.53,
+          "end": 0.91,
+          "key": "henry",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Harry",
+          "start": 1.41,
+          "end": 1.51,
+          "key": "harry",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "LaRoe",
+          "start": 1.51,
+          "end": 1.87,
+          "key": "laroe",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "Henry.",
+          "start": 0.53,
+          "end": 0.91
+        },
+        {
+          "text": "Harry",
+          "start": 1.41,
+          "end": 1.51
+        },
+        {
+          "text": "le",
+          "start": 1.51,
+          "end": 1.69
+        },
+        {
+          "text": "Roy.",
+          "start": 1.69,
+          "end": 1.78
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11673197895288467
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "73e55cc668d48651caf8cf9be4d562af8794d865e063d410a501c0c163c3e3ef",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

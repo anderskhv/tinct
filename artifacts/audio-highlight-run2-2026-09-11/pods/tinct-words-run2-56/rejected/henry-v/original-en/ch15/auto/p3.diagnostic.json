@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "07e6f052690687b61e8e4755ec5b5dfb0e5935d7f1323c28da505ae406c9bb38",
+  "attempts": [
+    {
+      "asr_seconds": 0.20687480177730322,
+      "alignment_seconds": 0.00023101642727851868,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Orleans. O brave spirit!",
+        "hotwords": "Orleans, O"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Orleans, O brave spirit!",
+          "start": 0.05,
+          "end": 1.97,
+          "words": [
+            {
+              "text": " Orleans,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.912109375
+            },
+            {
+              "text": " O",
+              "start": 1.25,
+              "end": 1.35,
+              "probability": 0.51611328125
+            },
+            {
+              "text": " brave",
+              "start": 1.35,
+              "end": 1.57,
+              "probability": 0.364013671875
+            },
+            {
+              "text": " spirit!",
+              "start": 1.57,
+              "end": 1.97,
+              "probability": 0.962890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Orleans,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "O",
+          "start": 1.25,
+          "end": 1.35
+        },
+        {
+          "raw": "brave",
+          "start": 1.35,
+          "end": 1.57
+        },
+        {
+          "raw": "spirit!",
+          "start": 1.57,
+          "end": 1.97
+        }
+      ],
+      "expected_tokens": [
+        "Orleans.",
+        "O",
+        "brave",
+        "spirit!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Orleans,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "orleans",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 1.25,
+          "end": 1.35,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "brave",
+          "start": 1.35,
+          "end": 1.57,
+          "key": "brave",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "spirit!",
+          "start": 1.57,
+          "end": 1.97,
+          "key": "spirit",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Orleans.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "O",
+          "start": 1.25,
+          "end": 1.35
+        },
+        {
+          "text": "brave",
+          "start": 1.35,
+          "end": 1.57
+        },
+        {
+          "text": "spirit!",
+          "start": 1.57,
+          "end": 1.97
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20718755945563316
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b21757f9fc889968962af6c5e123cc624a6ee7cfa7d318cde74d154bbf6b543a",
+  "selected_reasons": []
+}

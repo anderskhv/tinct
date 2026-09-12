@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "1b5c6ae6ead4e9b234972518f0152cd547d2cf22b4f23b5470683fd036b2c8d1",
+  "attempts": [
+    {
+      "asr_seconds": 0.2380430093035102,
+      "alignment_seconds": 0.0005244864150881767,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "First Musician. Faith, we may put up our pipes and be gone.",
+        "hotwords": "First, Musician, Faith"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " First Musician, Faith, we may put up our pipes and be gone.",
+          "start": 0.05,
+          "end": 3.77,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.79833984375
+            },
+            {
+              "text": " Musician,",
+              "start": 0.69,
+              "end": 1.25,
+              "probability": 0.60186767578125
+            },
+            {
+              "text": " Faith,",
+              "start": 1.93,
+              "end": 1.99,
+              "probability": 0.65283203125
+            },
+            {
+              "text": " we",
+              "start": 2.33,
+              "end": 2.35,
+              "probability": 0.8896484375
+            },
+            {
+              "text": " may",
+              "start": 2.35,
+              "end": 2.49,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " put",
+              "start": 2.49,
+              "end": 2.63,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " up",
+              "start": 2.63,
+              "end": 2.75,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " our",
+              "start": 2.75,
+              "end": 2.87,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " pipes",
+              "start": 2.87,
+              "end": 3.11,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " and",
+              "start": 3.11,
+              "end": 3.35,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " be",
+              "start": 3.35,
+              "end": 3.47,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " gone.",
+              "start": 3.47,
+              "end": 3.77,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "Musician,",
+          "start": 0.69,
+          "end": 1.25
+        },
+        {
+          "raw": "Faith,",
+          "start": 1.93,
+          "end": 1.99
+        },
+        {
+          "raw": "we",
+          "start": 2.33,
+          "end": 2.35
+        },
+        {
+          "raw": "may",
+          "start": 2.35,
+          "end": 2.49
+        },
+        {
+          "raw": "put",
+          "start": 2.49,
+          "end": 2.63
+        },
+        {
+          "raw": "up",
+          "start": 2.63,
+          "end": 2.75
+        },
+        {
+          "raw": "our",
+          "start": 2.75,
+          "end": 2.87
+        },
+        {
+          "raw": "pipes",
+          "start": 2.87,
+          "end": 3.11
+        },
+        {
+          "raw": "and",
+          "start": 3.11,
+          "end": 3.35
+        },
+        {
+          "raw": "be",
+          "start": 3.35,
+          "end": 3.47
+        },
+        {
+          "raw": "gone.",
+          "start": 3.47,
+          "end": 3.77
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Musician.",
+        "Faith,",
+        "we",
+        "may",
+        "put",
+        "up",
+        "our",
+        "pipes",
+        "and",
+        "be",
+        "gone."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Musician,",
+          "start": 0.69,
+          "end": 1.25,
+          "key": "musician",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Faith,",
+          "start": 1.93,
+          "end": 1.99,
+          "key": "faith",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 2.33,
+          "end": 2.35,
+          "key": "we",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 2.35,
+          "end": 2.49,
+          "key": "may",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "put",
+          "start": 2.49,
+          "end": 2.63,
+          "key": "put",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 2.63,
+          "end": 2.75,
+          "key": "up",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 2.75,
+          "end": 2.87,
+          "key": "our",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "pipes",
+          "start": 2.87,
+          "end": 3.11,
+          "key": "pipes",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.11,
+          "end": 3.35,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.35,
+          "end": 3.47,
+          "key": "be",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "gone.",
+          "start": 3.47,
+          "end": 3.77,
+          "key": "gone",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "Musician.",
+          "start": 0.69,
+          "end": 1.25
+        },
+        {
+          "text": "Faith,",
+          "start": 1.93,
+          "end": 1.99
+        },
+        {
+          "text": "we",
+          "start": 2.33,
+          "end": 2.35
+        },
+        {
+          "text": "may",
+          "start": 2.35,
+          "end": 2.49
+        },
+        {
+          "text": "put",
+          "start": 2.49,
+          "end": 2.63
+        },
+        {
+          "text": "up",
+          "start": 2.63,
+          "end": 2.75
+        },
+        {
+          "text": "our",
+          "start": 2.75,
+          "end": 2.87
+        },
+        {
+          "text": "pipes",
+          "start": 2.87,
+          "end": 3.11
+        },
+        {
+          "text": "and",
+          "start": 3.11,
+          "end": 3.35
+        },
+        {
+          "text": "be",
+          "start": 3.35,
+          "end": 3.47
+        },
+        {
+          "text": "gone.",
+          "start": 3.47,
+          "end": 3.77
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23879480082541704
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7f59047fdf58ff9906728e5f92faf3ac7dfe27527e8bbb0fc582326061bff7da",
+  "selected_reasons": []
+}

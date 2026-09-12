@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "e83cfb11160a03d36e127d99ece66ec9c7debef576d851414d906fe9eb833259",
+  "attempts": [
+    {
+      "asr_seconds": 0.11617743410170078,
+      "alignment_seconds": 0.00029820390045642853,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Alice, excellent madame.",
+          "start": 0.18,
+          "end": 1.82,
+          "words": [
+            {
+              "text": " Alice,",
+              "start": 0.18,
+              "end": 0.78,
+              "probability": 0.7607421875
+            },
+            {
+              "text": " excellent",
+              "start": 1.1,
+              "end": 1.38,
+              "probability": 0.9375
+            },
+            {
+              "text": " madame.",
+              "start": 1.38,
+              "end": 1.82,
+              "probability": 0.4510498046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Alice,",
+          "start": 0.18,
+          "end": 0.78
+        },
+        {
+          "raw": "excellent",
+          "start": 1.1,
+          "end": 1.38
+        },
+        {
+          "raw": "madame.",
+          "start": 1.38,
+          "end": 1.82
+        }
+      ],
+      "expected_tokens": [
+        "Alice.",
+        "_Excellent,",
+        "madame!_"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Alice,",
+          "start": 0.18,
+          "end": 0.78,
+          "key": "alice",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "excellent",
+          "start": 1.1,
+          "end": 1.38,
+          "key": "excellent",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "madame.",
+          "start": 1.38,
+          "end": 1.82,
+          "key": "madame",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Alice.",
+          "start": 0.18,
+          "end": 0.78
+        },
+        {
+          "text": "_Excellent,",
+          "start": 1.1,
+          "end": 1.38
+        },
+        {
+          "text": "madame!_",
+          "start": 1.38,
+          "end": 1.82
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11658694315701723
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cbdf7d3823b58883e97c74cf4827708eff7c381c4623fc2bda6f6a9cece525b3",
+  "selected_reasons": []
+}

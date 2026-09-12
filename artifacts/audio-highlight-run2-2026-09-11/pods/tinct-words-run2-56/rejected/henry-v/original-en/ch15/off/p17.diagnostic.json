@@ -1,0 +1,412 @@
+{
+  "complete": true,
+  "signature": "72b285b9f95b30c13392f5a6d21de68fe5b0de4a689d6a373455623dd9540acc",
+  "attempts": [
+    {
+      "asr_seconds": 0.22564094420522451,
+      "alignment_seconds": 0.0004155561327934265,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " constable they have said their prayers and they stay for death",
+          "start": 0.02,
+          "end": 3.44,
+          "words": [
+            {
+              "text": " constable",
+              "start": 0.02,
+              "end": 0.96,
+              "probability": 0.59930419921875
+            },
+            {
+              "text": " they",
+              "start": 0.96,
+              "end": 1.48,
+              "probability": 0.266357421875
+            },
+            {
+              "text": " have",
+              "start": 1.48,
+              "end": 1.58,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " said",
+              "start": 1.58,
+              "end": 1.72,
+              "probability": 0.99609375
+            },
+            {
+              "text": " their",
+              "start": 1.72,
+              "end": 1.88,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " prayers",
+              "start": 1.88,
+              "end": 2.22,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 2.22,
+              "end": 2.52,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " they",
+              "start": 2.52,
+              "end": 2.66,
+              "probability": 0.99609375
+            },
+            {
+              "text": " stay",
+              "start": 2.66,
+              "end": 2.9,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " for",
+              "start": 2.9,
+              "end": 3.12,
+              "probability": 0.998046875
+            },
+            {
+              "text": " death",
+              "start": 3.12,
+              "end": 3.44,
+              "probability": 0.970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "constable",
+          "start": 0.02,
+          "end": 0.96
+        },
+        {
+          "raw": "they",
+          "start": 0.96,
+          "end": 1.48
+        },
+        {
+          "raw": "have",
+          "start": 1.48,
+          "end": 1.58
+        },
+        {
+          "raw": "said",
+          "start": 1.58,
+          "end": 1.72
+        },
+        {
+          "raw": "their",
+          "start": 1.72,
+          "end": 1.88
+        },
+        {
+          "raw": "prayers",
+          "start": 1.88,
+          "end": 2.22
+        },
+        {
+          "raw": "and",
+          "start": 2.22,
+          "end": 2.52
+        },
+        {
+          "raw": "they",
+          "start": 2.52,
+          "end": 2.66
+        },
+        {
+          "raw": "stay",
+          "start": 2.66,
+          "end": 2.9
+        },
+        {
+          "raw": "for",
+          "start": 2.9,
+          "end": 3.12
+        },
+        {
+          "raw": "death",
+          "start": 3.12,
+          "end": 3.44
+        }
+      ],
+      "expected_tokens": [
+        "Constable.",
+        "They",
+        "have",
+        "said",
+        "their",
+        "prayers,",
+        "and",
+        "they",
+        "stay",
+        "for",
+        "death."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "constable",
+          "start": 0.02,
+          "end": 0.96,
+          "key": "constable",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 0.96,
+          "end": 1.48,
+          "key": "they",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.48,
+          "end": 1.58,
+          "key": "have",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.58,
+          "end": 1.72,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 1.72,
+          "end": 1.88,
+          "key": "their",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "prayers",
+          "start": 1.88,
+          "end": 2.22,
+          "key": "prayers",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.22,
+          "end": 2.52,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 2.52,
+          "end": 2.66,
+          "key": "they",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "stay",
+          "start": 2.66,
+          "end": 2.9,
+          "key": "stay",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.9,
+          "end": 3.12,
+          "key": "for",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "death",
+          "start": 3.12,
+          "end": 3.44,
+          "key": "death",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Constable.",
+          "start": 0.02,
+          "end": 0.96
+        },
+        {
+          "text": "They",
+          "start": 0.96,
+          "end": 1.48
+        },
+        {
+          "text": "have",
+          "start": 1.48,
+          "end": 1.58
+        },
+        {
+          "text": "said",
+          "start": 1.58,
+          "end": 1.72
+        },
+        {
+          "text": "their",
+          "start": 1.72,
+          "end": 1.88
+        },
+        {
+          "text": "prayers,",
+          "start": 1.88,
+          "end": 2.22
+        },
+        {
+          "text": "and",
+          "start": 2.22,
+          "end": 2.52
+        },
+        {
+          "text": "they",
+          "start": 2.52,
+          "end": 2.66
+        },
+        {
+          "text": "stay",
+          "start": 2.66,
+          "end": 2.9
+        },
+        {
+          "text": "for",
+          "start": 2.9,
+          "end": 3.12
+        },
+        {
+          "text": "death.",
+          "start": 3.12,
+          "end": 3.44
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22620732709765434
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "aeb4c8c9c180f257f750af7c10221a5eb90e8ecba95b9194899aa073e73e8894",
+  "selected_reasons": []
+}

@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "d1de1e1646d2b0f4641bd0489dd853e61910b18050fe0138fd4221e3c863505d",
+  "attempts": [
+    {
+      "asr_seconds": 0.14179132506251335,
+      "alignment_seconds": 0.00017634965479373932,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Gower and Fluellen, meeting.",
+        "hotwords": "Enter, Gower, Fluellen"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter, Gower and Fluellen, meeting.",
+          "start": 0.11,
+          "end": 1.79,
+          "words": [
+            {
+              "text": " Enter,",
+              "start": 0.11,
+              "end": 0.63,
+              "probability": 0.89892578125
+            },
+            {
+              "text": " Gower",
+              "start": 0.69,
+              "end": 0.89,
+              "probability": 0.711181640625
+            },
+            {
+              "text": " and",
+              "start": 0.89,
+              "end": 1.03,
+              "probability": 0.77685546875
+            },
+            {
+              "text": " Fluellen,",
+              "start": 1.03,
+              "end": 1.47,
+              "probability": 0.6247007250785828
+            },
+            {
+              "text": " meeting.",
+              "start": 1.61,
+              "end": 1.79,
+              "probability": 0.90185546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter,",
+          "start": 0.11,
+          "end": 0.63
+        },
+        {
+          "raw": "Gower",
+          "start": 0.69,
+          "end": 0.89
+        },
+        {
+          "raw": "and",
+          "start": 0.89,
+          "end": 1.03
+        },
+        {
+          "raw": "Fluellen,",
+          "start": 1.03,
+          "end": 1.47
+        },
+        {
+          "raw": "meeting.",
+          "start": 1.61,
+          "end": 1.79
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Gower",
+        "and",
+        "Fluellen,",
+        "meeting."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter,",
+          "start": 0.11,
+          "end": 0.63,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Gower",
+          "start": 0.69,
+          "end": 0.89,
+          "key": "gower",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.89,
+          "end": 1.03,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Fluellen,",
+          "start": 1.03,
+          "end": 1.47,
+          "key": "fluellen",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "meeting.",
+          "start": 1.61,
+          "end": 1.79,
+          "key": "meeting",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.11,
+          "end": 0.63
+        },
+        {
+          "text": "Gower",
+          "start": 0.69,
+          "end": 0.89
+        },
+        {
+          "text": "and",
+          "start": 0.89,
+          "end": 1.03
+        },
+        {
+          "text": "Fluellen,",
+          "start": 1.03,
+          "end": 1.47
+        },
+        {
+          "text": "meeting.",
+          "start": 1.61,
+          "end": 1.79
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14203109499067068
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "05be9e52a0294e425f903f21fe9ebf84140700f20a97ae153df836489b733493",
+  "selected_reasons": []
+}

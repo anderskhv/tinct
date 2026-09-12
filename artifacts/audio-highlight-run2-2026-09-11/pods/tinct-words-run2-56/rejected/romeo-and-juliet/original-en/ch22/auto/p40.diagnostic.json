@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "4c32b2bc477ca20dc9a66a5c2ce1816d5063a68b4ddd373ec597960a14da188e",
+  "attempts": [
+    {
+      "asr_seconds": 0.18395938258618116,
+      "alignment_seconds": 0.00045379623770713806,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "First Musician. What will you give us?",
+        "hotwords": "First, Musician, What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " First Musician, What Will You Give Us?",
+          "start": 0.08,
+          "end": 2.42,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.865234375
+            },
+            {
+              "text": " Musician,",
+              "start": 0.72,
+              "end": 1.26,
+              "probability": 0.58294677734375
+            },
+            {
+              "text": " What",
+              "start": 1.76,
+              "end": 1.8,
+              "probability": 0.06927490234375
+            },
+            {
+              "text": " Will",
+              "start": 1.8,
+              "end": 1.88,
+              "probability": 0.450927734375
+            },
+            {
+              "text": " You",
+              "start": 1.88,
+              "end": 2.02,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " Give",
+              "start": 2.02,
+              "end": 2.18,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Us?",
+              "start": 2.18,
+              "end": 2.42,
+              "probability": 0.97998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "Musician,",
+          "start": 0.72,
+          "end": 1.26
+        },
+        {
+          "raw": "What",
+          "start": 1.76,
+          "end": 1.8
+        },
+        {
+          "raw": "Will",
+          "start": 1.8,
+          "end": 1.88
+        },
+        {
+          "raw": "You",
+          "start": 1.88,
+          "end": 2.02
+        },
+        {
+          "raw": "Give",
+          "start": 2.02,
+          "end": 2.18
+        },
+        {
+          "raw": "Us?",
+          "start": 2.18,
+          "end": 2.42
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Musician.",
+        "What",
+        "will",
+        "you",
+        "give",
+        "us?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Musician,",
+          "start": 0.72,
+          "end": 1.26,
+          "key": "musician",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.76,
+          "end": 1.8,
+          "key": "what",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Will",
+          "start": 1.8,
+          "end": 1.88,
+          "key": "will",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 1.88,
+          "end": 2.02,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Give",
+          "start": 2.02,
+          "end": 2.18,
+          "key": "give",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Us?",
+          "start": 2.18,
+          "end": 2.42,
+          "key": "us",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "text": "Musician.",
+          "start": 0.72,
+          "end": 1.26
+        },
+        {
+          "text": "What",
+          "start": 1.76,
+          "end": 1.8
+        },
+        {
+          "text": "will",
+          "start": 1.8,
+          "end": 1.88
+        },
+        {
+          "text": "you",
+          "start": 1.88,
+          "end": 2.02
+        },
+        {
+          "text": "give",
+          "start": 2.02,
+          "end": 2.18
+        },
+        {
+          "text": "us?",
+          "start": 2.18,
+          "end": 2.42
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18456428404897451
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "44b7d999896ca7fa9d05506e655bb572514d6e1b2acbc4a621bfdb909a6d505a",
+  "selected_reasons": []
+}

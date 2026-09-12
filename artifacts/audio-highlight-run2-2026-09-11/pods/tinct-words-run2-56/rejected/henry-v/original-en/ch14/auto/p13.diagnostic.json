@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "31acd0d8e1fe987331bff61ff02ff374a6c5c30b6f692b3d8e12e8b07c01715c",
+  "attempts": [
+    {
+      "asr_seconds": 0.12531338073313236,
+      "alignment_seconds": 0.00034026335924863815,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Pistol. _Qui vous là?_",
+        "hotwords": "Pistol"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Pistol. Qui vous là?.",
+          "start": 0.05,
+          "end": 1.65,
+          "words": [
+            {
+              "text": " Pistol.",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.57763671875
+            },
+            {
+              "text": " Qui",
+              "start": 1.05,
+              "end": 1.19,
+              "probability": 0.242034912109375
+            },
+            {
+              "text": " vous",
+              "start": 1.19,
+              "end": 1.37,
+              "probability": 0.4437255859375
+            },
+            {
+              "text": " là?.",
+              "start": 1.37,
+              "end": 1.65,
+              "probability": 0.0524139404296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pistol.",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "Qui",
+          "start": 1.05,
+          "end": 1.19
+        },
+        {
+          "raw": "vous",
+          "start": 1.19,
+          "end": 1.37
+        },
+        {
+          "raw": "là?.",
+          "start": 1.37,
+          "end": 1.65
+        }
+      ],
+      "expected_tokens": [
+        "Pistol.",
+        "_Qui",
+        "vous",
+        "là?_"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pistol.",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "pistol",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Qui",
+          "start": 1.05,
+          "end": 1.19,
+          "key": "qui",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "vous",
+          "start": 1.19,
+          "end": 1.37,
+          "key": "vous",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "là?.",
+          "start": 1.37,
+          "end": 1.65,
+          "key": "là",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Pistol.",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "_Qui",
+          "start": 1.05,
+          "end": 1.19
+        },
+        {
+          "text": "vous",
+          "start": 1.19,
+          "end": 1.37
+        },
+        {
+          "text": "là?_",
+          "start": 1.37,
+          "end": 1.65
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12576562073081732
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0851d38e72c483690059ac436d460a93ff021d2e827f16db3816af20abe81bf2",
+  "selected_reasons": []
+}

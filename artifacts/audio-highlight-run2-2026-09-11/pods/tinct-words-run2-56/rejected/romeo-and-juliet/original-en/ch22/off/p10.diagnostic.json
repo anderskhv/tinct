@@ -1,0 +1,370 @@
+{
+  "complete": true,
+  "signature": "a04a43449d7327261039677c40e3d13d887ac1881efa411357bc5a595c5acf0b",
+  "attempts": [
+    {
+      "asr_seconds": 0.21046984568238258,
+      "alignment_seconds": 0.00034926924854516983,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Nurse. She's dead, deceased. She's dead. Alack the day.",
+          "start": 0.05,
+          "end": 3.61,
+          "words": [
+            {
+              "text": " Nurse.",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.77587890625
+            },
+            {
+              "text": " She's",
+              "start": 1.21,
+              "end": 1.39,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " dead,",
+              "start": 1.39,
+              "end": 1.59,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " deceased.",
+              "start": 1.73,
+              "end": 1.89,
+              "probability": 0.67578125
+            },
+            {
+              "text": " She's",
+              "start": 2.23,
+              "end": 2.35,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " dead.",
+              "start": 2.35,
+              "end": 2.57,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Alack",
+              "start": 2.99,
+              "end": 3.21,
+              "probability": 0.785888671875
+            },
+            {
+              "text": " the",
+              "start": 3.21,
+              "end": 3.37,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " day.",
+              "start": 3.37,
+              "end": 3.61,
+              "probability": 0.97705078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Nurse.",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "She's",
+          "start": 1.21,
+          "end": 1.39
+        },
+        {
+          "raw": "dead,",
+          "start": 1.39,
+          "end": 1.59
+        },
+        {
+          "raw": "deceased.",
+          "start": 1.73,
+          "end": 1.89
+        },
+        {
+          "raw": "She's",
+          "start": 2.23,
+          "end": 2.35
+        },
+        {
+          "raw": "dead.",
+          "start": 2.35,
+          "end": 2.57
+        },
+        {
+          "raw": "Alack",
+          "start": 2.99,
+          "end": 3.21
+        },
+        {
+          "raw": "the",
+          "start": 3.21,
+          "end": 3.37
+        },
+        {
+          "raw": "day.",
+          "start": 3.37,
+          "end": 3.61
+        }
+      ],
+      "expected_tokens": [
+        "Nurse.",
+        "She's",
+        "dead,",
+        "deceas'd,",
+        "she's",
+        "dead;",
+        "alack",
+        "the",
+        "day!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          9,
+          4,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Nurse.",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "nurse",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "She's",
+          "start": 1.21,
+          "end": 1.39,
+          "key": "shes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "dead,",
+          "start": 1.39,
+          "end": 1.59,
+          "key": "dead",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "deceased.",
+          "start": 1.73,
+          "end": 1.89,
+          "key": "deceased",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "She's",
+          "start": 2.23,
+          "end": 2.35,
+          "key": "shes",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "dead.",
+          "start": 2.35,
+          "end": 2.57,
+          "key": "dead",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Alack",
+          "start": 2.99,
+          "end": 3.21,
+          "key": "alack",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.21,
+          "end": 3.37,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "day.",
+          "start": 3.37,
+          "end": 3.61,
+          "key": "day",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Nurse.",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "She's",
+          "start": 1.21,
+          "end": 1.39
+        },
+        {
+          "text": "dead,",
+          "start": 1.39,
+          "end": 1.59
+        },
+        {
+          "text": "deceas'd,",
+          "start": 1.59,
+          "end": 1.91
+        },
+        {
+          "text": "she's",
+          "start": 2.23,
+          "end": 2.35
+        },
+        {
+          "text": "dead;",
+          "start": 2.35,
+          "end": 2.57
+        },
+        {
+          "text": "alack",
+          "start": 2.99,
+          "end": 3.21
+        },
+        {
+          "text": "the",
+          "start": 3.21,
+          "end": 3.37
+        },
+        {
+          "text": "day!",
+          "start": 3.37,
+          "end": 3.61
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.21094296500086784
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f8d647b18f5e169da9f10637a5b5af3d9370ad1da86ef540c5fd0bf281de4084",
+  "selected_reasons": []
+}

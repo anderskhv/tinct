@@ -1,0 +1,623 @@
+{
+  "complete": true,
+  "signature": "0b1bc4e29ee4ef1ab41b60cc4d5ea5fa28f1153f65adb6bba5607b165290254d",
+  "attempts": [
+    {
+      "asr_seconds": 0.24337102752178907,
+      "alignment_seconds": 0.0003679674118757248,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Dauphin. _Cieux_, cousin Orleans.",
+        "hotwords": "Dauphin, Orleans"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Dauphin, sieux, cousin Orleans.",
+          "start": 0.08,
+          "end": 2.08,
+          "words": [
+            {
+              "text": " Dauphin,",
+              "start": 0.08,
+              "end": 0.9,
+              "probability": 0.8983154296875
+            },
+            {
+              "text": " sieux,",
+              "start": 1.28,
+              "end": 1.58,
+              "probability": 0.0596160888671875
+            },
+            {
+              "text": " cousin",
+              "start": 1.58,
+              "end": 1.74,
+              "probability": 0.8583984375
+            },
+            {
+              "text": " Orleans.",
+              "start": 1.74,
+              "end": 2.08,
+              "probability": 0.681640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dauphin,",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "raw": "sieux,",
+          "start": 1.28,
+          "end": 1.58
+        },
+        {
+          "raw": "cousin",
+          "start": 1.58,
+          "end": 1.74
+        },
+        {
+          "raw": "Orleans.",
+          "start": 1.74,
+          "end": 2.08
+        }
+      ],
+      "expected_tokens": [
+        "Dauphin.",
+        "_Cieux_,",
+        "cousin",
+        "Orleans."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          4,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dauphin,",
+          "start": 0.08,
+          "end": 0.9,
+          "key": "dauphin",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sieux,",
+          "start": 1.28,
+          "end": 1.58,
+          "key": "sieux",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "cousin",
+          "start": 1.58,
+          "end": 1.74,
+          "key": "cousin",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Orleans.",
+          "start": 1.74,
+          "end": 2.08,
+          "key": "orleans",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Dauphin.",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "text": "_Cieux_,",
+          "start": 0.9,
+          "end": 1.24
+        },
+        {
+          "text": "cousin",
+          "start": 1.58,
+          "end": 1.74
+        },
+        {
+          "text": "Orleans.",
+          "start": 1.74,
+          "end": 2.08
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.24385435227304697
+    },
+    {
+      "asr_seconds": 0.2257007798179984,
+      "alignment_seconds": 0.00037923548370599747,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Dauphin, Orleans"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Dauphin, Cia, Cousin, Orleans",
+          "start": 0.08,
+          "end": 2.1,
+          "words": [
+            {
+              "text": " Dauphin,",
+              "start": 0.08,
+              "end": 0.9,
+              "probability": 0.8983154296875
+            },
+            {
+              "text": " Cia,",
+              "start": 1.3,
+              "end": 1.44,
+              "probability": 0.4682464599609375
+            },
+            {
+              "text": " Cousin,",
+              "start": 1.6,
+              "end": 1.82,
+              "probability": 0.70703125
+            },
+            {
+              "text": " Orleans",
+              "start": 1.84,
+              "end": 2.1,
+              "probability": 0.7578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dauphin,",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "raw": "Cia,",
+          "start": 1.3,
+          "end": 1.44
+        },
+        {
+          "raw": "Cousin,",
+          "start": 1.6,
+          "end": 1.82
+        },
+        {
+          "raw": "Orleans",
+          "start": 1.84,
+          "end": 2.1
+        }
+      ],
+      "expected_tokens": [
+        "Dauphin.",
+        "_Cieux_,",
+        "cousin",
+        "Orleans."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          4,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dauphin,",
+          "start": 0.08,
+          "end": 0.9,
+          "key": "dauphin",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Cia,",
+          "start": 1.3,
+          "end": 1.44,
+          "key": "cia",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Cousin,",
+          "start": 1.6,
+          "end": 1.82,
+          "key": "cousin",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Orleans",
+          "start": 1.84,
+          "end": 2.1,
+          "key": "orleans",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Dauphin.",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "text": "_Cieux_,",
+          "start": 0.9,
+          "end": 1.25
+        },
+        {
+          "text": "cousin",
+          "start": 1.6,
+          "end": 1.82
+        },
+        {
+          "text": "Orleans.",
+          "start": 1.84,
+          "end": 2.1
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.22620483860373497
+    },
+    {
+      "asr_seconds": 0.204307503066957,
+      "alignment_seconds": 0.00023604091256856918,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Dauphin, Sia, Cousin Orleans.",
+          "start": 0.08,
+          "end": 2.08,
+          "words": [
+            {
+              "text": " Dauphin,",
+              "start": 0.08,
+              "end": 0.9,
+              "probability": 0.8983154296875
+            },
+            {
+              "text": " Sia,",
+              "start": 1.28,
+              "end": 1.42,
+              "probability": 0.705322265625
+            },
+            {
+              "text": " Cousin",
+              "start": 1.58,
+              "end": 1.82,
+              "probability": 0.700439453125
+            },
+            {
+              "text": " Orleans.",
+              "start": 1.82,
+              "end": 2.08,
+              "probability": 0.8046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dauphin,",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "raw": "Sia,",
+          "start": 1.28,
+          "end": 1.42
+        },
+        {
+          "raw": "Cousin",
+          "start": 1.58,
+          "end": 1.82
+        },
+        {
+          "raw": "Orleans.",
+          "start": 1.82,
+          "end": 2.08
+        }
+      ],
+      "expected_tokens": [
+        "Dauphin.",
+        "_Cieux_,",
+        "cousin",
+        "Orleans."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          4,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dauphin,",
+          "start": 0.08,
+          "end": 0.9,
+          "key": "dauphin",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sia,",
+          "start": 1.28,
+          "end": 1.42,
+          "key": "sia",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Cousin",
+          "start": 1.58,
+          "end": 1.82,
+          "key": "cousin",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Orleans.",
+          "start": 1.82,
+          "end": 2.08,
+          "key": "orleans",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Dauphin.",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "text": "_Cieux_,",
+          "start": 0.9,
+          "end": 1.24
+        },
+        {
+          "text": "cousin",
+          "start": 1.58,
+          "end": 1.82
+        },
+        {
+          "text": "Orleans.",
+          "start": 1.82,
+          "end": 2.08
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20461745653301477
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1e50efc783f7fe4a8c0178af03af878445f7486966c7b49f5827b53e62f81855",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

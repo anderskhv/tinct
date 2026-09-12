@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "7fb8ff7ec9a7c4a7e9cc27c5b57d9c949eebc1c054db36bafb39dbe60e508bf7",
+  "attempts": [
+    {
+      "asr_seconds": 0.2315806159749627,
+      "alignment_seconds": 0.0005201557651162148,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Gower. How now, Captain Fluellen! come you from the bridge?",
+        "hotwords": "Gower, How, Captain, Fluellen"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Gower, How now, Captain Fluellen! come you from the bridge?",
+          "start": 0.05,
+          "end": 3.11,
+          "words": [
+            {
+              "text": " Gower,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.878662109375
+            },
+            {
+              "text": " How",
+              "start": 0.83,
+              "end": 0.95,
+              "probability": 0.042205810546875
+            },
+            {
+              "text": " now,",
+              "start": 0.95,
+              "end": 1.17,
+              "probability": 0.08758544921875
+            },
+            {
+              "text": " Captain",
+              "start": 1.29,
+              "end": 1.51,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " Fluellen!",
+              "start": 1.51,
+              "end": 2.07,
+              "probability": 0.6607582569122314
+            },
+            {
+              "text": " come",
+              "start": 2.33,
+              "end": 2.51,
+              "probability": 0.004009246826171875
+            },
+            {
+              "text": " you",
+              "start": 2.51,
+              "end": 2.61,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " from",
+              "start": 2.61,
+              "end": 2.73,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 2.73,
+              "end": 2.87,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " bridge?",
+              "start": 2.87,
+              "end": 3.11,
+              "probability": 0.94140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gower,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "How",
+          "start": 0.83,
+          "end": 0.95
+        },
+        {
+          "raw": "now,",
+          "start": 0.95,
+          "end": 1.17
+        },
+        {
+          "raw": "Captain",
+          "start": 1.29,
+          "end": 1.51
+        },
+        {
+          "raw": "Fluellen!",
+          "start": 1.51,
+          "end": 2.07
+        },
+        {
+          "raw": "come",
+          "start": 2.33,
+          "end": 2.51
+        },
+        {
+          "raw": "you",
+          "start": 2.51,
+          "end": 2.61
+        },
+        {
+          "raw": "from",
+          "start": 2.61,
+          "end": 2.73
+        },
+        {
+          "raw": "the",
+          "start": 2.73,
+          "end": 2.87
+        },
+        {
+          "raw": "bridge?",
+          "start": 2.87,
+          "end": 3.11
+        }
+      ],
+      "expected_tokens": [
+        "Gower.",
+        "How",
+        "now,",
+        "Captain",
+        "Fluellen!",
+        "come",
+        "you",
+        "from",
+        "the",
+        "bridge?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gower,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "gower",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 0.83,
+          "end": 0.95,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "now,",
+          "start": 0.95,
+          "end": 1.17,
+          "key": "now",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Captain",
+          "start": 1.29,
+          "end": 1.51,
+          "key": "captain",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Fluellen!",
+          "start": 1.51,
+          "end": 2.07,
+          "key": "fluellen",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 2.33,
+          "end": 2.51,
+          "key": "come",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.51,
+          "end": 2.61,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 2.61,
+          "end": 2.73,
+          "key": "from",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.73,
+          "end": 2.87,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "bridge?",
+          "start": 2.87,
+          "end": 3.11,
+          "key": "bridge",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gower.",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "How",
+          "start": 0.83,
+          "end": 0.95
+        },
+        {
+          "text": "now,",
+          "start": 0.95,
+          "end": 1.17
+        },
+        {
+          "text": "Captain",
+          "start": 1.29,
+          "end": 1.51
+        },
+        {
+          "text": "Fluellen!",
+          "start": 1.51,
+          "end": 2.07
+        },
+        {
+          "text": "come",
+          "start": 2.33,
+          "end": 2.51
+        },
+        {
+          "text": "you",
+          "start": 2.51,
+          "end": 2.61
+        },
+        {
+          "text": "from",
+          "start": 2.61,
+          "end": 2.73
+        },
+        {
+          "text": "the",
+          "start": 2.73,
+          "end": 2.87
+        },
+        {
+          "text": "bridge?",
+          "start": 2.87,
+          "end": 3.11
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23229466658085585
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f0662bb46b0d0694e6e53a1f3d5f649ea33fc03ebc9cbbae0c9bd6b497979a02",
+  "selected_reasons": []
+}

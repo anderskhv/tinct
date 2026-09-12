@@ -1,0 +1,589 @@
+{
+  "complete": true,
+  "signature": "5d1249d848172e90c92618b59e1a45da643e77b79b66fb8863fef09767807ece",
+  "attempts": [
+    {
+      "asr_seconds": 0.3853460466489196,
+      "alignment_seconds": 0.0006264513358473778,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Catherine Delbo, GMN Faisal Raypetition de Tous, Les Moes, Quevous M. Aves, Apris, Desapracent.",
+          "start": 0.05,
+          "end": 7.41,
+          "words": [
+            {
+              "text": " Catherine",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.2364501953125
+            },
+            {
+              "text": " Delbo,",
+              "start": 0.93,
+              "end": 2.01,
+              "probability": 0.718994140625
+            },
+            {
+              "text": " GMN",
+              "start": 2.61,
+              "end": 2.95,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " Faisal",
+              "start": 2.95,
+              "end": 3.35,
+              "probability": 0.4519856770833333
+            },
+            {
+              "text": " Raypetition",
+              "start": 3.35,
+              "end": 3.97,
+              "probability": 0.4618733723958333
+            },
+            {
+              "text": " de",
+              "start": 3.97,
+              "end": 4.15,
+              "probability": 0.404052734375
+            },
+            {
+              "text": " Tous,",
+              "start": 4.15,
+              "end": 4.45,
+              "probability": 0.6199951171875
+            },
+            {
+              "text": " Les",
+              "start": 4.71,
+              "end": 4.79,
+              "probability": 0.6826171875
+            },
+            {
+              "text": " Moes,",
+              "start": 4.79,
+              "end": 5.15,
+              "probability": 0.5562744140625
+            },
+            {
+              "text": " Quevous",
+              "start": 5.37,
+              "end": 5.57,
+              "probability": 0.5431315104166666
+            },
+            {
+              "text": " M.",
+              "start": 5.57,
+              "end": 5.77,
+              "probability": 0.36865234375
+            },
+            {
+              "text": " Aves,",
+              "start": 5.93,
+              "end": 6.13,
+              "probability": 0.571044921875
+            },
+            {
+              "text": " Apris,",
+              "start": 6.25,
+              "end": 6.55,
+              "probability": 0.6149088541666666
+            },
+            {
+              "text": " Desapracent.",
+              "start": 6.77,
+              "end": 7.41,
+              "probability": 0.407135009765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Catherine",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "raw": "Delbo,",
+          "start": 0.93,
+          "end": 2.01
+        },
+        {
+          "raw": "GMN",
+          "start": 2.61,
+          "end": 2.95
+        },
+        {
+          "raw": "Faisal",
+          "start": 2.95,
+          "end": 3.35
+        },
+        {
+          "raw": "Raypetition",
+          "start": 3.35,
+          "end": 3.97
+        },
+        {
+          "raw": "de",
+          "start": 3.97,
+          "end": 4.15
+        },
+        {
+          "raw": "Tous,",
+          "start": 4.15,
+          "end": 4.45
+        },
+        {
+          "raw": "Les",
+          "start": 4.71,
+          "end": 4.79
+        },
+        {
+          "raw": "Moes,",
+          "start": 4.79,
+          "end": 5.15
+        },
+        {
+          "raw": "Quevous",
+          "start": 5.37,
+          "end": 5.57
+        },
+        {
+          "raw": "M.",
+          "start": 5.57,
+          "end": 5.77
+        },
+        {
+          "raw": "Aves,",
+          "start": 5.93,
+          "end": 6.13
+        },
+        {
+          "raw": "Apris,",
+          "start": 6.25,
+          "end": 6.55
+        },
+        {
+          "raw": "Desapracent.",
+          "start": 6.77,
+          "end": 7.41
+        }
+      ],
+      "expected_tokens": [
+        "Katharine.",
+        "D'elbow.",
+        "_Je",
+        "m'en",
+        "fais",
+        "la",
+        "répétition",
+        "de",
+        "tous",
+        "les",
+        "mots",
+        "que",
+        "vous",
+        "m'avez",
+        "appris",
+        "dès",
+        "à",
+        "présent._"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          7,
+          0,
+          5
+        ],
+        [
+          "equal",
+          7,
+          10,
+          5,
+          8
+        ],
+        [
+          "replace",
+          10,
+          18,
+          8,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          7,
+          0,
+          5
+        ],
+        [
+          "replace",
+          10,
+          18,
+          8,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Catherine",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "catherine",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Delbo,",
+          "start": 0.93,
+          "end": 2.01,
+          "key": "delbo",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "GMN",
+          "start": 2.61,
+          "end": 2.95,
+          "key": "gmn",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Faisal",
+          "start": 2.95,
+          "end": 3.35,
+          "key": "faisal",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Raypetition",
+          "start": 3.35,
+          "end": 3.97,
+          "key": "raypetition",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 3.97,
+          "end": 4.15,
+          "key": "de",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Tous,",
+          "start": 4.15,
+          "end": 4.45,
+          "key": "tous",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Les",
+          "start": 4.71,
+          "end": 4.79,
+          "key": "les",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Moes,",
+          "start": 4.79,
+          "end": 5.15,
+          "key": "moes",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Quevous",
+          "start": 5.37,
+          "end": 5.57,
+          "key": "quevous",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "M.",
+          "start": 5.57,
+          "end": 5.77,
+          "key": "m",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Aves,",
+          "start": 5.93,
+          "end": 6.13,
+          "key": "aves",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Apris,",
+          "start": 6.25,
+          "end": 6.55,
+          "key": "apris",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Desapracent.",
+          "start": 6.77,
+          "end": 7.41,
+          "key": "desapracent",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Katharine.",
+          "start": 0.0,
+          "end": 1.985
+        },
+        {
+          "text": "D'elbow.",
+          "start": 1.985,
+          "end": 2.978
+        },
+        {
+          "text": "_Je",
+          "start": 2.978,
+          "end": 3.474
+        },
+        {
+          "text": "m'en",
+          "start": 3.474,
+          "end": 3.722
+        },
+        {
+          "text": "fais",
+          "start": 3.722,
+          "end": 3.846
+        },
+        {
+          "text": "la",
+          "start": 3.846,
+          "end": 3.908
+        },
+        {
+          "text": "répétition",
+          "start": 3.908,
+          "end": 3.939
+        },
+        {
+          "text": "de",
+          "start": 3.97,
+          "end": 4.15
+        },
+        {
+          "text": "tous",
+          "start": 4.15,
+          "end": 4.45
+        },
+        {
+          "text": "les",
+          "start": 4.71,
+          "end": 4.79
+        },
+        {
+          "text": "mots",
+          "start": 4.79,
+          "end": 6.1
+        },
+        {
+          "text": "que",
+          "start": 6.1,
+          "end": 6.755
+        },
+        {
+          "text": "vous",
+          "start": 6.755,
+          "end": 7.082
+        },
+        {
+          "text": "m'avez",
+          "start": 7.082,
+          "end": 7.246
+        },
+        {
+          "text": "appris",
+          "start": 7.246,
+          "end": 7.328
+        },
+        {
+          "text": "dès",
+          "start": 7.328,
+          "end": 7.369
+        },
+        {
+          "text": "à",
+          "start": 7.369,
+          "end": 7.389
+        },
+        {
+          "text": "présent._",
+          "start": 7.389,
+          "end": 7.399
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 14,
+        "matched_words": 3
+      },
+      "match_ratio": 0.16666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3862062022089958
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1c3afc0ec8fd3deee525770b000b257c9bd844e0aa52d35394d32d136cec347a",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

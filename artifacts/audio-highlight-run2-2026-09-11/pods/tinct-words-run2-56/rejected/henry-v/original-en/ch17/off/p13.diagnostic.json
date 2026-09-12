@@ -1,0 +1,219 @@
+{
+  "complete": true,
+  "signature": "07a5ad9fbcbe8971442c90437f329e5bd5e77cc9efb6c72431738ad714338034",
+  "attempts": [
+    {
+      "asr_seconds": 0.2084284657612443,
+      "alignment_seconds": 0.0003681592643260956,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " French soldier, Monsieur Lefoeur.",
+          "start": 0.05,
+          "end": 2.39,
+          "words": [
+            {
+              "text": " French",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.7685546875
+            },
+            {
+              "text": " soldier,",
+              "start": 0.63,
+              "end": 1.09,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " Monsieur",
+              "start": 1.51,
+              "end": 1.71,
+              "probability": 0.9578450520833334
+            },
+            {
+              "text": " Lefoeur.",
+              "start": 1.71,
+              "end": 2.39,
+              "probability": 0.604156494140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "French",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "soldier,",
+          "start": 0.63,
+          "end": 1.09
+        },
+        {
+          "raw": "Monsieur",
+          "start": 1.51,
+          "end": 1.71
+        },
+        {
+          "raw": "Lefoeur.",
+          "start": 1.71,
+          "end": 2.39
+        }
+      ],
+      "expected_tokens": [
+        "French",
+        "Soldier.",
+        "_Monsieur",
+        "le",
+        "Fer._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          5,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "French",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "french",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "soldier,",
+          "start": 0.63,
+          "end": 1.09,
+          "key": "soldier",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Monsieur",
+          "start": 1.51,
+          "end": 1.71,
+          "key": "monsieur",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Lefoeur.",
+          "start": 1.71,
+          "end": 2.39,
+          "key": "lefoeur",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "French",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Soldier.",
+          "start": 0.63,
+          "end": 1.09
+        },
+        {
+          "text": "_Monsieur",
+          "start": 1.51,
+          "end": 1.71
+        },
+        {
+          "text": "le",
+          "start": 1.71,
+          "end": 2.05
+        },
+        {
+          "text": "Fer._",
+          "start": 2.05,
+          "end": 2.22
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2089120876044035
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1e235f54edc973f8f15bd501f5f830367bd582026c28137982d55a5d998f4f72",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

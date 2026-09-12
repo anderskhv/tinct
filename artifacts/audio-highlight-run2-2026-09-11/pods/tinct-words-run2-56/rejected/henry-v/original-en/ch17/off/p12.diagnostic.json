@@ -1,0 +1,279 @@
+{
+  "complete": true,
+  "signature": "1f9930df1bcba0dcff3ff1a98da7264a3486be231114ac46fa5127114fd6d574",
+  "attempts": [
+    {
+      "asr_seconds": 0.23058166727423668,
+      "alignment_seconds": 0.00047942250967025757,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Boy, a caudas, common ertsfus a pelé.",
+          "start": 0.05,
+          "end": 3.15,
+          "words": [
+            {
+              "text": " Boy,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.6103515625
+            },
+            {
+              "text": " a",
+              "start": 0.99,
+              "end": 1.09,
+              "probability": 0.09368896484375
+            },
+            {
+              "text": " caudas,",
+              "start": 1.09,
+              "end": 1.59,
+              "probability": 0.5592041015625
+            },
+            {
+              "text": " common",
+              "start": 1.99,
+              "end": 2.09,
+              "probability": 0.337158203125
+            },
+            {
+              "text": " ertsfus",
+              "start": 2.09,
+              "end": 2.63,
+              "probability": 0.565380859375
+            },
+            {
+              "text": " a",
+              "start": 2.63,
+              "end": 2.79,
+              "probability": 0.1949462890625
+            },
+            {
+              "text": " pelé.",
+              "start": 2.79,
+              "end": 3.15,
+              "probability": 0.448974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Boy,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "a",
+          "start": 0.99,
+          "end": 1.09
+        },
+        {
+          "raw": "caudas,",
+          "start": 1.09,
+          "end": 1.59
+        },
+        {
+          "raw": "common",
+          "start": 1.99,
+          "end": 2.09
+        },
+        {
+          "raw": "ertsfus",
+          "start": 2.09,
+          "end": 2.63
+        },
+        {
+          "raw": "a",
+          "start": 2.63,
+          "end": 2.79
+        },
+        {
+          "raw": "pelé.",
+          "start": 2.79,
+          "end": 3.15
+        }
+      ],
+      "expected_tokens": [
+        "Boy.",
+        "_Écoutez.",
+        "Comment",
+        "êtes-vous",
+        "appelé?_"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          5,
+          1,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          5,
+          1,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Boy,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "boy",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.99,
+          "end": 1.09,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "caudas,",
+          "start": 1.09,
+          "end": 1.59,
+          "key": "caudas",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "common",
+          "start": 1.99,
+          "end": 2.09,
+          "key": "common",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "ertsfus",
+          "start": 2.09,
+          "end": 2.63,
+          "key": "ertsfus",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.63,
+          "end": 2.79,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "pelé.",
+          "start": 2.79,
+          "end": 3.15,
+          "key": "pelé",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Boy.",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "_Écoutez.",
+          "start": 0.71,
+          "end": 1.93
+        },
+        {
+          "text": "Comment",
+          "start": 1.93,
+          "end": 2.54
+        },
+        {
+          "text": "êtes-vous",
+          "start": 2.54,
+          "end": 2.845
+        },
+        {
+          "text": "appelé?_",
+          "start": 2.845,
+          "end": 2.998
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 7,
+        "matched_words": 1
+      },
+      "match_ratio": 0.2,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2312119696289301
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1b75cb89deeea248c2cafdd7f1a0c9c3e7c8f283f7a50ca1012c7bccca49e407",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

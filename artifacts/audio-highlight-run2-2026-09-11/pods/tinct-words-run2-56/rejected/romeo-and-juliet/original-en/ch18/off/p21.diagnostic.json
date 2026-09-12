@@ -1,0 +1,426 @@
+{
+  "complete": true,
+  "signature": "4ef6716f6550c97df08c1c8acf3d84444660ce37c74e8f6fcf7a55570c5bcafc",
+  "attempts": [
+    {
+      "asr_seconds": 0.24219934176653624,
+      "alignment_seconds": 0.0003815228119492531,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Paris, thou wrongs thee at more than tears with that report.",
+          "start": 0.05,
+          "end": 3.49,
+          "words": [
+            {
+              "text": " Paris,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.642578125
+            },
+            {
+              "text": " thou",
+              "start": 1.35,
+              "end": 1.43,
+              "probability": 0.8876953125
+            },
+            {
+              "text": " wrongs",
+              "start": 1.43,
+              "end": 1.83,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " thee",
+              "start": 1.83,
+              "end": 1.95,
+              "probability": 0.156494140625
+            },
+            {
+              "text": " at",
+              "start": 1.95,
+              "end": 2.07,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " more",
+              "start": 2.07,
+              "end": 2.23,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " than",
+              "start": 2.23,
+              "end": 2.41,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " tears",
+              "start": 2.41,
+              "end": 2.69,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " with",
+              "start": 2.69,
+              "end": 2.91,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " that",
+              "start": 2.91,
+              "end": 3.11,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " report.",
+              "start": 3.11,
+              "end": 3.49,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Paris,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "thou",
+          "start": 1.35,
+          "end": 1.43
+        },
+        {
+          "raw": "wrongs",
+          "start": 1.43,
+          "end": 1.83
+        },
+        {
+          "raw": "thee",
+          "start": 1.83,
+          "end": 1.95
+        },
+        {
+          "raw": "at",
+          "start": 1.95,
+          "end": 2.07
+        },
+        {
+          "raw": "more",
+          "start": 2.07,
+          "end": 2.23
+        },
+        {
+          "raw": "than",
+          "start": 2.23,
+          "end": 2.41
+        },
+        {
+          "raw": "tears",
+          "start": 2.41,
+          "end": 2.69
+        },
+        {
+          "raw": "with",
+          "start": 2.69,
+          "end": 2.91
+        },
+        {
+          "raw": "that",
+          "start": 2.91,
+          "end": 3.11
+        },
+        {
+          "raw": "report.",
+          "start": 3.11,
+          "end": 3.49
+        }
+      ],
+      "expected_tokens": [
+        "Paris.",
+        "Thou",
+        "wrong'st",
+        "it",
+        "more",
+        "than",
+        "tears",
+        "with",
+        "that",
+        "report."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          5
+        ],
+        [
+          "equal",
+          4,
+          10,
+          5,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          4,
+          2,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Paris,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "paris",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.35,
+          "end": 1.43,
+          "key": "thou",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "wrongs",
+          "start": 1.43,
+          "end": 1.83,
+          "key": "wrongs",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 1.83,
+          "end": 1.95,
+          "key": "thee",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.95,
+          "end": 2.07,
+          "key": "at",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 2.07,
+          "end": 2.23,
+          "key": "more",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 2.23,
+          "end": 2.41,
+          "key": "than",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "tears",
+          "start": 2.41,
+          "end": 2.69,
+          "key": "tears",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.69,
+          "end": 2.91,
+          "key": "with",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.91,
+          "end": 3.11,
+          "key": "that",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "report.",
+          "start": 3.11,
+          "end": 3.49,
+          "key": "report",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Paris.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "Thou",
+          "start": 1.35,
+          "end": 1.43
+        },
+        {
+          "text": "wrong'st",
+          "start": 1.43,
+          "end": 1.75
+        },
+        {
+          "text": "it",
+          "start": 1.75,
+          "end": 1.91
+        },
+        {
+          "text": "more",
+          "start": 2.07,
+          "end": 2.23
+        },
+        {
+          "text": "than",
+          "start": 2.23,
+          "end": 2.41
+        },
+        {
+          "text": "tears",
+          "start": 2.41,
+          "end": 2.69
+        },
+        {
+          "text": "with",
+          "start": 2.69,
+          "end": 2.91
+        },
+        {
+          "text": "that",
+          "start": 2.91,
+          "end": 3.11
+        },
+        {
+          "text": "report.",
+          "start": 3.11,
+          "end": 3.49
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 11,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.24271050095558167
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6de08ff1ffe4c72893e0f7184ee8ebb8cb2a575707eb7fadf0e0bace2527d778",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

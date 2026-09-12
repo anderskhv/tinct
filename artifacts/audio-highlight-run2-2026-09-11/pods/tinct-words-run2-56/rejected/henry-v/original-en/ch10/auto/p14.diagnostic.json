@@ -1,0 +1,450 @@
+{
+  "complete": true,
+  "signature": "9acfd5aebcd59501304844db0dbb2714662ee012e3e6bf1278819e81c23dc6c6",
+  "attempts": [
+    {
+      "asr_seconds": 0.1382385529577732,
+      "alignment_seconds": 0.0003120396286249161,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Alice. D'elbow.",
+        "hotwords": "Alice, D'elbow"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Alice, D'elbow.",
+          "start": 0.21,
+          "end": 1.29,
+          "words": [
+            {
+              "text": " Alice,",
+              "start": 0.21,
+              "end": 0.79,
+              "probability": 0.86572265625
+            },
+            {
+              "text": " D",
+              "start": 0.93,
+              "end": 1.07,
+              "probability": 0.0156707763671875
+            },
+            {
+              "text": "'elbow.",
+              "start": 1.07,
+              "end": 1.29,
+              "probability": 0.1099700927734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Alice,",
+          "start": 0.21,
+          "end": 0.79
+        },
+        {
+          "raw": "D",
+          "start": 0.93,
+          "end": 1.07
+        },
+        {
+          "raw": "'elbow.",
+          "start": 1.07,
+          "end": 1.29
+        }
+      ],
+      "expected_tokens": [
+        "Alice.",
+        "D'elbow."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Alice,",
+          "start": 0.21,
+          "end": 0.79,
+          "key": "alice",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "D",
+          "start": 0.93,
+          "end": 1.07,
+          "key": "d",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "'elbow.",
+          "start": 1.07,
+          "end": 1.29,
+          "key": "elbow",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Alice.",
+          "start": 0.21,
+          "end": 0.79
+        },
+        {
+          "text": "D'elbow.",
+          "start": 0.79,
+          "end": 1.04
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 3,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13866134453564882
+    },
+    {
+      "asr_seconds": 0.13661855552345514,
+      "alignment_seconds": 0.0002932269126176834,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Alice, D'elbow"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Alice, D'elbow",
+          "start": 0.21,
+          "end": 1.29,
+          "words": [
+            {
+              "text": " Alice,",
+              "start": 0.21,
+              "end": 0.79,
+              "probability": 0.86572265625
+            },
+            {
+              "text": " D",
+              "start": 0.93,
+              "end": 1.07,
+              "probability": 0.0156707763671875
+            },
+            {
+              "text": "'elbow",
+              "start": 1.07,
+              "end": 1.29,
+              "probability": 0.1099700927734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Alice,",
+          "start": 0.21,
+          "end": 0.79
+        },
+        {
+          "raw": "D",
+          "start": 0.93,
+          "end": 1.07
+        },
+        {
+          "raw": "'elbow",
+          "start": 1.07,
+          "end": 1.29
+        }
+      ],
+      "expected_tokens": [
+        "Alice.",
+        "D'elbow."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Alice,",
+          "start": 0.21,
+          "end": 0.79,
+          "key": "alice",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "D",
+          "start": 0.93,
+          "end": 1.07,
+          "key": "d",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "'elbow",
+          "start": 1.07,
+          "end": 1.29,
+          "key": "elbow",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Alice.",
+          "start": 0.21,
+          "end": 0.79
+        },
+        {
+          "text": "D'elbow.",
+          "start": 0.79,
+          "end": 1.04
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 3,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1370072579011321
+    },
+    {
+      "asr_seconds": 0.14199777226895094,
+      "alignment_seconds": 0.0002706274390220642,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Alice Delbo",
+          "start": 0.21,
+          "end": 1.27,
+          "words": [
+            {
+              "text": " Alice",
+              "start": 0.21,
+              "end": 0.79,
+              "probability": 0.86572265625
+            },
+            {
+              "text": " Delbo",
+              "start": 0.79,
+              "end": 1.27,
+              "probability": 0.841552734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Alice",
+          "start": 0.21,
+          "end": 0.79
+        },
+        {
+          "raw": "Delbo",
+          "start": 0.79,
+          "end": 1.27
+        }
+      ],
+      "expected_tokens": [
+        "Alice.",
+        "D'elbow."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Alice",
+          "start": 0.21,
+          "end": 0.79,
+          "key": "alice",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Delbo",
+          "start": 0.79,
+          "end": 1.27,
+          "key": "delbo",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Alice.",
+          "start": 0.21,
+          "end": 0.79
+        },
+        {
+          "text": "D'elbow.",
+          "start": 0.79,
+          "end": 1.03
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14237337186932564
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "57d3c49a102ae175776306588b97cd215bc7e45d839ea036ffe1bd7733b95dba",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

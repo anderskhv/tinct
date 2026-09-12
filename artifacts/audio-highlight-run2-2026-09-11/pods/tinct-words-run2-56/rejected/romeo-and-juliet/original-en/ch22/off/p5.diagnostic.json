@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "76dc41a66053c7e1f43b6f7cdca38e679295f81ec5eab71e1c117cc6fc88ab9d",
+  "attempts": [
+    {
+      "asr_seconds": 0.19542159978300333,
+      "alignment_seconds": 0.0003705807030200958,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lady Capulet, what is the matter?",
+          "start": 0.05,
+          "end": 2.17,
+          "words": [
+            {
+              "text": " Lady",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.86328125
+            },
+            {
+              "text": " Capulet,",
+              "start": 0.67,
+              "end": 1.21,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " what",
+              "start": 1.61,
+              "end": 1.69,
+              "probability": 0.81103515625
+            },
+            {
+              "text": " is",
+              "start": 1.69,
+              "end": 1.83,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 1.83,
+              "end": 1.95,
+              "probability": 0.998046875
+            },
+            {
+              "text": " matter?",
+              "start": 1.95,
+              "end": 2.17,
+              "probability": 0.98388671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lady",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Capulet,",
+          "start": 0.67,
+          "end": 1.21
+        },
+        {
+          "raw": "what",
+          "start": 1.61,
+          "end": 1.69
+        },
+        {
+          "raw": "is",
+          "start": 1.69,
+          "end": 1.83
+        },
+        {
+          "raw": "the",
+          "start": 1.83,
+          "end": 1.95
+        },
+        {
+          "raw": "matter?",
+          "start": 1.95,
+          "end": 2.17
+        }
+      ],
+      "expected_tokens": [
+        "Lady",
+        "Capulet.",
+        "What",
+        "is",
+        "the",
+        "matter?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lady",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "lady",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Capulet,",
+          "start": 0.67,
+          "end": 1.21,
+          "key": "capulet",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.61,
+          "end": 1.69,
+          "key": "what",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.69,
+          "end": 1.83,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.83,
+          "end": 1.95,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "matter?",
+          "start": 1.95,
+          "end": 2.17,
+          "key": "matter",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lady",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Capulet.",
+          "start": 0.67,
+          "end": 1.21
+        },
+        {
+          "text": "What",
+          "start": 1.61,
+          "end": 1.69
+        },
+        {
+          "text": "is",
+          "start": 1.69,
+          "end": 1.83
+        },
+        {
+          "text": "the",
+          "start": 1.83,
+          "end": 1.95
+        },
+        {
+          "text": "matter?",
+          "start": 1.95,
+          "end": 2.17
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19597239326685667
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "71acc648bbef2631bd8476e458651c073c1386f4dca522b220f9c7cf3e7cc79e",
+  "selected_reasons": []
+}

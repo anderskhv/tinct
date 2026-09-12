@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "eefd1aaea6f193a4090894b81f297af1be4c50955a72b6d3cadf26b01c2d41d1",
+  "attempts": [
+    {
+      "asr_seconds": 0.14619970135390759,
+      "alignment_seconds": 0.0004922123625874519,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "King Henry. A friend.",
+        "hotwords": "King, Henry, A"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " King Henry, A Friend.",
+          "start": 0.02,
+          "end": 1.6,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.83154296875
+            },
+            {
+              "text": " Henry,",
+              "start": 0.54,
+              "end": 0.92,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " A",
+              "start": 1.28,
+              "end": 1.38,
+              "probability": 0.049163818359375
+            },
+            {
+              "text": " Friend.",
+              "start": 1.38,
+              "end": 1.6,
+              "probability": 0.78515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "Henry,",
+          "start": 0.54,
+          "end": 0.92
+        },
+        {
+          "raw": "A",
+          "start": 1.28,
+          "end": 1.38
+        },
+        {
+          "raw": "Friend.",
+          "start": 1.38,
+          "end": 1.6
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Henry.",
+        "A",
+        "friend."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Henry,",
+          "start": 0.54,
+          "end": 0.92,
+          "key": "henry",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 1.28,
+          "end": 1.38,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Friend.",
+          "start": 1.38,
+          "end": 1.6,
+          "key": "friend",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "Henry.",
+          "start": 0.54,
+          "end": 0.92
+        },
+        {
+          "text": "A",
+          "start": 1.28,
+          "end": 1.38
+        },
+        {
+          "text": "friend.",
+          "start": 1.38,
+          "end": 1.6
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14679345022886992
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "95d68867374e2efcb774523253a4bb278ab8a15a3de6bc08d6be6df4907902fd",
+  "selected_reasons": []
+}

@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "59373722ad16241f98355c28fee12da822e73414c8391c79a0372c536e918f97",
+  "attempts": [
+    {
+      "asr_seconds": 0.2535656075924635,
+      "alignment_seconds": 0.0004930468276143074,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Capulet. For shame, bring Juliet forth, her lord is come.",
+        "hotwords": "Capulet, For, Juliet"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Capulet, For, Shame, bring Juliet forth, her lord is come.",
+          "start": 0.05,
+          "end": 3.71,
+          "words": [
+            {
+              "text": " Capulet,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.960693359375
+            },
+            {
+              "text": " For,",
+              "start": 1.21,
+              "end": 1.37,
+              "probability": 0.07720947265625
+            },
+            {
+              "text": " Shame,",
+              "start": 1.65,
+              "end": 1.65,
+              "probability": 0.56884765625
+            },
+            {
+              "text": " bring",
+              "start": 2.01,
+              "end": 2.05,
+              "probability": 0.340576171875
+            },
+            {
+              "text": " Juliet",
+              "start": 2.05,
+              "end": 2.41,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " forth,",
+              "start": 2.41,
+              "end": 2.73,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " her",
+              "start": 2.91,
+              "end": 3.03,
+              "probability": 0.681640625
+            },
+            {
+              "text": " lord",
+              "start": 3.03,
+              "end": 3.23,
+              "probability": 0.75537109375
+            },
+            {
+              "text": " is",
+              "start": 3.23,
+              "end": 3.43,
+              "probability": 0.9375
+            },
+            {
+              "text": " come.",
+              "start": 3.43,
+              "end": 3.71,
+              "probability": 0.9873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Capulet,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "For,",
+          "start": 1.21,
+          "end": 1.37
+        },
+        {
+          "raw": "Shame,",
+          "start": 1.65,
+          "end": 1.65
+        },
+        {
+          "raw": "bring",
+          "start": 2.01,
+          "end": 2.05
+        },
+        {
+          "raw": "Juliet",
+          "start": 2.05,
+          "end": 2.41
+        },
+        {
+          "raw": "forth,",
+          "start": 2.41,
+          "end": 2.73
+        },
+        {
+          "raw": "her",
+          "start": 2.91,
+          "end": 3.03
+        },
+        {
+          "raw": "lord",
+          "start": 3.03,
+          "end": 3.23
+        },
+        {
+          "raw": "is",
+          "start": 3.23,
+          "end": 3.43
+        },
+        {
+          "raw": "come.",
+          "start": 3.43,
+          "end": 3.71
+        }
+      ],
+      "expected_tokens": [
+        "Capulet.",
+        "For",
+        "shame,",
+        "bring",
+        "Juliet",
+        "forth,",
+        "her",
+        "lord",
+        "is",
+        "come."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Capulet,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "capulet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "For,",
+          "start": 1.21,
+          "end": 1.37,
+          "key": "for",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Shame,",
+          "start": 1.65,
+          "end": 1.65,
+          "key": "shame",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "bring",
+          "start": 2.01,
+          "end": 2.05,
+          "key": "bring",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Juliet",
+          "start": 2.05,
+          "end": 2.41,
+          "key": "juliet",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "forth,",
+          "start": 2.41,
+          "end": 2.73,
+          "key": "forth",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 2.91,
+          "end": 3.03,
+          "key": "her",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "lord",
+          "start": 3.03,
+          "end": 3.23,
+          "key": "lord",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.23,
+          "end": 3.43,
+          "key": "is",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "come.",
+          "start": 3.43,
+          "end": 3.71,
+          "key": "come",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Capulet.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "For",
+          "start": 1.21,
+          "end": 1.37
+        },
+        {
+          "text": "shame,",
+          "start": 1.65,
+          "end": 1.65
+        },
+        {
+          "text": "bring",
+          "start": 2.01,
+          "end": 2.05
+        },
+        {
+          "text": "Juliet",
+          "start": 2.05,
+          "end": 2.41
+        },
+        {
+          "text": "forth,",
+          "start": 2.41,
+          "end": 2.73
+        },
+        {
+          "text": "her",
+          "start": 2.91,
+          "end": 3.03
+        },
+        {
+          "text": "lord",
+          "start": 3.03,
+          "end": 3.23
+        },
+        {
+          "text": "is",
+          "start": 3.23,
+          "end": 3.43
+        },
+        {
+          "text": "come.",
+          "start": 3.43,
+          "end": 3.71
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.25425198674201965
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "28000c2dfb666d9e94e8bd4e68532bcea84694e765687dc1f6a5d937b4ce1cb5",
+  "selected_reasons": []
+}

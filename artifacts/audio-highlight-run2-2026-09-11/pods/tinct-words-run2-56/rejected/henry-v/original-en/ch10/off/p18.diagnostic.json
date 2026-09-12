@@ -1,0 +1,182 @@
+{
+  "complete": true,
+  "signature": "20af6763a61883e10cd94c21bef8e4d7c1a9d242c55ccfb7d15386bfd827b8cf",
+  "attempts": [
+    {
+      "asr_seconds": 0.13368184585124254,
+      "alignment_seconds": 0.00034893304109573364,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Alice Delbo-Madame",
+          "start": 0.14,
+          "end": 1.72,
+          "words": [
+            {
+              "text": " Alice",
+              "start": 0.14,
+              "end": 0.8,
+              "probability": 0.75
+            },
+            {
+              "text": " Delbo",
+              "start": 0.8,
+              "end": 1.36,
+              "probability": 0.424560546875
+            },
+            {
+              "text": "-Madame",
+              "start": 1.36,
+              "end": 1.72,
+              "probability": 0.7888997395833334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Alice",
+          "start": 0.14,
+          "end": 0.8
+        },
+        {
+          "raw": "Delbo",
+          "start": 0.8,
+          "end": 1.36
+        },
+        {
+          "raw": "-Madame",
+          "start": 1.36,
+          "end": 1.72
+        }
+      ],
+      "expected_tokens": [
+        "Alice.",
+        "D'elbow,",
+        "_madame._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Alice",
+          "start": 0.14,
+          "end": 0.8,
+          "key": "alice",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Delbo",
+          "start": 0.8,
+          "end": 1.36,
+          "key": "delbo",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "-Madame",
+          "start": 1.36,
+          "end": 1.72,
+          "key": "madame",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Alice.",
+          "start": 0.14,
+          "end": 0.8
+        },
+        {
+          "text": "D'elbow,",
+          "start": 0.8,
+          "end": 1.08
+        },
+        {
+          "text": "_madame._",
+          "start": 1.36,
+          "end": 1.72
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13413901068270206
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "aabff1abc244cfe9efd0e19b3fddc71502f2f3986b90ee97cfdc23f646a14ba1",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}
