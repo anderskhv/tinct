@@ -129,17 +129,26 @@ sentences or generic explanatory prose.
   same way each time they recur, following the Book 10 pilot's precedent
   ("struck with her wand" / "anointed with a drug" kept as two distinct
   actions, not collapsed).
-- **Names: use the served original's own forms, not a Greek-name
-  normalization.** Butler's translation uses the Latin/Roman forms current
-  in his period (Ulysses, Minerva, Jove, Neptune, Mercury, Saturn, Diana) for
-  the Olympians who have them, alongside names that are already Greek
-  (Circe, Calypso, Telemachus, Penelope, Nestor, and so on, which have no
-  Roman equivalent in common use). This package keeps Butler's forms exactly
-  as the served `original-en` has them — see `GLOSSARY.md` for the explicit
-  decision and the reasoning (the previous served `modern-en`, now being
-  replaced, silently remapped these to Greek forms — Minerva → Athena,
-  Ulysses → Odysseus — which is a translation choice this package does not
-  repeat without it being asked for).
+- **Names: the Greek forms, applied by script from the closed table in
+  `GLOSSARY.md`.** *(Revised 2026-09-12 at Book 1 step 6. This rule
+  previously said the opposite — keep the served original's Roman forms. The
+  coordinator reversed it at round 1 of Book 1's review, standing finding
+  **S1**, on the product's evidence: the Cast data and the Book Onboarding
+  the reader meets beside and before the text use Odysseus, Athena, Zeus,
+  Poseidon and Hermes almost exclusively.)* Butler's translation uses the
+  Latin/Roman forms current in his period (Ulysses, Minerva, Jove, Neptune,
+  Mercury, Saturn, Diana) for the Olympians who have them; the modern edition
+  uses Odysseus, Athena, Zeus, Poseidon, Hermes, Cronus, Artemis. Names that
+  are already Greek (Circe, Calypso, Telemachus, Penelope, Nestor, and so on)
+  are kept exactly as Butler spells them, with one exception: where the Cast
+  (`odyssey-threads.json`) has a display name for the figure, the Cast's
+  spelling wins (Butler's *Euryclea* → **Eurycleia**). Butler's forms stay,
+  correctly, in `original-en`, which is Butler.
+
+  **Apply the mapping by script, never by hand or by find-and-replace over a
+  general Roman→Greek deity list**, and assert each of the six hazards
+  `GLOSSARY.md` enumerates — the one that actually fires is `Ops`, Butler's
+  name for Eurycleia's grandfather, which such a list would turn into Rhea.
 - Replace archaic vocabulary, inverted word order, and long chained clauses
   with clear modern syntax, while keeping concrete physical detail (objects,
   gestures, numbers, distances) exactly as Butler has them — these are
@@ -160,7 +169,9 @@ sentences or generic explanatory prose.
 - `00-progress-ledger.md` — done / decided and why / next / needs Anders.
   Kept current at every push.
 - `GLOSSARY.md` — stable name forms and recurring-formula renderings, fixed
-  before drafting and extended book by book.
+  before drafting and extended book by book. Also the spelling standard.
+- `PUNCTUATION.md` — quotation marks and apostrophes, which Victorian
+  quotation habits are normalized and which are preserved, and why.
 - `bookNN/` — one directory per Book with the eight-step artefacts.
 - `scripts/` — deterministic build scripts and the frozen candidate text
   modules they read from (`scripts/candidates/bookN.py`).

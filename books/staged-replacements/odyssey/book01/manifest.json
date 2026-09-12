@@ -97,5 +97,8 @@
   "first_id": "B01-P001",
   "last_id": "B01-P032"
  },
- "candidate_v1_json_sha256": "8316ff76cdbb5d82a572bc58b9388dc76f8ab70deddec6e0dbf75f406b510db9"
+ "candidate_v1_json_sha256": "8316ff76cdbb5d82a572bc58b9388dc76f8ab70deddec6e0dbf75f406b510db9",
+ "candidate_v2_json_sha256": "f28a13264288079781a8c8c6cf044ae41d288847dc5d7f23378851a44ba7df45",
+ "accepted_file": "candidate-v2.json",
+ "packets_note": "The packets, manifest coverage and candidate-v1-readable.md are the record of what round 1 actually reviewed and reproduce candidate-v1.json verbatim, in Butler's Roman name forms. They are deliberately NOT regenerated against candidate-v2.json: review/findings-v1.md quotes v1, and rewriting the packets would make the findings cite text that no longer exists. Coverage of B01-P001..B01-P032 is unchanged and still exact."
 }

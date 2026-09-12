@@ -9,105 +9,104 @@ Kept current at every push.
 - 2026-09-11 — Read the process templates: Meditations package
   (`WORKFLOW.md`, `GLOSSARY.md`, `PROVENANCE.md`, `00-progress-ledger.md`,
   and `book5/` in full) on `claude/meditations-modern-en-20260911-v2`, and
-  the Odyssey Book 10 pilot (`README.md`, `provenance.json`,
-  `continuity.md`, `review-instructions.md`, one packet, `candidate-v1.json`)
-  on `claude/wizardly-allen-ra9p0k`.
+  the Odyssey Book 10 pilot on `claude/wizardly-allen-ra9p0k`.
 - 2026-09-11 — `WORKFLOW.md` written: eight steps adapted for prose epic
   (chapter = Book, paragraph-aligned), scope, naming policy, and voice rules.
-- 2026-09-11 — Source verified against the actual Project Gutenberg text
-  (not from memory or the registry label): the served `original-en` is
-  Samuel Butler's 1900 public-domain prose translation, PG #1727, 24
-  chapters, 1,027 paragraphs, byte-identical Book 1 opening confirmed
-  word-for-word, file ends exactly where PG's translation body ends (no
-  boilerplate). Registry attribution (`bookRegistry.ts`) already correctly
-  credits Butler — unlike Meditations, no misattribution to fix here. Full
-  evidence in `PROVENANCE.md` §1.
-- 2026-09-11 — Served `modern-en` checked: structurally sound (24 chapters,
-  1,027 paragraphs, aligned), but silently remaps Butler's Roman names to
-  Greek forms without recording that as a decision, and is a wholesale
-  rewrite with no per-paragraph continuity trail. Recorded as the reason it
-  is being replaced, per the task brief (`PROVENANCE.md` §2); its hash is
-  recorded and none of its wording is reused.
-- 2026-09-11 — Odyssey Book 10 pilot's real status checked directly (not
-  assumed): it is a **frozen draft only**, never independently reviewed, no
-  `ACCEPTANCE.md`, no `candidate-v2.json`, not present on `main`. Its own
-  `README.md` says so in its own words. This is recorded plainly in
-  `PROVENANCE.md` §3 rather than repeating the task brief's assumption that
-  it was "accepted." Nothing from the pilot is copied into this package;
-  its `candidate-v1.json` hash is recorded as a possible future starting
-  point if a coordinator decides to adopt it (which would still need its
-  own independent-review round and a name-form decision, since it uses
-  Greek forms).
-- 2026-09-11 — `GLOSSARY.md` written: the naming decision (keep Butler's
-  Roman forms — Ulysses, Minerva, Jove, Neptune, Mercury, Saturn — rather
-  than the served modern-en's Greek remapping), plus Book 1's recurring
-  epithets and formulas ("son of Saturn, king of kings"; "father of gods and
-  men"; "tell me truly" for the doubled "tell me, and tell me true";
-  hecatomb folded into a plain description).
-- 2026-09-11 — **Book 1 drafted and frozen** (steps 2–3): `book01/candidate-v1.json`
-  (32 paragraphs, 1:1 with Butler's Book 1), word ratio 0.943 (min paragraph
-  0.858, a single long Victorian sentence condensed — B01-P017). Source
-  extracted verbatim into `book01/source-book1.json`. Speeches kept as
-  direct speech throughout; Butler's own paragraph-boundary quotation
-  convention preserved exactly at the one place it matters in this Book
-  (B01-P018 into B01-P019, Minerva's speech: no closing quotation mark at
-  the end of B01-P018, opening quotation mark at the start of B01-P019 —
-  the candidate reproduces this rather than "fixing" it). Readable copy, `continuity.md`,
-  `provenance.json`, `manifest.json`, `README.md`, `review-instructions.md`,
-  and 11 review packets (10×3 + 1×2) built by
-  `scripts/build_book_package.py 1` from `scripts/candidates/book1.py`.
-  **Stopped for independent review** (step 4). Findings expected under
-  `book01/review/`.
-
+- 2026-09-11 — Source verified against the actual Project Gutenberg text: the
+  served `original-en` is Samuel Butler's 1900 public-domain prose
+  translation, PG #1727, 24 chapters, 1,027 paragraphs, byte-identical Book 1
+  opening, file ends exactly where PG's translation body ends. Registry
+  attribution already correct. Evidence in `PROVENANCE.md` §1.
+- 2026-09-11 — Served `modern-en` checked and recorded as the file being
+  replaced (`PROVENANCE.md` §2); none of its wording is reused.
+- 2026-09-11 — Odyssey Book 10 pilot's real status checked directly: a
+  **frozen draft only**, never independently reviewed (`PROVENANCE.md` §3).
+- 2026-09-11 — `GLOSSARY.md` written; Book 1 drafted and frozen at
+  `candidate-v1.json` (32 paragraphs, 1:1, ratio 0.943), with readable copy,
+  `continuity.md`, `provenance.json`, `manifest.json`, `README.md`,
+  `review-instructions.md` and 11 review packets. Stopped for independent
+  review.
+- 2026-09-12 — **Round 1 of independent review came back** on
+  `candidate-v1.json` (`book01/review/findings-v1.md`): *Accept after
+  corrections* — 1 standing, 3 substantive, 33 minor, 5 optional, 5
+  paragraphs with no material issue, coverage complete. The reviewer
+  re-verified the source independently by its own reconstruction of PG lines
+  376–740, built from PG's numbered footnote-entry list rather than from the
+  build's rule: 32 of 32 paragraphs byte-identical, zero diffs.
+- 2026-09-12 — **Book 1 accepted** (steps 6–8) at `candidate-v2.json`, sha256
+  `f28a13264288079781a8c8c6cf044ae41d288847dc5d7f23378851a44ba7df45`.
+  **All 41 findings applied; none declined.** 37 text corrections in 27
+  paragraphs, 47 name substitutions, 22 apostrophes normalized; 29 of 32
+  paragraphs differ from v1; ratio 0.9425 → 0.9462. Applied by
+  `scripts/build_book01_v2.py`, which asserts v1's frozen hash and every
+  glossary hazard before and after. `book01/changes-v1-to-v2.md`,
+  `book01/ACCEPTANCE.md`, and the README's mechanical checks re-run verbatim
+  (`OK — … all hazards held, ratio 0.9462`). Continuous flow read of the
+  corrected book produced no further change.
+- 2026-09-12 — **Standing finding S1 applied package-wide**: the naming
+  decision is reversed to the Greek forms, written into `GLOSSARY.md` as a
+  closed seven-row table with six enumerated hazards, plus `PUNCTUATION.md`
+  (new) for the quotation/apostrophe standard. `WORKFLOW.md`,
+  `PROVENANCE.md` §2–3, `book01/continuity.md` and
+  `book01/review-instructions.md` updated to match. The frozen v1 artefacts
+  and the review packets are **deliberately not regenerated**.
 ## Decided, and why
 
 | # | Decision | Why |
 |---|---|---|
-| D1 | Keep Butler's own Roman name forms (Ulysses, Minerva, Jove, Neptune, Mercury, Saturn), not the Greek forms the served modern-en uses. | The task instruction is explicit: "preserve names in the served original's forms... use whatever the served original uses." Butler's text is written in Roman-form convention throughout; switching to Greek forms is a translation choice that was made silently in the file being replaced, and is not repeated here without being asked for. Recorded in `GLOSSARY.md` and `PROVENANCE.md` §2. |
-| D2 | Odyssey Book 10 pilot is recorded as a frozen, unreviewed draft, not as "accepted" text ready to adopt. | Its own `README.md` and the branch's commit history say plainly that no independent review was run and no acceptance was recorded; nothing on `main` shows it as accepted either. Repeating the task brief's framing without checking would misrecord the state of the repository for the next agent or the coordinator. See `PROVENANCE.md` §3. |
-| D3 | Long's-style hecatomb ("a hecatomb of sheep and oxen") is folded into a plain description ("an offering of a hundred sheep and oxen") rather than kept as a glossed loanword. | Book 1 only uses the term once and nothing later in the Book depends on the reader recognizing "hecatomb" as a fixed term again; a plain description meets the accessibility standard without adding a term that would need its own gloss. Revisit if a later Book needs "hecatomb" to recur as a fixed word. |
-| D4 | Butler's paragraph-internal quotation convention (a speech's closing quotation mark omitted where the speech runs on into the next paragraph) is preserved exactly, not "corrected." | This is Butler's own printing convention for a continuous speech split by a paragraph break (B01-P018 into B01-P019 in Book 1), the same phenomenon the Meditations package noted for Casaubon's continuous first-person narration. Silently closing the quote would misrepresent the source's own punctuation. |
+| ~~D1~~ | ~~Keep Butler's own Roman name forms.~~ **REVERSED 2026-09-12 — see D5.** | Correct on the drafting brief ("use whatever the served original uses") and correctly applied in `candidate-v1.json` — the reviewer's name census found not one name moved off Butler's form. Overruled by the coordinator on product evidence, not translation evidence. Left on the record rather than deleted. |
+| D2 | Odyssey Book 10 pilot is recorded as a frozen, unreviewed draft, not as "accepted" text ready to adopt. | Its own `README.md` and the branch's commit history say plainly that no independent review was run and no acceptance recorded. See `PROVENANCE.md` §3. |
+| D3 | "Hecatomb" is folded into a plain description rather than kept as a glossed loanword — **and the description supplies no number.** | Book 1 uses the term once and nothing later depends on recognizing it again; a plain description meets the accessibility standard without adding a term that needs its own gloss. *(Amended 2026-09-12, optional finding 3.1: v1's "an offering of a hundred sheep and oxen" stated a quantity Butler declines to state, and by Homer's period *hecatomb* no longer meant a hundred of anything. Now "a great sacrifice of sheep and oxen". Later Books' hecatombs inherit this form.)* |
+| D4 | Butler's paragraph-internal quotation convention (closing mark omitted where a speech runs on into the next paragraph) is preserved exactly, not "corrected." | It is Butler's own printing convention for one continuous speech split by a paragraph break (B01-P018 → B01-P019). Confirmed by the round-1 reviewer. Silently closing the quote would tell the reader the speaker stopped and started again. See `PUNCTUATION.md` §2. |
+| **D5** | **The modern edition uses the Greek name forms** (Odysseus, Athena, Zeus, Poseidon, Hermes, Cronus, Artemis), applied by script from the **closed** table in `GLOSSARY.md`, with every hazard asserted by the build. Butler's forms stay in `original-en`. | Coordinator ruling at Book 1 round 1 (standing finding **S1**), answering **A1**. The evidence is the product's: `odyssey-threads.json` (the Cast beside the text) uses Odysseus 319 / Athena 21 / Zeus 24 / Poseidon 19 / Hermes 12, with every Roman form in it inside a `searchNames` alias array; the Book Onboarding uses Odysseus 21 times. A reader who meets "Odysseus" in the onboarding, taps a highlighted "Odysseus" in the Cast and then reads "Ulysses" has been handed two names for one man by the same product on the same screen. |
+| **D6** | **The mapping table is closed and enumerated, never generated from a general Roman→Greek deity list, and is applied case-sensitively and word-bounded.** | The hazard that actually fires is **`Ops`** — Butler's name for Eurycleia's grandfather, a man, already Greek, and *also* the Roman name of Rhea. Any general list carries `Ops → Rhea` and would put a goddess into a genealogy. Case-insensitivity destroys the island `Same`. Six hazards enumerated in `GLOSSARY.md`; all six asserted by `scripts/build_book01_v2.py` before and after the pass. |
+| **D7** | **Possessive of a name ending in -s: `Odysseus's`.** Decided once for every Book. | Matches the candidate's own `Telemachus's`, `Phemius's`, `Agamemnon's`, and is what an English reader says aloud. Butler's bare `Ulysses’` is not carried over. Asserted: three `Odysseus’s`, no bare `Odysseus’`. |
+| **D8** | **Where the Cast (`odyssey-threads.json`) has a display name for a figure, the Cast's spelling wins.** Butler's *Euryclea* → **Eurycleia**. | It removes the last name on which the edition and the Cast disagreed, and the Cast keeps "Euryclea" as a `searchNames` alias so highlighting works either way. Deliberately narrow: the rule is *the Cast's display name*, not the drafter's judgement of what looks Greek enough. Other unusual Butler spellings are still flagged in `continuity.md`, not corrected. |
+| **D9** | **Typographic quotation marks and apostrophes throughout; American spelling.** | `PUNCTUATION.md` §1 and `GLOSSARY.md`. v1 mixed curly doubles with ASCII apostrophes and recorded neither; the served `original-en` beside it in split-pane is typographic throughout. American spelling matches the served editions and the rest of the product. `draughts` stays — the game's name, not a spelling variant. |
+| **D10** | **A frozen `candidate-vN.json`, its readable copy and its review packets are never regenerated after a later version supersedes them.** | They are the record of what a review round actually reviewed. Regenerating them would make the findings file quote text that no longer exists. Recorded in `book01/manifest.json` and `book01/continuity.md`; Book 1's v1 artefacts stay in Butler's Roman forms for exactly this reason. |
+| **D11** | **A finding is answered either way, and an "optional" finding whose real subject is a rule for later Books is settled at the Book that raises it, not deferred.** | Applied at Book 1 to 3.1 (hecatomb, a rule for every later hecatomb) and 26.1 (the "in her heart" formula, which recurs through the poem). The alternative — carry it forward as a preference — means the same question is rediscovered at Book 6 with a rendering already in the file. All five of Book 1's optional findings were applied on this reading. |
 
 ## Next
 
-1. **Waiting on the coordinator: independent review of Book 1**
-   (`book01/review-instructions.md`, `book01/review-packets/`, 11 packets).
-   On findings: `book01/candidate-v2.json` via a change script in the
-   established pattern, verification, flow read, `book01/ACCEPTANCE.md`.
-2. Book 2 onward proceeds in numerical order once a coordinator says so;
-   this task's brief scoped drafting to Book 1 only.
-3. Book 10's disposition (redraft under this package vs. adopt/rework the
-   pilot draft) needs a coordinator decision — see "Needs Anders" below.
+1. **Book 2, steps 1–3 and the step-4 artefacts** — in progress in this same
+   session, against the revised glossary. Source to be re-verified
+   independently for Book 2 before drafting.
+2. Book 10's disposition still needs a coordinator decision — see A2 below,
+   now narrowed.
 
 ## Needs Anders (listed, not waited on)
 
-- **A1. Name-form policy for the whole Odyssey.** This package keeps
-  Butler's Roman forms (Ulysses, Minerva, Jove...) per the task instruction
-  to use the served original's own forms. The served `modern-en` being
-  replaced used Greek forms (Odysseus, Athena, Zeus...) instead, and the
-  Book 10 pilot independently made the same Greek-form choice. If Anders (or
-  a later brief) actually wants the Greek forms across the Odyssey — which
-  is arguably the more common convention in English Homer translations
-  generally, even though it is not what Butler himself used — that is a
-  cross-Book decision that should be made once, explicitly, before more
-  Books are drafted, rather than discovered book by book.
-- **A2. Book 10 pilot's disposition.** Adopt its draft as a starting point
-  for a from-scratch independent review and a name-form pass under this
-  package, or set it aside and redraft Book 10 fresh once its turn comes in
-  numerical order. Either is workable; this task took no action on Book 10
-  itself, per its brief (Book 1 only).
+- ~~**A1. Name-form policy for the whole Odyssey.**~~ **ANSWERED 2026-09-12
+  by the coordinator: Greek forms.** Recorded as **D5**–**D8**, applied to
+  Book 1 by script, and written into `GLOSSARY.md` so Books 2–24 inherit it.
+  Kept here rather than deleted so the reversal is legible.
+- **A2. Book 10 pilot's disposition — narrowed, still open.** Applying S1
+  removed one of the two stated blockers: the pilot already uses the Greek
+  forms, so it and this package now agree on names. What remains is that it
+  has had **no independent review at all**, and that it predates this
+  package's glossary rows, `PUNCTUATION.md` and continuity conventions.
+  Either adopt its draft as the starting point for a from-scratch round 1
+  under this package, or set it aside and redraft Book 10 fresh when its turn
+  comes in numerical order. Both are workable; no action taken on Book 10.
 
 ## Open, not blocking
 
-- Book 1's B01-P017 (source index 16) has the lowest per-paragraph word
-  ratio (0.858): Telemachus's speech about his father's disappearance,
-  condensed from one very long Victorian sentence into clearer modern
-  syntax without dropping any of its claims (the burial-mound counterfactual,
-  the "no trace" image, the naming of the three suitor-supplying islands
-  in the following paragraph). Flagged for the reviewer's attention as the
-  Book's largest single condensation, not as a known defect.
+- **B01-P014's source crux is resolved on a stated reading, not settled by
+  the source.** Butler prints `for he is not dead yet not on the mainland`,
+  unpunctuated and ungrammatical (PG line 538, verified). The adversative
+  reading is taken, because the next sentence draws an inference that follows
+  from *not on the mainland* and not from *not yet*. A later reader who
+  prefers the temporal reading has the argument to argue against, in
+  `book01/continuity.md` "Unresolved source issues" item 1.
+- **B01-P006's "an eye" → "the eye"** is the package's one deliberate
+  resolution of a Victorian indefinite. Recorded at B01-P006 rather than
+  silent. If a later Book turns up a second, decide whether this becomes a
+  class or stays a one-off.
+- **B01-P013's doubled "brought"** ("what kind of ship brought you, and how
+  your crew brought you to Ithaca") is clumsy, not defective; the round-1
+  reviewer considered a finding and declined. Asserted unchanged by the
+  build so a later pass does not drift into it.
 - `source-texts/` (this package's directory for fetched public-domain source
   texts) is named differently from the Meditations package's `source/` for
-  an environment reason specific to this task's sandbox (a bare directory
-  segment named `source` was refused by a tool-safety check unrelated to
-  content); no content difference is implied.
+  an environment reason specific to the original task's sandbox; no content
+  difference is implied.

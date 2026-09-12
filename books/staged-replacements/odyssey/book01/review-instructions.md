@@ -1,5 +1,18 @@
 # Independent Review Instructions — the Odyssey, Book 1
 
+> **Note added 2026-09-12, after round 1. The text below is left exactly as
+> the round-1 reviewer received it** — it is part of the review record, and
+> `review/findings-v1.md` responds to it. **One paragraph of it is now
+> superseded:** the naming instruction ("every proper name is kept in Butler's
+> own form — Ulysses, Minerva, Jove, Neptune, Mercury, Saturn — not remapped
+> to Greek forms") was reversed by the reviewer's own standing finding **S1**,
+> which the coordinator adopted. The accepted edition uses the **Greek** forms
+> (Odysseus, Athena, Zeus, Poseidon, Hermes, Cronus), and `../GLOSSARY.md`
+> now says so, along with the fixed epithet "son of Cronus, king of kings".
+> Any later round reviews `candidate-v2.json` against the revised glossary.
+> Book 2 onward gets its own instructions file written against the revised
+> glossary from the start.
+
 Give this exact text to the independent reviewer, unmodified.
 
 ---

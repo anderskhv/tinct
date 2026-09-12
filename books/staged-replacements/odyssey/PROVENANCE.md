@@ -73,10 +73,18 @@ Two observations recorded for the coordinator, not acted on further here:
 - It silently remaps Butler's Roman name-forms to Greek forms (Minerva →
   Athena, Ulysses → Odysseus, Jove → Zeus are visible in Book 1 alone). That
   is a legitimate translation choice on its own, but it is a choice, made
-  without being recorded anywhere as a decision — this package's own name
-  policy is recorded explicitly instead (`GLOSSARY.md`), and follows the
-  served original's own forms unless a coordinator asks for the Greek
-  remapping specifically.
+  without being recorded anywhere as a decision.
+  > **Updated 2026-09-12, Book 1 step 6.** The *choice* is now this
+  > package's choice too — the coordinator adopted the Greek forms at round
+  > 1 of Book 1's review (standing finding **S1**), on the product's
+  > evidence rather than the translation's: the Cast data and the Book
+  > Onboarding the reader meets beside and before the text use Odysseus,
+  > Athena, Zeus, Poseidon and Hermes almost exclusively. What stands from
+  > the observation above is the second half of it: the served file made the
+  > choice **without recording it**, and this package records it explicitly,
+  > with a closed mapping table, the six hazards it must not trip, and a
+  > build that asserts each one (`GLOSSARY.md`). No wording is reused from
+  > the served file either way.
 - It is a wholesale prose rewrite rather than a paragraph-by-paragraph
   modernization with a recorded per-paragraph continuity trail, so there is
   no way to audit it against Butler paragraph-by-paragraph the way this
@@ -109,20 +117,23 @@ recorded here instead of repeating the assumption.
   PG #1727, so that particular gap is closed if Book 10 is later drafted or
   adopted under this package.
 - Its candidate uses the Greek name mapping (Ulysses → Odysseus, etc.),
-  which conflicts with this package's name decision (`GLOSSARY.md`) to keep
-  Butler's own Roman forms.
+  which conflicted with this package's original name decision.
+  > **Updated 2026-09-12, Book 1 step 6: this conflict is gone.** Standing
+  > finding **S1** moved this package onto the Greek forms, so the pilot and
+  > this package now agree on names. **Book 10's disposition is therefore a
+  > question about its unreviewed status alone** — see ledger A2.
 
 **Recorded, not decided:** if Book 10 is drafted under this package, the
 pilot's `candidate-v1.json` (sha256
 `6a5e9ef63ca6f80e020a089a94072de28c925302c0d233adb0a13a20b63d6a4f` per its
-own `provenance.json`) is available as a starting point, but it would need
-either (a) its own independent review round from scratch under this
-package's eight-step process (it has had none), and (b) its names remapped
-from Greek back to Butler's Roman forms to match this package's Books, or a
-coordinator decision to adopt the Greek forms for the whole Odyssey package
-instead (a bigger, cross-Book decision — see "Needs Anders" in
-`00-progress-ledger.md`). Nothing from the pilot is copied into this package
-at this time.
+own `provenance.json`) is available as a starting point. As of 2026-09-12 it
+would need **one** thing rather than two: its own independent review round
+from scratch under this package's eight-step process, which it has had none
+of. The name-form condition is discharged — the coordinator's standing
+finding S1 moved this package to the Greek forms the pilot already uses. It
+would still be checked against this package's glossary rows, punctuation
+standard and continuity conventions, which the pilot predates. Nothing from
+the pilot is copied into this package at this time.
 
 ## 4. Reproduction
 
